@@ -1,7 +1,7 @@
 ---
 # 🔹 Core Metadata (Universal Fields)
 id: "herb-20251001123706"
-name: "Fang Ji"
+name: "Fang Ji / Mu Fang Ji"
 type: "herb"
 aliases: []
 tags: [TCM, Herb]
@@ -20,35 +20,36 @@ tests: []
 # 🔹 Herb-Specific Data
 herb_data:
   hanzi: "防己"
-  pinyin: "Fang Ji"
-  pharmaceutical: "Stephaniae Tetrandrae, Radix"
-  english: ""
+  pinyin: "Fáng Jǐ / Mù Fáng Jǐ"
+  pharmaceutical: "Cocculi Radix"
+  english: "Cocculus root"
   alternate_names: []
 
   # TCM Properties
-  taste: []
-  temperature: ""
-  channels: []
+  taste: [Bitter, Acrid]
+  temperature: "Cold"
+  channels: [Bladder, Kidney, Spleen]
 
   # Clinical Information
-  dosage: ""
-  toxicity: ""
-  functions: []
+  dosage: "6-12g"
+  toxicity: "Aristolochic acid in some species (e.g., *Aristolochia fangchi*). Use with caution."
+  functions: [Dispels wind and eliminates dampness, Promotes urination and reduces swellings]
   dui_yao: []
 
   # Additional Information
-  constituents: []
-  quality: ""
-  text_first_appeared: ""
+  constituents: [Alkaloids: tetrandrine (hanfangchin A), fangchinoline (demethyltetrandrine, hanfangchin B), hanfangchin C, menisine, menisidine, cyclanoline, berbamine, oxofangchinine, stephanthrine, (+)-2-methylfangchinoline, (+)-2-methyltetrandrine, 2,2'-N,N-dichloromethyltetrandrine, fenfangjine A, B, C, D, magnoflorine, oblongine, Alkaloids: trilobine, isotrilobine, trilobamine, magnoflorine, menisarine, normenisarine, epistephanine, coclobine, flavonoids, phenolic compounds, organic acids, volatile oils]
+  quality: "Good quality consists of heavy, uniform, and powdery roots. Good quality consists of uniform, solid, and heavy roots."
+  text_first_appeared: "Discussion of Medicinal Properties"
 
   # Source References
-  bensky_page: ""
+  bensky_pdf: "627"
+  bensky_page: "None"
 
 created: 2025-10-01
 updated: 2025-10-01
 ---
 
-# 🌿 Fang Ji
+# 🌿 Ai Ye
 
 **Pharmaceutical Name:** `= this.herb_data.pharmaceutical`
 **English Name:** `= this.herb_data.english`
@@ -71,8 +72,9 @@ updated: 2025-10-01
 
 ## 📖 Overview
 
-Brief description of the herb, source, botanical information, and general identity.
+Several commentators on the materia medica tradition have described the differences in usage of these two herbs. In *Omissions from the [Classic of the] Materia Medica*, Chen Cang-Qi states that "Stephaniae tetrandrae Radix (*han fang ji*) governs water *qi* while Cocculi Radix (*mu fang ji*) governs wind *qi* as it disseminates and unblocks." Similarly, Huang Yuan-Yu notes in *Changsha Explanation of Medicines* that Stephaniae tetrandrae Radix (*han fang ji*) drains damp excess from the channels and collaterals while Cocculi Radix (*mu fang ji*) drains water pathogen from the organs. This clear differentiation was somewhat disputed by Zhang Shan-Lei in *Rectification of the Meaning of Materia Medica*, where he says that these two herbs are actually rather close in their usage.
 
+---
 ---
 
 ## 🔑 TCM Properties
@@ -85,21 +87,12 @@ Brief description of the herb, source, botanical information, and general identi
 
 ## ⚡ Functions & Actions
 
-```dataview
-LIST herb_data.functions
-WHERE file.name = this.file.name
-```
-
-**Key Functions:**
--
--
--
-
-**Clinical Applications:**
--
--
-
----
+*   Dispels wind and eliminates dampness: for painful obstruction, especially where there is also heat. However, as it is effective in treating pain, it can also be used for other types of painful obstruction.
+    *   With *Achyranthis bidentatae* Radix (*niu xi*), *Chaenomelis* Fructus (*mu gua*), and *Phellodendri* Cortex (*huang bai*) for damp-heat painful obstruction.
+    *   With *Notopterygii Rhizoma seu Radix* (*qiang huo*) and *Angelicae pubescentis* Radix (*du huo*) for wind-cold-damp painful obstruction.
+*   Promotes urination and reduces swellings: for edema with urinary dysfunction.
+    *   With *Malvae* Fructus (*dong kui guo*), *Saposhnikoviae* Radix (*fang feng*), and *Plantaginis Semen* (*che qian zi*) for edema with urinary dysfunction.
+    *   With *Cinnamomi Ramulus* (*gui zhi*) and *Poria* (*fu ling*) for edema.
 
 ## 🎯 Patterns & Symptoms
 
@@ -175,8 +168,7 @@ SORT Category, file.name
 **Toxicity:** `= this.herb_data.toxicity`
 
 **Contraindications:**
--
--
+Use with caution during pregnancy.
 
 **Drug Interactions:**
 -
@@ -209,8 +201,7 @@ WHERE file.name = this.file.name
 ## 🌱 Quality Criteria & Authentication
 
 **Quality Indicators:**
--
--
+Good quality consists of heavy, uniform, and powdery roots. Good quality consists of uniform, solid, and heavy roots.
 
 **Common Adulterants:**
 -
@@ -281,7 +272,7 @@ LIMIT 10
 - [[]]
 
 **Related Formulas:**
-- [[Formulas including Fang Ji]]
+- [[Formulas including Ai Ye]]
 
 **Related Western Conditions:**
 - [[]]

@@ -19,36 +19,37 @@ tests: []
 
 # 🔹 Herb-Specific Data
 herb_data:
-  hanzi: "大戟"
-  pinyin: "Da Ji"
-  pharmaceutical: "Euphorbiae seu Knoxiae, Radix"
-  english: ""
+  hanzi: "大蓟"
+  pinyin: "dà jì"
+  pharmaceutical: "Cirsii japonici Herba sive Radix"
+  english: "Japanese Thistle"
   alternate_names: []
 
   # TCM Properties
-  taste: []
-  temperature: ""
-  channels: []
+  taste: [sweet, cool]
+  temperature: "cool"
+  channels: [Liver, Heart, Spleen]
 
   # Clinical Information
-  dosage: ""
-  toxicity: ""
-  functions: []
+  dosage: "9-30g (Xiao Ji)"
+  toxicity: "Note that if only the pinyin name without tone marks is written in a prescription, (da ji), it may be confused with the toxic drug Euphorbiae pekinensis Radix (da ji). Maximum daily dose is 9-15g."
+  functions: [Cools the blood, stops bleeding, promotes urination (Xiao Ji), Reduces swelling, generates flesh at sores, Benefits the Gallbladder, reduces jaundice, Treats hypertension, Resolves toxicity, reduces abscesses (Xiao Ji)]
   dui_yao: []
 
   # Additional Information
-  constituents: []
-  quality: ""
-  text_first_appeared: ""
+  constituents: [aplotaxene, dihydroaplotaxene, tetrahydroaplotaxene, hexahydroaplotaxene, 1-pentadecene, cyperene, caryophyllene, thujopsene, a-himachalene, a-amyrin, B-amyrin, taraxasteryl acetate, B-sitosterol, stigmasterol, 5,7-dihydroxy-6,4'-dimethoxyflavone, inulin]
+  quality: "Good quality has many greyish green leaves, and the roots should be free of fine hairy roots and root heads."
+  text_first_appeared: "Miscellaneous Records of Famous Physicians"
 
   # Source References
-  bensky_page: ""
+  bensky_pdf: "627"
+  bensky_page: "None"
 
 created: 2025-10-01
 updated: 2025-10-01
 ---
 
-# 🌿 Da Ji
+# 🌿 Ai Ye
 
 **Pharmaceutical Name:** `= this.herb_data.pharmaceutical`
 **English Name:** `= this.herb_data.english`
@@ -71,8 +72,14 @@ updated: 2025-10-01
 
 ## 📖 Overview
 
-Brief description of the herb, source, botanical information, and general identity.
+Sweet and cool, Cirsii japonici Herba sive Radix (da ji) enters the Liver, Heart, and Spleen channels. Because the Liver stores the blood and the Heart controls blood flow, its coolness reduces chaotically moving blood and thus stops bleeding. Its sweetness also helps tonify the blood, as noted in Essentials of the Materia Medica: "Its movement contains tonification." However, what this means is that it "removes the old in order to allow the new [blood] to be produced." Many materia medica texts record its beneficial effect on boils and furuncles, as it reduces swelling, cools heat, and removes stagnant blood. It also relieves jaundice and has recently been used to reduce high blood pressure.
 
+Externally, this herb can be pounded into a paste and applied for bleeding from trauma. For swollen sores and boils, one can pound the fresh herb to extract the juice. The juice is drunk, and the paste is applied topically.
+
+Commentary (Xiao Ji):
+Sweet and cool, Cirsii Herba (xiao ji) enters the Heart and Liver channels to cool the blood and stop bleeding. Its actions are somewhat weaker than those of Cirsii japonici Herba sive Radix (da ji), and it has very little sore-reducing effect. However, because it is better able to promote urination, Cirsii Herba (xiao ji) is especially indicated for heat or damp-heat causing blood in the urine. Cirsii Herba (xiao ji), like Cirsii japonici Herba sive Radix (da ji), also promotes the function of the Gallbladder and reduces hypertension.
+
+---
 ---
 
 ## 🔑 TCM Properties
@@ -85,21 +92,27 @@ Brief description of the herb, source, botanical information, and general identi
 
 ## ⚡ Functions & Actions
 
-```dataview
-LIST herb_data.functions
-WHERE file.name = this.file.name
-```
+- Cools the blood and stops bleeding: for chaotic movement of hot blood with such symptoms as nosebleed, vomiting blood, blood in the urine or stool, or uterine bleeding. It is especially effective in alleviating vomiting or coughing of blood.
+    - With Rubiae Radix (qian cao) for nosebleed and spitting of blood due to heat in the blood.
+    - Charred with Cirsii Herba (xiao ji) and Imperatae Rhizoma (bai mao gen) for heat-induced hemorrhage, as in Ten Partially-Charred Substances Powder (shi hui san).
+- Reduces swelling and generates flesh at sores: used topically for carbuncles, sores, and swellings. For this purpose, the fresh herb is preferred.
+    - With Achyranthis bidentatae Radix (niu xi), Sanguisorbae Radix (di yu), and Lonicerae Flos (jin yin hua) for internal abscesses such as Intestinal abscess.
+- Benefits the Gallbladder and reduces jaundice: for jaundice, especially that due to damp-heat.
+    - With Artemisiae scopariae Herba (yin chen) and Polygoni cuspidati Rhizoma (hu zhang) for damp-heat jaundice.
+- Treats hypertension: recently used for hypertension, especially when accompanied by signs of Liver heat.
+    - With Plantaginis Semen (che qian zi) as a daily beverage for hypertension.
+    - With Prunellae Spica (xia ku cao) and Siegesbeckiae Herba (xi xian cao) for hypertension due to Liver heat.
 
-**Key Functions:**
--
--
--
+Actions & Indications (Xiao Ji):
+Cools the blood and stops bleeding: for any kind of bleeding due to heat in the blood leading to chaotic movement.
 
-**Clinical Applications:**
--
--
+- With Imperatae Rhizoma (bai mao gen) for blood in the urine due to heat.
+- With Rehmanniae Radix (sheng di huang), Talcum (hua shi), and Gardeniae Fructus (zhi zi) for hesitant, burning pain on urination or painful bloody urinary dribbling.
+- The fresh root can be used with fresh Imperatae Rhizoma (xian bai mao gen) and fresh Nelumbinis Nodus rhizomatis (xian ou jie) for blood-streaked sputum with heat from deficiency. This is called Three Fresh Drink (san xian yin) by Zhang Xi-Chun (d. 1930).
 
----
+Resolves toxicity and reduces abscesses: for sores and abscesses due to heat toxin. Used both internally and topically.
+
+Recently used for damp-heat jaundice, hepatitis, and hypertension.
 
 ## 🎯 Patterns & Symptoms
 
@@ -175,8 +188,13 @@ SORT Category, file.name
 **Toxicity:** `= this.herb_data.toxicity`
 
 **Contraindications:**
--
--
+This herb is for hot patterns and should not be used for cold from deficiency of the Spleen and Stomach.
+
+Traditional Contraindications
+
+"It is not beneficial for disorders such as Stomach weakness leading to extreme blood deficiency, or Spleen and Stomach weakness with poor appetite." (Commentary on the Divine Husbandman's Classic of Materia Medica)
+
+Use with caution in those with cold from deficiency of the Spleen and Stomach, loose stools, or diarrhea.(Xiao Ji)
 
 **Drug Interactions:**
 -
@@ -209,8 +227,7 @@ WHERE file.name = this.file.name
 ## 🌱 Quality Criteria & Authentication
 
 **Quality Indicators:**
--
--
+Good quality has many greyish green leaves, and the roots should be free of fine hairy roots and root heads.
 
 **Common Adulterants:**
 -
@@ -281,7 +298,7 @@ LIMIT 10
 - [[]]
 
 **Related Formulas:**
-- [[Formulas including Da Ji]]
+- [[Formulas including Ai Ye]]
 
 **Related Western Conditions:**
 - [[]]

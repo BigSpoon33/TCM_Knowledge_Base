@@ -1,7 +1,7 @@
 ---
 # 🔹 Core Metadata (Universal Fields)
 id: "herb-20251001123706"
-name: "Xiang Ru"
+name: "Moslae Herba / Xiang Ru"
 type: "herb"
 aliases: []
 tags: [TCM, Herb]
@@ -21,34 +21,35 @@ tests: []
 herb_data:
   hanzi: "香薷"
   pinyin: "Xiang Ru"
-  pharmaceutical: "Moslae, Herba"
-  english: ""
+  pharmaceutical: "Moslae Herba"
+  english: "Mosla, aromatic madder"
   alternate_names: []
 
   # TCM Properties
-  taste: []
-  temperature: ""
-  channels: []
+  taste: [Acrid, aromatic, slightly warm]
+  temperature: "Slightly warm"
+  channels: [Lung, Stomach]
 
   # Clinical Information
-  dosage: ""
-  toxicity: ""
-  functions: []
+  dosage: "3-9g"
+  toxicity: "Taken hot, this herb can cause vomiting. This will not happen if the decoction is allowed to cool or if Armeniacae Semen (xing ren), Coptidis Rhizoma (huang lian), or Scutellariae Radix (huang qin) is added to the prescription. No other toxicity is noted."
+  functions: [Induces sweating and releases the exterior, Promotes urination and reduces swelling]
   dui_yao: []
 
   # Additional Information
-  constituents: []
-  quality: ""
-  text_first_appeared: ""
+  constituents: [Volatile oil: carvacrol, a-trans-bergamotene, B-caryophyllene, thymol, humulene, 8-bisabolene, terpinen-4-ol, y-terpinene, p-cymene, a-phellandrene, a-pinene, 8-pinene, camphene]
+  quality: "Good quality has tender stems with many spikes and an intense aroma."
+  text_first_appeared: "Miscellaneous Records of Famous Physicians"
 
   # Source References
-  bensky_page: ""
+  bensky_pdf: "627"
+  bensky_page: "None"
 
 created: 2025-10-01
 updated: 2025-10-01
 ---
 
-# 🌿 Xiang Ru
+# 🌿 Ai Ye
 
 **Pharmaceutical Name:** `= this.herb_data.pharmaceutical`
 **English Name:** `= this.herb_data.english`
@@ -71,8 +72,33 @@ updated: 2025-10-01
 
 ## 📖 Overview
 
-Brief description of the herb, source, botanical information, and general identity.
+Note that Moslae Herba (xiang ru) is itself warm, and intended for the treatment of cold damage in the heat of summer when the yang qi is at its zenith. This occurs when people seek to avoid the heat in overly-cold places or by drinking overly-cold beverages. This excessive local yin influence blocks the yang qi and affects the interior, causing headache, aversion to cold, thirst and irritability, vomiting and diarrhea. Moslae Herba (xiang ru) is an appropriate choice for all of this. It will allow the yang qi to discharge the cold obstruction holding it in, and disperse the pathogen, thus harmonizing the Spleen and naturally curing this disorder.
 
+The Grand Materia Medica points out:
+
+In the summer months, people drink cold beverages and try to stay cool, but then, when the yang qi encounters a yin pathogen, they get headaches, fever and chills, irritability and restlessness, thirst and possibly vomiting or diarrhea, or sudden turmoil disorder. Moslae Herba (xiang ru) should be used to induce the yang qi to discharge the yin pathogen, disperse the pathogenic water, and harmonize the Spleen.
+
+Thus, Moslae Herba (xiang ru) promotes the ability of the pent-up yang qi to bypass the cold obstructing the exterior in order to induce sweating and release summerheat, transform dampness, and harmonize the middle. It is often used to treat yin-type summerheat which involves the combined exposure to cold externally and consumption of cold drinks internally, leading to fever without sweating, headaches, vomiting, and diarrhea.
+
+Chen Shi-Duo made the following observations about the use of this herb in treating this disorder:
+
+Acrid, slightly warm in nature, no toxicity; enters the four channels of the Spleen, Stomach, Heart, and Lungs. Controls sudden turmoil disorder, gnawing pain in the middle cavity; [it] is marvelous for summerheat, unblocks urine, disperses fluid retention, eliminates bad breath, relieves fever and restlessness, and harmonizes the Stomach.
+
+It has the wonderful ability to ascend or descend with equal strength, to root out chaos and restore normality in its place, to make clear qi rise up and make turbid filth descend.
+
+However, it should be imbibed cold and not taken hot; it should be used in small doses and not large doses. Small doses help the qi expel the pathogen, large doses will indeed expel the pathogen but will also sap the qi. Drinking it cold assists the qi in relieving summerheat, drinking it hot assists the pathogen and forces heat rejection. These are things one should know when using Moslae Herba (xiang ru).
+
+It may be asked about Moslae Herba (xiang ru) relieving summerheat: since there is summerheat, this should be able to completely relieve it, [so] why does it relieve it sometimes and not others? Is this solely the fault of an excessive dosage, or taking it hot?
+
+The answer is that if Moslae Herba (xiang ru) is taken hot or the dose is too large, it certainly will be hard to see results, but there are also times when drinking it cold in small doses will not work either. In fact, Moslae Herba (xiang ru) can only disperse pathogenic summerheat qi, it cannot help the normal qi when it is depleted. When qi deficiency is followed by pathogenic summerheat stroke, how can you hope for results by simply expelling the pathogen without tonifying the normal qi? This is why Moslae Herba works best when more Ginseng Radix (ren shen) and Atractylodis macrocephalae Rhizoma (bai zhu) are added.
+
+Here is another explanation, a passage from Xue Sheng Bai's Systematic Differentiation of Damp-Heat Disorders Warp and Woof of which is quoted in Wang Shi-Xiong's Warm-Heat Pathogen Diseases:
+
+[During the] summer months, drinking cold drinks and staying as cool as possible, the yang qi is oppressed by yin cold. Patients for whom the skin feels steamy hot, with aversion to cold, headache and heavy head, spontaneous sweating and restless thirst, and possibly abdominal pain, nausea, and diarrhea, should take herbs such as Moslae Herba (xiang ru), Magnoliae officinalis Cortex (hou po), and Lablab Semen album (bai bian dou). [Wang Shi-Xiong notes here that Moslae Herba (xiang ru) is only appropriate for exposure to cold in the summer months, where there is an absence of sweating. If there is already sweating, it must be used with caution.]
+
+This is the result of avoiding summer's heat but contracting pathogenic cold-dampness. Although the illness occurs in the summer months, it is not really a summerheat disease. The ancients did not call it cold-dampness damage in the summer; they called it yin-summerheat, which led to confusion and serious mistakes, which here must be rectified.
+
+---
 ---
 
 ## 🔑 TCM Properties
@@ -85,21 +111,13 @@ Brief description of the herb, source, botanical information, and general identi
 
 ## ⚡ Functions & Actions
 
-```dataview
-LIST herb_data.functions
-WHERE file.name = this.file.name
-```
-
-**Key Functions:**
--
--
--
-
-**Clinical Applications:**
--
--
-
----
+*   Induces sweating and releases the exterior: for externally contracted patterns of wind-cold during the summer, especially when accompanied by dampness, with such symptoms as chills and fever, headache, absence of sweating, body aches, abdominal pain, vomiting, and diarrhea.
+    *   With Lablab Semen album (bai bian dou) for sudden turmoil disorder caused by externally-contracted cold in the summertime. With the addition of Magnoliae officinalis (hou po) Cortex for exterior cold and interior dampness presenting with fever, absence of sweating, headache, thirst, vomiting, and diarrhea, as in Mosla Powder (xiang ru san).
+    *   With Lonicerae Flos and Forsythiae Fructus (jin yin hua) (lian qiao) for the early stages of summerheat with superimposed contraction of cold marked by fever, chills, no sweating, headache, and a flushed face, as in Newly-Augmented Mosla Drink (xin jia xiang ru yin).
+    *   With Pogostemonis/Agastaches Herba (huo xiang) for damp-summerheat with such symptoms as fever and chills, a feeling of constriction in the chest, vomiting, and abdominal pain.
+*   Promotes urination and reduces swelling: for edema and urinary difficulty, especially when associated with an exterior pattern.
+    *   With Atractylodis macrocephalae Rhizoma (bai zhu) for sudden turmoil disorder due to Spleen dampness together with exterior cold due to excessive intake of cold or raw foods and beverages. Also for edema due to accumulation of cold-dampness.
+    *   With Imperatae Rhizoma (bai mao gen) and Leonuri Herba (yi mu cao) for edema with fever, absence of sweating, and dark, scanty urine.
 
 ## 🎯 Patterns & Symptoms
 
@@ -175,8 +193,11 @@ SORT Category, file.name
 **Toxicity:** `= this.herb_data.toxicity`
 
 **Contraindications:**
--
--
+Contraindicated in cases of profuse sweating from exterior deficiency.
+
+Harm and Benefit in the Materia Medica provides excellent advice on the proper use of Moslae Herba (xiang ru):
+
+Mistaken use of Moslae Herba (xiang ru) will injure the qi of the exterior. It is used in summertime conditions, but if the injury is from the heat of summer directly, Moslae Herba (xiang ru) is not suitable- this disorder requires acrid, cooling herbs. Likewise in the summer people might overeat or overexert themselves while exposed to high summer temperatures, which makes them sweat excessively; they become irritable and restless with wheezing and rapid breathing, and may have diarrhea or vomiting- yet this is not an exterior disorder, but an internal pathology best treated with Li Gao's Clear Summerheat and Augment the Qi Decoction or White Tiger Decoction (qing shu yi qi tang)or with Ginseng (bai hu jia ren shen tang), rather than with Moslae Herba (xiang ru), which would only weaken the exterior, allowing in even more heat.
 
 **Drug Interactions:**
 -
@@ -209,8 +230,7 @@ WHERE file.name = this.file.name
 ## 🌱 Quality Criteria & Authentication
 
 **Quality Indicators:**
--
--
+Good quality has tender stems with many spikes and an intense aroma.
 
 **Common Adulterants:**
 -
@@ -281,7 +301,7 @@ LIMIT 10
 - [[]]
 
 **Related Formulas:**
-- [[Formulas including Xiang Ru]]
+- [[Formulas including Ai Ye]]
 
 **Related Western Conditions:**
 - [[]]

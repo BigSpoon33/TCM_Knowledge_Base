@@ -20,35 +20,36 @@ tests: []
 # 🔹 Herb-Specific Data
 herb_data:
   hanzi: "延胡索"
-  pinyin: "Yan Hu Suo"
-  pharmaceutical: "Corydalis, Rhizoma"
-  english: ""
+  pinyin: "yan hu suo"
+  pharmaceutical: "Corydalis Rhizoma"
+  english: "Corydalis rhizome"
   alternate_names: []
 
   # TCM Properties
-  taste: []
-  temperature: ""
-  channels: []
+  taste: [Acrid, bitter, warm]
+  temperature: "warm"
+  channels: [Heart, Liver, Stomach]
 
   # Clinical Information
-  dosage: ""
-  toxicity: ""
-  functions: []
+  dosage: "3-9g"
+  toxicity: "Within the normal dosage range no side effects are to be expected. In high doses (10-15g of the powdered substance), some patients develop drowsiness, dizziness, and abdominal distention. The toxic dose is between 60-120g, with symptoms of poisoning appearing 1-4 hours after ingestion. They include dizziness, facial pallor, drowsiness, weakness, dyspnea, spasms, low blood pressure, weak pulse, in severe cases shock, tetanic convulsion, and respiratory inhibition. Allergic reactions have also been reported, including drug fever, erythema, and pruritus, accompanied by nausea, dizziness, shortness of breath, and numbness of the lips and extremities."
+  functions: [Invigorates the blood, promotes the movement of qi, alleviates pain]
   dui_yao: []
 
   # Additional Information
-  constituents: []
-  quality: ""
-  text_first_appeared: ""
+  constituents: [(-)-tetrahydrocolumbamine, (-)-tetrahydroberberine, (-)-tetrahydrocoptisine, (+)-corybulbine, dehydrocorydaline, dl-tetrahydropalmatine, palmatine, d-corydaline, protopine, dehydroglaucine, α-allocryptopine, N-methyllaurotetanine, yuanhunine, leonticine, dihydrosanguinarine, dehydronantenine, bicuculline, corydalmine, cryptopine, berberine, coptisine, mucilage, volatile oil]
+  quality: "Good quality consists of large, full, hard, and brittle pieces with a light yellow, horny, wax-like, and glossy cross section. Small rhizomes with a loose texture and greyish yellow cross section are of inferior quality."
+  text_first_appeared: "Omissions from the Materia Medica"
 
   # Source References
-  bensky_page: ""
+  bensky_pdf: "627"
+  bensky_page: "None"
 
 created: 2025-10-01
 updated: 2025-10-01
 ---
 
-# 🌿 Yan Hu Suo
+# 🌿 Ai Ye
 
 **Pharmaceutical Name:** `= this.herb_data.pharmaceutical`
 **English Name:** `= this.herb_data.english`
@@ -71,8 +72,23 @@ updated: 2025-10-01
 
 ## 📖 Overview
 
-Brief description of the herb, source, botanical information, and general identity.
+Due to its warmth and aroma, Corydalis Rhizoma (yan hu suo) disseminates the flow of qi, and because it is heavy and firm in texture, it sinks into the blood level of the Heart and Liver where its bitterness drains stasis and its acridity disperses stagnation. Its yellow color also signals an affinity to the Stomach. Its particular strength lies in its strong pain-relieving action.
 
+In Convenient Reader of Materia Medica, Zhang Bing Cheng states that it:
+
+"promotes the movement of qi within the blood; its quality is warm and aromatic so that it makes the qi flow smoothly to adjust the blood; its flavor is also acrid and bitter. It enters the Stomach to track down and eliminate stasis and cold pain; thrusting out to the Liver, it unblocks to treat women's menstruation."
+
+Zhang goes on to say that because it is firm in texture, acrid, bitter, yellow, warm and aromatic, it is a herb of the Liver blood level, and can be used for any pain due to obstruction of the qi and blood. He warns, however, that "If the illness is not due to blocked obstruction of qi and blood, but involves deficiency, it is not appropriate."
+
+Materia Medica of the Kaibao Era notes that it:
+
+"breaks up blood stasis, and treats women's irregular menstruation, masses within the abdomen, continuous uterine bleeding, and all blood disorders in the postpartum stage [including] fainting due to blood stasis, sudden up-rushing of blood, or bleeding due to injury."
+
+The Grand Materia Medica states that it:
+
+"invigorates the blood, promotes the movement of qi, stops pain ... it promotes movement of qi stagnation within the blood, or blood stasis due to qi stagnation, and thus treats disorders throughout the body, whether in the upper body or the lower."
+
+---
 ---
 
 ## 🔑 TCM Properties
@@ -85,21 +101,18 @@ Brief description of the herb, source, botanical information, and general identi
 
 ## ⚡ Functions & Actions
 
-```dataview
-LIST herb_data.functions
-WHERE file.name = this.file.name
-```
-
-**Key Functions:**
--
--
--
-
-**Clinical Applications:**
--
--
-
----
+- Invigorates the blood, promotes the movement of qi, and alleviates pain: for pain of almost any kind affecting the chest, abdomen, or limbs, including that due to blood stasis and trauma. Especially useful for epigastric pain and dysmenorrhea.
+    - With Trogopterori Faeces (wu ling zhi) for pain in the chest and abdomen due to blood stasis.
+    - With Cyperi Rhizoma (xiang fu) and Angelicae sinensis Radix (dang gui) for dysmenorrhea from stagnant qi and blood stasis.
+    - With Curcumae Radix (yu jin) and Trichosanthis Fructus (gua lou) for chest and hypochondriacal pain from qi constraint and blood stagnation.
+    - With Chuanxiong Rhizoma (chuan xiong) for blood stasis-induced body aches and headache.
+    - With Foeniculi Fructus (xiao hui xiang) and Linderae Radix (wu yao) for abdominal pain and bulging disorders (疝 qi) from obstruction of the qi and blood due to cold.
+    - With Cinnamomi Ramulus (gui zhi) and Angelicae sinensis Radix (dang gui) for dysmenorrhea due to cold in the blood or generalized pain that is more intense in the extremities from wind-cold entering the collaterals.
+    - With Toosendan Fructus (chuan lian zi) for pain in the flank and upper right quadrant, as in Melia Toosendan Powder (jin ling zi san).
+    - With Lonicerae Flos (jin yin hua) and Aucklandiae Radix (mu xiang) for abdominal pain from intestinal abscess.
+    - With Olibanum (ru xiang) and Myrrha (mo yao) for pain due to trauma.
+    - With Salviae miltiorrhizae Radix (dan shen), Carthami Flos (hong hua), and Chuanxiong Rhizoma (chuan xiong) for coronary artery disease.
+    - With Salviae miltiorrhizae Radix (dan shen), Polygonati odorati Rhizoma (yu zhu), and Crataegi Fructus (shan zha) for irregular heartbeat.
 
 ## 🎯 Patterns & Symptoms
 
@@ -175,8 +188,10 @@ SORT Category, file.name
 **Toxicity:** `= this.herb_data.toxicity`
 
 **Contraindications:**
--
--
+Inappropriate during pregnancy unless warranted by exceptional circumstances.
+"Acrid, warm, mobilizes without conserving; should be avoided in all cases of early menstruation, deficiency with continuous menstrual bleeding, and postpartum deficiency." (Harm and Benefit in the Materia Medica)
+
+"Postpartum blood deficiency, or scanty dry menstrual blood that does not flow well, pain due to qi deficiency: in all of these it is very inappropriate." (Rectification of the Meaning of Materia Medica)
 
 **Drug Interactions:**
 -
@@ -209,8 +224,7 @@ WHERE file.name = this.file.name
 ## 🌱 Quality Criteria & Authentication
 
 **Quality Indicators:**
--
--
+Good quality consists of large, full, hard, and brittle pieces with a light yellow, horny, wax-like, and glossy cross section. Small rhizomes with a loose texture and greyish yellow cross section are of inferior quality.
 
 **Common Adulterants:**
 -
@@ -281,7 +295,7 @@ LIMIT 10
 - [[]]
 
 **Related Formulas:**
-- [[Formulas including Yan Hu Suo]]
+- [[Formulas including Ai Ye]]
 
 **Related Western Conditions:**
 - [[]]

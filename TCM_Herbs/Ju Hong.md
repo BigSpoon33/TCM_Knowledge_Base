@@ -19,36 +19,37 @@ tests: []
 
 # 🔹 Herb-Specific Data
 herb_data:
-  hanzi: "橘紅"
-  pinyin: "Ju Hong"
-  pharmaceutical: "Citri Erythrocarpae, Pars Rubra Epicarpii"
-  english: ""
+  hanzi: "橘红"
+  pinyin: "jú hóng"
+  pharmaceutical: "Citri reticulatae Exocarpium Rubrum"
+  english: "tangerine flavedo, red tangerine peel"
   alternate_names: []
 
   # TCM Properties
-  taste: []
-  temperature: ""
-  channels: []
+  taste: [acrid, bitter, warm]
+  temperature: "warm"
+  channels: [Lung, Stomach]
 
   # Clinical Information
-  dosage: ""
-  toxicity: ""
+  dosage: "3-9g"
+  toxicity: "none noted"
   functions: []
   dui_yao: []
 
   # Additional Information
-  constituents: []
-  quality: ""
-  text_first_appeared: ""
+  constituents: [Volatile oil: citral, geraniol, linalool, methyl anthranilate, α-pinene, limonene, caryophyllene oxide, linalool monoxide, cis-3-hexenol, cadinene, dipentene, Flavonoids: naringin, neohesperidin, poncirin, tangeretin, 5,7,4'-trimethoxyflavone, 5,7,8,3',4'-pentamethoxyflavone, 5,7,8,4'-tetramethoxyflavone, Alkaloids: stachydrine, Other constituents: umbelliferone, aurapten, putrescine, pyrocatechol, lycopene, glycine, β-sitosterol-β-D-glucoside, nonacosane, proteins, fats, nicotinic acid, vitamin B1, B2, C]
+  quality: "Citri Exocarpium Rubrum (橘红 - jú hóng) is less effective than Citri grandis Exocarpium (化橘红 - huà jú hóng). Today it is used only in Sichuan and some parts of eastern China."
+  text_first_appeared: "Origins of Medicine"
 
   # Source References
-  bensky_page: ""
+  bensky_pdf: "627"
+  bensky_page: "None"
 
 created: 2025-10-01
 updated: 2025-10-01
 ---
 
-# 🌿 Ju Hong
+# 🌿 Ai Ye
 
 **Pharmaceutical Name:** `= this.herb_data.pharmaceutical`
 **English Name:** `= this.herb_data.english`
@@ -85,21 +86,7 @@ Brief description of the herb, source, botanical information, and general identi
 
 ## ⚡ Functions & Actions
 
-```dataview
-LIST herb_data.functions
-WHERE file.name = this.file.name
-```
-
-**Key Functions:**
--
--
--
-
-**Clinical Applications:**
--
--
-
----
+More drying and aromatic than Citri reticulatae Pericarpium (陈皮 - chén pí), but less effective in harmonizing the middle and regulating the Stomach and Spleen. It is used primarily for vomiting and belching, and for treating phlegm-damp coughs.
 
 ## 🎯 Patterns & Symptoms
 
@@ -175,8 +162,7 @@ SORT Category, file.name
 **Toxicity:** `= this.herb_data.toxicity`
 
 **Contraindications:**
--
--
+none noted
 
 **Drug Interactions:**
 -
@@ -209,8 +195,7 @@ WHERE file.name = this.file.name
 ## 🌱 Quality Criteria & Authentication
 
 **Quality Indicators:**
--
--
+Citri Exocarpium Rubrum (橘红 - jú hóng) is less effective than Citri grandis Exocarpium (化橘红 - huà jú hóng). Today it is used only in Sichuan and some parts of eastern China.
 
 **Common Adulterants:**
 -
@@ -281,7 +266,7 @@ LIMIT 10
 - [[]]
 
 **Related Formulas:**
-- [[Formulas including Ju Hong]]
+- [[Formulas including Ai Ye]]
 
 **Related Western Conditions:**
 - [[]]

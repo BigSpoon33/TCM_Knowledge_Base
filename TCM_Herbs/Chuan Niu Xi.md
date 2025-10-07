@@ -20,35 +20,36 @@ tests: []
 # 🔹 Herb-Specific Data
 herb_data:
   hanzi: "川牛膝"
-  pinyin: "Chuan Niu Xi"
-  pharmaceutical: "Cyathulae, Radix"
-  english: ""
+  pinyin: "chuan niu xi"
+  pharmaceutical: "Cyathulae Radix"
+  english: "Cyathula root"
   alternate_names: []
 
   # TCM Properties
   taste: []
-  temperature: ""
-  channels: []
+  temperature: "Neutral"
+  channels: [Liver, Kidney]
 
   # Clinical Information
-  dosage: ""
-  toxicity: ""
+  dosage: "4.5-9g"
+  toxicity: "None"
   functions: []
   dui_yao: []
 
   # Additional Information
-  constituents: []
-  quality: ""
-  text_first_appeared: ""
+  constituents: [Triterpene saponins: Sapogenin: oleanolic acid, Sterols: Ecdysterone, inokosterone, rubrosterone, Other constituents: Polysaccharides, amino acids, coumarin derivatives, alkaloids, betaine, saccharose]
+  quality: "Good quality consists of dry, thick, soft and oily, yellowish brown roots."
+  text_first_appeared: "None"
 
   # Source References
-  bensky_page: ""
+  bensky_pdf: "627"
+  bensky_page: "None"
 
 created: 2025-10-01
 updated: 2025-10-01
 ---
 
-# 🌿 Chuan Niu Xi
+# 🌿 Ai Ye
 
 **Pharmaceutical Name:** `= this.herb_data.pharmaceutical`
 **English Name:** `= this.herb_data.english`
@@ -85,21 +86,8 @@ Brief description of the herb, source, botanical information, and general identi
 
 ## ⚡ Functions & Actions
 
-```dataview
-LIST herb_data.functions
-WHERE file.name = this.file.name
-```
-
-**Key Functions:**
--
--
--
-
-**Clinical Applications:**
--
--
-
----
+- Invigorates the blood and unblocks the menses: for blood stasis leading to dysmenorrhea or amenorrhea, as well as for pain due to trauma.
+- Expels wind, drains dampness: for wind-dampness, especially of the lower back, and atrophy and spasms of the lower extremities. Also for painful urinary dribbling.
 
 ## 🎯 Patterns & Symptoms
 
@@ -175,8 +163,7 @@ SORT Category, file.name
 **Toxicity:** `= this.herb_data.toxicity`
 
 **Contraindications:**
--
--
+Contraindicated during pregnancy or in those with excessive menstruation.
 
 **Drug Interactions:**
 -
@@ -209,8 +196,7 @@ WHERE file.name = this.file.name
 ## 🌱 Quality Criteria & Authentication
 
 **Quality Indicators:**
--
--
+Good quality consists of dry, thick, soft and oily, yellowish brown roots.
 
 **Common Adulterants:**
 -
@@ -281,7 +267,7 @@ LIMIT 10
 - [[]]
 
 **Related Formulas:**
-- [[Formulas including Chuan Niu Xi]]
+- [[Formulas including Ai Ye]]
 
 **Related Western Conditions:**
 - [[]]

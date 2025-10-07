@@ -19,36 +19,37 @@ tests: []
 
 # 🔹 Herb-Specific Data
 herb_data:
-  hanzi: "淡竹葉"
+  hanzi: "淡竹叶"
   pinyin: "Dan Zhu Ye"
-  pharmaceutical: "Lophatheri, Herba"
-  english: ""
+  pharmaceutical: "Lophatheri Herba"
+  english: "Lophatherum Herb"
   alternate_names: []
 
   # TCM Properties
-  taste: []
-  temperature: ""
-  channels: []
+  taste: [Sweet, bland]
+  temperature: "Cold"
+  channels: [Heart, Small Intestine, Stomach]
 
   # Clinical Information
-  dosage: ""
-  toxicity: ""
-  functions: []
+  dosage: "6-9g"
+  toxicity: "None noted"
+  functions: [Clears heat and eliminates irritability, Promotes urination and clears damp-heat]
   dui_yao: []
 
   # Additional Information
-  constituents: []
-  quality: ""
-  text_first_appeared: ""
+  constituents: [Iridoid and flavonoid glycosides: gardenoside, geniposide, genipin-1-gentiobioside, shanzhiside, gardoside, scandoside methylester, geniposidic acid, deacetylasperulosidic acid, methyl deacetylasperulosidate, 10-O-acetylgeniposide, 6"-p-coumaroylgenipin gentiobioside, jasminoidin, rutin, Organic acids: chlorogenic acid, 3,4-di-O-caffeoylquinic acid, 3-O-caffeoyl-4-O-sinapoylquinic acid, 3,5-di-O-caffeoyl-4-O-(3-hydroxy-3-methylglutaroyl)quinic acid, 3,5-dicaffeoyl-5-(3-hydroxy-3-methylglutaroyl)quinic acid, picrocrocinic acid, crocetin, ursolic acid, Other constituents: crocin, choline, D-mannitol, β-sitosterol, nonacosane, xanthophyll]
+  quality: "Good quality consists of big green leaves with few stalks, and without roots or spikes."
+  text_first_appeared: "The Grand Materia Medica"
 
   # Source References
-  bensky_page: ""
+  bensky_pdf: "627"
+  bensky_page: "None"
 
 created: 2025-10-01
 updated: 2025-10-01
 ---
 
-# 🌿 Dan Zhu Ye
+# 🌿 Ai Ye
 
 **Pharmaceutical Name:** `= this.herb_data.pharmaceutical`
 **English Name:** `= this.herb_data.english`
@@ -71,8 +72,9 @@ updated: 2025-10-01
 
 ## 📖 Overview
 
-Brief description of the herb, source, botanical information, and general identity.
+Lophatheri Herba (dan zhu ye) is bland, sweet, and cold. Its ability to leach out dampness and facilitate urination is very strong, while at the same time it cools the Heart and thus eliminates irritability. It is usually prescribed for febrile diseases, irritability, thirst, scanty dark urine, and painful urinary dribbling. Because it is lightweight with a thin qi, it is also used to treat upper burner qi-level heat. Harm and Benefit in the Materia Medica notes, however, that "Its therapeutic strength is rather weak. It cannot serve as the chief herb, but it can serve as an assistant." The Grand Materia Medica was the first book to identify Lophatheri Herba (dan zhu ye). It comments briefly that the herb "expels irritable heat, facilitates urination, and cools the Heart." Lophatheri Herba (dan zhu ye) has a greater diuretic action than actual bamboo leaves, which are better for heat in the upper burner causing cough, irritability, and thirst.
 
+---
 ---
 
 ## 🔑 TCM Properties
@@ -85,21 +87,11 @@ Brief description of the herb, source, botanical information, and general identi
 
 ## ⚡ Functions & Actions
 
-```dataview
-LIST herb_data.functions
-WHERE file.name = this.file.name
-```
-
-**Key Functions:**
--
--
--
-
-**Clinical Applications:**
--
--
-
----
+• Clears heat and eliminates irritability: for heat patterns with irritability and thirst. Also used for mouth sores and swollen, painful gums due to heat in the Heart or Stomach channels.
+  - With Gypsum fibrosum (shi gao) for late-stage febrile disease symptoms such as residual fever, sensation of heat and irritability in the chest, desire for cold beverages, and red tongue with thin coating.
+  - With Ophiopogonis Radix (mai men dong), Phragmitis Rhizoma (lu gen), and Trichosanthis Radix (tian hua fen) for irritability in the chest with thirst from febrile disease.
+• Promotes urination and clears damp-heat: for rough, scanty, painful urination. Especially useful for heat in the Small Intestine channel with the above symptoms plus irritability and a dark-red tip on the tongue.
+  - With Akebiae Caulis (mu tong) and Rehmanniae Radix (sheng di huang) for sensation of heat and irritability in the chest, sores of the mouth and tongue, and dark, scanty urine due to heat in the Heart channel, as in Guide Out the Red Powder (dao chi san).
 
 ## 🎯 Patterns & Symptoms
 
@@ -175,8 +167,7 @@ SORT Category, file.name
 **Toxicity:** `= this.herb_data.toxicity`
 
 **Contraindications:**
--
--
+None noted
 
 **Drug Interactions:**
 -
@@ -209,8 +200,7 @@ WHERE file.name = this.file.name
 ## 🌱 Quality Criteria & Authentication
 
 **Quality Indicators:**
--
--
+Good quality consists of big green leaves with few stalks, and without roots or spikes.
 
 **Common Adulterants:**
 -
@@ -281,7 +271,7 @@ LIMIT 10
 - [[]]
 
 **Related Formulas:**
-- [[Formulas including Dan Zhu Ye]]
+- [[Formulas including Ai Ye]]
 
 **Related Western Conditions:**
 - [[]]

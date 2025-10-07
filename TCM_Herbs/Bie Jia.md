@@ -19,41 +19,43 @@ tests: []
 
 # 🔹 Herb-Specific Data
 herb_data:
-  hanzi: "鼈甲"
-  pinyin: "Bie Jia"
-  pharmaceutical: "Trionycis, Carapax"
-  english: ""
+  hanzi: "鱉甲"
+  pinyin: "Biē Jiǎ"
+  pharmaceutical: "Trionycis Carapax"
+  english: "Soft-Shelled Turtle Shell"
   alternate_names: []
 
   # TCM Properties
-  taste: []
-  temperature: ""
-  channels: []
+  taste: [Salty, slightly cold]
+  temperature: "Slightly cold"
+  channels: [Liver, Spleen]
 
   # Clinical Information
-  dosage: ""
-  toxicity: ""
-  functions: []
+  dosage: "9-30g"
+  toxicity: "Allergic reactions have been reported in rare cases. The symptoms appeared about one hour after ingestion and included a stifling, uncomfortable sensation in the chest, agitation and anxiety, and generalized erythema that was pruritic."
+  functions: [Nourishes the yin and anchors the yang, Invigorates the blood, promotes menstruation, and dissipates nodules, Heavily anchors and causes qi to descend, unblocks and facilitates the functions of the blood vessels]
   dui_yao: []
 
   # Additional Information
-  constituents: []
-  quality: ""
-  text_first_appeared: ""
+  constituents: [collagen, keratin, proteins, polysaccharides, 17 amino acids, vitamin D, iodine, inorganic constituents: calcium carbonate, calcium phosphate, Na, K, Al, Mn, Cu, Zn]
+  quality: "Good quality consists of large, thick, clean pieces without meat or an unpleasant smell."
+  text_first_appeared: "None"
 
   # Source References
-  bensky_page: ""
+  bensky_pdf: "627"
+  bensky_page: "None"
 
 created: 2025-10-01
 updated: 2025-10-01
 ---
 
-# 🌿 Bie Jia
+# 🌿 `= this.name`
 
 **Pharmaceutical Name:** `= this.herb_data.pharmaceutical`
 **English Name:** `= this.herb_data.english`
 **Chinese Name (Hanzi):** `= this.herb_data.hanzi`
 **Category:** `= this.category`
+`= this.name`
 
 ---
 
@@ -71,8 +73,15 @@ updated: 2025-10-01
 
 ## 📖 Overview
 
-Brief description of the herb, source, botanical information, and general identity.
+Trionycis Carapax (bie jia) is salty, slightly cold, and heavy in weight. Because it is derived from an animal, it is considered to be 'a substance of sympathy between blood and flesh' (血肉有情之品 xue rou you qing zhi pin), thus strongly tonifies the yin fluids. Being heavy in weight, it subdues the yang. And because it is slightly cooling, it clears heat. For these reasons it excels at enriching the yin to anchor the yang and eliminate heat from deficiency, and is thus used to treat yin deficiency leading to steaming bones or ascendant Liver yang, either due to injury to the yin and blood following a warm-heat pathogen disease, or chronic illness injuring the yin and blood. It is also used for internal stirring of wind from deficiency, resulting from the inability of the Liver and Kidneys to nourish the sinews, leading in mild cases to tremor of the hands and feet, and in more severe cases, to convulsions. Traditionally, for the purpose of enriching the yin and subduing the yang, it should be used in its unprepared form.
 
+When vinegar-fried, it enters the blood level of the Liver channel with an enhanced ability to promote movement, and its salty quality endows it with the ability to soften areas of hardness and clumping, such as mobile and fixed abdominal masses or painless clumping in the flanks. The *New Compilation of Materia Medica* says that it "excels in attacking hard [areas], and does not deplete the qi, so it should be used for any stubborn focal stagnation, internally or externally, in the upper or lower [body]." Thus, traditionally, to soften areas of hardness and disperse clumps, the vinegar-fried variety should be used.
+
+In *Convenient Reader of Materia Medica*, Zhang Bing Cheng says that its "nature is fundamentally salty and cold, enters the Liver channel and thrusts out to the collaterals with the effect of promoting movement in stagnant lumps, reducing heat, and subduing the yang." He goes on to explain that it enters the Liver because its color is green; it is salty, cold, and nontoxic, unblocks the channels and collaterals, disperses stagnant blood, and is a medicinal of the terminal yin blood level. All aquatic shells benefit the yin and subdue the yang, and their salty, cold nature is similar - what is different is the places they enter.
+
+*The Materia Medica of Combinations* states that it "travels through the Penetrating vessel."
+
+---
 ---
 
 ## 🔑 TCM Properties
@@ -85,21 +94,20 @@ Brief description of the herb, source, botanical information, and general identi
 
 ## ⚡ Functions & Actions
 
-```dataview
-LIST herb_data.functions
-WHERE file.name = this.file.name
-```
-
-**Key Functions:**
--
--
--
-
-**Clinical Applications:**
--
--
-
----
+- Nourishes the yin and anchors the yang: for yin deficiency with fever, steaming bone disorder, nightsweats, or consumption. Often used when there are also symptoms of internal stirring of Liver wind.
+    - With Testudinis Plastrum (gui ban) for steaming bones and nightsweats due to insufficiency of Liver and Kidney yin leading to heat from deficiency.
+    - Add Rehmanniae Radix (sheng di huang) and Paeoniae Radix alba (bai shao) for extreme injury to the yin with internal stirring of wind and tremors, as in Major Arrest Wind Pearls (da ding feng zhu).
+    - With Rehmanniae Radix (sheng di huang), Anemarrhenae Rhizoma (zhi mu), and Artemisiae annuae Herba (qing hao) for injured yin in the aftermath of a febrile disease with fever and nightsweats followed by a sense of cooling in the morning, as in Sweet Wormwood and Soft-Shelled Turtle Shell Decoction (qing hao bie jia tang).
+    - With Lycii Cortex (di gu pi), Scutellariae Radix (huang qin), and Ginseng Radix (ren shen) for steaming bone disorder in children with irritability around the diaphragm and palpitations, as in Lycium Root Bark Decoction (di gu pi yin).
+    - With Fossilia Ossis Mastodi (long gu), Paeoniae Radix alba (bai shao), and Asini Corii Colla (e jiao) for yin deficiency with internal stirring of wind manifesting in local or generalized tremors.
+- Invigorates the blood, promotes menstruation, and dissipates nodules: for such symptoms as chest and flank accumulations causing pain and amenorrhea, as well as malarial disorders with palpable masses. Also for excessive menstruation due to hot blood.
+    - With Sparganii Rhizoma (san leng), Curcumae Rhizoma (e zhu), and Citri Reticulatae Viride Pericarpium (qing pi) for hard, fixed masses of the epigastrium and abdomen.
+    - With Rhei Radix et Rhizoma (da huang) and Succinum (hu po) for amenorrhea with abdominal masses.
+    - With Asini Corii Colla (e jiao), Artemisiae argyi Folium (ai ye), and charred Angelicae sinensis Radix (dang gui) for excessive menstruation and uterine bleeding.
+    - With Bupleuri Radix (chai hu) and Eupolyphaga/Steleophaga (tu bie chong) for chronic malarial disorders with organomegaly and hypochondriac pain.
+- Heavily anchors and causes qi to descend, unblocks and facilitates the functions of the blood vessels: for problems in children due to internal clumping.
+    - With Gentianae macrophyllae Radix (qin jiao) and Rhei Radix et Rhizoma (da huang) for a combination of an unreleased exterior problem and interior fire from constraint marked by fever that becomes higher in the afternoon and incomplete bowel movements.
+    - With Persicae Semen (tao ren), Arecae Semen (bing lang), and Atractylodis macrocephalae Rhizoma (bai zhu) for accumulation of food stagnation and buildup of blood giving rise to long-term alternating fever and chills.
 
 ## 🎯 Patterns & Symptoms
 
@@ -175,8 +183,11 @@ SORT Category, file.name
 **Toxicity:** `= this.herb_data.toxicity`
 
 **Contraindications:**
--
--
+Contraindicated during pregnancy and in those with cold from deficiency of the Spleen and Stomach.
+
+"Contraindicated in pregnancy, and in all yin-deficient patients whose Stomachs are weak or who have diarrhea, including postpartum diarrhea or postpartum indigestion, loss of appetite, and nauseous aversion to food." (Commentary on the Divine Husbandman's Classic of Materia Medica)
+
+"Contraindicated in Liver deficiency without heat." (Encountering the Sources of the Classic of Materia Medica)
 
 **Drug Interactions:**
 -
@@ -209,8 +220,7 @@ WHERE file.name = this.file.name
 ## 🌱 Quality Criteria & Authentication
 
 **Quality Indicators:**
--
--
+Good quality consists of large, thick, clean pieces without meat or an unpleasant smell.
 
 **Common Adulterants:**
 -
@@ -281,7 +291,7 @@ LIMIT 10
 - [[]]
 
 **Related Formulas:**
-- [[Formulas including Bie Jia]]
+- [[Formulas including Ai Ye]]
 
 **Related Western Conditions:**
 - [[]]

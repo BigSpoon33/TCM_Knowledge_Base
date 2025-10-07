@@ -1,7 +1,7 @@
 ---
 # 🔹 Core Metadata (Universal Fields)
 id: "herb-20251001123706"
-name: "Mo Yao"
+name: "Myrrha / Mo Yao"
 type: "herb"
 aliases: []
 tags: [TCM, Herb]
@@ -20,35 +20,36 @@ tests: []
 # 🔹 Herb-Specific Data
 herb_data:
   hanzi: "沒藥"
-  pinyin: "Mo Yao"
+  pinyin: "mò yào"
   pharmaceutical: "Myrrha"
-  english: ""
+  english: "myrrh"
   alternate_names: []
 
   # TCM Properties
-  taste: []
-  temperature: ""
-  channels: []
+  taste: [bitter, neutral]
+  temperature: "Neutral"
+  channels: [Heart, Liver, Spleen]
 
   # Clinical Information
-  dosage: ""
-  toxicity: ""
-  functions: []
+  dosage: "3-9g"
+  toxicity: "Ingestion of this substance can cause allergic reactions usually affecting the skin."
+  functions: [Invigorates the blood, Dispels blood stasis, Reduces swelling, Alleviates pain, Promotes healing]
   dui_yao: []
 
   # Additional Information
-  constituents: []
-  quality: ""
-  text_first_appeared: ""
+  constituents: [Resins (25-35%): α-commiphoric acid, β-commiphoric acid, γ-commiphoric acid, commiphorinic acid, heerabomyrrhol, α-heerabomyrrholic acid, β-heerabomyrrholic acid, heeraboresene, commiferin, Volatile oil: eugenol, m-cresol, cuminaldehyde, pinene, limonene, cinnamic aldehyde, heerabolene, 8α-methoxyfuranodiene, 8α-acetylfuranodiene, isofuranogermacrene (curzerene), lindestrene, furanoeudesma-1,3-diene, furanodiene, Other constituents: balsams (57-65%) composed of arabinose, galactose, and xylose]
+  quality: "Good quality consists of yellowish brown, broken, slightly translucent, oily pieces with an intense aroma and bitter taste, and without such foreign matter as sand and the like."
+  text_first_appeared: "Materia Medica of Medicinal Properties"
 
   # Source References
-  bensky_page: ""
+  bensky_pdf: "627"
+  bensky_page: "None"
 
 created: 2025-10-01
 updated: 2025-10-01
 ---
 
-# 🌿 Mo Yao
+# 🌿 Ai Ye
 
 **Pharmaceutical Name:** `= this.herb_data.pharmaceutical`
 **English Name:** `= this.herb_data.english`
@@ -71,8 +72,19 @@ updated: 2025-10-01
 
 ## 📖 Overview
 
-Brief description of the herb, source, botanical information, and general identity.
+All of the effects of *Myrrha* (*mò yào*) depend upon its ability to break up blood stagnation: it stops pain by removing obstruction to the flow of blood, which then suffuses affected tissues and stops pain; it reduces mobile and fixed abdominal masses by dispersing blood stasis; and it assists in the healing of injuries by eliminating obstruction from stasis that prevents nourishment and regeneration of the tissues.
 
+Seeking Accuracy in the Materia Medica quotes Kou Zong-Shi as saying:
+
+*Myrrha* (*mò yào*), in brief, unblocks stagnant blood. When blood stagnates, qi clogs statically, which makes the channels and collaterals full and tense. This fullness and tension causes pain and swelling. Strikes and blows, falls and injuries, all harm the channels and collaterals so that the qi and
+blood are unable to flow; they clog and become static, causing swelling and pain.
+
+This view is consistently expressed in the classic materia medica texts. Discussion of Medicinal Properties observes that it
+governs injuries from strikes and blows [leaving] blood stasis in the Heart and abdomen; damage from falls, and breaks causing pain due to stagnation in the sinews and bones; injuries from metal blades causing intolerable pain.
+
+Materia Medica of the Kaibao Era says that it "primarily breaks up blood [stasis] and stops pain", while the Grand Materia Medica says that it "disperses blood, reduces swelling, arrests pain, and generates flesh."
+
+---
 ---
 
 ## 🔑 TCM Properties
@@ -85,21 +97,10 @@ Brief description of the herb, source, botanical information, and general identi
 
 ## ⚡ Functions & Actions
 
-```dataview
-LIST herb_data.functions
-WHERE file.name = this.file.name
-```
-
-**Key Functions:**
--
--
--
-
-**Clinical Applications:**
--
--
-
----
+* Invigorates the blood and dispels blood stasis, reduces swelling, and alleviates pain: for problems due to blood stasis, including pain from trauma, sores, carbuncles, swellings, fixed abdominal masses, painful obstruction, chest pain, abdominal pain, and amenorrhea.
+    * With Corydalis Rhizoma (*yán hú suǒ*), Trogopterus Faeces (*wǔ líng zhī*), and Cyperi Rhizoma (*xiāng fù*) for epigastric and abdominal pain due to obstruction of qi and blood.
+    * With Carthami Flos (*hóng huā*) for blood stasis-induced chest and abdominal pain, as well as amenorrhea and dysmenorrhea.
+* Promotes healing: used topically to promote the healing of chronic nonhealing sores.
 
 ## 🎯 Patterns & Symptoms
 
@@ -175,8 +176,11 @@ SORT Category, file.name
 **Toxicity:** `= this.herb_data.toxicity`
 
 **Contraindications:**
--
--
+Contraindicated in the absence of stasis, or during pregnancy. Use with caution in those with weak stomachs. Should not be used long term.
+
+"Cannot be consumed during pregnancy." (Essentials of Materia Medica Distinctions)
+
+Should not be used when joint pain or chest, abdomen, hypochondrium, and flank pain are not due to retained blood stasis, but rather to blood deficiency. It should not be used for excessive loss of postpartum lochia with abdominal pain due to deficiency. It should not be used when sores have already perforated. (Commentary on the Divine Husbandman's Classic of Materia Medica)
 
 **Drug Interactions:**
 -
@@ -209,8 +213,7 @@ WHERE file.name = this.file.name
 ## 🌱 Quality Criteria & Authentication
 
 **Quality Indicators:**
--
--
+Good quality consists of yellowish brown, broken, slightly translucent, oily pieces with an intense aroma and bitter taste, and without such foreign matter as sand and the like.
 
 **Common Adulterants:**
 -
@@ -281,7 +284,7 @@ LIMIT 10
 - [[]]
 
 **Related Formulas:**
-- [[Formulas including Mo Yao]]
+- [[Formulas including Ai Ye]]
 
 **Related Western Conditions:**
 - [[]]

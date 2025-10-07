@@ -19,36 +19,37 @@ tests: []
 
 # 🔹 Herb-Specific Data
 herb_data:
-  hanzi: "石決明"
-  pinyin: "Shi Jue Ming"
-  pharmaceutical: "Haliotidis, Concha"
-  english: ""
+  hanzi: "石决明"
+  pinyin: "Shí Jué Míng"
+  pharmaceutical: "Haliotidis Concha"
+  english: "Abalone Shell"
   alternate_names: []
 
   # TCM Properties
-  taste: []
-  temperature: ""
-  channels: []
+  taste: [Salty, cold]
+  temperature: "cold"
+  channels: [Kidney, Liver]
 
   # Clinical Information
-  dosage: ""
-  toxicity: ""
-  functions: []
+  dosage: "15-30g"
+  toxicity: "None"
+  functions: [Drains Liver fire and anchors and sedates the Liver yang, Improves the vision and causes superficial visual obstructions to recede]
   dui_yao: []
 
   # Additional Information
-  constituents: []
-  quality: ""
-  text_first_appeared: ""
+  constituents: [Inorganic constituents: carbonates (>90%), phosphates and silicates of Ca (>90%), Na, Al, Ti, Mn, Fe, Cr, Mg, Sr, Ba, Zn, Cu, Ni, Cl, I, S, Other constituents: conchiolin, amino acids]
+  quality: "Good quality has a thick shell (0.6-0.9cm), the outer surface is clean and free of concrements, the inner surface has a pearl-like luster, and is multicolored."
+  text_first_appeared: "None"
 
   # Source References
-  bensky_page: ""
+  bensky_pdf: "627"
+  bensky_page: "None"
 
 created: 2025-10-01
 updated: 2025-10-01
 ---
 
-# 🌿 Shi Jue Ming
+# 🌿 Ai Ye
 
 **Pharmaceutical Name:** `= this.herb_data.pharmaceutical`
 **English Name:** `= this.herb_data.english`
@@ -71,8 +72,13 @@ updated: 2025-10-01
 
 ## 📖 Overview
 
-Brief description of the herb, source, botanical information, and general identity.
+(Shi jue ming) Salty, cold, and heavy, Haliotidis Concha enters the Liver channel to cool the Liver and calm ascendant Liver yang. The Liver governs wind, and the orifice of the Liver is the eyes; if blood is deficient and the Liver is hot, wind-fire blazes upward and the Liver yang follows it causing dizziness, vertigo, and headaches. In severe cases it will lead to insidous onset of loss of vision without visible physical changes to the eye. Not only does Haliotidis Concha (shi jue ming) cool the Liver and anchor the Liver yang, it also enriches and nourishes the Liver yin, and thus addresses both the branch manifestation and the basic root of the condition.
 
+Commentary on the Divine Husbandman's Classic of Materia Medica states that it is a medicinal of the leg terminal yin channel, the orifice of which is the eyes: 'when the eyes obtain blood, vision is possible.' If blood is deficient, and there is heat, insidous onset of loss of vision without visible physical changes to the eye, and superficial visual obstructions, are generated. Salty coldness enters the blood to eliminate heat, and therefore this governs eye diseases.
+
+Master Shen's Book for Revering Life says that "Haliotidis Concha (shi jue ming) greatly tonifies the Liver yin: when the Liver channel is deficient, one definitely cannot do without it."
+
+---
 ---
 
 ## 🔑 TCM Properties
@@ -85,21 +91,15 @@ Brief description of the herb, source, botanical information, and general identi
 
 ## ⚡ Functions & Actions
 
-```dataview
-LIST herb_data.functions
-WHERE file.name = this.file.name
-```
-
-**Key Functions:**
--
--
--
-
-**Clinical Applications:**
--
--
-
----
+- Drains Liver fire and anchors and sedates the Liver yang: for Liver fire and ascendant Liver yang patterns with such symptoms as headache, dizziness, and red eyes. Commonly used for hypertension with ascendant Liver yang.
+    - With Paeoniae Radix alba (bai shao), Rehmanniae Radix (sheng di huang), and Ostreae Concha (mu li) for Liver yin deficiency with ascendant yang, as in Ass-Hide Gelatin and Egg Yolk Decoction (e jiao ji zi huang tang).
+    - With Prunellae Spica (xia ku cao), Astragali Radix (huang qi), and Chrysanthemi Flos (ju hua) for Liver fire or ascendant Liver yang with heat signs, dizziness, headache, irritability, and insomnia.
+- Improves the vision and causes superficial visual obstructions to recede: for Liver heat patterns that affect the eyes causing photophobia, pterygium or other superficial visual obstructions, red eyes, and blurred vision.
+    - With Chrysanthemi Flos (ju hua), Cassiae Semen (jue ming zi), and Prunellae Spica (xia ku cao) for eye redness, swelling, and pain due to the upward-blazing of Liver fire.
+    - With Rehmanniae Radix preparata (shu di huang) and Corni Fructus (shan zhu yu) for impaired vision due to Liver and Kidney yin deficiency.
+    - With Cicadae Periostracum (chan tui) for chronic progressive loss of vision and night blindness.
+    - With Buddlejae Flos (mi meng hua) and Eriocauli Flos (gu jing cao) for pterygium due to wind-heat.
+- Recently also used for increased gastric acidity, and, topically, for bleeding due to trauma.
 
 ## 🎯 Patterns & Symptoms
 
@@ -175,8 +175,9 @@ SORT Category, file.name
 **Toxicity:** `= this.herb_data.toxicity`
 
 **Contraindications:**
--
--
+Use with caution in those with cold from deficiency of the Spleen and Stomach with reduced appetite and loose stools.
+
+"Overconsumption makes people cold in the middle." (Harm and Benefit in the Materia Medica)
 
 **Drug Interactions:**
 -
@@ -209,8 +210,7 @@ WHERE file.name = this.file.name
 ## 🌱 Quality Criteria & Authentication
 
 **Quality Indicators:**
--
--
+Good quality has a thick shell (0.6-0.9cm), the outer surface is clean and free of concrements, the inner surface has a pearl-like luster, and is multicolored.
 
 **Common Adulterants:**
 -
@@ -281,7 +281,7 @@ LIMIT 10
 - [[]]
 
 **Related Formulas:**
-- [[Formulas including Shi Jue Ming]]
+- [[Formulas including Ai Ye]]
 
 **Related Western Conditions:**
 - [[]]

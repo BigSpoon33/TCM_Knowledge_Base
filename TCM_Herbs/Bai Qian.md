@@ -21,34 +21,35 @@ tests: []
 herb_data:
   hanzi: "白前"
   pinyin: "Bai Qian"
-  pharmaceutical: "Cynanchi Stauntonii, Radix et Rhizoma"
-  english: ""
+  pharmaceutical: "Cynanchi Stauntonii Rhizoma"
+  english: "cynanchum root and rhizome"
   alternate_names: []
 
   # TCM Properties
-  taste: []
-  temperature: ""
-  channels: []
+  taste: [Acrid, sweet]
+  temperature: "Slightly warm"
+  channels: [Lung]
 
   # Clinical Information
-  dosage: ""
-  toxicity: ""
-  functions: []
+  dosage: "3-9g"
+  toxicity: "This herb irritates the gastric mucosa and should not be given to those with gastric disorders or bleeding diathesis."
+  functions: [Redirects the qi downward, dispels phlegm, and stops cough]
   dui_yao: []
 
   # Additional Information
-  constituents: []
-  quality: ""
-  text_first_appeared: ""
+  constituents: [Triterpene saponines: glaucoside A-K, glaucogenin A, B, C, D, glaucogenin C momo-D-thevetoside, neoglaucogenin, neoglaucoside A, Other constituents: glaucobiose, hancockinol, β-sitosterol, C24-C30 fatty acids]
+  quality: "Good quality is yellowish white with large rhizomes and the cross section is whitish and powdery."
+  text_first_appeared: "Miscellaneous Records of Famous Physicians"
 
   # Source References
-  bensky_page: ""
+  bensky_pdf: "627"
+  bensky_page: "49"
 
 created: 2025-10-01
 updated: 2025-10-01
 ---
 
-# 🌿 Bai Qian
+# 🌿 Ai Ye
 
 **Pharmaceutical Name:** `= this.herb_data.pharmaceutical`
 **English Name:** `= this.herb_data.english`
@@ -71,8 +72,11 @@ updated: 2025-10-01
 
 ## 📖 Overview
 
-Brief description of the herb, source, botanical information, and general identity.
+*Cynanchi stauntonii* Rhizoma (*bai qian*) is acrid, bitter, sweet, slightly warming, and enters the Lung channel. A primary characteristic is its ability to direct qi downward. Its efficacy is related to the often quoted adage that "When qi descends, phlegm and thin mucus will disperse by themselves, and the cough will naturally cease." Because of this ability, *Cynanchi stauntonii* Rhizoma (*bai qian*) is known as an outstanding herb for Lung patients. Whenever profuse phlegm obstructs the Lungs leading to symptoms of cough, sensations of fullness in the chest, and wheezing, irrespective of whether the condition is hot or cold, it can be used, if properly combined with other herbs. This may be one reason that it is sometimes regarded as a neutral herb.
 
+An interesting quality mentioned in various materia medica texts is the ability of this herb to address qi gathered in the throat with audible phlegm. For example, the New Edition of Mei's Collected Empiric Formulas recommends powdered *Cynanchi stauntonii* Rhizoma (*bai qian*), taken with wine, to treat chronic cough that prevents sleep, with the rattling sound of phlegm in the throat. The Tang Materia Medica notes that the herb "primarily treats ascending qi rushing up into the throat, threatening to stop breathing." And Zhang Shan-Lei observes that "The reason that *Cynanchi stauntonii* Rhizoma (*bai qian*) can alleviate coughing lies in its ability to calm rebellious qi and prevent turbid qi below the diaphragm from rising up and accosting the Lungs."
+
+---
 ---
 
 ## 🔑 TCM Properties
@@ -85,21 +89,15 @@ Brief description of the herb, source, botanical information, and general identi
 
 ## ⚡ Functions & Actions
 
-```dataview
-LIST herb_data.functions
-WHERE file.name = this.file.name
-```
-
-**Key Functions:**
--
--
--
-
-**Clinical Applications:**
--
--
-
----
+- Redirects the qi downward, dispels phlegm, and stops cough: for cough with copious sputum and gurgling in the throat.
+- This is a very important herb for Lung qi blockage and stagnation.
+- Is used for disorders of excess with copious sputum that is difficult to expectorate, as well as wheezing.
+- Although slightly warm, it is not drying.
+    - With Asteris Radix (*zi wan*) and Pinelliae Rhizoma preparatum (*zhi ban xia*) for cough and wheezing accompanied by sputum that is difficult to expectorate, respiratory difficulty, and gurgling sounds in the throat due to phlegm dampness obstructing the Lungs.
+    - With Mori Cortex (*sang bai pi*) and Lycii Cortex (*di gu pi*) for chronic productive cough due to Lung heat.
+    - With Platycodi Radix (*jie geng*) and Schizonepetae Herba (*jing jie*) for cough associated with externally-contracted wind-cold-phlegm obstruction, as in Stop Coughing Powder (*zhi sou san*).
+    - With Peucedani Radix (*qian hu*) for cough with profuse phlegm due to externally-contracted wind-heat.
+    - With Atractylodis Rhizoma (*cang zhu*) for dampness induced edema.
 
 ## 🎯 Patterns & Symptoms
 
@@ -175,8 +173,7 @@ SORT Category, file.name
 **Toxicity:** `= this.herb_data.toxicity`
 
 **Contraindications:**
--
--
+In Convenient Reader of Materia Medica, Zhang Bing Cheng notes that it is "Specific for Lung patients, best at directing qi downward and causing phlegm to descend; if the Lungs do not have accumulated excess, it is inappropriate."
 
 **Drug Interactions:**
 -
@@ -209,8 +206,7 @@ WHERE file.name = this.file.name
 ## 🌱 Quality Criteria & Authentication
 
 **Quality Indicators:**
--
--
+Good quality is yellowish white with large rhizomes and the cross section is whitish and powdery.
 
 **Common Adulterants:**
 -
@@ -281,7 +277,7 @@ LIMIT 10
 - [[]]
 
 **Related Formulas:**
-- [[Formulas including Bai Qian]]
+- [[Formulas including Ai Ye]]
 
 **Related Western Conditions:**
 - [[]]

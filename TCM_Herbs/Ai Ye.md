@@ -1,13 +1,13 @@
 ---
 # 🔹 Core Metadata (Universal Fields)
 id: "herb-20251001123706"
-name: "Ai Ye"
+name: "mugwort leaf/Ai Ye"
 type: "herb"
 aliases: []
 tags: [TCM, Herb]
 
 # 🔹 Cross-Link Fields (Universal Relationship Slots)
-category: [Herbs that Regulate the Blood, Herbs that Stop Bleeding]
+category: []
 related: []
 symptoms: []
 patterns: []
@@ -19,31 +19,31 @@ tests: []
 
 # 🔹 Herb-Specific Data
 herb_data:
-  hanzi: "艾葉"
-  pinyin: "Ai Ye"
-  pharmaceutical: "Artemisiae Argyi, Folium"
-  english: ""
+  hanzi: "艾叶"
+  pinyin: "ài yè"
+  pharmaceutical: "Artemisiae argyi Folium"
+  english: "mugwort leaf, artemesia"
   alternate_names: []
 
   # TCM Properties
-  taste: []
-  temperature: ""
-  channels: []
+  taste: [bitter, acrid]
+  temperature: "warm"
+  channels: [Spleen, Liver, Kidney]
 
   # Clinical Information
-  dosage: ""
-  toxicity: ""
-  functions: []
+  dosage: "3–9g"
+  toxicity: "Use with caution in those with heat from yin deficiency. If the dosage is too high, side effects can occur frequently in patients taking this herb. The following symptoms have been reported: dry mouth, nausea, vomiting, gastric discomfort, diarrhea, and dizziness. Substitution of the leaf oil reduced the side effects, except for a mild dry mouth and gastric discomfort in a minority of patients. The oil of this herb produces local irritation and should not be injected. Overdosage (20–30g) of the herb may cause toxicity with symptoms appearing about 30 minutes after ingestion, including dry and thirsty feeling in the throat, nausea, and vomiting, followed by general weakness, dizziness, tinnitus, and tremors. If the overdosage is repeated, generalized spasms and convulsions may occur. Repeated overdosage can lead to hepatomegaly, jaundice, and even death. Large overdosage can lead to bleeding and miscarriage during pregnancy. Dry-frying and charring the herb significantly reduces its toxic effects."
+  functions: [warms the womb, stops bleeding, disperses cold, alleviates pain, eliminates dampness, stops itching]
   dui_yao: []
 
   # Additional Information
-  constituents: []
-  quality: ""
-  text_first_appeared: ""
+  constituents: [Volatile oil: 2-methylbutanol, 2-hexenal, cis-3-hexene-1-ol, tricyclene, α-thujene, thujyl alcohol, α-pinene, β-pinene, camphene, α-phellandrene, sabinene, camphor, 1,8-cineole, borneol, isoborneol, bornyl acetate, 1-octen-3-ol, p-cymene, terpinen-4-ol, α-terpineol, cis/trans-piperitol, cis/trans-carveol, carvone, carvenone, perilla aldehyde, verbenone, cis-3-hexenyl acetate, eugenol, methyleugenol, copaene, β-elemene, β-bourbonene, β-cubebene, humulene, β-maaliene, β-selinene, α-muurolene, γ-muurolene, γ-elemene, nerylpropionate, δ-cadinene, caryophyllene oxide, pentadecanal, dibutylphthalate, Flavonoids: eupatilin, quercetin, naringenin, 5-hydroxy-6,7,3',4'-tetramethoxyflavone, Sesquiterpenes: matricarin, hanphyllin, 11,13-dihydroxyalteglasin A, cryptomeridiol, yomogin, 1-oxo-4$eta$-acetoxyeudesma-2,11(13)-dien-12,8$eta$-olide, 1-oxo-4$lpha$-acetoxyeudesma-2,11(13)-dien-12,8$eta$-olide, Triterpenes: α-amyrin, β-amyrin, amyrin acetate, friedelin, lupenone, glutinone, fernenone, 24-methylenecycloartanone, simiarenol, 3$eta$-methoxy-9$eta$,19-cyclolanost-23(E)-en-25,26-diol, β-sitosterol, stigmasterol, Esters: ethyl palmitate, ethyl linoleate, ethyl oleate]
+  quality: "Good quality consists of thick and soft leaves with a dark green upper surface, white pubescent lower surface, and an intensely aromatic fragrance."
+  text_first_appeared: "Miscellaneous Records of Famous Physicians"
 
   # Source References
   bensky_pdf: "627"
-  bensky_page: "594"
+  bensky_page: "None"
 
 created: 2025-10-01
 updated: 2025-10-01
@@ -72,8 +72,9 @@ updated: 2025-10-01
 
 ## 📖 Overview
 
-Brief description of the herb, source, botanical information, and general identity.
+Bitter, acrid, and warm, _Artemisiae argyi Folium_ (_ài yè_) enters the Spleen, Liver, and Kidney channels. Its aromatic, acrid flavor disperses, its warmth opens the flow of qi and blood in the three yin channels, and its bitterness dries dampness; thus it is an excellent gynecological herb to dispel cold-dampness and stop cold pain. Its primary applications are patterns of lower burner yang cold from deficiency, such as abdominal cold pain, cold disrupting the menstrual cycle, and infertility due to cold in the Womb. In its charred form, it can also stop bleeding, and is used in such cases as cold from deficiency causing menorrhagia, irregular uterine bleeding, vaginal discharge, and threatened miscarriage with spotting during early pregnancy. Externally, it can be used as a wash to expel dampness and stop itching. Recently the oil of this plant has been used to calm wheezing and stop coughs, primarily for cough and wheezing with profuse sputum. The virtues of this herb in its role as moxa need not be enumerated here.
 
+---
 ---
 
 ## 🔑 TCM Properties
@@ -86,21 +87,25 @@ Brief description of the herb, source, botanical information, and general identi
 
 ## ⚡ Functions & Actions
 
-```dataview
-LIST herb_data.functions
-WHERE file.name = this.file.name
-```
-
-**Key Functions:**
--
--
--
-
-**Clinical Applications:**
--
--
-
----
+- **Warms the Womb and stops bleeding:** for prolonged menstrual bleeding and uterine bleeding due to cold from deficiency. Because it calms the fetus it is used for restless fetus, lower abdominal pain, and vaginal bleeding, as in threatened miscarriage. Also used for infertility due to a cold Womb.
+    
+    - With **Asini Corii Colla** (_ē jiāo_) for prolonged uterine bleeding, profuse bleeding during menstruation, and for restless fetus and threatened miscarriage, as in **Ass-Hide Gelatin and Mugwort Decoction** (_Jiāo Āi Tāng_).
+        
+    - With **Zingiberis Rhizoma** (_gān jiāng_) for prolonged uterine bleeding.
+        
+    - With **fresh Rehmanniae Radix** (_xiānɡ shēnɡ dì_) and **fresh Platycladi Cacumen** (_xiān bǎi yè_) for nosebleed or vomiting of blood due to heat in the blood, as in **Four Fresh Pill** (_Sì Shēnɡ Wán_).
+        
+- **Disperses cold and alleviates pain:** for cold abdominal pain, especially menstrual pain.
+    
+    - With **Cyperi Rhizoma** (_xiānɡ fù_) for abdominal pain due to cold from deficiency and stagnant qi.
+        
+    - With **Evodiae Fructus** (_wú zhū yú_) and **Dipsaci Radix** (_xù duàn_) for severe cold from deficiency of the Womb, as in **Mugwort and Aconite Accessory Root Pill for Warming the Womb** (_Āi Fù Nuǎn Gōnɡ Wán_).
+        
+    - With **Zingiberis Rhizoma** (_gān jiānɡ_) for abdominal pain due to cold, especially menstrual pain.
+        
+- **Eliminates dampness and stops itching:** decocted and applied as an external wash for a variety of skin problems marked by dampness and itching.
+    
+    - With **Kochiae Fructus** (_dì fū zǐ_) and **Dictamni Cortex** (_bái xiān pí_) for a variety of itching skin lesions due to cold-dampness.
 
 ## 🎯 Patterns & Symptoms
 
@@ -176,8 +181,7 @@ SORT Category, file.name
 **Toxicity:** `= this.herb_data.toxicity`
 
 **Contraindications:**
--
--
+"Pure yang, aromatic and drying, it is contraindicated whenever the blood is dry and generating heat." (_Harm and Benefit in the Materia Medica_)
 
 **Drug Interactions:**
 -
@@ -210,8 +214,7 @@ WHERE file.name = this.file.name
 ## 🌱 Quality Criteria & Authentication
 
 **Quality Indicators:**
--
--
+Good quality consists of thick and soft leaves with a dark green upper surface, white pubescent lower surface, and an intensely aromatic fragrance.
 
 **Common Adulterants:**
 -

@@ -19,36 +19,45 @@ tests: []
 
 # 🔹 Herb-Specific Data
 herb_data:
-  hanzi: "龍膽草"
+  hanzi: "龙胆草"
   pinyin: "Long Dan Cao"
-  pharmaceutical: "Gentianae, Radix"
-  english: ""
+  pharmaceutical: "Gentianae Radix"
+  english: "Gentian Root, Chinese Gentian Root"
   alternate_names: []
 
   # TCM Properties
-  taste: []
-  temperature: ""
-  channels: []
+  taste: [Bitter]
+  temperature: "Cold"
+  channels: [Gallbladder, Liver, Stomach]
 
   # Clinical Information
-  dosage: ""
-  toxicity: ""
-  functions: []
+  dosage: "3-9g"
+  toxicity: "Overdosage may lead to digestive impairment and occasionally headache, flushing, and vertigo. In high doses (30g as a single dose) the following toxic reactions have been observed: abdominal pain, nausea, vomiting, vertigo, impaired consciousness, stiff neck. One case of self-medication, using one 150g dose showed similar symptoms within 30 minutes of ingestion. Emergency treatment was necessary and the patient recovered completely within two days."
+  functions: [Drains fire from excess in the Liver and Gallbladder, Eliminates lower burner damp-heat]
   dui_yao: []
 
   # Additional Information
-  constituents: []
-  quality: ""
-  text_first_appeared: ""
+  constituents: [*Gentiana manshurica*:
+    *   Secoiridoids (bitter substances): gentiopicroside (gentiopicrin), swertiamarin, sweroside, amarogentin, amaroswerin, *Gentiana rigescens*:
+    *   Secoiridoids: gentiopicroside (gentiopicrin), swertiamarin, sweroside, amarogentin, amaroswerin
+    *   Alkaloids: gentianine
+    *   Other constituents: gentianol, β-sitosterol, *Gentiana scabra*:
+    *   Secoiridoids: gentiopicroside (gentiopicrin), swertiamarin, sweroside, trifloroside, scabroside, rindoside, amarogentin, gentiopicroside tetraacetate
+    *   Alkaloids: gentioflavine, gentianine
+    *   Other constituents: lognic acid, gentianose, *Gentiana triflora*:
+    *   Secoiridoids: gentiopicroside (gentiopicrin), swertiamarin, sweroside, amarogentin, amaroswerin]
+  quality: "Good quality consists of thick, full, long, straight roots. The texture should be soft, the color yellow, and the taste extremely bitter."
+  text_first_appeared: "Divine Husbandman's Classic of the Materia Medica"
 
   # Source References
-  bensky_page: ""
+  bensky_pdf: "627"
+  bensky_page: "None"
 
 created: 2025-10-01
 updated: 2025-10-01
 ---
 
-# 🌿 Long Dan Cao
+# 🌿 Ai Ye
 
 **Pharmaceutical Name:** `= this.herb_data.pharmaceutical`
 **English Name:** `= this.herb_data.english`
@@ -71,8 +80,15 @@ updated: 2025-10-01
 
 ## 📖 Overview
 
-Brief description of the herb, source, botanical information, and general identity.
+Very bitter, very cold, and sinking in nature, Gentianae Radix (龙胆草, long dan cao) directs downward. Its two primary actions are cooling fire from excess in the Liver and Gallbladder, and clearing lower burner damp-heat. These attributes also make it suitable for symptoms of lower burner damp-heat, such as swelling or pain in the scrotum, genital pruritus, vaginal discharge, or painful urinary dribbling disorder with turbid, cloudy urine.
 
+Gentianae Radix (龙胆草, long dan cao) is often used for symptoms associated with Liver and Gallbladder fire, such as headache with red eyes, deafness and tinnitus, costal pain, bitter taste, and childhood convulsions. As noted in *Harm and Benefit* in the *Materia Medica*: "Bupleuri Radix (柴胡, chai hu) as chief herb, and Gentianae Radix (龙胆草, long dan cao) as deputy: an essential remedy for eye disorders. However, if the eye disorder has just begun, the method should be to bring out and disperse; cool and cold are forbidden."
+
+Li Gao noted that Gentianae Radix (龙胆草, long dan cao) "drives out pathogenic heat in the Liver channel, reduces swelling due to lower burner damp-heat, and drains Bladder fire." *Transforming the Significance of Medicinal Substances* states that it:
+
+"...drains Liver and Gallbladder fire and primarily treats pain in the eyes and neck, ribs and costal area... Whenever the Liver channel suffers from pathogenic heat, the use of Gentianae Radix (龙胆草, long dan cao) is truly marvelous. Its flavor is intense, so it sinks downward, making it an excellent choice for clearing lower burner damp-heat symptoms such as sores on the scrotum, venereal sores, and urinary difficulty."
+
+---
 ---
 
 ## 🔑 TCM Properties
@@ -85,21 +101,15 @@ Brief description of the herb, source, botanical information, and general identi
 
 ## ⚡ Functions & Actions
 
-```dataview
-LIST herb_data.functions
-WHERE file.name = this.file.name
-```
-
-**Key Functions:**
--
--
--
-
-**Clinical Applications:**
--
--
-
----
+*   **Drains damp-heat from the Liver and Gallbladder channels:** For damp-heat in the upper part of the Gallbladder channel with such symptoms as red, swollen, sore throat and eyes, swollen and painful ears, or sudden deafness. Also for damp-heat in the Liver or Gallbladder channels (especially the lower parts) with such symptoms as jaundice, pain, swelling, or dampness in the genital area, or foul-smelling vaginal discharge and itching.
+    *   With Coptidis Rhizoma (黄连, huang lian) for red, swollen, and painful eyes due to heat from excess in the Liver channel.
+    *   With Rhei Radix et Rhizoma (大黄, da huang) for rib pain, bitter taste, red eyes, and constipation due to excess Liver fire.
+    *   With Bupleuri Radix (柴胡, chai hu) and Scutellariae Radix (黄芩, huang qin) for Liver fire or damp-heat causing any one of a constellation of symptoms including eye redness, swelling, and pain; stabbing pain in the chest; deafness; bitter taste; testicular swelling and pain; and short, dark, or turbid painful urination. See Gentian Decoction to Drain the Liver (龙胆泻肝汤, long dan xie gan tang).
+    *   With Artemisiae Scopariae Herba (茵陈, yin chen) and Gardeniae Fructus (栀子, zhi zi) for damp-heat jaundice with such symptoms as bitter taste, and fullness and pain in the chest caused by damp-heat in the Liver and Gallbladder.
+    *   With Sophorae Flavescentis Radix (苦参, ku shen), Phellodendri Cortex (黄柏, huang bai), and Plantaginis Semen (车前子, che qian zi) for genital itching, vaginal discharge, or eczema due to damp-heat in the Liver and Gallbladder channels.
+*   **Drains and pacifies excessive Liver fire:** For Liver fire blazing upward with headache or red eyes. Also for Liver wind heat with fever, spasms, convulsions, or flank pain.
+    *   With Haliotidis Concha (石决明, shi jue ming) for headache, red and swollen eyes, and vertigo from ascending Liver yang.
+    *   With Bovis Calculus (牛黄, niu huang) and Uncariae Ramulus cum Uncis (钩藤, gou teng) for convulsions due to Liver fire and phlegm, especially in children.
 
 ## 🎯 Patterns & Symptoms
 
@@ -175,8 +185,12 @@ SORT Category, file.name
 **Toxicity:** `= this.herb_data.toxicity`
 
 **Contraindications:**
--
--
+Contraindicated in cases of cold from deficiency of the Spleen or Stomach.
+- See Toxicity below.
+
+*Harm and Benefit in the Materia Medica* cautions:
+
+"Bitter and cold, it greatly damages the Stomach qi - it is forbidden in those without fire from excess. Even though it can eliminate heat from excess and drain the Liver and Gallbladder, still, if the Stomach is deficient or there is a lack of blood, it cannot be tried lightly. Whenever an illness involves deficiency of both the Spleen and Stomach, and the deficiency involves heat, it is forbidden to take Gentianae Radix (龙胆草, long dan cao). It should also not be taken on an empty stomach, otherwise it will cause incontinence of urine as its draining is too extreme."
 
 **Drug Interactions:**
 -
@@ -209,8 +223,7 @@ WHERE file.name = this.file.name
 ## 🌱 Quality Criteria & Authentication
 
 **Quality Indicators:**
--
--
+Good quality consists of thick, full, long, straight roots. The texture should be soft, the color yellow, and the taste extremely bitter.
 
 **Common Adulterants:**
 -
@@ -281,7 +294,7 @@ LIMIT 10
 - [[]]
 
 **Related Formulas:**
-- [[Formulas including Long Dan Cao]]
+- [[Formulas including Ai Ye]]
 
 **Related Western Conditions:**
 - [[]]

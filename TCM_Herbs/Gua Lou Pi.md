@@ -19,36 +19,37 @@ tests: []
 
 # 🔹 Herb-Specific Data
 herb_data:
-  hanzi: "瓜蔞皮"
+  hanzi: "瓜蒌皮"
   pinyin: "Gua Lou Pi"
-  pharmaceutical: "Trichosanthis, Pericarpium"
-  english: ""
+  pharmaceutical: "Trichosanthis Pericarpium"
+  english: "Trichosanthes Peel"
   alternate_names: []
 
   # TCM Properties
-  taste: []
-  temperature: ""
-  channels: []
+  taste: [sweet, cold]
+  temperature: "cold"
+  channels: [Lungs, Stomach, Large Intestine]
 
   # Clinical Information
-  dosage: ""
-  toxicity: ""
-  functions: []
+  dosage: "6-12g; see COMMENTARY below for exceptions"
+  toxicity: "See Trichosanthis Fructus (gua lou)."
+  functions: [Clears the Lungs and transforms phlegm, Regulates the qi and expands the chest]
   dui_yao: []
 
   # Additional Information
-  constituents: []
-  quality: ""
-  text_first_appeared: ""
+  constituents: [esters of nonanoic acid, capric acid, lauric acid, myristic acid, pentadecanoic acid, palmitoleic acid, palmitic acid, linoleic acid, linolenic acid, stearic acid, acetoin, 3-methyl-1-butanol, 2,3-butanediol, 1-hexanol, benzaldehyde, 1-phenylethanone, cis-linalool oxide, trans-linalool oxide, 2,4-dimethylphenol, 1-nonanol, naphthalene, 2-methylnaphthalene, 1,5-dimethylnaphthalene, 1,1'-biphenyl, δ-elemene, geranylacetone, acenaphthylene, δ-selinene, dibenzofuran, 9H-fluorene, anthracene, phenanthrene, trichosanatine, lignoceric acid, cerotic acid, montanic acid, melissic acid, L-(-)-α-monopalmitin, 5,7-stigmastanone-3, 5,7-stigmastenol-3-D-glucopyranoside, heptacosane, nonacosane, hentriacontane, 5,7-stigmastenol, 5,7-stigmastenol-3-D-glucopyranoside, spinasterol, docosanol, tetracosanol, docosanoic acid]
+  quality: "Good quality consists of dry, thick pieces of the skin with an orange outer surface and a clean white inner surface."
+  text_first_appeared: "Miscellaneous Records of Famous Physicians"
 
   # Source References
-  bensky_page: ""
+  bensky_pdf: "627"
+  bensky_page: "386"
 
 created: 2025-10-01
 updated: 2025-10-01
 ---
 
-# 🌿 Gua Lou Pi
+# 🌿 Ai Ye
 
 **Pharmaceutical Name:** `= this.herb_data.pharmaceutical`
 **English Name:** `= this.herb_data.english`
@@ -71,8 +72,17 @@ updated: 2025-10-01
 
 ## 📖 Overview
 
-Brief description of the herb, source, botanical information, and general identity.
+Trichosanthis Pericarpium (gua lou pi) specifically mobilizes qi in order to unbind the diaphragm and ease chest discomfort, transform phlegm, and disperse clumps. Light in weight and mild in action, it is often used for cough and a stifling sensation in the chest as well as breast lumps, breast abscess, and pain. Because it cools and transforms phlegm, it also directs the turbid results of this transformation downward to be eliminated from the body. This allows the normal qi to resume its unobstructed circulation throughout the upper body, providing a rejuvenating sensation akin to the replenishment of qi in a deficient patient by the use of tonifying herbs. Despite this downward-directing action, the peel is not as effective for moistening the Intestines as the seeds, Trichosanthis Semen (gua lou ren); however, the peel can be beneficial when a patient with phlegm-heat in the chest also has loose stools.
 
+Zhang Xi-Chun observed that "Although the power of Trichosanthis Fructus (gua lou) is slightly weak, when used in larger doses this weakness is turned to strength." A dosage of 15g is typical for Trichosanthis Pericarpium (gua lou pi), and 30g is not uncommon; when dispersing clumps, up to 60g or more can be used for a limited period of time. It should be noted that Zhang routinely used a higher than normal dosage of this herb.
+
+Mechanisms of Selected Combinations:
+>WITH TARAXACI HERBA (pu gong ying)
+Trichosanthis Pericarpium (gua lou pi) can transform stagnant glue-like phlegm and release constrained heat. Taraxaci Herba (pu gong ying) is bitter, sweet, and cold, and has a relatively strong cooling and toxicity-resolving action. Because it enters the leg yang brightness and leg terminal yin channels, it is especially effective in the treatment of breast abscess. This effect is considerably enhanced when combined with Trichosanthis Pericarpium (gua lou pi), which regulates the flow of qi in the chest and disperses constrained clumps. In the early stage of breast abscess, this pair of herbs can both be taken internally and applied externally, providing an excellent cooling, releasing, reducing, and dispersing action. If the breast abscess has already formed pus, other herbs should be added which cool and expel pus, such as Platycodi Radix (jie geng), Trichosanthis Radix (tian hua fen), or Gleditsiae Spina (zao jiao ci).
+
+>WITH TRICHOSANTHIS RADIX (tian hua fen); see page
+
+---
 ---
 
 ## 🔑 TCM Properties
@@ -85,21 +95,11 @@ Brief description of the herb, source, botanical information, and general identi
 
 ## ⚡ Functions & Actions
 
-```dataview
-LIST herb_data.functions
-WHERE file.name = this.file.name
-```
-
-**Key Functions:**
--
--
--
-
-**Clinical Applications:**
--
--
-
----
+• Clears the Lungs and transforms phlegm: for phlegm-heat in the chest or dry cough with difficult-to-expectorate sputum and dry throat due to wind-heat.
+- With Fritillariae Bulbus (bei mu), Platycodi Radix (jie geng), and Armeniacae Semen (xing ren) for phlegm-heat cough due to clogging and hindering of the Lung qi.
+- With Trichosanthis Radix (tian hua fen) for a nonproductive or slightly productive cough due to injury of the Lung fluids in the aftermath of a febrile disease.
+• Regulates the qi and expands the chest: for chest painful obstruction, clumping in the chest, and the early stages of breast abscess.
+- With Taraxaci Herba (pu gong ying) for the early stages of breast abscess due to phlegm-heat.
 
 ## 🎯 Patterns & Symptoms
 
@@ -175,8 +175,7 @@ SORT Category, file.name
 **Toxicity:** `= this.herb_data.toxicity`
 
 **Contraindications:**
--
--
+See Trichosanthis Fructus (gua lou).
 
 **Drug Interactions:**
 -
@@ -209,8 +208,7 @@ WHERE file.name = this.file.name
 ## 🌱 Quality Criteria & Authentication
 
 **Quality Indicators:**
--
--
+Good quality consists of dry, thick pieces of the skin with an orange outer surface and a clean white inner surface.
 
 **Common Adulterants:**
 -
@@ -281,7 +279,7 @@ LIMIT 10
 - [[]]
 
 **Related Formulas:**
-- [[Formulas including Gua Lou Pi]]
+- [[Formulas including Ai Ye]]
 
 **Related Western Conditions:**
 - [[]]

@@ -21,34 +21,35 @@ tests: []
 herb_data:
   hanzi: "牡丹皮"
   pinyin: "Mu Dan Pi"
-  pharmaceutical: "Moutan, Cortex"
-  english: ""
+  pharmaceutical: "Paeoniae Radix Cortex"
+  english: "moutan root bark, tree peony root bark"
   alternate_names: []
 
   # TCM Properties
-  taste: []
-  temperature: ""
-  channels: []
+  taste: [Acrid, bitter, slightly cold]
+  temperature: "Slightly cold"
+  channels: [Heart, Liver, Kidney]
 
   # Clinical Information
-  dosage: ""
-  toxicity: ""
-  functions: []
+  dosage: "6-12g"
+  toxicity: "Occasionally, such side effects as nausea and dizziness may appear. These usually disappear spontaneously without discontinuing use of the herb."
+  functions: [Clears heat and cools the blood, Clears fire from deficiency, Invigorates the blood and dispels blood stasis, Clears ascending Liver fire, Drains pus and reduces swelling]
   dui_yao: []
 
   # Additional Information
-  constituents: []
-  quality: ""
-  text_first_appeared: ""
+  constituents: [paeonol, paeonolide, paeonoside, apiopaeonoside, paeoniflorin, oxypaeoniflorin, benzoylpaeoniflorin, benzoyloxypaeoniflorin, galloyloxypaeoniflorin, galloylpaeoniflorin, suffruticosides A, suffruticosides B, suffruticosides C, suffruticosides D, suffruticosides E, gallic acid, 1,2,3,4,6-pentagalloylglucose, volatile oil, 2,3-dihydroxy-4-methoxyacetophenone, 3-hydroxy-4-methoxyacetophenone, harpagoside, aucubin, 6-0-methylcatalpol, 8-(0-methyl)-p-coumaroylharpagide, scropoliside A, ningpogenin, ningpogoside A, ningpogoside B, oleic acid, linolenic acid, stearic acid, angoroside, diosmin, β-sitosterol, ergosterol, amino acids, volatile oil, alkaloids]
+  quality: "Good quality consists of thick, white, and starchy quills with the xylem removed and a strong aroma."
+  text_first_appeared: "Divine Husbandman's Classic of the Materia Medica"
 
   # Source References
-  bensky_page: ""
+  bensky_pdf: "627"
+  bensky_page: "None"
 
 created: 2025-10-01
 updated: 2025-10-01
 ---
 
-# 🌿 Mu Dan Pi
+# 🌿 Ai Ye
 
 **Pharmaceutical Name:** `= this.herb_data.pharmaceutical`
 **English Name:** `= this.herb_data.english`
@@ -71,8 +72,15 @@ updated: 2025-10-01
 
 ## 📖 Overview
 
-Brief description of the herb, source, botanical information, and general identity.
+The cold, bitter nature of Moutan Cortex (*mu dan pi*) enables it to drain heat, while its acrid, aromatic qualities enable it to invigorate the blood, disperse stagnation, and vent lurking heat in the yin aspects of the body. The latter point is mentioned in the Grand Materia Medica, which notes that the herb "treats lurking fire in the blood level of these four channels: hand and foot lesser yin [Heart and Kidneys] and hand and foot terminal yin [Pericardium and Liver]."
 
+The Detailed Materia Medica favorably compares this herb with others:
+
+If there is lurking fire in the blood level, this is [due to pathology of] the ministerial fire of the Heart, Pericardium, Liver, and Kidneys. The whole world treats this with just *Anemarrhenae Rhizoma* (知母 *zhi mu*) and *Phellodendri Cortex* (黃柏 *huang bai*), and does not know that the effect of Moutan Cortex (*mu dan pi*) is even greater. However, if there is irregular gynecological bleeding or extended menstruation, it cannot be used together with herbs that promote the movement of blood.
+
+Stating the traditional view, Li Shi-Zhen noted that the white-flowered moutan peony was thought to be tonifying, while the red-flowered was blood-invigorating. Zhang Jie Bin qualified this somewhat by observing that the mobilizing quality of the white-flowered moutan peony is more gentle than that of the red. He also explained that, regardless of the color of the flower, although it is not tonifying, its blood-invigorating property is still moderate rather than harsh. This, he said, is precisely its value: its stasis-removing effect is broad, but not so intense that it will injure the qi or the blood.
+
+---
 ---
 
 ## 🔑 TCM Properties
@@ -85,21 +93,23 @@ Brief description of the herb, source, botanical information, and general identi
 
 ## ⚡ Functions & Actions
 
-```dataview
-LIST herb_data.functions
-WHERE file.name = this.file.name
-```
-
-**Key Functions:**
--
--
--
-
-**Clinical Applications:**
--
--
-
----
+Clears heat and cools the blood: for heat entering the blood level during a warm-heat pathogen disease with such symptoms as nosebleed, blood in the sputum or vomit, or subcutaneous bleeding. Also for frequent and profuse menstruation due to heat in the blood.
+    *   With *Paeoniae Radix rubra* (赤芍 *chi shao*) for purpuric rash, vomiting of blood, and heat injuring the nutritive and blood levels, as in Rhinoceros Horn and Rehmannia Decoction (*xi jiao di huang tang*). Also for irregular menstruation due to heat and obstruction from blood deficiency.
+    *   With *Scutellariae Radix* (黃芩 *huang qin*) and *Bupleuri Radix* (柴胡 *chai hu*) for heat causing premenstrual fevers or nosebleed during periods.
+    *   With *Imperatae Rhizoma* (白茅根 *bai mao gen*) for bloody urine, vomiting of blood, and nosebleed due to warm-heat pathogen diseases.
+*   Clears fire from deficiency: for yin deficiency patterns such as steaming bone disorder, particularly in the aftermath of a warm-heat pathogen disease. These are often marked by fever at night with coolness in the morning. This herb is most appropriate when there is no sweating.
+    *   With *Artemisiae annuae Herba* (青蒿 *qing hao*) for steaming bone disorder.
+    *   With *Trionycis Carapax* (鱉甲 *bie jia*), *Anemarrhenae Rhizoma* (知母 *zhi mu*), and *Rehmanniae Radix* (生地黃 *sheng di huang*) for night fevers and recurrent afternoon fevers due to heat lingering at the nutritive level in warm-heat pathogen diseases, as in Sweet Wormwood and Soft-shelled Turtle Shell Decoction (*qing hao bie jia tang*).
+*   Invigorates the blood and dispels blood stasis: for Liver blood stasis patterns with amenorrhea, abdominal masses, lumps, or bruises due to traumatic injury.
+    *   With *Persicae Semen* (桃仁 *tao ren*) and *Cinnamomi Ramulus* (桂枝 *gui zhi*) for bruises and pain due to traumatic injury, as well as amenorrhea and abdominal pain associated with blood stasis.
+    *   With *Cinnamomi Ramulus* (桂枝 *gui zhi*) for chest and abdominal pain due to blood stasis obstructing the channels.
+    *   With *Olibanum* (乳香 *ru xiang*), *Myrrha* (沒藥 *mo yao*), and *Lignum Sappan* (蘇木 *su mu*) for swelling and pain due to blood stasis following trauma.
+*   Clears ascending Liver fire: for such symptoms as headache, eye pain, flank pain, flushing, and dysmenorrhea.
+    *   With *Gardeniae Fructus* (梔子 *zhi zi*), *Bupleuri Radix* (柴胡 *chai hu*), and *Paeoniae Radix alba* (白芍 *bai shao*) for fire from constraint leading to Liver fire, as in Augmented Rambling Powder (*jia wei xiao yao san*).
+    *   With *Chrysanthemi Flos* (菊花 *ju hua*) for dizziness and red and swollen eyes due to ascending Liver fire.
+*   Drains pus and reduces swelling: used topically for firm, non-draining sores, or internally for Intestinal abscess.
+    *   With *Rhei Radix et Rhizoma* (大黃 *da huang*) and *Benincasae Semen* (冬瓜子 *dong gua zi*) for abdominal pain, constipation, and low-grade fever associated with unsuppurated Intestinal abscess, as in Rhubarb and Moutan Decoction (*da huang mu dan tang*).
+    *   With *Lonicerae Flos* (金銀花 *jin yin hua*), *Forsythiae Fructus* (連翹 *lian qiao*), and *Angelicae dahuricae Radix* (白芷 *bai zhi*) for carbuncles and swellings.
 
 ## 🎯 Patterns & Symptoms
 
@@ -175,8 +185,9 @@ SORT Category, file.name
 **Toxicity:** `= this.herb_data.toxicity`
 
 **Contraindications:**
--
--
+Inappropriate for those with cold in the blood, or in women who are either pregnant or have excessive menstrual bleeding when this is not due to blood heat combined with blood stasis. See Toxicity below.
+
+With its turbid aroma, it very easily brings on nausea; those with weak stomachs will vomit as soon as they take it. It also invigorates the blood and unblocks stagnation. Thus, it is contraindicated for those with cold from deficiency of the Stomach, women with heavy bleeding or extended menses, and those who are pregnant. It cannot be used for hemorrhages due to blood heat if there is no concurrent blood stagnation. (Harm and Benefit in the Materia Medica)
 
 **Drug Interactions:**
 -
@@ -209,8 +220,7 @@ WHERE file.name = this.file.name
 ## 🌱 Quality Criteria & Authentication
 
 **Quality Indicators:**
--
--
+Good quality consists of thick, white, and starchy quills with the xylem removed and a strong aroma.
 
 **Common Adulterants:**
 -
@@ -281,7 +291,7 @@ LIMIT 10
 - [[]]
 
 **Related Formulas:**
-- [[Formulas including Mu Dan Pi]]
+- [[Formulas including Ai Ye]]
 
 **Related Western Conditions:**
 - [[]]

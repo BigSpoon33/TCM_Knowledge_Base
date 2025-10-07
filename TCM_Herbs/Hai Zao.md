@@ -1,7 +1,7 @@
 ---
 # 🔹 Core Metadata (Universal Fields)
 id: "herb-20251001123706"
-name: "Hai Zao"
+name: "Hai Zao / Sargassum"
 type: "herb"
 aliases: []
 tags: [TCM, Herb]
@@ -22,33 +22,34 @@ herb_data:
   hanzi: "海藻"
   pinyin: "Hai Zao"
   pharmaceutical: "Sargassum"
-  english: ""
+  english: "Sargassum, seaweed"
   alternate_names: []
 
   # TCM Properties
-  taste: []
-  temperature: ""
-  channels: []
+  taste: [Bitter, Salty, Cold]
+  temperature: "Cold"
+  channels: [Kidney, Liver, Lung, Stomach]
 
   # Clinical Information
-  dosage: ""
-  toxicity: ""
-  functions: []
+  dosage: "6-15g"
+  toxicity: "None noted"
+  functions: [Reduces phlegm and softens areas of hardness, Promotes urination and reduces edema]
   dui_yao: []
 
   # Additional Information
-  constituents: []
-  quality: ""
-  text_first_appeared: ""
+  constituents: [*Sargassum fusiforme*: alginic acid, mannitol, proteins, J, K, polysaccharides, laminarin, *Sargassum pallidum*: alginic acid, mannitol, proteins, J, K, polysaccharides, sargassan, cephalin]
+  quality: "Good quality consists of clean, thick, and regular formed thallus, without foreign matter."
+  text_first_appeared: "Divine Husbandman's Classic of the Materia Medica"
 
   # Source References
-  bensky_page: ""
+  bensky_pdf: "627"
+  bensky_page: "400"
 
 created: 2025-10-01
 updated: 2025-10-01
 ---
 
-# 🌿 Hai Zao
+# 🌿 Ai Ye
 
 **Pharmaceutical Name:** `= this.herb_data.pharmaceutical`
 **English Name:** `= this.herb_data.english`
@@ -71,8 +72,13 @@ updated: 2025-10-01
 
 ## 📖 Overview
 
-Brief description of the herb, source, botanical information, and general identity.
+In the ancient work Divine Husbandman's Classic of the Materia Medica, Sargassum (hai zao) is said to govern goiter, clumped qi, disperse hard painful nodules on the lower neck, swollen sores, mobile and fixed abdominal masses and areas of hardened qi, thundering sounds in the upper, middle, and lower abdomen, and all types of edema. It is still used for all these problems, except for "thundering sounds."
 
+Sargassum (hai zao) is a salty, bitter, cold, moistening herb that enters the Liver channel. Its major functions are reducing phlegm, softening areas of hardness, and mobilizing fluid metabolism. It is especially indicated for goiter and nodules of phlegm, both of which are frequently caused by Liver and Gallbladder fire drying and thickening the fluids until they form phlegm and obstruct the collaterals. Sargassum (hai zao) is both cooling and softening in nature, and thus addresses both the fire and the dry, hardened phlegm clumps.
+
+Because it is cooling and clears the accumulation of fluids, it can also treat damp-heat, and is often used for swelling and pain of the testicles (a form of bulging disorder) or leg qi with fluid retention. As noted in Encountering the Sources of the Classic of Materia Medica, "The pathogen is expelled through the urine."
+
+---
 ---
 
 ## 🔑 TCM Properties
@@ -85,21 +91,11 @@ Brief description of the herb, source, botanical information, and general identi
 
 ## ⚡ Functions & Actions
 
-```dataview
-LIST herb_data.functions
-WHERE file.name = this.file.name
-```
-
-**Key Functions:**
--
--
--
-
-**Clinical Applications:**
--
--
-
----
+- **Reduces phlegm and softens areas of hardness:** for neck nodules such as goiter and scrofula. Also used for bulging disorders, especially those involving the scrotum and testicles.
+    - With *Eckloniae Thallus* (kun bu), *Fritillariae thunbergii Bulbus* (zhe bei mu), and *Citri reticulatae Pericarpium* (chen pi) for goiter, as in Sargassum Decoction for the Jade Flask (hai zao yu hu tang).
+    - With *Prunellae Spica* (xia ku cao), *Forsythiae Fructus* (lian qiao), and *Scrophulariae Radix* (xuan shen) for scrofula.
+- **Promotes urination and reduces edema:** an adjunctive herb for edema due to leg qi or floating edema.
+    - With *Polyporus* (zhu ling), *Alismatis Rhizoma* (ze xie), and *Plantaginis Semen* (che qian zi) for edema with urinary difficulty.
 
 ## 🎯 Patterns & Symptoms
 
@@ -175,8 +171,11 @@ SORT Category, file.name
 **Toxicity:** `= this.herb_data.toxicity`
 
 **Contraindications:**
--
--
+None noted
+
+Thoroughly Revised Materia Medica notes that "patients with Spleen cold and dampness should not take it." And Seeking Accuracy in the Materia Medica observes:
+
+If the disorder is not due to excess pathogenic clumping, it is definitely contraindicated ... furthermore, [because] it drives qi downward very rapidly, long-term consumption makes people thin. As to those island peoples who eat it frequently [without ill effect], this is because their environment differs.
 
 **Drug Interactions:**
 -
@@ -209,8 +208,7 @@ WHERE file.name = this.file.name
 ## 🌱 Quality Criteria & Authentication
 
 **Quality Indicators:**
--
--
+Good quality consists of clean, thick, and regular formed thallus, without foreign matter.
 
 **Common Adulterants:**
 -
@@ -281,7 +279,7 @@ LIMIT 10
 - [[]]
 
 **Related Formulas:**
-- [[Formulas including Hai Zao]]
+- [[Formulas including Ai Ye]]
 
 **Related Western Conditions:**
 - [[]]

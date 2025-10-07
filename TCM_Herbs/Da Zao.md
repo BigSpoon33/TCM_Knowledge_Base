@@ -19,36 +19,39 @@ tests: []
 
 # 🔹 Herb-Specific Data
 herb_data:
-  hanzi: "大棗"
-  pinyin: "Da Zao"
-  pharmaceutical: "Jujubae, Fructus"
-  english: ""
+  hanzi: "大枣"
+  pinyin: "Dà zǎo"
+  pharmaceutical: "Jujubae Fructus"
+  english: "Jujube Fruit"
   alternate_names: []
 
   # TCM Properties
-  taste: []
-  temperature: ""
-  channels: []
+  taste: [Sweet]
+  temperature: "Warm"
+  channels: [Spleen, Stomach]
 
   # Clinical Information
-  dosage: ""
-  toxicity: ""
-  functions: []
+  dosage: "3-12 dates or 10-30g"
+  toxicity: "Allergic reactions following the ingestion of a decoction made of this herb have been reported. The symptoms appeared two hours after ingestion and included urticaria of the skin, edema of the eyelid, and dyspnea. One severe case of angioneurotic edema has also been reported."
+  functions: [Tonifies the Spleen and augments the qi, Nourishes the blood and calms the spirit, Moderates and harmonizes the harsh properties of other herbs]
   dui_yao: []
 
   # Additional Information
-  constituents: []
-  quality: ""
-  text_first_appeared: ""
+  constituents: [Triterpene glycosides: 3-O-trans-p-coumaroyl maslinic acid, 3-O-cis-p-coumaroyl maslinic acid, 3-O-trans-p-coumaroyl alphitolic acid, 2-O-trans-p-coumaroyl alphitolic acid, 3-O-cis-p-coumaroyl alphitolic acid, zizyphus saponins I, II, III, jujuboside A, C, zizybeoside I, B, II, zizyvoside, roseoside, ethyl α-D-fructofuranoside, Sugars (30-40%): glucose, fructose, saccharose, polysaccharides (zizyphus-pectin), Flavonoids: rutin, 6,8-di-C-glucosyl-2(S)-naringenin, 6,8-di-C-glucosyl-2(R)-naringenin, spinosin, swertisin, Alkaloids: stepharine, N-nornuciferine, asimilobine, Organic acids: oleanolic acid, betulic acid, malic acid, tartaric acid, maslinic acid, oleic acid, Other constituents: carotene, β-sitosterol, stigmasterol, desmasterol; vitamin C, thiamine, riboflavin, coumarin derivates, tannin, catechol]
+  quality: "Good quality red jujubes consists of full, thick, light red fruit of uniform size with a sweet taste and small seeds.
+
+Good quality black jujubes consists of large black fruit with a glossy, wrinkled surface and a sweet taste."
+  text_first_appeared: "Divine Husbandman's Classic of the Materia Medica"
 
   # Source References
-  bensky_page: ""
+  bensky_pdf: "627"
+  bensky_page: "None"
 
 created: 2025-10-01
 updated: 2025-10-01
 ---
 
-# 🌿 Da Zao
+# 🌿 Ai Ye
 
 **Pharmaceutical Name:** `= this.herb_data.pharmaceutical`
 **English Name:** `= this.herb_data.english`
@@ -71,8 +74,21 @@ updated: 2025-10-01
 
 ## 📖 Overview
 
-Brief description of the herb, source, botanical information, and general identity.
+Sweet, moistening, and harmonious, *Jujubae Fructus* (da zao) tonifies both the qi and blood, generates fluids, restores harmony to the nutritive and protective qi, and moderates the toxic effects of relatively harsh herbs. All of this is accomplished through its support for the harmonizing quality of earth: the Spleen and Stomach. In Chapter 70 of the *Basic Questions*, this herb is cataloged as a fruit relating to earth. According to Li Shi-Zhen, this means that it should be taken for Spleen disorders; more specifically, it is "an herb of the Spleen channel blood level." Li Gao notes that its nature is "warm to tonify Spleen channel insufficiency, sweet to moderate yin blood, [and thereby] harmonizes the yin and yang, adjusts the nutritive and protective levels, and generates yin fluids and yang fluids."
 
+The *Divine Husbandman's Classic of the Materia Medica* classifies the jujube as a superior medicinal:
+
+[It] governs pathogenic qi in the Heart and abdomen, quiets the middle, nourishes the Spleen, and assists the twelve channels. Calms Stomach qi, unblocks the nine orifices, tonifies diminished qi and lack of fluids, any insufficiency in the body, intense jitteriness, heaviness of the extremities, and harmonizes the hundred medicinals.
+
+*Seeking Accuracy in the Materia Medica* elaborates, noting that it
+
+is sweet so that it tonifies the middle, warm so that it augments the qi. When the Spleen and Stomach are tonified, the twelve channels are unblocked naturally, the nine orifices are facilitated, and the four extremities are harmonized. When the normal qi is sufficient, the spirit is quiet.
+
+This passage goes on to explain the use of jujube by Zhang Zhong-Jing in *Essentials from the Golden Cabinet*:
+
+It can assist the ascending emergence of the Spleen's qi. [Zhang] Zhong-Jing's treatment of running piglet uses *Jujubae Fructus* (da zao) to enrich the earth in order to calm the Kidneys [since earth overcomes water]. Treating flank pain due to edema and thin mucus, [he] uses Ten Jujube [Decoction] to augment the earth and [thereby] overcome water.
+
+---
 ---
 
 ## 🔑 TCM Properties
@@ -85,21 +101,16 @@ Brief description of the herb, source, botanical information, and general identi
 
 ## ⚡ Functions & Actions
 
-```dataview
-LIST herb_data.functions
-WHERE file.name = this.file.name
-```
-
-**Key Functions:**
--
--
--
-
-**Clinical Applications:**
--
--
-
----
+- **Tonifies the Spleen and augments the qi:** For weakness, shortness of breath, lassitude, reduced appetite, and loose stools due to Spleen and Stomach deficiency. Can be prepared with rice or millet gruel for this purpose.
+  - With *Codonopsis Radix* (dang shen) and *Atractylodis macrocephalae Rhizoma* (bai zhu) for weakness and lassitude associated with Spleen and Stomach deficiency.
+  - With *Zingiberis Rhizoma recens* (sheng jiang) to regulate disharmony between the nutritive and protective qi and enhance the effects of other qi and blood tonifying herbs by facilitating their digestion and absorption.
+  - With *Tritici Fructus levis* (fu xiao mai), *Mume Fructus* (wu mei), and *Mori Folium* (sang ye) for incessant spontaneous sweating in the debilitated.
+- **Nourishes the blood and calms the spirit:** For the wan appearance, irritability, and severe emotional lability associated with restless organ disorder.
+  - With *Asini Corii Colla* (e jiao) and *Angelicae sinensis Radix* (dang gui) for nutritive qi and blood deficiency.
+  - With *Glycyrrhizae Radix* (gan cao) and *Tritici Fructus* (xiao mai) for restless organ disorder, as in Licorice, Wheat, and Jujube Decoction (gan mai da zao tang).
+- **Moderates and harmonizes the harsh properties of other herbs:**
+  - When added to harsh cathartics such as *Genkwa Flos* (yuan hua) and *Kansui Radix* (gan sui), this herb can, to a degree, mollify their harsh actions and prevent injury to the Spleen and Stomach.
+  - It is also added to prescriptions containing large amounts of acrid or bitter herbs to mitigate their harshness.
 
 ## 🎯 Patterns & Symptoms
 
@@ -175,8 +186,9 @@ SORT Category, file.name
 **Toxicity:** `= this.herb_data.toxicity`
 
 **Contraindications:**
--
--
+- Contraindicated when there is heat from excess, damp-heat, or phlegm-heat.
+- Use with caution in cases with abundant dampness or qi stagnation.
+- See Toxicity below.
 
 **Drug Interactions:**
 -
@@ -209,8 +221,9 @@ WHERE file.name = this.file.name
 ## 🌱 Quality Criteria & Authentication
 
 **Quality Indicators:**
--
--
+Good quality red jujubes consists of full, thick, light red fruit of uniform size with a sweet taste and small seeds.
+
+Good quality black jujubes consists of large black fruit with a glossy, wrinkled surface and a sweet taste.
 
 **Common Adulterants:**
 -
@@ -281,7 +294,7 @@ LIMIT 10
 - [[]]
 
 **Related Formulas:**
-- [[Formulas including Da Zao]]
+- [[Formulas including Ai Ye]]
 
 **Related Western Conditions:**
 - [[]]

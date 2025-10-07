@@ -1,7 +1,7 @@
 ---
 # 🔹 Core Metadata (Universal Fields)
 id: "herb-20251001123706"
-name: "She Chuang Zi"
+name: "Cnidii Fructus / She Chuang Zi"
 type: "herb"
 aliases: []
 tags: [TCM, Herb]
@@ -20,35 +20,38 @@ tests: []
 # 🔹 Herb-Specific Data
 herb_data:
   hanzi: "蛇床子"
-  pinyin: "She Chuang Zi"
-  pharmaceutical: "Cnidii, Fructus"
-  english: ""
+  pinyin: "she chuang zi"
+  pharmaceutical: "Cnidii Fructus"
+  english: "cnidium seed"
   alternate_names: []
 
   # TCM Properties
-  taste: []
-  temperature: ""
-  channels: []
+  taste: [Acrid, bitter, warm, slightly toxic]
+  temperature: "warm"
+  channels: [Kidney]
 
   # Clinical Information
-  dosage: ""
-  toxicity: ""
-  functions: []
+  dosage: "3-9g in decoctions"
+  toxicity: "No side effects have been noted from ingestion of the crude herb, but ingestion of just the coumarin fraction can lead to dry mouth, drowsiness, and mild gastric discomfort.
+
+External application of a combination of Cnidii Fructus with Stemonae Radix (bai bu) has been known to cause erythema and severe pruritus. All of the above symptoms disappeared spontaneously when treatment was terminated."
+  functions: [Dries dampness, kills parasites, stops itching, Disperses cold, dispels wind, Warms the Kidneys, fortifies the yang]
   dui_yao: []
 
   # Additional Information
-  constituents: []
-  quality: ""
-  text_first_appeared: ""
+  constituents: [cyclofenchene, α-pinene, camphene, myrcene, limonene, α-, β-terpinene, 3,5-dimethylstyrene, isoborneol, azulene, bornylacetate, 1(7),8(10)-p-menthadien-9-ol, caryophyllene, β-farnesene, α-cubebene, α-bergamotene, δ-bisabolene, α-elemene, δ-eudesmol, osthole, bergaptene, cnidimine, isopimpinelline, dihydrooroselol, 3'-isobutyryloxy-0-acetyl-2',3'-dihydrooroselol, columbianadin, 0-acetylcolumbianetin, cnidiadin, alloimperatorine, edultin (cnidimine), xanthotoxin, xanthotoxol, isogosferol, diosmetin, p-coumaric acid, cniforin A (3'-isobutyryloxy-0-acetyl-columbianetin), cniforin B, dl-umtatin, cnidimol A, B, palmitic acid, β-sitosterol]
+  quality: "Good quality consists of yellowish green, full fruit, which emit a pungent aroma when rubbed between the fingers."
+  text_first_appeared: "Divine Husbandman's Classic of the Materia Medica"
 
   # Source References
-  bensky_page: ""
+  bensky_pdf: "627"
+  bensky_page: "None"
 
 created: 2025-10-01
 updated: 2025-10-01
 ---
 
-# 🌿 She Chuang Zi
+# 🌿 Ai Ye
 
 **Pharmaceutical Name:** `= this.herb_data.pharmaceutical`
 **English Name:** `= this.herb_data.english`
@@ -71,8 +74,13 @@ updated: 2025-10-01
 
 ## 📖 Overview
 
-Brief description of the herb, source, botanical information, and general identity.
+Acrid, bitter, and warm, Cnidii Fructus (she chuang zi) warms the Kidneys, assists the yang, expels wind, dries dampness, and kills parasites. It treats male impotence, damp itching of the scrotum, genital itching with vaginal discharge in females, infertility due to cold in the uterus, wind-damp painful obstruction, scabies, lichen simplex, and damp sores. Rectification of the Meaning of Materia Medica notes that "The warmth of Cnidii Fructus (she chuang zi) is sudden and violent. ... Kidney yang must be listless, and cold [pathogenic] water must be flooding before it is used internally."
 
+The Divine Husbandman's Classic of the Materia Medica states that this substance "Governs swelling and pain in the female genitals, impotence in the male, and damp itching. Expels painful obstruction qi, facilitates the joints, [treats] seizures and noxious wounds." Miscellaneous Records of Famous Physicians adds that it "Warms the middle, drives qi downward, makes the female Womb hot and strengthens the male genitals, improves the complexion, and makes people have children."
+
+With respect to using Cnidii Fructus (she chuang zi) for painful obstruction, Rectification of the Meaning of Materia Medica explains that "It basically unblocks and promotes movement in the channels and collaterals, dredges and unblocks the joints." This passage goes on to say that it is only appropriate for these purposes if the blockage is due to cold-dampness.
+
+---
 ---
 
 ## 🔑 TCM Properties
@@ -85,21 +93,17 @@ Brief description of the herb, source, botanical information, and general identi
 
 ## ⚡ Functions & Actions
 
-```dataview
-LIST herb_data.functions
-WHERE file.name = this.file.name
-```
-
-**Key Functions:**
--
--
--
-
-**Clinical Applications:**
--
--
-
----
+Dries dampness, kills parasites, and stops itching: use topically as a wash, powder, or ointment for any kind of weeping, itchy skin lesion, especially in the genital area. Also for scabies and tinea.
+    -   With Alumen (bai fan) and Phellodendri Cortex (huang bai), as a vaginal suppository, for the itching associated with trichomoniasis.
+    -   With Sophorae Flavescentis Radix and Stem (ku shen) for itchy, weeping skin lesions, as in Cnidium Powder (she chuang zi san).
+    -   With Calomelas (qing fen) for itching, weeping skin lesions as found in acute flare-ups of chronic eczema, genital eczema, or scabies.
+    -   With Clematidis Radix (wei ling xian), Sophorae Flavescentis Radix (ku shen), and Amomi Fructus (sha ren) as an external wash for weeping and itching rashes of the scrotum and groin.
+-   Disperses cold, dispels wind, and dries dampness: for vaginal discharge due to cold-dampness or lower back pain due to wind-cold-dampness affecting the Kidneys and the Governing vessel.
+    -   With Corni Fructus (shan zhu yu), Dioscoreae Rhizoma (shan yao), and Cervi Cornus Colla (lu jiao jiao) for cold-damp vaginal discharge.
+    -   With Taxilli Herba (sang ji sheng), Eucommiae Cortex (du zhong), and Gentianae Macrophyllae Radix (qin jiao) for lower back and leg pain due to cold-dampness.
+-   Warms the Kidneys and fortifies the yang: taken internally for impotence or infertility (male or female) due to Kidney deficiency or cold Womb.
+    -   With Cuscutae Semen (tu si zi) and Schisandrae Fructus (wu wei zi), ingested, for impotence or infertility due to Kidney deficiency.
+    -   With Cinnamomi Cortex (rou gui), Cistanches Herba (rou cong rong), and Morindae Officinalis Radix (ba ji tian) for impotence or infertility due to waning of the fire at the gate of vitality, as in Special Pill to Aid Fertility (zi yu dan).
 
 ## 🎯 Patterns & Symptoms
 
@@ -175,8 +179,15 @@ SORT Category, file.name
 **Toxicity:** `= this.herb_data.toxicity`
 
 **Contraindications:**
--
--
+Should not be taken orally in cases of damp-heat in the lower burner or yin deficiency with heat signs. See Toxicity below.
+
+Traditional Contraindications
+
+"It should not be taken by those with easily disturbed Kidney fire, frequent erections, and insecure essence." (Encountering the Sources of the Classic of Materia Medica)
+
+"Should not be taken by Kidney patients with fire or heat in the lower part of the body." (Commentary on the Divine Husbandman's Classic of Materia Medica)
+
+According to some traditional sources, this herb antagonizes Moutan Cortex (mu dan pi), Crotonis Fructus (ba dou), and Fritillariae Bulbus (bei mu).
 
 **Drug Interactions:**
 -
@@ -209,8 +220,7 @@ WHERE file.name = this.file.name
 ## 🌱 Quality Criteria & Authentication
 
 **Quality Indicators:**
--
--
+Good quality consists of yellowish green, full fruit, which emit a pungent aroma when rubbed between the fingers.
 
 **Common Adulterants:**
 -
@@ -281,7 +291,7 @@ LIMIT 10
 - [[]]
 
 **Related Formulas:**
-- [[Formulas including She Chuang Zi]]
+- [[Formulas including Ai Ye]]
 
 **Related Western Conditions:**
 - [[]]

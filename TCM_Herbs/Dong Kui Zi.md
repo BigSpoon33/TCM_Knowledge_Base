@@ -1,7 +1,7 @@
 ---
 # 🔹 Core Metadata (Universal Fields)
 id: "herb-20251001123706"
-name: "Dong Kui Zi"
+name: "Long Kui / Solani nigri Herba"
 type: "herb"
 aliases: []
 tags: [TCM, Herb]
@@ -19,36 +19,37 @@ tests: []
 
 # 🔹 Herb-Specific Data
 herb_data:
-  hanzi: "冬葵子"
-  pinyin: "Dong Kui Zi"
-  pharmaceutical: "Malvae, Semen"
-  english: ""
+  hanzi: "龍葵"
+  pinyin: "lóng kuí"
+  pharmaceutical: "Solani nigri Herba"
+  english: "Black Nightshade Herb"
   alternate_names: []
 
   # TCM Properties
-  taste: []
-  temperature: ""
-  channels: []
+  taste: [Bitter, slightly sweet]
+  temperature: "Cold"
+  channels: [Lung, Stomach, Bladder]
 
   # Clinical Information
-  dosage: ""
-  toxicity: ""
-  functions: []
+  dosage: "15-30g"
+  toxicity: "No side effects have been reported in patients taking a normal dosage of the crude preparation orally. Overdosage (45-60g), however, can cause problems that will occur anywhere from ten minutes to several hours after ingestion. These include itching throat, hot and burning sensation, epigastric pain, nausea, vomiting, diarrhea, dehydration, and electrolyte imbalance. In severe cases, shock, hypotension, dilated pupils, restlessness, delirium, spasms, dyspnea, and even respiratory and circulatory failure can occur."
+  functions: [Clears heat, Resolves toxicity, Invigorates the blood, Reduces swellings, Promotes urination, Unblocks painful urinary dribbling, disperses clumps, facilitates urination, expels phlegm, stops cough, alleviates itching]
   dui_yao: []
 
   # Additional Information
-  constituents: []
-  quality: ""
-  text_first_appeared: ""
+  constituents: [Steroidal alkaloids: solasodamine, solasonine, solamargine, α-solanigrine, β-solanigrine, solavilline, solanigridine]
+  quality: "Good quality consists of green, tender stems and leaves. The best quality has fruit."
+  text_first_appeared: "Reference on Medicinal Properties"
 
   # Source References
-  bensky_page: ""
+  bensky_pdf: "627"
+  bensky_page: "None"
 
 created: 2025-10-01
 updated: 2025-10-01
 ---
 
-# 🌿 Dong Kui Zi
+# 🌿 Ai Ye
 
 **Pharmaceutical Name:** `= this.herb_data.pharmaceutical`
 **English Name:** `= this.herb_data.english`
@@ -71,8 +72,17 @@ updated: 2025-10-01
 
 ## 📖 Overview
 
-Brief description of the herb, source, botanical information, and general identity.
+Bitter, cold, and slightly toxic, Solani nigri Herba (long kui) enters the Lung, Stomach, and Bladder channels. It clears heat, resolves toxicity, invigorates the blood, disperses clumps, facilitates urination, reduces swelling, expels phlegm, stops cough, and alleviates itching. Traditionally, it was used primarily for toxic swellings, sores, carbuncles and furuncles; modern usage has extended its application to the treatment of many types of cancer, bronchitis, and urinary tract infections.
 
+The external use of the leaves of Solani nigri Herba (long kui) for pemphigus and other toxic swellings was noted in the twelfth-century work Comprehensive Record of Sage-Like Benefit, which says that the young sprouting leaves should be crushed and applied externally to the blisters.
+
+Encountering the Sources of the Classic of Materia Medica says that this herb is bitter, slightly sweet, slippery and cold, and non-toxic. When it is said that Solani nigri Herba (long kui) is slippery like other large-leaf plants [such as sunflower, hollyhock, or mallow], this is in reference to its sprouting leaves, which reduce heat and disperse blood; they suppress the toxicity of cinnabar-like minerals, and expel corrupted blood in women. The common name 'old duck eyes' refers to its fruit, which has an excellent ability to restore the sinews and reduce deep-rooted swellings [resolving toxicity] similar to the sprouted leaves. The root facilitates urination, particularly when decocted with Akebiae Caulis (mu tong). It should be noted that the unripe fruit is quite toxic.
+
+Rectification of the Meaning of Materia Medica elaborates:
+
+The nature of this herb is cold, cooling, slippery and facilitating, and is thus termed 'mallow' (kui). The stem is soft and tender, like a vine, but not a vine, spreading and extending widely, and is thus termed 'dragon,' referring to its endless meandering. ... The Tang Materia Medica says that [it] expels heat and reduces swelling; the Illustrated Classic of the Materia Medica says that it treats gynecological bad blood; Li Shi-Zhen states that it reduces heat and disperses blood, suppressing the ill effects of mineral and metal toxins, treating toxic swollen sores, and injury from trauma; and the Materia Medica of Diet Therapy notes that it can be crushed and applied to deep-rooted sores, swellings, and rashes. Thus, it can be taken internally, applied externally, used for clearing heat, unblocking and facilitating [urination], and therefore can also treat external injuries and bruising; but its special forte is reducing heat and swellings in external medicine.
+
+---
 ---
 
 ## 🔑 TCM Properties
@@ -85,21 +95,13 @@ Brief description of the herb, source, botanical information, and general identi
 
 ## ⚡ Functions & Actions
 
-```dataview
-LIST herb_data.functions
-WHERE file.name = this.file.name
-```
-
-**Key Functions:**
--
--
--
-
-**Clinical Applications:**
--
--
-
----
+Clears heat, resolves toxicity, invigorates the blood, and reduces swellings: for sores and abscesses, pruritic sores and rashes, swollen and painful throat, and cancer.
+    - With Isatidis Folium (da qing ye) and Belamcandae Rhizoma (she gan) for acute swollen and painful throat.
+    - With Taraxaci Herba (pu gong ying) and Chrysanthemi indici Flos (ye ju hua) for abscesses. Can be taken internally and applied topically.
+    - With Schizonepetae Herba (jing jie) and Cicadae Periostracum (chan tui) for pruritic sores and rashes.
+    - With Scutellariae barbatae Herba (ban zhi lian) for a variety of cancers.
+- Promotes urination and unblocks painful urinary dribbling: for hot painful urinary dribbling or edema with urinary dysfunction.
+    - With Plantaginis Semen (che qian zi), Alismatis Rhizoma (ze xie), and Pyrrosiae Folium (shi wei) for hot painful urinary dribbling or edema with urinary dysfunction.
 
 ## 🎯 Patterns & Symptoms
 
@@ -175,8 +177,7 @@ SORT Category, file.name
 **Toxicity:** `= this.herb_data.toxicity`
 
 **Contraindications:**
--
--
+Contraindicated during pregnancy. See Toxicity below.
 
 **Drug Interactions:**
 -
@@ -209,8 +210,7 @@ WHERE file.name = this.file.name
 ## 🌱 Quality Criteria & Authentication
 
 **Quality Indicators:**
--
--
+Good quality consists of green, tender stems and leaves. The best quality has fruit.
 
 **Common Adulterants:**
 -
@@ -281,7 +281,7 @@ LIMIT 10
 - [[]]
 
 **Related Formulas:**
-- [[Formulas including Dong Kui Zi]]
+- [[Formulas including Ai Ye]]
 
 **Related Western Conditions:**
 - [[]]

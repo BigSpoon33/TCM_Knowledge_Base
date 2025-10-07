@@ -19,36 +19,37 @@ tests: []
 
 # 🔹 Herb-Specific Data
 herb_data:
-  hanzi: "澤蘭"
+  hanzi: "泽兰"
   pinyin: "Ze Lan"
-  pharmaceutical: "Lycopi, Herba"
-  english: ""
+  pharmaceutical: "Lycopi Herba"
+  english: "Lycopus Herb"
   alternate_names: []
 
   # TCM Properties
-  taste: []
-  temperature: ""
-  channels: []
+  taste: [Bitter, acrid]
+  temperature: "Slightly warm"
+  channels: [Liver, Spleen]
 
   # Clinical Information
-  dosage: ""
-  toxicity: ""
-  functions: []
+  dosage: "9-15g"
+  toxicity: "None"
+  functions: [Invigorates the blood, Dispels stasis, Promotes urination]
   dui_yao: []
 
   # Additional Information
-  constituents: []
-  quality: ""
-  text_first_appeared: ""
+  constituents: [Volatile oil: hexanal, hexanol, cis-3-hexen-1-ol, trans-3-hexen-1-ol, α-thujene, α-pinene, β-pinene, myrcene, humulene, sabinene, camphene, α-phellandrene, β-phellandrene, linalool, limonene, benzaldehyde, p-cymene, γ-terpinene, terpinene-4-ol, trans-pinocarveol, methyl salicylate, myrtenol, geranyl acetate, bornyl acetate, γ-elemene, δ-elemene, bergaptene, α-cubebin, β-cubebin, δ-selinene, nerolidol, diethylphthalate, Triterpenes: oleanolic acid, betulinic acid, 3-epimaslinic acid, euscaphic acid, 2α-hydroxyursolic acid, tormentic acid, β-sitosterol]
+  quality: "Good quality consists of unfragmented, yellowish-green plants with many leaves and flowers."
+  text_first_appeared: "None"
 
   # Source References
-  bensky_page: ""
+  bensky_pdf: "627"
+  bensky_page: "None"
 
 created: 2025-10-01
 updated: 2025-10-01
 ---
 
-# 🌿 Ze Lan
+# 🌿 Ai Ye
 
 **Pharmaceutical Name:** `= this.herb_data.pharmaceutical`
 **English Name:** `= this.herb_data.english`
@@ -71,8 +72,18 @@ updated: 2025-10-01
 
 ## 📖 Overview
 
-Brief description of the herb, source, botanical information, and general identity.
+Lycopi Herba (ze lan) has three distinctive qualities: it invigorates the blood, facilitates urination, and accomplishes these actions in a gentle, harmonious manner. Materia Medica of Ri Hua-Zi says that it "nourishes the blood and qi, breaks up retained blood, reduces mobile and fixed abdominal masses, and all disorders surrounding the birth process ... reduces blood stasis due to traumatic injury." Many texts emphasize its importance in gynecology, particularly for abdominal masses and abdominal pain. This results from its qualities: acrid, such that it disperses; bitter, such that it drains; warm, such that it unblocks; and aromatic, such that it pierces congealed yin. Because it enters the blood aspect of the Liver channel, it is in this arena that its qualities will be expressed.
 
+The ability of this herb to facilitate urination was recorded in the Divine Husbandman's Classic of the Materia Medica in the second century, where it is stated that it can be used for "distended abdominal edema, and floating edema of the trunk, face, and extremities." Commentary on the Divine Husbandman's Classic of Materia Medica elaborates:
+
+If assisted by herbs that augment the Spleen earth, and enhanced [by combination] with Stephaniae/Cocculi/etc. Radix (fen fang ji), it governs distended abdominal edema and floating edema of the trunk, face, and extremities, as well as water qi within the bone joints.
+
+### Mechanisms of Selected Combinations
+
+- WITH STEPHANIAE TETRANDRAE RADIX (fen fang ji); see page 314
+- WITH LEONURI HERBA (yi mu cao); see page 615
+
+---
 ---
 
 ## 🔑 TCM Properties
@@ -85,21 +96,14 @@ Brief description of the herb, source, botanical information, and general identi
 
 ## ⚡ Functions & Actions
 
-```dataview
-LIST herb_data.functions
-WHERE file.name = this.file.name
-```
-
-**Key Functions:**
--
--
--
-
-**Clinical Applications:**
--
--
-
----
+- Invigorates the blood and dispels stasis: for pain due to blood stasis obstructing the menses, and for postpartum abdominal pain from blood stasis. Also used topically or internally for pain and swelling from traumatic injury or abscess.
+    - With Chuanxiong Rhizoma (chuan xiong) for amenorrhea, dysmenorrhea, and trauma-induced pain.
+    - With Salviae miltiorrhizae Radix (dan shen) for trauma-induced swelling and pain or pain in the chest and hypochondria.
+    - With Curcumae longae Rhizoma (jiang huang) and Tinosporae sinensis Caulis (kuan jin teng) as an external wash for trauma-induced swelling and pain.
+    - With Angelicae sinensis Radix (dang gui), Lonicerae Flos (jin yin hua), and Glycyrrhizae Radix (gan cao) for swelling and pain from abscess.
+- Promotes urination: for postpartum edema, postpartum painful urinary dribbling, and systemic or facial edema. This effect is rather mild and is adjunctive in nature.
+    - With Imperatae Rhizoma (bai mao gen) for edema with accompanying heat symptoms.
+    - With Stephaniae tetrandrae Radix (fen fang ji) for postpartum edema.
 
 ## 🎯 Patterns & Symptoms
 
@@ -175,8 +179,8 @@ SORT Category, file.name
 **Toxicity:** `= this.herb_data.toxicity`
 
 **Contraindications:**
--
--
+- Use with caution in those with blood deficiency or in the absence of blood stasis.
+- Use with caution during pregnancy.
 
 **Drug Interactions:**
 -
@@ -209,8 +213,7 @@ WHERE file.name = this.file.name
 ## 🌱 Quality Criteria & Authentication
 
 **Quality Indicators:**
--
--
+Good quality consists of unfragmented, yellowish-green plants with many leaves and flowers.
 
 **Common Adulterants:**
 -
@@ -281,7 +284,7 @@ LIMIT 10
 - [[]]
 
 **Related Formulas:**
-- [[Formulas including Ze Lan]]
+- [[Formulas including Ai Ye]]
 
 **Related Western Conditions:**
 - [[]]

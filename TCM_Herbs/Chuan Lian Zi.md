@@ -21,34 +21,38 @@ tests: []
 herb_data:
   hanzi: "川楝子"
   pinyin: "Chuan Lian Zi"
-  pharmaceutical: "Meliae Toosendan, Fructus"
-  english: ""
+  pharmaceutical: "Toosendan Fructus"
+  english: "Toosendan fruit, Sichuan chinaberry, Sichuan pagoda tree"
   alternate_names: []
 
   # TCM Properties
-  taste: []
-  temperature: ""
-  channels: []
+  taste: [Bitter, cold, slightly toxic]
+  temperature: "cold"
+  channels: [Bladder, Liver, Small Intestine, Stomach]
 
   # Clinical Information
-  dosage: ""
-  toxicity: ""
-  functions: []
+  dosage: "4.5-9g"
+  toxicity: "Overdosage may have the following side effects:
+- nervous system: headache, blurred vision, double vision, slurred speech, labored breathing, tremor, spasms, numbness of the limbs, and generalized weakness
+- digestive tract: nausea, vomiting, abdominal pain, diarrhea, jaundice, toxic hepatitis
+- circulatory system: arrhythmia, damage to the heart muscle, epistaxis, bloody stools, hematuria, low blood pressure, shock"
+  functions: [Dredges Liver qi, releases constraint, stops pain, and conducts heat out from below, Kills parasites and stops pain]
   dui_yao: []
 
   # Additional Information
-  constituents: []
-  quality: ""
-  text_first_appeared: ""
+  constituents: [Tetracyclic triterpenes: toosendanin (chuanliansu), isotoosendanin (isochuanliansu), melianone, 21-0-methyltoosendanpentaol, lipomelianol, 21-0-acetyltoosendantriol, lipomelianyl-3-0-stearate, palmitate, myristate, laurate (3:35:32:30), Sesquiterpene glycosides: meliaionoside A, B, Other constituents: fixed oil, acetic acid, hexanoic acid]
+  quality: "Good quality consists of large, full, golden yellow fruit with a yellowish white cross section."
+  text_first_appeared: "Divine Husbandman's Classic of the Materia Medica"
 
   # Source References
-  bensky_page: ""
+  bensky_pdf: "627"
+  bensky_page: "None"
 
 created: 2025-10-01
 updated: 2025-10-01
 ---
 
-# 🌿 Chuan Lian Zi
+# 🌿 Ai Ye
 
 **Pharmaceutical Name:** `= this.herb_data.pharmaceutical`
 **English Name:** `= this.herb_data.english`
@@ -71,8 +75,22 @@ updated: 2025-10-01
 
 ## 📖 Overview
 
-Brief description of the herb, source, botanical information, and general identity.
+Bitter, cold, and slightly toxic, Toosendan Fructus (*chuan lian zi*) cools heat, regulates and directs qi downward, kills parasites, and clears damp-heat by guiding it out through the urine. It has a marked ability to relieve qi constraint and thus stop pain in the chest or abdomen, but can also stop pain due to accumulation of parasites such as roundworms and tapeworms. It can also treat bulging disorders associated with pathogenic heat. The Grand Materia Medica observes that, because it is bitter and cold, it can guide out heat in the Small Intestine and Bladder, and because it leads Pericardium ministerial fire downward, it unblocks and facilitates urination, and is an important herb for bulging disorders.
 
+Essays on Medicine Esteeming the Chinese and Respecting the Western has a slightly different view of its qualities: [It] is slightly sour and slightly bitter in flavor, and cooling in nature. Sour things enter the Liver, bitter things direct downward, [thus] it can guide heat in the Liver and Gallbladder downward and out through the urine. Therefore it treats unrestrained Liver qi or overabundant accumulation of Gallbladder fire causing pain in the hypochondrium, and also pain due to qi constraint in the epigastrium, as wood can dredge earth. Although it is cooling in nature, when it treats bulging disorders it is commonly used as a guiding herb, as its virtue of directing downward guides the other herbs to reach the afflicted location.
+
+### Mechanisms of Selected Combinations
+- **WITH FOENICULI FRUCTUS (*xiao hui xiang*)**
+
+Toosendan Fructus (*chuan lian zi*) regulates the qi, stops pain, and because it is bitter and cold, also cools Liver fire and eliminates damp-heat. It is an important herb in the treatment of epigastric and abdominal pain, and bulging disorders. Foeniculi Fructus (*xiao hui xiang*) also regulates the qi and alleviates pain, but it is acrid and warm in nature, excels at warming the Kidneys and dispersing cold, and is an important herb for mobilizing the lower abdomen and genital region.
+
+Together, the warmth of Foeniculi Fructus (*xiao hui xiang*) unblocks, while the cooling property of Toosendan Fructus (*chuan lian zi*) clears, and thus the combination has a strong pain-stopping effect, and is often used to regulate qi and treat bulging disorders in the lower abdomen.
+
+Encountering the Sources of the Classic of Materia Medica explains:
+
+Bulging disorders and mobile masses are all due to cold fettering a heat pathogen, in most cases the pain is tugging and drawing. Releasing this complex of interlocked pathogens requires the bitter cold of Toosendan Fructus (*chuan lian zi*) coupled with the acrid heat of Foeniculi Fructus (*xiao hui xiang*).
+
+---
 ---
 
 ## 🔑 TCM Properties
@@ -85,21 +103,12 @@ Brief description of the herb, source, botanical information, and general identi
 
 ## ⚡ Functions & Actions
 
-```dataview
-LIST herb_data.functions
-WHERE file.name = this.file.name
-```
-
-**Key Functions:**
--
--
--
-
-**Clinical Applications:**
--
--
-
----
+- Dredges Liver qi, releases constraint, stops pain, and conducts heat out from below: for a variety of symptoms from Liver constraint, including pain in the chest and ribs, distention and pain from Liver/Stomach disharmony, and bulging disorders. It is most useful for problems involving heat, but because it is very effective, it can also be used for cold conditions with the appropriate combination of herbs.
+    - With Corydalis Rhizoma (*yan hu suo*) for intermittent epigastric and hypochondriac pain, pain from bulging disorders, or menstrual pain accompanied by irritability. These problems are all due to Liver constraint with heat, as in Melia Toosendan Powder (*jin ling zi san*).
+    - With Rehmanniae Radix (*sheng di huang*) and Lycii Fructus (*gou qi zi*) for hypochondriac and chest pain, dry mouth, and acid regurgitation from Liver qi stagnation along with Liver and Kidney yin deficiency, as in Linking Decoction (*yi guan jian*).
+    - With the very warm herbs Foeniculi Fructus (*xiao hui xiang*) and Evodiae Fructus (*wu zhu yu*) for the pain associated with cold-type bulging disorders, as in Conduct the Qi Decoction (*dao qi tang*).
+- Kills parasites and stops pain: for roundworms and tapeworms. Although this herb is not particularly effective in expelling parasites, it is able to alleviate pain and is therefore used for the abdominal pain associated with an accumulation of parasites. Also used topically in powder form for dermatosis of the scalp.
+    - With Arecae Semen (*bing lang*) and Omphalia (*lei wan*) for the pain associated with intestinal parasites.
 
 ## 🎯 Patterns & Symptoms
 
@@ -175,8 +184,7 @@ SORT Category, file.name
 **Toxicity:** `= this.herb_data.toxicity`
 
 **Contraindications:**
--
--
+Contraindicated in those with cold from deficiency of the Spleen and Stomach.
 
 **Drug Interactions:**
 -
@@ -209,8 +217,7 @@ WHERE file.name = this.file.name
 ## 🌱 Quality Criteria & Authentication
 
 **Quality Indicators:**
--
--
+Good quality consists of large, full, golden yellow fruit with a yellowish white cross section.
 
 **Common Adulterants:**
 -
@@ -281,7 +288,7 @@ LIMIT 10
 - [[]]
 
 **Related Formulas:**
-- [[Formulas including Chuan Lian Zi]]
+- [[Formulas including Ai Ye]]
 
 **Related Western Conditions:**
 - [[]]

@@ -20,35 +20,36 @@ tests: []
 # 🔹 Herb-Specific Data
 herb_data:
   hanzi: "仙茅"
-  pinyin: "Xian Mao"
-  pharmaceutical: "Curculiginis, Rhizoma"
-  english: ""
+  pinyin: "xiān máo"
+  pharmaceutical: "Curculiginis Rhizoma"
+  english: "Curculigo, golden eye-grass rhizome"
   alternate_names: []
 
   # TCM Properties
-  taste: []
-  temperature: ""
-  channels: []
+  taste: [Acrid, hot, toxic]
+  temperature: "hot"
+  channels: [Kidney]
 
   # Clinical Information
-  dosage: ""
-  toxicity: ""
-  functions: []
+  dosage: "3-9g"
+  toxicity: "Administration of high doses can cause such side effects as cold sweating, numbness of the limbs, swollen tongue, agitation, and loss of consciousness. For this reason, overdosage must be strictly avoided, and a daily dose of 12g (in a decoction) should in no case be exceeded."
+  functions: [Tonifies the Kidneys and fortifies the yang, Expels cold and eliminates dampness]
   dui_yao: []
 
   # Additional Information
-  constituents: []
-  quality: ""
-  text_first_appeared: ""
+  constituents: [cuculigosaponin A-M, curculigenin A, B, C, curculigol, yuccagenin, 31-methyl-3-oxoursen-28-oic acid, cycloartenol, β-sitosterol, stigmasterol, curculigoside, orcinol glucoside, curculigine A, lycorine, N-acetyl-N-hydroxy-2-carbamic acid methylester, N,N,N',N'-tetramethyl succinamide, hentriacontanol, 23-hydroxytriacontan-6-one]
+  quality: "Good quality consists of dry, thick and long, solid roots with a greyish black surface."
+  text_first_appeared: "Materia Medica from the [Southern] Seaboard Area"
 
   # Source References
-  bensky_page: ""
+  bensky_pdf: "627"
+  bensky_page: "777"
 
 created: 2025-10-01
 updated: 2025-10-01
 ---
 
-# 🌿 Xian Mao
+# 🌿 Ai Ye
 
 **Pharmaceutical Name:** `= this.herb_data.pharmaceutical`
 **English Name:** `= this.herb_data.english`
@@ -71,8 +72,15 @@ updated: 2025-10-01
 
 ## 📖 Overview
 
-Brief description of the herb, source, botanical information, and general identity.
+*Xian Mao* (Curculiginis Rhizoma) has a harsh nature that strongly tonifies the Kidney yang, stimulates the fire at the gate of vitality, and expels cold-dampness to warm the lower back and knees. It is slightly toxic, and should only be used for short periods until the desired effect is achieved. Because it warms the Kidney yang, it indirectly warms the Spleen yang and assists digestion. The Materia Medica of the Kaibao Era says that it
 
+governs cold *qi* in the epigastrium and abdomen with inability to eat, wind-cold causing cramps and spasms in the lower back and knees making one unable to walk, damp consumption in men, incontinence in the elderly, and assists sexual function in males.
+
+Encountering the Sources of the Classic of Materia Medica adds that it
+
+is hot in nature, and is an herb to tonify the Triple Burner and gate of vitality. It is only appropriate for those with impotence, cold essence, atrophy and weakness of the lower base, incontinence in the elderly, infertility, and males with deficient natural endowment.
+
+---
 ---
 
 ## 🔑 TCM Properties
@@ -85,21 +93,11 @@ Brief description of the herb, source, botanical information, and general identi
 
 ## ⚡ Functions & Actions
 
-```dataview
-LIST herb_data.functions
-WHERE file.name = this.file.name
-```
-
-**Key Functions:**
--
--
--
-
-**Clinical Applications:**
--
--
-
----
+- **Tonifies the Kidneys and fortifies the yang:** For impotence, urinary incontinence, nocturnal emissions, and irregular menstruation from Kidney yang deficiency. This herb is used for infertility from either a cold Womb (in women) or cold essence (in men).
+    - With Eucommiae Cortex (*du zhong*) for impotence, spermatorrhea, and weakness and pain in the lower back and legs.
+    - Often combined with Epimedii Herba (*yin yang huo*) to strengthen its effects. This pair of herbs is also the core of the formula Two-Immortal Decoction (*er xian tang*).
+- **Expels cold and eliminates dampness:** For obstinate cold-damp painful obstruction with generalized pain, a sense of weakness in the bones and sinews, and lower back and knee pain. Especially useful for cold abdominal or lower back pain.
+    - With Asari Radix et Rhizoma (*xi xin*) and Eleutherococci Gracilistyli Cortex (*wu jia pi*) for cold-damp induced pain and coldness in the lower back and legs.
 
 ## 🎯 Patterns & Symptoms
 
@@ -175,8 +173,7 @@ SORT Category, file.name
 **Toxicity:** `= this.herb_data.toxicity`
 
 **Contraindications:**
--
--
+Contraindicated in patterns of yin deficiency with heat signs. Long-term use is not recommended.
 
 **Drug Interactions:**
 -
@@ -209,8 +206,7 @@ WHERE file.name = this.file.name
 ## 🌱 Quality Criteria & Authentication
 
 **Quality Indicators:**
--
--
+Good quality consists of dry, thick and long, solid roots with a greyish black surface.
 
 **Common Adulterants:**
 -
@@ -281,7 +277,7 @@ LIMIT 10
 - [[]]
 
 **Related Formulas:**
-- [[Formulas including Xian Mao]]
+- [[Formulas including Ai Ye]]
 
 **Related Western Conditions:**
 - [[]]

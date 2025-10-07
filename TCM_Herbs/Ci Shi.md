@@ -20,35 +20,36 @@ tests: []
 # 🔹 Herb-Specific Data
 herb_data:
   hanzi: "磁石"
-  pinyin: "Ci Shi"
+  pinyin: "Cí Shí"
   pharmaceutical: "Magnetitum"
-  english: ""
+  english: "Magnetite"
   alternate_names: []
 
   # TCM Properties
-  taste: []
-  temperature: ""
-  channels: []
+  taste: [Acrid, salty]
+  temperature: "cold"
+  channels: [Kidney, Liver]
 
   # Clinical Information
-  dosage: ""
-  toxicity: ""
-  functions: []
+  dosage: "15-30g"
+  toxicity: "Do not use long term or in high doses."
+  functions: [Anchors and calms the spirit, Nourishes the Kidneys, augments the Liver, and improves hearing and vision, Aids the Kidneys in grasping the qi]
   dui_yao: []
 
   # Additional Information
-  constituents: []
-  quality: ""
-  text_first_appeared: ""
+  constituents: [Fe3O4 composed of FeO (31%), Fe2O3 (69%), up to 10-15% other metal oxides (Mg, Al)]
+  quality: "Good quality is dark grey or black, glossy, without any foreign mineral matter, and strongly attracts iron."
+  text_first_appeared: "Divine Husbandman's Classic of the Materia Medica"
 
   # Source References
-  bensky_page: ""
+  bensky_pdf: "627"
+  bensky_page: "None"
 
 created: 2025-10-01
 updated: 2025-10-01
 ---
 
-# 🌿 Ci Shi
+# 🌿 Ai Ye
 
 **Pharmaceutical Name:** `= this.herb_data.pharmaceutical`
 **English Name:** `= this.herb_data.english`
@@ -71,8 +72,15 @@ updated: 2025-10-01
 
 ## 📖 Overview
 
-Brief description of the herb, source, botanical information, and general identity.
+Salty, cold, and heavy in weight, *Magnetitum* (ci shi) enters the Liver and Kidney channels to protect the true yin, anchor the yang which is floating upward, and quiet the Heart spirit. The Kidneys govern the bones and store the essence, and the orifice of the Kidneys is the ears; thus, when the Kidneys are deficient and the essence is exhausted, there will be dizziness, tinnitus, and deafness, or wheezing, as the Kidneys fail to grasp the qi. The Liver governs the sinews and stores the blood, and the orifice of the Liver is the eyes; thus, when the Liver is deficient and lacks blood, the sinews will become weak and the vision will be impaired. Yin deficiency allows the yang to ascend, leading to derangement of the Heart spirit and thus palpitations, forgetfulness, insomnia, and restless activity.
 
+In all of these situations, *Magnetitum* (ci shi) can serve as the chief medicinal, because its salty coldness travels into the lower body to nourish the Kidneys, augment the essence and blood, and suppress and contain the floating yang.
+
+The *Grand Materia Medica* says that it "treats all disorders of the Kidneys, while unblocking the ears and brightening the eyes." *Seeking Accuracy in the Materia Medica* adds that it "enters the Kidneys to sedate the yin, preventing the dragon fire (i.e., the ministerial fire of the Kidneys) from rising upward out of the yin." It then quotes the sixth-century writer Xu Zhi-Cai: "[Xu said that] 'heaviness can eliminate trepidation;' *Magnetitum* (ci shi) is a type of powdered iron [and is heavy], so when trepidation causes the qi to float, it should be suppressed with a large dose [of it]." It goes on to say that, logically, it should not be used together with iron.
+
+The *Golden Mirror of the Medical Tradition* has an interesting note about *Magnetitum* (ci shi) saying that it enters the Kidneys "drawing in Lung metal qi to generate essence." *Thoroughly Revised Materia Medica* concurs, but without explicity making the connection between the Lung qi entering Kidneys and the generation of essence: "Acrid, salty, color black pertaining to water. Can guide Lung metal qi to enter the Kidneys. Tonifies the Kidneys and augments the essence." *Materia Medica of Medicinal Properties* takes this in a slightly different direction, stating that it "tonifies Kidney deficiency in males." This refers to its use in *Important Formulas Worth a Thousand Gold Pieces* for impotence.
+
+---
 ---
 
 ## 🔑 TCM Properties
@@ -85,21 +93,19 @@ Brief description of the herb, source, botanical information, and general identi
 
 ## ⚡ Functions & Actions
 
-```dataview
-LIST herb_data.functions
-WHERE file.name = this.file.name
-```
-
-**Key Functions:**
--
--
--
-
-**Clinical Applications:**
--
--
-
----
+- **Anchors and calms the spirit:** for restlessness, palpitations, insomnia, or tremors, especially in patients with yin deficiency and ascendant yang. Particularly useful when Kidney deficiency leads to upward blazing of Liver fire that deranges and disturbs the Heart spirit. Also used for dizziness or vertigo in patients with similar patterns, or convulsions in children caused by shock.
+  - With *Cinnabaris* (zhu sha) and *Massa medicata fermentata* (shen qu) for diminished visual acuity (as in cataracts), usually accompanied by irritability, in patterns of Liver and Kidney deficiency. See Magnetite and Cinnabar Pill (*Ci Zhu Wan*).
+  - With *Fossilia Ossis Mastodi* (long gu) and *Ostreae Concha* (mu li) for dizziness and vertigo associated with yin deficiency and ascendant yang.
+  - With *Angelicae sinensis Radix* (dang gui), *Rehmannia Radix preparata* (shu di huang), and *Ziziphi spinosae Semen* (suan zao ren) in those with anemia, palpitations and insomnia.
+    - Add *Rehmanniae Radix* (sheng di huang), *Paeoniae Radix alba* (bai shao), and *Testudinis Plastrum* (gui ban) for pronounced yin deficiency.
+    - Add *Uncariae Ramulus cum Uncis* (gou teng), *Chrysanthemi Flos* (ju hua), and *Prunellae Spica* (xia ku cao) for ascendant heat.
+  - With *Haliotidis Concha* (shi jue ming), *Margaritifera Concha usta* (zhen zhu mu), and *Ostreae Concha* (mu li) for dizziness and vertigo accompanied by a bad temper from ascendant Liver yang.
+- **Nourishes the Kidneys, augments the Liver, and improves hearing and vision:** for impaired hearing or deafness, tinnitus, or visual disturbances due to Liver and Kidney deficiency.
+  - With *Rehmanniae Radix preparata* (shu di huang), *Corni Fructus* (shan zhu yu), and *Dioscoreae Rhizoma* (shan yao) for diminished hearing and tinnitus, as in Pill for Deafness that is Kind to the Left [Kidney] (*Er Long Zuo Ci Wan*).
+  - With *Lycii Fructus* (gou qi zi), *Ligustri lucidi Fructus* (nu zhen zi), and *Chrysanthemi Flos* (ju hua) for diminished vision due to Liver and Kidney deficiency.
+  - With *Rehmanniae Radix preparata* (shu di huang), *Lycii Fructus* (gou qi zi), and *Astragali complanati Semen* (sha yuan zi) for both cataracts and some retinal problems.
+- **Aids the Kidneys in grasping the qi:** for chronic asthma due to failure of the Kidneys to grasp the qi.
+  - With *Haematitum* (dai zhe shi), *Schisandrae Fructus* (wu wei zi), and *Juglandis Semen* (he tao ren) for chronic cough and wheezing due to failure of Kidneys to grasp the Lung qi.
 
 ## 🎯 Patterns & Symptoms
 
@@ -175,8 +181,11 @@ SORT Category, file.name
 **Toxicity:** `= this.herb_data.toxicity`
 
 **Contraindications:**
--
--
+Use with caution in cases of weak Spleen or Stomach. See Toxicity below.
+
+*Thoroughly Revised Materia Medica* cautions that "Heavy suppression injures the qi, and can be used temporarily but not long term." It then notes: "All mineral medicinals are toxic except for *Magnetitum* (ci shi), which approaches harmony, as it is neither violent nor drastic, and it also tonifies the Kidneys and augments the essence."
+
+According to *Collection of Commentaries on the Classic of Materia Medica*, this substance antagonizes *Moutan Cortex* (mu dan pi).
 
 **Drug Interactions:**
 -
@@ -209,8 +218,7 @@ WHERE file.name = this.file.name
 ## 🌱 Quality Criteria & Authentication
 
 **Quality Indicators:**
--
--
+Good quality is dark grey or black, glossy, without any foreign mineral matter, and strongly attracts iron.
 
 **Common Adulterants:**
 -
@@ -281,7 +289,7 @@ LIMIT 10
 - [[]]
 
 **Related Formulas:**
-- [[Formulas including Ci Shi]]
+- [[Formulas including Ai Ye]]
 
 **Related Western Conditions:**
 - [[]]

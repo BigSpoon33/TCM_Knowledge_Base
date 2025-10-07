@@ -20,35 +20,40 @@ tests: []
 # 🔹 Herb-Specific Data
 herb_data:
   hanzi: "龍眼肉"
-  pinyin: "Long Yan Rou"
-  pharmaceutical: "Longanae, Arillus"
-  english: ""
+  pinyin: "lóng yǎn ròu"
+  pharmaceutical: "Longan Arillus"
+  english: "Longan Arillus"
   alternate_names: []
 
   # TCM Properties
-  taste: []
-  temperature: ""
-  channels: []
+  taste: [Sweet, Warm]
+  temperature: "Warm"
+  channels: [Heart, Spleen]
 
   # Clinical Information
-  dosage: ""
-  toxicity: ""
-  functions: []
+  dosage: "9-15g"
+  toxicity: "Taking high doses of this fruit can cause hemorrhagic colitis in children, which can be terminal. Note, however, that only two cases have been reported in the literature; in one, a three-year-old boy ate three handfuls of the fruit.
+
+Allergic skin reactions have also been reported. Symptom appeared 30 minutes after ingestion and included intense pruritus and erythema, starting at the lower extremities and spreading over the entire body, including the face.
+
+A single case of allergic drug rash has been reported with a scarlet, itching eruption expanding over the entire body, along with vertigo and an elevated temperature."
+  functions: [Tonifies and augments the Heart and Spleen, Nourishes the blood, Calms the spirit]
   dui_yao: []
 
   # Additional Information
-  constituents: []
-  quality: ""
-  text_first_appeared: ""
+  constituents: [Organic acids: tartaric acid, 2-amino-4-methylhex-5-ynoic acid, 2-amino-4-hydroxymethylhex-5-ynoic acid, α-amino-4-hydroxyhept-6-ynoic acid, Sugars: glucose, sucrose, Flavonoids: quercetin, quercitrin, Other constituents: fats, proteins, vitamine B1, B2, C, D, pentacyclic triterpenes]
+  quality: "Good quality consists of large, thick, soft, yellowish, translucent pieces with an intensely sweet taste."
+  text_first_appeared: "Divine Husbandman's Classic of the Materia Medica"
 
   # Source References
-  bensky_page: ""
+  bensky_pdf: "627"
+  bensky_page: "None"
 
 created: 2025-10-01
 updated: 2025-10-01
 ---
 
-# 🌿 Long Yan Rou
+# 🌿 Ai Ye
 
 **Pharmaceutical Name:** `= this.herb_data.pharmaceutical`
 **English Name:** `= this.herb_data.english`
@@ -71,8 +76,12 @@ updated: 2025-10-01
 
 ## 📖 Overview
 
-Brief description of the herb, source, botanical information, and general identity.
+As early as the Divine Husbandman's Classic of the Materia Medica, the gentle spirit-nourishing action of Longan Arillus (long yan rou) was noted: "primarily quiets the emotions and [treats] aversion to food; long-term consumption strengthens the corporeal and the ethereal souls, sharpens the intelligence, lightens the body, prevents aging, and facilitates enlightenment of the spirit."
 
+Seeking Accuracy in the Materia Medica elaborates:
+In general, the blood relies on the Heart for its generation, but also depends on the Spleen for control. [Excessive] thinking and deliberation can deplete the qi, which, without sweetness, cannot be tonified. [Excessive] thinking and deliberation also injure the spirit, which cannot be aided without moistening. Longan Arillus (long yan rou) has both sweetness and moisture, enabling it to tonify the Spleen and stabilize the qi; it also protects the blood from depletion. Then the spirit and qi naturally grow and are nourished, so that there can be no disorders such as palpitations with anxiety or forgetfulness.
+
+---
 ---
 
 ## 🔑 TCM Properties
@@ -85,21 +94,12 @@ Brief description of the herb, source, botanical information, and general identi
 
 ## ⚡ Functions & Actions
 
-```dataview
-LIST herb_data.functions
-WHERE file.name = this.file.name
-```
-
-**Key Functions:**
--
--
--
-
-**Clinical Applications:**
--
--
-
----
+Tonifies and augments the Heart and Spleen, nourishes the blood, and calms the spirit: for insomnia, heart palpitations, forgetfulness, or dizziness due to Heart and Spleen deficiency. Commonly used for problems associated with excessive pensiveness or overwork. Can be taken alone as a tea.
+    - With Angelicae sinensis Radix (dang gui), Ginseng Radix (ren shen), and Ziziphi spinosae Semen (suan zao ren) for palpitations and insomnia resulting from Heart blood deficiency, especially in those with accompanying Spleen qi deficiency, as in Restore the Spleen Decoction (gui pi tang).
+    - With Lilii Bulbus (bai he) for mild cases of insomnia and excitability.
+    - With Acori tatarinowii Rhizoma (shi chang pu) for forgetfulness, dizziness, and fatigue due to Heart qi and blood deficiency.
+    - Cooked with white sugar for insufficiency of qi and blood.
+    - With Zingiberis Rhizoma recens (sheng jiang) and Jujubae Fructus (da zao) for postpartum exhaustion of the qi and blood with floating edema.
 
 ## 🎯 Patterns & Symptoms
 
@@ -175,8 +175,11 @@ SORT Category, file.name
 **Toxicity:** `= this.herb_data.toxicity`
 
 **Contraindications:**
--
--
+Contraindicated in those with fire from constraint, phlegm with qi stagnation, or obstruction due to dampness.
+
+"Sweet, warm, and moistening: the concern is that it will cause the qi to stagnate. It is inappropriate for those with Stomach heat with phlegm or fire; or in cases of wind heat in the Lungs causing cough with phlegm or blood." (Treasury of Words on the Materia Medica)
+
+"Sweetness assists fire, and can also bring on pain; it should not be used with overabundant fire in the Heart or Lungs, fullness in the middle with nausea and vomiting, or constrained clumped qi in the diaphragm." (Treasury of Words on the Materia Medica)
 
 **Drug Interactions:**
 -
@@ -209,8 +212,7 @@ WHERE file.name = this.file.name
 ## 🌱 Quality Criteria & Authentication
 
 **Quality Indicators:**
--
--
+Good quality consists of large, thick, soft, yellowish, translucent pieces with an intensely sweet taste.
 
 **Common Adulterants:**
 -
@@ -281,7 +283,7 @@ LIMIT 10
 - [[]]
 
 **Related Formulas:**
-- [[Formulas including Long Yan Rou]]
+- [[Formulas including Ai Ye]]
 
 **Related Western Conditions:**
 - [[]]

@@ -19,36 +19,40 @@ tests: []
 
 # 🔹 Herb-Specific Data
 herb_data:
-  hanzi: "莪朮"
+  hanzi: "莪术"
   pinyin: "E Zhu"
-  pharmaceutical: "Curcumae, Rhizoma"
-  english: ""
+  pharmaceutical: "Curcumae Rhizoma"
+  english: "Curcuma Rhizome"
   alternate_names: []
 
   # TCM Properties
-  taste: []
-  temperature: ""
-  channels: []
+  taste: [Acrid, Bitter]
+  temperature: "Warm"
+  channels: [Liver, Spleen]
 
   # Clinical Information
-  dosage: ""
-  toxicity: ""
-  functions: []
+  dosage: "3-9g"
+  toxicity: "The following side effects may occur during treatment: dizziness, nausea, dyspnea, and, in rare cases, fever, cyanosis, anxiety, general weakness, and temporarily elevated levels of SGTP. Severe pain may occur if injected. Overdosage and long-term administration should be avoided."
+  functions: [Breaks up blood stasis, Promotes the movement of qi, Alleviates pain, Dissolves accumulations, Cools the blood, Resolves toxicity]
   dui_yao: []
 
   # Additional Information
-  constituents: []
-  quality: ""
-  text_first_appeared: ""
+  constituents: [*Curcuma phaeocaulis*:
+Volatile oil: curzerenone (45%), borneol, germacrone, limonene, 1,8-cineole, γ-pinene, δ-pinene, camphene, camphor, cineol, terpinene, terpineol, isoborneol, caryopterone, curcumene, curcumenol, isocurcumenol, procurcumenol, curcumenone, curcumol, curcumadiol, zingiberene, caryophyllene, 1,6-octadien-3-ol, (+)-caran-cis-4-ol, δ-elemene, furanodiene, furanodienone, *Curcuma kwangsiensis*:
+Volatile oil: γ-pinene, δ-pinene, cineol, terpinene, camphene, camphor, borneol, isoborneol, caryopterone, eugenol, curcumene, curcumol, curculone, turmerone, ar-turmerone, limonene, terpineol, curdione, linderazulene, isocurcumenol, linalool, δ-elemene, θ-elemene, terpineol-4, humulene, *Curcuma wenyujin*:
+Volatile oil: γ-pinene, δ-pinene, camphene, camphor, limonene, 1,8-cineol, linalool, borneol, isoborneol, terpineol-4, γ-terpinene, δ-elemene, α-eudesmol, β-eudesmol, γ-elemene, θ-elemene, caryopterone, humulene, curcumol, germacrone, germacrone epoxide, germacrone diepoxide, zingiberene, curcolone, curdione, turmerone, ar-turmerone, β-caryophyllene, furanodiene, curcumenone, germacrene D, isofuranogermacrene, bisdemethoxycurcumin, 2-heptanol, 2-nonanol, pentadecane, pentadecane-2-one, octadecane, eicosan, heneicosan]
+  quality: "Good quality consists of large, heavy, and solid rhizomes, uniform in size, with a finely wrinkled surface and without hairy roots."
+  text_first_appeared: "Not specified in text"
 
   # Source References
-  bensky_page: ""
+  bensky_pdf: "627"
+  bensky_page: "None"
 
 created: 2025-10-01
 updated: 2025-10-01
 ---
 
-# 🌿 E Zhu
+# 🌿 Ai Ye
 
 **Pharmaceutical Name:** `= this.herb_data.pharmaceutical`
 **English Name:** `= this.herb_data.english`
@@ -71,8 +75,19 @@ updated: 2025-10-01
 
 ## 📖 Overview
 
-Brief description of the herb, source, botanical information, and general identity.
+Curcumae Rhizoma (e zhu) enters the Liver and Spleen channels, which defines its range of activity: to act on the qi, blood, food stagnation, and phlegm. This also defines its theater of application: the abdomen, flanks, and hypochondria. Its acrid flavor disperses, its bitterness drains, its warmth unblocks, and its solid texture and weight ensures that it reaches the blood aspect, while its aroma promotes the flow of qi.
 
+In Convenient Reader of Materia Medica, Zhang Bing-Cheng observes:
+
+Acrid and bitter, [this herb] enters the Liver and Spleen to break up qi, promote movement in stasis, and grind away accumulations. Warm and aromatic, it dredges the yin and yang organs, expels phlegm, disperses stagnation, and drives out congealed cold.
+
+Proceeding, he says that it
+
+is an herb of the qi aspect of the Liver channel; it can break up blood in the qi aspect. Acrid, bitter, and warm, with a hard, violent nature, it excels at conquering by whittling away. It attacks delineated lumps and accumulations in the hypochondrium, abdomen, and xuan pi, congealed blood and stagnant qi, and is almost always used together with Sparganii Rhizoma (san leng). If concerned about its harshness, it should be dry-fried with vinegar before use.
+
+Note: Recently, this has become an important herb in the treatment of solid cancers, particularly of the cervix.
+
+---
 ---
 
 ## 🔑 TCM Properties
@@ -85,21 +100,17 @@ Brief description of the herb, source, botanical information, and general identi
 
 ## ⚡ Functions & Actions
 
-```dataview
-LIST herb_data.functions
-WHERE file.name = this.file.name
-```
-
-**Key Functions:**
--
--
--
-
-**Clinical Applications:**
--
--
-
----
+Breaks up blood stasis, promotes the movement of qi, and alleviates pain: for abdominal pain, dysmenorrhea, amenorrhea, abdominal masses, and epigastric masses due to blood stasis.
+With Sparganii Rhizoma (san leng) for fixed palpable masses of the epigastrium, abdomen, and subcostal areas, usually accompanied by pain and distention (as in cases of liver and spleen enlargement). This combination is indicated only for those patients whose overall constitution is still relatively robust.
+Add Gardeniae Fructus (zhi zi) and Rehmanniae Radix (sheng di huang) for the above symptomatology accompanied by heat symptoms.
+Add Salviae miltiorrhizae Radix (dan shen) and Trionycis Carapax (bie jia) for firm abdominal masses.
+With Angelicae sinensis Radix (dang gui), Achyranthis bidentatae Radix (niu xi), and Chuanxiong Rhizoma (chuan xiong) for menstrual disorders due to stagnant qi and blood stasis. Especially useful for dysmenorrhea and amenorrhea accompanied by a painful fixed abdominal mass, emotional depression, and a wiry pulse.
+Dissolves accumulations and alleviates pain: for pain, distention, fullness, and constriction in the chest and abdomen due to food stagnation. Also for childhood nutritional impairment.
+With Aucklandiae Radix (mu xiang) for abdominal fullness, pain, and distention due to food stagnation, as in Aucklandia and Areca Pill (mu xiang bing lang wan).
+Add Atractylodis macrocephalae Rhizoma (bai zhu) and Codonopsis Radix (dang shen) in cases of deficiency.
+With Citri reticulatae viride Pericarpium (qing pi) for pain and fullness in the chest and abdomen due to stagnant qi.
+Cools the blood and resolves toxicity: for maculopapular rashes with high fevers when the color of the rash is not very red.
+With Arnebiae Radix/Lithospermi Radix (zi cao) and Paeoniae Radix rubra (chi shao) for nonexpressed rash of measles.
 
 ## 🎯 Patterns & Symptoms
 
@@ -175,8 +186,9 @@ SORT Category, file.name
 **Toxicity:** `= this.herb_data.toxicity`
 
 **Contraindications:**
--
--
+Contraindicated during pregnancy or in those with excessive menstruation.
+"In all cases of early menstruation, and all disorders due to blood heat, it is forbidden." (Harm and Benefit in the Materia Medica)
+"Its nature is hard and drastic—without firm stubborn accumulation, it should not be used." (Rectification of the Meaning of Materia Medica)
 
 **Drug Interactions:**
 -
@@ -209,8 +221,7 @@ WHERE file.name = this.file.name
 ## 🌱 Quality Criteria & Authentication
 
 **Quality Indicators:**
--
--
+Good quality consists of large, heavy, and solid rhizomes, uniform in size, with a finely wrinkled surface and without hairy roots.
 
 **Common Adulterants:**
 -
@@ -281,7 +292,7 @@ LIMIT 10
 - [[]]
 
 **Related Formulas:**
-- [[Formulas including E Zhu]]
+- [[Formulas including Ai Ye]]
 
 **Related Western Conditions:**
 - [[]]

@@ -1,7 +1,7 @@
 ---
 # 🔹 Core Metadata (Universal Fields)
 id: "herb-20251001123706"
-name: "Bai Bian Dou"
+name: "Bai Bian Dou (Lablab Semen Album)"
 type: "herb"
 aliases: []
 tags: [TCM, Herb]
@@ -21,34 +21,35 @@ tests: []
 herb_data:
   hanzi: "白扁豆"
   pinyin: "Bai Bian Dou"
-  pharmaceutical: "Lablab Semen album"
-  english: ""
+  pharmaceutical: "Lablab Semen Album"
+  english: "Lablab, hyacinth bean"
   alternate_names: []
 
   # TCM Properties
-  taste: []
-  temperature: ""
-  channels: []
+  taste: [Sweet, neutral]
+  temperature: "neutral"
+  channels: [Spleen, Stomach]
 
   # Clinical Information
-  dosage: ""
-  toxicity: ""
-  functions: []
+  dosage: "9–30g"
+  toxicity: "The raw form contains toxic proteins that are denatured by heat. Must be cooked (not just powdered) before use. Symptoms of toxicity include nausea, vomiting, abdominal pain, and diarrhea. Severe cases involve a burning sensation in the stomach, panic, fear of cold, vertigo, headache, and numbness of the extremities."
+  functions: [Strengthens the Spleen, Nourishes the Stomach, Transforms Dampness, Harmonizes the Middle, Clears Summerheat Accompanied by Dampness, Treats Poisoning]
   dui_yao: []
 
   # Additional Information
-  constituents: []
-  quality: ""
-  text_first_appeared: ""
+  constituents: [Fixed oil: linoleic acid, elaidic acid, stearic acid, behenic acid, palmitic acid, oleic acid, arachidic acid, Alkaloids: trigonelline, Amino acids: methionine, leucine, threonine, Sugars: stachyose, raffinose, maltose, glucose, galactose, fructose, sucrose, Other constituents: L-2-pipecolic acid, phytin, hemagglutinin A, B, pantothenic acid, proteins, carotene, vitamin B1, steroids]
+  quality: "Good quality beans are big, full, white, and heavy. The best quality comes from Zhejiang and Jiangsu provinces. Inferior quality is often flat and light (e.g., Yunnan lablab bean, yun nan bian dou)."
+  text_first_appeared: "Miscellaneous Records"
 
   # Source References
-  bensky_page: ""
+  bensky_pdf: "627"
+  bensky_page: "None"
 
 created: 2025-10-01
 updated: 2025-10-01
 ---
 
-# 🌿 Bai Bian Dou
+# 🌿 Ai Ye
 
 **Pharmaceutical Name:** `= this.herb_data.pharmaceutical`
 **English Name:** `= this.herb_data.english`
@@ -71,8 +72,11 @@ updated: 2025-10-01
 
 ## 📖 Overview
 
-Brief description of the herb, source, botanical information, and general identity.
+Bai Bian Dou is classified as a tonifying herb because when dry-fried or baked, it is sweet and warm, strengthening the Spleen with little cloying nature. Its aroma transforms dampness without being overly drying. It serves as an excellent mild restorative for Spleen weakness, often used when patients cannot tolerate stronger tonics.
 
+It can also clear summerheat, especially when the pathogen leads to nausea and vomiting. For clearing summerheat, the unprepared form (sheng bian dou) is best.
+
+---
 ---
 
 ## 🔑 TCM Properties
@@ -85,21 +89,30 @@ Brief description of the herb, source, botanical information, and general identi
 
 ## ⚡ Functions & Actions
 
-```dataview
-LIST herb_data.functions
-WHERE file.name = this.file.name
-```
+1. Strengthens the Spleen, Nourishes the Stomach, Transforms Dampness, and Harmonizes the Middle:
 
-**Key Functions:**
--
--
--
+- For: Chronic diarrhea with loud stomach growling and reduced appetite due to Spleen deficiency. Also for vaginal discharge due to Spleen deficiency.
+- Combinations for Spleen Deficiency:
+    - With Dioscoreae Rhizoma (shan yao) for Spleen tonification when other tonics are not tolerated (xu bu shou bu). Often Pseudostellariae Radix (tai zi shen) is also included.
+    - With Codonopsis Radix (dang shen), Atractylodis Macrocephalae Rhizoma (bai zhu), and Poria (fu ling) for Spleen deficiency with significant dampness (refer to [[Shen Ling Bai Zhu San]]).
+    - With Pseudostellariae Radix (tai zi shen) and Setariae Fructus Germinatus (gu ya) for loss of appetite after prolonged illness.
+    - With Atractylodis Macrocephalae Rhizoma (bai zhu), Amomi Fructus (sha ren), and Gigeriae Galli Endothelium Corneum (ji nei jin) for lack of appetite in children from Spleen deficiency and stagnation due to dampness.
+- Combinations for Vaginal Discharge:
+    - With Atractylodis Rhizoma (cang zhu), Euryales Semen (qian shi), and Sepiae Endoconcha (hai piao xiao).
 
-**Clinical Applications:**
--
--
+2. Clears Summerheat Accompanied by Dampness:
 
----
+- For: Summerheat patterns, especially those with pronounced diarrhea or vomiting.
+- Combinations:
+    - With Moslae Herba (xiang ru) and Magnoliae Officinalis Cortex (hou po) for sudden turmoil disorder (refer to [[Xiang Ru San]]).
+    - With Lophatheri Herba (dan zhu ye), Gypsum Fibrosum (shi gao), and Artemisiae Annuae Herba (qing hao) for unremitting summer feverishness in children.
+
+3. Treats Poisoning:
+
+- For: A variety of food-related poisoning, including that from spoiled food.
+- Combinations:
+    - With Phragmitis Rhizoma (lu gen) for puffer fish toxicity.
+    - With Amomi Fructus Rotundus (bai dou kou) and Puerariae Flos (ge hua) for hangovers.
 
 ## 🎯 Patterns & Symptoms
 
@@ -175,8 +188,9 @@ SORT Category, file.name
 **Toxicity:** `= this.herb_data.toxicity`
 
 **Contraindications:**
--
--
+- Should only be used when the Spleen is oppressed by dampness, and there is no abdominal pain or stifling sensation due to constraint.
+- Avoid if a malarial pathogen is not completely eliminated, or if a fever due to an externally contracted cold pathogen has just flared, as excessive consumption clogs the qi.
+- Not contraindicated for chills and fever due to Spleen and Stomach deficiency from food injury or exhaustion.
 
 **Drug Interactions:**
 -
@@ -209,8 +223,7 @@ WHERE file.name = this.file.name
 ## 🌱 Quality Criteria & Authentication
 
 **Quality Indicators:**
--
--
+Good quality beans are big, full, white, and heavy. The best quality comes from Zhejiang and Jiangsu provinces. Inferior quality is often flat and light (e.g., Yunnan lablab bean, yun nan bian dou).
 
 **Common Adulterants:**
 -
@@ -281,7 +294,7 @@ LIMIT 10
 - [[]]
 
 **Related Formulas:**
-- [[Formulas including Bai Bian Dou]]
+- [[Formulas including Ai Ye]]
 
 **Related Western Conditions:**
 - [[]]

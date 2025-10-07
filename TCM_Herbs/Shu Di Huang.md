@@ -19,36 +19,37 @@ tests: []
 
 # 🔹 Herb-Specific Data
 herb_data:
-  hanzi: "熟地黃"
+  hanzi: "熟地黄"
   pinyin: "Shu Di Huang"
-  pharmaceutical: "Rehmanniae Praeparata, Radix"
-  english: ""
+  pharmaceutical: "Rehmanniae Radix Preparata"
+  english: "Cooked rehmannia root, prepared Chinese foxglove root"
   alternate_names: []
 
   # TCM Properties
-  taste: []
-  temperature: ""
-  channels: []
+  taste: [Sweet, slightly warm]
+  temperature: "Warm"
+  channels: [Heart, Kidney, Liver]
 
   # Clinical Information
-  dosage: ""
-  toxicity: ""
-  functions: []
+  dosage: "9-30g"
+  toxicity: "There has been one report of an allergic skin reaction associated with taking this herb."
+  functions: [Tonifies the blood, Nourishes the yin, Enriches the yin, Generates essence, Augments the marrow, Relieves wasting and thirsting disorder]
   dui_yao: []
 
   # Additional Information
-  constituents: []
-  quality: ""
-  text_first_appeared: ""
+  constituents: [Iridoids and iridoid glycosides: leonuride, aucubin, catalpol, rehmannioside A, B. C, D, rehmaglutin A, D, glutinoside, jioglutin A, B, C. jioglutolide, jiofuran, rehmapicrogenin., Sugars: stachyose, raffinose, glucose, sucrose, fructose, manna triose, verbascose, galactose, D-glucosamine, Organic acids: aeginetic acid, sec-hydroxyaeginetic acid, succinic acid, 5-hydroxymethylfuroic acid, linoleic acid, palmitic acid, stearic acid, arachidic acid, behenic acid, palmitoleic acid, pentadecanoic acid, myristic acid, n-nonadecanoic acid, heneicosanoic acid, margaric acid, Amino acids: 20 different amino acids, 5-oxoproline, Other constituents: trihydroxy-β-ionone, dihydroxy-β-ionone, uracil, uridine, β-sitosterol, stigmasterol, campesterol, D-mannitol]
+  quality: "Good quality consists of large, thick, soft, sweet, and completely black roots."
+  text_first_appeared: "Important Formulas Worth a Thousand Gold Pieces"
 
   # Source References
-  bensky_page: ""
+  bensky_pdf: "627"
+  bensky_page: "None"
 
 created: 2025-10-01
 updated: 2025-10-01
 ---
 
-# 🌿 Shu Di Huang
+# 🌿 Ai Ye
 
 **Pharmaceutical Name:** `= this.herb_data.pharmaceutical`
 **English Name:** `= this.herb_data.english`
@@ -71,8 +72,23 @@ updated: 2025-10-01
 
 ## 📖 Overview
 
-Brief description of the herb, source, botanical information, and general identity.
+Sweet, warm, moist, and richly tonifying, *Rehmanniae Radix Preparata* (*shu di huang*) enters the Liver, Kidney, and Heart channels to tonify the blood, enrich the yin, generate essence, and augment the marrow. Black, heavy, and utterly still in nature, it embodies the qualities of deep essence, stored potential, the body's deepest resource available for the production of functional yin, blood, and primal qi. It is the primary herb for tonifying the Liver and Kidneys and nurturing and stabilizing the primal root. It is often used to treat patterns of insufficient Kidney yin and Liver and Heart blood deficiency, characterized by such symptoms as weakness of the lower back and legs, emaciation, spermatorrhea, tinnitus, dizziness, premature greying of the hair, and gynecological disorders due to yin or blood deficiency. Essentials of the Materia Medica notes that it "tonifies the Liver and Kidneys, nourishes the blood, enriches the yin, and is a superior herb for tonifying the blood."
 
+Seeking Accuracy in the Materia Medica explains the effect of its various qualities:
+
+When the spirit scatters due to deficient yin, only the conserving quality of *Rehmanniae Radix Preparata* (*shu di huang*) will gather it: conservation controls scattering.
+
+When fire ascends due to deficient yin, only the heaviness of *Rehmanniae Radix Preparata* (*shu di huang*) will direct it downward: heaviness controls ascent.
+
+When there is restless movement due to deficient yin, only the stillness of *Rehmanniae Radix Preparata* (*shu di huang*) will suppress it: stillness controls movement.
+
+When there is hardness and tension due to deficient yin, only the sweetness of *Rehmanniae Radix Preparata* (*shu di huang*) will relax it: [sweetness moderates and] relaxation controls tension.
+
+Transforming the Significance of Medicinal Substances observes that when it is mixed with wine then steamed until cooked, its bitter flavor turns sweet, its cool nature turns warm, and it specifically enters the Liver organ to tonify the blood. It also warms the Gallbladder and augments the Heart blood, but even more it tonifies the Kidney water. Whenever there is internal injury or insufficiency, excessive mental or emotional activity that exhausts the spirit, continual worry that injures the blood, and unleashed desire that consumes the essence; or in order to adjust menstruation, pregnancy, and the postpartum period, one should use *Rehmanniae Radix Preparata* (*shu di huang*).
+
+Zhang Hao-Gu notes that this herb "governs blurry vision [that occurs] when one wants to rise from a seated position." It can also be used for uterine bleeding caused by injury to the Penetrating and Conception vessels; charred cooked rehmannia is particularly appropriate for this indication.
+
+---
 ---
 
 ## 🔑 TCM Properties
@@ -85,21 +101,26 @@ Brief description of the herb, source, botanical information, and general identi
 
 ## ⚡ Functions & Actions
 
-```dataview
-LIST herb_data.functions
-WHERE file.name = this.file.name
-```
-
-**Key Functions:**
--
--
--
-
-**Clinical Applications:**
--
--
-
----
+- **Tonifies the blood:** For blood deficiency with such symptoms as facial pallor, dizziness, palpitations, and insomnia. Very commonly used when blood deficiency leads to such problems as irregular menstruation, uterine bleeding, and postpartum bleeding. Best when there is deficiency but no significant stagnation.
+    - With *Angelicae sinensis* Radix (danggui) for blood deficiency from a variety of causes marked by such symptoms as dizziness, palpitations, insomnia, and menstrual dysfunction, as in Four-Substance Decoction (*si wu tang*).
+    - Add *Asini Corii Colla* (e jiao) and *Artemisiae argyi* Folium (ai ye) for excessive uterine bleeding, as in Ass-Hide Gelatin and Mugwort Decoction (*jiao ai tang*).
+    - Add *Platycladi Semen* (bai zi ren) and *Ziziphi spinosae Semen* (suan zao ren) for insomnia and palpitations.
+    - Add *Coptidis Rhizoma* (huang lian) for blood deficiency with heat leading to irregular menstruation and infertility.
+    - Add *Amomi Fructus* (sha ren) and *Dipsaci Radix* (xu duan) for restless fetus due to qi and blood deficiency.
+    - With *Amomi Fructus* (sha ren) for patients who suffer from both blood and Spleen deficiency.
+    - With lean pork or other lean meat for chronic constipation from deficiency.
+- **Nourishes the yin:** For Liver and Kidney yin deficiency with such symptoms as weak lower back and limbs, dizziness, tinnitus, tidal fevers, nightsweats, and nocturnal emissions.
+    - With *Corni Fructus* (shan zhu yu) and *Dioscoreae Rhizoma* (shan yao) for dizziness, tinnitus, weakness and soreness of the lower back, impotence, spermatorrhea, nightsweats, and other symptoms associated with Liver and Kidney deficiency, as in Six-Ingredient Pill with Rehmannia (*liu wei di huang wan*).
+    - Add *Phellodendri Cortex* (huang bai) and *Anemarrhenae Rhizoma* (zhi mu) to enhance the combination's ability to treat heat from deficiency, as in Anemarrhena, Phellodendron, and Rehmannia Pill (*zhi bai di huang wan*).
+    - With *Testudinis Plastrum* (gui ban) for dizziness, tinnitus, insomnia, forgetfulness, afternoon fevers, and nightsweats associated with yin deficiency and the resulting ascendant yang, as in Great Yin-Tonifying Pill (*da bu yin wan*) and Hidden Tiger Pill (*hu qian wan*).
+    - With *Aconiti Radix Lateralis Preparata* (zhi fu zi) and *Cinnamomi Cortex* (rou gui) for Kidney yang deficiency as a means of looking for the yang in the yin, as in Kidney Qi Pill from the Golden Cabinet (*jin gui shen qi wan*).
+- **Strongly enriches the yin and relieves wasting and thirsting disorder:** Especially useful for lower burner wasting; can be used as a stand-alone herb in large doses for this problem.
+    - With *Anemarrhenae Rhizoma* (zhi mu) and *Phellodendri Cortex* (huang bai) for lower burner wasting and thirsting disorder marked by fire from yin deficiency.
+    - With *Gypsum Fibrosum* (shi gao) and *Lycii Cortex* (di gu pi) for ascendant fire injuring the fluids.
+    - With *Dioscoreae Rhizoma* (shan yao) and *Alismatis Rhizoma* (ze xie) for ascendant fire due to exhaustion of Kidney yin.
+    - With *Panacis quinquefolii Radix* (xi yang shen) and *Astragali Radix* (huang qi) for ascendant fire due to qi deficiency.
+- **Nourishes the blood and tonifies the essence:** For problems with both blood and essence such as delayed development during childhood, blunted affect, premature aging, diminished mental acuity, greying of hair, impotence, and memory loss.
+    - With *Polygoni multiflori Radix Preparata* (zhi shou wu), *Lycii Fructus* (gou qi zi), and *Cervi Cornus Colla* (lu jiao jiao) for blood and essence deficiency.
 
 ## 🎯 Patterns & Symptoms
 
@@ -175,8 +196,15 @@ SORT Category, file.name
 **Toxicity:** `= this.herb_data.toxicity`
 
 **Contraindications:**
--
--
+This is a very cloying and rich substance that readily leads to stagnation of dampness and impedes digestion. It is contraindicated in those with qi stagnation and profuse phlegm, fullness, and pain in the abdomen, reduced appetite, and diarrhea. See below for toxicity.
+
+Traditional Contraindications
+
+"Do not allow it to contact bronze or iron implements, or it will cause the Kidneys to waste, whiten the hair, and injure the nutritive and protective levels." (Grandfather Lei's Discussion of Herb Preparation)
+
+"Because it can obstruct the diaphragm in those with qi constraint, one should deliberate before using it [in those cases]." (Thoroughly Revised Materia Medica)
+
+Treasury of Words on the Materia Medica explains that, despite its gentle warmth, all forms of rehmannia are relatively cool and have a cloying effect on the diaphragm, so that in cases of postpartum loss of appetite, or diarrhea, even though there may be fever, or pain due to retained lochia, it cannot be used-mistaken use will cause ceaseless diarrhea; whenever the diaphragm area has excessive phlegm and the movement of the qi dynamic is poor such that ascent and descent are plugged, herbs should unblock rather than cause stagnation, so in these cases, rehmannia is forbidden in decoctions or pills. If it absolutely must be used, then a bit of cinnamon heart [a form of *Cinnamomi Cortex* (rou gui)] can be added. In a phlegm pattern, if it must be used and cannot be done without, then fry it with ginger juice.
 
 **Drug Interactions:**
 -
@@ -209,8 +237,7 @@ WHERE file.name = this.file.name
 ## 🌱 Quality Criteria & Authentication
 
 **Quality Indicators:**
--
--
+Good quality consists of large, thick, soft, sweet, and completely black roots.
 
 **Common Adulterants:**
 -
@@ -281,7 +308,7 @@ LIMIT 10
 - [[]]
 
 **Related Formulas:**
-- [[Formulas including Shu Di Huang]]
+- [[Formulas including Ai Ye]]
 
 **Related Western Conditions:**
 - [[]]

@@ -19,36 +19,37 @@ tests: []
 
 # 🔹 Herb-Specific Data
 herb_data:
-  hanzi: "白頭翁"
-  pinyin: "Bai Tou Weng"
-  pharmaceutical: "Pulsatillae, Radix"
-  english: ""
+  hanzi: "白头翁"
+  pinyin: "bái tóu wēng"
+  pharmaceutical: "Pulsatillae Radix"
+  english: "Chinese anemone root, anemone"
   alternate_names: []
 
   # TCM Properties
-  taste: []
-  temperature: ""
-  channels: []
+  taste: [Bitter, cold]
+  temperature: "cold"
+  channels: [Large Intestine, Stomach]
 
   # Clinical Information
-  dosage: ""
-  toxicity: ""
-  functions: []
+  dosage: "6-15g"
+  toxicity: "The fresh herb contains protoanemonin, which irritates the skin and mucous membranes. Ingestion of the fresh herb causes salivation, gastrointestinal inflammation, vomiting, abdominal pain, hematuria, heart failure, and death as a consequence of respiratory failure. During the process of drying and storage, protoanemonin is polymerized to anemonin, which renders the herb less irritating. Only the dried herb should therefore be used. Decoctions of the dried herb in normal doses are very unlikely to cause significant side effects."
+  functions: [Clears heat, Resolves fire toxicity, Cools the blood, Resolves toxicity]
   dui_yao: []
 
   # Additional Information
-  constituents: []
-  quality: ""
-  text_first_appeared: ""
+  constituents: [Triterpene saponins: pulchinenoside A (=anemoside A), pulchinenoside B, pulchinenoside C, pulchinenoside D, betulinic acid-3-O-α-L-arabinopyranoside, Organic acids: betulinic acid, 3-oxobetulinic acid, 23-hydroxybetulinic acid, pulsatillic acid, Other constituents: anemonin, protoanemonin, okinalin, okinalein, daucosterol, arabinose]
+  quality: "Good quality consists of thick and long roots, with a solid texture."
+  text_first_appeared: "Divine Husbandman's Classic of the Materia Medica"
 
   # Source References
-  bensky_page: ""
+  bensky_pdf: "627"
+  bensky_page: "187"
 
 created: 2025-10-01
 updated: 2025-10-01
 ---
 
-# 🌿 Bai Tou Weng
+# 🌿 Ai Ye
 
 **Pharmaceutical Name:** `= this.herb_data.pharmaceutical`
 **English Name:** `= this.herb_data.english`
@@ -71,8 +72,11 @@ updated: 2025-10-01
 
 ## 📖 Overview
 
-Brief description of the herb, source, botanical information, and general identity.
+Bitter and cold, Pulsatillae Radix (Bai Tou Weng) drains and directs downward, clears heat, cools the blood, and resolves toxicity. It enters the Stomach and Large Intestine channels, where it expels heat toxin accumulating into clumps in the Stomach and Intestine. It is thus commonly used in the treatment of hot dysenteric disorders accompanied by a bearing-down sensation, especially where bleeding is involved. It is also used as an enema for dysenteric disorders.
+Essentials of the Materia Medica says of this herb: "Bitterness firms the Kidneys, coldness cools the blood, and it enters the blood level of the yang brightness channel. Treats heat toxin dysenteric disorder with bleeding." This is a good summary of the present understanding and use of Pulsatillae Radix (Bai Tou Weng). Earlier, however, the Grand Materia Medica records an interesting historical progression of indications for Pulsatillae Radix (Bai Tou Weng), from the Divine Husbandman's Classic of the Materia Medica up to the Materia Medica of Ri Hua-Zi:
+[For] warm malarial disorder with frequent thrashing delirium, chills and fever, abdominal masses, accumulation and goiter; drives out blood, stops pain, treats metal sores (Divine Husbandman's Classic). Nosebleeds, alleviates toxic dysenteric disorders. (Miscellaneous Records). Red dysenteric disorder, abdominal pain, toothache, pain in all joints, scrofula on the lower neck (Arcane Essentials from the Imperial Library). All types of wind qi, warms the lower
 
+---
 ---
 
 ## 🔑 TCM Properties
@@ -85,21 +89,11 @@ Brief description of the herb, source, botanical information, and general identi
 
 ## ⚡ Functions & Actions
 
-```dataview
-LIST herb_data.functions
-WHERE file.name = this.file.name
-```
-
-**Key Functions:**
--
--
--
-
-**Clinical Applications:**
--
--
-
----
+• Clears heat and resolves fire toxicity: primarily for dysenteric disorders, especially those due to damp-heat in the Stomach or Intestines.
+- With Phellodendri Cortex (huang bai), Coptidis Rhizoma (huang lian), Fraxini Cortex (qin pi) for dysenteric disorders due to damp-heat or epidemic toxins, as in Bai Tou Weng Tang (Pulsatilla Decoction)
+- With Portulacae Herba (ma chi xian) for dysenteric disorders due to heat toxin.
+- With Bupleuri Radix (chai hu), Scutellariae Radix (huang qin), and Arecae Semen (bing lang) for warm malarial disorders.
+- With Sophorae Flavescentis Radix (ku shen) as an external wash for itchy vaginal discharge.
 
 ## 🎯 Patterns & Symptoms
 
@@ -175,8 +169,7 @@ SORT Category, file.name
 **Toxicity:** `= this.herb_data.toxicity`
 
 **Contraindications:**
--
--
+Pulsatillae Radix (Bai Tou Weng) is bitter and cold, and is contraindicated for any vaginal discharge due to deficiency of the Stomach, or diarrhea due to cold from deficiency. Because the cold and bitterness drain and direct downward, it should not be used for dysenteric disorders that exhibit pale watery blood. (Rectification of the Meaning of Materia Medica)
 
 **Drug Interactions:**
 -
@@ -209,8 +202,7 @@ WHERE file.name = this.file.name
 ## 🌱 Quality Criteria & Authentication
 
 **Quality Indicators:**
--
--
+Good quality consists of thick and long roots, with a solid texture.
 
 **Common Adulterants:**
 -
@@ -281,7 +273,7 @@ LIMIT 10
 - [[]]
 
 **Related Formulas:**
-- [[Formulas including Bai Tou Weng]]
+- [[Formulas including Ai Ye]]
 
 **Related Western Conditions:**
 - [[]]

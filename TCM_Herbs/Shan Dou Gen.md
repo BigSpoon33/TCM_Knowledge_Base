@@ -20,35 +20,36 @@ tests: []
 # 🔹 Herb-Specific Data
 herb_data:
   hanzi: "山豆根"
-  pinyin: "Shan Dou Gen"
-  pharmaceutical: "Sophorae Tonkinensis, Radix et Rhizoma"
-  english: ""
+  pinyin: "Shān dòu gēn"
+  pharmaceutical: "Sophorae Tonkinensis Radix"
+  english: "Tonkin Sophora Root"
   alternate_names: []
 
   # TCM Properties
-  taste: []
-  temperature: ""
-  channels: []
+  taste: [Bitter]
+  temperature: "Cold"
+  channels: [Lung, Large Intestine]
 
   # Clinical Information
-  dosage: ""
-  toxicity: ""
-  functions: []
+  dosage: "3-9g"
+  toxicity: "While Sophorae tonkinensis Radix (shan dou gen) is potentially toxic, the primary reason for this is overdosage. In traditional preparations, doses higher than 9g can cause toxicity. The main symptoms appear 30 minutes after ingestion: dizziness, blurred vision, chills, vomiting, and palpitations. In severe cases the following symptoms may appear: numbness of the limbs, severe headache, tachypnea, epigastric and abdominal fullness, generalized muscle tremors, tachycardia or bradycardia, unconsciousness, cyanosis, dilated pupils, and possible death due to respiratory failure. A lethal case of toxicity was reported after ingestion of a decoction of 60g of the herb. It should therefore be used with caution, and doses over 9g must be avoided."
+  functions: [Clears heat, Resolves fire toxicity, Improves the condition of the throat, Disperses swellings]
   dui_yao: []
 
   # Additional Information
-  constituents: []
-  quality: ""
-  text_first_appeared: ""
+  constituents: [Alkaloids: matrine, oxymatrine, anagyrine, (-)-cytisine, methylcytisine, (+)-sophocarpine N-oxide, sophoramine, sophoranol, sophocarpine, dauricine, Flavonoids: sophoranone, sophoradin, sophoranone, sophoradochromene, sophoranochromene, genistein, 2',4',7-trihydroxy-6,8-bis(3-methyl-2-butenyl)flavonone, sophoraflavone A, B, Triterpene saponines: subproside I, II, soyasaponin II, dehydro soyasaponin I, soyasaponin I methylester, soyasaponin II methylester, soyasaponin A methylester, kudzusaponin A, kudzusapogenol A methylester, abrisaponin I, kalikasaponin I methylester, Other constituents: pterocarpine, maackiaintrifolirhizin, lupeol]
+  quality: "Good quality consists of thick, solid roots with a bitter taste."
+  text_first_appeared: "Illustrated Classic of the Materia Medica"
 
   # Source References
-  bensky_page: ""
+  bensky_pdf: "627"
+  bensky_page: "None"
 
 created: 2025-10-01
 updated: 2025-10-01
 ---
 
-# 🌿 Shan Dou Gen
+# 🌿 Ai Ye
 
 **Pharmaceutical Name:** `= this.herb_data.pharmaceutical`
 **English Name:** `= this.herb_data.english`
@@ -71,8 +72,23 @@ updated: 2025-10-01
 
 ## 📖 Overview
 
-Brief description of the herb, source, botanical information, and general identity.
+Very cold and bitter, with a nature that excels in draining and directing downward, Sophorae tonkinensis Radix (shan dou gen) clears and drains Lung and Stomach fire. It is best for resolving toxicity, benefiting the throat, and reducing swelling, and is most appropriate for the treatment of swollen, sore throat due to overwhelming accumulation of heat toxin, and swelling and pain of the gums and teeth.
 
+The Illustrated Classic of the Materia Medica says about Sophorae tonkinensis Radix (shan dou gen): "holding [it] in the mouth and swallowing the juice resolves toxic swelling of the throat in a way that is truly remarkable."
+
+Essentials of the Materia Medica confirms that Sophorae tonkinensis Radix (shan dou gen) "drains heat, resolves toxicity, and expels wind-heat from the Lung and Large Intestine. Holding the herb in the mouth and swallowing the juice stops throat pain, swollen gums, and toothache."
+
+Rectification of the Meaning of Materia Medica provides clear guidelines for its use:
+
+Nowadays it is used specifically for swelling and pain of the throat, based on the Illustrated Classic of the Materia Medica which says that it is really marvelous if held in the mouth to relieve swelling and pain of the throat. In Encountering the Sources of the Classic of Materia Medica, Zhang Lu says that one can either soak it in water then gargle, or decoct it and sip it gradually.
+
+However, Zhang Shan-Lei warns:
+
+Whenever roots are used in medicine, one is generally utilizing their ability to descend and direct downward. This herb is also very cold and very bitter, which directly cuts off the upward-blazing of toxic fire-but it is solely appropriate for fire from excess. A sore throat due to external binding of pathogenic wind must be opened and drained with acrid coolness, thus this herb must not be used too early or it will suppress the dispersal [of the pathogenic wind] and greatly increase its encumbrance .... If a pathogen is still present in the exterior, and one first uses coldness and directs it downward, then the external pathogen will not disperse, but rather be made to attack internally. If the heat is blazing, and light, rising herbs are mistakenly prescribed, then it will be like a fierce fire blown by the wind-the immediate result is scorched earth. In the clinic, these disorders must be differentiated beforehand without fail.
+
+While this herb was included in ancient formulas for damp-heat jaundice, it is not commonly used for that purpose today.
+
+---
 ---
 
 ## 🔑 TCM Properties
@@ -85,21 +101,11 @@ Brief description of the herb, source, botanical information, and general identi
 
 ## ⚡ Functions & Actions
 
-```dataview
-LIST herb_data.functions
-WHERE file.name = this.file.name
-```
-
-**Key Functions:**
--
--
--
-
-**Clinical Applications:**
--
--
-
----
+- Clears heat, resolves fire toxicity, and improves the condition of the throat: for swollen, painful throat. Can be used alone, both internally and as a gargle.
+    - With Isatidis Radix (bei ban lan gen) for pain and swelling of a very red throat, painful teeth, and swollen and painful gums, sometimes accompanied by sores of the mouth and tongue.
+    - With Belamcandae Rhizoma (she gan) for phlegm-heat in the throat with a swollen, sore throat and phlegm that is difficult to expectorate.
+- Clear heat, resolves fire toxicity, and disperses swellings: for abscesses and other toxic sores. Also used for cancers, especially of the throat and lungs.
+    - With Lonicerae Flos (jin yin hua), Forsythiae Fructus (lian qiao), and Coptidis Rhizoma (huang lian) for abscesses and toxic sores.
 
 ## 🎯 Patterns & Symptoms
 
@@ -175,8 +181,9 @@ SORT Category, file.name
 **Toxicity:** `= this.herb_data.toxicity`
 
 **Contraindications:**
--
--
+Inappropriate for those with cold from deficiency of the Spleen and Stomach, poor appetite, or loose stools. See Toxicity below.
+
+"Very cold and very bitter, to which the Spleen and Stomach are most averse. Those who get full easily and have diarrhea should never allow it to pass their lips. It is also prohibited in those who are deficient." (Harm and Benefit in the Materia Medica)
 
 **Drug Interactions:**
 -
@@ -209,8 +216,7 @@ WHERE file.name = this.file.name
 ## 🌱 Quality Criteria & Authentication
 
 **Quality Indicators:**
--
--
+Good quality consists of thick, solid roots with a bitter taste.
 
 **Common Adulterants:**
 -
@@ -281,7 +287,7 @@ LIMIT 10
 - [[]]
 
 **Related Formulas:**
-- [[Formulas including Shan Dou Gen]]
+- [[Formulas including Ai Ye]]
 
 **Related Western Conditions:**
 - [[]]

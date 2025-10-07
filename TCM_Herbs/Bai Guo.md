@@ -1,7 +1,7 @@
 ---
 # 🔹 Core Metadata (Universal Fields)
 id: "herb-20251001123706"
-name: "Bai Guo"
+name: "Bai Guo, Bái Guǒ"
 type: "herb"
 aliases: []
 tags: [TCM, Herb]
@@ -20,35 +20,40 @@ tests: []
 # 🔹 Herb-Specific Data
 herb_data:
   hanzi: "白果"
-  pinyin: "Bai Guo"
-  pharmaceutical: "Ginkgo, Semen"
-  english: ""
+  pinyin: "Bái Guǒ"
+  pharmaceutical: "Ginkgo Semen"
+  english: "ginkgo nut"
   alternate_names: []
 
   # TCM Properties
-  taste: []
-  temperature: ""
-  channels: []
+  taste: [sweet, bitter, astringent, neutral]
+  temperature: "neutral"
+  channels: [Kidney, Lung]
 
   # Clinical Information
-  dosage: ""
-  toxicity: ""
-  functions: []
+  dosage: "4.5-9g"
+  toxicity: "These seeds are toxic, with the green embryo being the most toxic part. Toxic reaction usually occurs when too many of the raw or roasted kernels are eaten as nuts, not when taken in decoctions. The toxic dose in children lies between 7-150 kernels, in adults between 40-300 kernels. Symptoms of toxicity appear 1-12 hours after ingestion and include hyperthermia, nausea, vomiting, foamy salivation, abdominal pain, diarrhea, restlessness, convulsions, tonic spasms of the extremities, changes in the size of the pupils, loss of pupillary reflex, dyspnea, cyanosis, and loss of consciousness. Death may occur due to respiratory and circulatory failure 1-2 days after ingestion.
+
+External application of ethanol or ether extract is irritating to the skin causing pruritus, erythema, edema, papules, and pustules. Allergic reactions have also been reported.
+
+Heating the herb reduces its toxicity, as does removal of the outer testa, the thin skin below, and the embryo. While the roasted seeds are still toxic, this is not a major concern if the seeds are then decocted."
+  functions: [Preserves the Lungs and arrests wheezing, Eliminates dampness, stops discharge, and contains the urine]
   dui_yao: []
 
   # Additional Information
-  constituents: []
-  quality: ""
-  text_first_appeared: ""
+  constituents: [Flavonoids: kaempferol, kaempferol-3-rhamnoglucoside, heptaacetylkaempferol glucoside, kaempferol-3-(6''-p-coumaroyl-glycosyl)-β-1,4-rhamnoside, quercetin, isorhamnetin, octaacetylquercetin-3-glucoside, heptaacetylluteolin glucoside, octaacetyldelpidenoglucoside, (+)-catechin pentaacetate, (-)-epicatechin pentaacetate, (+)-gallocatechin hexaacetate, (-)-epigallocatechin hexaacetate, bilobetin, ginkgetin, isoginkgetin, sciadopitysin, 5'-methoxybilobetin, amentoflavone, Lactones: ginkgolide A, ginkgolide B, ginkgolide C, ginkgolide J, ginkgolide M, bilobanone, elemol, β-eudesmol, Phenols: ginkgol, bilobol, anacardic acid, Organic acids: quinic acid, linoleic acid, shikimic acid, formic acid, ascorbic acid, propionic acid, butyric acid, caprylic acid, ginkgolic acid, hydroginkgolic acid, hydroginkgolinic acid, Toxic compounds: 4-O-methylpyridoxine, ginkgotoxin, Other constituents: δ-sesamine, β-sitosterol, fixed oil, proteins]
+  quality: "Good quality consists of **large, dry, white, and heavy seeds**."
+  text_first_appeared: "Household Materia Medica"
 
   # Source References
-  bensky_page: ""
+  bensky_pdf: "627"
+  bensky_page: "None"
 
 created: 2025-10-01
 updated: 2025-10-01
 ---
 
-# 🌿 Bai Guo
+# 🌿 Ai Ye
 
 **Pharmaceutical Name:** `= this.herb_data.pharmaceutical`
 **English Name:** `= this.herb_data.english`
@@ -71,8 +76,13 @@ updated: 2025-10-01
 
 ## 📖 Overview
 
-Brief description of the herb, source, botanical information, and general identity.
+**Ginkgo Semen (bái guǒ)** is astringent and inhibiting, enters the **Lung** channel to restrain the **Lung qi**, settle wheezing with profuse phlegm, alleviate turbid vaginal discharge, and contain the urine. It is appropriate for the treatment of cough and wheezing with profuse phlegm, turbid yellow vaginal discharge, painful urinary dribbling, turbid urine, and urinary frequency. When used for cough and wheezing, it is most suitable for patterns which tend toward **heat**.
 
+In **Convenient Reader of Materia Medica**, **Zhang Bing Cheng** says of this herb: "In the upper body, it restrains the Lungs and expels cough due to rebellion; in the lower body, it promotes movement of dampness and transforms phlegm and thick sputum."
+
+**Li Shi-Zhen** elaborates: It has little aroma but a strong flavor, with an astringent nature that restrains; its color is white, it pertains to metal. Thus it enters the **Lung** channel, augmenting the **Lung qi**, settling cough and wheezing, and restraining the urine. Unprepared, and pounded into paste, it can wash away grease, from which its ability to expel turbid phlegm can be inferred.
+
+---
 ---
 
 ## 🔑 TCM Properties
@@ -85,21 +95,23 @@ Brief description of the herb, source, botanical information, and general identi
 
 ## ⚡ Functions & Actions
 
-```dataview
-LIST herb_data.functions
-WHERE file.name = this.file.name
-```
+- **Preserves the Lungs and arrests wheezing:** for wheezing with coughing. Especially useful for chronic coughs or those with copious sputum.
 
-**Key Functions:**
--
--
--
+    - With **Ephedrae Herba (má huáng)**, **Armeniacae Semen (xìng rén)**, and **Mori Cortex (sāng bái pí)** for cough and wheezing with excessive production of yellow sputum due to Lung deficiency with hot phlegm, as in **Arrest Wheezing Decoction (dìng chuǎn tāng)**.
 
-**Clinical Applications:**
--
--
+    - With **Glehniae/Adenophorae Radix (shā shēn)** and **Asini Corii Colla (ē jiāo)** for chronic cough with Lung deficiency.
 
----
+- **Eliminates dampness, stops discharge, and contains the urine:** for vaginal discharge and turbid urine. Used both in cases of deficiency and damp-heat.
+
+    - With **Euryales Semen (qiàn shí)** and **Dioscoreae Rhizoma (shān yào)** for vaginal discharge due to Spleen deficiency with dampness.
+
+    - With **Phellodendri Cortex (huáng bǎi)** and **Plantaginis Semen (chē qián zǐ)** for damp-heat induced vaginal discharge, as in **Change Yellow [Discharge] Decoction (yì huáng tāng)**.
+
+    - With **Nelumbinis Semen (lián zǐ)**, **Piperis Fructus (hú jiāo)**, and chicken for thin, watery vaginal discharge due to deficiency of the lower base.
+
+    - With **Dioscoreae hypoglaucae Rhizoma (bì xiè)** and **Alpiniae oxyphyllae Fructus (yì zhì rén)** for cloudy urine.
+
+    - With **Mantidis Ootheca (sāng piāo xiāo)** and **Alpiniae oxyphyllae Fructus (yì zhì rén)** for urinary frequency and incontinence.
 
 ## 🎯 Patterns & Symptoms
 
@@ -175,8 +187,9 @@ SORT Category, file.name
 **Toxicity:** `= this.herb_data.toxicity`
 
 **Contraindications:**
--
--
+Contraindicated in patterns of excess. Use with caution where there is viscous sputum that is difficult to expectorate. Due to its slight toxicity it should not be taken in large quantities or long term.
+
+(Grand Materia Medica) "Excessive consumption will cause distention."
 
 **Drug Interactions:**
 -
@@ -209,8 +222,7 @@ WHERE file.name = this.file.name
 ## 🌱 Quality Criteria & Authentication
 
 **Quality Indicators:**
--
--
+Good quality consists of **large, dry, white, and heavy seeds**.
 
 **Common Adulterants:**
 -
@@ -281,7 +293,7 @@ LIMIT 10
 - [[]]
 
 **Related Formulas:**
-- [[Formulas including Bai Guo]]
+- [[Formulas including Ai Ye]]
 
 **Related Western Conditions:**
 - [[]]

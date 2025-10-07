@@ -21,34 +21,42 @@ tests: []
 herb_data:
   hanzi: "花椒"
   pinyin: "Hua Jiao"
-  pharmaceutical: "Zanthoxyli, Pericarpium"
-  english: ""
+  pharmaceutical: "Zanthoxyli Pericarpium"
+  english: "Sichuan Pepper"
   alternate_names: []
 
   # TCM Properties
-  taste: []
-  temperature: ""
-  channels: []
+  taste: [Acrid, hot, slightly toxic]
+  temperature: "Hot"
+  channels: [Kidney, Spleen, Stomach]
 
   # Clinical Information
-  dosage: ""
-  toxicity: ""
-  functions: []
+  dosage: "3-6g"
+  toxicity: "Within the normal dosage range no side effects are to be expected. Overdosage can cause toxicity with such symptoms as nausea, vomiting, dry mouth, and dizziness. In severe cases there can be spasms, delirium, loss of consciousness, dyspnea, and respiratory failure. Allergic reactions have also been reported including urticaria, vomiting, diarrhea, and anaphylactic shock. To avoid toxic side effects, the dosage in decoctions must not exceed 6g per day; in powders, the dosage must be further reduced."
+  functions: [Warms the middle burner, Disperses cold, Stops pain, Kills parasites, Tonifies fire at the gate of vitality]
   dui_yao: []
 
   # Additional Information
-  constituents: []
-  quality: ""
-  text_first_appeared: ""
+  constituents: [*Zanthoxylum bungeanum*:
+    -   **Volatile oil:** limonene, 1,8-cineole, myrcene, a-pinene, sabinene, 8-phellandrene, 8-ocimene-X, p-cymene, a-terpinene, perillene, linalool, terpinen-4-ol, estragole, a-terpineol, trans-caryophyllene, terpinyl acetate, humuleneneryl acetate, 8-cadinene, geranyl acetate
+    -   **Alkaloids:** skimmianine, dictamnine, schinifoline, kokusaginine, haplopine, 2 '·hydroxy-N-isobutyi-[2E,6E, 8E,10E]·dodecatetraen·amide
+    -   **Coumarines:** bergapten, herniarin
+    -   **Other constituents:** N-methyl-2-heptyl-4-quinolinone, n-nonacosane, *Zanthoxylum schinifolium*:
+    -   **Volatile oil:** myrcene, limonene, a-, B-phellandrene, a-, B-pinene, sabinene, 8-ocimene-X, 8-ocimene-Y, 1,8-cineole, a-terpinene, o-methylacetophenone, a-nonanone, linalool, 4-terpinene, a-terpineol, trans-caryophyllene, y-elemene, 2-undecanone, terpinyl acetate, humulene, 1-methoxy-4-(1-propenyl)benzene, B-, 1>-cadinene, eugenol, methyleugenol
+    -   **Alkaloids:** skimmianine, schinifoline
+    -   **Coumarines:** bergapten, umbelliferone]
+  quality: "Two different products should be distinguished: hua jiao, hong jiao (*Zanthoxylum bungeanum*), and qing jiao (*Zanthoxylum schinifolium*). The latter is thought to be slightly inferior. Good quality hua jiao is reddish or purplish brown with a thin pericarp and regularly arranged, warty oil dots on the surface, and an intense aroma. Good quality qing jiao is green, with a thick pericarp and an intense aroma. Neither product should include any fruit stalks or actual fruit."
+  text_first_appeared: "None"
 
   # Source References
-  bensky_page: ""
+  bensky_pdf: "627"
+  bensky_page: "None"
 
 created: 2025-10-01
 updated: 2025-10-01
 ---
 
-# 🌿 Hua Jiao
+# 🌿 Ai Ye
 
 **Pharmaceutical Name:** `= this.herb_data.pharmaceutical`
 **English Name:** `= this.herb_data.english`
@@ -71,8 +79,17 @@ updated: 2025-10-01
 
 ## 📖 Overview
 
-Brief description of the herb, source, botanical information, and general identity.
+Pure yang, acrid, hot, drying, and dispersing, Zanthoxyli Pericarpium (hua jiao) is best at dispersing cold, drying dampness, and killing parasites. Thus it treats symptoms such as cold pain in the epigastrium and abdomen, indigestion, vomiting, diarrhea, and dysenteric disorders, all of which are due to cold-dampness injuring the middle burner, or abdominal pain due to parasitic infestation. It also treats wind-damp painful obstruction, and because it dispels pathogenic cold in the Lungs, and tonifies the fire at the gate of vitality, it alleviates Lung cold cough, wheezing, and urinary frequency due to weak Kidney yang.
 
+It is applied as a wash in the treatment of irritating vaginal discharge and itch; or, as recommended in Important Formulas Worth a Thousand Gold Pieces, as a compress for sore swollen testicles due to cold qi entering the scrotum. For this purpose, it is held in the perineal area and changed daily until the swelling subsides.
+
+The Grand Materia Medica states that it disperses cold, dispels dampness, releases constrained clumping, digests retained food stagnation, unblocks the three burners, warms the Spleen and Stomach, tonifies the right Kidney's gate of vitality, kills roundworms, stops diarrhea.
+
+Records of Thoughtful Differentiation of Materia Medica explains its qualities in detail:
+
+[It] is a qi level herb of the leg greater yin and right Kidney. It expels cold-dampness in the Spleen and Kidneys, but does not expel wind-cold or wind-dampness. If there is only cold without dampness, it is likewise not exactly appropriate. It treats cold-dampness in both the Spleen and Kidneys, but only tonifies fire in the Kidneys. Why is this? Its nature is warm and it travels downward, sufficient to expel cold-dampness, but not enough to expel wind. Its skin is red, its inner membrane white, with a layer of yellow in between, and the innermost seed is black. This gives the image of [travelling] from the Lung through the Spleen to the Kidneys, and thus it can make fire that has drifted out from the midst of water return at last to the midst of water again .... By nature its chief action should be warming the Kidneys. Thus, while other substances warm Spleen cold and expel Spleen dampness, their effect is limited to the Spleen: Zanthoxyli Pericarpium (hua jiao) returns to reside in the Kidneys; its duty is not only in the Spleen.
+
+---
 ---
 
 ## 🔑 TCM Properties
@@ -85,21 +102,14 @@ Brief description of the herb, source, botanical information, and general identi
 
 ## ⚡ Functions & Actions
 
-```dataview
-LIST herb_data.functions
-WHERE file.name = this.file.name
-```
-
-**Key Functions:**
--
--
--
-
-**Clinical Applications:**
--
--
-
----
+-   **Warms the middle burner, disperses cold, and alleviates pain:** For Spleen or Stomach cold from deficiency with such symptoms as cold and pain in the abdomen, vomiting, and diarrhea.
+-   **With Aconiti Radix Lateralis Preparata (zhi fu zi):** For cold-dampness in either the middle or lower burner.
+-   **With Zingiberis Rhizoma (gan jiang) and Ginseng Radix (ren shen):** For excruciating epigastric and abdominal pain, strong sensation of cold in the epigastrium, nausea, and vomiting due to middle burner yang deficiency with ascendant cold, as in Major Construct the Middle Decoction (da jian zhong tang).
+-   **With Atractylodis Rhizoma (cang zhu), Citri Reticulatae Pericarpium (chen pi), and Aucklandiae Radix (mu xiang):** For cold-dampness induced diarrhea.
+-   **With Poria (fu ling):** For cold from deficiency of the Lungs and Kidneys with lower back pain, icy cold feet, and wheezing.
+-   **Kills parasites and alleviates abdominal pain:** Used as an auxiliary herb for abdominal pain due to roundworms.
+-   **With Mume Fructus (wu mei) and Coptidis Rhizoma (huang lian):** For abdominal pain and vomiting due to roundworms, especially in cases of cold from deficiency, as in Mume Pill (wu mei wan).
+-   **With Sophorae Flavescentis Radix (ku shen) and Kochiae Fructus (di fu zi):** As an external wash for pruritus due to eczema.
 
 ## 🎯 Patterns & Symptoms
 
@@ -175,8 +185,8 @@ SORT Category, file.name
 **Toxicity:** `= this.herb_data.toxicity`
 
 **Contraindications:**
--
--
+Use with caution during pregnancy. Contraindicated in those with blazing fire due to yin deficiency.
+Its qi is pure yang. Although it expels cold-dampness and disperses pathogenic wind, if there is constitutional fire or heat in the Lungs or Stomach, causing either cough and generating phlegm, or accumulation of heat in the Large Intestine with passage of blood [in the stool], it is inappropriate for both .... It is greatly contraindicated in yin deficient patients with fire blazing. (Harm and Benefit in the Materia Medica)
 
 **Drug Interactions:**
 -
@@ -209,8 +219,7 @@ WHERE file.name = this.file.name
 ## 🌱 Quality Criteria & Authentication
 
 **Quality Indicators:**
--
--
+Two different products should be distinguished: hua jiao, hong jiao (*Zanthoxylum bungeanum*), and qing jiao (*Zanthoxylum schinifolium*). The latter is thought to be slightly inferior. Good quality hua jiao is reddish or purplish brown with a thin pericarp and regularly arranged, warty oil dots on the surface, and an intense aroma. Good quality qing jiao is green, with a thick pericarp and an intense aroma. Neither product should include any fruit stalks or actual fruit.
 
 **Common Adulterants:**
 -
@@ -281,7 +290,7 @@ LIMIT 10
 - [[]]
 
 **Related Formulas:**
-- [[Formulas including Hua Jiao]]
+- [[Formulas including Ai Ye]]
 
 **Related Western Conditions:**
 - [[]]

@@ -19,36 +19,37 @@ tests: []
 
 # 🔹 Herb-Specific Data
 herb_data:
-  hanzi: "靑皮"
-  pinyin: "Qing Pi"
-  pharmaceutical: "Citri Reticulatae Viride, Pericarpium"
-  english: ""
+  hanzi: "青皮"
+  pinyin: "qīng pí"
+  pharmaceutical: "Citri Reticulatae Viride Pericarpium"
+  english: "unripe tangerine peel, green tangerine peel, blue citrus"
   alternate_names: []
 
   # TCM Properties
-  taste: []
-  temperature: ""
-  channels: []
+  taste: [bitter, acrid, warm]
+  temperature: "Warm"
+  channels: [Gallbladder, Liver, Stomach]
 
   # Clinical Information
-  dosage: ""
-  toxicity: ""
-  functions: []
+  dosage: "3-9g"
+  toxicity: "Because this herb fiercely consumes the qi, it should be used with caution in those with qi deficiency."
+  functions: [Spreads the Liver qi and breaks up stagnant qi, Dissipates clumps and reduces stagnation]
   dui_yao: []
 
   # Additional Information
-  constituents: []
-  quality: ""
-  text_first_appeared: ""
+  constituents: [Volatile oil: citral, geraniol, linalool, linalool monoxide, limonene, α-pinene, cis-3-hexenol, cadinene, dipentene, methyl anthranilate, caryophyllene oxide, Flavonoids: naringin, neohesperidin, poncirin, tangeretin, nobiletin, 5,7,4'-trimethoxyflavone, 5,6,7,3',4'-pentamethoxyflavone, 5,7,8,3',4'-pentamethoxyflavone, 5,7,8,4'-tetramethoxyflavone, Alkaloids: stachydrine, Lactones: umbelliferone, auraptene, Vitamins: vitamin C, nicotinic acid, B12, Other constituents: putrescine, lycopene, nonacosane, glycine, β-sitosterol-β-D-glucoside, synephrine acetate, amino acids]
+  quality: "Good quality consists of regularly cut, greenish black, oily pieces with a white inner surface (the 'four-flowers' variety) or uniform, hard and solid hemispherical pieces with a thick pericarp and intense aroma (the small variety)."
+  text_first_appeared: "Illustrated Classic of the Materia Medica"
 
   # Source References
-  bensky_page: ""
+  bensky_pdf: "627"
+  bensky_page: "None"
 
 created: 2025-10-01
 updated: 2025-10-01
 ---
 
-# 🌿 Qing Pi
+# 🌿 Ai Ye
 
 **Pharmaceutical Name:** `= this.herb_data.pharmaceutical`
 **English Name:** `= this.herb_data.english`
@@ -71,8 +72,15 @@ updated: 2025-10-01
 
 ## 📖 Overview
 
-Brief description of the herb, source, botanical information, and general identity.
+Acrid, bitter, and warm, Citri reticulatae viride Pericarpium (qing pi) is fierce in nature and primarily enters the Gallbladder, Liver, and Stomach channels. It directs downward, dredges the Liver and Gallbladder, breaks up qi stagnation, disperses clumping, reduces areas of hardness, and stops pain. It is often used in the treatment of Liver qi constraint and stagnation, pain in the hypochondriac regions, breast distention, and abdominal pain. Because it also enters the Stomach channel it reduces the food stagnation leading to phlegm accumulation associated with epigastric and abdominal distention and pain.
 
+Rectification of the Meaning of Materia Medica describes the herb as follows:
+
+Bitter in flavor, slightly sour; the fullness of its flavor [indicates that it] sinks. Yang within yin. Its bitterness expels obstruction, sourness enters the Liver as well as the lesser yang: Triple Burner and Gallbladder organs. It reduces firm lumps, dispels pain in the hypochondrium, relieves constraint and anger, treats bulging disorders, dredges the Liver, breaks up stagnant qi, and expands the chest.
+
+In Essentials of the Materia Medica, after quoting the statement that Citri reticulatae viride Pericarpium (qing pi) dredges the Liver and drains the Lungs, Wang Ao makes an interesting observation: "Bupleuri Radix (chai hu) dredges upper burner Liver qi, and Citri reticulatae viride Pericarpium (qing pi) calms lower burner Liver qi; any herb that drains qi is said to drain the Lungs."
+
+---
 ---
 
 ## 🔑 TCM Properties
@@ -85,21 +93,19 @@ Brief description of the herb, source, botanical information, and general identi
 
 ## ⚡ Functions & Actions
 
-```dataview
-LIST herb_data.functions
-WHERE file.name = this.file.name
-```
+- Spreads the Liver qi and breaks up stagnant qi: for constrained Liver qi patterns with such symptoms as distention and pain in the chest, breast, or hypochondriac regions, or bulging disorder pain.
+  - With Bupleuri Radix (chai hu) and Curcumae Radix (yu jin) for pain and distention in the chest and flank associated with disharmony between the Liver and Stomach.
+  - Add Trionycis Carapax (bie jia) and Salviae miltiorrhizae Radix (dan shen) for enlargement of the spleen and/or liver.
+  - With Cyperi Rhizoma (xiang fu) for pain and distention in the flank due to obstructed Liver qi.
+  - Add Vaccariae Semen (wang bu liu xing) and Salviae miltiorrhizae Radix (dan shen) for pain and swelling of the breasts.
+  - With Vaccariae Semen (wang bu liu xing), Lonicerae Flos (jin yin hua), and Taraxaci Herba (pu gong ying) for breast abscess.
+  - With Sinapis Semen (bai jie zi) for cough with chest and flank pain due to thin mucus.
+  - With Citri reticulatae Semen (ju he), Foeniculi Fructus (xiao hui xiang), and Toosendan Fructus (chuan lian zi) for pain associated with intestinal prolapse or testicular swelling.
+  - With Linderae Radix (wu yao), Alpiniae officinarum Rhizoma (gao liang jiang), and Aucklandiae Radix (mu xiang) for lower abdominal pain radiating to the testicles due to cold invading the Liver channel, as in Top-Quality Lindera Powder (tian tai wu yao san).
 
-**Key Functions:**
--
--
--
-
-**Clinical Applications:**
--
--
-
----
+- Dissipates clumps and reduces stagnation: for food stagnation with accumulation which manifests as pain, distention, or a stifling sensation in the epigastrium. Often used for rather severe food stagnation, and for masses when stagnant qi progresses to blood stasis.
+  - With Crataegi Fructus (shan zha), Hordei Fructus germinatus (mai ya), and Massa medicata fermentata (shen qu) for pain and distention in the epigastrium due to food stagnation.
+  - With Sparganii Rhizoma (san leng) and Curcumae Rhizoma (e zhu) for masses where prolonged qi stagnation has progressed to blood stasis.
 
 ## 🎯 Patterns & Symptoms
 
@@ -175,8 +181,9 @@ SORT Category, file.name
 **Toxicity:** `= this.herb_data.toxicity`
 
 **Contraindications:**
--
--
+Straight Direction from [Yang] Ren-Zhai warns that this herb "cannot be used for those with sweating." The Grand Materia Medica elaborates: "[For] reducing accumulation in children, usually Citri reticulatae viride Pericarpium (qing pi) is used, which very readily induces sweating; [therefore] it cannot be used for those who are [already] sweating." Essentials of the Materia Medica explains it from another standpoint: "Peels can reach the skin, acrid flavors excel at discharging and dispersing."
+
+Hidden Aspects of Materia Medica concludes that, for the "aged, weak, deficient, or emaciated, the best is total abstinence [from this herb]."
 
 **Drug Interactions:**
 -
@@ -209,8 +216,7 @@ WHERE file.name = this.file.name
 ## 🌱 Quality Criteria & Authentication
 
 **Quality Indicators:**
--
--
+Good quality consists of regularly cut, greenish black, oily pieces with a white inner surface (the 'four-flowers' variety) or uniform, hard and solid hemispherical pieces with a thick pericarp and intense aroma (the small variety).
 
 **Common Adulterants:**
 -
@@ -281,7 +287,7 @@ LIMIT 10
 - [[]]
 
 **Related Formulas:**
-- [[Formulas including Qing Pi]]
+- [[Formulas including Ai Ye]]
 
 **Related Western Conditions:**
 - [[]]

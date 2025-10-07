@@ -19,36 +19,39 @@ tests: []
 
 # 🔹 Herb-Specific Data
 herb_data:
-  hanzi: "威靈仙"
+  hanzi: "威灵仙"
   pinyin: "Wei Ling Xian"
-  pharmaceutical: "Clematidis, Radix et Rhizoma"
-  english: ""
+  pharmaceutical: "Clematidis Radix"
+  english: "Clematis root, Chinese clematis root"
   alternate_names: []
 
   # TCM Properties
-  taste: []
-  temperature: ""
-  channels: []
+  taste: [Acrid, Salty]
+  temperature: "Warm"
+  channels: [Bladder]
 
   # Clinical Information
-  dosage: ""
-  toxicity: ""
-  functions: []
+  dosage: "6-9g"
+  toxicity: "Because of its anemonin and protoanemonin content, this herb has a certain degree of toxicity, which is reduced by lengthy storage in a dry environment (polymerization of protoanemonin into anemonin). Within the normal range of dosage, no significant side effects are to be expected; however overdosage, long-term use, or even long-term topical application in high doses may cause toxic reactions.
+
+Symptoms include burning sensation, swelling, and ulcerations of the oral cavity, vomiting, abdominal pain, severe diarrhea, dyspnea, bradycardia, agitation, a pale face, cold sweat, and dilated pupils. In severe cases, death has been reported about 10 hours after ingestion. The symptoms after topical application in high dosage include rash, blistering of the skin, and allergic dermatitis."
+  functions: [Dispels wind-dampness, Unblocks the channels, Alleviates pain, Softens and transforms fish bones, Reduces phlegm and pathogenic water]
   dui_yao: []
 
   # Additional Information
-  constituents: []
-  quality: ""
-  text_first_appeared: ""
+  constituents: [Saponins: CP2, CP3, CP4, CP7, CP9 (sapogenin: oleanolic acid); CP1, CP3, CP5, CP6, CP8, CP10 (sapogenin: hederagenin), Lactones: protoanemonin (anemonol), anemonin, Other constituents: sterols, sugars, phenolic compounds, amino acids, Volatile oil: 3-hydroxy-4-methoxyl benzaldehyde, trans-anethole, 2-hydroxy-4-methyl acetophenone, 1,3,5-triisopropylbenzene, heptadecane, Lactones: anemonin, Organic acids: palmitic acid, caproic acid, myristic acid, γ-linoleic acid, δ-linoleic acid, oleic acid, pelargonic acid, Saponins: clematoside A, A', B, C]
+  quality: "Good quality consists of large, thick roots with a black surface and powdery cross section, with no remaining stems."
+  text_first_appeared: "None"
 
   # Source References
-  bensky_page: ""
+  bensky_pdf: "627"
+  bensky_page: "None"
 
 created: 2025-10-01
 updated: 2025-10-01
 ---
 
-# 🌿 Wei Ling Xian
+# 🌿 Ai Ye
 
 **Pharmaceutical Name:** `= this.herb_data.pharmaceutical`
 **English Name:** `= this.herb_data.english`
@@ -71,8 +74,17 @@ updated: 2025-10-01
 
 ## 📖 Overview
 
-Brief description of the herb, source, botanical information, and general identity.
+*Clematidis Radix* (威灵仙 - wei ling xian) is acrid, and thus dispersing, with a strong mobilizing tendency, and a warm, unblocking, and facilitating nature that promotes flow in all the channels, although it tends to favor the lower limbs. Externally, it disperses pathogenic wind; internally, it transforms dampness, unblocks the channels, and extends its reach through the collaterals.
 
+Guiding and disseminating, *Clematidis Radix* (威灵仙 - wei ling xian) is an important herb for pain due to wind. It is indicated for painful obstruction disorder due to wind, dampness, or cold leading to restricted movement of the joints, numbness of the muscles and flesh, and aches and pains in the sinews and bones. It is also used for phlegm-water in the vicinity of the diaphragm, as well as for gynecological pain due to qi and blood obstruction.
+
+*Clematidis Radix* (威灵仙 - wei ling xian) is also salty; it softens areas of hardness and disperses clumps. It is therefore used for abdominal masses, breast lumps, and other clumping. Traditionally, it has even been used alone to soften bones lodged in the throat.
+
+However, because of its very yang and mobilizing nature, it is also drying and tends to exhaust the normal qi. It must therefore not be used for extended periods of time, or in weaker patients.
+
+*Transforming the Significance of Medicinal Substances* explains that this herb is violently urgent in nature, mobilizing without preserving, disseminating and unblocking all twelve channels and collaterals. It primarily treats wind, dampness, and phlegm accumulated in the midst of the channels and collaterals, leading to painful wind and painful joints that may be swollen or numb.
+
+---
 ---
 
 ## 🔑 TCM Properties
@@ -85,21 +97,13 @@ Brief description of the herb, source, botanical information, and general identi
 
 ## ⚡ Functions & Actions
 
-```dataview
-LIST herb_data.functions
-WHERE file.name = this.file.name
-```
-
-**Key Functions:**
--
--
--
-
-**Clinical Applications:**
--
--
-
----
+*   **Dispels wind-dampness, unblocks the channels, and alleviates pain:** Especially useful for treating wind painful obstruction, as it both releases the exterior and promotes the movement of qi in the channels. It can be taken alone as a powder with warm wine for pain in the lower back and legs.
+    *   With *Notopterygii Rhizoma seu Radix* (羌活 - qiang huo) for joint pain (especially in the upper extremities) due to wind damp painful obstruction.
+    *   With *Achyranthis bidentatae Radix* (牛膝 - niu xi) for joint pain (especially in the lower extremities) due to wind dampness obstructing the channels.
+*   **Softens and transforms fish bones:** For fish bones lodged in the throat. This herb is ineffective in the treatment of deeply lodged or relatively large bones.
+    *   With vinegar and brown sugar for fish bones lodged in the throat.
+*   **Also used for focal distention and accumulation in the middle burner** because it reduces phlegm and pathogenic water.
+    *   With *Amomi Fructus* (砂仁 - sha ren) for epigastric pain. This combination is also used with vinegar for fish bones lodged in the throat.
 
 ## 🎯 Patterns & Symptoms
 
@@ -175,8 +179,12 @@ SORT Category, file.name
 **Toxicity:** `= this.herb_data.toxicity`
 
 **Contraindications:**
--
--
+Contraindications: Because this herb is very piercing and mobilizing, excessive use will readily injure the normal qi. It should be used with caution in those with qi and/or blood deficiency or in the debilitated. See TOXICITY below.
+
+Traditional Contraindications:
+"Its nature is rapid: excessive consumption dredges the true qi of the five organs." (*Extension of the Materia Medica*)
+
+"Whenever blood deficiency generates wind, or qi deficiency generates phlegm, or Spleen deficiency fails to transport such that the qi lingers and generates dampness or generates phlegm or generates thin mucus-for all of these it is forbidden." (*Treasury of Words on the Materia Medica*)
 
 **Drug Interactions:**
 -
@@ -209,8 +217,7 @@ WHERE file.name = this.file.name
 ## 🌱 Quality Criteria & Authentication
 
 **Quality Indicators:**
--
--
+Good quality consists of large, thick roots with a black surface and powdery cross section, with no remaining stems.
 
 **Common Adulterants:**
 -
@@ -281,7 +288,7 @@ LIMIT 10
 - [[]]
 
 **Related Formulas:**
-- [[Formulas including Wei Ling Xian]]
+- [[Formulas including Ai Ye]]
 
 **Related Western Conditions:**
 - [[]]

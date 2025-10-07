@@ -20,35 +20,36 @@ tests: []
 # 🔹 Herb-Specific Data
 herb_data:
   hanzi: "沙參"
-  pinyin: "Sha Shen"
-  pharmaceutical: "Glehniae, Radix"
-  english: ""
+  pinyin: "Shā Shēn"
+  pharmaceutical: "Glehniae/Adenophorae Radix"
+  english: "Glehnia/Adenophora root"
   alternate_names: []
 
   # TCM Properties
-  taste: []
-  temperature: ""
-  channels: []
+  taste: [Sweet, Slightly bitter]
+  temperature: "Slightly cold"
+  channels: [Lungs, Stomach]
 
   # Clinical Information
-  dosage: ""
-  toxicity: ""
-  functions: []
+  dosage: "9-15g"
+  toxicity: "None"
+  functions: [Nourishes the yin, Clears the Lungs, Augments the Stomach, Generates fluids]
   dui_yao: []
 
   # Additional Information
   constituents: []
-  quality: ""
-  text_first_appeared: ""
+  quality: "None"
+  text_first_appeared: "Treasury of Words on the Materia Medica"
 
   # Source References
-  bensky_page: ""
+  bensky_pdf: "627"
+  bensky_page: "None"
 
 created: 2025-10-01
 updated: 2025-10-01
 ---
 
-# 🌿 Sha Shen
+# 🌿 Ai Ye
 
 **Pharmaceutical Name:** `= this.herb_data.pharmaceutical`
 **English Name:** `= this.herb_data.english`
@@ -71,8 +72,9 @@ updated: 2025-10-01
 
 ## 📖 Overview
 
-Brief description of the herb, source, botanical information, and general identity.
+There are two types of sha shen, northern (Glehnia littoralis) and southern (Adenophora tetraphylla). It was not until 674 with the publication of *Encountering the Sources of the Classic of Materia Medica* that the two were differentiated. While the descriptions in the older materia medica texts appear to refer to Adenophorae Radix, nowadays, when sha shen is prescribed without specifying the northern or southern variety, Glehniae Radix (bei sha shen) will be dispensed in most parts of China.
 
+---
 ---
 
 ## 🔑 TCM Properties
@@ -85,21 +87,9 @@ Brief description of the herb, source, botanical information, and general identi
 
 ## ⚡ Functions & Actions
 
-```dataview
-LIST herb_data.functions
-WHERE file.name = this.file.name
-```
-
-**Key Functions:**
--
--
--
-
-**Clinical Applications:**
--
--
-
----
+Nourishes the Lung yin and clears Lung heat: for dry, non-productive cough from heat injuring the Lung yin marked by a dry mouth and thirst.
+With Ophiopogonis Radix (mai men dong) and Trichosanthis Radix (tian hua fen) for chronic, dry, non-productive cough with a marked reduction in fluids due to Lung yin deficiency. Also for thirst and dryness associated with Stomach yin deficiency, as in Glehnia/Adenophora and Ophiopogonis Decoction (sha shen mai men dong tang).
+With Anemarrhenae Rhizoma (zhi mu), Fritillariae cirrhosae...
 
 ## 🎯 Patterns & Symptoms
 
@@ -175,8 +165,7 @@ SORT Category, file.name
 **Toxicity:** `= this.herb_data.toxicity`
 
 **Contraindications:**
--
--
+Contraindicated for coughs due to wind-cold or in cases of cold from deficiency of the Lungs and Stomach.
 
 **Drug Interactions:**
 -
@@ -281,7 +270,7 @@ LIMIT 10
 - [[]]
 
 **Related Formulas:**
-- [[Formulas including Sha Shen]]
+- [[Formulas including Ai Ye]]
 
 **Related Western Conditions:**
 - [[]]

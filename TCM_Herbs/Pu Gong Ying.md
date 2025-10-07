@@ -21,34 +21,35 @@ tests: []
 herb_data:
   hanzi: "蒲公英"
   pinyin: "Pu Gong Ying"
-  pharmaceutical: "Taraxaci, Herba"
-  english: ""
+  pharmaceutical: "Taraxaci Herba"
+  english: "dandelion, taraxacum"
   alternate_names: []
 
   # TCM Properties
-  taste: []
-  temperature: ""
-  channels: []
+  taste: [Bitter, sweet]
+  temperature: "cold"
+  channels: [Liver, Stomach]
 
   # Clinical Information
-  dosage: ""
-  toxicity: ""
-  functions: []
+  dosage: "9-30g"
+  toxicity: "Administration of a large dosage may cause mild diarrhea. Allergic reactions have also been reported with pruritus, sensations of heat, urticaria, nausea, vomiting, abdominal discomfort, and mild diarrhea."
+  functions: [Reduces abscesses and dissipates nodules, Clears the Liver and clears the eyes, Clears heat, resolves dampness, and unblocks painful urinary dribbling]
   dui_yao: []
 
   # Additional Information
-  constituents: []
-  quality: ""
-  text_first_appeared: ""
+  constituents: [taraxasterol, choline, inulin, pectin, volatile oil]
+  quality: "Good quality consists of plants with many greyish green leaves and thick roots."
+  text_first_appeared: "Tang Materia Medica"
 
   # Source References
-  bensky_page: ""
+  bensky_pdf: "627"
+  bensky_page: "None"
 
 created: 2025-10-01
 updated: 2025-10-01
 ---
 
-# 🌿 Pu Gong Ying
+# 🌿 Ai Ye
 
 **Pharmaceutical Name:** `= this.herb_data.pharmaceutical`
 **English Name:** `= this.herb_data.english`
@@ -71,8 +72,17 @@ updated: 2025-10-01
 
 ## 📖 Overview
 
-Brief description of the herb, source, botanical information, and general identity.
+Sweet, bitter, and cold, Taraxaci Herba (pu gong ying) cools heat, resolves toxicity, and excels at draining and directing downward, dispersing qi stagnation and clumping. Its traditional sphere of activity is in the treatment of breast abscess and other sores; it can be used both internally and externally in such cases. Regarding its use, the Tang Materia Medica says that "for women's breast abscess and edema, boil into juice to both drink and apply: immediate results."
 
+The scope of the herb's activities has been expanding over the past few centuries, and is no longer limited to external disorders. It has been noted that Taraxaci Herba (pu gong ying) is effective for painful urinary dribbling, for moderating diarrhea, and for reducing clumping. Essentials of the Materia Medica says that this herb is "specific for breast abscess, deep-rooted sore toxin, and is also marvelous for unblocking painful urinary dribbling."
+
+Zhu Dan-Xi noted that Taraxaci Herba (pu gong ying) "resolves toxicity due to stagnant food, disperses qi stasis, transforms heat toxin, reduces toxic swellings, clumping, nodes, and deep-set boils." Zhang Xi-Chun was enthusiastic about the herb's properties: "People have no idea that Taraxaci Herba (pu gong ying) treats eye diseases so marvelously - if they did, there would be no blind people in the world!"
+
+Rectification of the Meaning of Materia Medica elaborates:
+
+Its nature is clearing and cooling, and it treats all red and swollen heat toxin sores such as boils, furuncles, and carbuncles. It can be taken internally or applied externally, and lives up to [its description in the classics]. It is especially and particularly effective for breast abscess and sores on the breast when they are hard, red swellings. If fresh, grind into juice and drink warm; if dried, decoct to drink. Taraxaci Herba (pu gong ying) can be used alone to treat this condition, but if a larger prescription is selected, this must be one of the included herbs.
+
+---
 ---
 
 ## 🔑 TCM Properties
@@ -85,21 +95,18 @@ Brief description of the herb, source, botanical information, and general identi
 
 ## ⚡ Functions & Actions
 
-```dataview
-LIST herb_data.functions
-WHERE file.name = this.file.name
-```
-
-**Key Functions:**
--
--
--
-
-**Clinical Applications:**
--
--
-
----
+- **Reduces abscesses and dissipates nodules:** For internal abscesses and external sores, particularly if they are firm and hard. Especially useful for breast and intestinal abscesses. Can be used both internally and topically.
+    - With Trichosanthis Fructus (gua lou), Citri Reticulatae Pericarpium (qing pi), and Lonicerae Caulis (jin yin teng) for the early stages of breast abscess with redness, swelling, and pain. This is an important herb for this problem.
+    - With Lonicerae Flos (jin yin hua) and Violae Herba (zi hua di ding) for all hot, painful, hard, and deep-rooted boils.
+    - Add Forsythiae Fructus (lian qiao) and Chrysanthemi Indici Flos (ye ju hua) to strengthen the effect, as in Five-Ingredient Decoction to Eliminate Toxin (wu wei xiao du yin).
+    - With Rhei Radix et Rhizoma (da huang), Patriniae Herba (bai jiang cao), and Moutan Cortex (mu dan pi) for intestinal abscess.
+    - With Houttuyniae Herba (yu xing cao) and Benincasae Semen (dong gua zi) for Lung abscess with purulent sputum.
+    - With Prunellae Spica (xia ku cao) for subcutaneous phlegm nodules. Often Fritillariae Thunbergii Bulbus (zhe bei mu) is added.
+- **Clears the Liver and clears the eyes:** For redness and swelling of the eyes. Can be used alone as a steam for this purpose.
+    - With Chrysanthemi Flos (ju hua), Scutellariae Radix (huang qin), and Prunellae Spica (xia ku cao) for redness and swelling of the eyes due to upward-blazing of Liver fire.
+- **Clears heat, resolves dampness, and unblocks painful urinary dribbling:** For damp-heat jaundice and painful urinary dribbling.
+    - With Artemisiae Scopariae Herba (yin chen) for jaundice.
+    - With Lysimachiae Herba (jin qian cao) and Imperatae Rhizoma (bai mao gen) for painful urinary dribbling.
 
 ## 🎯 Patterns & Symptoms
 
@@ -209,8 +216,7 @@ WHERE file.name = this.file.name
 ## 🌱 Quality Criteria & Authentication
 
 **Quality Indicators:**
--
--
+Good quality consists of plants with many greyish green leaves and thick roots.
 
 **Common Adulterants:**
 -
@@ -281,7 +287,7 @@ LIMIT 10
 - [[]]
 
 **Related Formulas:**
-- [[Formulas including Pu Gong Ying]]
+- [[Formulas including Ai Ye]]
 
 **Related Western Conditions:**
 - [[]]

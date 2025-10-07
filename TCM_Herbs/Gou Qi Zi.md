@@ -1,7 +1,7 @@
 ---
 # 🔹 Core Metadata (Universal Fields)
 id: "herb-20251001123706"
-name: "Gou Qi Zi"
+name: "Lycii Fructus/Gou Qi Zi"
 type: "herb"
 aliases: []
 tags: [TCM, Herb]
@@ -20,35 +20,36 @@ tests: []
 # 🔹 Herb-Specific Data
 herb_data:
   hanzi: "枸杞子"
-  pinyin: "Gou Qi Zi"
-  pharmaceutical: "Lycii, Fructus"
-  english: ""
+  pinyin: "Gǒu Qǐ Zǐ"
+  pharmaceutical: "Lycii Fructus"
+  english: "Lycium fruit, Chinese wolfberry, matrimony vine fruit"
   alternate_names: []
 
   # TCM Properties
-  taste: []
-  temperature: ""
-  channels: []
+  taste: [Sweet, Neutral]
+  temperature: "Neutral"
+  channels: [Liver, Lung, Kidney]
 
   # Clinical Information
-  dosage: ""
-  toxicity: ""
-  functions: []
+  dosage: "6-12 g"
+  toxicity: "This has a very low toxicity in the normal dosage range. Only some allergic reactions have been reported, including urticaria-like or papular rashes."
+  functions: [Nourishes and tonifies the Liver and Kidneys, Benefits the essence and brightens the eyes, Enriches the yin and moistens the Lungs]
   dui_yao: []
 
   # Additional Information
-  constituents: []
-  quality: ""
-  text_first_appeared: ""
+  constituents: [Alkaloids: atropine, hyoscyamine, Carotenoids: carotene, zeaxanthin, physalien, cryptoxanthin, Coumarins: scopoletin, Organic acids: nicotinic acid, ascorbic acid, linoleic acid, Amino acids: aspartic acid, proline, alanine, leucine, phenylalanine, serine, glycine, glutamic acid, cysteine, lysine, arginine, isoleucine, threonine, histidine, tyrosine, tryptophan, methionine, Other constituents: betaine, riboflavine, taurine, thiamine, γ-aminobutanoic acid]
+  quality: "Good quality consists of large, red, thick, and fleshy fruit with few seeds and a sweet taste."
+  text_first_appeared: "Divine Husbandman's Classic of the Materia Medica"
 
   # Source References
-  bensky_page: ""
+  bensky_pdf: "627"
+  bensky_page: "None"
 
 created: 2025-10-01
 updated: 2025-10-01
 ---
 
-# 🌿 Gou Qi Zi
+# 🌿 Ai Ye
 
 **Pharmaceutical Name:** `= this.herb_data.pharmaceutical`
 **English Name:** `= this.herb_data.english`
@@ -71,8 +72,11 @@ updated: 2025-10-01
 
 ## 📖 Overview
 
-Brief description of the herb, source, botanical information, and general identity.
+*Lycii Fructus* (gou qi zi) nourishes the blood in the Liver to brighten the eyes, and tonifies the Lung and Kidney yin, while also mildly augmenting the Kidney yang. The Grand Materia Medica states that it "enriches the Kidneys, moistens the Lungs, and brightens the eyes." It goes on to note that "the fruit is sweet, neutral, and moistening; with a nature that enriches and tonifies: it cannot eliminate heat (xie), [as the root-bark of this plant, *Lycii Cortex* (di gu pi) can]; it only tonifies the Kidneys and moistens the Lungs, generates essence and augments the qi."
 
+In Essays on Medicine Esteeming the Chinese and Respecting the Western, Zhang Xi-Chun takes issue with the ability of this herb to cool heat, stating that the fruit "definitely has the effect of reducing heat, and this is not empty talk: I have personally examined this carefully." He then describes how, at fifty years of age, he would feel hot when waking from sleep, and over the course of a night would drink a full pitcher of water. If he chewed 30g of this herb before sleeping, the water intake was reduced by half, and he would awaken without heat. He rhetorically asks whether this is heat from deficiency, or from excess, then proceeds to explain that, as he is rather fat, there is no lack of yin. This is clearly not heat from deficiency [in the normal sense]. Likewise, there is no heat sensation during the day, nor at night when not asleep; it is only when just waking from sleep that heat emerges from the area of the Heart. This heat is generated during sleep, and is clearly not the same as the flushing of heat from excess. It comes about because, during sleep, the Heart and the Kidneys naturally connect and generate heat, a manifestation of the flourishing of vigorous congenital primal yang. Because only *Lycii Fructus* (gou qi zi) can tonify and enrich the primal yin so that it mutually aids the congenital primal yang, it has this effect.
+
+---
 ---
 
 ## 🔑 TCM Properties
@@ -85,21 +89,22 @@ Brief description of the herb, source, botanical information, and general identi
 
 ## ⚡ Functions & Actions
 
-```dataview
-LIST herb_data.functions
-WHERE file.name = this.file.name
-```
-
-**Key Functions:**
--
--
--
-
-**Clinical Applications:**
--
--
-
----
+- Nourishes and tonifies the Liver and Kidneys: for yin and blood deficiency patterns with such symptoms as sore back and legs, low-grade abdominal pain, impotence, nocturnal emissions, wasting and thirsting disorder, and consumption. Because this herb is neither hot nor cold, it is commonly used in treating Liver and Kidney deficiency.
+- With *Angelicae sinensis* Radix (danggui), *Glehniae Radix/Adenophorae Radix* (sha shen), and *Toosendan Fructus* (chuan lian zi) for epigastric and flank pain with accompanying dryness in the mouth and throat, bitter taste, and acid regurgitation due to yin deficiency and constrained Liver qi.
+- Often combined with *Rehmanniae Radix preparata* (shu di huang) for Kidney and Liver yin deficiency.
+- Add *Drynariae Rhizoma* (gu sui bu), *Eucommiae Cortex* (du zhong), and *Dipsaci Radix* (xu duan) for a sore and painful lower back due to Kidney deficiency.
+- Add *Dioscoreae Rhizoma* (shan yao) and *Testudinis Plastrum* (gui ban) for severe yin deficiency with lower back pain, spermatorrhea, sweating, and diminished visual and aural acuity, as in Restore the Left [Kidney] Pill (zuo gui wan).
+- Add *Cinnamomi Cortex* (rou gui) and *Aconiti Radix Lateralis Preparata* (zhi fu zi) for Kidney yang deficiency, as in Restore the Right [Kidney] Pill (you gui wan).
+- With *Polygonati Rhizoma* (huang jing) for deficiency consumption with exhausted essence.
+- With *Longan Arillus* (long yan rou) for blood deficiency with a sallow complexion, insomnia, and multiple dreams.
+- Benefits the essence and brightens the eyes: for Liver and Kidney deficiency patterns where the essence and blood are unable to nourish the eyes. Manifestations include dizziness, blurred vision, and diminished visual acuity.
+- With *Chrysanthemi Flos* (ju hua) for tinnitus, headache, and visual impairment due to Liver and Kidney deficiency, as in Lycium Fruit, Chrysanthemum, and Rehmannia Pill (qi ju di huang wan).
+- Enriches the yin and moistens the Lungs: for consumptive cough and wasting and thirsting disorder.
+- With *Ophiopogonis Radix* (mai men dong), *Anemarrhenae Rhizoma* (zhi mu), and *Fritillariae Cirrhosae Bulbus* (chuan bei mu) for consumptive coughs.
+- With *Lycii Cortex* (di gu pi) and *Stellariae Radix* (yin chai hu) for steaming bone disorder.
+- With *Ecliptae Herba* (mo han lian) and *Asini Corii Colla* (e jiao) for coughing of blood due to yin deficiency.
+- In folk medicine, 10 g of this herb are steamed and taken 2-3 times a day for wasting and thirsting disorder.
+- Add *Trichosanthis Radix* (tian hua fen) and *Dioscoreae Rhizoma* (shan yao) to increase its effectiveness.
 
 ## 🎯 Patterns & Symptoms
 
@@ -175,8 +180,9 @@ SORT Category, file.name
 **Toxicity:** `= this.herb_data.toxicity`
 
 **Contraindications:**
--
--
+While this is not as greasy and cloying as many other yin and blood tonics, those with Spleen deficiency and dampness leading to diarrhea may still find it hard to digest. In those cases, the herb should be used with caution. See Toxicity below.
+
+Traditional Contraindications: "Do not include this [in a prescription] for those with weak Spleen and Stomach." (Commentary on the Divine Husbandman's Classic of Materia Medica)
 
 **Drug Interactions:**
 -
@@ -209,8 +215,7 @@ WHERE file.name = this.file.name
 ## 🌱 Quality Criteria & Authentication
 
 **Quality Indicators:**
--
--
+Good quality consists of large, red, thick, and fleshy fruit with few seeds and a sweet taste.
 
 **Common Adulterants:**
 -
@@ -281,7 +286,7 @@ LIMIT 10
 - [[]]
 
 **Related Formulas:**
-- [[Formulas including Gou Qi Zi]]
+- [[Formulas including Ai Ye]]
 
 **Related Western Conditions:**
 - [[]]

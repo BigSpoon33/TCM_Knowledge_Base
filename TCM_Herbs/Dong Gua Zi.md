@@ -1,7 +1,7 @@
 ---
 # 🔹 Core Metadata (Universal Fields)
 id: "herb-20251001123706"
-name: "Dong Gua Zi"
+name: "Winter Melon Seed / Dong Gua Zi"
 type: "herb"
 aliases: []
 tags: [TCM, Herb]
@@ -20,35 +20,36 @@ tests: []
 # 🔹 Herb-Specific Data
 herb_data:
   hanzi: "冬瓜子"
-  pinyin: "Dong Gua Zi"
-  pharmaceutical: "Benincasae, Semen"
-  english: ""
+  pinyin: "dōng guā zǐ"
+  pharmaceutical: "Benincasae Semen"
+  english: "winter melon seed, wax gourd seed, benincasa"
   alternate_names: []
 
   # TCM Properties
-  taste: []
-  temperature: ""
-  channels: []
+  taste: [sweet, cold]
+  temperature: "cold"
+  channels: [Lung, Stomach, Large Intestine, Small Intestine]
 
   # Clinical Information
-  dosage: ""
-  toxicity: ""
-  functions: []
+  dosage: "9-15g"
+  toxicity: "None noted."
+  functions: [Clears heat, Expels phlegm, Promotes the discharge of pus, Drains dampness]
   dui_yao: []
 
   # Additional Information
-  constituents: []
-  quality: ""
-  text_first_appeared: ""
+  constituents: [Saponins, urea, urease, citrulline, fats]
+  quality: "Good quality consists of full, yellowish white seeds."
+  text_first_appeared: "Divine Husbandman's Classic of the Materia Medica"
 
   # Source References
-  bensky_page: ""
+  bensky_pdf: "627"
+  bensky_page: "None"
 
 created: 2025-10-01
 updated: 2025-10-01
 ---
 
-# 🌿 Dong Gua Zi
+# 🌿 Ai Ye
 
 **Pharmaceutical Name:** `= this.herb_data.pharmaceutical`
 **English Name:** `= this.herb_data.english`
@@ -71,8 +72,15 @@ updated: 2025-10-01
 
 ## 📖 Overview
 
-Brief description of the herb, source, botanical information, and general identity.
+Sweet and cold, Benincasae Semen (冬瓜子 dōng guā zǐ) enters the Lung, Stomach, Large Intestine, and Small Intestine channels. Cold and slippery by nature, it cools Lung heat accumulating in the upper burner, while guiding out accumulated filth from the Large Intestine below. It also loosens phlegm and promotes the discharge of pus, and so can be used for Lung heat with thick yellow phlegm, and for damp-heat in the upper or lower burner, as in Lung or Intestinal abscess, or vaginal discharge.
 
+Essentials of the Materia Medica observes that the herb also tonifies the Liver and benefits the vision, while the Divine Husbandman's Classic of the Materia Medica notes that the seeds make the skin glossy and moist, and improve the complexion; for this purpose, they can be taken internally or applied as a paste.
+
+Li Shi-Zhen has an interesting observation regarding the flesh of the winter melon, the matrix from which the seeds are extracted:
+
+The fruit's flesh is best taken by those who are hot; if taken by those who are cold, it will make them thin. Taken boiled, it blanches the five yin organs, as it drives qi downward. Those desiring a thin, light, healthy body should take it over the long term; if you need to put on weight, do not take it.
+
+---
 ---
 
 ## 🔑 TCM Properties
@@ -85,21 +93,12 @@ Brief description of the herb, source, botanical information, and general identi
 
 ## ⚡ Functions & Actions
 
-```dataview
-LIST herb_data.functions
-WHERE file.name = this.file.name
-```
-
-**Key Functions:**
--
--
--
-
-**Clinical Applications:**
--
--
-
----
+- Clears heat, expels phlegm, and promotes the discharge of pus: for heat that has collected in the Lungs or Intestines, as in Lung heat, with expectoration of thick, yellow sputum. Also for damp-heat with phlegm obstruction in the upper or lower burner, as in Lung or Intestinal abscess.
+  - With Platycodi Radix (桔梗 jie geng), Houttuyniae Herba (蕺菜 yú xing cao), and Lonicerae Flos (金银花 jin yin hua) for Lung abscess caused by hot phlegm.
+  - With Coicis Semen (薏苡仁 yì yì rén) and Phragmitis Rhizoma (芦根 lú gēn) for Lung abscess due to heat toxin obstructing the Lungs, as in Reed Decoction (wei jing tang).
+  - With Rhei Radix et Rhizoma (大黄 da huang) and Moutan Cortex (牡丹皮 mǔ dān pí) for Intestinal abscess as in Rhubarb and Moutan Decoction (da huang mu dan tang).
+- Clears heat and drains dampness: especially useful in the treatment of damp-heat vaginal discharge.
+  - With Phellodendri Cortex (黄柏 huáng bǎi) and Dioscoreae hypoglaucae Rhizoma (萆薢 bì xiè) for damp-heat vaginal discharge.
 
 ## 🎯 Patterns & Symptoms
 
@@ -175,8 +174,17 @@ SORT Category, file.name
 **Toxicity:** `= this.herb_data.toxicity`
 
 **Contraindications:**
--
--
+Zhu Dan-Xi observes:
+
+Winter melon has a nature which urgently mobilizes. When Miscellaneous Records of Famous Physicians [sixth-century text] says that it separates and disperses toxic qi, this is utilizing its urgent, mobilizing nature. It should not be taken by those with chronic illness or yin deficiency.
+
+In Essentials of the Materia Medica, however, Wang Ang disagrees:
+
+Winter melon is something consumed almost daily as a food, and of all the melons, it particularly feels beneficial to people. Furthermore, its flavor is sweet and not acrid; how can its nature be seen as urgently mobilizing?!
+
+In Seeking Accuracy in the Materia Medica, Huang Gong Xiu weighs in on the argument:
+
+Since Wang Ang had previously stated that it alleviates thirst and reduces swelling, and then says that its nature is not mobilizing and its consumption is greatly beneficial-is he not contradicting himself?
 
 **Drug Interactions:**
 -
@@ -209,8 +217,7 @@ WHERE file.name = this.file.name
 ## 🌱 Quality Criteria & Authentication
 
 **Quality Indicators:**
--
--
+Good quality consists of full, yellowish white seeds.
 
 **Common Adulterants:**
 -
@@ -281,7 +288,7 @@ LIMIT 10
 - [[]]
 
 **Related Formulas:**
-- [[Formulas including Dong Gua Zi]]
+- [[Formulas including Ai Ye]]
 
 **Related Western Conditions:**
 - [[]]

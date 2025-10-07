@@ -19,36 +19,37 @@ tests: []
 
 # 🔹 Herb-Specific Data
 herb_data:
-  hanzi: "浙貝母"
-  pinyin: "Zhe Bei Mu"
-  pharmaceutical: "Fritillariae Thunbergii, Bulbus"
-  english: ""
+  hanzi: "浙贝母"
+  pinyin: "zhè bèi mǔ"
+  pharmaceutical: "Fritillariae Thunbergii Bulbus"
+  english: "Zhejiang fritillaria bulb, Thunberg fritillaria bulb"
   alternate_names: []
 
   # TCM Properties
-  taste: []
-  temperature: ""
-  channels: []
+  taste: [Bitter, cold]
+  temperature: "cold"
+  channels: [Heart, Lung]
 
   # Clinical Information
-  dosage: ""
-  toxicity: ""
-  functions: []
+  dosage: "4.5-9g"
+  toxicity: "See Cremastrae; ENPleiones Pseudobulbus (shan gu) for Iphigenia indica (jiang shan ci gu, yi pi jian)."
+  functions: [Clears and transforms phlegm-heat, Clears heat and dissipates nodules]
   dui_yao: []
 
   # Additional Information
-  constituents: []
-  quality: ""
-  text_first_appeared: ""
+  constituents: [Alkaloids: verticine, verticinone, peimine, peiminine, zhebeinine, zhebeirine, eduardine, zhebeinone, peimisine, isoverticine, verticine-N-oxide, verticinone-N-oxide, 11-deoxo-6-oxo-5α,6-dihydrojervine, 12,13-epoxy-11-deoxo-6-oxo-5α,6-dihydrojervine N,O-diacetate, 12, 13-epoxy-22β,25β,5α-veratramine-3β,17β,23α-triol-6-one N,O(3)diacetate, choline, Glycosides: peiminoside, zhebeininoside, Diterpenes: communic acid methylester, isopimaran-19-ol, isopimaran-19-oic acid methylester, ent-kauran16β,17-diol, ent-16α,17-epoxykaurane, ent-16α-methoxykauran-17β-ol, ent-kaur-15-en-17-ol, ent-kauran-16α,17-diol, Organic acids: coriolic acid, 13-hydroxy-9E,11E-octadecadienoic acid, α-dimorphecolic acid, δ-dimorphecolic acid, Other constituents: picropodophyllotoxin, β-sitosterol, carotene]
+  quality: "Good quality consists of dry, white, powdery, solid bulbs without areas of loose texture."
+  text_first_appeared: "Thoroughly Revised Materia Medica"
 
   # Source References
-  bensky_page: ""
+  bensky_pdf: "627"
+  bensky_page: "None"
 
 created: 2025-10-01
 updated: 2025-10-01
 ---
 
-# 🌿 Zhe Bei Mu
+# 🌿 Ai Ye
 
 **Pharmaceutical Name:** `= this.herb_data.pharmaceutical`
 **English Name:** `= this.herb_data.english`
@@ -71,8 +72,9 @@ updated: 2025-10-01
 
 ## 📖 Overview
 
-Brief description of the herb, source, botanical information, and general identity.
+Fritillariae thunbergii Bulbus (zhe bei mu) cools heat and transforms phlegm, alleviates cough and disperses clumps and so is appropriate for externally-contracted pathogenic wind with phlegm-heat constraining the Lungs, leading to cough with thick yellow phlegm; chest pain resulting from phlegm clumping in the chest; scrofula; boils and other toxic swellings. Rectification of the Meaning of Materia Medica notes that it, "while bitter and cold, also has an implicit acrid, dispersing action; thus, while it can expel heat, drain and direct downward, it can also disperse clumps." Omissions from the Grand Materia Medica notes that Zhang Jing-Yue emphasized the herb's efficacy in treating toxic swellings, and extended this to other wounds as well: bleeding from wounds from metal implements, pain from fire sores, it can be applied as a powder or decocted and taken internally. Its flavor and nature are both strong, and compared to Fritillariae cirrhosae Bulbus (chuan bei mu), its ability to cool and direct downward is several times greater.
 
+---
 ---
 
 ## 🔑 TCM Properties
@@ -85,21 +87,16 @@ Brief description of the herb, source, botanical information, and general identi
 
 ## ⚡ Functions & Actions
 
-```dataview
-LIST herb_data.functions
-WHERE file.name = this.file.name
-```
-
-**Key Functions:**
--
--
--
-
-**Clinical Applications:**
--
--
-
----
+*   Clears and transforms phlegm-heat: for acute Lung heat patterns with productive cough.
+    *   With Forsythiae Fructus (lian qiao) and Arctii Fructus (niu bang zi) for cough, especially of an acute nature, due to externally-contracted wind-heat with dry mouth, scratchy throat, and thick yellow sputum.
+*   Clears heat and dissipates nodules: for phlegm-fire which congeals and causes neck swellings. Also important for Lung and breast abscess and swellings.
+    *   With Scrophulariae Radix (xuan shen), Ostreae Concha (mu li), and Prunellae Spica (xia ku cao) for scrofula.
+    *   Especially due to phlegm-fire with pain and swelling at multiple sites, as in Reduce Scrofula Pill (xiao luo wan).
+    *   With Sargassum (hai zao), Eckloniae Thallus (kun bu) and Pinelliae Rhizoma preparatum (zhi ban xia) for rock-like masses in the center of the neck, as in Sargassum Decoction for the Jade Flask (hai zao yu hu tang).
+    *   With Prunellae Spica (xia ku cao), Sargassum (hai zao) and Curcumae Rhizoma (yu jin) for thyroid nodules.
+    *   With Sepiae Endoconcha (hai piao xiao) for epigastric pain and acid regurgitation.
+    *   With Lonicerae Flos (jin yin hua), Taraxaci Herba (pu gong ying), and Chrysanthemi Flos (ju hua) for abscess and other toxic swellings. This combination is most appropriate in the early stages where there is firm swelling, redness and pain.
+    *   With Coicis Semen (yi yi ren), Benincasae Semen (gua lou zi), and Houttuyniae Herba (yu xing cao) for Lung abscess.
 
 ## 🎯 Patterns & Symptoms
 
@@ -175,8 +172,7 @@ SORT Category, file.name
 **Toxicity:** `= this.herb_data.toxicity`
 
 **Contraindications:**
--
--
+According to some traditional sources, this herb is incompatible with Aconiti Radix preparata (zhi chuan wu) and other aconite medicinals. It is ineffective for coughs due to phlegm secondary to cold-dampness.
 
 **Drug Interactions:**
 -
@@ -209,8 +205,7 @@ WHERE file.name = this.file.name
 ## 🌱 Quality Criteria & Authentication
 
 **Quality Indicators:**
--
--
+Good quality consists of dry, white, powdery, solid bulbs without areas of loose texture.
 
 **Common Adulterants:**
 -
@@ -281,7 +276,7 @@ LIMIT 10
 - [[]]
 
 **Related Formulas:**
-- [[Formulas including Zhe Bei Mu]]
+- [[Formulas including Ai Ye]]
 
 **Related Western Conditions:**
 - [[]]

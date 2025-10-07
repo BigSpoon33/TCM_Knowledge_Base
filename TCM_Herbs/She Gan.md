@@ -1,7 +1,7 @@
 ---
 # 🔹 Core Metadata (Universal Fields)
 id: "herb-20251001123706"
-name: "She Gan"
+name: "She Gan / Belamcandae Rhizoma"
 type: "herb"
 aliases: []
 tags: [TCM, Herb]
@@ -20,35 +20,36 @@ tests: []
 # 🔹 Herb-Specific Data
 herb_data:
   hanzi: "射干"
-  pinyin: "She Gan"
-  pharmaceutical: "Belamcandae, Rhizoma"
-  english: ""
+  pinyin: "Shè Gàn"
+  pharmaceutical: "Belamcandae Rhizoma"
+  english: "Leopard Lily Rhizome"
   alternate_names: []
 
   # TCM Properties
-  taste: []
-  temperature: ""
-  channels: []
+  taste: [Bitter, Cold]
+  temperature: "Cold"
+  channels: [Lung]
 
   # Clinical Information
-  dosage: ""
-  toxicity: ""
-  functions: []
+  dosage: "3-9g"
+  toxicity: "None listed"
+  functions: [Clears heat, resolves toxicity, and improves the condition of the throat, Transforms phlegm and clears the Lungs]
   dui_yao: []
 
   # Additional Information
-  constituents: []
-  quality: ""
-  text_first_appeared: ""
+  constituents: [Isoflavones: iridin, irigenin, tectoridin, tectorigenin, irisflorentin, noririsflorentin, belamcanidin, methylirisolidone, isotectorin A, B, isotectorigenin A, B, demethyltectorigenin, muningin, 5,3'-dihydroxy-4',5'-dimethoxy-6,7-methylenedioxyisoflavone, 5,7,3'-trihydroxy-8,4'-dimethoxyisoflavone, rhamnocitrin, Bicyclic triterpenes: belamcandal, deacetylbelamcandal, acylbelamcandal, isoiridogermanal, isoiridogermanal monoacetate, acylisoiridogermanal, acylisoiridogermanal monoacetate, Phenylpropanones: apocynin, sheganone, androsin, tecturoside, Phenoles, quinones: belamcandol A, B, belamcandaquinone A, B, (2-methoxy-6-pentadeca-10'-en)-1,4-benzoquinone]
+  quality: "Good quality consists of dry, full rhizomes with a hard texture and without fibrous roots or soil on the surface. The cross section is yellow."
+  text_first_appeared: "Divine Husbandman's Classic of Materia Medica"
 
   # Source References
-  bensky_page: ""
+  bensky_pdf: "627"
+  bensky_page: "N/A"
 
 created: 2025-10-01
 updated: 2025-10-01
 ---
 
-# 🌿 She Gan
+# 🌿 Ai Ye
 
 **Pharmaceutical Name:** `= this.herb_data.pharmaceutical`
 **English Name:** `= this.herb_data.english`
@@ -71,8 +72,15 @@ updated: 2025-10-01
 
 ## 📖 Overview
 
-Brief description of the herb, source, botanical information, and general identity.
+Bitter and cold, Belamcandae Rhizoma (she gan) clears heat toxin, resolves swelling and pain of the throat, transforms phlegm in the throat, and is thus effective for cough, wheezing, and audible breathing due to clumping of phlegm and pathological water.
 
+The Grand Materia Medica notes that "Belamcandae Rhizoma (she gan) directs downward, which explains its importance in ancient formulas for treating sore throat and painful obstruction in the throat." Rectification of the Meaning of Materia Medica observes: "The main therapeutic effects of Belamcandae Rhizoma (she gan) may seem to be many, but they can be subsumed under these two: 'directs downward to unbind phlegm' and 'breaks up clumps to drain heat'." Thus, Belamcandae Rhizoma (she gan) is used for swelling and pain of the throat from either wind-heat or phlegm-heat obstruction, and for phlegm leading to coughing and wheezing. By cooling the heat in the Lungs, the yang fluids of the Lungs no longer thicken, thereby reducing the accumulation of phlegm, and facilitating its expulsion.
+
+Encountering the Sources of the Classic of Materia Medica suggests that Belamcandae Rhizoma (she gan) also possesses an acrid flavor, and explains its functions:
+
+The primary indications in the Divine Husbandman are cough and upward rebellion of qi, and painful obstruction of the throat that does not let up. It disperses clumped qi, rebellious qi within the abdomen, and over-consumption of very hot food or drink. To clarify: bitterness can drive downward and drain, acridity can disperse upward, so all of the indications in the Divine Husbandman involve its clump-dispersing effect-and it is indeed an important medicinal for painful obstruction of the throat.
+
+---
 ---
 
 ## 🔑 TCM Properties
@@ -85,21 +93,15 @@ Brief description of the herb, source, botanical information, and general identi
 
 ## ⚡ Functions & Actions
 
-```dataview
-LIST herb_data.functions
-WHERE file.name = this.file.name
-```
-
-**Key Functions:**
--
--
--
-
-**Clinical Applications:**
--
--
-
----
+- Clears heat, resolves toxicity, and improves the condition of the throat: for swelling and pain of the throat due to fire excess, fire toxin, or phlegm-heat obstruction. Sometimes used alone for sore throat.
+    - With Scutellariae Radix (huang qin) for sore throat and cough due to heat in the Lungs.
+    - Add Platycodi Radix (jie geng) for pain and swelling of the throat with hoarseness of varying severity due to fire excess.
+    - With Sophorae tonkinensis Radix (shan dou gen) for severe sore throat and phlegm that is difficult to expectorate.
+    - With Lonicerae Flos (jin yin hua) and Lasiosphaera/Calvatia (ma bo) for throat painful obstruction, as in Honeysuckle, Forsythia, and Puffball Powder (yin qiao ma bo san).
+    - With Lasiosphaera/Calvatia (ma bo), Cimicifugae Rhizoma (sheng ma), and Scrophulariae Radix (xuan shen) for fire toxin affecting the throat.
+- Transforms phlegm and clears the Lungs: for cough and wheezing with phlegm obstruction. Its effect on phlegm is so strong that it is combined with warming herbs in treating obstruction and clogging due to cold-phlegm.
+    - With Armeniacae Semen (xing ren) and Platycodi Radix (jie geng) for such Lung heat symptoms as cough, and pain and swelling of the throat with difficulty in expectorating.
+    - With Ephedrae Herba (ma huang), Asari Radix et Rhizoma (xi xin), and Zingiberis Rhizoma recens (sheng jiang) for wind-cold asthma with constriction of the chest secondary to phlegm, as in Belamcanda and Ephedra Decoction (she gan ma huang tang).
 
 ## 🎯 Patterns & Symptoms
 
@@ -175,8 +177,11 @@ SORT Category, file.name
 **Toxicity:** `= this.herb_data.toxicity`
 
 **Contraindications:**
--
--
+Contradindicated in those with loose stools, as ingestion can lead to watery diarrhea.
+Relatively contraindicated during pregnancy.
+
+When using this herb to treat wind-fire or damp-heat, it can be used as the chief constituent, but only for a short time; it cannot be used for any extended period of time.
+It enters the Lungs and disperses clumping at the qi level, thus dispersing wind-phlegm. However, if clumping is present, it will disperse the clumps, but if there is no actual clumping, it will disperse the qi. This will inevitably lead to wheezing from deficiency. (New Compilation of Materia Medica)
 
 **Drug Interactions:**
 -
@@ -209,8 +214,7 @@ WHERE file.name = this.file.name
 ## 🌱 Quality Criteria & Authentication
 
 **Quality Indicators:**
--
--
+Good quality consists of dry, full rhizomes with a hard texture and without fibrous roots or soil on the surface. The cross section is yellow.
 
 **Common Adulterants:**
 -
@@ -281,7 +285,7 @@ LIMIT 10
 - [[]]
 
 **Related Formulas:**
-- [[Formulas including She Gan]]
+- [[Formulas including Ai Ye]]
 
 **Related Western Conditions:**
 - [[]]

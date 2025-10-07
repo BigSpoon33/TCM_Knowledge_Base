@@ -20,35 +20,36 @@ tests: []
 # 🔹 Herb-Specific Data
 herb_data:
   hanzi: "紫菀"
-  pinyin: "Zi Wan"
-  pharmaceutical: "Asteris, Radix et Rhizoma"
-  english: ""
+  pinyin: "zi wan"
+  pharmaceutical: "Asteris Radix"
+  english: "Aster root, purple aster"
   alternate_names: []
 
   # TCM Properties
-  taste: []
-  temperature: ""
-  channels: []
+  taste: [Acrid, bitter, slightly warm]
+  temperature: "slightly warm"
+  channels: [Lung]
 
   # Clinical Information
-  dosage: ""
-  toxicity: ""
-  functions: []
+  dosage: "5-9g"
+  toxicity: "None"
+  functions: [Relieves coughs and expels phlegm, Facilitates urination]
   dui_yao: []
 
   # Additional Information
-  constituents: []
-  quality: ""
-  text_first_appeared: ""
+  constituents: [astersaponin A, astersaponin B, astersaponin C, astersaponin D, astersaponin E, astersaponin F, astersaponin G, astersaponin H, astersaponin Hb, astersaponin He, astersaponin Hd, asterprosaponin, hederasaponin, kirengeshomasaponin, shionoside A, shionoside B, asterin (=astin) A, asterin (=astin) B, asterin (=astin) C, quercetin, epifriedelinol, friedelin, shionone, L-(-)-endo-camphanol, lachnophyllol, lachnophyllol acetate, anethol, fixed oil, aromatic acids, succinic acid, cyclochlorotine]
+  quality: "Good quality consists of long, purplish red, pliable, and tough roots."
+  text_first_appeared: "Divine Husbandman's Classic of the Materia Medica"
 
   # Source References
-  bensky_page: ""
+  bensky_pdf: "627"
+  bensky_page: "None"
 
 created: 2025-10-01
 updated: 2025-10-01
 ---
 
-# 🌿 Zi Wan
+# 🌿 Ai Ye
 
 **Pharmaceutical Name:** `= this.herb_data.pharmaceutical`
 **English Name:** `= this.herb_data.english`
@@ -71,8 +72,19 @@ updated: 2025-10-01
 
 ## 📖 Overview
 
-Brief description of the herb, source, botanical information, and general identity.
+Asteris Radix (*zi wan*) disperses because it is acrid, and drains because it is bitter. It is warming and moistening without being drying, unlike most acrid and bitter herbs. It enters the qi aspect of the Lung channel, but also its blood aspect, and thus moves qi and blood by facilitating the flow of Lung qi, while also moistening the Lungs and directing rebellious Lung qi downward, transforming phlegm, and alleviating cough.
 
+With other appropriate herbs, Asteris Radix (*zi wan*) can be used whether the cough is exogenous or endogenous, hot or cold. It is, however, most appropriate for Lung qi obstruction following externally-contracted wind-cold, which binds up the Lung qi, leading to cough and wheezing with profuse sputum.
+
+*Seeking Accuracy in the Materia Medica* elaborates on the characteristics of this herb:
+
+Acrid, bitter, and warm. It is red in color, and although it enters the highest organ, it also descends and directs downward. Thus, texts record that it enters the Lung metal blood aspect—acridity enters the Lungs, red enters the blood. It is able to treat deficiency consumptive cough, childhood convulsions, nosebleed, and all other bleeding disorders. It can likewise unblock and regulate fluid metabolism—since bitterness directs downward—and thereby treat bound urination and blood in the stool. In this way, both above and below benefit. Furthermore, this herb is acrid but not drying, moistening but not obstructing—it truly benefits the Lungs. Yet its dispersing nature is strong, while its nourishing, enriching power is weak.
+
+*Required Readings from the Medical Ancestors* adds:
+
+Although it enters the highest [organ], its descending tendency is superb in that it makes qi transformation reach down to the Bladder, so that urination is freely facilitated. This is something that people do not know.
+
+---
 ---
 
 ## 🔑 TCM Properties
@@ -85,21 +97,14 @@ Brief description of the herb, source, botanical information, and general identi
 
 ## ⚡ Functions & Actions
 
-```dataview
-LIST herb_data.functions
-WHERE file.name = this.file.name
-```
-
-**Key Functions:**
--
--
--
-
-**Clinical Applications:**
--
--
-
----
+- Relieves coughs and expels phlegm: an important herb in stopping coughs of various etiologies including wind-cold, wind-heat, Lung deficiency, and consumption.
+  - With Farfarae Flos (*kuan dong hua*) for cough and wheezing with copious sputum and rebellious qi. This is a very common combination.
+  - With Platycodi Radix (*jie geng*) and Schizonepetae Herba (*jing jie*) for clogged Lung qi with a productive cough in the aftermath of an externally-contracted disease, usually wind-cold, as in Stop Coughing Powder (*zhi sou san*).
+  - With Scutellariae Radix (*huang qin*) and Fritillariae Bulbus (*bei mu*) for coughing of viscous, yellow phlegm from Lung heat.
+  - With Stemonae Radix (*bai bu*) for either acute or chronic cough with blood in the sputum.
+  - With Schisandrae Fructus (*wu wei zi*) for productive cough, wheezing, and spontaneous sweating.
+  - With Asparagi Radix (*tian men dong*), Scutellariae Radix (*huang qin*), and Mori Cortex (*sang bai pi*) for chronic cough, especially that due to debilitating heat, which often results in coughing up blood and pus.
+  - With Anemarrhenae Rhizoma (*zhi mu*) and Fritillariae Cirrhosae Bulbus (*chuan bei mu*) for chronic cough due to Lung deficiency with blood-streaked sputum.
 
 ## 🎯 Patterns & Symptoms
 
@@ -175,8 +180,8 @@ SORT Category, file.name
 **Toxicity:** `= this.herb_data.toxicity`
 
 **Contraindications:**
--
--
+- [A]n acrid, warm herb to be used only temporarily.
+- If the patient is yin deficient or has heat in the Lungs, it cannot be used alone or in large amounts, and Rehmanniae Radix (*sheng di huang*) or Ophiopogonis Radix (*mai men dong*) should support it. (Required Readings from the Medical Ancestors)
 
 **Drug Interactions:**
 -
@@ -209,8 +214,7 @@ WHERE file.name = this.file.name
 ## 🌱 Quality Criteria & Authentication
 
 **Quality Indicators:**
--
--
+Good quality consists of long, purplish red, pliable, and tough roots.
 
 **Common Adulterants:**
 -
@@ -281,7 +285,7 @@ LIMIT 10
 - [[]]
 
 **Related Formulas:**
-- [[Formulas including Zi Wan]]
+- [[Formulas including Ai Ye]]
 
 **Related Western Conditions:**
 - [[]]

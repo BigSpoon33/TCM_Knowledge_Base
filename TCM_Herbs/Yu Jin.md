@@ -1,7 +1,7 @@
 ---
 # 🔹 Core Metadata (Universal Fields)
 id: "herb-20251001123706"
-name: "Yu Jin"
+name: "Yu Jin / Curcumae Radix"
 type: "herb"
 aliases: []
 tags: [TCM, Herb]
@@ -19,36 +19,42 @@ tests: []
 
 # 🔹 Herb-Specific Data
 herb_data:
-  hanzi: "鬱金"
-  pinyin: "Yu Jin"
-  pharmaceutical: "Curcumae, Tuber"
-  english: ""
+  hanzi: "郁金"
+  pinyin: "yù jīn"
+  pharmaceutical: "Curcumae Radix"
+  english: "Turmeric Tuber"
   alternate_names: []
 
   # TCM Properties
-  taste: []
-  temperature: ""
-  channels: []
+  taste: [Acrid, bitter]
+  temperature: "Cold"
+  channels: [Heart, Lung, Liver]
 
   # Clinical Information
-  dosage: ""
-  toxicity: ""
-  functions: []
+  dosage: "6-12g"
+  toxicity: "Use with caution during pregnancy."
+  functions: [Invigorates the blood and stops pain while promoting the movement of qi and resolving constraint, Clear heat and cools the blood, Clears the Heart and opens the orifices, Benefits the Gallbladder and reduces jaundice]
   dui_yao: []
 
   # Additional Information
-  constituents: []
-  quality: ""
-  text_first_appeared: ""
+  constituents: [*Curcuma wenyujin*:
+    - Curcuminoides: curcumin, demethoxycurcumin, bisdemethoxycurcumin, *Curcuma longa*:
+    - Curcuminoides: curcumin, demethoxycurcumin, bisdemethoxycurcumin
+    - Volatile oil: tumerone, ar-tumerone, germacrone, curcumene, ar-curcumene, terpinene, curdione, curcumol, turmerone, cineole, caryophyllene, limonene, linalool, a-pinene, B-pinene, camphene, isoborneol, *Curcuma kwangsiensis*:
+    - Curcuminoides: curcumin, demethoxycurcumin, bisdemethoxycurcumin
+    - Volatile oil: B-pinene, cineole, borneol, isoborneol, caryophyllene, camphor, B-elemene, δ-elemene, humulene, a-terpinene, linalool, linderazulene, isocurcumenol, gweicurculactone]
+  quality: "The best quality consists of large, solid and heavy, ovoid roots with a greyish yellow or greyish brown surface, few wrinkles, and a horny cross section."
+  text_first_appeared: "Tang Materia Medica"
 
   # Source References
-  bensky_page: ""
+  bensky_pdf: "627"
+  bensky_page: "None"
 
 created: 2025-10-01
 updated: 2025-10-01
 ---
 
-# 🌿 Yu Jin
+# 🌿 Ai Ye
 
 **Pharmaceutical Name:** `= this.herb_data.pharmaceutical`
 **English Name:** `= this.herb_data.english`
@@ -71,8 +77,15 @@ updated: 2025-10-01
 
 ## 📖 Overview
 
-Brief description of the herb, source, botanical information, and general identity.
+Acrid, such that it disperses, bitter, such that it drains and directs downward, and cold, such that it cools heat, Curcumae Radix (yu jin) enters the blood aspect of the Heart and Liver channels to cool heat in the Heart and blood, while also promoting the movement of qi within the blood in order to dredge and relieve Liver channel qi constraint and clumping. In Convenient Reader of Materia Medica, Zhang Bing-Cheng observes:
 
+Relieves constraint and expands the chest, so that the Heart and Lungs can be unblocked and the Liver restored; acridity disperses, bitterness directs downward, blood stasis is driven out, and the qi disseminated. Because it is aromatic and fragrant, it scours out phlegm from the Heart orifice; because its nature is rather cooling and drying, it treats withdrawal seizures in Liver patients.
+
+Curcumae Radix (yu jin) is widely used for blood stasis due to heat, such as dysmenorrhea and clumping in the hypochondrium, as well as for bleeding disorders due to heat in the blood, such as nosebleed and blood in the urine. It facilitates the proper functioning of the Gallbladder to eliminate jaundice, and because of its ability to cool the Heart and relieve constraint, it is used for muddled consciousness from warm pathogen diseases, and in cases of seizures and withdrawal mania.
+
+Essentials of the Materia Medica states that it "promotes the movement of qi, relieves constraint, cools the blood, and breaks up stasis. It treats nosebleed, and women with inverted menses (nosebleed at the onset of menstruation or instead of menstruation), and pox toxin entering the Heart."
+
+---
 ---
 
 ## 🔑 TCM Properties
@@ -85,21 +98,22 @@ Brief description of the herb, source, botanical information, and general identi
 
 ## ⚡ Functions & Actions
 
-```dataview
-LIST herb_data.functions
-WHERE file.name = this.file.name
-```
-
-**Key Functions:**
--
--
--
-
-**Clinical Applications:**
--
--
-
----
+- Invigorates the blood and stops pain while promoting the movement of qi and resolving constraint: used topically and internally for pain related to traumatic injury and hasten the healing process of chronic sores as well as such symptoms as chest, abdominal, flank, or menstrual pain from constrained Liver qi. Particularly useful for constrained Liver qi patterns with heat signs.
+    - With Cyperi Rhizoma (xiang fu), Angelicae sinensis Radix (dang gui), and Paeoniae Radix alba (bai shao) for flank and abdominal pain associated with menstruation.
+    - With Aurantii Fructus (zhi ke) for Liver qi constraint with stifling sensation in the chest, fullness in the epigastrium and abdomen with signs of heat from constraint.
+    - With Bupleuri Radix (chai hu) for pain and distention in the flanks, irregular menses, and dysmenorrhea due to constrained Liver qi and blood stasis.
+    - With Salviae miltiorrhizae Radix (dan shen) for painful obstruction of the chest due to heat and obstruction of the blood.
+    - Add Trionycis Carapax (bie jia) and Lycopi Herba (ze lan) for accumulations or masses in the hypochondrium.
+    - With Artemisiae scopariae Herba (yin chen) and Gardeniae Fructus (zhi zi) for pain in the flanks with jaundice, a sense of constriction and focal distention in the chest, reduced urine output, and loss of appetite associated with damp-warmth.
+- Clear heat and cools the blood: for heat in the blood aspect causing chaotic movement of the blood leading to such problems as nosebleed, vomiting of blood, and blood in the urine. Especially useful for nosebleed at the onset of menstruation or instead of menstruation, known as inverted menses (dao jing).
+    - With Moutan Cortex (mu dan pi) and Achyranthis bidentatae Radix (niu xi) for purplish maculae, spitting of blood, and nosebleed due to chaotic movement of hot blood with blood stasis.
+    - With Jin Qian Cao (Lysimachiae/Desmodii/etc. Herba) for pain associated with painful urinary dribbling with stones.
+- Clears the Heart and opens the orifices: used when hot phlegm obstructs the Heart orifices with such symptoms as anxiety, agitation, seizures, or mental derangement. Although it is rather effective in clearing the Heart, its ability to open the orifices is weak.
+    - With Acori tatarinowii Rhizoma (shi chang pu) and Bambusae Succus (zhu li) for damp-heat veiling the clear orifices marked by focal distention and a stifling sensation in the chest and epigastrium along with muddled consciousness.
+    - With Alumen (bai fan) for seizures due to phlegm obstruction.
+- Benefits the Gallbladder and reduces jaundice: for gallbladder disorders and jaundice.
+    - With Artemisiae scopariae Herba (yin chen) and Gardeniae Fructus (zhi zi) for jaundice due to damp-heat.
+    - With Lygodii Spora (hai jin sha) and Gigeriae Galli Endothelium Corneum (ji nei jin) for gall stones.
 
 ## 🎯 Patterns & Symptoms
 
@@ -175,8 +189,7 @@ SORT Category, file.name
 **Toxicity:** `= this.herb_data.toxicity`
 
 **Contraindications:**
--
--
+"Forbidden in those with distention and obstruction with qi deficiency." (Materia Medica of Combinations)
 
 **Drug Interactions:**
 -
@@ -209,8 +222,7 @@ WHERE file.name = this.file.name
 ## 🌱 Quality Criteria & Authentication
 
 **Quality Indicators:**
--
--
+The best quality consists of large, solid and heavy, ovoid roots with a greyish yellow or greyish brown surface, few wrinkles, and a horny cross section.
 
 **Common Adulterants:**
 -
@@ -281,7 +293,7 @@ LIMIT 10
 - [[]]
 
 **Related Formulas:**
-- [[Formulas including Yu Jin]]
+- [[Formulas including Ai Ye]]
 
 **Related Western Conditions:**
 - [[]]

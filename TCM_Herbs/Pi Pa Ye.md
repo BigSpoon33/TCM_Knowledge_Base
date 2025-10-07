@@ -20,35 +20,36 @@ tests: []
 # 🔹 Herb-Specific Data
 herb_data:
   hanzi: "枇杷葉"
-  pinyin: "Pi Pa Ye"
-  pharmaceutical: "Eriobotryae, Folium"
-  english: ""
+  pinyin: "pi pa ye"
+  pharmaceutical: "Eriobotryae Folium"
+  english: "loquat leaf, eriobotrya"
   alternate_names: []
 
   # TCM Properties
-  taste: []
-  temperature: ""
-  channels: []
+  taste: [bitter, neutral]
+  temperature: "Neutral"
+  channels: [Lung, Stomach]
 
   # Clinical Information
-  dosage: ""
-  toxicity: ""
-  functions: []
+  dosage: "6-15g"
+  toxicity: "For internal use the fuzz should be removed from the leaves, as the unprocessed leaves are highly irritating to the mucosa and may aggravate a cough, causing edema and spasms of the larynx."
+  functions: [Transforms phlegm, Clears Lung heat, Redirects Lung qi downward, Harmonizes the Stomach, Clears Stomach heat]
   dui_yao: []
 
   # Additional Information
-  constituents: []
-  quality: ""
-  text_first_appeared: ""
+  constituents: [Volatile oil: nerolidol, farnesol, α-pinene, β-pinene, myrcene, p-cymene, linalool, linalool oxide, α-ylangene, α-farnesene, β-farnesene, camphor, nerol, geraniol, α-cadinol, cis-β-hexenol, cis-γ-hexenol, Triterpenes: ursolic acid, 2α-hydroxyursolic acid, 6α,19α-dihydroxyursolic acid, maslinic acid, methyl maslinate, euscaphic acid, tormentic acid, 23-cis-/ 23-trans-p-coumaroyltormentic acid, 3-O-trans-caffeoyltormentic acid, 3-O-trans-p-coumaroyltormentic acid, 3-O-trans-p-coumaroylrotundic acid, Organic acids: citric acid, malic acid, tartaric acid, Glycosides: amygdalin, nerolidol-3-O-α-L-rhamnopyranosyl (1→2)-β-D-glucopyranoside, nerolidol-3-O-α-L-rhamnopyranosyl (1→4)-β-D-glucopyranoside, nerolidol-3-O-α-L-rhamnopyranosyl (1→4)-α-L-rhamnopyranosyl (1→6)-β-D-glucopyranoside, quercetin-3-glucoside, hyperoside, Other constituents: ceryl alcohol, ceryl palmitate, amino acids, saponins, proteins, tannins, cryptoxanthin, vitamin B1]
+  quality: "Good quality consists of large, green or reddish brown (exposure to sunlight turns the green leaves brown) unfragmented leaves. Yellow leaves are of inferior quality."
+  text_first_appeared: "Miscellaneous Records of Famous Physicians"
 
   # Source References
-  bensky_page: ""
+  bensky_pdf: "627"
+  bensky_page: "None"
 
 created: 2025-10-01
 updated: 2025-10-01
 ---
 
-# 🌿 Pi Pa Ye
+# 🌿 Ai Ye
 
 **Pharmaceutical Name:** `= this.herb_data.pharmaceutical`
 **English Name:** `= this.herb_data.english`
@@ -71,8 +72,11 @@ updated: 2025-10-01
 
 ## 📖 Overview
 
-Brief description of the herb, source, botanical information, and general identity.
+Best at directing rebellious qi downward, Eriobotryae Folium (枇杷葉 pi pa ye) cools Lung heat to transform phlegm and alleviate cough; it also cools Stomach heat, alleviates nausea, and quenches restless thirst. Thus, by cooling Lung heat and directing Lung qi downward, Eriobotryae Folium (枇杷葉 pi pa ye) can be used for cough, coughing of blood, or nosebleed due to Lung disturbance from wind-warmth, warm-heat, pathogenic summerheat, or dry-heat. It can likewise be used to direct turbid pathogens downward and out of the Stomach in cases of continuous vomiting due to externally-contracted damp-warmth or other contagious toxins.
+The Grand Materia Medica describes the main therapeutic action of this herb:
+Eriobotryae Folium (枇杷葉 pi pa ye), in treating Lung and Stomach disorders, is generally used for its ability to direct rebellious qi downward. When qi is driven downward, fire will then descend and phlegm is smoothly [eliminated]. Thus, rebelliousness is curbed, nausea is quelled, thirst is quenched, and the cough is alleviated.
 
+---
 ---
 
 ## 🔑 TCM Properties
@@ -85,21 +89,15 @@ Brief description of the herb, source, botanical information, and general identi
 
 ## ⚡ Functions & Actions
 
-```dataview
-LIST herb_data.functions
-WHERE file.name = this.file.name
-```
-
-**Key Functions:**
--
--
--
-
-**Clinical Applications:**
--
--
-
----
+• Transforms phlegm, clears Lung heat, and redirects Lung qi downward: for Lung heat or Lung dryness patterns with cough and wheezing.
+- With Armeniacae Semen (杏仁 xing ren) for Lung heat induced nonproductive cough, or cough with viscous sputum that is difficult to expectorate, accompanied by chest pain and a dry throat. Often Coptidis Rhizoma (黃連 huang lian), Mori Cortex (桑白皮 sang bai pi), and Gardeniae Fructus (梔子 zhi zi) are added.
+- With Mori Cortex (桑白皮 sang bai pi), Platycodi Radix (桔梗 jie geng), and Stemonae Radix (百部 bai bu) for cough and wheezing from dry heat marked by sputum that is difficult to expectorate, dry mouth, and a red tongue.
+• Harmonizes the Stomach, clears Stomach heat, and redirects Stomach qi downward: for nausea, vomiting, hiccough, and belching due to Stomach heat.
+- With Scutellariae Radix (黃芩 huang qin) and Cyperi Rhizoma (香附 xiang fu) for Stomach heat-induced vomiting and belching.
+- With Imperatae Rhizoma (白茅根 bai mao gen) for vomiting or vomiting of blood due to a heat disorder.
+- With Bletillae Rhizoma (白芨 bai ji) for coughing of blood streaked sputum.
+- With Phragmitis Rhizoma (蘆根 lu gen) for irritability and vomiting due to injury of the fluids from a warm-heat pathogen disease.
+- With Pinelliae Rhizoma preparatum (制半夏 zhi ban xia) to alleviate nausea and calm the Stomach.
 
 ## 🎯 Patterns & Symptoms
 
@@ -175,8 +173,8 @@ SORT Category, file.name
 **Toxicity:** `= this.herb_data.toxicity`
 
 **Contraindications:**
--
--
+Encountering the Sources of the Classic of Materia Medica notes that although Eriobotryae Folium (枇杷葉 pi pa ye) is commonly used for cough, nausea, and vomiting, "it is still contraindicated for nausea and vomiting from Stomach cold, or cough due to wind-cold." These conditions can still be treated with this herb, however, if the leaves are prepared with ginger, and other appropriate herbs are added.
+Use with caution for cough or vomiting due to cold.
 
 **Drug Interactions:**
 -
@@ -209,8 +207,7 @@ WHERE file.name = this.file.name
 ## 🌱 Quality Criteria & Authentication
 
 **Quality Indicators:**
--
--
+Good quality consists of large, green or reddish brown (exposure to sunlight turns the green leaves brown) unfragmented leaves. Yellow leaves are of inferior quality.
 
 **Common Adulterants:**
 -
@@ -281,7 +278,7 @@ LIMIT 10
 - [[]]
 
 **Related Formulas:**
-- [[Formulas including Pi Pa Ye]]
+- [[Formulas including Ai Ye]]
 
 **Related Western Conditions:**
 - [[]]

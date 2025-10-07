@@ -19,36 +19,37 @@ tests: []
 
 # 🔹 Herb-Specific Data
 herb_data:
-  hanzi: "生薑"
-  pinyin: "Sheng Jiang"
-  pharmaceutical: "Zingiberis Recens, Rhizoma"
-  english: ""
+  hanzi: "生姜"
+  pinyin: "Shēng Jiāng"
+  pharmaceutical: "Zingiberis Rhizoma Recens"
+  english: "Fresh Ginger Rhizome"
   alternate_names: []
 
   # TCM Properties
-  taste: []
-  temperature: ""
-  channels: []
+  taste: [Acrid, slightly warm]
+  temperature: "slightly warm"
+  channels: [Lung, Spleen, Stomach]
 
   # Clinical Information
-  dosage: ""
-  toxicity: ""
-  functions: []
+  dosage: "3-9g"
+  toxicity: "High doses of the herb can cause dry mouth, sore throat, epistaxis, and nephritis. It may cause elevation of blood pressure. Do not use high doses in patients with hypertension."
+  functions: [Releases the exterior and disperses cold, Warms the middle burner and alleviates vomiting, Warms the Lungs and stops cough, Resolves toxicity]
   dui_yao: []
 
   # Additional Information
-  constituents: []
-  quality: ""
-  text_first_appeared: ""
+  constituents: [Volatile oil: α-zingiberene, α-santalol, β-santalol, β-phellandrene, β-bisabolene, α-curcumene, zingiberol, perillaaldehyde, neral, geraniol, geranyl acetate, geranial, 2-caraneol, 3-caraneol, camphene, β-ocimene, α-bergamotene, α-farnesene, β-farnesene, myrcene, α-pinene, β-pinene, β-fenchene, isofenchyl alcohol, 2-borneol, isoborneol, borny acetate, citral, δ-elemene, γ-elemene, γ-menthene, α-thujene, 1,8-cineol, linalool, 2-heptanol, 1,3,3-trimethyl[2,2,1,02·6]-heptane, 6-methyl-5-hepten-2-one, 1-(1,5-dimethyl-4-hexenyl)-4-methyl benzene, octanal, galanolactone, 6-gingerol, 3-gingerol, 4-gingerol, 5-gingerol, 8-gingerol, 10-gingerol, 12-gingerol, 6-gingediol, 4-gingediol, 8-gingediol, 10-gingediol, 6-methylgingediol, 4-gingediacetate, 6-gingediacetate, 10-gingediacetate, 6-dehydrogingerdione, 10-dehydrogingerdione, 6-acetylgingerol, Other constituents: amino acids (aspartic acid, glutamic acid, serine), pipecolic acid, furanogermenone]
+  quality: "Good quality is large, full, and young, with an acrid taste."
+  text_first_appeared: "Collection of Commentaries on the Classic of the Materia Medica"
 
   # Source References
-  bensky_page: ""
+  bensky_pdf: "627"
+  bensky_page: "None"
 
 created: 2025-10-01
 updated: 2025-10-01
 ---
 
-# 🌿 Sheng Jiang
+# 🌿 Ai Ye
 
 **Pharmaceutical Name:** `= this.herb_data.pharmaceutical`
 **English Name:** `= this.herb_data.english`
@@ -71,8 +72,13 @@ updated: 2025-10-01
 
 ## 📖 Overview
 
-Brief description of the herb, source, botanical information, and general identity.
+Li Gao noted that "The use of Zingiberis Rhizoma Recens (*sheng jiang*) has four actions: in preparing Pinelliae Rhizoma (*ban xia*) it resolves toxicity, with Jujubae Fructus (*da zao*) it strengthens the digestion, it warms the channels to disperse exterior pathogenic wind, and it benefits the qi by alleviating Stomach upset."
 
+Zhang Xi-Chun compared the actions of Zingiberis Rhizoma (*gan jiang*) and Zingiberis Rhizoma Recens (*sheng jiang*):
+
+Zingiberis Rhizoma (*gan jiang*) is the ginger mother, Zingiberis Rhizoma Recens (*sheng jiang*) is the ginger child; because Zingiberis Rhizoma (*gan jiang*) is tough while Zingiberis Rhizoma Recens (*sheng jiang*) is tender ... and the action of Zingiberis Rhizoma Recens (*sheng jiang*) in generating and dispersing the qi is better than that of Zingiberis Rhizoma (*gan jiang*), it can thus vent the exterior and induce sweating. ... This acrid, dispersing power is ideal for opening phlegm and regulating qi, alleviating nausea and vomiting, and driving out all externally-contracted abnormal pathogenic qi. If only its peel is used, its warm nature is somewhat reduced, but it is excellent for unblocking urination. Ginger should be added in small amounts to food, where it strengthens the Stomach. However, one should know that if people with boils and sores consume it, scars and lumps will be generated.
+
+---
 ---
 
 ## 🔑 TCM Properties
@@ -85,21 +91,16 @@ Brief description of the herb, source, botanical information, and general identi
 
 ## ⚡ Functions & Actions
 
-```dataview
-LIST herb_data.functions
-WHERE file.name = this.file.name
-```
-
-**Key Functions:**
--
--
--
-
-**Clinical Applications:**
--
--
-
----
+- Releases the exterior and disperses cold: for exterior cold patterns.
+    - With Jujubae Fructus (*da zao*) for externally-contracted wind-cold. Also for alleviating epigastric pain, nausea, and vomiting by strengthening the Spleen qi. This combination protects the Stomach qi and reduces the irritation of the gastrointestinal tract caused by other herbs. Also adjusts the nutritive and protective qi for patients suffering from exterior deficiency who sweat without an improvement in their condition, as in Cinnamon Twig Decoction (*gui zhi tang*).
+- Warms the middle burner and alleviates vomiting: for cold in the Stomach, especially when there is vomiting.
+    - With Pinelliae Rhizoma Preparatum (*zhi ban xia*) for vomiting due to many causes, and for productive cough due to phlegm-dampness.
+    - With Bambusae Caulis in Taeniam (*zhu ru*) for vomiting due to heat in patients with Stomach qi deficiency.
+- Warms the Lungs and stops cough: for cough due to both acute wind-cold cough patterns and chronic Lung disorders with phlegm.
+    - With Perillae Folium (*zi su ye*), Armeniacae Semen (*xing ren*), and Asteris Radix (*zi wan*) for cough due to wind-cold affecting the Lung with profuse sputum.
+    - With Bambusae Succus (*zhu li*) for cough and headache due to heat-induced phlegm, or aphasia and numbness from wind-stroke due to phlegm obstruction.
+- Resolves toxicity: for resolving toxicity or treating the effects of overdose of other herbs, such as Aconiti Radix Lateralis (*fu zi*) or Pinelliae Rhizoma (*ban xia*), or for seafood poisoning.
+    - With Perillae Folium (*zi su ye*) for vomiting and diarrhea from seafood poisoning.
 
 ## 🎯 Patterns & Symptoms
 
@@ -175,8 +176,7 @@ SORT Category, file.name
 **Toxicity:** `= this.herb_data.toxicity`
 
 **Contraindications:**
--
--
+As with all acrid, warm, and dispersing herbs, its use is contraindicated when there is spontaneous sweating from exterior deficiency, heat from yin deficiency, or any pattern with abundant heat. See TOXICITY below.
 
 **Drug Interactions:**
 -
@@ -209,8 +209,7 @@ WHERE file.name = this.file.name
 ## 🌱 Quality Criteria & Authentication
 
 **Quality Indicators:**
--
--
+Good quality is large, full, and young, with an acrid taste.
 
 **Common Adulterants:**
 -
@@ -281,7 +280,7 @@ LIMIT 10
 - [[]]
 
 **Related Formulas:**
-- [[Formulas including Sheng Jiang]]
+- [[Formulas including Ai Ye]]
 
 **Related Western Conditions:**
 - [[]]

@@ -20,35 +20,36 @@ tests: []
 # 🔹 Herb-Specific Data
 herb_data:
   hanzi: "仙鶴草"
-  pinyin: "Xian He Cao"
-  pharmaceutical: "Agrimoniae, Herba"
-  english: ""
+  pinyin: "xian he cao"
+  pharmaceutical: "Agrimoniae Herba"
+  english: "Agrimony Herb"
   alternate_names: []
 
   # TCM Properties
-  taste: []
-  temperature: ""
-  channels: []
+  taste: [Bitter, Astringent]
+  temperature: "Neutral"
+  channels: [Lung, Liver, Spleen]
 
   # Clinical Information
-  dosage: ""
-  toxicity: ""
-  functions: []
+  dosage: "6-12g"
+  toxicity: "Side effects have been reported in rare cases. The symptoms included nausea, vomiting, dizziness, and cold sweat. These symptoms resolved spontaneously after the herb was discontinued. Other side effects included an oppressive feeling in the chest, dyspnea, palpitations, cold sweat, and agitation. Allergic reactions such as pruritus and urticaria, as well as one case of allergic asthma, have also been reported."
+  functions: [Restrains leakage of blood and stops bleeding, Alleviates diarrhea and dysenteric disorders, Kills parasites]
   dui_yao: []
 
   # Additional Information
-  constituents: []
-  quality: ""
-  text_first_appeared: ""
+  constituents: [Phenolic compounds: agrimol A, B, C, D, E, F, G, hyperoside, osthole, coumarin, Flavonoids, flavonoid glycosides: luteolin-7-glucoside, apigenin-7-glucoside, quercetin, cosmosiin, hyperoside, rutin, catechin, Organic acids: ellagic acid, gallic acid, caffeic acid, pinic acid, ursolic acid, 1β,2α,3β,19α-tetrahydroxyurs-12-en-28-oic acid, 1β,2β,3β,19α-tetrahydroxyurs-12-en-28-oic acid]
+  quality: "Good quality consists of dry, tender plants with reddish brown stems and many leaves."
+  text_first_appeared: "Unknown"
 
   # Source References
-  bensky_page: ""
+  bensky_pdf: "627"
+  bensky_page: "583"
 
 created: 2025-10-01
 updated: 2025-10-01
 ---
 
-# 🌿 Xian He Cao
+# 🌿 Ai Ye
 
 **Pharmaceutical Name:** `= this.herb_data.pharmaceutical`
 **English Name:** `= this.herb_data.english`
@@ -71,8 +72,15 @@ updated: 2025-10-01
 
 ## 📖 Overview
 
-Brief description of the herb, source, botanical information, and general identity.
+Bitter, astringent, and neutral, Agrimoniae Herba (xian he cao) enters the blood aspect of the Lung, Liver, and Spleen channels. It is commonly used to bind up and inhibit bleeding. As its nature is neither hot nor cold, its use is not restricted to disorders due to either heat or cold, deficiency or excess; it can be used for all types of bleeding. Mirror of the Hundred Herbs states it is used for "external injuries, vomiting of blood, continuous uterine bleeding, dysenteric disorders, and Intestinal wind with passage of blood." It can be used by itself or combined with other herbs to stop bleeding due to various causes.
 
+There are a number of other uses for this herb mentioned in the various materia medica texts, including checking malarial disorders, resolving toxicity, reducing abscesses, and killing parasites. For example, the Grand Materia Medica records that it reduces food stagnation, eases fullness in the middle, drives qi downward, treats all disorders involving vomiting of blood, upset Stomach, belching, malarial disorders, painful obstruction of the throat, Intestinal wind with blood in the stool, accumulated food stasis, jaundice, and treats abscesses and deep-rooted toxic sores, Lung abscess, breast abscess, and swollen hemorrhoids.
+
+At present it is primarily used for bleeding disorders associated with some of the ailments listed in this passage, such as bleeding dysenteric disorders, but also for malarial disorders, swollen sores, hemorrhoids, and vaginal pruritus due to trichomonas infection. For the latter condition the young, fresh stems and leaves are often used as part of an external wash or douche.
+
+People south of the Yangtze river in China use this herb as a qi tonic in cases of exhaustion - hence the name loss-of-strength herb (tuo li cao). For this purpose, 30g of the herb are combined with ten red dates in a strong decoction and sipped as a tea throughout the day. This has also been effectively used for bleeding ulcers in the stomach or duodenum. It can also be included in the formula Gui Pi Tang (Restore the Spleen Decoction) when bleeding is due to Spleen deficiency which renders it unable to contain the blood.
+
+---
 ---
 
 ## 🔑 TCM Properties
@@ -85,21 +93,19 @@ Brief description of the herb, source, botanical information, and general identi
 
 ## ⚡ Functions & Actions
 
-```dataview
-LIST herb_data.functions
-WHERE file.name = this.file.name
-```
+Restrains leakage of blood and stops bleeding: Widely used for various types of bleeding such as vomiting blood, coughing blood, nosebleed, bleeding gums, blood in the urine, or uterine bleeding. Depending on its particular combination with other herbs, it can be used for bleeding due to heat, cold, excess, or deficiency.
+- With Sepiae Endoconcha (hai piao xiao) for excessive uterine bleeding or dark bloody stools associated with pain in the middle burner.
+- With Sophorae Flos Immaturus (huai mi) for bloody stools.
+- With Imperatae Rhizoma (bai mao gen) for bloody urine.
+- Add Nelumbinis Nodus Rhizomatis (ou jie) for nosebleed.
+- With Platycladi Cacumen (ce bai ye) and Rehmanniae Radix Crudus (sheng di huang) for blood coming from the upper part of the body (nose or mouth) due to internal heat and exhausted yin.
+- With Asini Corii Colla (e jiao) for bleeding with underlying yin and blood deficiency.
+- With Platycladi Cacumen (ce bai ye) for vomiting of blood.
 
-**Key Functions:**
--
--
--
+Alleviates diarrhea and dysenteric disorders: For chronic problems, as this herb has a restraining nature.
+- With Sanguisorbae Radix (di yu) for bloody dysenteric disorders.
 
-**Clinical Applications:**
--
--
-
----
+Kills parasites: For trichomonas vaginitis and tapeworm, as well as malarial disorders. Used topically for trichomonas vaginitis.
 
 ## 🎯 Patterns & Symptoms
 
@@ -175,8 +181,7 @@ SORT Category, file.name
 **Toxicity:** `= this.herb_data.toxicity`
 
 **Contraindications:**
--
--
+As an astringent, binding herb, it is appropriate for chronic forms of diarrhea, but not for those with active pathogens.
 
 **Drug Interactions:**
 -
@@ -209,8 +214,7 @@ WHERE file.name = this.file.name
 ## 🌱 Quality Criteria & Authentication
 
 **Quality Indicators:**
--
--
+Good quality consists of dry, tender plants with reddish brown stems and many leaves.
 
 **Common Adulterants:**
 -
@@ -281,7 +285,7 @@ LIMIT 10
 - [[]]
 
 **Related Formulas:**
-- [[Formulas including Xian He Cao]]
+- [[Formulas including Ai Ye]]
 
 **Related Western Conditions:**
 - [[]]

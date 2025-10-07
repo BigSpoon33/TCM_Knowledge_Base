@@ -19,36 +19,37 @@ tests: []
 
 # 🔹 Herb-Specific Data
 herb_data:
-  hanzi: "烏藥"
+  hanzi: "乌药"
   pinyin: "Wu Yao"
-  pharmaceutical: "Linderae, Radix"
-  english: ""
+  pharmaceutical: "Linderae Radix"
+  english: "Lindera Root"
   alternate_names: []
 
   # TCM Properties
-  taste: []
-  temperature: ""
-  channels: []
+  taste: [Acrid]
+  temperature: "Warm"
+  channels: [Bladder, Kidney, Lung, Spleen]
 
   # Clinical Information
-  dosage: ""
-  toxicity: ""
-  functions: []
+  dosage: "3-9g"
+  toxicity: "Long-term administration and overdosage should both be avoided."
+  functions: [Promotes the movement of qi and alleviates pain, Warms the Kidneys]
   dui_yao: []
 
   # Additional Information
-  constituents: []
-  quality: ""
-  text_first_appeared: ""
+  constituents: [Monoterpenes, sesquiterpenes: linderane, linderene, isolinderene, borneol (linderol), linderalactone, isolinderalactone, neolinderalactone, chamazulene (linderazulene), linderene acetate, lindenene, lindenenone, isofuranogermacren, lindestren, linder oxide, Alkaloids: laurolitsine, boldine, reticuline, Organic acids: decanoic acid, dodecanoic acid, tetradecanoic acid, cis-4-dodecenoic acid, cis-4-tetradecenoic acid, palmitic acid, octadecanoic acid, oleic acid, linoleic acid, eicosenoic acid]
+  quality: "Good quality consists of tender roots with a yellowish-white, powdery cross section and an intense aroma."
+  text_first_appeared: "Formulary of the Bureau of Medicines of the Taiping Era"
 
   # Source References
-  bensky_page: ""
+  bensky_pdf: "627"
+  bensky_page: "None"
 
 created: 2025-10-01
 updated: 2025-10-01
 ---
 
-# 🌿 Wu Yao
+# 🌿 Ai Ye
 
 **Pharmaceutical Name:** `= this.herb_data.pharmaceutical`
 **English Name:** `= this.herb_data.english`
@@ -71,8 +72,15 @@ updated: 2025-10-01
 
 ## 📖 Overview
 
-Brief description of the herb, source, botanical information, and general identity.
+Acrid, warm, and aromatic, Linderae Radix (wu yao) disseminates and unblocks the qi, in the upper body mobilizing the Spleen and Lungs, in the lower body pervading the Liver, Kidneys, and Bladder. It smooths the flow of qi, directing it downward if rebellious, disperses cold, and alleviates pain, dredging and unblocking rebellious pathogenic qi in the chest and abdomen. It is often used in the treatment of distending pain in the chest or abdomen, rebellious qi with cough and wheezing, cold qi in the Bladder leading to urinary frequency, painful bulging disorder due to cold, and gynecological qi blockage and blood stasis-all cases of rebellious qi and pathogenic cold constraint.
 
+Li Shi-Zhen observed that the herb is acrid, warm, aromatic and penetrating, with the ability to disperse all kinds of qi. This is why Formulary of the Bureau of Medicines of the Taiping Era [says that it] treats all patterns of wind-stroke or qi stroke by relying on the ability of Linderae Radix (wu yao) to smooth and disperse the qi: first dredging the patient's qi, for once the qi flows smoothly then wind naturally disperses.
+
+Li also noted that "within its downward-directing is an ascending quality, and within its draining there is tonification."
+
+*Transforming the Significance of Medicinal Substances* observes that Linderae Radix (wu yao) is powerful and warm, thus it eases the qi, disseminates and unblocks, dredging and dispersing congealed stagnation ... as it disperses cold qi, naturally residual coldness and cold pain will be expelled ... it quickly reduces constrained qi, nausea in the middle, abdominal pain, distention and fullness in the chest and diaphragm. It dredges channel qi, thus gradually unblocking paralysis due to qi stroke, or congealed qi and blood in the early stages of labor. All of this is the effect of its masculine qi.
+
+---
 ---
 
 ## 🔑 TCM Properties
@@ -85,21 +93,17 @@ Brief description of the herb, source, botanical information, and general identi
 
 ## ⚡ Functions & Actions
 
-```dataview
-LIST herb_data.functions
-WHERE file.name = this.file.name
-```
-
-**Key Functions:**
--
--
--
-
-**Clinical Applications:**
--
--
-
----
+- Promotes the movement of qi and alleviates pain: for a stifling sensation in the chest, flank pain, and epigastric and abdominal pain and distention due to constraint from cold and qi stagnation. The herb warms and disperses, and is effective in spreading and unblocking the qi dynamic, thereby smooths the flow of qi, facilitates the middle. It disperses cold, and stops pain in many areas. It is also used when cold accumulation and qi stagnation manifest in lower abdominal pain, bulging disorders, or menstrual pain.
+- With Allii macrostemi Bulbus (xie bai) and Curcumae Radix (yu jin) for a stifling sensation in the chest and flank pain.
+- With Aucklandiae Radix (mu xiang) and Aurantii Fructus (zhi shi) for epigastric and abdominal pain and distention due to cold stagnation and qi obstruction.
+- Add Cyperi Rhizoma (xiang fu) for dysmenorrhea due to stagnant qi.
+- With Cinnamomi Cortex (rou gui) for abdominal pain, especially sensations of cold and pain in the lower abdomen.
+- With Evodiae Fructus (wu zhu yu) for abdominal pain, vomiting, and diarrhea due to Spleen and Kidney cold from deficiency, as well as cold bulging disorders.
+- With Foeniculi Fructus (xiao hui xiang) and Alpiniae officinarum Rhizoma (gao liang jiang) for cold bulging disorders with lower abdominal pain that radiates to the testicles, as in Top-Quality Lindera Powder (tian tai wu yao san).
+- With Angelicae sinensis Radix (dang gui) and Cyperi Rhizoma (xiang fu) for menstrual pain.
+- With Ephedrae Herba (ma huang) and Bombyx batryticatus (bai jiang can) for wind attacking the extremities characterized by joint pain, numbness, headache, and dizziness.
+- Warms the Kidneys: for urinary frequency or incontinence due to insufficiency of Kidney yang and cold from deficiency of the Bladder.
+- With Alpiniae oxyphyllae Fructus (yi zhi ren) and Dioscoreae Rhizoma (shan yao) for urinary frequency in adults and enuresis in children due to Kidney cold from deficiency, as in Shut the Sluice Pill (suo quan wan).
 
 ## 🎯 Patterns & Symptoms
 
@@ -175,8 +179,9 @@ SORT Category, file.name
 **Toxicity:** `= this.herb_data.toxicity`
 
 **Contraindications:**
--
--
+Because this herb is acrid, warm, and drying, it can disperse the qi and deplete the blood. It should not be used in those with significant qi and blood deficiency or internal heat. See Toxicity below.
+
+"If discomfort in the chest and diaphragm occurs due to qi deficiency with internal heat, the disorder is not appropriate for this herb: Linderae Radix (wu yao) can only expel cold qi." (*Seeking Accuracy in the Materia Medica*)
 
 **Drug Interactions:**
 -
@@ -209,8 +214,7 @@ WHERE file.name = this.file.name
 ## 🌱 Quality Criteria & Authentication
 
 **Quality Indicators:**
--
--
+Good quality consists of tender roots with a yellowish-white, powdery cross section and an intense aroma.
 
 **Common Adulterants:**
 -
@@ -281,7 +285,7 @@ LIMIT 10
 - [[]]
 
 **Related Formulas:**
-- [[Formulas including Wu Yao]]
+- [[Formulas including Ai Ye]]
 
 **Related Western Conditions:**
 - [[]]

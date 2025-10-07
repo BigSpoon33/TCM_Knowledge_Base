@@ -19,36 +19,37 @@ tests: []
 
 # 🔹 Herb-Specific Data
 herb_data:
-  hanzi: "荷葉"
-  pinyin: "He Ye"
-  pharmaceutical: "Nelumbinis, Folium"
-  english: ""
+  hanzi: "荷叶"
+  pinyin: "hé yè"
+  pharmaceutical: "Nelumbinis Folium"
+  english: "Lotus Leaf"
   alternate_names: []
 
   # TCM Properties
-  taste: []
-  temperature: ""
-  channels: []
+  taste: [Bitter, slightly sweet, neutral]
+  temperature: "neutral"
+  channels: [Heart, Liver, Spleen]
 
   # Clinical Information
-  dosage: ""
-  toxicity: ""
-  functions: []
+  dosage: "3-9g"
+  toxicity: "none noted"
+  functions: [Clears heat, Resolves summerheat, Raises clear yang, Stops bleeding]
   dui_yao: []
 
   # Additional Information
-  constituents: []
-  quality: ""
-  text_first_appeared: ""
+  constituents: [Alkaloids: nuciferine, N-nornuciferine, O-nornuciferine, anonaine, roemerine, dehydroroemerine, armepavine, N-methylcoclaurine, pronuciferine, liriodenine, Glycosides: nelumboside, isoquercitrin, Organic acids: citric acid, tartaric acid, malic acid, oxalic acid, succinic acid, Other constituents: quercetin, tannin, alanine, proline, arginine, γ-aminobutyric acid, betanidin, betanidine, isobetanin, isobetanidin, betanidin-5-O-β-cellobioside, isobetanidin-5-O-β-cellobioside, thiamine, riboflavine, vitamine A, lutein, β-carotene, α-tocopherol, proteins, fixed oil]
+  quality: "Good quality consists of big, unfragmented, green leaves without moldy spots."
+  text_first_appeared: "None"
 
   # Source References
-  bensky_page: ""
+  bensky_pdf: "627"
+  bensky_page: "None"
 
 created: 2025-10-01
 updated: 2025-10-01
 ---
 
-# 🌿 He Ye
+# 🌿 Ai Ye
 
 **Pharmaceutical Name:** `= this.herb_data.pharmaceutical`
 **English Name:** `= this.herb_data.english`
@@ -71,8 +72,17 @@ updated: 2025-10-01
 
 ## 📖 Overview
 
-Brief description of the herb, source, botanical information, and general identity.
+Nelumbinis Folium (he ye) is bitter, sweet, and neutral. It is aromatic and blue-green in color, entering the Liver, Heart, and Spleen channels. It is best for clearing heat, resolving summerheat, raising and discharging clear yang, and also stops bleeding. It is often used for excessive summerheat leading to splitting headache, stifling sensation of the chest, nausea, vomiting, and diarrhea. It can also be used for any type of bleeding.
 
+The Renewed Materia Medica says that it can "cool, clear, and resolve summerheat, alleviate thirst, generate yang fluids, treat diarrhea and dysenteric disorders, while also resolving fire and heat."
+
+Penetrating the Mysteries of the Materia Medica notes that it can "open the Stomach, reduce food [stagnation], stop bleeding, and secure the essence."
+
+In the Zhang Convenient Reader of Materia Medica, Bing-Cheng explains its properties:
+
+Nelumbinis Folium (he ye) is bitter, neutral, aromatic, blue-green in color, the leaves are shaped like the trigram ☳ (zhen) [symbolizing wood and the east] so that it enters the Liver channel. Liver stores the blood, thus this herb disperses blood and has the ability to raise yang.
+
+---
 ---
 
 ## 🔑 TCM Properties
@@ -85,21 +95,11 @@ Brief description of the herb, source, botanical information, and general identi
 
 ## ⚡ Functions & Actions
 
-```dataview
-LIST herb_data.functions
-WHERE file.name = this.file.name
-```
-
-**Key Functions:**
--
--
--
-
-**Clinical Applications:**
--
--
-
----
+- Treats summerheat patterns: for fever, irritability, excessive sweating, scanty urine, and especially diarrhea due to summerheat.
+  - With Lablab Flos (bian dou hua) and Lonicerae Flos (jin yin hua) for summerheat disorder, as in Clear the Collaterals Drink (qing luo yin). Note that this formula calls for all fresh ingredients.
+- Raises and clears the yang of the Spleen: for diarrhea due to Spleen deficiency, especially in the aftermath of summerheat.
+- Stops bleeding: primarily for bleeding in the lower burner due to heat or stagnation, but also for vomiting blood. Generally used as an adjunctive herb.
+  - With Cirsii Herba (xiao ji), Rubiae Radix (qian cao gen), and Imperatae Rhizoma (bai mao gen)-all charred-for sudden onset of bleeding, as in Ten Partially-Charred Substances Powder (shi hui san).
 
 ## 🎯 Patterns & Symptoms
 
@@ -175,8 +175,7 @@ SORT Category, file.name
 **Toxicity:** `= this.herb_data.toxicity`
 
 **Contraindications:**
--
--
+none noted
 
 **Drug Interactions:**
 -
@@ -209,8 +208,7 @@ WHERE file.name = this.file.name
 ## 🌱 Quality Criteria & Authentication
 
 **Quality Indicators:**
--
--
+Good quality consists of big, unfragmented, green leaves without moldy spots.
 
 **Common Adulterants:**
 -
@@ -281,7 +279,7 @@ LIMIT 10
 - [[]]
 
 **Related Formulas:**
-- [[Formulas including He Ye]]
+- [[Formulas including Ai Ye]]
 
 **Related Western Conditions:**
 - [[]]
