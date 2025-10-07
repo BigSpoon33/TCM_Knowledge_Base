@@ -21,34 +21,35 @@ tests: []
 herb_data:
   hanzi: "百合"
   pinyin: "Bai He"
-  pharmaceutical: "Lilii, Bulbus"
-  english: ""
+  pharmaceutical: "Lilii Bulbus"
+  english: "lily bulb"
   alternate_names: []
 
   # TCM Properties
-  taste: []
-  temperature: ""
-  channels: []
+  taste: [sweet, slightly bitter, slightly cold]
+  temperature: "slightly cold"
+  channels: [Heart, Lung]
 
   # Clinical Information
-  dosage: ""
-  toxicity: ""
-  functions: []
+  dosage: "9-30g"
+  toxicity: "Allergic reactions have been reported with such symptoms as irritability, palpitations, tidal flushes, discomfort when sitting or lying, general formication, more intense in the head area. In these reports, symptoms disappeared spontaneously after about 30 minutes."
+  functions: [Moistens the Lungs, clears heat, and stops coughs, Clears the Heart and calms the spirit]
   dui_yao: []
 
   # Additional Information
-  constituents: []
-  quality: ""
-  text_first_appeared: ""
+  constituents: [Glycerol derivates: 1-O-feruloylglycerol, 1,2-O-diferuloylglycerol, 1,3-O-diferuloylglycerol, 1-O-feruloyl-2-O-p-coumaroylglycerol, 1-O-feruloyl-3-O-p-coumaroylglycerol, 1-O-p-coumaroylglycerol, 1-O-p-coumaroyl-2-O-feruloylglycerol, Phenolic glycosides: regaloside A, B, D, E, F, lilioside A, 3,6-O-diferuloylsucrose, Alkaloids: colchicine, solamargine, Triterpenes: brownioside, deacylbrownioside, Other constituents: meconic acid, dioxane lignans, proteins, sugars, fats]
+  quality: "Good quality consists of fleshy, hard, white scales, uniform in size, with leaf veins."
+  text_first_appeared: "Divine Husbandman's Classic of the Materia Medica"
 
   # Source References
-  bensky_page: ""
+  bensky_pdf: "627"
+  bensky_page: "None"
 
 created: 2025-10-01
 updated: 2025-10-01
 ---
 
-# 🌿 Bai He
+# 🌿 Ai Ye
 
 **Pharmaceutical Name:** `= this.herb_data.pharmaceutical`
 **English Name:** `= this.herb_data.english`
@@ -71,8 +72,21 @@ updated: 2025-10-01
 
 ## 📖 Overview
 
-Brief description of the herb, source, botanical information, and general identity.
+Sweet and moistening, _Lilii Bulbus_ (_bai he_) enriches the Lung yin; slightly bitter and cold, it clears the Heart, drains, and clarifies while directing downward. It is best for moistening the Lungs to stop coughs, and clearing the Heart to quiet the spirit. _Rectification of the Meaning of Materia Medica_ says that it is "slightly sweet, bland and neutral; moderate in effect. Because it is sweet and moderate, it can tonify and augment the qi and blood, moisten the Lungs to eliminate cough, settle the corporeal soul, quiet the spirit, drive out anxiety, and stop palpitations."
 
+It is used to treat dry cough due to Lung dryness or coughing of blood due to deficiency consumption. It also treats mental disorientation, palpitations, insomnia, and an indefinable feeling of constraint due to yin deficiency, or to disharmony of the nutritive and protective qi following an externally-contracted illness.
+
+In the earliest record of its properties, the _Divine Husbandman's Classic of the Materia Medica_ states that it is "sweet, neutral, governs pathogenic qi, abdominal distension and Heart pain, facilitates [passage of] stool and urine, tonifies the middle and augments qi." The _Miscellaneous Records of Famous Physicians_ adds that it "eliminates edema, abdominal distention, focal distention, chills and fever, pain all over the body, difficult lactation, and painful obstruction of the throat."
+
+In _Rectification of the Meaning of Materia Medica_, Zhang Shan-Lei explains:
+
+_Lilii Bulbus_ (_bai he_) is sweet and cold, and also a bitter, slippery, and moistening substance. Although the _Classic of the Materia Medica_ calls it sweet and neutral, its main indications, ancient and modern, suggest that its nature is to clear heat, drain, and direct downward. When the _Classic of the Materia Medica_ and _Miscellaneous Records_ state that it 'governs pathogenic qi' and 'governs chills and fevers', they are referring to a heat pathogen that has collected. [As to its treatment of the other symptoms] they are all due to its slippery, moistening ability to open up areas of clumping, and its unblocking, facilitating, draining, and guiding actions. The _Classic of the Materia Medica_ also says that it tonifies the middle and augments the qi, and when texts like the _Materia Medica of Hua-Zi Ri_ state that it also quiets the spirit and strengthens the resolve, this refers to elimination of pathogenic heat and recovery of normal qi—it does not mean that sweet, cold substances tonify the qi.
+
+The most well-known application of this herb is illustrated in _Essentials from the Golden Cabinet_ in relation to what is called lily bulb disorder (_bai he zheng_), characterized by mental disorientation, irritability, insomnia, palpitations, bitter taste, and dark, scanty urine. This usually occurs following an externally-contracted disease. _Rectification of the Meaning of the Golden Cabinet_ explains:
+
+"This pattern is a result of a pathogenic influence interacting with the nutritive level of the Heart and the protective level of the Lungs. The Heart governs the hundred vessels, the Lungs govern the transformation of qi throughout the body.... The reason that _Lilii Bulbus_ (_bai he_) is chosen in the treatment method... is that the qi of _Lilii Bulbus_ (_bai he_) is extremely clearing, and enters the Lungs; its flavor is slightly bitter, and enters the Heart; so it is most capable of clearing the upper burner, and thus serves as the chief."
+
+---
 ---
 
 ## 🔑 TCM Properties
@@ -85,21 +99,15 @@ Brief description of the herb, source, botanical information, and general identi
 
 ## ⚡ Functions & Actions
 
-```dataview
-LIST herb_data.functions
-WHERE file.name = this.file.name
-```
-
-**Key Functions:**
--
--
--
-
-**Clinical Applications:**
--
--
-
----
+Moistens the Lungs, clears heat, and stops coughs: for dry Lung or Lung-heat coughs and sore throat. Especially useful when a chronic cough due to Lung heat has injured the yin.
+- With Mori Cortex (_sang bai pi_), Asteris Radix (_zi wan_) and Fritillariae Bulbus (_bei mu_) for phlegm-heat clogging the Lungs and injuring the fluids, leading to cough and wheezing.
+- With Platycodi Radix (_jie geng_), Armeniacae Seme (_xing ren_), and Farfarae Flos (_kuan dong hua_) for cough in children marked by phlegm clogging the chest and dysfunction of the throat.
+- With Rehmanniae Radix (_sheng di huang_), Rehmanniae Radix preparata (_shu di huang_), and Scrophulariae Radix (_xuan shen_) for cough with blood-streaked sputum, hot palms and soles, and nightsweats from Lung and Kidney yin deficiency, as in Lily Bulb Decoction to Preserve the Metal (_bai he gu jin tang_). This is one type of Lung consumption.
+- With Paeoniae Radix alba (_bai shao_), Asteris Radix (_zi wan_), and Peucedani Radix (_qian hu_) for wind-heat cough contracted during pregnancy.
+- With Farfarae Flos (_kuan dong hua_) and Stemonae Radix (_bai bu_) for chronic Lung heat cough that is marked by blood-streaked sputum.
+Clears the Heart and calms the spirit: for such symptoms as intractable low-grade fever, insomnia, restlessness, and irritability in the aftermath of a febrile disease. Also for palpitations brought on by insufficiency of qi and yin.
+- With Rehmanniae Radix (_sheng di huang_) for palpitations, irritability, insomnia, and dark, scanty urine due to lingering heat, as in Lily Bulb and Rehmannia Decoction (_bai he di huang tang_).
+- With Anemarrhenae Rhizoma (_zhi mu_) for irritability and mental disorientation due to yin deficiency or lingering heat in the late stages of a febrile disease, as in Lily Bulb and Anemarrhena Decoction (_bai he zhi mu tang_).
 
 ## 🎯 Patterns & Symptoms
 
@@ -175,8 +183,11 @@ SORT Category, file.name
 **Toxicity:** `= this.herb_data.toxicity`
 
 **Contraindications:**
--
--
+"Excels at unblocking stool and urine, [thus] should not be taken by those with cold in the middle sinking downward." (_Harm and Benefit in the Materia Medica_)
+
+"In the early stage of coughs one should not be overly hasty to use it." (_Seeking Accuracy in the Materia Medica_)
+
+"Wind-cold fettering the exterior with cough due to the inability of the Lung qi to disseminate: this is a particularly forbidden herb [for that]." (_Rectification of the Meaning of Materia Medica_)
 
 **Drug Interactions:**
 -
@@ -209,8 +220,7 @@ WHERE file.name = this.file.name
 ## 🌱 Quality Criteria & Authentication
 
 **Quality Indicators:**
--
--
+Good quality consists of fleshy, hard, white scales, uniform in size, with leaf veins.
 
 **Common Adulterants:**
 -
@@ -281,7 +291,7 @@ LIMIT 10
 - [[]]
 
 **Related Formulas:**
-- [[Formulas including Bai He]]
+- [[Formulas including Ai Ye]]
 
 **Related Western Conditions:**
 - [[]]

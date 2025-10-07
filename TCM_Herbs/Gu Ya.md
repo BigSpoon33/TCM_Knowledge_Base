@@ -19,36 +19,37 @@ tests: []
 
 # 🔹 Herb-Specific Data
 herb_data:
-  hanzi: "榖芽"
-  pinyin: "Gu Ya"
-  pharmaceutical: "Sativae Germinantus, Fructus"
-  english: ""
+  hanzi: "穀芽"
+  pinyin: "gu ya"
+  pharmaceutical: "Setariae (Oryzae) Fructus germinatus"
+  english: "Millet sprouts"
   alternate_names: []
 
   # TCM Properties
-  taste: []
-  temperature: ""
-  channels: []
+  taste: [Sweet]
+  temperature: "Warm"
+  channels: [Spleen, Stomach]
 
   # Clinical Information
-  dosage: ""
-  toxicity: ""
-  functions: []
+  dosage: "9-15g"
+  toxicity: "None noted"
+  functions: [Reduces food stagnation, Strengthens the Stomach]
   dui_yao: []
 
   # Additional Information
-  constituents: []
-  quality: ""
-  text_first_appeared: ""
+  constituents: [α-amylase, β-amylase, catalyticase, peroxidisomerase, hordenine, hordatine A, hordatine B, betaine, cadenine, choline, cytochrome C, α-tocopheryl quinone, α-tocotrienol, saponarin, lutonarin, amino acids, proteins, phospholipids, dextrin, maltose, vitamins B, D, E]
+  quality: "Good quality consists of full, pale yellow fruit with budlets."
+  text_first_appeared: "Miscellaneous Records of Famous Physicians"
 
   # Source References
-  bensky_page: ""
+  bensky_pdf: "627"
+  bensky_page: "None"
 
 created: 2025-10-01
 updated: 2025-10-01
 ---
 
-# 🌿 Gu Ya
+# 🌿 Ai Ye
 
 **Pharmaceutical Name:** `= this.herb_data.pharmaceutical`
 **English Name:** `= this.herb_data.english`
@@ -71,8 +72,9 @@ updated: 2025-10-01
 
 ## 📖 Overview
 
-Brief description of the herb, source, botanical information, and general identity.
+Setariae Fructus germinatus (穀芽, gu ya) is a sweet and warm herb which enters the Spleen and Stomach, and is particularly effective for gently reducing and transforming accumulated obstruction due to grains and starches. It strengthens the Spleen, unbinds the Stomach, and restores normal appetite, but without exhausting the qi, as similar herbs like Hordei Fructus germinatus (mai ya) can do. The Grand Materia Medica notes that Setariae Fructus germinatus (穀芽, gu ya) is bitter and warm, eases the middle, directs qi downward, eliminates food stagnation, and increases normal appetite. Li Shi-Zhen further noted that, when applied to the skin as a paste, it makes the skin glossy.
 
+---
 ---
 
 ## 🔑 TCM Properties
@@ -85,21 +87,9 @@ Brief description of the herb, source, botanical information, and general identi
 
 ## ⚡ Functions & Actions
 
-```dataview
-LIST herb_data.functions
-WHERE file.name = this.file.name
-```
+*   Reduces food stagnation and strengthens the Stomach for poor digestion due to stagnation and accumulation of undigested starchy foods. Also for weak digestion and loss of appetite associated with Spleen deficiency.
 
-**Key Functions:**
--
--
--
-
-**Clinical Applications:**
--
--
-
----
+*   With Citri reticulatae Pericarpium (chen pi) and Amomi Fructus (sha ren) for reduced appetite and focal distention of the chest and abdomen due to food stagnation.
 
 ## 🎯 Patterns & Symptoms
 
@@ -175,8 +165,7 @@ SORT Category, file.name
 **Toxicity:** `= this.herb_data.toxicity`
 
 **Contraindications:**
--
--
+None noted
 
 **Drug Interactions:**
 -
@@ -209,8 +198,7 @@ WHERE file.name = this.file.name
 ## 🌱 Quality Criteria & Authentication
 
 **Quality Indicators:**
--
--
+Good quality consists of full, pale yellow fruit with budlets.
 
 **Common Adulterants:**
 -
@@ -281,7 +269,7 @@ LIMIT 10
 - [[]]
 
 **Related Formulas:**
-- [[Formulas including Gu Ya]]
+- [[Formulas including Ai Ye]]
 
 **Related Western Conditions:**
 - [[]]

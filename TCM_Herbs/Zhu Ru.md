@@ -20,35 +20,36 @@ tests: []
 # 🔹 Herb-Specific Data
 herb_data:
   hanzi: "竹茹"
-  pinyin: "Zhu Ru"
-  pharmaceutical: "Bambusae in Taeniis, Caulis"
-  english: ""
+  pinyin: "zhu ru"
+  pharmaceutical: "Bambusae Caulis in Taeniam"
+  english: "Bamboo Shavings"
   alternate_names: []
 
   # TCM Properties
-  taste: []
-  temperature: ""
-  channels: []
+  taste: [Sweet, slightly cold]
+  temperature: "Slightly cold"
+  channels: [Lung, Stomach, Gallbladder]
 
   # Clinical Information
-  dosage: ""
-  toxicity: ""
-  functions: []
+  dosage: "4.5-9g"
+  toxicity: "None"
+  functions: [Clears and transforms phlegm-heat, Clears heat and stops vomiting]
   dui_yao: []
 
   # Additional Information
-  constituents: []
-  quality: ""
-  text_first_appeared: ""
+  constituents: [Phenolic compounds: *p*-hydroxybenzaldehyde, syringaaldehyde, coniferylaldehyde, phenol, cresol, guaiacol, 2,5-dimethoxy-*p*-benzoquinone, Organic acids: formic acid, acetic acid, benzoic acid, salicylic acid, Other constituents: 1,4-benzenedicarboxylic acid, 2'-hydroxyethylmethylester, amino acids, tannins, saponins, alkaloids, sugars, triterpenes]
+  quality: "Good quality consists of yellowish green, soft, and pliable pieces, without wooden parts."
+  text_first_appeared: "Miscellaneous Records of Famous Physicians"
 
   # Source References
-  bensky_page: ""
+  bensky_pdf: "627"
+  bensky_page: "None"
 
 created: 2025-10-01
 updated: 2025-10-01
 ---
 
-# 🌿 Zhu Ru
+# 🌿 Ai Ye
 
 **Pharmaceutical Name:** `= this.herb_data.pharmaceutical`
 **English Name:** `= this.herb_data.english`
@@ -71,8 +72,15 @@ updated: 2025-10-01
 
 ## 📖 Overview
 
-Brief description of the herb, source, botanical information, and general identity.
+Circulating in the Lungs, *Bambusae Caulis in Taeniam* (zhu ru) scours hot-phlegm; entering the Stomach, it expels heat and stops nausea and reflux; entering the Gallbladder, it calms the spirit, releases constraint, and alleviates irritability. Thus the adage that *Bambusae Caulis in Taeniam* (zhu ru) is specifically indicated for cooling Lung heat, but is also valuable for calming the spirit and releasing constraint.
 
+Transforming the Significance of Medicinal Substances provides the following description of this herb: "Its lightness can expel excess, its coolness can expel heat, and its bitterness can direct downward—an admirable herb for calming the spirit and relieving constraint!"
+
+In Essays on Medicine Esteeming the Chinese and Respecting the Western, Zhang Xi-Chun describes some of the less commonly recognized applications of *Bambusae Caulis in Taeniam* (zhu ru):
+
+As the bark of the bamboo, it is both cooling and directs downward; thus, while cooling the Lungs and facilitating [the removal of] phlegm, it disseminates and unblocks the fluid passageways of the Triple Burner, and below unblocks the Bladder. Therefore, it is an important herb for unblocking and facilitating the flow of urine, similar to bamboo leaves, but superior to the leaves in its power. It also excels at cooling heat in the Intestines and eliminates tenesmus and abdominal pain from dysenteric disorders. Because of its cooling and unblocking dissemination, those with swelling and pain due to trauma and blood stasis will find the swelling and pain reduced and the blood stasis transformed by taking it. Boiling in vinegar and rinsing the mouth [with the resulting liquid] can stop bleeding gums. The greenish outer bark of the tender bamboo must be used; the inner bark is less powerful.
+
+---
 ---
 
 ## 🔑 TCM Properties
@@ -85,21 +93,15 @@ Brief description of the herb, source, botanical information, and general identi
 
 ## ⚡ Functions & Actions
 
-```dataview
-LIST herb_data.functions
-WHERE file.name = this.file.name
-```
-
-**Key Functions:**
--
--
--
-
-**Clinical Applications:**
--
--
-
----
+- Clears and transforms phlegm-heat: for heat in the Lungs with viscous sputum, stifling sensation in the chest, or coughing up blood. Also for Gallbladder fire harboring phlegm and phlegm-heat.
+  - With *Trichosanthis Fructus* (gua lou) and *Scutellariae Radix* (huang qin) for cough due to heat in the Lungs.
+  - With *Aurantii Fructus Immaturus* (zhi shi) and *Pinelliae Rhizoma Preparatum* (zhi ban xia) for insomnia, palpitations, and irritability due to intermixed phlegm and heat leading to disharmony between the Gallbladder and Stomach, with a stifling sensation in the chest, irritability, restlessness, and insomnia. See Warm the Gallbladder Decoction (wen dan tang).
+- Clears heat and stops vomiting: for vomiting of bitter or sour matter due to heat in the Stomach with bad breath, aversion to heat, and a yellow, greasy tongue. The Stomach heat can be due to either excess or deficiency. This herb is very effective at stopping vomiting and can be used, with other appropriate herbs, in treating other types of vomiting including that associated with morning sickness.
+  - With *Coptidis Rhizoma* (huang lian) and *Citri Reticulatae Pericarpium* (chen pi) for phlegm-heat in the Stomach with a stifling sensation in the epigastrium and vomiting.
+  - With *Dendrobii Herba* (shi hu) for hunger with an inability to eat very much, recurring nausea and vomiting or dry retching, thirst, and dry mouth due to Stomach yin insufficiency.
+  - With *Phragmitis Rhizoma* (lu gen) for irritability, thirst, and vomiting due to the depletion of fluids caused by a heat disorder.
+  - With *Citri Reticulatae Pericarpium* (chen pi), *Zingiberis Rhizoma Recens* (sheng jiang), and *Ginseng Radix* (ren shen) for vomiting or hiccough due to Stomach deficiency with heat.
+  - With *Zingiberis Rhizomatis Succus* (jiang zhi), both to mitigate its cold properties and enhance its ability to stop vomiting. This is especially useful in treating morning sickness, often with the addition of *Atractylodis Macrocephalae Rhizoma* (bai zhu) and *Perillae Caulis* (zi su geng).
 
 ## 🎯 Patterns & Symptoms
 
@@ -175,8 +177,7 @@ SORT Category, file.name
 **Toxicity:** `= this.herb_data.toxicity`
 
 **Contraindications:**
--
--
+"Bamboo is cold by nature, and [its use] is prohibited where there is nausea and vomiting from Stomach cold, or vomiting due to externally-contracted cold with excessive consumption of food." (Harm and Benefit in the Materia Medica)
 
 **Drug Interactions:**
 -
@@ -209,8 +210,7 @@ WHERE file.name = this.file.name
 ## 🌱 Quality Criteria & Authentication
 
 **Quality Indicators:**
--
--
+Good quality consists of yellowish green, soft, and pliable pieces, without wooden parts.
 
 **Common Adulterants:**
 -
@@ -281,7 +281,7 @@ LIMIT 10
 - [[]]
 
 **Related Formulas:**
-- [[Formulas including Zhu Ru]]
+- [[Formulas including Ai Ye]]
 
 **Related Western Conditions:**
 - [[]]

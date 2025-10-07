@@ -20,35 +20,36 @@ tests: []
 # 🔹 Herb-Specific Data
 herb_data:
   hanzi: "麥芽"
-  pinyin: "Mai Ya"
-  pharmaceutical: "Hordei Germinantus, Fructus"
-  english: ""
+  pinyin: "mài yá"
+  pharmaceutical: "Hordei Fructus Germinatus"
+  english: "Barley Sprouts"
   alternate_names: []
 
   # TCM Properties
-  taste: []
-  temperature: ""
-  channels: []
+  taste: [Sweet]
+  temperature: "Neutral"
+  channels: [Liver, Spleen, Stomach]
 
   # Clinical Information
-  dosage: ""
-  toxicity: ""
-  functions: []
+  dosage: "9-15g. For restraining lactation, use 30-60g."
+  toxicity: "See Contraindications"
+  functions: [Reduces food stagnation, softens areas of hardness, improves the appetite., Facilitates the smooth flow of Liver qi, Restrains lactation, Strengthens the Stomach]
   dui_yao: []
 
   # Additional Information
-  constituents: []
-  quality: ""
-  text_first_appeared: ""
+  constituents: [Enzymes: α-amylase, β-amylase, catalyticase, peroxidisomerase, Alkaloids: hordenine, hordatine A, B, betaine, Other constituents: cadenine, choline, cytochrome C, α-tocopheryl quinone, α-tocotrineol, saponarin, lutonarin, amino acids, proteins, phospholipids, dextrin, maltose, vitamins B, D, E]
+  quality: "Good quality consists of full, pale yellow fruit with bud lets."
+  text_first_appeared: "None"
 
   # Source References
-  bensky_page: ""
+  bensky_pdf: "627"
+  bensky_page: "None"
 
 created: 2025-10-01
 updated: 2025-10-01
 ---
 
-# 🌿 Mai Ya
+# 🌿 Ai Ye
 
 **Pharmaceutical Name:** `= this.herb_data.pharmaceutical`
 **English Name:** `= this.herb_data.english`
@@ -71,8 +72,19 @@ updated: 2025-10-01
 
 ## 📖 Overview
 
-Brief description of the herb, source, botanical information, and general identity.
+Sweet and neutral, Hordei Fructus Germinatus (麥芽, mài yá) raises and stimulates the Stomach qi in order to digest food stagnation, particularly that associated with starches and all types of fruit. Thus it is often used in the treatment of epigastric focal distention, abdominal fullness and distention, and loss of appetite due to Spleen and Stomach deficiency with stagnation of undigested food. It is also used to soften areas of hardness, and thus treats breast distention and pain.
 
+The Grand Materia Medica records various descriptions of the actions of Hordei Fructus Germinatus (麥芽, mài yá) found in earlier materia medica texts, after which Li Shi-Zhen adds his own observations:
+
+[It] is salty, warm, and without toxicity; it digests food, harmonizes the Stomach (Miscellaneous Records); breaks up cold qi, expels epigastric and abdominal fullness (Materia Medica of Medicinal Properties); unbinds the Stomach, stops sudden turmoil disorder, eliminates irritable stifling sensations, reduces phlegm and thin mucus, breaks up mobile abdominal masses and clumps, promotes labor and drops the fetus (Materia Medica of Ri Hua-Zi); tonifies Spleen and Stomach deficiency, eases the Intestines and drives qi downward, used for borborygmus (Pouch of Pearls); can reduce and guide out accumulated food stagnation from rice, flour, and all fruits.
+
+Seeking Accuracy in the Materia Medica adds that barley is sweet and warm, specifically entering the Stomach to digest food; it also has a slightly salty flavor, enabling it to soften areas of hardness. Its warmth primarily unblocks and mobilizes, and its generative emerging qi [i.e., due to its sprouting] raises the Stomach qi to assist in healthy transport. Thus, it can digest food stagnation, and treat all types of residual food stagnation and cold qi.
+
+The use of barley sprouts as a supplemental herb to dredge Liver qi is relatively new and can be attributed to the influential early twentieth-century physician Zhang Xi-Chun, who wrote:
+
+Its nature is good for reducing and transforming and simultaneously unblocking the two excretions [stool and urine]. While it is regarded as a herb of the Spleen and Stomach, it is actually good for dredging the Liver qi.
+
+---
 ---
 
 ## 🔑 TCM Properties
@@ -85,21 +97,13 @@ Brief description of the herb, source, botanical information, and general identi
 
 ## ⚡ Functions & Actions
 
-```dataview
-LIST herb_data.functions
-WHERE file.name = this.file.name
-```
-
-**Key Functions:**
--
--
--
-
-**Clinical Applications:**
--
--
-
----
+- **Reduces food stagnation and strengthens the Stomach:** For poor digestion due to stagnation and accumulation of undigested starchy foods, as well as poorly digested milk in infants. Also for weak digestion and loss of appetite in cases of Spleen deficiency. This strengthening function is rather weak.
+  - With Zingiberis Rhizoma (乾薑, gān jiāng) for indigestion due to Spleen and Stomach deficiency.
+  - With torrifying herbs to prevent undesirable side effects such as gas and distention.
+- **Restrains lactation:** For women who are discontinuing nursing, or for distended and painful breasts.
+  - With Massa Medicata Fermentata (神麯, shén qū) for indigestion due to food stagnation. Also for breast tenderness and swelling associated with the discontinuation of nursing. For these disorders the herb is usually prescribed in its dry-fried form with a large dosage.
+- **Facilitates the smooth flow of Liver qi:** For constrained Liver qi manifesting as a stifling sensation and distention in the epigastrium or ribs, belching, and loss of appetite. It is a supplementary herb for these functions.
+  - With Artemisiae Scopariae Herba (茵陳, yīn chén) and Toosendan Fructus (川楝子, chuān liàn zǐ) for eliminating the erratic movement of constrained Liver qi, as in Sedate the Liver and Extinguish Wind Decoction (鎮肝熄風湯, zhèn gān xī fēng tāng).
 
 ## 🎯 Patterns & Symptoms
 
@@ -175,8 +179,18 @@ SORT Category, file.name
 **Toxicity:** `= this.herb_data.toxicity`
 
 **Contraindications:**
--
--
+- **Contraindications:** Contraindicated in women during lactation, except in a very low dosage (up to 9g).
+- Li Shi-Zhen cautioned:
+  - It will only help the digestion in those with accumulation.
+  - In those without accumulation, if it is taken over a long period of time, it will reduce their primal qi: one must not be ignorant of this fact.
+  - If it is to be taken over a long period of time, it must be combined with such herbs as Atractylodis Macrocephalae Rhizoma (bai zhu)-then will be no harm.
+- The comments of Zhang Jie-Bin are in a similar vein:
+  - In chronic illness with reduced food intake, its grain qi can be utilized to unbind the Stomach.
+  - Those with primal qi deficiency should not overuse it, as it reduces Kidney [qi].
+  - It also excels at promoting labor and dropping the fetus.
+  - Only [with a dosage of] 60g can it reduce breast swelling.
+  - When it exhausts and disperses qi and blood in this fashion, why is it used so much in every prescription for weak Spleen and Stomach with undigested food and drink?
+  - Pregnant women should not overuse it.
 
 **Drug Interactions:**
 -
@@ -209,8 +223,7 @@ WHERE file.name = this.file.name
 ## 🌱 Quality Criteria & Authentication
 
 **Quality Indicators:**
--
--
+Good quality consists of full, pale yellow fruit with bud lets.
 
 **Common Adulterants:**
 -
@@ -281,7 +294,7 @@ LIMIT 10
 - [[]]
 
 **Related Formulas:**
-- [[Formulas including Mai Ya]]
+- [[Formulas including Ai Ye]]
 
 **Related Western Conditions:**
 - [[]]

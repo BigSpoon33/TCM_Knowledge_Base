@@ -20,35 +20,36 @@ tests: []
 # 🔹 Herb-Specific Data
 herb_data:
   hanzi: "丁香"
-  pinyin: "Ding Xiang"
-  pharmaceutical: "Caryophylli, Flos"
-  english: ""
+  pinyin: "Dīng Xiāng"
+  pharmaceutical: "Caryophylli Flos"
+  english: "Clove"
   alternate_names: []
 
   # TCM Properties
-  taste: []
-  temperature: ""
-  channels: []
+  taste: [Acrid, warm]
+  temperature: "warm"
+  channels: [Kidney, Spleen, Stomach]
 
   # Clinical Information
-  dosage: ""
-  toxicity: ""
-  functions: []
+  dosage: "1-3g"
+  toxicity: "There are no reports of toxic reactions within the normal dosage range. Overdosage can cause toxic reactions including nausea, vomiting, diarrhea, and upper gastrointestinal hemorrhage. Severe cases can lead to changes in liver function, dyspnea, loss of consciousness, and even death."
+  functions: [Warms the middle burner and directs rebellious qi downward, Warms the Kidneys and aids the yang]
   dui_yao: []
 
   # Additional Information
-  constituents: []
-  quality: ""
-  text_first_appeared: ""
+  constituents: [Volatile oil: eugenol, acetyl eugenol, β-caryophyllene, β-caryophyllene epoxide, methyl-n-pentylketone, methyl-n-heptylketone, methyl salicylate, humulene, α-humulene epoxide, methyl benzoate, benzaldehyde, m-methoxybenzaldehyde, benzyl alcohol, furfural, vanillin, α-ylangene, chavicol, 1,8-cineol, carvacrol, Flavonoids: eugenin, eugenoside I, II, rhamnetin, kaempferol, eugenitin, isoeugenitin, isoeugenitol, Triterpenoids: oleanolic acid, 2α-hydroxyoleanolic acid methylester, sitosterol, stigmasterol, campesterol, Other constituents: isooleuropein, neooleuropein, oleoside, oleoside-7-methylester, tannins (eugeniin)]
+  quality: "Good quality consists of full, oily, brownish red flower buds which sink down when placed in water."
+  text_first_appeared: "None"
 
   # Source References
-  bensky_page: ""
+  bensky_pdf: "627"
+  bensky_page: "None"
 
 created: 2025-10-01
 updated: 2025-10-01
 ---
 
-# 🌿 Ding Xiang
+# 🌿 Ai Ye
 
 **Pharmaceutical Name:** `= this.herb_data.pharmaceutical`
 **English Name:** `= this.herb_data.english`
@@ -71,8 +72,13 @@ updated: 2025-10-01
 
 ## 📖 Overview
 
-Brief description of the herb, source, botanical information, and general identity.
+Pure yang, acrid, warm, and aromatic, Caryophylli Flos (ding xiang) enters the Spleen and Stomach channels to warm the middle burner and direct Stomach qi downward, and is thus often used in the treatment of vomiting and hiccough due to Stomach cold. It also enters the Kidney channel and warms the lower burner in the treatment of impotence and cold sensations in the vagina.
 
+Rectification of the Meaning of Materia Medica describes its effects: "warms the middle and eases the qi. Treats upper burner rebellion [causing] hiccough, eliminates Stomach cold diarrhea, [and any of] the five constraints affecting the seven emotions." In Convenient Reader of Materia Medica, Zhang Bing-Cheng concurs, but goes further:
+
+Below, it reaches the Kidneys and Liver, guides the qi, expels cold. Whenever the lower burner has disorders such as running piglet, painful abdominal masses due to cold, mobile abdominal masses, and bulging disorders, as long as the Kidney yang is insufficient and there is coldness, this can be used for all.
+
+---
 ---
 
 ## 🔑 TCM Properties
@@ -85,21 +91,14 @@ Brief description of the herb, source, botanical information, and general identi
 
 ## ⚡ Functions & Actions
 
-```dataview
-LIST herb_data.functions
-WHERE file.name = this.file.name
-```
-
-**Key Functions:**
--
--
--
-
-**Clinical Applications:**
--
--
-
----
+- **Warms the middle burner and directs rebellious qi downward:** for Stomach cold with vomiting, hiccough, abdominal pain, and diarrhea, and for Spleen or Stomach cold from deficiency with lack of appetite, vomiting, and diarrhea.
+    - With Pinelliae Rhizoma preparatum (zhi ban xia) for abdominal pain and vomiting due to Stomach cold.
+    - With Kaki Calyx (shi di) and Ginseng Radix (ren shen) for hiccough due to cold from deficiency, as in Clove and Persimmon Calyx Decoction (ding xiang shi di tang).
+    - With Ginseng Radix (ren shen) and Pogostemonis Herba (huo xiang) for morning sickness.
+    - With Amomi Fructus (sha ren) and Atractylodis macrocephalae Rhizoma (bai zhu) for vomiting, diarrhea, and reduced appetite due to Spleen and Stomach cold from deficiency.
+- **Warms the Kidneys and aids the yang:** for impotence or clear vaginal discharge due to yang deficiency of the Kidneys. This type of vaginal discharge is regarded as a manifestation of Womb cold from deficiency and is usually accompanied by weakness in the legs.
+    - With Cinnamomi Cortex (rou gui) and Morindae officinalis Radix (ba ji tian) for male impotence and female vaginal discharge due to Kidney deficiency.
+    - With Rehmanniae Radix preparata (shu di huang), Asini Corii Colla (e jiao), and Artemisiae argyi Folium (ai ye) for persistent uterine bleeding with an ice-cold sensation in the lower abdomen, as in Clove, Ass-Hide Gelatin, and Ai Mugwort Decoction (ding xiang e jiao ai ye tang).
 
 ## 🎯 Patterns & Symptoms
 
@@ -175,8 +174,10 @@ SORT Category, file.name
 **Toxicity:** `= this.herb_data.toxicity`
 
 **Contraindications:**
--
--
+- Contraindicated in those with internal heat. Considered by a few traditional writers to be counteracted by Curcumae Radix (yu jin). See Toxicity below.
+- "If nausea is due to Stomach fire, sudden turmoil disorder is due to summerheat, infestatious diarrhea (zhu xie), or pain is due to Heart deficiency - in all these cases it should be avoided." (Harm and Benefit in the Materia Medica)
+
+"Acrid, hot, and drying, forbidden in any person with symptoms of fire. It should not be used for anything except cold from deficiency." (Harm and Benefit in the Materia Medica)
 
 **Drug Interactions:**
 -
@@ -209,8 +210,7 @@ WHERE file.name = this.file.name
 ## 🌱 Quality Criteria & Authentication
 
 **Quality Indicators:**
--
--
+Good quality consists of full, oily, brownish red flower buds which sink down when placed in water.
 
 **Common Adulterants:**
 -
@@ -281,7 +281,7 @@ LIMIT 10
 - [[]]
 
 **Related Formulas:**
-- [[Formulas including Ding Xiang]]
+- [[Formulas including Ai Ye]]
 
 **Related Western Conditions:**
 - [[]]

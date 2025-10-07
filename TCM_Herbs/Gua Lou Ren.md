@@ -19,36 +19,37 @@ tests: []
 
 # 🔹 Herb-Specific Data
 herb_data:
-  hanzi: "瓜蔞仁"
-  pinyin: "Gua Lou Ren"
-  pharmaceutical: "Trichosanthis, Semen"
-  english: ""
+  hanzi: "瓜蒌仁"
+  pinyin: "gua lou ren"
+  pharmaceutical: "Trichosanthis Semen"
+  english: "Trichosanthes seed"
   alternate_names: []
 
   # TCM Properties
-  taste: []
-  temperature: ""
-  channels: []
+  taste: [Sweet, Slippery, moistens both the Lungs and Intestines, cools and transforms phlegm]
+  temperature: "Cold"
+  channels: [Lung, Stomach, Large Intestine]
 
   # Clinical Information
-  dosage: ""
-  toxicity: ""
+  dosage: "9-15g"
+  toxicity: "None"
   functions: []
   dui_yao: []
 
   # Additional Information
-  constituents: []
-  quality: ""
-  text_first_appeared: ""
+  constituents: [Fixed oil: trichosanic acid is the main component, Sterols: campesterol, 7-campesterol, sitosterol, α-spinasterol, γ-stigmasterol, 5,25-stigmastadienol, 7,24-stigmastadienol, 7,25-stigmastadienol, stigmastanol, 7,22,25-stigmastatrienol, Triterpenes: karounidiol, karounidiol benzoate, Amino acids: glutamic acid, arginine, aspartic acid, leucine, Proteins: trichokirin, Other constituents: 11-methoxynoryangonin, vanillic acid, triticin]
+  quality: "Good quality consists of large, full, oily seeds without a greasy surface."
+  text_first_appeared: "Collection of Commentaries on the Classics of the Materia Medica"
 
   # Source References
-  bensky_page: ""
+  bensky_pdf: "627"
+  bensky_page: "None"
 
 created: 2025-10-01
 updated: 2025-10-01
 ---
 
-# 🌿 Gua Lou Ren
+# 🌿 Ai Ye
 
 **Pharmaceutical Name:** `= this.herb_data.pharmaceutical`
 **English Name:** `= this.herb_data.english`
@@ -71,8 +72,13 @@ updated: 2025-10-01
 
 ## 📖 Overview
 
-Brief description of the herb, source, botanical information, and general identity.
+In addition to moistening the Intestines, *Trichosanthis Semen* (*gua lou ren*) also moistens phlegm in the Lungs and thereby loosens it so that it can be coughed up. By cooling upper burner fire, it protects and generates the yang fluids and alleviates thirst. Zhu Dan-Xi described it as a "sage-like herb for wasting and thirsting disorder."
 
+Transforming the Significance of Medicinal Substances notes that long-term, stubborn, constrained phlegm retained internally can obstruct the ascent and descent of qi, causing a stifling sensation in the chest, cough, insatiable thirst (due to impaired fluid transport), and the sound of phlegm in the throat, where the phlegm itself is difficult to expectorate. According to this source, *Trichosanthis Semen* (*gua lou ren*) is selected to utilize its slippery moistening power to scour foul grease from the diaphragmatic area. Phlegm will then be reduced and qi will descend, the chest will feel free and coughs will ease, thirst will be alleviated and fluids will be produced- all symptoms will be relieved. Its oil is exceedingly capable of moistening the Lungs and lubricating the Intestines. If pathogenic fire dries and clumps in the Large Intestine, use it to assist bitter, cold herbs, then the Intestine will naturally unblock and move freely.
+
+Some also feel that the slippery nature of this herb can benefit other orifices, such as the urethra, and therefore advocate its use to promote urination. Similarly, Li Shi Zhen recorded a formula using the dry powder of dry-fried *Trichosanthis Semen* (*chao gua lou ren*) to promote lactation, 3g of which are to be taken internally with warm wine.
+
+---
 ---
 
 ## 🔑 TCM Properties
@@ -85,21 +91,18 @@ Brief description of the herb, source, botanical information, and general identi
 
 ## ⚡ Functions & Actions
 
-```dataview
-LIST herb_data.functions
-WHERE file.name = this.file.name
-```
-
-**Key Functions:**
--
--
--
-
-**Clinical Applications:**
--
--
-
----
+Clears and transforms phlegm-heat: for phlegm-heat cough. Both cools and moistens. Especially useful for cough with chest pain and thick, difficult-to-expectorate sputum.
+With *Pinelliae Rhizoma preparatum* (*zhi ban xia*) and *Coptidis Rhizoma* (*huang lian*) for cough accompanied by chest pain and sputum that is difficult to expectorate.
+Add *Bupleuri Radix* (*chai hu*) and *Scutellariae Radix* (*huang qin*) if the pattern includes extreme heat.
+Expands the chest: for accumulation of phlegm in the chest leading to a stifling sensation, pain, or diaphragmatic pressure.
+With *Pinelliae Rhizoma preparatum* (*zhi ban xia*) and *Allii macrostemi Bulbus* (*xie bai*) for painful obstruction of the chest or Heart.
+Moistens the Intestines: for dry constipation, especially when it appears in a pattern of Lung heat with dry mouth, thirst, and irritability.
+With *Cannabis Semen* (*huo ma ren*), *Pruni Semen* (*yu li ren*), and *Aurantii Fructus* (*zhi ke*) for constipation, especially when due to internal obstruction of phlegm-heat with such symptoms as dry mouth and thirst. This combination can also be used for wasting and thirsting disease.
+With *Angelicae sinensis Radix* (*dang gui*), *Platycladi Semen* (*bai zi ren*), *Polygoni multiflori Radix* (*he shou wu*), and *Armeniacae Semen* (*xing ren*) to moisten the bowels.
+Promotes healing of sores: used adjunctively for breast abscess and swelling as well as sores that have not yet suppurated.
+With *Houttuyniae Herba* (*yu xing cao*) and *Platycodi Radix* (*jie geng*) for Lung abscess.
+With *Gleditsiae Spina* (*zao jiao ci*) and *Lonicerae Flos* (*jin yin hua*) for breast abscess.
+With *Taraxaci Herba* (*pu gong ying*) for Intestinal abscess.
 
 ## 🎯 Patterns & Symptoms
 
@@ -175,8 +178,8 @@ SORT Category, file.name
 **Toxicity:** `= this.herb_data.toxicity`
 
 **Contraindications:**
--
--
+Contraindicated in those with a weak, deficient Spleen and either nausea or loose stools.
+Essentials of the Materia Medica notes that it is "forbidden in those with diarrhea."
 
 **Drug Interactions:**
 -
@@ -209,8 +212,7 @@ WHERE file.name = this.file.name
 ## 🌱 Quality Criteria & Authentication
 
 **Quality Indicators:**
--
--
+Good quality consists of large, full, oily seeds without a greasy surface.
 
 **Common Adulterants:**
 -
@@ -281,7 +283,7 @@ LIMIT 10
 - [[]]
 
 **Related Formulas:**
-- [[Formulas including Gua Lou Ren]]
+- [[Formulas including Ai Ye]]
 
 **Related Western Conditions:**
 - [[]]

@@ -19,36 +19,37 @@ tests: []
 
 # 🔹 Herb-Specific Data
 herb_data:
-  hanzi: "高良薑"
-  pinyin: "Gao Liang Jiang"
-  pharmaceutical: "Alpiniae Officinari, Rhizoma"
-  english: ""
+  hanzi: "高良姜"
+  pinyin: "Gāo Liáng Jiāng"
+  pharmaceutical: "Alpiniae Officinarum Rhizoma"
+  english: "Lesser Galangal Rhizome"
   alternate_names: []
 
   # TCM Properties
-  taste: []
-  temperature: ""
-  channels: []
+  taste: [Acrid]
+  temperature: "Warm"
+  channels: [Spleen, Stomach]
 
   # Clinical Information
-  dosage: ""
-  toxicity: ""
-  functions: []
+  dosage: "3-9g"
+  toxicity: "None mentioned"
+  functions: [Warms the middle, Alleviates pain, Disperses pathogenic cold in the Spleen and Stomach, Direct rebellious qi downward, Alleviates nausea]
   dui_yao: []
 
   # Additional Information
-  constituents: []
-  quality: ""
-  text_first_appeared: ""
+  constituents: [Volatile oil: 1,8-cineol, 4-phenylisobutanone, 3-phenylpropanal, α-pinene, δ-guaiene, α-terpineol, γ-elemene, methylcinnamate, eugenol, cadinene, Diphenylheptane derivates: curcumin, dihydrocurcumin, hexahydrocurcumin, epihexahydrocurcumin, octahydrocurcumin, 1,7-diphenylhept-4-en-3-one, 7-(4''-hydroxy-3''-methoxyphenyl)-1-phenylhept-4-en-3-one, 1,7-diphenyl-5-hydroxy-3-heptanone, dihydroyashabushi ketone, 1,7-(4''-hydroxyphenyl)-1-phenyl-4-hepten-3-one, 5-methoxy-7-(4''-hydroxyphenyl)-1-phenyl-3-heptanone, 5-methoxy-1,7-diphenyl-3-heptanone, Flavonoids: galangin, galangin-3-methylester, kaempferide, kaempferol, quercetin, isorhamnetin, quercetin-5-methylether, rhamnocitrin, 7-hydroxy-3,5-dimethoxyflavone., Triterpenes: β-sitosterol-β-D-glucoside, stigmasterol-β-D-glucoside, campesterol-β-D-glucoside, Other constituents: (6)-zingerol, benzylacetone, eualpinol]
+  quality: "Good quality consists of full, reddish brown rhizomes with only a few branches and an intense aroma and acrid taste. The cultivated product is considered better quality than the wild-crafted."
+  text_first_appeared: "None mentioned"
 
   # Source References
-  bensky_page: ""
+  bensky_pdf: "627"
+  bensky_page: "None"
 
 created: 2025-10-01
 updated: 2025-10-01
 ---
 
-# 🌿 Gao Liang Jiang
+# 🌿 Ai Ye
 
 **Pharmaceutical Name:** `= this.herb_data.pharmaceutical`
 **English Name:** `= this.herb_data.english`
@@ -71,8 +72,13 @@ updated: 2025-10-01
 
 ## 📖 Overview
 
-Brief description of the herb, source, botanical information, and general identity.
+Acrid and very warming, Alpiniae officinarum Rhizoma (gao liang jiang) specifically disperses pathogenic cold in the Spleen and Stomach to warm the middle, stop pain, direct rebellious qi downward, and alleviate nausea. It is often used in the treatment of cold pain in the epigastrium, as well as hiccough, belching, nausea, and vomiting of clear fluids due to Stomach cold causing rebellious qi to ascend.
 
+*The Miscellaneous Records of Famous Physicians* says that it "governs sudden cold, cold rebellion in the Stomach, and abdominal pain in sudden turmoil disorder."
+
+*Treasury of Words on the Materia Medica* states that it "dispels cold dampness, and warms the Spleen and Stomach."
+
+---
 ---
 
 ## 🔑 TCM Properties
@@ -85,21 +91,13 @@ Brief description of the herb, source, botanical information, and general identi
 
 ## ⚡ Functions & Actions
 
-```dataview
-LIST herb_data.functions
-WHERE file.name = this.file.name
-```
-
-**Key Functions:**
--
--
--
-
-**Clinical Applications:**
--
--
-
----
+- Warms the middle and alleviates pain: for epigastric and abdominal pain, vomiting, hiccough, or diarrhea due to cold in the middle burner.
+  - With Litseae Fructus (bi cheng qie) and Zingiberis Rhizoma Preparatum (pao jiang) for Stomach cold-induced pain and vomiting.
+  - Add Cinnamomi Cortex (rou gui) for cold-induced sudden turmoil disorder.
+  - With Cyperi Rhizoma (xiang fu) for cold-induced epigastric pain, as in Galangal and Cyperus Pill (liang fu wan).
+  - With Pinelliae Rhizoma Preparatum (zhi ban xia) and Zingiberis Rhizoma Recens (sheng jiang) for rebellious qi with vomiting of clear fluid due to Stomach cold.
+  - With Codonopsis Radix (dang shen) and Poria (fu ling) for hiccough due to Stomach deficiency.
+  - With Trogopterori Faeces (wu ling zhi) for epigastric pain due to cold causing stagnation of qi and blood.
 
 ## 🎯 Patterns & Symptoms
 
@@ -175,8 +173,9 @@ SORT Category, file.name
 **Toxicity:** `= this.herb_data.toxicity`
 
 **Contraindications:**
--
--
+Contraindicated in those with heat from yin deficiency.
+
+"If nausea is due to Stomach fire, sudden turmoil disorder is due to summerheat, infestatious diarrhea (zhu xie), or pain is due to Heart deficiency - in all these cases it should be avoided." (Harm and Benefit in the Materia Medica)
 
 **Drug Interactions:**
 -
@@ -209,8 +208,7 @@ WHERE file.name = this.file.name
 ## 🌱 Quality Criteria & Authentication
 
 **Quality Indicators:**
--
--
+Good quality consists of full, reddish brown rhizomes with only a few branches and an intense aroma and acrid taste. The cultivated product is considered better quality than the wild-crafted.
 
 **Common Adulterants:**
 -
@@ -281,7 +279,7 @@ LIMIT 10
 - [[]]
 
 **Related Formulas:**
-- [[Formulas including Gao Liang Jiang]]
+- [[Formulas including Ai Ye]]
 
 **Related Western Conditions:**
 - [[]]

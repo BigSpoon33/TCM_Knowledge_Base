@@ -21,34 +21,35 @@ tests: []
 herb_data:
   hanzi: "火麻仁"
   pinyin: "Huo Ma Ren"
-  pharmaceutical: "Cannabis, Fructus"
-  english: ""
+  pharmaceutical: "Cannabis Semen"
+  english: "Hemp Seed"
   alternate_names: []
 
   # TCM Properties
-  taste: []
-  temperature: ""
-  channels: []
+  taste: [sweet, neutral]
+  temperature: "neutral"
+  channels: [Large Intestine, Spleen, Stomach]
 
   # Clinical Information
-  dosage: ""
-  toxicity: ""
-  functions: []
+  dosage: "9-15g; crush before decocting"
+  toxicity: "Ingestion of grossly excessive amounts of Semen Cannabis can be toxic. Symptoms include nausea, vomiting, diarrhea, numbness of the limbs, agitation and restlessness, confusion, loss of consciousness, and dilated pupils."
+  functions: [Nourishes and moistens the Intestines, Nourishes the yin, Clears heat and promotes healing of sores]
   dui_yao: []
 
   # Additional Information
-  constituents: []
-  quality: ""
-  text_first_appeared: ""
+  constituents: [Fatty acid, esters: oleic acid, linoleic acid, palmitic acid, stearic acid, methyl palmitate, methyl oleate, methyl stearate, Lignanamides: cannabisin A, B, C, D, E, F, G, grossamide, N-trans-caffeoyltyramine, N-trans-feruloyltyramine, N-p-coumaroyltyramine, Phenolic compounds: cannabinol, cannabinolic acid, cannabidiol, cannabigerol, Alkenes: canniprene, dihydrostilbene derivates, Flavonoids: cannflavin A, B, Steroids: 5α-ergostane-3-one, 5α-stigmastane-3-one, stigmasterol, β-sitosterol, campesterol, Alkaloids: trigonelline, L(+)-isoleucin betaine, Other constituents: lipids (30%), phytin]
+  quality: "Good quality consists of big, yellow, and full seeds."
+  text_first_appeared: "None"
 
   # Source References
-  bensky_page: ""
+  bensky_pdf: "627"
+  bensky_page: "None"
 
 created: 2025-10-01
 updated: 2025-10-01
 ---
 
-# 🌿 Huo Ma Ren
+# 🌿 Ai Ye
 
 **Pharmaceutical Name:** `= this.herb_data.pharmaceutical`
 **English Name:** `= this.herb_data.english`
@@ -71,8 +72,23 @@ updated: 2025-10-01
 
 ## 📖 Overview
 
-Brief description of the herb, source, botanical information, and general identity.
+Sweet, neutral, slippery, and facilitating, Cannabis Semen (huo ma ren) enters the Spleen to enrich the yin fluids and transform dry clumps; it excels at moistening the Intestines and unblocking constipation. This herb is particularly appropriate for dry constipation in the elderly and deficient, or for dry constipation due to blood deficiency postpartum.
 
+Transforming the Significance of Medicinal Substances notes that:
+
+Cannabis Semen (huo ma ren) moistens the bowels and can be used for dryness of the blood in old age, poor qi and blood circulation in postpartum women, and for those whose primal qi has not recovered after an illness, or for weak people unable to walk far.
+
+However, a number of materia medica texts stress that the slippery, downward-directing properties of Cannabis Semen (huo ma ren) make it unsuitable for use in those whose essence and primal qi tend to be insecure (see Traditional Contraindications below).
+
+Records of Thoughtful Differentiation of Materia Medica provides this description: "Cannabis Semen (huo ma ren), sweet, neutral, slippery, and facilitating; within its softness it is hard, so that it can enter the Spleen and nourish its yin fluids while transforming its dryness." In Commentary on the Divine Husbandman's Classic of Materia Medica, Miao Xi-Yong explains that the herb:
+
+is by nature extremely slippery and facilitating. Its sweetness tonifies the middle; when the middle is tonified, the qi is naturally augmented. Sweetness augments the blood; when the blood vessels are restored, then blood accumulation is broken up, and all the disorders of breastfeeding women after birth are expelled.
+
+This view was mildly criticized by Miao's contemporary, Liu Ruo-Jin. In Description of the Materia Medica, Liu says that it:
+
+is not a blood herb, but transforms the yin fluids of the blood; it does not augment the qi, but mobilizes the qi. Thus, it is most appropriate for wind-dryness in the Large Intestine.
+
+---
 ---
 
 ## 🔑 TCM Properties
@@ -85,21 +101,14 @@ Brief description of the herb, source, botanical information, and general identi
 
 ## ⚡ Functions & Actions
 
-```dataview
-LIST herb_data.functions
-WHERE file.name = this.file.name
-```
-
-**Key Functions:**
--
--
--
-
-**Clinical Applications:**
--
--
-
----
+- Nourishes and moistens the Intestines: for constipation in the elderly, in the aftermath of a febrile disease, postpartum, and in cases of blood deficiency.
+  - With Angelicae Sinensis Radix (dang gui) and Rehmanniae Radix Preparata (shu di huang) for constipation due to lack of fluids and blood deficiency, especially in the elderly and postpartum, as in Moisten the Intestines Pill from Master Shen's Book (run chang wan).
+  - With Armeniacae Semen (xing ren), Paeoniae Radix Alba (bai shao), and Aurantii Fructus Immaturus (zhi shi) for constipation due to heat-induced dryness in the Stomach and Intestines, as in Hemp Seed Pills (ma zi ren wan).
+  - With Perillae Fructus (zi su zi) for constipation in the elderly or debilitated, specifically if accompanied by coughing and wheezing.
+- Nourishes the yin: mildly tonifies the yin and primarily used in cases of yin deficiency with constipation.
+  - With Rehmanniae Radix (sheng di huang) and Ophiopogonis Radix (mai men dong) for yin deficiency with constipation.
+- Clears heat and promotes healing of sores: as an auxiliary herb for sores and ulcerations, taken orally or applied topically.
+  - With Lonicerae Flos (jin yin hua) and Glycyrrhizae Radix (gan cao) for redness, pain, and ulcerations of the oral cavity due to Stomach heat.
 
 ## 🎯 Patterns & Symptoms
 
@@ -175,8 +184,13 @@ SORT Category, file.name
 **Toxicity:** `= this.herb_data.toxicity`
 
 **Contraindications:**
--
--
+- Excessive consumption can lead to nausea, vomiting, and diarrhea. See Toxicity below.
+- Overconsumption [of this herb] injures the blood vessels, [makes] essential qi slip out, and leads to impotence.
+- Overconsumption by women brings on vaginal discharge due to its slippery, downward-draining, mobilizing-without-retaining properties.
+- It is especially contraindicated for those with loose stools. (Harm and Benefit in the Materia Medica)
+- In Rectification of the Meaning of Materia Medica, Zhang Jie-Bin agrees:
+  - When disorders involve dryness and binding, draining downward is appropriate.
+  - However, if there is instability of the lower [burner] primal qi accompanied by loose stools, impotence, spermatorrhea, or excessive vaginal discharge, it is forbidden in all of these cases.
 
 **Drug Interactions:**
 -
@@ -209,8 +223,7 @@ WHERE file.name = this.file.name
 ## 🌱 Quality Criteria & Authentication
 
 **Quality Indicators:**
--
--
+Good quality consists of big, yellow, and full seeds.
 
 **Common Adulterants:**
 -
@@ -281,7 +294,7 @@ LIMIT 10
 - [[]]
 
 **Related Formulas:**
-- [[Formulas including Huo Ma Ren]]
+- [[Formulas including Ai Ye]]
 
 **Related Western Conditions:**
 - [[]]

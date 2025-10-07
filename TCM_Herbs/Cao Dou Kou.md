@@ -19,36 +19,37 @@ tests: []
 
 # 🔹 Herb-Specific Data
 herb_data:
-  hanzi: "草豆蔲"
-  pinyin: "Cao Dou Kou"
-  pharmaceutical: "Alpiniae Katsumadai, Semen"
-  english: ""
+  hanzi: "草豆蔻"
+  pinyin: "cǎo dòu kòu"
+  pharmaceutical: "Alpiniae Katsumadai Semen"
+  english: "Katsumada's Galangal Seed"
   alternate_names: []
 
   # TCM Properties
-  taste: []
-  temperature: ""
-  channels: []
+  taste: [Acrid, warm, aromatic]
+  temperature: "warm"
+  channels: [Spleen, Stomach]
 
   # Clinical Information
-  dosage: ""
-  toxicity: ""
-  functions: []
+  dosage: "3-6g. Should be added near the end of the decocting process. For best results, crush before using."
+  toxicity: "N/A"
+  functions: [Dries dampness, Warms the middle, Mobilizes the qi]
   dui_yao: []
 
   # Additional Information
-  constituents: []
-  quality: ""
-  text_first_appeared: ""
+  constituents: [Volatile oil: trans-cinnamaldehyde, 1,8-cineole, α-humulene, camphor, terpinen-4-ol, carvotanacetone, borneol, bornyl acetate, geraniol, geranyl acetate, methyl cinnamate, linalool, nerolidol, trans,trans-farnesol, α-pinene, α-phellandrene, p-cymene, β-carene, camphene, limonene, α-pinene, β-pinene, myrcene, dehydrocalamenene, α-muurolene, γ-patchoulene, sabinyl acetate, α-elemene, α-bergamotene, δ-bisabolene, α-cadinene, α-cedrodrene, δ-selinene, 4.7-methylene-azulene, δ-cubebene, 4.7-dimethyl-7-isopropylbicyclo-[4,4,0]-decadiene-1,4, torreyol, δ-eudesmol, farnesol, trans-cinnamylaldehyde, trans,trans-1,7-diphenyl-4,6-heptadien-3-one, (3S,5R)-3,5-dihydroxy-1,7-diphenylheptane, trans-1,7-diphenyl-5-hydroxy-1-heptene, trans,trans-1,7-diphenyl-5-hydroxy-4,6-heptadien-3-one, (3S,5S)-trans-1,7-diphenyl-3,5-dihydroxy-1-heptene, (5R)-trans-1,7-diphenyl-5-hydroxy-6-hepten-3-one, Flavonoids: quercetin, kaempferol, rhamnocitrin, kumatakenin, alpinetin, cardamonin, pinocembrin]
+  quality: "Good quality consists of subspherical, uniform and unfragmented, agglutinated full seeds, with a hard and heavy texture, and an intense aroma."
+  text_first_appeared: "N/A"
 
   # Source References
-  bensky_page: ""
+  bensky_pdf: "627"
+  bensky_page: "None"
 
 created: 2025-10-01
 updated: 2025-10-01
 ---
 
-# 🌿 Cao Dou Kou
+# 🌿 Ai Ye
 
 **Pharmaceutical Name:** `= this.herb_data.pharmaceutical`
 **English Name:** `= this.herb_data.english`
@@ -71,8 +72,11 @@ updated: 2025-10-01
 
 ## 📖 Overview
 
-Brief description of the herb, source, botanical information, and general identity.
+Acrid, dispersing, and warm, qualities which enable it to unblock, the clear aroma of Alpiniae katsumadai Semen (cao dou kou) is ideal for treating constrained clumping of cold-dampness in the middle burner, which disrupts the normal ascent and descent of qi. Symptoms include epigastric and abdominal cold pain and distention, nausea, epigastric discomfort, acid reflux, and a white, slippery tongue coating. This function also allows it to treat phlegm dampness constraining the Lungs and affecting breathing, causing fullness and a stifling sensation in the chest.
 
+Supplement to the Extension of the Materia Medica observes that this herb is warm by nature, disperses stagnant qi, and reduces phlegm above the diaphragm. If it is obvious that the body has contracted pathogenic cold, [or the patient] consumes cold substances daily, with pain in the epigastric area, then one can warmly disperse, and the response will be as certain as the sound from a beaten drum; if a disorder results from will constraint and clumping of phlegm-dampness, it will also be effective.
+
+---
 ---
 
 ## 🔑 TCM Properties
@@ -85,21 +89,12 @@ Brief description of the herb, source, botanical information, and general identi
 
 ## ⚡ Functions & Actions
 
-```dataview
-LIST herb_data.functions
-WHERE file.name = this.file.name
-```
-
-**Key Functions:**
--
--
--
-
-**Clinical Applications:**
--
--
-
----
+Dries dampness and warms the middle: for cold-dampness of the Spleen and Stomach with fullness, distention, and pain in the epigastrium and abdomen accompanied by vomiting and diarrhea.
+- With Evodiae Fructus (wu zhu yu) for abdominal pain, vomiting, reduced appetite, pale lips and tongue, and the regurgitation of clear liquids due to Stomach cold.
+- With Alpiniae officinarum Rhizoma (gao liang jiang) for reduced appetite, abdominal pain, and distention due to Spleen deficiency, and the resulting dampness-induced qi stagnation and obstruction.
+- With Magnoliae officinalis Cortex (hou po) for cold dampness in the middle burner when dampness predominates, as in Magnolia Bark Decoction for Warming the Middle (hou po wen zhang tang).
+- With Cinnamomi Cortex (rou gui) and Myristicae Semen (rou dou kou) for chronic diarrhea due to cold from deficiency.
+- With Pinelliae Rhizoma preparatum (zhi ban xia) and Citri reticulatae Pericarpium (chen pi) for cold-phlegm affecting the chest and diaphragm with vomiting.
 
 ## 🎯 Patterns & Symptoms
 
@@ -175,8 +170,10 @@ SORT Category, file.name
 **Toxicity:** `= this.herb_data.toxicity`
 
 **Contraindications:**
--
--
+Contraindicated in cases with yin or blood deficiency.
+
+Traditional Contraindications:
+Its acrid-drying accosts the blood, and those with insufficiency of yin should keep their distance. Standard contraindications are malarial disorder not due to miasmic qi, pain in the epigastrium due to fire and not cold, and explosive diarrhea involving thirst which is due to summerheat and damp-heat. (Harm and Benefit in the Materia Medica)
 
 **Drug Interactions:**
 -
@@ -209,8 +206,7 @@ WHERE file.name = this.file.name
 ## 🌱 Quality Criteria & Authentication
 
 **Quality Indicators:**
--
--
+Good quality consists of subspherical, uniform and unfragmented, agglutinated full seeds, with a hard and heavy texture, and an intense aroma.
 
 **Common Adulterants:**
 -
@@ -281,7 +277,7 @@ LIMIT 10
 - [[]]
 
 **Related Formulas:**
-- [[Formulas including Cao Dou Kou]]
+- [[Formulas including Ai Ye]]
 
 **Related Western Conditions:**
 - [[]]

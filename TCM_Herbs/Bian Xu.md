@@ -20,35 +20,36 @@ tests: []
 # 🔹 Herb-Specific Data
 herb_data:
   hanzi: "萹蓄"
-  pinyin: "Bian Xu"
-  pharmaceutical: "Polygoni Avicularis, Herba"
-  english: ""
+  pinyin: "bian xu"
+  pharmaceutical: "Polygoni avicularis Herba"
+  english: "knotgrass, knotweed, polygonum"
   alternate_names: []
 
   # TCM Properties
-  taste: []
-  temperature: ""
-  channels: []
+  taste: [bitter, slightly cold]
+  temperature: "cold"
+  channels: [Bladder]
 
   # Clinical Information
-  dosage: ""
-  toxicity: ""
-  functions: []
+  dosage: "9-15g"
+  toxicity: "none noted"
+  functions: [Clears damp-heat from the Bladder, promotes urination, unblocks painful urinary dribbling, Expels parasites, stops itching]
   dui_yao: []
 
   # Additional Information
-  constituents: []
-  quality: ""
-  text_first_appeared: ""
+  constituents: [Flavonoids: quercetin, avicularin, quercitrin, vitexin, isovitexin, luteolin, rhamnetin-3-galactoside, hyperin, Coumarins: umbelliferone, scopoletin, Phenolic acids: ferulic acid, sinapic acid, vanillic acid, syringic acid, melilotic acid, p-coumaric acid, p-hydroxybenzoic acid, salicylic acid, p-hydroxyphenylacetic acid, gentisic acid, caffeic acid, protocatechuic acid, gallic acid, ellagic acid, Other constituents: oxalic acid, silicic acid, amino acids, glucose, fructose, sucrose, polysaccharides, tannins, vitamin E]
+  quality: "Good quality consists of young, green plants with many leaves and without foreign matter."
+  text_first_appeared: "Divine Husbandman's Classic of the Materia Medica"
 
   # Source References
-  bensky_page: ""
+  bensky_pdf: "627"
+  bensky_page: "None"
 
 created: 2025-10-01
 updated: 2025-10-01
 ---
 
-# 🌿 Bian Xu
+# 🌿 Ai Ye
 
 **Pharmaceutical Name:** `= this.herb_data.pharmaceutical`
 **English Name:** `= this.herb_data.english`
@@ -71,8 +72,11 @@ updated: 2025-10-01
 
 ## 📖 Overview
 
-Brief description of the herb, source, botanical information, and general identity.
+Bitter and cold, with downward-directing actions, Polygoni avicularis Herba (bian xu) is best for clearing heat and facilitating the removal of dampness. It can clear damp-heat from the Bladder, thereby promoting urination and unblocking painful urinary dribbling, while also clearing damp-heat so as to resolve the heat toxin. Thus, apart from treating painful urinary dribbling due to damp-heat, it is often used for damp-heat jaundice, dysenteric disorders due to damp-heat, and damp-heat sores and itchy rashes.
 
+The Divine Husbandman's Classic of the Materia Medica notes that this herb "primarily treats pruritic weeping rashes, itchy sores, and hemorrhoids, and kills the three parasites." In Encountering the Sources of the Classic of Materia Medica, Zhang Lu observes that it "promotes urination and disperses damp-heat, treating jaundice, sudden turmoil disorder, and vaginal erosion." The Divine Husbandman [states that it] primarily treats pruritic weeping rashes, itchy sores, and hemorrhoids, all of which are damp-heat disorders. The three parasites, too, are transformed from damp-heat.
+
+---
 ---
 
 ## 🔑 TCM Properties
@@ -85,21 +89,14 @@ Brief description of the herb, source, botanical information, and general identi
 
 ## ⚡ Functions & Actions
 
-```dataview
-LIST herb_data.functions
-WHERE file.name = this.file.name
-```
-
-**Key Functions:**
--
--
--
-
-**Clinical Applications:**
--
--
-
----
+*   **Clears damp-heat from the Bladder, promotes urination, and unblocks painful urinary dribbling:** for damp-heat painful urinary dribbling.
+    *   With Dianthi Herba (qu mai) and Plantaginis Semen (che qian zi) for urinary discomfort due to damp-heat in the lower burner or urinary tract stones as in Eight-Herb Powder for Rectification (ba zheng san).
+    *   With Cirsii Herba (xiao ji) and Imperatae Rhizoma (bai mao gen) for painful bloody urinary dribbling.
+    *   With Jin Qian Cao (Lysimachiae/Desmodii/etc. Herba) and Lygodii Spora (hai jin sha) for stony painful urinary dribbling.
+*   **Expels parasites and stops itching:** for damp skin lesions with itching, including tinea, or for intestinal parasites such as tapeworm, hookworm, and pinworm.
+    *   With Kochiae Fructus (di fu zi) as an external wash for genital itching due to damp-heat in the lower burner.
+    *   With Quisqualis Fructus (shi jun zi) and Mume Fructus (wu mei) for roundworm.
+    *   With Torreyae Semen (fei zi), Stemonae Radix (bai bu), and Arecae Semen (bing lang) as an external wash for pinworm.
 
 ## 🎯 Patterns & Symptoms
 
@@ -175,8 +172,7 @@ SORT Category, file.name
 **Toxicity:** `= this.herb_data.toxicity`
 
 **Contraindications:**
--
--
+"This only treats the branch [of a disorder], it does not augment a person: do not use it for an extended period of time" (Seeking Accuracy in the Materia Medica).
 
 **Drug Interactions:**
 -
@@ -209,8 +205,7 @@ WHERE file.name = this.file.name
 ## 🌱 Quality Criteria & Authentication
 
 **Quality Indicators:**
--
--
+Good quality consists of young, green plants with many leaves and without foreign matter.
 
 **Common Adulterants:**
 -
@@ -281,7 +276,7 @@ LIMIT 10
 - [[]]
 
 **Related Formulas:**
-- [[Formulas including Bian Xu]]
+- [[Formulas including Ai Ye]]
 
 **Related Western Conditions:**
 - [[]]

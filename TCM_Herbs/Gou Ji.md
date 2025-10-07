@@ -20,35 +20,36 @@ tests: []
 # 🔹 Herb-Specific Data
 herb_data:
   hanzi: "狗脊"
-  pinyin: "Gou Ji"
-  pharmaceutical: "Cibotii, Rhizoma"
-  english: ""
+  pinyin: "gǒu jí"
+  pharmaceutical: "Cibotii Rhizoma"
+  english: "Cibotium rhizome, chain fern"
   alternate_names: []
 
   # TCM Properties
-  taste: []
-  temperature: ""
-  channels: []
+  taste: [Bitter, sweet]
+  temperature: "Warm"
+  channels: [Kidney, Liver]
 
   # Clinical Information
-  dosage: ""
-  toxicity: ""
-  functions: []
+  dosage: "9-15g"
+  toxicity: "no specific toxicity mentioned"
+  functions: [Tonifies the Liver and Kidneys, Strengthens the sinews and bones, Expels pathogenic wind, dampness, and cold, Warms and stabilizes the Kidneys]
   dui_yao: []
 
   # Additional Information
-  constituents: []
-  quality: ""
-  text_first_appeared: ""
+  constituents: [pterosin R, pterosin Z, onitin, onitin-2--0-B-D-glucoside, onitin-2'-0-B-D-alloside, ptaquiloside, vanillin, syringic aldehyde, p-hydroxybenzaldehyde, acetovanillone]
+  quality: "For whole dried rhizomes, good quality consists of long, hard, and solid rhizomes, densely covered with golden yellow hairs. In its unprepared form, good quality is light brown, thin, and brittle with a powdery texture. Good quality cooked slices are hard and solid, and very dark brown."
+  text_first_appeared: "The Divine Husbandman's Classic of Materia Medica"
 
   # Source References
-  bensky_page: ""
+  bensky_pdf: "627"
+  bensky_page: "None"
 
 created: 2025-10-01
 updated: 2025-10-01
 ---
 
-# 🌿 Gou Ji
+# 🌿 Ai Ye
 
 **Pharmaceutical Name:** `= this.herb_data.pharmaceutical`
 **English Name:** `= this.herb_data.english`
@@ -71,8 +72,19 @@ updated: 2025-10-01
 
 ## 📖 Overview
 
-Brief description of the herb, source, botanical information, and general identity.
+Bitter, sweet, and slightly warm, Cibotii Rhizoma (gou ji) enters the Liver and Kidney channels. Being sweet, it tonifies and augments these organs; being bitter, it dries dampness, while its warmth unblocks and promotes movement. It is an herb that both tonifies and encourages movement at the level of the sinews and bones. It tonifies the Liver and Kidneys, fortifies the lower back and knees, strengthens the sinews and bones, and treats painful obstruction disorders by expelling cold, wind, and dampness.
 
+The Divine Husbandman's Classic of Materia Medica describes its characteristics:
+
+Its flavor is bitter and neutral, without being toxic; it governs stiffness in the upper and lower back, the degree of tension in the articulations, generalized painful obstruction disorder with cold-damp pain in the knees; and greatly benefits the elderly.
+
+Encountering the Sources of the Classic of Materia Medica explains: "'Greatly benefits the elderly' [means that it] tonifies and augments the Kidney qi to fortify the sinews and strengthen the bones."
+
+One Hundred Annotations to the Divine Husbandman's Classic of Materia Medica contains some interesting remarks on the relationship between the appearance of the herb and its therapeutic nature:
+
+[This herb] grows [what looks like] body hair over, and all has many backbone[-like ridges]. It very much resembles the spine of a dog. Of the animals, the dog is the most cunning and agile, and this herb resembles it. Thus it can enter deep into the sinews, bones, and articulations, expel their congealed and stagnant cold-damp qi, and restore their health and strength, ease of movement, and agility. The shape [of the herb] is the same [as a dog's spine] and the nature is quite close as well.
+
+---
 ---
 
 ## 🔑 TCM Properties
@@ -85,21 +97,15 @@ Brief description of the herb, source, botanical information, and general identi
 
 ## ⚡ Functions & Actions
 
-```dataview
-LIST herb_data.functions
-WHERE file.name = this.file.name
-```
-
-**Key Functions:**
--
--
--
-
-**Clinical Applications:**
--
--
-
----
+- **Tonifies the Liver and Kidneys and strengthens the sinews and bones:** for Liver and Kidney deficiency with such symptoms as stiffness, soreness, or weakness in the lower back, spine, and lower extremities.
+    - With Eucommiae Cortex (杜仲 dù zhòng) and Achyranthis bidentatae Radix (牛膝 niú xī) for pain, stiffness, and motor impairment of the lower back, as well as weakness of the legs from Liver and Kidney deficiency.
+    - With Angelicae sinensis Radix (当归 dāng guī) for swelling in the lower extremities as an aftermath of a long-term disease.
+    - With Cuscutae Semen (菟丝子 tù sī zi) for lower back pain associated with Kidney disorders.
+- **Expels wind and dampness:** for wind-damp painful obstruction with pain, soreness, or numbness. Especially useful in patients with wind-cold-dampness who have an underlying deficiency of the Liver and Kidneys.
+    - With Cinnamomi Ramulus (桂枝 guì zhī) and Gentianae macrophyllae Radix (秦艽 qín jiāo) for painful obstruction in the lower back from wind and dampness.
+- **Warms and stabilizes the Kidneys:** for incontinence of urine and vaginal discharge due to Kidney yang deficiency.
+    - With Chaenomelis Fructus (木瓜 mù guā) and Eleutherococci gracilistyli Cortex (五加皮 wǔ jiā pí) for lower back pain and urinary frequency.
+    - With Cervi Cornu pantotrichum (鹿茸 lù róng) and Artemisiae argyi Folium (艾叶 ài yè) for vaginal discharge associated with cold from deficiency of the Conception and Penetrating channels.
 
 ## 🎯 Patterns & Symptoms
 
@@ -175,8 +181,10 @@ SORT Category, file.name
 **Toxicity:** `= this.herb_data.toxicity`
 
 **Contraindications:**
--
--
+- Contraindicated in those with urinary difficulty or heat from yin deficiency.
+- According to some traditional sources, this herb antagonizes Patriniae Herba (败酱草 bài jiàng cǎo).
+- Its nature is warm and drying, so it is contraindicated for Kidney deficiency with heat and urinary difficulty that may be dark reddish yellow, scanty, and uncomfortable to pass, with a bitter taste in the mouth and a dry tongue. (Harm and Benefit in the Materia Medica)
+- "Avoid its use in Liver deficiency with fire from constraint." (Treasury of Words on the Materia Medica)
 
 **Drug Interactions:**
 -
@@ -209,8 +217,7 @@ WHERE file.name = this.file.name
 ## 🌱 Quality Criteria & Authentication
 
 **Quality Indicators:**
--
--
+For whole dried rhizomes, good quality consists of long, hard, and solid rhizomes, densely covered with golden yellow hairs. In its unprepared form, good quality is light brown, thin, and brittle with a powdery texture. Good quality cooked slices are hard and solid, and very dark brown.
 
 **Common Adulterants:**
 -
@@ -281,7 +288,7 @@ LIMIT 10
 - [[]]
 
 **Related Formulas:**
-- [[Formulas including Gou Ji]]
+- [[Formulas including Ai Ye]]
 
 **Related Western Conditions:**
 - [[]]

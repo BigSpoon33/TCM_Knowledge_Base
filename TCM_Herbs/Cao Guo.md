@@ -1,7 +1,7 @@
 ---
 # 🔹 Core Metadata (Universal Fields)
 id: "herb-20251001123706"
-name: "Cao Guo"
+name: "Cao Guo / Tsaoko Fructus"
 type: "herb"
 aliases: []
 tags: [TCM, Herb]
@@ -20,35 +20,36 @@ tests: []
 # 🔹 Herb-Specific Data
 herb_data:
   hanzi: "草果"
-  pinyin: "Cao Guo"
-  pharmaceutical: "Amomi Tsaoko, Fructus"
-  english: ""
+  pinyin: "Cǎo Guǒ"
+  pharmaceutical: "Tsaoko Fructus"
+  english: "Tsaoko fruit"
   alternate_names: []
 
   # TCM Properties
-  taste: []
-  temperature: ""
-  channels: []
+  taste: [Acrid, Warm, Strongly drying]
+  temperature: "Warm and strongly drying"
+  channels: [Spleen, Stomach]
 
   # Clinical Information
-  dosage: ""
-  toxicity: ""
-  functions: []
+  dosage: "3-6g"
+  toxicity: "None"
+  functions: [Strongly dries dampness and disperses cold, Checks malarial disorders, Dissolves stagnation and distention]
   dui_yao: []
 
   # Additional Information
-  constituents: []
-  quality: ""
-  text_first_appeared: ""
+  constituents: [trans-cinnamaldehyde, 1,8-cineole, α-humulene, camphor, terpinen-4-ol, carvotanacetone, borneol, bornyl acetate, geraniol, geranyl acetate, methyl cinnamate, linalool, nerolidol, trans, trans-farnesol, α-pinene, α-phellandrene, p-cymene, β-carene, camphene, limonene, α-pinene, β-pinene, myrcene, dehydrocalamenene, α-muurolene, γ-patchoulene, sabinyl acetate, α-elemene, α-bergamotene, β-bisabolene, α-cadinene, α-cedrodrene, δ-selinene, 4,7-methylene-azulene, δ-cubebene, 4,7-dimethyl-7-isopropylbicyclo-[4,4,0]-decadiene-1,4, torreyol, δ-eudesmol, farnesol, trans-cinnamylaldehyde, trans, trans-1,7-diphenyl-4,6-heptadien-3-one, (3S,5R)-3,5-dihydroxy-1,7-diphenylheptane, trans-1,7-diphenyl-5-hydroxy-1-heptene, trans, trans-1,7-diphenyl-5-hydroxy-4,6-heptadien-3-one, (3S,5S)-trans-1,7-diphenyl-3,5-dihydroxy-1-heptene, α-pinene, β-pinene, 1,8-cineole, p-cymene, linalool, α-terpineol, nerolidol, nonanal, capric aldehyde, trans-5-undecenal, neral, geraniol, geranial, 2-decenal]
+  quality: "Good quality consists of subspherical, uniform and unfragmented, agglutinated full seeds, with a hard and heavy texture, and an intense aroma."
+  text_first_appeared: "Proper and Essential Things for the Emperor's Food and Drink"
 
   # Source References
-  bensky_page: ""
+  bensky_pdf: "627"
+  bensky_page: "None"
 
 created: 2025-10-01
 updated: 2025-10-01
 ---
 
-# 🌿 Cao Guo
+# 🌿 Ai Ye
 
 **Pharmaceutical Name:** `= this.herb_data.pharmaceutical`
 **English Name:** `= this.herb_data.english`
@@ -71,8 +72,17 @@ updated: 2025-10-01
 
 ## 📖 Overview
 
-Brief description of the herb, source, botanical information, and general identity.
+Tsaoko Fructus (*cao guo*) enters the Spleen and Stomach channels. It is warm, drying, and intensely acrid, with a strong, fetid odor reminiscent of *Mylabris* (*ban mao*). It is best for warming and drying the middle burner, and is an important herb for treating cold-dampness lurking constrained in the Spleen and Stomach. It eliminates phlegm and has a significant place in the treatment of malarial disorders; it is often combined with *Anemarrhenae Rhizoma* (*zhi mu*) or *Dichroae Radix* (*chang shan*) for this purpose.
 
+When alternating fever and chills occur in early-stage epidemic disorders, accompanied by turbid dampness, Tsaoko Fructus (*cao guo*) is also used, as in the formula Reach the Source Drink (*da yuan yin*) from Discussion of Warm Epidemics.
+
+Tsaoko Fructus (*cao guo*) is used in the treatment of constrained blockage of turbid phlegm with a thick, white, greasy tongue coating, stifling sensation in the chest, and nausea. It also treats abdominal distention and loss of appetite due to clumping and constraint of cold-dampness.
+
+Rectification of the Meaning of Materia Medica explains that this herb is "acrid, warm, and intensely drying, and excels at eliminating cold-dampness and warmly drying the middle palace. For this reason, it is a primary herb for treating Spleen and Stomach cold-dampness." The author of that book, Zhang Shan-Lei, also writes that it "excels at washing away phlegm-dampness and arousing the Spleen yang; when assisted by *Anemarrhenae Rhizoma* (*zhi mu*), and the doses are adjusted as appropriate in each instance, it is of great value in the treatment of malarial disorders."
+
+However, due to its strong, fetid odor, Tsaoko Fructus (*cao guo*) has a tendency to cause vomiting. Roasting or dry-frying the herb with ginger juice reduces this side effect.
+
+---
 ---
 
 ## 🔑 TCM Properties
@@ -85,21 +95,15 @@ Brief description of the herb, source, botanical information, and general identi
 
 ## ⚡ Functions & Actions
 
-```dataview
-LIST herb_data.functions
-WHERE file.name = this.file.name
-```
-
-**Key Functions:**
--
--
--
-
-**Clinical Applications:**
--
--
-
----
+Strongly dries dampness and disperses cold: for cold dampness obstructing the Spleen and Stomach presenting with epigastric and abdominal distention, fullness, and pain together with vomiting and diarrhea and a very greasy tongue coating.
+  - With *Atractylodis Rhizoma* (*cang zhu*) and *Pogostemonis/Agastaches Herba* (*huo xiang*) for cold-dampness obstructing the Spleen and Stomach, when dampness predominates.
+  - With *Evodiae Fructus* (*wu zhu yu*) and *Zingiberis Rhizoma* (*gan jiang*) for cold-dampness obstructing the Spleen and Stomach, when cold predominates.
+- Checks malarial disorders: for intermittent fever and chills associated with malarial disorders, especially when due to cold-dampness or turbid dampness.
+- Dissolves stagnation and distention: for indigestion due to meat stagnation. Also for focal distention and nausea due to cold from deficiency of the Spleen and Stomach.
+  - With *Dichroae Radix* (*chang shan*) and *Arecae Semen* (*bing lang*) for malaria in which chills predominate over fever, and recurrent malaria where cold-dampness obstructs the interior and injures the yin. Symptoms include focal distention in the chest and flanks, loss of appetite, and extreme fatigue. See Seven-Treasure Decoction to Check Malarial Conditions (*jie nue qi bao yin*).
+  - With *Anemarrhenae Rhizoma* (*zhi mu*) for malarial disorders marked by turbid dampness fuming upward, leading to irritable heat and profuse sweating.
+  - With *Magnoliae officinalis Cortex* (*hou po*) and *Arecae Semen* (*bing lang*) for a pathogen entering the membrane source manifesting as strong alternating fever and chills, stifling sensation in the chest, nausea or vomiting, headache, and a tongue with deep-red edges and a thick, foul, and pasty coating, as in Reach the Source Drink (*da yuan yin*).
+  - With *Corydalis Rhizoma* (*yan hu suo*), *Trogopterori Faeces* (*wu ling zhi*), and *Myrrha* (*mo yao*) for epigastric and abdominal pain due to qi stagnation and blood stasis, as in Pinch Powder (*shou nian san*).
 
 ## 🎯 Patterns & Symptoms
 
@@ -175,8 +179,11 @@ SORT Category, file.name
 **Toxicity:** `= this.herb_data.toxicity`
 
 **Contraindications:**
--
--
+Contraindicated in cases with yin or blood deficiency.
+- Its acrid-drying accosts the blood, and those with insufficiency of yin should keep their distance.
+- Standard contraindications are malarial disorder not due to miasmic qi, pain in the epigastrium due to fire and not cold, and explosive diarrhea involving thirst which is due to summerheat and damp-heat. (Harm and Benefit in the Materia Medica)
+
+"Acrid-warmth breaks up qi; thus, if the malarial condition is not due to miasmic malarial disorder, the [patient's] qi is not firm, and the pathogen not overwhelming, it is contraindicated." (Harm and Benefit in the Materia Medica)
 
 **Drug Interactions:**
 -
@@ -209,8 +216,7 @@ WHERE file.name = this.file.name
 ## 🌱 Quality Criteria & Authentication
 
 **Quality Indicators:**
--
--
+Good quality consists of subspherical, uniform and unfragmented, agglutinated full seeds, with a hard and heavy texture, and an intense aroma.
 
 **Common Adulterants:**
 -
@@ -281,7 +287,7 @@ LIMIT 10
 - [[]]
 
 **Related Formulas:**
-- [[Formulas including Cao Guo]]
+- [[Formulas including Ai Ye]]
 
 **Related Western Conditions:**
 - [[]]

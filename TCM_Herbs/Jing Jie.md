@@ -19,36 +19,37 @@ tests: []
 
 # 🔹 Herb-Specific Data
 herb_data:
-  hanzi: "荊芥"
-  pinyin: "Jing Jie"
-  pharmaceutical: "Schizonepetae, Herba"
-  english: ""
+  hanzi: "荆芥"
+  pinyin: "Jīng Jiè"
+  pharmaceutical: "Schizonepetae Herba"
+  english: "Schizonepeta Herb"
   alternate_names: []
 
   # TCM Properties
-  taste: []
-  temperature: ""
-  channels: []
+  taste: [Acrid]
+  temperature: "Slightly warm"
+  channels: [Lung, Liver]
 
   # Clinical Information
-  dosage: ""
-  toxicity: ""
-  functions: []
+  dosage: "4.5-9g"
+  toxicity: "Allergic reactions affecting the skin and digestive system have been reported."
+  functions: [Releases the exterior and dispels wind, Vents rashes and alleviates itching, Stops bleeding]
   dui_yao: []
 
   # Additional Information
-  constituents: []
-  quality: ""
-  text_first_appeared: ""
+  constituents: [Volatile oil: pulegone, menthane, β-pinene, cineol, isomenthone, isopulegone, 1-ethoxypentane, 3-methylcyclopentanone, 3-methyl cyclohexanone, 3,5-dimethyl-2-cyclohexen-1-onebenzaldehyde, 1-octen-3-ol, 3-octanol, 3-octanone, cymene, limonene, menthol, neomenthol, piperitone, piperitenone, humulene, caryophyllene, carvone, dihydrocarvone, verbenone, Flavonoids: diosmetin, apigenin-7-O-glucoside, hesperidin, luteolin, apigenin-7-O-β-D-glucoside, luteolin-7-O-β-D-glucoside, Monoterpene glycosides: schizonepetoside A; B, C, D, schizonol, schizonodiol, Phenolic acids: caffeic acid, rosmarinic acid, rosmarinic acid monomethyl ether, schizotenuin A]
+  quality: "Good quality consists of light green, long, and dense spikes with a strong aromatic fragrance."
+  text_first_appeared: "None"
 
   # Source References
-  bensky_page: ""
+  bensky_pdf: "627"
+  bensky_page: "None"
 
 created: 2025-10-01
 updated: 2025-10-01
 ---
 
-# 🌿 Jing Jie
+# 🌿 Ai Ye
 
 **Pharmaceutical Name:** `= this.herb_data.pharmaceutical`
 **English Name:** `= this.herb_data.english`
@@ -71,8 +72,11 @@ updated: 2025-10-01
 
 ## 📖 Overview
 
-Brief description of the herb, source, botanical information, and general identity.
+Schizonepetae Herba (jing jie) is quite harmonious in nature: acrid, but not overly dispersing, slightly warm, but not drying. Its light, ascending qualities, which enter the Liver and Lungs, allow it to be used for both wind-heat and wind-cold, and also for venting wind from the blood. The Treasury of Words on Materia Medica lauds it as the herb for wind in the midst of the blood, stating that each and every wind toxin condition- just at the threshold of manifesting, but not completely; about to disperse, but not dispersing- can be cleared up with the use of unprepared Schizonepetae Herba (jing jie).
 
+Seeking Accuracy in the Materia Medica explains its interaction with Saposhnikoviae Radix (fang feng). Schizonepetae Herba (jing jie), it says, is not like Saposhnikoviae Radix (fang feng), whose qi is not light and lifting, and which must enter into the flesh and bones to drive out wind. Thus, in order to dissipate and disperse the wind pathogen, when one uses Saposhnikoviae Radix (fang feng) it is necessary to also use Schizonepetae Herba (jing jie). This is because Schizonepetae Herba (jing jie) can enter the muscles and skin to dissipate and disperse [and thus complement Saposhnikoviae Radix's (fang feng) deeper action]. Furthermore, since Schizonepetae Herba (jing jie) also enters the Liver channel- the wind and wood organ- and the Liver is the realm of blood storage, Schizonepetae Herba (jing jie) is also able to unblock and facilitate the blood vessels to treat such symptoms as nosebleed, Intestinal wind, irregular menstrual bleeding, puerperal fainting, toxic swollen sores, and blood heat. [Resolution of] all of these [symptoms] relies on its light lifting, as a tool for dissipating and draining. How could one regulate the qi in the organ of wind and wood, but not treat the blood as well?! Therefore, while Schizonepetae Herba (jing jie) enters the qi aspect of the Liver, it also enters its blood aspect.
+
+---
 ---
 
 ## 🔑 TCM Properties
@@ -85,21 +89,19 @@ Brief description of the herb, source, botanical information, and general identi
 
 ## ⚡ Functions & Actions
 
-```dataview
-LIST herb_data.functions
-WHERE file.name = this.file.name
-```
-
-**Key Functions:**
--
--
--
-
-**Clinical Applications:**
--
--
-
----
+- Releases the exterior and dispels wind: for exterior patterns of either wind-cold or wind-heat (depending on the herbs with which it is combined). Also for carbuncles or boils when they first erupt, especially when accompanied by chills and fever.
+    - With Saposhnikoviae Radix (fang feng) and Notopterygii Rhizoma seu Radix (qiang huo) for exterior wind-cold with chills, fever, and lack of sweating, as in Schizonepeta and Saposhnikovia Powder to Overcome Pathogenic Influences (jing fang bai du san).
+    - With Menthae haplocalycis Herba (bo he), Forsythiae Fructus (lian qiao), and Lonicerae Flos (jin yin hua) for exterior wind-heat, as in Honeysuckle and Forsythia Powder (yin qiao san).
+    - With Scutellariae Radix (huang qin) and Chrysanthemi Flos (ju hua) for eye inflammation associated with wind-heat.
+    - With Pogostemonis/Agastaches Herba (huo xiang) and Eupatorii Herba (pei lan) for externally-contracted damp disorders.
+    - With Platycodi Radix (jie geng) and Glycyrrhizae Radix (gan cao) for acute cough associated with externally-contracted disorders.
+- Vents rashes and alleviates itching: for the initial stage of measles and pruritic skin eruptions.
+    - With Angelicae sinensis Radix (dang gui) for itching from wind due to blood deficiency, as in Eliminate Wind Powder (xiao feng san). Chuanxiong Rhizoma (chuan xiong) is often added to strengthen the effect.
+    - With Arctii Fructus (niu bang zi) and Cicadae Periostracum (chan tui) for the initial stage of measles.
+    - With Equiseti hiemalis Herba (mu zei) and Eriocauli Flos (gu jing cao) for pruritic rash.
+    - With Phaseoli Semen (chi xiao dou) for itchy wind rash and swollen toxic sores.
+- Stops bleeding: as an auxiliary herb for hemorrhage, e.g., blood in the stool or uterine bleeding. Best used charred for this action, as in Sophora Japonica Flower Powder (huai hua san).
+    - With Sophorae Flos immaturus (huai mi) for blood in the stool.
 
 ## 🎯 Patterns & Symptoms
 
@@ -175,8 +177,7 @@ SORT Category, file.name
 **Toxicity:** `= this.herb_data.toxicity`
 
 **Contraindications:**
--
--
+Contraindicated where there is deficiency of the exterior, fully-erupted measles or open sores, or an absence of pathogenic wind of any kind.
 
 **Drug Interactions:**
 -
@@ -209,8 +210,7 @@ WHERE file.name = this.file.name
 ## 🌱 Quality Criteria & Authentication
 
 **Quality Indicators:**
--
--
+Good quality consists of light green, long, and dense spikes with a strong aromatic fragrance.
 
 **Common Adulterants:**
 -
@@ -281,7 +281,7 @@ LIMIT 10
 - [[]]
 
 **Related Formulas:**
-- [[Formulas including Jing Jie]]
+- [[Formulas including Ai Ye]]
 
 **Related Western Conditions:**
 - [[]]

@@ -20,35 +20,36 @@ tests: []
 # 🔹 Herb-Specific Data
 herb_data:
   hanzi: "覆盆子"
-  pinyin: "Fu Pen Zi"
-  pharmaceutical: "Rubi, Fructus"
-  english: ""
+  pinyin: "Fù Pén Zǐ"
+  pharmaceutical: "Rubi Fructus"
+  english: "Chinese raspberry, rubus"
   alternate_names: []
 
   # TCM Properties
-  taste: []
-  temperature: ""
-  channels: []
+  taste: [Sweet, astringent]
+  temperature: "neutral"
+  channels: [Kidney, Liver]
 
   # Clinical Information
-  dosage: ""
-  toxicity: ""
-  functions: []
+  dosage: "6-12g"
+  toxicity: "None"
+  functions: [Augments the true yin of the Kidneys, contains the urine, secures the essence, Augments and stabilizes the Kidneys, binds the essence, contains the urine]
   dui_yao: []
 
   # Additional Information
-  constituents: []
-  quality: ""
-  text_first_appeared: ""
+  constituents: [Terpenes: goshonoside F1-F7, rubuscoside I, II, Ill, fupenzic acid, Sterols: β-sitosterol, Other constituents: sugars, organic acids, ellagic acid, amino acids, volatile oil, vitamins A, E]
+  quality: "Good quality consists of unfragmented, full, yellowish green fruit with a sour taste."
+  text_first_appeared: "Miscellaneous Records of Famous Physicians"
 
   # Source References
-  bensky_page: ""
+  bensky_pdf: "627"
+  bensky_page: "None"
 
 created: 2025-10-01
 updated: 2025-10-01
 ---
 
-# 🌿 Fu Pen Zi
+# 🌿 Ai Ye
 
 **Pharmaceutical Name:** `= this.herb_data.pharmaceutical`
 **English Name:** `= this.herb_data.english`
@@ -71,8 +72,21 @@ updated: 2025-10-01
 
 ## 📖 Overview
 
-Brief description of the herb, source, botanical information, and general identity.
+Rubi Fructus (*fu pen zi*) is sweet, slightly sour and astringent, and neutral; it tonifies Kidneys without causing dryness or heat, and secures the essence without causing inappropriate congealing. Both the Divine Husbandman and Miscellaneous Records of Famous Physicians state that it is neutral, while some later materia medica texts state that it is warming. Miscellaneous Records of Famous Physicians says "Primarily augments the qi, lightens the body, and keeps the hair from turning white."
 
+The Materia Medica of the Kaibao Era elaborates:
+Tonifies deficiency, restores what has been severed, strengthens the yin and constructs the yang, makes the skin glossy, quiets and harmonizes [both the] the yin and yang organs, warms the middle and augments the strength, remedies injury from consumption and wind deficiency, tonifies the Liver and brightens the eyes.
+
+Discussion of Medicinal Properties says that it is indicated: "Primarily for spent deficiency of Kidney essence in the male; females consuming it bear children. Governs infertility." Extension of the Materia Medica captures its most essential qualities: "Augments the Kidney organ, contains the urine." Commentary on the Divine Husbandman's Classic of Materia Medica reiterates these observations, then adds: "All of these note [its ability to] augment the Kidneys and replenish the essence, and refer to the concept of 'sweet-sour binding restraint'."
+
+Rectification of the Meaning of Materia Medica elaborates on its qualities and functions:
+[It] is a herb that nourishes the true yin. Its flavor is slightly sour, it restrains and contains the yin qi that has been dispersed and depleted, and generates seminal fluids. This is the reason Kou Zong-Shi [in Extension of the Materia Medica] stated that it 'augments the Kidneys and contains the urine', and that those taking it can turn over their bed pan [as it will no longer be needed]. The Divine Husbandman [notes that it] 'primarily governs the five yin organs': all seeds are firm and full, and most [seeds] tonify the middle; with its sour capacity to restrain, it is naturally even more able to tonify the yin of the five yin organs and augment the essential qi. All seeds are heavy, and most augment the Kidneys, while this [herb] specifically enters the Kidney yin and fortifies the Kidney qi, hence the statement that it grows yin and creates fortitude. [The statement in the Divine Husbandman that it] 'strengthens resolve, doubles power, and enhances fertility': all are the effects of tonifying and augmenting the Kidney yin. That it 'lightens the body with long-term consumption and prevents aging' - this merely expresses the end result of these actions. [The statement in Miscellaneous Records of Famous Physicians that it] 'augments the qi, lightens the body, and keeps the hair from turning white' supports the Divine Husbandman's view.
+
+Yet [it] only tonifies the yin, it does not reinforce the yang; neither the Divine Husbandman nor the Miscellaneous Records says that it is warm. Those statements calling it 'slightly warm' or 'slightly hot' are all later conjectures - as if all herbs that tonify the Kidneys must be warm! Don't they know that there are herbs that specifically govern Kidney yin and Kidney yang, and that those herbs that enrich and nourish the Kidney yin must not be warm!
+
+The reading of materia medica texts must be based on the Divine Husbandman's Classic of the Materia Medica, supplemented by Miscellaneous Records of Famous Physicians. The various theories of later writers are often confused and jumbled: one must view them with discrimination.
+
+---
 ---
 
 ## 🔑 TCM Properties
@@ -85,21 +99,9 @@ Brief description of the herb, source, botanical information, and general identi
 
 ## ⚡ Functions & Actions
 
-```dataview
-LIST herb_data.functions
-WHERE file.name = this.file.name
-```
+- Augments the true yin of the Kidneys, contains the urine, secures the essence.
 
-**Key Functions:**
--
--
--
-
-**Clinical Applications:**
--
--
-
----
+- Augments and stabilizes the Kidneys, binds the essence, and contains the urine: for urinary frequency or enuresis, impotence, spermatorrhea, premature ejaculation, or wet dreams due to Kidney yang deficiency.
 
 ## 🎯 Patterns & Symptoms
 
@@ -175,8 +177,8 @@ SORT Category, file.name
 **Toxicity:** `= this.herb_data.toxicity`
 
 **Contraindications:**
--
--
+- Use with caution in cases of yin deficiency with heat signs.
+- Contraindicated in cases of urinary difficulty.
 
 **Drug Interactions:**
 -
@@ -209,8 +211,7 @@ WHERE file.name = this.file.name
 ## 🌱 Quality Criteria & Authentication
 
 **Quality Indicators:**
--
--
+Good quality consists of unfragmented, full, yellowish green fruit with a sour taste.
 
 **Common Adulterants:**
 -
@@ -281,7 +282,7 @@ LIMIT 10
 - [[]]
 
 **Related Formulas:**
-- [[Formulas including Fu Pen Zi]]
+- [[Formulas including Ai Ye]]
 
 **Related Western Conditions:**
 - [[]]

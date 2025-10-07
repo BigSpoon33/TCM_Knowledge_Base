@@ -1,7 +1,7 @@
 ---
 # 🔹 Core Metadata (Universal Fields)
 id: "herb-20251001123706"
-name: "Bai Dou Kou"
+name: "Bai Dou Kou (Amomi Fructus rotundus)"
 type: "herb"
 aliases: []
 tags: [TCM, Herb]
@@ -20,35 +20,36 @@ tests: []
 # 🔹 Herb-Specific Data
 herb_data:
   hanzi: "白豆蔻"
-  pinyin: "Bai Dou Kou"
-  pharmaceutical: "Amomi Rotundus, Fructus"
-  english: ""
+  pinyin: "Bái Dòu Kòu"
+  pharmaceutical: "Amomi Fructus rotundus"
+  english: "round cardamon, cardamon cluster"
   alternate_names: []
 
   # TCM Properties
-  taste: []
-  temperature: ""
-  channels: []
+  taste: [acrid, aromatic]
+  temperature: "warm"
+  channels: [Lung, Spleen, Stomach]
 
   # Clinical Information
-  dosage: ""
-  toxicity: ""
-  functions: []
+  dosage: "3-6g"
+  toxicity: "Contraindicated in those with yin or blood deficiency."
+  functions: [Promotes the movement of qi, transforms dampness, and strengthens the Stomach, Warms the middle burner and causes rebellious qi to descend]
   dui_yao: []
 
   # Additional Information
-  constituents: []
-  quality: ""
-  text_first_appeared: ""
+  constituents: [Volatile oil: primarily 1,8-cineole, β-pinene; α-pinene, caryophyllene, bornyl acetate, α-terpineol, linalool, terpinene-4-ol, aromadendrene, γ-patchoulene, α-elemene, γ-cubebene, sabinene hydrate, nerolidol, bisabolene, camphene, carvone, Volatile oil: primarily 1,8-cineole, carvone, α-terpineol; β-pinene, γ-pinene, farnesol, linalool, p-cymene, sabinene, myrcene, myrcenol, 1,4-cineole, limonene, 3-carene, β-terpineol, camphor, borneol]
+  quality: "Good quality consists of large, unfragmented, full fruit with an intense aroma."
+  text_first_appeared: "Omissions from the Materia Medica"
 
   # Source References
-  bensky_page: ""
+  bensky_pdf: "627"
+  bensky_page: "None"
 
 created: 2025-10-01
 updated: 2025-10-01
 ---
 
-# 🌿 Bai Dou Kou
+# 🌿 Ai Ye
 
 **Pharmaceutical Name:** `= this.herb_data.pharmaceutical`
 **English Name:** `= this.herb_data.english`
@@ -71,8 +72,9 @@ updated: 2025-10-01
 
 ## 📖 Overview
 
-Brief description of the herb, source, botanical information, and general identity.
+Acrid, warm, and aromatic, **Amomi Fructus rotundus** (_bái dòu kòu_) enters the Lung, Spleen, and Stomach channels. It warms, disseminates, and pierces through turbidity by virtue of its aroma, and can mobilize stagnant qi within the Triple Burner, while opening the middle and easing the Stomach. It is particularly effective for dredging and dispersing Lung qi blockage. It can warm the middle, transform dampness, awaken the Spleen, and restore the appetite. In this way it treats phlegm-dampness obstructing the Lungs and qi stasis which causes a stifling sensation in the chest; it does this by its warming transformation of phlegm-dampness and its ability to disseminate the Lung qi. It also treats cold-dampness obstructing the middle with nausea, vomiting, hiccough or reflux, and Stomach and Intestinal qi constraint with epigastric and abdominal distention and pain.
 
+---
 ---
 
 ## 🔑 TCM Properties
@@ -85,21 +87,29 @@ Brief description of the herb, source, botanical information, and general identi
 
 ## ⚡ Functions & Actions
 
-```dataview
-LIST herb_data.functions
-WHERE file.name = this.file.name
-```
+#### Promotes the movement of qi, transforms dampness, and strengthens the Stomach:
 
-**Key Functions:**
--
--
--
+For dampness obstructing the middle burner as well as damp-warmth. Symptoms include a stifling sensation in the chest, fullness in the epigastrium, lack of appetite, and a very greasy tongue coating.
 
-**Clinical Applications:**
--
--
+- With **Amomi Fructus** (_shā rén_) for fullness and a stifling sensation in the chest, vomiting, diarrhea, and a thick tongue coating from cold-dampness encumbering the Spleen and obstructing the movement of qi.
 
----
+- With **Citri Reticulatae Pericarpium** (_chén pí_) for fullness and discomfort in the chest and abdomen, belching, nausea, vomiting, and diarrhea due to Spleen and Stomach deficiency with a subsequent accumulation of turbid dampness.
+
+- With **Armeniacae Semen** (_xìng rén_) and **Coicis Semen** (_yì yì rén_) for headache, stifling sensation in the chest, fatigue, dark urine with reduced output, diarrhea, and usually accompanied by a white, greasy tongue coating, as in the early stages of damp-warmth. See **Three-Nut Decoction** (_Sān Rén Tāng_).
+
+- With **Scutellariae Radix** (_huáng qín_), **Talcum** (_huá shí_), and **Polyporus** (_zhū líng_) for damp-warmth in the middle burner, with more heat than dampness, marked by recurring fevers, body aches, dark urine, and a yellow tongue coating, as in **Scutellaria and Talcum Decoction** (_Huáng Qín Huá Shí Tāng_).
+
+- With **Magnoliae Officinalis Cortex** (_hòu pò_) and **Atractylodis Rhizoma** (_cāng zhú_) for distention due to qi obstruction or cold-dampness in the Spleen and Stomach.
+
+#### Warms the middle burner and causes rebellious qi to descend:
+
+For vomiting due to cold from deficiency of the Spleen and Stomach, Stomach cold, cold-dampness, or food stagnation.
+
+- With **Pogostemonis/Agastaches Herba** (_huò xiāng_) and **Pinelliae Rhizoma preparatum** (_zhì bàn xià_) for nausea and vomiting, epigastric discomfort, and reduced appetite due to either cold-dampness or food stagnation. This combination can also be used for morning sickness.
+
+- With **Caryophylli Flos** (_dīng xiāng_) for belching due to Stomach cold.
+
+- Powdered together with **Amomi Fructus** (_shā rén_) and **Glycyrrhizae Radix** (_gān căo_) and placed inside an infant's mouth for spitting up of milk.
 
 ## 🎯 Patterns & Symptoms
 
@@ -175,8 +185,7 @@ SORT Category, file.name
 **Toxicity:** `= this.herb_data.toxicity`
 
 **Contraindications:**
--
--
+"Acrid, hot, and intensely drying, it promotes movement in the Triple Burner; it should not be included [in a prescription] whenever nausea and vomiting are not due to cold or yang deficiency." (_Harm and Benefit in the Materia Medica_)
 
 **Drug Interactions:**
 -
@@ -209,8 +218,7 @@ WHERE file.name = this.file.name
 ## 🌱 Quality Criteria & Authentication
 
 **Quality Indicators:**
--
--
+Good quality consists of large, unfragmented, full fruit with an intense aroma.
 
 **Common Adulterants:**
 -
@@ -281,7 +289,7 @@ LIMIT 10
 - [[]]
 
 **Related Formulas:**
-- [[Formulas including Bai Dou Kou]]
+- [[Formulas including Ai Ye]]
 
 **Related Western Conditions:**
 - [[]]

@@ -21,34 +21,41 @@ tests: []
 herb_data:
   hanzi: "赤芍"
   pinyin: "Chi Shao"
-  pharmaceutical: "Paeoniae Rubrae, Radix"
-  english: ""
+  pharmaceutical: "Paeoniae Radix Rubra"
+  english: "Red Peony Root"
   alternate_names: []
 
   # TCM Properties
-  taste: []
-  temperature: ""
-  channels: []
+  taste: [Sour, bitter, slightly cold]
+  temperature: "slightly cold"
+  channels: [Liver, Spleen]
 
   # Clinical Information
-  dosage: ""
-  toxicity: ""
-  functions: []
+  dosage: "6-15g"
+  toxicity: "See Cautions & Contraindications"
+  functions: [Invigorates the blood and dispels blood stasis, Clears heat and cools the blood]
   dui_yao: []
 
   # Additional Information
-  constituents: []
-  quality: ""
-  text_first_appeared: ""
+  constituents: [*Paeonia lactiflora*:
+    - Phenols and phenol glycosides: paeoniflorin, oxypaeoniflorin, benzoylpaeoniflorin, galloylpaeoniflorin, albiflorin, paeonol, paeonolide, paeonoside, paeonin, paeoniflorgenone, lactiflorine, (Z)-(1S,5R)-5-pinen-10-yl-13-vicianoside, catechin
+    - Sterols: β-sitosterol, daucosterol
+    - Other constituents: benzoic acid, palmitic acid, tannins, fixed oil, proteins, *Paeonia veitchii*:
+    - Phenols and phenol glycosides: paeoniflorin, oxypaeoniflorin, benzoylpaeoniflorin, catechin, gallic acid
+    - Sterols: β-sitosterol, β-sitosterol-α-D-glucoside
+    - Other constituents: palmitic acid, ethyl palmitate, nonadecane, tetracosane, pentacosane, hexacosane, Other constituents: acetyl-7-methyljuglone, torachrysone-8-O-D-glucoside, Stilbene glycosides: 3,4',5-trihydroxystilbene (resveratrol), resveratrol-3-O-β-D-glucoside (polydatin), Tannins: (+)-catechin, protocatechuic acid, Other constituents: 2,5-dimethyl-7-hydroxychromone, 7-hydroxyl-4-methoxy-5-methylcoumarin, β-sitosterol glucoside, amino acids, polysaccharides]
+  quality: "Good quality consists of long, thick, powdery roots with a pale reddish or yellowish white cross section."
+  text_first_appeared: "Collection of Commentaries on the Classic of the Materia Medica"
 
   # Source References
-  bensky_page: ""
+  bensky_pdf: "627"
+  bensky_page: "None"
 
 created: 2025-10-01
 updated: 2025-10-01
 ---
 
-# 🌿 Chi Shao
+# 🌿 Ai Ye
 
 **Pharmaceutical Name:** `= this.herb_data.pharmaceutical`
 **English Name:** `= this.herb_data.english`
@@ -71,8 +78,13 @@ updated: 2025-10-01
 
 ## 📖 Overview
 
-Brief description of the herb, source, botanical information, and general identity.
+Paeoniae Radix Rubra (chi shao) and Paeoniae Radix Alba (bai shao) were not differentiated in the earliest materia medica texts. Almost all classical texts tend to discuss their properties under the single heading of paeoniae (shao yao), while recognizing that the white and red varieties are quite distinct in the quality of their therapeutic actions (see COMPARISON below). Indeed, Tao Hong-Jing first made this differentiation in the sixth century.
 
+Paeoniae Radix Rubra (chi shao), however, is strictly draining due to its bitterness, so that it invigorates the blood, expels stagnation, and stops pain; its slight sourness retains its affinity for the Liver so that it enters the blood aspect of the Liver, where its coldness cools heat in the blood. It is thus used for rashes due to warm pathogen disease causing heat in the blood, and swollen toxic sores, as explained in Essays on Medicine Esteeming the Chinese and Respecting the Western: "[It] is superior for transforming stasis, thus those who treat sores and abscesses often use it for its ability to transform toxic hot blood stasis without causing the formation and perforation of pus."
+
+Essentials of the Materia Medica notes that it specifically drains Liver fire and disperses noxious blood. It treats abdominal pain, firm accumulations, blood painful obstruction, bulging disorders, and mobile abdominal masses, amenorrhea, Intestinal wind, swollen sores, and reddened eyes-all these are the effects of dispersing and draining.
+
+---
 ---
 
 ## 🔑 TCM Properties
@@ -85,21 +97,18 @@ Brief description of the herb, source, botanical information, and general identi
 
 ## ⚡ Functions & Actions
 
-```dataview
-LIST herb_data.functions
-WHERE file.name = this.file.name
-```
-
-**Key Functions:**
--
--
--
-
-**Clinical Applications:**
--
--
-
----
+- Invigorates the blood and dispels blood stasis: for dysmenorrhea, amenorrhea, abdominal pain, and fixed abdominal masses. Also for the swelling and pain associated with traumatic injury and the early stages of abscesses and boils.
+- With Chuanxiong Rhizoma (chuan xiong) and Angelicae sinensis Radix (dang gui) for blood stasis-induced gynecological disorders such as fixed abdominal masses and amenorrhea with abdominal pain. Also used for abscesses, boils, and trauma-induced pain.
+- With Persicae Semen (tao ren) for blood stasis-induced menstrual disorders, especially those characterized by premature onset of period, excessive bleeding, and the presence of purple, thick clots. This combination is used for a variety of problems due to blood stasis, as in Drive Out Stasis in the Mansion of Blood Decoction (xue fu zhu yu tang).
+- With Cyperi Rhizoma (xiang fu) for flank pain, abdominal pain, and dysmenorrhea due to obstruction of qi and blood.
+- With Paeoniae Radix Alba (bai shao) for spasms and cramping pain due to a combination of blood deficiency and impeded blood flow.
+- With Olibanum (ru xiang) and Myrrha (mo yao) for bruising, swelling, and pain from traumatic injury.
+- Add detoxifying herbs, such as Lonicerae Flos (jin yin hua) and Forsythiae Fructus (lian qiao), for pain and swelling associated with boils and abscesses, as in Sublime Formula for Sustaining Life (xian fang huo ming yin).
+- Clears heat and cools the blood: for heat entering the blood level with fever, purple tongue, maculae, and bleeding due to the chaotic movement of hot blood. Also for gynecological problems associated with hot blood.
+- With Moutan Cortex (mu dan pi) and Rehmanniae Radix (sheng di huang) for heat entering the blood level leading to maculae or bleeding, as in Rhinoceros Horn and Rehmannia Decoction (xi jiao di huang tang).
+- With Arnebiae Radix/Lithospermi Radix (zi cao) and Cicadae Periostracum (chan tui) for maculae that are dull and not very red associated with warm pathogen diseases.
+- With Cirsii Herba (xiao ji) and Imperatae Rhizoma (bai mao gen) for painful bloody urinary dribbling.
+- With Chrysanthemi Flos (ju hua) and Scutellariae Radix (huang qin) for redness, swelling, and pain in the eyes.
 
 ## 🎯 Patterns & Symptoms
 
@@ -175,8 +184,10 @@ SORT Category, file.name
 **Toxicity:** `= this.herb_data.toxicity`
 
 **Contraindications:**
--
--
+Use with caution in those with cold from deficiency. Contraindicated in those with blood deficiency or during pregnancy.
+[Paeoniae Radix Rubra (chi shao)] breaks up blood, and should not be consumed for any blood deficient disorder, or diarrhea; after giving birth, if the lochia has already passed, or if abdominal pain has already ceased; or if sores have already perforated. (Harm and Benefit in the Materia Medica)
+
+Do not combine with Veratri Nigri Radix et Rhizoma (li lu).
 
 **Drug Interactions:**
 -
@@ -209,8 +220,7 @@ WHERE file.name = this.file.name
 ## 🌱 Quality Criteria & Authentication
 
 **Quality Indicators:**
--
--
+Good quality consists of long, thick, powdery roots with a pale reddish or yellowish white cross section.
 
 **Common Adulterants:**
 -
@@ -281,7 +291,7 @@ LIMIT 10
 - [[]]
 
 **Related Formulas:**
-- [[Formulas including Chi Shao]]
+- [[Formulas including Ai Ye]]
 
 **Related Western Conditions:**
 - [[]]

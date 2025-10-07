@@ -19,36 +19,39 @@ tests: []
 
 # 🔹 Herb-Specific Data
 herb_data:
-  hanzi: "白蒺藜"
-  pinyin: "Bai Ji Li"
-  pharmaceutical: "Tribuli, Fructus"
-  english: ""
+  hanzi: "白芨"
+  pinyin: "Bái Jí"
+  pharmaceutical: "Bletillae Rhizoma"
+  english: "bletilla rhizome"
   alternate_names: []
 
   # TCM Properties
-  taste: []
-  temperature: ""
-  channels: []
+  taste: [bitter, sweet, cool]
+  temperature: "cool"
+  channels: [Lung, Stomach, Liver]
 
   # Clinical Information
-  dosage: ""
-  toxicity: ""
-  functions: []
+  dosage: "None"
+  toxicity: "Side effects have been reported in rare cases. The symptoms included nausea, vomiting, dizziness, and cold sweat. These symptoms resolved spontaneously after the herb was discontinued. Other side effects included an oppressive feeling in the chest, dyspnea, palpitations, cold sweat, and agitation. Allergic reactions such as as pruritus and urticaria, as well as one case of allergic asthma, have also been reported."
+  functions: [restrains to stop bleeding, reduces swelling, generates flesh]
   dui_yao: []
 
   # Additional Information
-  constituents: []
-  quality: ""
-  text_first_appeared: ""
+  constituents: [Phenolic compounds: agrimol A, B, C, D, E, F, G, hyperoside, osthole, coumarin, Flavonoids, flavonoid glycosides: luteolin-7-glucoside, apigenin-7-glucoside, quercetin, cosmosiin, hyperoside, rutin, catechin, Organic acids: ellagic acid, gallic acid, caffeic acid, pinic acid,
+ursolic acid, 1β,2α,3β,19α-tetrahydroxyurs-12-en-28-oic acid,
+1β,2β,3β,19α-tetrahydroxyurs-12-en-28-oic acid]
+  quality: "Good quality consists of dry, tender plants with reddish brown stems and many leaves."
+  text_first_appeared: "Divine Husbandman's Classic of the Materia Medica"
 
   # Source References
-  bensky_page: ""
+  bensky_pdf: "627"
+  bensky_page: "None"
 
 created: 2025-10-01
 updated: 2025-10-01
 ---
 
-# 🌿 Bai Ji Li
+# 🌿 Ai Ye
 
 **Pharmaceutical Name:** `= this.herb_data.pharmaceutical`
 **English Name:** `= this.herb_data.english`
@@ -71,8 +74,21 @@ updated: 2025-10-01
 
 ## 📖 Overview
 
-Brief description of the herb, source, botanical information, and general identity.
+WITH AGrIMONIAE HERBA (xian he cao 仙鹤草) AND ASINI CORII COLLA (e
+jiao 阿胶)
+Both herbs stop bleeding, but Agrimoniae Herba (xian
+he cao) (see also regulates and tonifies the qi and blood
+CoMMENTARY above), while Asini Corii Colla (e jiao) nour
+ishes the blood and yin fluids. The combination therefore
+has both a strong effect in stopping bleeding, and also a cer
+tain supplementing effect. It is widely used for many types
+of bleeding disorders such as coughing of blood, Intestinal
+wind with blood in the stool, blood in the urine due to yin
+deficiency, bleeding during pregnancy, and continuous
+uterine bleeding. It is most appropriate when bleeding is
+found with indications of yin and blood deficiency.
 
+---
 ---
 
 ## 🔑 TCM Properties
@@ -85,21 +101,33 @@ Brief description of the herb, source, botanical information, and general identi
 
 ## ⚡ Functions & Actions
 
-```dataview
-LIST herb_data.functions
-WHERE file.name = this.file.name
-```
-
-**Key Functions:**
--
--
--
-
-**Clinical Applications:**
--
--
-
----
+regulate the Blood 585
+Omissions abscesses, and killing parasites. For example,
+from the Grand Materia Medica records that it
+reduces food stagnation, eases fullness in the middle, drives
+qi downward, treats all disorders involving vomiting of
+blood, upset Stomach, belching, malarial disorders, pain
+ful obstruction of the throat, Intestinal wind with blood in
+the stool, accumulated food [stasis], jaundice, and treats
+abscesses and deep-rooted toxic sores, Lung abscess, breast
+abscess, and swollen hemorrhoids.
+At present it is primarily used for bleeding disorders associ
+ated with some of the ailments listed in this passage, such
+as bleeding dysenteric disorders, but also for malarial dis
+orders, swollen sores, hemorrhoids, and vaginal pruritus
+due to trichomonas infection. For the latter condition the
+young, fresh stems and leaves are often used as part of an
+external wash or douche.
+People south of the Yangtze river in China use this
+herb as a qi tonic in cases of exhaustion-hence the name
+shi li cao (失力草), loss-of-strength herb (shili cao 失力草). For this purpose,
+30g of the herb are combined with ten red dates in a strong
+decoction and sipped as a tea throughout the day. This has
+also been effectively used for bleeding ulcers in the stom
+ach or duodenum. It can also be included in the formula
+Gui Pi Tang (归脾汤) Restore the Spleen Decoction when bleeding is
+due to Spleen deficiency which renders it unable to contain
+the blood.
 
 ## 🎯 Patterns & Symptoms
 
@@ -209,8 +237,7 @@ WHERE file.name = this.file.name
 ## 🌱 Quality Criteria & Authentication
 
 **Quality Indicators:**
--
--
+Good quality consists of dry, tender plants with reddish brown stems and many leaves.
 
 **Common Adulterants:**
 -
@@ -281,7 +308,7 @@ LIMIT 10
 - [[]]
 
 **Related Formulas:**
-- [[Formulas including Bai Ji Li]]
+- [[Formulas including Ai Ye]]
 
 **Related Western Conditions:**
 - [[]]

@@ -19,36 +19,37 @@ tests: []
 
 # 🔹 Herb-Specific Data
 herb_data:
-  hanzi: "三稜"
-  pinyin: "San Leng"
-  pharmaceutical: "Sparganii, Rhizoma"
-  english: ""
+  hanzi: "三棱"
+  pinyin: "Sān Léng"
+  pharmaceutical: "Sparganii Rhizoma"
+  english: "Sparganium Rhizome"
   alternate_names: []
 
   # TCM Properties
-  taste: []
-  temperature: ""
-  channels: []
+  taste: [Bitter, Acrid]
+  temperature: "Neutral"
+  channels: [Liver, Spleen]
 
   # Clinical Information
-  dosage: ""
-  toxicity: ""
-  functions: []
+  dosage: "3-9g"
+  toxicity: "The following side effects may occur during treatment: dizziness, nausea, dyspnea, and, in rare cases, fever, cyanosis, anxiety, general weakness, and temporarily elevated levels of SGPT. Severe pain may occur if injected. Overdosage and long-term administration should be avoided."
+  functions: [Forcefully breaks up blood stasis, promotes the movement of qi, and alleviates pain, Dissolves accumulations]
   dui_yao: []
 
   # Additional Information
-  constituents: []
-  quality: ""
-  text_first_appeared: ""
+  constituents: [Volatile oil: formic acid ethylester, octanol, phenylethanol, 1,4-benzenediol, hexadecanoic acid, dehydrocostuslactone, 3,4-dihydro-8-hydroxy-3-methyl-1H-2-benzopyran-4-one, 1-hydroxy-2-acetyl-4-methylbenzene, δ-elemene, 2-furanmethanol, 2-acetylpyrrole, Organic acid: succinic acid, sanleng acid, decanedioic acid, 9,11-octadecadienoic acid, 9,12-octadecadienoic acid, 9-octadecenoic acid, 9-hexadecenoic acid, 19-nonadecenoic acid, 11-eicosenoic acid, benzoic acid, azelaic acid, 3-phenyl-2-propenoic acid, Other constituents: formonetin, stigmasterol, β-sitosterol, daucosterol]
+  quality: "Good quality consists of heavy, solid, yellowish white rhizomes with the outer bark removed."
+  text_first_appeared: "Materia Medica of the Kaibao Era"
 
   # Source References
-  bensky_page: ""
+  bensky_pdf: "627"
+  bensky_page: "None"
 
 created: 2025-10-01
 updated: 2025-10-01
 ---
 
-# 🌿 San Leng
+# 🌿 Ai Ye
 
 **Pharmaceutical Name:** `= this.herb_data.pharmaceutical`
 **English Name:** `= this.herb_data.english`
@@ -71,8 +72,11 @@ updated: 2025-10-01
 
 ## 📖 Overview
 
-Brief description of the herb, source, botanical information, and general identity.
+Bitter, acrid, and neutral, Sparganii Rhizoma (*sān léng*) enters the Liver and Spleen channels, and also both the blood level and the qi level. Its bitter flavor drains blood stagnation, while its acrid flavor disperses qi stagnation; the herb has a strong ability to reduce stagnation and stop pain. It is used for abdominal masses, amenorrhea, and postpartum stagnation, but also promotes the movement of qi to reduce stasis due to food stagnation, which has led to distending pain in the chest and abdomen.
 
+Materia Medica of the Kaibao Era says that it "governs stubborn lumps, abdominal masses, and clumping." The Grand Materia Medica states that it "breaks up qi and disperses clumps."
+
+---
 ---
 
 ## 🔑 TCM Properties
@@ -85,21 +89,12 @@ Brief description of the herb, source, botanical information, and general identi
 
 ## ⚡ Functions & Actions
 
-```dataview
-LIST herb_data.functions
-WHERE file.name = this.file.name
-```
-
-**Key Functions:**
--
--
--
-
-**Clinical Applications:**
--
--
-
----
+- Forcefully breaks up blood stasis, promotes the movement of qi, and alleviates pain: for blood stasis patterns with amenorrhea, dysmenorrhea, postpartum abdominal pain, and abdominal masses.
+    - With Curcumae Rhizoma (*e zhu*), Angelicae sinensis Radix (*dāng guī*), Carthami Flos (*hóng huā*), and Persicae Semen (*táo rén*) for amenorrhea, postpartum abdominal pain, and fixed abdominal masses due to blood stasis.
+    - With Corydalis Rhizoma (*yán hú suǒ*) for pain due to blood stasis.
+- Dissolves accumulations: for severe abdominal pain and distention due to food stagnation and stagnant qi.
+    - With Aucklandiae Radix (*mù xiāng*), Arecae Semen (*bīng láng*), Citri reticulatae viride Pericarpium (*qīng pí*), and Massa medicata fermentata (*shén qū*) for pain due to food stagnation.
+    - Add Codonopsis Radix (*dǎng shēn*) and Atractylodis macrocephalae Rhizoma (*bái zhú*) for the above symptoms accompanied by Spleen deficiency.
 
 ## 🎯 Patterns & Symptoms
 
@@ -175,8 +170,11 @@ SORT Category, file.name
 **Toxicity:** `= this.herb_data.toxicity`
 
 **Contraindications:**
--
--
+- Contraindicated during pregnancy or in those with excessive menstruation.
+- "In all cases of early menstruation, and all disorders due to blood heat, it is forbidden." (Harm and Benefit in the Materia Medica)
+- "Its nature is hard and drastic - without firm stubborn accumulation, it should not be used." (Rectification of the Meaning of Materia Medica)
+- Contraindicated in the absence of stasis, and during pregnancy. Use with caution in those with weak stomachs. Should not be used long term.
+- "Its use is forbidden in those with constitutional bleeding disorders." (Materia Medica of Combinations)
 
 **Drug Interactions:**
 -
@@ -209,8 +207,7 @@ WHERE file.name = this.file.name
 ## 🌱 Quality Criteria & Authentication
 
 **Quality Indicators:**
--
--
+Good quality consists of heavy, solid, yellowish white rhizomes with the outer bark removed.
 
 **Common Adulterants:**
 -
@@ -281,7 +278,7 @@ LIMIT 10
 - [[]]
 
 **Related Formulas:**
-- [[Formulas including San Leng]]
+- [[Formulas including Ai Ye]]
 
 **Related Western Conditions:**
 - [[]]

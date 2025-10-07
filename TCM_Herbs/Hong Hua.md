@@ -19,36 +19,37 @@ tests: []
 
 # 🔹 Herb-Specific Data
 herb_data:
-  hanzi: "紅花"
-  pinyin: "Hong Hua"
-  pharmaceutical: "Carthami, Flos"
-  english: ""
+  hanzi: "红花"
+  pinyin: "Hóng Huā"
+  pharmaceutical: "Carthami Flos"
+  english: "Safflower, carthamus"
   alternate_names: []
 
   # TCM Properties
-  taste: []
-  temperature: ""
-  channels: []
+  taste: [Acrid]
+  temperature: "Warm"
+  channels: [Heart, Liver]
 
   # Clinical Information
-  dosage: ""
-  toxicity: ""
-  functions: []
+  dosage: "3-9g"
+  toxicity: "Overdosage can lead to toxic side effects including headache, nausea, dilated pupils, and an increase in intraocular pressure. Allergic reactions affecting the skin, and even anaphylactic shock, have also been reported."
+  functions: [Invigorates the blood, Dispels stasis, Unblocks menstruation]
   dui_yao: []
 
   # Additional Information
-  constituents: []
-  quality: ""
-  text_first_appeared: ""
+  constituents: [Phenolic compounds: carthamone, neocarthamin, carthamin, carthamidin, precarthamin, safflor yellow A, B, safflomin A, chlorogenic acid, caffeic acid, catechol, pyrocatechol, dopa, Volatile oil: ethyl acetate, 2-hexanol, 3-hexanol, phenylacetaldehyde, terpinen-4-ol, verbenone, methyl cinnamate, α-copaene, γ-tetradecene, α-cedrene, caryophyllene, caryophyllene epoxide, δ-farnesene, humulene, β-ionone, Fixed oil: triglycerides of palmitic acid, stearic acid, myristic acid, lauric acid, arachidic acid, oleic acid, linoleic acid, linolenic acid; α,γ-dipalmitin, Other constituents: 15α,20β-dihydroxy-4-pregnen-3-one, rhamnose, arabinose, xylose, glucose, mannose, cholesterol, β-sitosterol, stigmasterol]
+  quality: "Good quality consists of long, dark red or fresh red, soft flowers with an intense aroma."
+  text_first_appeared: "Tang Materia Medica"
 
   # Source References
-  bensky_page: ""
+  bensky_pdf: "627"
+  bensky_page: "None"
 
 created: 2025-10-01
 updated: 2025-10-01
 ---
 
-# 🌿 Hong Hua
+# 🌿 Ai Ye
 
 **Pharmaceutical Name:** `= this.herb_data.pharmaceutical`
 **English Name:** `= this.herb_data.english`
@@ -71,8 +72,20 @@ updated: 2025-10-01
 
 ## 📖 Overview
 
-Brief description of the herb, source, botanical information, and general identity.
+Slightly warm, such that it unblocks; slightly acrid, such that it disperses; and red, such that it enters the blood level. Carthami Flos (hong hua) has a light, harmonious, yet very rapid effect on the movement of blood that spreads throughout the body to transform stasis and stop pain. This speed is due to its light weight, which also allows it to assist the expression of measles, but it is also very commonly used in gynecological disorders. Many materia medica texts mention its ability to moisten dryness, and that in large doses it breaks up blood, while in small doses it gently moves and nourishes the blood. This is known as 'harmonizing the blood', which has the indirect effect of soothing Liver constraint.
 
+Rectification of the Meaning of Materia Medica observes:
+Sweet, slightly bitter, slightly acrid, and a little cool: within yin it is slightly yang. It solely enters the blood vessels, and is mainly used in gynecology. In small doses it invigorates the blood and induces menstruation; in large doses it breaks up and unblocks blood stasis. It can drive a dead fetus downward, and also treat fainting from blood stasis following parturition. It thrusts out pox and sores due to blood heat that have trouble expressing, and scatters rashes and spots due to stagnant blood that will not disperse.
+
+Transforming the Significance of Medicinal Substances is much more specific:
+
+If big doses of 9 to 12g are used, it will be too acrid and warming, it will make the blood disperse and travel [outside its normal pathways] ... if small doses of 2 to 2.5g are used, it will soothe the Liver qi and reinforce the sea of blood, greatly fortifying blood deficiency: this is its adjusting, facilitating, and harmonizing of blood. If only 0.5g to 1g are used, it will enter the Heart to increase Heart blood and relieve pathogenic fire in the Heart channel by dispersing it, adjusting and harmonizing the blood; this is its ability to enrich, nourish, and generate blood. The significance of these different doses is not amenable to shallow explanations!
+
+Rectification of the Meaning of Materia Medica explains its qualities, while confirming the view above:
+
+Because its color is red and its substance is light, raising, dredging, and thrusting out, it enters the blood level to dredge and unblock the channels and collaterals, invigorate the blood, and reduce obstruction ... [however] used in excess it can cause continuous bleeding, and can cause the blood to ascend - one must know this. The important thing is that its nature is warmly harmonious, and that it is acrid and dispersing, so that it specifically governs all stasis and stagnation internally, and lack of movement in the channels and collaterals. However, it travels without an ability to restrain, rapidly thrusting out to the four [extremities]. Thus, one should not use it alone in large doses to achieve results, but rather utilize its ability to dredge, spread, and harmonize the blood in small doses: this will then cause no problems.
+
+---
 ---
 
 ## 🔑 TCM Properties
@@ -85,21 +98,13 @@ Brief description of the herb, source, botanical information, and general identi
 
 ## ⚡ Functions & Actions
 
-```dataview
-LIST herb_data.functions
-WHERE file.name = this.file.name
-```
-
-**Key Functions:**
--
--
--
-
-**Clinical Applications:**
--
--
-
----
+- Invigorates the blood, dispels stasis, and unblocks menstruation: for a wide variety of problems due to blood stasis. Because it is particularly effective in unblocking the menses, in women it is used for blood stasis patterns with amenorrhea, abdominal pain, postpartum dizziness, retained lochia, and abdominal masses. Other uses include trauma, nonsuppurative sores, carbuncles, and dark purplish erythema. Also for incomplete expression of the rash of measles or painful obstruction of the chest due to blood stasis.
+    - With Chuanxiong Rhizoma (chuan xiong) for pain in the chest and abdomen due to blood stasis and stagnant qi as in Drive Out Stasis in the Mansion of Blood Decoction (xue fu zhu yu tang).
+    - With Sappan Lignum (su mu) for pain and swelling associated with trauma.
+    - With Rehmanniae Radix (sheng di huang), Paeoniae Radix rubra (chi shao), and Forsythiae Fructus (lian qiao) for pain, redness, and swelling of the eyes.
+    - With Leonuri Herba (yi mu cao) and Achyranthis Bidentatae Radix (niu xi) for abdominal pain or postpartum retained lochia due to blood stasis.
+    - With Sparganii Rhizoma (san leng) and Curcumae Rhizoma (e zhu) for abdominal masses and accumulations.
+    - With Arnebiae Radix/Lithospermi Radix (zi cao) and Angelicae Sinensis Radix (dang gui) for measles presenting with purpuric rash. Also used for carbuncles, boils, and other toxic swellings.
 
 ## 🎯 Patterns & Symptoms
 
@@ -175,8 +180,8 @@ SORT Category, file.name
 **Toxicity:** `= this.herb_data.toxicity`
 
 **Contraindications:**
--
--
+Contraindicated during pregnancy or where there is any problem related to bleeding, such as hemorrhagic disease or peptic ulcers. See Toxicity below.
+- "Small doses nourish the blood, large doses promote the movement of blood, overdosage causes continuous bleeding." (Encountering the Sources of the Classic of Materia Medica)
 
 **Drug Interactions:**
 -
@@ -209,8 +214,7 @@ WHERE file.name = this.file.name
 ## 🌱 Quality Criteria & Authentication
 
 **Quality Indicators:**
--
--
+Good quality consists of long, dark red or fresh red, soft flowers with an intense aroma.
 
 **Common Adulterants:**
 -
@@ -281,7 +285,7 @@ LIMIT 10
 - [[]]
 
 **Related Formulas:**
-- [[Formulas including Hong Hua]]
+- [[Formulas including Ai Ye]]
 
 **Related Western Conditions:**
 - [[]]

@@ -20,35 +20,36 @@ tests: []
 # 🔹 Herb-Specific Data
 herb_data:
   hanzi: "燈心草"
-  pinyin: "Deng Xin Cao"
-  pharmaceutical: "Junci, Medulla"
-  english: ""
+  pinyin: "Dēng Xīn Cǎo"
+  pharmaceutical: "Juncus effusus"
+  english: "Juncus Pith, Rush Pith"
   alternate_names: []
 
   # TCM Properties
-  taste: []
-  temperature: ""
-  channels: []
+  taste: [Sweet, Bland, Slightly cold]
+  temperature: "Slightly cold"
+  channels: [Heart, Lung, Small Intestine]
 
   # Clinical Information
-  dosage: ""
-  toxicity: ""
-  functions: []
+  dosage: "1.5-4.5g"
+  toxicity: "None noted"
+  functions: [Promotes urination and unblocks painful urinary dribbling, Clears the Heart and directs fire downward]
   dui_yao: []
 
   # Additional Information
-  constituents: []
-  quality: ""
-  text_first_appeared: ""
+  constituents: [Volatile oil: α-ionone, β-ionone, β-phenylethyl alcohol, p-cresol, n-tridecan-2-one, 6,10,14-trimethylpentadecan-2-one, eugenol, dihydroactinolide, α-cyperone, δ-bisabolene, vanillin, Phenanthrene derivates: effusol, dehydroeffusol, dehydroeffusal, juncusol, juncunone, dihydrojuncunone, dihydrojuncunone methylether, isodihydrojuncunone, 2,6-dihydroxy-1,7-dimethyl-5-vinyl-9,10-dihydrophenanthrene, 2,3-dihydroxy-1,7-dimethyl-5-vinyl-9,10-dihydrophenanthrene, 2,7-dihydroxy-1,8-dimethyl-5-vinyl-9,10-dihydrophenanthrene, 2,8-dihydroxy-1,6-dimethyl-5-vinyl-9,10-dihydrophenanthrene, 8-hydroxy-2-methoxy-1,6-dimethyl-5-vinyl-9,10-dihydrophenanthrene, 2-hydroxy-7-methoxy-1,8-dimethyl-5-vinyl-9,10-dihydrophenanthrene, 8-carboxy-2-hydroxy-1-methyl-5-vinyl-9,10-dihydrophenanthrene, 5-formyl-2-hydroxy-1,8-dimethyl-7-methoxy-9,10-dihydrophenanthrene, 5-formyl-2,6-dihydroxy-1,7-dimethyl-9,10-dihydrophenanthrene, Flavonoids: luteolin, luteolin-7-glucoside, Organic acids: capric acid, lauric acid, myristic acid, stearic acid, oleic acid, linoleic acid, Amino acids: phenylalanine, norvaline, valine, methionine, tryptophan, β-alanine, glutamic acid, Other constituents: mono-p-coumaroylglyceride, α-tocopherol]
+  quality: "Good quality consists of long, white, and elastic pieces of uniform thickness."
+  text_first_appeared: "Materia Medica of Kaibao Era"
 
   # Source References
-  bensky_page: ""
+  bensky_pdf: "627"
+  bensky_page: "None"
 
 created: 2025-10-01
 updated: 2025-10-01
 ---
 
-# 🌿 Deng Xin Cao
+# 🌿 Ai Ye
 
 **Pharmaceutical Name:** `= this.herb_data.pharmaceutical`
 **English Name:** `= this.herb_data.english`
@@ -71,8 +72,16 @@ updated: 2025-10-01
 
 ## 📖 Overview
 
-Brief description of the herb, source, botanical information, and general identity.
+Sweet, bland, and slightly cold, Junci Medulla (deng xin cao) mobilizes the Heart and Lungs in the upper body, and the Small Intestine in the lower body. It thereby directs constrained heat in the Heart and Lungs smoothly downward through the fluid pathways of the Small Intestine to the Bladder, where it is expelled through the urine. Thus, it is often used clinically for infants or children with a restless sensation of heat in the chest, nightmares, night terrors, and dark, burning urine due to heat. It is also used for sore throat due to Lung heat.
 
+*Transforming the Significance of Medicinal Substances* notes that the herb is mild in both flavor and aroma; lightness raises and floats, so that it especially enters the Lungs and Heart. Its nature and flavor are both bland; blandness benefits the orifices, causing constrained heat in the upper part [of the body] to travel downward and exit through the urine.
+
+This herb can also be dipped in oil and used for cauterization.
+
+Mechanisms of Selected Combinations
+\>WITH AKEBIAE CAULIS (mu tong); see page 284
+
+---
 ---
 
 ## 🔑 TCM Properties
@@ -85,21 +94,12 @@ Brief description of the herb, source, botanical information, and general identi
 
 ## ⚡ Functions & Actions
 
-```dataview
-LIST herb_data.functions
-WHERE file.name = this.file.name
-```
-
-**Key Functions:**
--
--
--
-
-**Clinical Applications:**
--
--
-
----
+- Promotes urination and unblocks painful urinary dribbling: for hot painful urinary dribbling or other heat disorders with dark, scanty urine.
+    - With Lophatheri Herba (dan zhu ye) and Plantaginis Herba (che qian cao) for hot painful urinary dribbling.
+    - With Talcum (hua shi) for irritability and incomplete, painful urination due to damp-heat in the Heart, Bladder, and Lung channels.
+    - At present, used with Plantaginis Herba (che qian cao) and Imperatae Rhizoma (bai mao gen) for edema due to nephritis.
+- Clears the Heart and directs fire downward: moves heat from the Heart channel downward into the Small Intestine channel where it is expelled through the urine. Commonly used in childhood sleep disorders accompanied by dark, scanty urine and irritability, especially at night. Can be used alone for this purpose. Also used in adults for insomnia or restless sleep due to lack of communication between the Heart and the Kidneys (i.e., excessive Heart fire with Kidney yin deficiency).
+    - With Ziziphi spinosae Semen (suan zao ren), Poria (fu ling), and Cinnabaris (zhu sha) for irritability, insomnia, and dark, painful urination due to fire in the Heart channel.
 
 ## 🎯 Patterns & Symptoms
 
@@ -175,8 +175,7 @@ SORT Category, file.name
 **Toxicity:** `= this.herb_data.toxicity`
 
 **Contraindications:**
--
--
+"Its nature specifically unblocks and facilitates-it is not appropriate for extremely deficient people, and should not be consumed by those with cold in the middle or urinary incontinence." (*Harm and Benefit in the Materia Medica*)
 
 **Drug Interactions:**
 -
@@ -209,8 +208,7 @@ WHERE file.name = this.file.name
 ## 🌱 Quality Criteria & Authentication
 
 **Quality Indicators:**
--
--
+Good quality consists of long, white, and elastic pieces of uniform thickness.
 
 **Common Adulterants:**
 -
@@ -281,7 +279,7 @@ LIMIT 10
 - [[]]
 
 **Related Formulas:**
-- [[Formulas including Deng Xin Cao]]
+- [[Formulas including Ai Ye]]
 
 **Related Western Conditions:**
 - [[]]

@@ -20,35 +20,36 @@ tests: []
 # 🔹 Herb-Specific Data
 herb_data:
   hanzi: "桑寄生"
-  pinyin: "Sang Ji Sheng"
-  pharmaceutical: "Taxilli, Herba"
-  english: ""
+  pinyin: "Sāng Jì Shēng"
+  pharmaceutical: "Taxilli Herba"
+  english: "Taxillus, Mulberry Mistletoe Stems, Mistletoe"
   alternate_names: []
 
   # TCM Properties
-  taste: []
-  temperature: ""
-  channels: []
+  taste: [Bitter, Sweet, Neutral]
+  temperature: "Neutral"
+  channels: [Kidney, Liver]
 
   # Clinical Information
-  dosage: ""
-  toxicity: ""
-  functions: []
+  dosage: "9-15g"
+  toxicity: "No toxic effects should be expected within the normal dosage range. Allergic reactions have been reported, however, including papular rashes and pruritus."
+  functions: [Tonifies the Liver and Kidneys, Strengthens the sinews and bones, Expels wind-dampness, Nourishes the blood, Calms the Womb, Benefits the skin]
   dui_yao: []
 
   # Additional Information
-  constituents: []
-  quality: ""
-  text_first_appeared: ""
+  constituents: [Flavonoids: avicularin, quercetin, quercitrin, hyperin, Phenolic compounds: catechol]
+  quality: "Good quality consists of thin and young, reddish brown twigs with many leaves."
+  text_first_appeared: "Divine Husbandman's Classic of the Materia Medica"
 
   # Source References
-  bensky_page: ""
+  bensky_pdf: "627"
+  bensky_page: "None"
 
 created: 2025-10-01
 updated: 2025-10-01
 ---
 
-# 🌿 Sang Ji Sheng
+# 🌿 Ai Ye
 
 **Pharmaceutical Name:** `= this.herb_data.pharmaceutical`
 **English Name:** `= this.herb_data.english`
@@ -71,8 +72,14 @@ updated: 2025-10-01
 
 ## 📖 Overview
 
-Brief description of the herb, source, botanical information, and general identity.
+Sweet, bitter, and harmonious in that it is neither hot nor cold in nature, and rather moistening, tonifies the Liver and Kidney yin and blood, expels wind-dampness, unblocks the blood vessels, and quiets the fetus during pregnancy.
+Encountering the Sources of the Classic of Materia Medica notes that Taxilli Herba (sang ji sheng) "has a nature that specifically expels wind, drives out dampness, unblocks and adjusts the blood vessels."
+It is used particularly for chronic painful obstruction disorder, which over the long term has deprived the local joints, sinews, and bones of the nourishment from blood and essence, causing atrophy, weakness, and pain. This same ability to harmoniously nourish the essence and the blood of the Liver and Kidneys, along with the plant's quality of tenacity as a parasite, allows it to calm a disturbed fetus, manifesting as bleeding or pain in the lower back and abdomen.
+The Divine Husbandman's Classic of the Materia Medica also notes that it firms the teeth and prevents hair loss, while Miscellaneous Records of Famous Physicians says that it "governs wounds from metal, expels painful obstruction, [and treats] continuous bleeding in women, internal injury and insufficiency, illnesses following parturition, and promotes lactation."
+Seeking Accuracy in the Materia Medica explains that it specifically enters the Liver and Kidneys, and grows from the essential qi of the mulberry tree. Its flavor is bitter and sweet, with a neutral and harmonious nature that is neither hot nor cold. It is well known as an important medicinal for tonifying Kidneys and the blood. The reason is that the Kidneys govern the bones and hair, and govern the blood. Bitterness enters the Kidneys. When the Kidneys are tonified, the sinews and bones have strength and do not atrophy or ache. Sweetness tonifies the blood. When the blood is tonified, the hair receives its sustaining irrigation and does not become parched and fall out. Thus, whenever the lower back aches, the sinews and bones are disordered, or the fetus [threatens to] miscarry, or externally there are muscle and skin wounds from metal, or wind-dampness, in all such cases this is the main treatment.
+This passage goes on to repeat Li Shi-Zhen's warning, in the Grand Materia Medica, that only the parasite from the mulberry tree is the true herb, and that to be sure, one must collect it oneself, although "if it is still attached to mulberry leaves, it can be used."
 
+---
 ---
 
 ## 🔑 TCM Properties
@@ -85,21 +92,19 @@ Brief description of the herb, source, botanical information, and general identi
 
 ## ⚡ Functions & Actions
 
-```dataview
-LIST herb_data.functions
-WHERE file.name = this.file.name
-```
+*   **Tonifies the Liver and Kidneys, strengthens the sinews and bones, and expels wind-dampness:** for insufficiency of Liver and Kidney yin with soreness and pain in the lower back and legs, joint problems, numbness, and weakness and atrophy of the sinews and bones. Can be used for these problems whether or not wind-dampness is present.
 
-**Key Functions:**
--
--
--
+    *   With Angelicae Pubescentis Radix (du huo) and Achyranthis Bidentatae Radix (niu xi) for pain, stiffness, and soreness of the lower back and lower extremities due to wind dampness and Liver and Kidney deficiency, as in Pubescent Angelica and Taxillus Decoction (du huo ji sheng tang).
+    *   With Cervi Cornu Pantotrichum (lu rong) and Eucommiae Cortex (du zhong) for lower back and leg pain from Kidney qi deficiency.
+    *   With Rehmanniae Radix (sheng di huang), Paeoniae Radix Rubra (chi shao), and Spatholobi Caulis (ji xue teng) for headache, dizziness, tinnitus, and palpitations due to Liver and Kidney yin deficiency with ascendant yang.
+*   **Nourishes the blood and calms the Womb:** for restless fetus or uterine bleeding during pregnancy. Also promotes lactation.
 
-**Clinical Applications:**
--
--
+    *   With Dipsaci Radix (xu duan), Cuscutae Semen (tu si zi), and Asini Corii Colla (e jiao) for restless fetus and threatened miscarriage due to Liver and Kidney deficiency, as in Fetus Longevity Pill (shou tai wan).
+    *   With Asini Corii Colla (e jiao) and Artemisiae Argyi Folium (ai ye) for restless fetus accompanied by stabbing abdominal pain.
+    *   With Mori Cortex (sang bai pi), Perillae Caulis (zi su geng), and Arecae Pericarpium (da fu pi) for edema that develops during pregnancy.
+*   **Nourishes the blood and benefits the skin:** for dry, scaly skin due to blood deficiency.
 
----
+    *   With chicken eggs and brown sugar for dry and scaly skin due to blood deficiency.
 
 ## 🎯 Patterns & Symptoms
 
@@ -175,8 +180,7 @@ SORT Category, file.name
 **Toxicity:** `= this.herb_data.toxicity`
 
 **Contraindications:**
--
--
+None noted. See TOXICITY below.
 
 **Drug Interactions:**
 -
@@ -209,8 +213,7 @@ WHERE file.name = this.file.name
 ## 🌱 Quality Criteria & Authentication
 
 **Quality Indicators:**
--
--
+Good quality consists of thin and young, reddish brown twigs with many leaves.
 
 **Common Adulterants:**
 -
@@ -281,7 +284,7 @@ LIMIT 10
 - [[]]
 
 **Related Formulas:**
-- [[Formulas including Sang Ji Sheng]]
+- [[Formulas including Ai Ye]]
 
 **Related Western Conditions:**
 - [[]]

@@ -20,35 +20,36 @@ tests: []
 # 🔹 Herb-Specific Data
 herb_data:
   hanzi: "益母草"
-  pinyin: "Yi Mu Cao"
-  pharmaceutical: "Leonuri, Herba"
-  english: ""
+  pinyin: "yì mǔ cǎo"
+  pharmaceutical: "Leonuri Herba"
+  english: "Motherwort Herb"
   alternate_names: []
 
   # TCM Properties
-  taste: []
-  temperature: ""
-  channels: []
+  taste: [Acrid, bitter]
+  temperature: "Slightly cold"
+  channels: [Heart, Liver, Bladder]
 
   # Clinical Information
-  dosage: ""
-  toxicity: ""
-  functions: []
+  dosage: "9-15g (large doses up to 30g)"
+  toxicity: "Due to its alkaloid content, overdosage of this herb is slightly toxic, with side effects appearing 4-6 hours after ingestion. Symptoms include sudden general weakness, stiffness and paralysis, general body pains, an oppressive sensation in the chest, excessive sweating, low blood pressure, cold extremities, and, in severe cases, shock, cyanosis, and respiratory paralysis. Overdosage can also cause miscarriage. After ingestion of 20-30g, toxic reactions may appear in 4-10 hours. Symptoms include generalized weakness, paralysis of the lower limbs, numb, painful sensation of the whole body, an oppressive sensation in the chest, and sweating, along with normal consciousness and clear speech. For this reason, the maximum dose of 15g per day should not be exceeded."
+  functions: [Invigorates the blood and dispels stasis, Promotes urination and reduces swelling, Clears heat and resolves toxicity]
   dui_yao: []
 
   # Additional Information
-  constituents: []
-  quality: ""
-  text_first_appeared: ""
+  constituents: [Alkaloids: leonurine, stachydrine, leonuridine, leonurinine, Flavonoids: rutin, kaempferol, quercetin, apigenin, genkwanin, Diterpenes: prehispanolone, hispanolone, geleopsin, preleoheterin, leoheterin, Volatile oil: 1-octen-3-ol, 3-octanol, β-ocimene, linalool, nonanol, copaene, caryophyllene, caryophyllene oxide, humulene, γ-elemene, cadinene, hexahydrofarnesylacetone, methyl palmitate, dibutylphthalate, nonadecane, Organic acids: palmitic acid, fumaric acid, lauric acid, palmitic acid, oleic acid, linoleic acid, linolenic acid, arachidic acid, stearic acid, Other constituents: iridoids, phytol, leonuramide]
+  quality: "Good quality consists of tender plants with many greyish green leaves. Old plants that mostly consist of thick stems should not be used."
+  text_first_appeared: "Divine Husbandman's Classic of Materia Medica"
 
   # Source References
-  bensky_page: ""
+  bensky_pdf: "627"
+  bensky_page: "None"
 
 created: 2025-10-01
 updated: 2025-10-01
 ---
 
-# 🌿 Yi Mu Cao
+# 🌿 Ai Ye
 
 **Pharmaceutical Name:** `= this.herb_data.pharmaceutical`
 **English Name:** `= this.herb_data.english`
@@ -71,8 +72,9 @@ updated: 2025-10-01
 
 ## 📖 Overview
 
-Brief description of the herb, source, botanical information, and general identity.
+Acrid, such that it disperses blockage, Leonuri Herba (yi mu cao) enters the blood level of the Heart and Liver channels to invigorate the flow of blood, remove blood stasis, and regulate menstruation. It is thus appropriate for all disorders involving blood stasis, especially irregular menstruation, dysmenorrhea, postpartum abdominal pain, and heavy periods and continual menstrual bleeding when clotting is evident. It also facilitates urination and resolves toxicity, and is thus especially indicated when edema and blood stagnation co-exist, or blood stagnation is involved with toxic sores and swellings.
 
+---
 ---
 
 ## 🔑 TCM Properties
@@ -85,21 +87,15 @@ Brief description of the herb, source, botanical information, and general identi
 
 ## ⚡ Functions & Actions
 
-```dataview
-LIST herb_data.functions
-WHERE file.name = this.file.name
-```
-
-**Key Functions:**
--
--
--
-
-**Clinical Applications:**
--
--
-
----
+Invigorates the blood and dispels stasis: commonly used for gynecological disorders such as irregular menstruation, premenstrual abdominal pain, heavy menstruation with clots, fixed abdominal masses, infertility, and postpartum abdominal pain with retained lochia. Also used for traumatic pain.
+    -   With Angelicae sinensis Radix (dang gui) for irregular menstruation, scanty menstruation, lower abdominal distention and pain, and infertility due to blood stasis.
+    -   Add Chuanxiong Rhizoma (chuan xiong) and Cyperi Rhizoma (xiang fu) for dysmenorrhea or lower abdominal pain due to postpartum blood stasis.
+    -   With Typhae Pollen (pu huang) for retained lochia.
+-   Promotes urination and reduces swelling: for acute systemic edema. Especially useful when accompanied by blood in the urine.
+    -   With Imperatae Rhizoma (bai mao gen) for edema accompanied by blood stasis. Recently this combination has been used in treating edema associated with nephritis.
+    -   With Lycopi Herba (ze lan) for disorders involving both blood stasis and pathogenic fluids.
+    -   With Polygonati Rhizoma (huang jing), Pyrrosiae Folium (shi wei), and Malvae Fructus (dong kui guo) for kidney stones and bloody urine.
+-   Clears heat and resolves toxicity: for sores, abscesses, and toxic swellings. Also for itchy rashes from damp-heat collecting and steaming the muscles and subcutaneous tissues. Used either internally or topically.
 
 ## 🎯 Patterns & Symptoms
 
@@ -175,8 +171,7 @@ SORT Category, file.name
 **Toxicity:** `= this.herb_data.toxicity`
 
 **Contraindications:**
--
--
+Contraindicated in those with yin deficiency or insufficient blood, and during pregnancy. Leonuri Herba (yi mu cao) is appropriate for blood heat, blood stasis, and delayed or difficult labor. It is not appropriate for constitutional blood and qi deficiency associated with cold, or for any disorder involving unstable slipping downward.
 
 **Drug Interactions:**
 -
@@ -209,8 +204,7 @@ WHERE file.name = this.file.name
 ## 🌱 Quality Criteria & Authentication
 
 **Quality Indicators:**
--
--
+Good quality consists of tender plants with many greyish green leaves. Old plants that mostly consist of thick stems should not be used.
 
 **Common Adulterants:**
 -
@@ -281,7 +275,7 @@ LIMIT 10
 - [[]]
 
 **Related Formulas:**
-- [[Formulas including Yi Mu Cao]]
+- [[Formulas including Ai Ye]]
 
 **Related Western Conditions:**
 - [[]]

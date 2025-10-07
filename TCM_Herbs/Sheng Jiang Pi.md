@@ -19,36 +19,37 @@ tests: []
 
 # 🔹 Herb-Specific Data
 herb_data:
-  hanzi: "生薑皮"
-  pinyin: "Sheng Jiang Pi"
-  pharmaceutical: "Zingiberis Recens, Cortex"
-  english: ""
+  hanzi: "生姜皮"
+  pinyin: "Shēng Jiāng Pí"
+  pharmaceutical: "Zingiberis Rhizomatis Cortex"
+  english: "Ginger Peel"
   alternate_names: []
 
   # TCM Properties
-  taste: []
-  temperature: ""
-  channels: []
+  taste: [Acrid, Cooling]
+  temperature: "Cooling"
+  channels: [Lung, Spleen, Stomach]
 
   # Clinical Information
-  dosage: ""
-  toxicity: ""
-  functions: []
+  dosage: "N/A"
+  toxicity: "N/A"
+  functions: [Harmonizes the middle, Promotes urination, Reduces edema, Mobilizes the exterior]
   dui_yao: []
 
   # Additional Information
   constituents: []
-  quality: ""
-  text_first_appeared: ""
+  quality: "N/A"
+  text_first_appeared: "N/A"
 
   # Source References
-  bensky_page: ""
+  bensky_pdf: "627"
+  bensky_page: "None"
 
 created: 2025-10-01
 updated: 2025-10-01
 ---
 
-# 🌿 Sheng Jiang Pi
+# 🌿 Ai Ye
 
 **Pharmaceutical Name:** `= this.herb_data.pharmaceutical`
 **English Name:** `= this.herb_data.english`
@@ -71,8 +72,9 @@ updated: 2025-10-01
 
 ## 📖 Overview
 
-Brief description of the herb, source, botanical information, and general identity.
+N/A
 
+---
 ---
 
 ## 🔑 TCM Properties
@@ -85,21 +87,18 @@ Brief description of the herb, source, botanical information, and general identi
 
 ## ⚡ Functions & Actions
 
-```dataview
-LIST herb_data.functions
-WHERE file.name = this.file.name
-```
-
-**Key Functions:**
--
--
--
-
-**Clinical Applications:**
--
--
-
----
+- Releases the exterior and disperses cold: for exterior cold patterns.
+    - With Jujubae Fructus (da zao) for externally-contracted wind-cold.
+    - Also for alleviating epigastric pain, nausea, and vomiting by strengthening the Spleen qi. This combination protects the Stomach qi and reduces the irritation of the gastrointestinal tract caused by other herbs.
+    - Also adjusts the nutritive and protective qi for patients suffering from exterior deficiency who sweat without an improvement in their condition, as in Cinnamon Twig Decoction (gui zhi tang).
+- Warms the middle burner and alleviates vomiting: for cold in the Stomach, especially when there is vomiting.
+    - With Pinelliae Rhizoma preparatum (zhi ban xia) for vomiting due to many causes, and for productive cough due to phlegm-dampness.
+    - With Bambusae Caulis in taeniam (zhu ru) for vomiting due to heat in patients with Stomach qi deficiency.
+- Warms the Lungs and stops cough: for cough due to both acute wind-cold cough patterns and chronic Lung disorders with phlegm.
+    - With Perillae Folium (zi su ye), Armeniacae Semen (xing ren), and Asteris Radix (zi wan) for cough due to wind-cold affecting the Lung with profuse sputum.
+    - With Bambusae Succus (zhu li) for cough and headache due to heat-induced phlegm, or aphasia and numbness from wind-stroke due to phlegm obstruction.
+- Resolves toxicity: for resolving toxicity or treating the effects of overdose of other herbs, such as Aconiti Radix lateralis (fu zi) or Pinelliae Rhizoma (ban xia), or for seafood poisoning.
+    - With Perillae Folium (zi su ye) for vomiting and diarrhea from seafood poisoning.
 
 ## 🎯 Patterns & Symptoms
 
@@ -175,8 +174,7 @@ SORT Category, file.name
 **Toxicity:** `= this.herb_data.toxicity`
 
 **Contraindications:**
--
--
+N/A
 
 **Drug Interactions:**
 -
@@ -209,8 +207,7 @@ WHERE file.name = this.file.name
 ## 🌱 Quality Criteria & Authentication
 
 **Quality Indicators:**
--
--
+N/A
 
 **Common Adulterants:**
 -
@@ -281,7 +278,7 @@ LIMIT 10
 - [[]]
 
 **Related Formulas:**
-- [[Formulas including Sheng Jiang Pi]]
+- [[Formulas including Ai Ye]]
 
 **Related Western Conditions:**
 - [[]]

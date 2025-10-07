@@ -1,7 +1,7 @@
 ---
 # 🔹 Core Metadata (Universal Fields)
 id: "herb-20251001123706"
-name: "Qiang Huo"
+name: "Notopterygium Root / Qiang Huo"
 type: "herb"
 aliases: []
 tags: [TCM, Herb]
@@ -21,34 +21,42 @@ tests: []
 herb_data:
   hanzi: "羌活"
   pinyin: "Qiang Huo"
-  pharmaceutical: "Notopterygii, Rhizoma et Radix"
-  english: ""
+  pharmaceutical: "Notopterygii Rhizoma seu Radix"
+  english: "Notopterygium Root"
   alternate_names: []
 
   # TCM Properties
-  taste: []
-  temperature: ""
-  channels: []
+  taste: [Acrid, Bitter, Aromatic]
+  temperature: "Warm"
+  channels: [Bladder, Kidney]
 
   # Clinical Information
-  dosage: ""
-  toxicity: ""
-  functions: []
+  dosage: "3-9g"
+  toxicity: "Allergic reactions have been reported affecting the skin and digestive system."
+  functions: [Releases the exterior and disperses cold, Unblocks painful obstruction and alleviates pain, Guides qi to the greater yang channel and Governing vessel]
   dui_yao: []
 
   # Additional Information
-  constituents: []
-  quality: ""
-  text_first_appeared: ""
+  constituents: [*Notopterygium incisum*:
+    - Volatile oil: α-thujene, α-pinene, δ-ocimene, γ-terpinene, limonene, α-terpinolene, terpinen-4-ol, bornyl acetate, α-copaene, trans-β-farnesene, apiol, guaiol, benzylbenzoate, methyltetradecanoate, 12-methyltetradecanoic acid methylester, methyloctadecanoate, methyl-9-octadecenoate
+    - Furanocoumarines: isoimperatorin, cnidilin, notopterol, bergaptene, demethylfuropinnarin, phellopterin, bergaptoi-O-β-D-glucopyranoside, osthenol, nodakenetin, notoptol, anhydronotoptol, marmesin, columbiananin, columbianetin, 5-hydroxy-8-(1',1'-dimethylallyl)psoralen
+    - Phenolic compounds: p-hydroxyphenethyl anisate, ferulic acid
+    - Other constituents: 19 amino acids, phenethylferulate, rhamnose, glucose, fructose, sucrose, *Notopterygium forbesii*:
+    - Volatile oil: hexanal, heptanal, sabinene, α-pinene, γ-pinene, camphene, β-pinene, myrcene, α-phellandrene, octanal, 2-carene, 3-carene, p-cymene, limonene, γ-terpinene, 4-terpinenol, terpinolene, carvol, α-terpineol, bornyl acetate, δ-selinene
+    - Furanocoumarines: isoimperatorin, notopterol, cnidilin, nodakenin, nodakenetin, 6-O-(trans-feruloyl) nodakenin, bergaptoi-O-β-D-glucopyranoside
+    - Phenolic compounds: p-hydroxyphenethyl anisate, ferulic acid]
+  quality: "The best quality is Sichuan notopterygium (chuan qiang huo) with short internodes, forming dense annulations like a silkworm. It is also called silkworm notopterygium (can qiang). The surface should be coarse and dark brown, the roots aromatic, and a cross section will show many oily brown dots."
+  text_first_appeared: "Divine Husbandman's Classic of the Materia Medica"
 
   # Source References
-  bensky_page: ""
+  bensky_pdf: "627"
+  bensky_page: "None"
 
 created: 2025-10-01
 updated: 2025-10-01
 ---
 
-# 🌿 Qiang Huo
+# 🌿 Ai Ye
 
 **Pharmaceutical Name:** `= this.herb_data.pharmaceutical`
 **English Name:** `= this.herb_data.english`
@@ -71,8 +79,15 @@ updated: 2025-10-01
 
 ## 📖 Overview
 
-Brief description of the herb, source, botanical information, and general identity.
+Acrid, bitter, and warm, the clear, strong aroma of Notopterygii Rhizoma seu Radix (qiang huo) has a powerful dispersing quality that can strongly raise and discharge wind, cold, or damp pathogens in the exterior.
 
+Entering the qi level of the greater yang Bladder channel, it releases the superficial muscle layer from exterior wind-cold and cold-dampness with such symptoms as headache, stiff neck, and sore shoulders. As it enters the qi level of the Liver and Kidney channels, it vents and eases the joints and is excellent for alleviating deep pain by removing wind-dampness and wind-cold-dampness from between the sinews and bones. For these reasons it is a commonly used herb for painful obstruction, especially in the upper body.
+
+Essentials of the Materia Medica observes that Notopterygii Rhizoma seu Radix (qiang huo) is most appropriate for Governing vessel disorders involving muscular tetany (jing). When there is damage from wind without sweating, it is called hard muscular tetany; with sweating it is called soft tetany. There is also blood deficiency tetany. In general, both Notopterygii Rhizoma seu Radix (qiang huo) and Angelicae pubescentis Radix (du huo) are appropriate for wind disorders, but are forbidden for blood deficiency tetany.
+
+Treasury of Words on the Materia Medica explains the use of the acrid, dispersing property of Notopterygii Rhizoma seu Radix (qiang huo) for sores and boils as "using its ability to expel pus and draw out toxins, bring lesions to a head, and regenerate tissues."
+
+---
 ---
 
 ## 🔑 TCM Properties
@@ -85,21 +100,12 @@ Brief description of the herb, source, botanical information, and general identi
 
 ## ⚡ Functions & Actions
 
-```dataview
-LIST herb_data.functions
-WHERE file.name = this.file.name
-```
-
-**Key Functions:**
--
--
--
-
-**Clinical Applications:**
--
--
-
----
+- Releases the exterior and disperses cold: for exterior cold patterns with such symptoms as chills, fever, headache, body aches and pains. Most commonly used when accompanied by dampness with joint pain, a general feeling of heaviness, sleepiness, or when there is pain in the occipital region, as in Nine-Herb Decoction with Notopterygium (jiu wei qiang huo tang).
+    - With Chuanxiong Rhizoma (chuan xiong) for headache and generalized body aches associated with the common cold or painful obstruction.
+    - With Saposhnikoviae Radix (fang feng) for pain due to externally-contracted wind-dampness.
+- Unblocks painful obstruction and alleviates pain: for wind-cold-damp painful obstruction, especially in the upper limbs and back, as in Remove Painful Obstruction Decoction (juan bi tang).
+    - With Angelicae pubescentis Radix (du huo) for wind-dampness at any level.
+- Guides qi to the greater yang channel and Governing vessel: to direct other herbs in a prescription to the areas served by these two channels.
 
 ## 🎯 Patterns & Symptoms
 
@@ -175,8 +181,9 @@ SORT Category, file.name
 **Toxicity:** `= this.herb_data.toxicity`
 
 **Contraindications:**
--
--
+Contraindicated for blood-deficient painful obstruction.
+
+Both Notopterygii Rhizoma seu Radix (qiang huo) and Angelicae pubescentis Radix (du huo) are wind herbs, important for expelling wind, dispersing cold, and eliminating dampness. Both, however, are forbidden for internal injury causing blood-deficient headache and generalized pain, resulting in chills and hot flushes, because these wind herbs can dry the blood. (Harm and Benefit in the Materia Medica)
 
 **Drug Interactions:**
 -
@@ -209,8 +216,7 @@ WHERE file.name = this.file.name
 ## 🌱 Quality Criteria & Authentication
 
 **Quality Indicators:**
--
--
+The best quality is Sichuan notopterygium (chuan qiang huo) with short internodes, forming dense annulations like a silkworm. It is also called silkworm notopterygium (can qiang). The surface should be coarse and dark brown, the roots aromatic, and a cross section will show many oily brown dots.
 
 **Common Adulterants:**
 -
@@ -281,7 +287,7 @@ LIMIT 10
 - [[]]
 
 **Related Formulas:**
-- [[Formulas including Qiang Huo]]
+- [[Formulas including Ai Ye]]
 
 **Related Western Conditions:**
 - [[]]

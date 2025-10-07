@@ -20,35 +20,36 @@ tests: []
 # 🔹 Herb-Specific Data
 herb_data:
   hanzi: "鹿茸"
-  pinyin: "Lu Rong"
-  pharmaceutical: "Cervi Pantotrichum, Cornu"
-  english: ""
+  pinyin: "Lù Róng"
+  pharmaceutical: "Cervi Cornu pantotrichum"
+  english: "Deer Velvet"
   alternate_names: []
 
   # TCM Properties
-  taste: []
-  temperature: ""
-  channels: []
+  taste: [Sweet, Salty]
+  temperature: "Warm"
+  channels: [Kidney, Liver]
 
   # Clinical Information
-  dosage: ""
-  toxicity: ""
-  functions: []
+  dosage: "1-2g taken in pill or powder form, or chased with a strained decoction."
+  toxicity: "The following adverse effects have been reported: digestive tract bleeding with melena, vertigo, facial pallor, sweating, epigastric discomfort, nausea, tachycardia, and renal problems. Allergic reactions have also been reported, with pruritus, generalized maculopapular rashes, facial edema, and even anaphylactic shock, coma, and death. Allergic reactions have been also reported following injection of this substance. Because it induces glycogenesis, it reduces or even antagonizes the effects of antidiabetics such as insulin and glibenclamide. Combination with acetylsalicylic acid can induce or aggravate digestive ulcers."
+  functions: [Fortifies the primal yang, Generates essence, Augments the marrow]
   dui_yao: []
 
   # Additional Information
-  constituents: []
-  quality: ""
-  text_first_appeared: ""
+  constituents: [Amino acids: glycine, lysine, arginine, aspartic acid, glutamic acid, proline, alanine, leucine, Steroid compounds: cholesteryl myristate, cholesteryl oleate, cholesteryl palmitate, cholesteryl stearate, cholesterol, cholest-5-en-3β-ol-7-one, cholest-5-en-3β,7α-diol, cholest-5-en-3β,7β-diol, Other constituents: p-hydroxybenzaldehyde, uracil, hypoxanthine, urea, uridine, nicotinic acid, creatinine, fatty acids, triglycerides, polyamides (spermine, spermidine, putrescine), estrone, estradiol, sphingomyelin, neuromyelin, ceramide, PGE1, PGE2, PGF1α, PGF1β, vitamine A, glucosamine, galactosamine, chondroitin sulfuric acid]
+  quality: "Deer velvet derived from Sika deer is thick, round with full end part, and has a reddish brown surface with soft yellowish red hairs. Good quality from red deer is full and lightweight, with greyish black or greyish yellow hairs."
+  text_first_appeared: "Divine Husbandman's Classic of the Materia Medica"
 
   # Source References
-  bensky_page: ""
+  bensky_pdf: "627"
+  bensky_page: "None"
 
 created: 2025-10-01
 updated: 2025-10-01
 ---
 
-# 🌿 Lu Rong
+# 🌿 Ai Ye
 
 **Pharmaceutical Name:** `= this.herb_data.pharmaceutical`
 **English Name:** `= this.herb_data.english`
@@ -71,8 +72,13 @@ updated: 2025-10-01
 
 ## 📖 Overview
 
-Brief description of the herb, source, botanical information, and general identity.
+Cervi Cornu pantotrichum (*lu rong*), or deer antler velvet, and its by-products are considered to be "substances of sympathy between the blood and flesh" (血肉有情之品 *xue rou you qing zhi pin*). All of these substances tonify the Kidneys, fortify the yang, and strengthen the lower back and knees, but deer antler velvet is the strongest of the four that are commonly used: Cervi Cornu pantotrichum (*lu rong*), Cervi Cornu (*lu jiao*), Cervi Cornus Colla (*lu jiao jiao*), and Cervi Cornu degelatinatum (*lu jiao shuang*).
 
+Sweet, salty, and warm, deer antler velvet is regarded as an intense tonic for the Liver and Kidneys that embodies the youthful male growth of the stag. This growth retains much of its potential in the antler velvet, as it has not yet fully expressed itself, and is well-supplied with blood to support its rapid, outward expression. Thus, within its ability to tonify the yang, the yin is also benefitted. In other words, it fortifies the primal yang, but also generates essence and augments the marrow. It warms and tonifies the Governing vessel, and stabilizes the Penetrating and Conception vessels when they are deficient. In the words of the Grand Materia Medica, it "generates essence, tonifies the marrow, nourishes the blood, augments the yang, strengthens the sinews and bones. Treats all deficiency damage." In Case Records as a Guide to Clinical Practice, Ye Tian-Shi observes: "Deer [antler velvet] is yang and enters the Governing vessel."
+
+Deer antler velvet is often used in the treatment of Kidney yang deficiency with depletion of essence and marrow, leading to such symptoms as weakness of the lower back and knees, impotence, spermatorrhea in men, uterine bleeding and vaginal discharge due to deficiency of the Penetrating and Conception vessels in women, and poor growth or development in children.
+
+---
 ---
 
 ## 🔑 TCM Properties
@@ -85,21 +91,19 @@ Brief description of the herb, source, botanical information, and general identi
 
 ## ⚡ Functions & Actions
 
-```dataview
-LIST herb_data.functions
-WHERE file.name = this.file.name
-```
-
-**Key Functions:**
--
--
--
-
-**Clinical Applications:**
--
--
-
----
+- **Tonifies the Kidneys and fortifies the yang:** for patterns of Kidney yang deficiency with such symptoms as fatigue, impotence, cold extremities, lightheadedness, tinnitus, soreness and lack of strength in the lower back and knees, and frequent, copious, clear urination.
+    - With Dioscoreae Rhizoma (*shan yao*), in a tincture, for impotence due to Kidney yang deficiency.
+    - With Ginseng Radix (*ren shen*), Lycii Fructus (*gou qi zi*) and Aconiti Radix lateralis preparata (*zhi fu zi*) for more severe problems with exhaustion and impotence.
+    - With Ginseng Radix (*ren shen*) for such symptoms as palpitations, lower back pain, and reduced and difficult urination associated with severely deficient Heart and Kidneys.
+    - With Cuscutae Semen (*tu si zi*) and Cistanches Herba (*rou cong rong*) for exhaustion, aversion to cold, lower back pain, weakness of the lower extremities, and frequent, scanty urination with continuous dripping, as in Cuscuta Seed Pill (*tu si zi wan*).
+- **Warms the yang, regulates the Penetrating and Conception vessels, and stabilizes the Girdle vessel:** for vaginal discharge or uterine bleeding due to cold from deficiency. Also for infertility with a cold Womb. Can be used as a stand-alone herb for this purpose.
+    - With Rehmanniae Radix preparata (*shu di huang*) for impotence and spermatorrhea (in men) and infertility and thin vaginal discharge (in women) due to cold from deficiency of the Kidneys. This combination is also used for retarded physical development in children.
+    - With Asini Corii Colla (*e jiao*), Angelicae sinensis Radix (*dang gui*), and Sepiae Endoconcha (*hai piao xiao*) for deficient Kidney-induced excessive uterine bleeding.
+    - With Cibotii Rhizoma (*gou ji*) for copious vaginal discharge.
+- **Tonifies the Governing vessel, augments the essence and blood, and strengthens the sinews and bones:** used especially in cases of deficient essence and blood in children with such physical and/or mental developmental disorders as failure to thrive, mental retardation, learning disabilities, insufficient growth, or skeletal deformities (including rickets). Also used for nonhealing fractures with Kidney deficiency and exhaustion of the essence. This use has been expanded to include the treatment of nonhealing ulcers. Can be used as a stand-alone herb for these purposes.
+    - With Eleutherococci gracilistyli Cortex (*wu jia pi*), Drynariae Rhizoma (*gu sui bu*), and Epimedii Herba (*yin yang huo*) to speed the healing of fractures and other traumatic injuries.
+- **Tonifies and nourishes the qi and blood:** used especially for chronic ulcerations or yin-type boils (those that are concave, ooze a clear fluid, and do not heal). This use is related to the close relationship between the blood and the essence.
+    - With Angelicae sinensis Radix (*dang gui*) and Astragali Radix (*huang qi*) for such problems as aplastic anemia associated with severely deficient blood and essence.
 
 ## 🎯 Patterns & Symptoms
 
@@ -175,8 +179,9 @@ SORT Category, file.name
 **Toxicity:** `= this.herb_data.toxicity`
 
 **Contraindications:**
--
--
+Contraindicated in those with heat from yin deficiency, heat in the blood level, phlegm-heat in the Lungs, blazing Stomach fire, or a warm-heat pathogen disease.
+
+**NOTE:** When taking deer velvet it is important to start with a low dose and slowly increase it. If too much is taken at the beginning, the yang can rise and cause movement of inner wind with dizziness and red eyes; or it can injure the yin, leading to fire from deficiency and even hemorrhage. See TOXICITY below.
 
 **Drug Interactions:**
 -
@@ -209,8 +214,7 @@ WHERE file.name = this.file.name
 ## 🌱 Quality Criteria & Authentication
 
 **Quality Indicators:**
--
--
+Deer velvet derived from Sika deer is thick, round with full end part, and has a reddish brown surface with soft yellowish red hairs. Good quality from red deer is full and lightweight, with greyish black or greyish yellow hairs.
 
 **Common Adulterants:**
 -
@@ -281,7 +285,7 @@ LIMIT 10
 - [[]]
 
 **Related Formulas:**
-- [[Formulas including Lu Rong]]
+- [[Formulas including Ai Ye]]
 
 **Related Western Conditions:**
 - [[]]

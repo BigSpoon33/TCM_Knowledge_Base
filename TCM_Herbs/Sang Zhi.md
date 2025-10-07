@@ -20,35 +20,36 @@ tests: []
 # 🔹 Herb-Specific Data
 herb_data:
   hanzi: "桑枝"
-  pinyin: "Sang Zhi"
-  pharmaceutical: "Mori, Ramulus"
-  english: ""
+  pinyin: "Sāng zhī"
+  pharmaceutical: "Mori Ramulus"
+  english: "Mulberry Twig"
   alternate_names: []
 
   # TCM Properties
-  taste: []
-  temperature: ""
-  channels: []
+  taste: [Bitter]
+  temperature: "Neutral"
+  channels: [Liver]
 
   # Clinical Information
-  dosage: ""
-  toxicity: ""
-  functions: []
+  dosage: "9-15g (up to 30g in high doses)"
+  toxicity: "None noted"
+  functions: [Dispels wind, Unblocks the channels and collaterals, Benefits the joints]
   dui_yao: []
 
   # Additional Information
-  constituents: []
-  quality: ""
-  text_first_appeared: ""
+  constituents: [Flavonoids: mulberrin, mulberrochromene, cyclomulberrin, cyclomulberrochromene, dihydrokaempferol, Other constituents: morin, dihydromorin, cudranin, 2,4,4',6-tetrahydroxybenzophenone, 2,3',4,4',6-pentahydroxybenzophenone, 2',4,3',5'-tetrahydroxystilbene, alboctalol]
+  quality: "Good quality consists of thin, tender twigs without leaves."
+  text_first_appeared: "None"
 
   # Source References
-  bensky_page: ""
+  bensky_pdf: "627"
+  bensky_page: "None"
 
 created: 2025-10-01
 updated: 2025-10-01
 ---
 
-# 🌿 Sang Zhi
+# 🌿 Ai Ye
 
 **Pharmaceutical Name:** `= this.herb_data.pharmaceutical`
 **English Name:** `= this.herb_data.english`
@@ -71,8 +72,13 @@ updated: 2025-10-01
 
 ## 📖 Overview
 
-Brief description of the herb, source, botanical information, and general identity.
+Bitter, neutral, yet slightly cooling, Mori Ramulus (sang zhi) enters the Liver channel. It expels wind-dampness, unblocks the channels and collaterals, and frees the movement of the joints. Mori Ramulus (sang zhi) is therefore used in the treatment of wind-damp painful obstruction disorder with numbness and spasms, as well as pain and itching in the limbs due to externally-contracted pathogenic wind.
 
+Treasury of Words on the Materia Medica notes that "[Mori Ramulus (sang zhi)] dispels painful contraction [due to] wind qi." Essentials of the Materia Medica says that it "facilitates [movement of the] joints, nourishes the yin fluids and yang fluids, mobilizes water, and dispels wind." The Illustrated Classic of the Materia Medica has the most complete description of this medicinal's wide range of action:
+
+[It] treats localized itching and dryness due to wind, leg qi, wind qi, contractions of the four limbs, rebellious qi, vertigo, and Lung qi cough; reduces food [stagnation], facilitates urination, and also treats dryness of the mouth.
+
+---
 ---
 
 ## 🔑 TCM Properties
@@ -85,21 +91,11 @@ Brief description of the herb, source, botanical information, and general identi
 
 ## ⚡ Functions & Actions
 
-```dataview
-LIST herb_data.functions
-WHERE file.name = this.file.name
-```
-
-**Key Functions:**
--
--
--
-
-**Clinical Applications:**
--
--
-
----
+- Dispels wind, unblocks the channels and collaterals, and benefits the joints: for wind-damp painful obstruction with spasms. Most appropriate for the warm type that affects the upper extremities. Also used in formulas for numbness in the extremities or hemiplegia as sequelae to wind-stroke.
+  - With Mori Folium (sang ye) to disperse externally-contracted wind-heat in the head, face, muscle layer, channels collaterals, and joints.
+  - With Cinnamomi Ramulus (gui zhi) for pain in the upper extremities.
+  - With Notopterygii Rhizoma seu Radix (qiang huo), Angelicae Pubescentis Radix (du huo), and Piperis Kadsurae Caulis (hai feng teng) for wind-damp painful obstruction, as in Remove Painful Obstruction Decoction from Medical Revelations (juan bi tang).
+- Also used for edema, especially when accompanied by joint pain.
 
 ## 🎯 Patterns & Symptoms
 
@@ -175,8 +171,7 @@ SORT Category, file.name
 **Toxicity:** `= this.herb_data.toxicity`
 
 **Contraindications:**
--
--
+None noted
 
 **Drug Interactions:**
 -
@@ -209,8 +204,7 @@ WHERE file.name = this.file.name
 ## 🌱 Quality Criteria & Authentication
 
 **Quality Indicators:**
--
--
+Good quality consists of thin, tender twigs without leaves.
 
 **Common Adulterants:**
 -
@@ -281,7 +275,7 @@ LIMIT 10
 - [[]]
 
 **Related Formulas:**
-- [[Formulas including Sang Zhi]]
+- [[Formulas including Ai Ye]]
 
 **Related Western Conditions:**
 - [[]]

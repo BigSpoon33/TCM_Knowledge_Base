@@ -19,36 +19,37 @@ tests: []
 
 # 🔹 Herb-Specific Data
 herb_data:
-  hanzi: "瞿麥"
+  hanzi: "瞿麦"
   pinyin: "Qu Mai"
-  pharmaceutical: "Dianthi, Herba"
-  english: ""
+  pharmaceutical: "Dianthi Herba"
+  english: "dianthus, fringed pink (D. superbus), Chinese pink (D. chinensis)"
   alternate_names: []
 
   # TCM Properties
-  taste: []
-  temperature: ""
-  channels: []
+  taste: [Bitter, cold]
+  temperature: "cold"
+  channels: [Bladder, Heart, Small Intestine]
 
   # Clinical Information
-  dosage: ""
-  toxicity: ""
-  functions: []
+  dosage: "9-15g"
+  toxicity: "None noted"
+  functions: [Clears damp-heat, Promotes urination, Unblocks painful urinary dribbling, Breaks up blood stasis]
   dui_yao: []
 
   # Additional Information
-  constituents: []
-  quality: ""
-  text_first_appeared: ""
+  constituents: [Triterpene saponins: dianoside A, B, C, D, E, F, G, H, azukisaponin IV, dianic acid, Flavonoids, anthocyanins: homoorientin, orientin, anthocyanin, Other constituents: pinitol, 2-methyl-3,4-dihydroxydihydropyran, 2-methyl-3,4-dihydroxydihydropyran-3-O-β-D-glucoside, proteins, vitamin A, alkaloids, Triterpene saponins: dianchinenoside A, B, dianthoside, Volatile oil: eugenol, phenylethyl alcohol, benzyl benzoate, methyl salicylate, benzyl salicylate, Other constituents: flavonoids, anthocyanins, pinitol]
+  quality: "Good quality consists of tender, yellowish green twigs and leaves, without rootlets or foreign matter. The flower buds should still be closed. There is no difference in quality between the two species."
+  text_first_appeared: "Divine Husbandman's Classic of the Materia Medica"
 
   # Source References
-  bensky_page: ""
+  bensky_pdf: "627"
+  bensky_page: "290"
 
 created: 2025-10-01
 updated: 2025-10-01
 ---
 
-# 🌿 Qu Mai
+# 🌿 Ai Ye
 
 **Pharmaceutical Name:** `= this.herb_data.pharmaceutical`
 **English Name:** `= this.herb_data.english`
@@ -71,8 +72,12 @@ updated: 2025-10-01
 
 ## 📖 Overview
 
-Brief description of the herb, source, botanical information, and general identity.
+Bitter, cold, and downward-directing, Dianthi Herba (qu mai) is slippery by nature. It enters the blood level of the Heart channel to break up stasis and disperse clumps, and also enters the Small Intestine to guide heat downward and out through the urine. This dual action gives Dianthi Herba (qu mai) a special significance in the treatment of painful urinary dribbling; and because of its blood-invigorating quality, it can be used for other disorders due to blood stasis, such as amenorrhea. Because it leads heat in the lower burner downward and out of the body, it can also be used for gynecological toxic swellings and sores.
 
+In Rectification of the Meaning of Materia Medica, Zhang Jie-Bin notes that this herb
+is slippery and facilitating by nature, and can unblock urination, direct yin fire downward, eradicate the five types of painful urinary dribbling, and facilitate movement in the blood vessels. Together with cooling herbs, it can reduce swelling and pain in the eyes; together with blood [invigorating] herbs, it can promote menstruation, break up blood stasis, and abort a fetus. It can be used for all disorders involving lower burner damp-heat with aching pain.
+
+---
 ---
 
 ## 🔑 TCM Properties
@@ -85,21 +90,13 @@ Brief description of the herb, source, botanical information, and general identi
 
 ## ⚡ Functions & Actions
 
-```dataview
-LIST herb_data.functions
-WHERE file.name = this.file.name
-```
-
-**Key Functions:**
--
--
--
-
-**Clinical Applications:**
--
--
-
----
+- **Clears damp-heat, promotes urination, and unblocks painful urinary dribbling:** for any type of painful urinary dribbling, especially painful bloody urinary dribbling.
+    - With Polygoni avicularis Herba (bian xu) for damp-heat painful urinary dribbling. This is a common combination and is the foundation of such formulas as Eight-Herb Powder for Rectification (ba zheng san).
+    - With Lygodii Spora (hai jin sha) for stones in the urinary tract.
+    - With Gardeniae Fructus (zhi zi) for incomplete, dribbling, burning, and painful urination due to damp-heat in the lower burner.
+    - Add Imperatae Rhizoma (bai mao gen) and Cirsii Herba (xiao ji) for heat-induced blood in the urine.
+- **Breaks up blood stasis:** used as an auxiliary herb for amenorrhea due to blood stasis.
+    - With Salviae miltiorrhizae Radix (dan shen), Paeoniae Radix rubra (chi shao), and Leonuri Herba (yi mu cao) for amenorrhea due to blood stasis.
 
 ## 🎯 Patterns & Symptoms
 
@@ -175,8 +172,9 @@ SORT Category, file.name
 **Toxicity:** `= this.herb_data.toxicity`
 
 **Contraindications:**
--
--
+Contraindicated during pregnancy.
+
+Zhang Lu says that it is 'forbidden for use in urinary difficulty during pregnancy or after parturition, and also for edema due to Spleen deficiency,' but this also applies to older patients and deficient patients whose qi transformation is not smooth, leading to such symptoms as urinary blockage, when this is not from accumulation of clumped damp-heat. Their treatment should be to disseminate and transform the qi level. (Rectification of the Meaning of Materia Medica)
 
 **Drug Interactions:**
 -
@@ -209,8 +207,7 @@ WHERE file.name = this.file.name
 ## 🌱 Quality Criteria & Authentication
 
 **Quality Indicators:**
--
--
+Good quality consists of tender, yellowish green twigs and leaves, without rootlets or foreign matter. The flower buds should still be closed. There is no difference in quality between the two species.
 
 **Common Adulterants:**
 -
@@ -281,7 +278,7 @@ LIMIT 10
 - [[]]
 
 **Related Formulas:**
-- [[Formulas including Qu Mai]]
+- [[Formulas including Ai Ye]]
 
 **Related Western Conditions:**
 - [[]]

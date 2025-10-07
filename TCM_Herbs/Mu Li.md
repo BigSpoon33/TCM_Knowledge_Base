@@ -19,36 +19,37 @@ tests: []
 
 # 🔹 Herb-Specific Data
 herb_data:
-  hanzi: "牡蠣"
-  pinyin: "Mu Li"
-  pharmaceutical: "Ostreae, Concha"
-  english: ""
+  hanzi: "牡蛎"
+  pinyin: "mǔ lì"
+  pharmaceutical: "Ostreae Concha"
+  english: "Oyster Shell"
   alternate_names: []
 
   # TCM Properties
-  taste: []
-  temperature: ""
-  channels: []
+  taste: [Salty, astringent]
+  temperature: "Cool"
+  channels: [Liver, Kidney]
 
   # Clinical Information
-  dosage: ""
-  toxicity: ""
-  functions: []
+  dosage: "9-30g; should be cooked first when used in decoctions."
+  toxicity: "Frequent use of this medicinal may cause lethargy, abdominal distention, and constipation. Pre-existing anemia can be aggravated. One case of allergic reaction (abdominal pain and diarrhea) has been reported following the ingestion of a decoction containing Ostreae Concha (mǔ lì). After removing it from the prescription, no side effects were observed. The same symptoms appeared in the same patient three years later after using a decoction containing Arcae Concha (wǎ léng zi)."
+  functions: [Heavily settles and calms the spirit, Benefits the yin and anchors the floating yang, Prevents leakage of fluids, Softens hardness and dissipates nodules, Absorbs acidity and alleviates pain]
   dui_yao: []
 
   # Additional Information
-  constituents: []
-  quality: ""
-  text_first_appeared: ""
+  constituents: [Inorganic constituents: carbonates (80-95%), phosphates and sulfates of Ca (>90%), Na, Ba, Mg, Al, Mn, Zn, Sr, Cu, Ni, Organic constituents (1.7%): proteins (composed of ±16 amino acids), pigments]
+  quality: "Good quality is hard and solid, white, with a smooth and clean white inner surface."
+  text_first_appeared: "Divine Husbandman's Classic of the Materia Medica"
 
   # Source References
-  bensky_page: ""
+  bensky_pdf: "627"
+  bensky_page: "None"
 
 created: 2025-10-01
 updated: 2025-10-01
 ---
 
-# 🌿 Mu Li
+# 🌿 Ai Ye
 
 **Pharmaceutical Name:** `= this.herb_data.pharmaceutical`
 **English Name:** `= this.herb_data.english`
@@ -71,8 +72,17 @@ updated: 2025-10-01
 
 ## 📖 Overview
 
-Brief description of the herb, source, botanical information, and general identity.
+Cold and heavy, Ostreae Concha (mǔ lì) enters the Liver and Kidney channels to cool heat, augment the yin, subdue the yang, and suppress fright.
 
+*Encountering the Sources of the Classic of Materia Medica* states that "Ostreae Concha (mǔ lì) enters the leg lesser yin and softens areas of hardness ... a medicinal of the Kidney channel blood level."
+
+Ostreae Concha (mǔ lì) is salty and astringent in flavor, which enables it to soften areas of hardness and disperse clumping, while also restraining and stabilizing. Hence it treats steaming bones and flushing heat with excessive sweating, yin deficiency unable to control the yang, leading to headaches and dizziness, fright mania and restlessness, palpitations and insomnia, as well as spermatorrhea, vaginal discharge, continuous uterine bleeding, scrofula, phlegm nodules, and enlargement of the spleen or liver.
+
+*Essentials of the Materia Medica* explains that Ostreae Concha (mǔ lì) is salty, [enabling it] to soften areas of hardness and transform phlegm, reduce scrofula, clumping, nodes, old blood, bulging qi, and mobile abdominal masses. It is astringent, [enabling it] to restrain abandonment, treating spermatorrhea, continuous uterine bleeding, and vaginal discharge, stopping coughs, inhibiting sweating, stabilizing the Large and Small Intestines. It is slightly cold, [enabling it] to cool heat, tonify water, and treat deficiency consumption with irritable heat.
+
+Thus, although Ostreae Concha (mǔ lì) has an extremely wide scope of action, it can be summarized as follows: patterns of deficiency leading to leakage and loss; masses or nodules due to constrained heat and phlegm; and yin deficiency with floating yang leading to disorders in the channels of the Heart, Liver, and Kidneys.
+
+---
 ---
 
 ## 🔑 TCM Properties
@@ -85,21 +95,23 @@ Brief description of the herb, source, botanical information, and general identi
 
 ## ⚡ Functions & Actions
 
-```dataview
-LIST herb_data.functions
-WHERE file.name = this.file.name
-```
-
-**Key Functions:**
--
--
--
-
-**Clinical Applications:**
--
--
-
----
+* Heavily settles and calms the spirit: for palpitations with anxiety, restlessness, and insomnia.
+    *   With Succinum (hǔ pò) and Ziziphi spinosae Semen (suān zǎo rén) for insomnia.
+*   With Fossilia Ossis Mastodi (lóng gǔ) and Cinnamomi Ramulus (guì zhī) for restlessness, irritability, palpitations, and spontaneous sweating from floating yang, as in Cinnamon Twig, Licorice, Dragon Bone, and Oyster Shell Decoction (guì zhī gān cǎo lóng gǔ mǔ lì tāng).
+*   Benefits the yin and anchors the floating yang: for irritability, insomnia, dizziness, headache, tinnitus, blurred vision, bad temper, or a red, flushed face due to yin deficiency with ascendant yang.
+    *   With Fossilia Ossis Mastodi (lóng gǔ) and Paeoniae Radix alba (bái sháo) for anxiety, palpitations, insomnia, and dream-disturbed sleep, as in Sedate the Liver and Extinguish Wind Decoction (zhèn gān xī fēng tāng). Also for symptoms associated with yin deficiency and ascendant yang such as headache, dizziness, and tinnitus.
+    *   With Rehmanniae Radix (shēng dì huáng) and Trionycis Carapax (biē jiǎ) for internal stirring of wind from deficiency, as in Major Arrest Wind Pearls (dà dìng fēng zhū).
+*   Prevents leakage of fluids: for continuous sweating in patients with steaming bone disorder or in the aftermath of a warm-heat pathogen disease. Also used as an astringent for spontaneous sweating, nightsweats, nocturnal emissions, spermatorrhea or vaginal discharge, and uterine bleeding due to deficiency.
+    *   With Astragali Radix (huáng qí) and Tritici Fructus levis (fú xiǎo mài) for spontaneous sweating and nightsweats, as in Oyster Shell Powder (mǔ lì sàn).
+    *   With Euryales Semen (qiàn shí) and Astragali complanati Semen (shā yuàn zǐ) for spermatorrhea, as in Metal Lock Pill to Stabilize the Essence (jīn suǒ gù jīng wán).
+    *   With Rosae laevigatae Fructus (jīn yīng zǐ) and Alpiniae oxyphyllae Fructus (yì zhì rén) for urinary frequency or incontinence.
+    *   With Corni Fructus (shān zhū yú) and Dioscoreae Rhizoma (shān yào) for irregular uterine bleeding or vaginal discharge.
+*   Softens hardness and dissipates nodules: for various kinds of lumps. Particularly useful for lumps in the neck such as scrofula and goiter.
+    *   With Scrophulariae Radix (xuán shēn), Prunellae Spica (xià kū cǎo), and Fritillariae thunbergii Bulbus (zhè bèi mǔ) for scrofula.
+    *   With Bupleuri Radix (chái hú), Salviae miltiorrhizae Radix (dān shēn), and Paeoniae Radix rubra (chì sháo) for subcostal pain and swelling.
+    *   With Salviae miltiorrhizae Radix (dān shēn), Lycopi Herba (zé lán), and Trionycis Carapax (biē jiǎ) for organomegaly.
+*   Absorbs acidity and alleviates pain: used in calcined form for excessive Stomach pain with a sour taste in the mouth.
+    *   With Sepiae Endoconcha (hǎi piāo xiāo) and Fritillariae thunbergii Bulbus (zhè bèi mǔ) as a powder for epigastric pain with acid regurgitation.
 
 ## 🎯 Patterns & Symptoms
 
@@ -175,8 +187,9 @@ SORT Category, file.name
 **Toxicity:** `= this.herb_data.toxicity`
 
 **Contraindications:**
--
--
+Contraindicated in cases of high fever due to excess with an absence of sweating. Overdose may lead to indigestion or constipation.
+
+Traditional Contraindications: It is appropriate for deficiency disorders with excessive heat, but is forbidden for deficiency disorders with cold. It is unsuitable for Kidney deficiency without fire, and cold essence that spontaneously leaks out. It antagonizes Evodiae Fructus (wú zhū yú), Asari Radix et Rhizoma (xì xīn), and Ephedrae Herba (má huáng). (Harm and Benefit in the Materia Medica)
 
 **Drug Interactions:**
 -
@@ -209,8 +222,7 @@ WHERE file.name = this.file.name
 ## 🌱 Quality Criteria & Authentication
 
 **Quality Indicators:**
--
--
+Good quality is hard and solid, white, with a smooth and clean white inner surface.
 
 **Common Adulterants:**
 -
@@ -281,7 +293,7 @@ LIMIT 10
 - [[]]
 
 **Related Formulas:**
-- [[Formulas including Mu Li]]
+- [[Formulas including Ai Ye]]
 
 **Related Western Conditions:**
 - [[]]

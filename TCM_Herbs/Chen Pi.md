@@ -19,36 +19,37 @@ tests: []
 
 # 🔹 Herb-Specific Data
 herb_data:
-  hanzi: "陳皮"
-  pinyin: "Chen Pi"
-  pharmaceutical: "Citri Reticulatae, Pericarpium"
-  english: ""
+  hanzi: "陈皮"
+  pinyin: "Chén Pí"
+  pharmaceutical: "Citri Reticulatae Pericarpium"
+  english: "Tangerine Peel"
   alternate_names: []
 
   # TCM Properties
-  taste: []
-  temperature: ""
-  channels: []
+  taste: [Acrid, Bitter]
+  temperature: "Warm"
+  channels: [Lung, Spleen, Stomach]
 
   # Clinical Information
-  dosage: ""
-  toxicity: ""
-  functions: []
+  dosage: "3-9g"
+  toxicity: "Should be used with caution in those with heat from excess, and is unsuitable for dry coughs due to qi or yin deficiency. Long-term use can injure the primal qi."
+  functions: [Regulates the qi, adjusts the middle, and relieves the diaphragm, Dries dampness and transforms phlegm, Helps prevent stagnation]
   dui_yao: []
 
   # Additional Information
-  constituents: []
-  quality: ""
-  text_first_appeared: ""
+  constituents: [Volatile oil: α-thujene, α-pinene, sabinene, β-pinene, β-myrcene, octanal, α-phellandrene, α-terpinene, p-cymene, limonene, α-ocimene, γ-terpinene, terpinolene, 4-carene, linalool, 3.7-dimethyl-7-octenal, terpineol-4, α-terpineol, citronellol, 4-tert-butylbenzyl alcohol, perillaaldehyde, carvacrol, nerol, octanol, thymol, citronellal, sabinene hydrate, neral, Flavonoids: hesperidin, neohesperidin, tangeretin, 5-hydroxy-6,7,8,3',4'-pentamethoxyflavone, 5,6,7,8,4'-pentamethoxyflavone, 5,6,7,8,3',4'-hexamethoxyflavone, Other constituents: synephrine, β-sitosterol]
+  quality: "Good quality consists of large, uniform segments with an orange-red outer surface and a white inner surface. It should have a high oil content and an intense aroma."
+  text_first_appeared: "None"
 
   # Source References
-  bensky_page: ""
+  bensky_pdf: "627"
+  bensky_page: "None"
 
 created: 2025-10-01
 updated: 2025-10-01
 ---
 
-# 🌿 Chen Pi
+# 🌿 Ai Ye
 
 **Pharmaceutical Name:** `= this.herb_data.pharmaceutical`
 **English Name:** `= this.herb_data.english`
@@ -71,8 +72,15 @@ updated: 2025-10-01
 
 ## 📖 Overview
 
-Brief description of the herb, source, botanical information, and general identity.
+Acrid, bitter, warm, and aromatic, Citri Reticulatae Pericarpium (chen pi) enters the Spleen, Stomach, and Lung channels. The acrid flavor disperses clumped qi, while its bitter warmth disperses cold and dries dampness. By removing the obstruction to the flow of qi, the functions of the Spleen and Stomach are assisted; by dispelling cold-dampness, phlegm is eliminated. It is therefore known as an important herb for regulating the qi, strengthening the Spleen, drying dampness, and transforming phlegm. It is often used in the treatment of internal obstruction due to cold-dampness causing poor digestion and accumulated blockage affecting the qi dynamic, which leads to focal distention and fullness in the epigastrium and abdomen, nausea, hiccough, and belching. It is indicated for overabundance of phlegm and thin mucus causing cough, wheezing, and rebellious qi, leading to a stifling sensation in the chest and diaphragm.
 
+Because its ability to both regulate the qi and transform phlegm is of moderate strength, it is most appropriately used for relatively mild conditions of Spleen and Stomach qi stagnation when the dampness and/or phlegm are not too intense. If there is greater accumulation, Citri Reticulatae Pericarpium (chen pi) should be assisted by other herbs that promote qi movement and transform phlegm.
+
+Materia Medica of Medicinal Properties says that this herb "clears phlegm and thickened saliva, treats cough due to ascending qi, and unbinds the Stomach." According to the Grand Materia Medica, "Its treatment of all disorders comes down to its actions of regulating qi and drying dampness."
+
+Harm and Benefit in the Materia Medica has an interesting note on the difference between the flesh of the fruit and its peel: "[The] peel drives qi downward to promote the movement of phlegm, the flesh of the fruit generates phlegm and clusters qi—one substance, but as opposite [in action] as this!"
+
+---
 ---
 
 ## 🔑 TCM Properties
@@ -85,21 +93,20 @@ Brief description of the herb, source, botanical information, and general identi
 
 ## ⚡ Functions & Actions
 
-```dataview
-LIST herb_data.functions
-WHERE file.name = this.file.name
-```
-
-**Key Functions:**
--
--
--
-
-**Clinical Applications:**
--
--
-
----
+Regulates the qi, adjusts the middle, and relieves the diaphragm: for Spleen or Stomach stagnant qi patterns with such symptoms as epigastric or abdominal distention, fullness, bloating, belching, and nausea and vomiting. This herb promotes the movement of qi in general while specifically directing it downward. It is therefore commonly used in treating many different types of nausea and vomiting.
+  - With Aurantii Fructus and Aucklandiae Radix (mu xiang) for abdominal distention, fullness, and pain.
+  - With Magnoliae Officinalis Cortex and Atractylodis Rhizoma (cang zhu) for epigastric and abdominal fullness and distention, acid regurgitation, fatigue, loose stools, and other symptoms associated with cold-dampness stagnating in the Spleen and Stomach, as in Calm the Stomach Powder (ping wei san).
+  - With Zingiberis Rhizoma Recens (sheng jiang) for vomiting and hiccough due to disharmony of the Stomach qi, as in Tangerine Peel Decoction (ju pi tang).
+  - With Bambusae Caulis In Taeniam and Coptidis Rhizoma (zhu ru, huang lian) for vomiting due to phlegm-heat.
+  - With Citri Reticulatae Viride Pericarpium (qing pi) for flank pain and chest and abdominal distention due to stagnant Liver qi.
+  - With Atractylodis Macrocephalae Rhizoma (bai zhu) and Saposhnikoviae Radix (fang feng) for borborygmus, abdominal pain, and diarrhea due to Liver attacking the Spleen, as in Important Formula for Painful Diarrhea (tong xie yao fang).
+- Dries dampness and transforms phlegm: an important herb for phlegm-damp coughs with a stifling sensation in the chest and/or diaphragm, and copious, viscous sputum. Also used for damp turbidity obstructing the middle with a stifling sensation in the chest, abdominal distention, loss of appetite, fatigue, loose stools, and a thick, greasy tongue coating. An important qi-level herb for both the Spleen and Lung channels, it is especially appropriate for disorders involving both channels.
+  - With Pinelliae Rhizoma Preparatum (zhi ban xia) for a stifling sensation in the chest and cough with excessive sputum, usually of a white, viscous nature, due to obstruction of phlegm-dampness.
+- Helps prevent stagnation: used with torrifying herbs to prevent their cloying nature from causing stagnation.
+  - With such qi-tonifying herbs as Codonopsis Radix (dang shen) and Astragali Radix (huang qi) to prevent the side effect of bloating, which sometimes accompanies the use of these herbs.
+- Add Poria and Magnoliae Officinalis Cortex to enhance the phlegm-transforming, Spleen-strengthening properties of this prescription, as in Two Cured Decoction (er chen tang).
+- With Amomi Fructus (sha ren) for dampness obstructing the Spleen's transportive and transformative functions with a reduced intake of food and diarrhea. This combination can also treat belching, nausea, and a stifling sensation in the epigastrium from disharmony of the Stomach qi.
+  - With Atractylodis Macrocephalae Rhizoma (bai zhu) and Codonopsis Radix (dang shen) for reduced appetite and other symptoms associated with damp obstruction due to Spleen deficiency, as in Extraordinary Merit Powder (yi gong san).
 
 ## 🎯 Patterns & Symptoms
 
@@ -175,8 +182,7 @@ SORT Category, file.name
 **Toxicity:** `= this.herb_data.toxicity`
 
 **Contraindications:**
--
--
+Acrid and warm, it can deplete the true qi. Whenever the middle [burner] qi is deficient, or the qi fails to return to its base, it is forbidden to use with herbs that deplete the qi. In Stomach deficiency with fire causing nausea and vomiting, [Citri Reticulatae Pericarpium (chen pi)] is inappropriate when combined with herbs that are warm, hot, aromatic, or drying. For yin deficiency cough that is generating phlegm, [Citri Reticulatae Pericarpium (chen pi)] should not be used together with herbs such as Pinelliae Rhizoma Preparatum (zhi ban xia) or Arisaematis Rhizoma Preparatum (zhi tian nan xing). (Harm and Benefit in the Materia Medica)
 
 **Drug Interactions:**
 -
@@ -209,8 +215,7 @@ WHERE file.name = this.file.name
 ## 🌱 Quality Criteria & Authentication
 
 **Quality Indicators:**
--
--
+Good quality consists of large, uniform segments with an orange-red outer surface and a white inner surface. It should have a high oil content and an intense aroma.
 
 **Common Adulterants:**
 -
@@ -281,7 +286,7 @@ LIMIT 10
 - [[]]
 
 **Related Formulas:**
-- [[Formulas including Chen Pi]]
+- [[Formulas including Ai Ye]]
 
 **Related Western Conditions:**
 - [[]]

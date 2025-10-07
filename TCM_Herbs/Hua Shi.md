@@ -1,7 +1,7 @@
 ---
 # 🔹 Core Metadata (Universal Fields)
 id: "herb-20251001123706"
-name: "Hua Shi"
+name: "Talcum / Hua Shi"
 type: "herb"
 aliases: []
 tags: [TCM, Herb]
@@ -22,33 +22,34 @@ herb_data:
   hanzi: "滑石"
   pinyin: "Hua Shi"
   pharmaceutical: "Talcum"
-  english: ""
+  english: "Talc Powder"
   alternate_names: []
 
   # TCM Properties
-  taste: []
-  temperature: ""
-  channels: []
+  taste: [Sweet, Bland]
+  temperature: "Cold"
+  channels: [Stomach, Bladder]
 
   # Clinical Information
-  dosage: ""
-  toxicity: ""
-  functions: []
+  dosage: "9-15g"
+  toxicity: "This mineral should neither be inhaled nor injected."
+  functions: [Clears heat and facilitates the resolution of dampness, Clears summerheat and facilitates the resolution of dampness, Absorbs dampness]
   dui_yao: []
 
   # Additional Information
-  constituents: []
-  quality: ""
-  text_first_appeared: ""
+  constituents: [Zi ying hua shi: 3MgO·4SiO ·H O (Mg (SiO )(OH) ), Ruan hua shi: 2Al O ·4SiO ·4H O (Al (SiO )(OH) )]
+  quality: "Good quality is clean, white, soft, and without foreign matter."
+  text_first_appeared: "None"
 
   # Source References
-  bensky_page: ""
+  bensky_pdf: "627"
+  bensky_page: "None"
 
 created: 2025-10-01
 updated: 2025-10-01
 ---
 
-# 🌿 Hua Shi
+# 🌿 Ai Ye
 
 **Pharmaceutical Name:** `= this.herb_data.pharmaceutical`
 **English Name:** `= this.herb_data.english`
@@ -71,8 +72,31 @@ updated: 2025-10-01
 
 ## 📖 Overview
 
-Brief description of the herb, source, botanical information, and general identity.
+Talcum (hua shi) is bland, to leach out dampness; sweet, to harmonize the Stomach qi, and to alleviate irritability and thirst; slippery, to facilitate the functions of the lower burner; and cold, to disperse accumulated heat. These qualities enable it to promote urination, unblock painful urinary dribbling, and clear heat and summerheat. It is a very commonly used herb at the height of summer, and is most appropriate for irritability and thirst due to pathogenic summerheat causing one to feel overheated, along with dark, scanty urine that feels rough to pass, or contains blood. It is also good for damp-heat diarrhea, dysenteric disorders, jaundice, edema, or leg qi. Applied topically, it dispels dampness and heals sores, and is an important external herb in the treatment of eczema, damp sores, and toxic rashes.
 
+Transforming the Significance of Medicinal Substances describes this mineral:
+
+The substance of Talcum (hua shi) is slippery, which primarily facilitates [the functions of] the orifices; its flavor is bland, which primarily leaches out dampness, so it can scour and wash the six yang organs without the drawback of exhausting [the qi]. It primarily treats irritability and thirst due to summerheat, accumulated obstruction in the Stomach, cloudy urine with rough [flow] and pain, blocked milk flow during breastfeeding, and children's pox and rashes with thirst. All are through its power of benefiting the orifices and leaching dampness!
+
+Zhang Jie-Bin elaborates on the qualities of this mineral:
+
+[It] treats thirst, but is not actually directly treating the thirst. In fact, it helps the orifices leach away damp-heat, and thereafter the Spleen qi is centered and harmonious, so that the thirst ceases naturally. If the heavens bring about a season of excessive pernicious dampness, people may suffer from urinary difficulty associated with thirst. This substance is just right to leach and drain out [the dampness] the thirst will not appear! If, however, there is no dampness, and the urine flows freely but there is still thirst, then one knows that dryness and heat exist internally. Dryness should be [treated by] enriching and moistening. If Talcum (hua shi) is consumed in error, it will further devastate the yin and yang fluids, and the thirst will become worse.
+
+Mechanisms of Selected Combinations
+
+- WITH DIOSCOREAE RHIZOMA (shan yao)
+
+Talcum (hua shi) is sweet, cold, slippery, and facilitating. It expels summerheat, disperses heat, promotes urination, and removes dampness. Dioscoreae Rhizoma (shan yao) is sweet and neutral. It tonifies the Spleen and Stomach, and benefits the Lungs and Kidneys. It is particularly valued because, while tonifying, it does not cause obstruction.
+
+When used together, one herb clears the excessive damp heat, while the other supplements insufficiency; thus, the pair clears without causing damage, and tonifies without generating dampness.
+
+An awkward clinical situation occurs when a constitutionally weak patient suffers summerheat and dampness, with low fever, spontaneous sweating, irritability, thirst (but only takes small sips of fluids), urinary difficulty, and constant diarrhea or loose stools. If one attempts to tonify, the pathogenic influence could be trapped internally, yet expelling the pathogen carries the danger of further weakening the normal qi. The combination of Talcum (hua shi) and Dioscoreae Rhizoma (shan yao) is particularly appropriate for this type of presentation, as its gentle tonification supports the normal qi, while dampness is gently cleared.
+
+In Essays on Medicine Esteeming the Chinese and Respecting the Western, Zhang Xi-Chun describes his experience with this combination:
+
+If, in an externally-contracted disorder, whether cold or warm, there is upper burner dryness and heat and excessive lower burner diarrhea, this is an extremely dangerous presentation. Around 30g each of Talcum (hua shi) and Dioscoreae Rhizoma (shan yao) can be decocted and consumed; this will clear the upper burner heat, while halting the lower diarrhea-this has never lacked for efficacy!
+
+---
 ---
 
 ## 🔑 TCM Properties
@@ -85,21 +109,17 @@ Brief description of the herb, source, botanical information, and general identi
 
 ## ⚡ Functions & Actions
 
-```dataview
-LIST herb_data.functions
-WHERE file.name = this.file.name
-```
-
-**Key Functions:**
--
--
--
-
-**Clinical Applications:**
--
--
-
----
+- Clears heat and facilitates the resolution of dampness: an important substance in treating hot painful urinary dribbling or any condition with dark, painful, burning, and scanty urine. Also used for damp-heat generated diarrhea. Because it expels damp-heat through the urine, it is used adjunctively for heat in the qi level with dampness manifested in unremitting fevers, a heavy feeling in the body, thirst, and a yellow tongue coating.
+    - With Gardeniae Fructus (zhi zi) and Akebiae Caulis (mu tong) for hot painful urinary dribbling with scanty, dark, painful urination, as in Eight-Herb Powder for Rectification (ba zheng san).
+    - With Malvae Fructus (dong kui guo) for urinary discomfort and dysfunction due to damp-heat descending into the lower burner.
+    - With Lygodii Spora (hai jin sha) and Pyrrosiae Folium (shi wei) for stony painful urinary dribbling.
+    - With Poria (fu ling) and Coicis Semen (yi yi ren) for damp-heat diarrhea.
+    - With Dioscoreae Rhizoma (shan yao) for heat in the upper burner with thirst accompanied by diarrhea.
+- Clears summerheat and facilitates the resolution of dampness: for summerheat disorder with fever, urinary difficulty, irritability, and thirst.
+    - With Glycyrrhizae Radix (gan cao) for fever, irritability, thirst, and painful urinary dribbling due to summerheat. This combination is known as Six-to-One Powder (liu yi san).
+    - With Scutellariae Radix (huang qin) and Tetrapanacis Medulla (tong cao) for damp-warmth when damp-heat obstructs the qi level, as in Scutellaria and Talcum Decoction (huang qin hua shi tang).
+- Absorbs dampness: applied topically for damp skin lesions including eczema, damp sores, and prickly heat.
+    - With Phellodendri Cortex (huang bai) and Gypsum fibrosum preparatum (duan shi gao), as a topical powder, for eczema and other damp skin lesions.
 
 ## 🎯 Patterns & Symptoms
 
@@ -175,8 +195,7 @@ SORT Category, file.name
 **Toxicity:** `= this.herb_data.toxicity`
 
 **Contraindications:**
--
--
+Contraindicated in those with weak Spleen qi, a tendency to leak semen, or injury to the fluids from hot disorders. Use with caution during pregnancy. See Toxicity below, and Commentary.
 
 **Drug Interactions:**
 -
@@ -209,8 +228,7 @@ WHERE file.name = this.file.name
 ## 🌱 Quality Criteria & Authentication
 
 **Quality Indicators:**
--
--
+Good quality is clean, white, soft, and without foreign matter.
 
 **Common Adulterants:**
 -
@@ -281,7 +299,7 @@ LIMIT 10
 - [[]]
 
 **Related Formulas:**
-- [[Formulas including Hua Shi]]
+- [[Formulas including Ai Ye]]
 
 **Related Western Conditions:**
 - [[]]

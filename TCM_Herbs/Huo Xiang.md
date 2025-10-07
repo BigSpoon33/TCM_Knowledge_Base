@@ -19,36 +19,37 @@ tests: []
 
 # 🔹 Herb-Specific Data
 herb_data:
-  hanzi: "藿香"
-  pinyin: "Huo Xiang"
-  pharmaceutical: "Agastaches, Herba"
-  english: ""
+  hanzi: "None"
+  pinyin: "huò xiāng"
+  pharmaceutical: "Pogostemonis/Agastaches Herba; Pogostemonis Herba"
+  english: "Pogostemon Herb"
   alternate_names: []
 
   # TCM Properties
   taste: []
-  temperature: ""
+  temperature: "None"
   channels: []
 
   # Clinical Information
-  dosage: ""
-  toxicity: ""
-  functions: []
+  dosage: "3-6g"
+  toxicity: "None"
+  functions: [Transform Dampness]
   dui_yao: []
 
   # Additional Information
-  constituents: []
-  quality: ""
-  text_first_appeared: ""
+  constituents: [Volatile oil: δ-eudesmol, cadinol, guaiol, p-cymene, α-pinene, β-pinene, 1,4-cineol, caryophyllene, linalool, α-terpineol, 4-terpineol, α-humulene, α-copaene, aromadendrene, alloaromadendrene, α-cedrene, α-limonene, globulol, guaiazulene, Lignans: magnolol, honokiol, isomagnolol, tetrahydromagnolol, 6'-O-methylhonokiol, piperitylmagnolol, dipiperitylmagnolol, piperityl honokiol, bornylmagnolol, magnaldehyde B, C, D, E, magnolignan A, B, C, D, E, F, G, H, I, randainal, syringaresinol, syringaresinol-4'-O-β-D-glucopyranoside, Alkaloids: magnocurarine, salicifoline, Other constituents: sinapic aldehyde]
+  quality: "Good quality consists of large, thick, oily, and not too fibrous pieces, with a dark purplish inner surface, intense aroma, and spicy taste."
+  text_first_appeared: "None"
 
   # Source References
-  bensky_page: ""
+  bensky_pdf: "627"
+  bensky_page: "None"
 
 created: 2025-10-01
 updated: 2025-10-01
 ---
 
-# 🌿 Huo Xiang
+# 🌿 Ai Ye
 
 **Pharmaceutical Name:** `= this.herb_data.pharmaceutical`
 **English Name:** `= this.herb_data.english`
@@ -209,8 +210,7 @@ WHERE file.name = this.file.name
 ## 🌱 Quality Criteria & Authentication
 
 **Quality Indicators:**
--
--
+Good quality consists of large, thick, oily, and not too fibrous pieces, with a dark purplish inner surface, intense aroma, and spicy taste.
 
 **Common Adulterants:**
 -
@@ -281,7 +281,7 @@ LIMIT 10
 - [[]]
 
 **Related Formulas:**
-- [[Formulas including Huo Xiang]]
+- [[Formulas including Ai Ye]]
 
 **Related Western Conditions:**
 - [[]]

@@ -21,34 +21,35 @@ tests: []
 herb_data:
   hanzi: "大腹皮"
   pinyin: "Da Fu Pi"
-  pharmaceutical: "Arecae, Pericarpium"
-  english: ""
+  pharmaceutical: "Arecae Pericarpium"
+  english: "Areca Peel/Areca Husk"
   alternate_names: []
 
   # TCM Properties
-  taste: []
-  temperature: ""
-  channels: []
+  taste: [Acrid, Slightly warm]
+  temperature: "Slightly warm"
+  channels: [Large Intestine, Small Intestine, Spleen, Stomach]
 
   # Clinical Information
-  dosage: ""
-  toxicity: ""
-  functions: []
+  dosage: "4.5-9g"
+  toxicity: "Allergic reactions have been reported including urticaria, severe abdominal pain, and diarrhea."
+  functions: [Drives qi downward and eases the middle, Promotes urination and reduces edema]
   dui_yao: []
 
   # Additional Information
-  constituents: []
-  quality: ""
-  text_first_appeared: ""
+  constituents: [Catechin, Arecoline, Pararecoline]
+  quality: "Good quality consists of yellowish white, soft pieces without foreign matter."
+  text_first_appeared: "None"
 
   # Source References
-  bensky_page: ""
+  bensky_pdf: "627"
+  bensky_page: "None"
 
 created: 2025-10-01
 updated: 2025-10-01
 ---
 
-# 🌿 Da Fu Pi
+# 🌿 Ai Ye
 
 **Pharmaceutical Name:** `= this.herb_data.pharmaceutical`
 **English Name:** `= this.herb_data.english`
@@ -71,8 +72,13 @@ updated: 2025-10-01
 
 ## 📖 Overview
 
-Brief description of the herb, source, botanical information, and general identity.
+Arecae Pericarpium (da fu pi), acrid and warm, enters the Large Intestine, Small Intestine, Spleen, and Stomach channels. Unblocking because of its warm nature, and dispersing because of its acrid flavor, it transforms dampness which has clumped and obstructed the flow of qi, thus restoring normal qi and fluid circulation. It eases the middle, drives qi downward, promotes fluid metabolism and flow, and reduces edema. When the fluids flow in a regular fashion, urination is natural and easy. By this means it treats abdominal distention and fullness, incomplete bowel movements, urinary difficulty, edema and leg qi due to pathogenic dampness obstructing the qi dynamic.
 
+This herb is particularly noted for its ability to treat pathogenic influences with or without form: it can disperse formless qi stagnation, but also drain dampness and edema, which do have form. *Materia Medica of Ri Hua-Zi* notes that it "drives all qi downward, stops sudden turmoil disorder, unblocks the Large and Small Intestines, strengthens the Spleen, unbinds the Stomach, and regulates the middle." *The Grand Materia Medica* lists the following actions:
+
+directs rebellious qi downward, reduces water qi, floating edema in the muscles and skin, accumulated rebellious leg qi, focal distention and fullness, fetal qi [disturbance], morning sickness, and stifling sensations in the chest [during pregnancy].
+
+---
 ---
 
 ## 🔑 TCM Properties
@@ -85,21 +91,11 @@ Brief description of the herb, source, botanical information, and general identi
 
 ## ⚡ Functions & Actions
 
-```dataview
-LIST herb_data.functions
-WHERE file.name = this.file.name
-```
-
-**Key Functions:**
--
--
--
-
-**Clinical Applications:**
--
--
-
----
+- Drives qi downward and eases the middle: for patterns of dampness or other processes obstructing the middle and leading to qi stagnation with such signs as epigastric and abdominal distention, focal distention and a stifling sensation, and belching with acid regurgitation. Especially useful when these disorders are accompanied by incomplete and irregular bowel movements.
+  - With Magnoliae Officinalis Cortex (hou po) and Citri Reticulatae Pericarpium (chen pi) for epigastric and abdominal distention and discomfort with difficult bowel movements associated with stagnant qi and dampness, as in Separate and Reduce Decoction (fen xiao tang).
+  - With Atractylodis Macrocephalae Rhizoma (bai zhu) for loss of appetite, epigastric and abdominal distention and fullness with edema from accumulation of dampness and water secondary to Spleen qi deficiency.
+- Promotes urination and reduces edema: for abdominal distention accompanied by edema, especially superficial edema, or the symptoms of food stagnation. Also used for damp leg qi.
+  - With Poriae Cutis (fu ling pi) and Zingiberis Rhizomatis Cortex (sheng jiang pi) for mild edema or superficial facial edema, as in Five-Peel Decoction (wu pi yin).
 
 ## 🎯 Patterns & Symptoms
 
@@ -175,8 +171,7 @@ SORT Category, file.name
 **Toxicity:** `= this.herb_data.toxicity`
 
 **Contraindications:**
--
--
+Use with caution during pregnancy. Forbidden in those with distention due to deficiency, because it can drain true qi.
 
 **Drug Interactions:**
 -
@@ -209,8 +204,7 @@ WHERE file.name = this.file.name
 ## 🌱 Quality Criteria & Authentication
 
 **Quality Indicators:**
--
--
+Good quality consists of yellowish white, soft pieces without foreign matter.
 
 **Common Adulterants:**
 -
@@ -281,7 +275,7 @@ LIMIT 10
 - [[]]
 
 **Related Formulas:**
-- [[Formulas including Da Fu Pi]]
+- [[Formulas including Ai Ye]]
 
 **Related Western Conditions:**
 - [[]]

@@ -19,36 +19,37 @@ tests: []
 
 # 🔹 Herb-Specific Data
 herb_data:
-  hanzi: "敗醬草"
-  pinyin: "Bai Jiang Cao"
-  pharmaceutical: "Patriniae, Herba cum Radice"
-  english: ""
+  hanzi: "白 Jiang 草"
+  pinyin: "bái jiàng cǎo"
+  pharmaceutical: "Patriniae Herba"
+  english: "Patrinia"
   alternate_names: []
 
   # TCM Properties
-  taste: []
-  temperature: ""
-  channels: []
+  taste: [Acrid, bitter]
+  temperature: "slightly cold"
+  channels: [Large Intestine, Liver, Stomach]
 
   # Clinical Information
-  dosage: ""
-  toxicity: ""
-  functions: []
+  dosage: "6-15g"
+  toxicity: "Use with caution during pregnancy, and then only when absolutely necessary."
+  functions: [Clears heat, resolves toxicity, expels pus, Dispels blood stasis, stops pain]
   dui_yao: []
 
   # Additional Information
-  constituents: []
-  quality: ""
-  text_first_appeared: ""
+  constituents: [Volatile oil: patrinene, isopatrinene, Saponins, sapogenins: patrinoside A, B, C, D, E, F, G, H, J, K, L, scabioside A, B, C, D, E, F, G, 3-0-α-L-arabinopyranosyloleanolic acid, 3-0-α-L-arabinopyranosylhederagenin, 2'-0-acetyl-3-0-α-L-arabinopyranosylhederagenin; hederagenin, oleanolic acid, Other constituents: scopoletin, esculetin, patrinoside, daucosterol, β-sitosterol]
+  quality: "Good quality consists of a yellowish-green, dry herb with long roots and a high percentage of unfragmented leaves, without foreign matter."
+  text_first_appeared: "Divine Husbandman's Classic of the Materia Medica"
 
   # Source References
-  bensky_page: ""
+  bensky_pdf: "627"
+  bensky_page: "None"
 
 created: 2025-10-01
 updated: 2025-10-01
 ---
 
-# 🌿 Bai Jiang Cao
+# 🌿 Ai Ye
 
 **Pharmaceutical Name:** `= this.herb_data.pharmaceutical`
 **English Name:** `= this.herb_data.english`
@@ -71,8 +72,21 @@ updated: 2025-10-01
 
 ## 📖 Overview
 
-Brief description of the herb, source, botanical information, and general identity.
+*Patriniae Herba* (bai jiang cao) is acrid, and thus disperses; bitter, and thus drains; and cold, and thus cools heat. It enters the Liver, Stomach, and Large Intestine channels, and is best for resolving toxicity, expelling pus, invigorating the blood, and reducing abscesses. In particular, it mobilizes areas of stasis and blockage in the Stomach and Intestines. For all of these reasons, it is valued in the treatment of intestinal abscess, whether or not pus has formed. It also treats abdominal pain in women due to blood stasis and is a widely used gynecological herb for blood stasis with toxic accumulation.
 
+In Convenient Reader of Materia Medica, Zhang Bing Cheng observes: "In expelling pus and reducing swelling to treat intestinal abscess, it utilizes its acrid bitterness; in spreading out the Stomach and mobilizing the Liver to treat stagnant heat, it calls upon its salty, cold powers." While the herb is no longer considered salty, it was so described in Miscellaneous Records of Famous Physicians, the fourth-century work.
+
+The Grand Materia Medica notes:
+
+*Patriniae Herba* (bai jiang cao) is an herb of the yang brightness and terminal yin channels; it excels at expelling pus and breaking up blood stasis. This is the reason that [Zhang] Zhong-Jing used it to treat abscess, and it is used in many ancient gynecological formulas.
+
+### Mechanisms of Selected Combinations
+
+**With *Taraxaci Herba* (pu gong ying)**
+
+Entering both the qi and blood levels of the Liver and Stomach channels, this pair of herbs strongly disperses stagnation due to heat toxin, which can lead to pain and distention of the abdomen, abdominal masses, and jaundice. It is also appropriate for gynecological disorders involving vaginal discharge, pain, and abdominal distention due to heat and stasis.
+
+---
 ---
 
 ## 🔑 TCM Properties
@@ -85,21 +99,17 @@ Brief description of the herb, source, botanical information, and general identi
 
 ## ⚡ Functions & Actions
 
-```dataview
-LIST herb_data.functions
-WHERE file.name = this.file.name
-```
+Clears heat, resolves toxicity, and expels pus: For either internal fire toxin disorders, such as intestinal abscess, or fire toxin surface sores and swellings. May be taken internally or applied topically.
+    With *Lonicerae Flos* (jin yin hua) for suppurative abscesses.
+    Add *Rhei Radix et Rhizoma* (da huang) and *Moutan Cortex* (mu dan pi) for intestinal abscesses that have not completely suppurated.
+    With *Taraxaci Herba* (pu gong ying) for swollen toxic sores and abscesses, as well as pain, redness, and swelling of the eyes.
+    With *Coicis Semen* (yi yi ren) for suppurations due to smoldering damp-heat.
+    Add *Aconiti Radix Lateralis Preparata* (zhi fu zi) for suppurative intestinal abscess presenting without heat symptoms, as in Coicis, Aconite Accessory Root, and Patrinia Powder (yi yi fu zi bai jiang san).
+    With *Houttuyniae Herba* (yu xing cao) and *Scutellariae Radix* (huang qin) for Lung abscess.
 
-**Key Functions:**
--
--
--
-
-**Clinical Applications:**
--
--
-
----
+Dispels blood stasis and stops pain: For pain and obstruction associated with heat-induced blood stasis, especially in the abdomen and chest. Also for postpartum pain, and more recently, for post-operative pain.
+    With *Paeoniae Radix Rubra* (chi shao) for abdominal pain with fever due to postpartum blood stasis, and for unsuppurated intestinal abscess presenting with a fixed abdominal mass.
+    With *Trogopterori Faeces* (wu ling zhi), *Cyperi Rhizoma* (xiang fu), and *Angelicae Sinensis Radix* (dang gui) for chest and abdominal pain.
 
 ## 🎯 Patterns & Symptoms
 
@@ -175,8 +185,7 @@ SORT Category, file.name
 **Toxicity:** `= this.herb_data.toxicity`
 
 **Contraindications:**
--
--
+Encountering the Sources of the Classic of Materia Medica observes that this herb "cannot be used if pus has formed and the heat toxin is forcing its way outward" because its bitter, descending nature opposes the natural outward moving tendency of the sore itself. This viewpoint is characteristic of one of the main schools of external medicine, which holds that the excessive use of bitter, cold medicines can trap the toxins internally.
 
 **Drug Interactions:**
 -
@@ -209,8 +218,7 @@ WHERE file.name = this.file.name
 ## 🌱 Quality Criteria & Authentication
 
 **Quality Indicators:**
--
--
+Good quality consists of a yellowish-green, dry herb with long roots and a high percentage of unfragmented leaves, without foreign matter.
 
 **Common Adulterants:**
 -
@@ -281,7 +289,7 @@ LIMIT 10
 - [[]]
 
 **Related Formulas:**
-- [[Formulas including Bai Jiang Cao]]
+- [[Formulas including Ai Ye]]
 
 **Related Western Conditions:**
 - [[]]

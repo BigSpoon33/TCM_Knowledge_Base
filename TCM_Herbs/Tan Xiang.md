@@ -20,35 +20,36 @@ tests: []
 # 🔹 Herb-Specific Data
 herb_data:
   hanzi: "檀香"
-  pinyin: "Tan Xiang"
-  pharmaceutical: "Santali Albi Lignum"
-  english: ""
+  pinyin: "tan xiang"
+  pharmaceutical: "Santali albi Lignum"
+  english: "sandalwood, santalum"
   alternate_names: []
 
   # TCM Properties
-  taste: []
-  temperature: ""
-  channels: []
+  taste: [acrid, aromatic]
+  temperature: "warm"
+  channels: [Lung, Spleen, Stomach]
 
   # Clinical Information
-  dosage: ""
-  toxicity: ""
-  functions: []
+  dosage: "2-5g"
+  toxicity: "Contraindicated when there is fire or significant yin deficiency."
+  functions: [Promotes the movement of qi and alleviates pain, Recently used in the treatment of coronary artery disease]
   dui_yao: []
 
   # Additional Information
-  constituents: []
-  quality: ""
-  text_first_appeared: ""
+  constituents: [Volatile oil: α-santalol, β-santalol (together >90%); santene, α-santalene, β-santalene, α-santalal, β-santalal, santenone, santenone alcohol, epi-β-santalene, epi-β-santalol, 12,13-dihydro-α-santalol, 12,13-dihydro-β-santalol, α-curcumene, β-curcumene, β-farnesene, santalic acid, ketosantalic acid, teresantalol, teresantalaldehyde, teresantalic acid, tricycloekasantalic acid, nortricycloekasantalic acid, dihydro-α-agrofuran, dihydro-β-agrofuran, 4,11-epoxy-cis-eudesmane, valencene, Amino acids: 4-hydroxyproline, sym-homospermidine, γ-L-glutamyl S-(prop-1-enyl)cysteine sulfoxide]
+  quality: "Good quality consists of straight, solid, and heavy, cylindrical pieces with a glossy surface, dense annual rings, and an intense aroma."
+  text_first_appeared: "Miscellaneous Records"
 
   # Source References
-  bensky_page: ""
+  bensky_pdf: "627"
+  bensky_page: "None"
 
 created: 2025-10-01
 updated: 2025-10-01
 ---
 
-# 🌿 Tan Xiang
+# 🌿 Ai Ye
 
 **Pharmaceutical Name:** `= this.herb_data.pharmaceutical`
 **English Name:** `= this.herb_data.english`
@@ -71,8 +72,13 @@ updated: 2025-10-01
 
 ## 📖 Overview
 
-Brief description of the herb, source, botanical information, and general identity.
+Acrid, aromatic, and warm, Santali albi Lignum (*tan xiang*) enters the Lung, Spleen, and Stomach channels. It warms and disperses qi stagnation in the chest and above the diaphragm, unblocking cold obstruction, stopping pain, settling nausea, and unbinding the Stomach. It is an important herb in the treatment of qi stagnation in the chest and abdomen causing pain, belching, nausea, and vomiting. Zhang Jie-Bin observed: "Taken in decoction, it can disperse cold qi, stop pain in the Heart and abdomen, arrest sudden turmoil disorder, harmonize the Stomach qi, unbind the diaphragm, stop nausea and vomiting, and promote food intake."
 
+The Detailed Materia Medica makes an illuminating observation: "The aromatic qi of Santali albi Lignum (*tan xiang*) promotes upward movement; it will regulate qi above the diaphragm and chest, in the area of the throat." This indicates its area of action, and explains that the nauseous sensations best treated by this herb are felt in the chest and throat, not the epigastrium. This is why raising Stomach qi in these cases is beneficial. With this in mind, the following passage from Seeking Accuracy in the Materia Medica becomes comprehensible:
+
+Whenever cold qi clumps in the upper body preventing the intake of food, and [pathogenic] qi rebels upward causing vomiting, despondency, and discomfort, consuming [Santali albi Lignum (*tan xiang*)] can guide the Stomach qi also upward-its power mobilizes upward. It can disperse wind painful obstruction, reducing the swelling and stopping the pain-its power primarily disperses outward. Its actions specifically enter the Spleen and Lungs, unlike the power of Aquilariae Lignum resinatum (*chen xiang*), which primarily directs downward and guides the qi downward.
+
+---
 ---
 
 ## 🔑 TCM Properties
@@ -85,21 +91,12 @@ Brief description of the herb, source, botanical information, and general identi
 
 ## ⚡ Functions & Actions
 
-```dataview
-LIST herb_data.functions
-WHERE file.name = this.file.name
-```
-
-**Key Functions:**
--
--
--
-
-**Clinical Applications:**
--
--
-
----
+- Promotes the movement of qi and alleviates pain: for pain associated with stagnant qi in the chest and abdomen.
+- Recently used in the treatment of coronary artery disease.
+  - With Salviae miltiorrhizae Radix (*dan shen*) and Amomi Fructus (*sha ren*) for chest pain associated with obstructed Heart qi, as in Salvia Decoction (*dan shen yin*).
+  - With Aucklandiae Radix (*mu xiang*) and Caryophylli Flos (*ding xiang*) for chest, epigastric, and abdominal pain due to stagnant qi and cold, as in Liquid Styrax Pill (*su he xiang wan*).
+  - With Cyperi Rhizoma (*xiang fu*) for a stifling sensation in the chest and flanks from Liver-Spleen disorders.
+  - Powdered, together with Poria (*fu ling*) and Citri reticulatae Exocarpium rubrum (*ju hong*), and chased with a decoction of Ginseng Radix (*ren shen*), for dysphagia occlusion when one suffers from a sense that food is stuck.
 
 ## 🎯 Patterns & Symptoms
 
@@ -175,8 +172,9 @@ SORT Category, file.name
 **Toxicity:** `= this.herb_data.toxicity`
 
 **Contraindications:**
--
--
+Contraindicated when there is fire or significant yin deficiency.
+
+"If there is overabundance of fire due to yin deficiency, this can disturb the blood and cause cough: do not use it." (Treasury of Words on the Materia Medica)
 
 **Drug Interactions:**
 -
@@ -209,8 +207,7 @@ WHERE file.name = this.file.name
 ## 🌱 Quality Criteria & Authentication
 
 **Quality Indicators:**
--
--
+Good quality consists of straight, solid, and heavy, cylindrical pieces with a glossy surface, dense annual rings, and an intense aroma.
 
 **Common Adulterants:**
 -
@@ -281,7 +278,7 @@ LIMIT 10
 - [[]]
 
 **Related Formulas:**
-- [[Formulas including Tan Xiang]]
+- [[Formulas including Ai Ye]]
 
 **Related Western Conditions:**
 - [[]]

@@ -19,36 +19,45 @@ tests: []
 
 # 🔹 Herb-Specific Data
 herb_data:
-  hanzi: "豨薟草"
-  pinyin: "Xi Xian Cao"
-  pharmaceutical: "Siegesbeckiae, Herba"
-  english: ""
+  hanzi: "豨莶草"
+  pinyin: "xi xian cao"
+  pharmaceutical: "Siegesbeckiae Herba"
+  english: "siegesbeckia"
   alternate_names: []
 
   # TCM Properties
-  taste: []
-  temperature: ""
-  channels: []
+  taste: [Bitter, cold]
+  temperature: "cold"
+  channels: [Kidney, Liver]
 
   # Clinical Information
-  dosage: ""
-  toxicity: ""
-  functions: []
+  dosage: "None"
+  toxicity: "None"
+  functions: [Dispels wind-dampness and unblocks the channels and collaterals, Clears heat and pacifies the Liver, Clears and transforms damp-heat]
   dui_yao: []
 
   # Additional Information
-  constituents: []
-  quality: ""
-  text_first_appeared: ""
+  constituents: [*Siegesbeckia orientalis*:
+  - Terpenoids, terpenoid glycosides: darutoside, darutigenol, isodarutogenol B, C, (-)-16,17-dihydroxy-16β-kauran-19-oic acid
+  - Lactones: orientin, orientalide, 9β-hydroxy-8β-isobutyryloxycostunolide, 9β-hydroxy-8β-methacryloyloxycostunolide, 14-hydroxy-8β-isobutyryloxycostunolide, 9β,14-dihydroxy-8β-isobutyryloxycostunolide, 8β-isobutyryl oxy-1β,10α-epoxycostunolide, 9β-hydroxy-8β-isobutyryl oxy-1β,10α-epoxycostunolide, 14-hydroxy-8β-isobutyryloxy-1β,10α-epoxycostunolide, 15-hydroxy-9α-acet-oxy-8β-isobutyryl oxy-14-oxomelampolide, 9α,15-dihydroxy-8β-isobutyryloxy-14-oxomelampolide, 15-dihydroxy-8β-isobutyryloxy-14-oxomelampolide, 1α-acetoxy-2α,3α-epoxyisoalantolactone
+  - Other constituents: volatile oil, alkaloids, 3,7-demethoxyquercitrin, stigmasterol, KNO3, *Siegesbeckia pubescens*:
+  - Terpenoids, terpenoid glycosides: siegesbeckioside, siegesbeckiol, siegesbeckic acid, (-)-16,17-dihydroxy-16β-kauran-19-oic acid, (-)-17-hydroxy-16β-kauran-19-oic acid, 16αH-16,19-kaurandioic acid, grandifloric acid
+  - Volatile oil: germacene D, α-cadinene, sesquiterpene alcohols, acetylenic aldehydes
+  - Other constituents: kirenol, sitosterol, daucosterol, *Siegesbeckia glabrescens*:
+  - Terpenoids, terpenoid glycosides: darutigenol, darutoside, neodarutoside
+  - Other constituents: 16-acetylkirenol, isopropylidenekirenol]
+  quality: "Good quality is dark green and has many leaves and tender twigs."
+  text_first_appeared: "None"
 
   # Source References
-  bensky_page: ""
+  bensky_pdf: "627"
+  bensky_page: "360"
 
 created: 2025-10-01
 updated: 2025-10-01
 ---
 
-# 🌿 Xi Xian Cao
+# 🌿 Ai Ye
 
 **Pharmaceutical Name:** `= this.herb_data.pharmaceutical`
 **English Name:** `= this.herb_data.english`
@@ -71,8 +80,11 @@ updated: 2025-10-01
 
 ## 📖 Overview
 
-Brief description of the herb, source, botanical information, and general identity.
+Acrid, bitter, and cold, Siegesbeckiae Herba (xi xian cao) enters the Liver and Kidney channels. It clears Liver channel heat, expels wind-dampness, transforms and cools damp-heat, expels wind, and alleviates itching, and thus can be used in the treatment of damp-heat sores, wind rash, and itching due to damp toxin. If prepared by steaming with wine, its bitter and cold qualities become sweet and warm, after which it is traditionally believed to be capable of tonifying the Kidneys and Liver and strengthening the bones and tendons, while still clearing dampness and expelling wind (see NOMENCLATURE & PREPARATION below). Thus, it can be used to treat numbness of the limbs, aching joints, and sore lower back and knees, whether due to pathogenic wind-dampness, or to Kidney and Liver deficiency. It can also be used for insomnia, irritability, tinnitus, and vertigo, but it is best for numbness of the limbs.
 
+The decocted liquid is applied to sores and rashes due to damp-heat, and the juice obtained by crushing the fresh plant is used topically for spider and snake bites. However, the juice will cause vomiting if ingested, a warning that is mentioned repeatedly in various materia medica texts. Interestingly, Omissions from the Grand Materia Medica turns this problem to an advantage: "Fresh, pounded, and twisted, the juice causes vomiting to bring out phlegm."
+
+---
 ---
 
 ## 🔑 TCM Properties
@@ -85,21 +97,13 @@ Brief description of the herb, source, botanical information, and general identi
 
 ## ⚡ Functions & Actions
 
-```dataview
-LIST herb_data.functions
-WHERE file.name = this.file.name
-```
-
-**Key Functions:**
--
--
--
-
-**Clinical Applications:**
--
--
-
----
+- Dispels wind-dampness and unblocks the channels and collaterals: for wind-damp painful obstruction with pain in the joints. Because it is good at unblocking the channels and invigorating the collaterals, it is also commonly used for spasms and cramps in the extremities, numbness in the extremities, and weak legs, including weakness as a sequelae of wind-stroke.
+  - With Clematidis Radix (wei ling xian) for pain and soreness in the bones and sinews and numbness in the extremities due to wind-dampness.
+- Clears heat and pacifies the Liver: for patterns of ascendant Liver yang with such symptoms as headache and dizziness.
+  - With Prunellae Spica (xia ku cao) for headache, dizziness, and blurred vision due to ascending Liver fire.
+- Clears and transforms damp-heat: for damp-heat sores and itching, wind-damp rash, or other forms of itching.
+- Also used for hypertension.
+  - With Clerodendri Folium (chou wu tong) for hypertension. Note that when used together, these herbs also have a synergistic effect on wind-dampness.
 
 ## 🎯 Patterns & Symptoms
 
@@ -175,8 +179,9 @@ SORT Category, file.name
 **Toxicity:** `= this.herb_data.toxicity`
 
 **Contraindications:**
--
--
+Commentary on the Divine Husbandman's Classic of Materia Medica cautions:
+
+Whenever patients have numbness or painful obstruction of the limbs, aching within the bones, and weakness of the knees and lower back, [all of which are] due to Spleen and Kidney deficiency or deficiency of yin and blood, rather than as a result of attack by wind or dampness, this should not be consumed.
 
 **Drug Interactions:**
 -
@@ -209,8 +214,7 @@ WHERE file.name = this.file.name
 ## 🌱 Quality Criteria & Authentication
 
 **Quality Indicators:**
--
--
+Good quality is dark green and has many leaves and tender twigs.
 
 **Common Adulterants:**
 -
@@ -281,7 +285,7 @@ LIMIT 10
 - [[]]
 
 **Related Formulas:**
-- [[Formulas including Xi Xian Cao]]
+- [[Formulas including Ai Ye]]
 
 **Related Western Conditions:**
 - [[]]

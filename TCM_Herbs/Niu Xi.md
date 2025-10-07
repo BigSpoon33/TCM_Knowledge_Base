@@ -20,35 +20,36 @@ tests: []
 # 🔹 Herb-Specific Data
 herb_data:
   hanzi: "牛膝"
-  pinyin: "Niu Xi"
-  pharmaceutical: "Achyranthis Bidentatae, Radix"
-  english: ""
+  pinyin: "niu xi"
+  pharmaceutical: "Achyranthis Bidentatae Radix"
+  english: "Achyranthes Root"
   alternate_names: []
 
   # TCM Properties
-  taste: []
-  temperature: ""
-  channels: []
+  taste: [Sweet, Bitter]
+  temperature: "Neutral"
+  channels: [Liver, Kidney]
 
   # Clinical Information
-  dosage: ""
-  toxicity: ""
-  functions: []
+  dosage: "6-15g"
+  toxicity: "Ingestion of this substance can cause allergic reactions usually affecting the skin."
+  functions: [Invigorates the blood, Dispels blood stasis, Tonifies the Liver and Kidneys, Strengthens the sinews and bones, Benefits the joints, Induces the downward movement of blood and fire, Clears damp-heat in the lower burner]
   dui_yao: []
 
   # Additional Information
-  constituents: []
-  quality: ""
-  text_first_appeared: ""
+  constituents: [Triterpene saponines: sapogenin: oleanolic acid, Steroles: ecdysterone, inokosterone, rubrosterone, polysachharides, amino acids, coumarine derivates, alkaloids, betaine, saccharose]
+  quality: "Good quality consists of dry, fleshy, long roots with thin cork, a yellowish grey surface, and sweet taste. The crown should be cut off."
+  text_first_appeared: "None"
 
   # Source References
-  bensky_page: ""
+  bensky_pdf: "627"
+  bensky_page: "None"
 
 created: 2025-10-01
 updated: 2025-10-01
 ---
 
-# 🌿 Niu Xi
+# 🌿 Ai Ye
 
 **Pharmaceutical Name:** `= this.herb_data.pharmaceutical`
 **English Name:** `= this.herb_data.english`
@@ -71,8 +72,11 @@ updated: 2025-10-01
 
 ## 📖 Overview
 
-Brief description of the herb, source, botanical information, and general identity.
+Depending on its method of preparation, Achyranthis bidentatae Radix (niu xi) has very different properties. In its unprepared form, it breaks up blood, unblocks menstruation, and guides the blood downward, treating such symptoms as amenorrhea due to blood stasis, mobile and fixed abdominal masses, postpartum abdominal pain due to blood stagnation, difficult labor, retained placenta, swelling and pain from external injury, and pain in the joints from painful obstruction. It leads blood downward, which also has the effect of directing downward fire that is blazing upward and causing nosebleed, sore throat, and swollen, bleeding gums. However, the unprepared form also has a downward-slipping tendency that can aggravate spermatorrhea, vaginal discharge, and diarrhea; for patients with these problems, the herb should either be used in its prepared form, or not at all.
 
+In its prepared form, the herb tonifies the Liver and Kidneys, strengthens the sinews and bones, and is used for aching weakness of the lower back and knees, and lack of strength in the sinews and bones. The Grand Materia states that it "is an herb of the leg terminal yin and leg lesser yin channels. When prepared with wine, it primarily tonifies the Liver and Kidneys; when used unprepared, it expels noxious blood."
+
+---
 ---
 
 ## 🔑 TCM Properties
@@ -85,21 +89,22 @@ Brief description of the herb, source, botanical information, and general identi
 
 ## ⚡ Functions & Actions
 
-```dataview
-LIST herb_data.functions
-WHERE file.name = this.file.name
-```
-
-**Key Functions:**
--
--
--
-
-**Clinical Applications:**
--
--
-
----
+- Invigorates the blood and dispels blood stasis: for blood stasis patterns with such symptoms as dysmenorrhea, amenorrhea, and retained lochia. Also used for post-traumatic pain.
+    - With Carthami Flos (hong hua), Angelicae sinensis Radix (dang gui), and Cinnamomi Cortex (rou gui) for amenorrhea, dysmenorrhea, and delayed menstruation due to blood stasis.
+    - With Olibanum (ru xiang) and Myrrha (mo yao) for pain from trauma.
+- Tonifies the Liver and Kidneys, strengthens the sinews and bones, and benefits the joints: for pain and soreness affecting the lower back and knees due to deficiency.
+    - With Eucommiae Cortex (du zhong) for pain and weakness of the lower back and extremities due to Kidney deficiency and/or painful obstruction.
+    - With Rehmanniae Radix preparata (shu di huang) and Testudinis Plastrum (gui ban) for weak lower back and extremities from Liver and Kidney insufficiency, as in Hidden Tiger Pill (hu qian wan).
+    - With Chaenomelis Fructus (mu gua) and Dioscoreae hypoglaucae Rhizoma (bi xie) for lower extremity pain due to invasion of wind-dampness.
+- Induces the downward movement of blood and fire: for chaotic movement of hot blood in the upper burner or yin deficiency with ascending fire. Manifestations include nosebleed, vomiting blood, toothaches, bleeding gums. Also for dizziness, headache, and blurred vision due to ascendent Liver yang.
+    - With Gypsum fibrosum (shi gao) and Rehmanniae Radix preparata (shu di huang) for pain, swelling, and ulceration of the teeth, gums, and tongue from Stomach heat and yin deficiency, as in Jade Woman Decoction (yu nü jian).
+    - With Haematitum (dai zhe shi) and Ostreae Concha (mu li) for dizziness and vertigo from ascendant Liver yang secondary to Liver and Kidney yin deficiency, as in Sedate the Liver and Extinguish Wind Decoction (zhen gan xi feng tang).
+    - With Uncariae Ramulus cum Uncis (gou teng) and Taxilli Herba (sang ji sheng) for headache, dizziness, and blurred vision associated with ascendant Liver yang.
+    - With Angelicae sinensis Radix (dang gui) and Testudinis Plastrum (gui ban) as an aid to difficult deliveries.
+- Clears damp-heat in the lower burner: for cases of damp-heat pouring downward manifesting as knee pain or lower back damp painful obstruction. It is also an auxiliary herb for painful urinary dribbling or vaginal discharge. Especially useful for painful urinary dribbling with stones accompanied by lower back pain and bloody urine.
+    - With Jin Qian Cao (Lysimachiae/Desmodii/etc. Herba) for painful urinary dribbling, especially when associated with kidney stones accompanied by bloody urine and lower back pain.
+    - With Angelicae sinensis Radix (dang gui) and Scutellariae Radix (huang qin) for hot painful urinary dribbling.
+    - With Phellodendri Cortex (huang bai) and Atractylodis Rhizoma (cang zhu) for red, swollen, and painful joints of the lower extremities from downward-pouring of damp-heat, as in Three-Marvel Pill (san miao wan).
 
 ## 🎯 Patterns & Symptoms
 
@@ -175,8 +180,14 @@ SORT Category, file.name
 **Toxicity:** `= this.herb_data.toxicity`
 
 **Contraindications:**
--
--
+- "Cannot be consumed during pregnancy." (Essentials of Materia Medica Distinctions)
+- Should not be used when joint pain or chest, abdomen, hypochondrium, and flank pain are not due to retained blood stasis, but rather to blood deficiency.
+- It should not be used for excessive loss of postpartum lochia with abdominal pain due to deficiency.
+- It should not be used when sores have already perforated. (Commentary on the Divine Husbandman's Classic of Materia Medica)
+- This warning may seem unusual for a substance that "assists the growth of flesh."
+- "If amenorrhea is only short term, and pregnancy is suspected, do not use it. Do not add it to upper burner herbs. It is forbidden where there is continuous bleeding." (Commentary on the Divine Husbandman's Classic of Materia Medica)
+
+- "If there is diarrhea, dysenteric disorder, or Spleen deficiency, with soreness and pain in the legs and knees, it should not be used." (Transforming the Significance of Medicinal Substances) This is because it directs downward thus opposing the ascent of Spleen qi, so even if knee pain would seem to indicate its use, it is forbidden. Materia Medica of Combinations concurs: "It is forbidden for both insufficiency of middle burner qi and incontinence of urine."
 
 **Drug Interactions:**
 -
@@ -209,8 +220,7 @@ WHERE file.name = this.file.name
 ## 🌱 Quality Criteria & Authentication
 
 **Quality Indicators:**
--
--
+Good quality consists of dry, fleshy, long roots with thin cork, a yellowish grey surface, and sweet taste. The crown should be cut off.
 
 **Common Adulterants:**
 -
@@ -281,7 +291,7 @@ LIMIT 10
 - [[]]
 
 **Related Formulas:**
-- [[Formulas including Niu Xi]]
+- [[Formulas including Ai Ye]]
 
 **Related Western Conditions:**
 - [[]]

@@ -20,35 +20,42 @@ tests: []
 # 🔹 Herb-Specific Data
 herb_data:
   hanzi: "秦皮"
-  pinyin: "Qin Pi"
+  pinyin: "qīn pí"
   pharmaceutical: "Fraxini Cortex"
-  english: ""
+  english: "fraxinus bark, Korean ash bark, ash bark"
   alternate_names: []
 
   # TCM Properties
-  taste: []
-  temperature: ""
-  channels: []
+  taste: [Bitter, astringent]
+  temperature: "Cold"
+  channels: [Gallbladder, Large Intestine, Liver, Stomach]
 
   # Clinical Information
-  dosage: ""
-  toxicity: ""
-  functions: []
+  dosage: "6-12g"
+  toxicity: "The following side effects may occasionally occur: mild dizziness, nausea, vomiting, and constipation. These symptoms usually disappear spontaneously. In severe cases of overdosage the following symptoms have been reported: spasms, disturbance of speech, irregular breathing, respiratory failure and death. Allergic reactions have also been reported, primarily of maculopapular rashes."
+  functions: [Clears heat, Resolves toxicity, Dries dampness, Drains Liver fire, Benefits the eyes, Disperses wind-dampness, Calms wheezing, Stops coughs, Binds the Intestines]
   dui_yao: []
 
   # Additional Information
-  constituents: []
-  quality: ""
-  text_first_appeared: ""
+  constituents: [*Fraxinus rhynchophylla:*
+    - Coumarines: aesculin, aesculetin, *Fraxinus chinensis:*
+    - Coumarines: aesculin, fraxetin, *Fraxinus chinensis var. acuminata:*
+    - Coumarines: aesculin, aesculetin, scopoletin
+    - Other constituents: 2,6-dimethoxy-p-benzoquinone, *Fraxinus stylosa:*
+    - Coumarines: aesculin, aesculetin, fraxin
+    - Other constituents: syringin, stylosin]
+  quality: "Good quality consists of long quills with thin and smooth cork."
+  text_first_appeared: "Divine Husbandman's Classic of the Materia Medica"
 
   # Source References
-  bensky_page: ""
+  bensky_pdf: "627"
+  bensky_page: "None"
 
 created: 2025-10-01
 updated: 2025-10-01
 ---
 
-# 🌿 Qin Pi
+# 🌿 Ai Ye
 
 **Pharmaceutical Name:** `= this.herb_data.pharmaceutical`
 **English Name:** `= this.herb_data.english`
@@ -71,8 +78,27 @@ updated: 2025-10-01
 
 ## 📖 Overview
 
-Brief description of the herb, source, botanical information, and general identity.
+Fraxini Cortex (qin pi) is bitter, astringent, and cold. Because it is astringent, its cooling, draining, and dampness-drying effects contain a constricting action which makes it ideal for treating dysenteric disorders. Fraxini Cortex (qin pi) can also cool Liver and Gallbladder fire and eliminate wind-dampness painful obstruction. The *Materia Medica for Decoctions* says that Fraxini Cortex (qin pi) treats painful obstruction due to wind, cold, and dampness, superficial visual obstructions, lack of [sperm-] essence in males, vaginal discharge in females, and childhood convulsions. It can also be used externally to wash the eyes. *Hidden Aspects of Materia Medica* adds that it is "a specific herb for ophthalmology, to expel long-term heat in the Liver; if the decocted fluid is left to settle, the clear fluid on top can be used as eye drops or to wash the eyes at any time."
 
+*Detailed Materia Medica* provides this description: Fraxini Cortex (qin pi): Its effect in the treatment of the eyes and childhood convulsions is derived from its ability to calm the Liver; its effect in the treatment of dysenteric disorders, irregular uterine bleeding, and vaginal discharge is derived from its ability to restrain and inhibit; its ability to benefit the [sperm-] essence is derived from its binding and tonification. Dysenteric disorders make the lower burner deficient, thus the bitterness of Fraxini Cortex (qin pi) can be used to fortify. It should be used sparingly for patients with cold from deficiency of the Spleen and Stomach.
+
+Zhang Bing-Cheng, however, disagrees with this assessment:
+
+Because its nature is cold, it specifically clears Liver and Gallbladder damp-fire. Every single one of its main indications is caused by Liver and Gallbladder damp-fire. As for its ability to benefit the [sperm-] essence, this too is a result of [its ability to] expel pathogenic heat. The essence naturally benefits [from this].
+
+### Mechanisms of Selected Combinations
+
+- **WITH Pulsatillae Radix (bai tou weng)**
+
+Pulsatillae Radix (bai tou weng) enters the blood level, while Fraxini Cortex (qin pi) enters the qi level. Pulsatillae Radix (bai tou weng) eliminates heat toxin, cools the blood, and stops dysenteric disorder, while Fraxini Cortex (qin pi) cools the Large Intestine, dries dampness, and likewise stops dysenteric disorder. Thus, one herb treats the blood, the other treats the qi, and together they are very good for cooling heat toxin and drying dampness, which is a good match for hot-type red-and-white dysenteric disorders.
+
+Red-and-white dysenteric disorders refers to the expulsion of pus and blood in the stool. This was described as early as the seventh century in *Discussion of the Origins of the Symptoms of Disease*:
+
+Cold and heat intermingle, thus red and white are mixed together; when severe it appears like thick nasal mucus with mixed blood, when mild the mucus only has streaks of thin blood, like a fatty brain.
+
+This disease is usually the result of damp-heat obstruction blocking the Stomach and Intestines, affecting both the blood and qi levels. The treatment is to cool heat and transform dampness, regulate the qi, and move the blood. This pair of herbs is prominently featured in a formula which does just that: Pulsatilla Decoction (bai tou weng tang).
+
+---
 ---
 
 ## 🔑 TCM Properties
@@ -85,21 +111,14 @@ Brief description of the herb, source, botanical information, and general identi
 
 ## ⚡ Functions & Actions
 
-```dataview
-LIST herb_data.functions
-WHERE file.name = this.file.name
-```
-
-**Key Functions:**
--
--
--
-
-**Clinical Applications:**
--
--
-
----
+- **Clears heat, resolves toxicity, and dries dampness:** for diarrhea, dysenteric disorder, and vaginal discharge due to damp-heat.
+    - With Pulsatillae Radix (bai tou weng) and Phellodendri Cortex (huang bai) for hot dysenteric disorder due to heat toxin searing the Stomach and Intestines, as in Pulsatilla Decoction (bai tou weng tang).
+    - With Sophorae flavescentis Radix (ku shen) and Aucklandiae Radix (mu xiang) for dysenteric disorder with especially severe tenesmus.
+    - With Moutan Cortex (mu dan pi) for damp-heat vaginal discharge.
+- **Drains Liver fire and benefits the eyes:** for Liver heat affecting the eyes causing redness, swelling, pain, or the formation of superficial visual obstructions.
+    - With Coptidis Rhizoma (huang lian) and Lophatheri Herba (dan zhu ye) for redness and swelling of the eyes, styes, or superficial visual obstructions.
+- **Disperses wind-dampness:** for painful obstruction, primarily of the hot type.
+- **Calms wheezing and stops coughs:** for wheezing and coughs due to Lung heat.
 
 ## 🎯 Patterns & Symptoms
 
@@ -175,8 +194,8 @@ SORT Category, file.name
 **Toxicity:** `= this.herb_data.toxicity`
 
 **Contraindications:**
--
--
+*Detailed Materia Medica* cautions that it "should be used sparingly for patients with cold from deficiency of the Spleen and Stomach."
+Rectification of the Meaning of Materia Medica: "All herbs which are very bitter and very cold are inevitably very drying in nature, and excessive use cannot but injure the Spleen or deplete the Kidneys."
 
 **Drug Interactions:**
 -
@@ -209,8 +228,7 @@ WHERE file.name = this.file.name
 ## 🌱 Quality Criteria & Authentication
 
 **Quality Indicators:**
--
--
+Good quality consists of long quills with thin and smooth cork.
 
 **Common Adulterants:**
 -
@@ -281,7 +299,7 @@ LIMIT 10
 - [[]]
 
 **Related Formulas:**
-- [[Formulas including Qin Pi]]
+- [[Formulas including Ai Ye]]
 
 **Related Western Conditions:**
 - [[]]

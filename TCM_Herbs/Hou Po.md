@@ -21,34 +21,35 @@ tests: []
 herb_data:
   hanzi: "厚朴"
   pinyin: "Hou Po"
-  pharmaceutical: "Magnoliae Officinalis, Cortex"
-  english: ""
+  pharmaceutical: "Magnoliae officinalis Cortex"
+  english: "Magnolia Bark"
   alternate_names: []
 
   # TCM Properties
-  taste: []
-  temperature: ""
-  channels: []
+  taste: [Bitter, acrid, warm]
+  temperature: "warm"
+  channels: [Large Intestine, Lung, Spleen, Stomach]
 
   # Clinical Information
-  dosage: ""
-  toxicity: ""
-  functions: []
+  dosage: "3-9g"
+  toxicity: "None"
+  functions: [Regulates the qi and directs it downward, Disperses fullness, Dries dampness, Reduces phlegm]
   dui_yao: []
 
   # Additional Information
-  constituents: []
-  quality: ""
-  text_first_appeared: ""
+  constituents: [Volatile oil: β-eudesmol, cadinol, guaiol, p-cymene, α-pinene, β-pinene, 1,4-cineol, caryophyllene, linalool, α-terpineol, 4-terpineol, α-humulene, α-copaene, aromadendrene, alloaromadendrene, α-cedrene, α-limonene, globulol, guaiazulene, Lignans: magnolol, honokiol, isomagnolol, tetrahydromagnolol, 6'-O-methylhonokiol, piperitylmagnolol, dipiperitylmagnolol, piperitylhonokiol, bornylmagnolol, magnaldehyde B, C, D, E, magnolignan A, B, C, D, E, F, G, H, I, randainal, syringaresinol, syringaresinol-4'-O-β-D-glucopyranoside, Alkaloids: magnocurarine, salicifoline, Other constituents: sinapic aldehyde]
+  quality: "Good quality consists of large, thick, oily, and not too fibrous pieces, with a dark purplish inner surface, intense aroma, and spicy taste."
+  text_first_appeared: "None"
 
   # Source References
-  bensky_page: ""
+  bensky_pdf: "627"
+  bensky_page: "None"
 
 created: 2025-10-01
 updated: 2025-10-01
 ---
 
-# 🌿 Hou Po
+# 🌿 Ai Ye
 
 **Pharmaceutical Name:** `= this.herb_data.pharmaceutical`
 **English Name:** `= this.herb_data.english`
@@ -71,8 +72,15 @@ updated: 2025-10-01
 
 ## 📖 Overview
 
-Brief description of the herb, source, botanical information, and general identity.
+Bitter, acrid, warm, and drying, Magnoliae officinalis Cortex (hou po) enters the Lungs, Large Intestine, Spleen, and Stomach channels. It promotes the flow of qi, directing it downward to calm wheezing, disperse sensations of fullness, warm the middle, and dry dampness. When the dampness and fullness have been eliminated, the Lung qi will descend smoothly to facilitate breathing, and the wheezing will simply cease.
 
+A special characteristic of this herb is that, while it disperses the formless stagnation of cold-damp qi, it also reduces problems with form such as food blockage and stopped-up phlegm. Thus it can be used to treat food stagnation and qi stasis, which causes distending pain in the chest and abdomen and dry clumped stools; dampness stagnating and disrupting the digestion, leading to nausea, vomiting, diarrhea and dysentery; and phlegm and thin mucus that obstructs the Lungs and thereby prevents its qi from descending, leading to cough and wheezing.
+
+Li Gao observed that the bitterness of this herb "drives qi downward, thus draining fullness due to excess; [its] warmth augments qi, thus dispersing fullness due to dampness." Treasury of Words on the Materia Medica elaborates:
+
+Magnoliae officinalis Cortex (hou po) is a herb that eases the middle burner, transforms stagnation, and calms Stomach qi. Whenever qi stagnates in the middle, becoming constrained and unable to disperse, or food accumulates in the Stomach, delayed in its movement, or dampness becomes constrained, accumulated and unable to depart ... use the warmth of Magnoliae officinalis Cortex (hou po) to dry dampness ... and its bitterness to direct qi downward.
+
+---
 ---
 
 ## 🔑 TCM Properties
@@ -85,21 +93,23 @@ Brief description of the herb, source, botanical information, and general identi
 
 ## ⚡ Functions & Actions
 
-```dataview
-LIST herb_data.functions
-WHERE file.name = this.file.name
-```
-
-**Key Functions:**
--
--
--
-
-**Clinical Applications:**
--
--
-
----
+- Promotes the movement of qi in the middle burner and resolves stagnation: for qi stagnation affecting the Spleen and Stomach, and in cases of food stagnation, with such symptoms as chest and/or abdominal distention and fullness. This is an important herb for reducing and eliminating distention and fullness and can be used whenever these symptoms occur due to qi stagnation.
+- With Aurantii Fructus immaturus (zhi shi) for clumped qi failing to move resulting in such problems as abdominal distention, wheezing, shortness of breath, nausea, or constipation.
+- Add Atractylodis macrocephalae Rhizoma (bai zhu) for epigastric and abdominal distention due to qi and food stagnation, as in Unripe Bitter Orange Pill to Reduce Focal Distention (zhi shi xiao pi wan).
+- Add Rhei Radix et Rhizoma (da huang) for relatively severe accumulation and stagnation marked by abdominal distention and pain as well as lack of bowel movements, as in Minor Order the Qi Decoction (xiao cheng qi tang). This use has currently been applied for paralytic ileus.
+- With Cinnamomi Ramulus (gui zhi) and Zingiberis Rhizoma (gan jiang) for distention and fullness due to congealing of cold leading to qi stagnation.
+- With Cyperi Rhizoma (xiang fu) and Citri Reticulatae Pericarpium (chen pi) for epigastric and abdominal bloating due to dampness obstructing the qi dynamic, as in Discharge Gas Decoction (pai qi yin).
+- With Crataegi Fructus (shan zha) and Hordei Fructus Germinatus (mai ya) for food stagnation causing accumulation and leading to belching with a rotten odor.
+- With Ginseng Radix (ren shen) and Glycyrrhizae Radix (gan cao) for distention and fullness due to cold from deficiency.
+- Promotes the movement of qi downward, dries dampness, and transforms phlegm: for dampness or phlegm obstructing the middle burner affecting the qi dynamic. Symptoms include distention, fullness, nausea, and diarrhea. The tongue coating is usually turbid and greasy.
+- With Pinelliae Rhizoma Preparatum (zhi ban xia) and Poria (fu ling) for phlegm obstructing the qi dynamic leading to coughing, vomiting, or a sense of something being stuck in the throat, as in Pinellia and Magnolia Bark Decoction (ban xia hou po tang).
+- With Atractylodis Rhizoma (cang zhu) and Citri Reticulatae Pericarpium (chen pi) for Stomach excess manifesting as epigastric fullness and distention, acid reflux, distasteful belching, and nausea or vomiting, as in Calm the Stomach Powder (ping wei san).
+- With Zingiberis Rhizoma (gan jiang) and Alpiniae Katsumadai Semen (cao dou kou) for cold-dampness in the middle burner, as in Magnolia Bark Decoction for Warming the Middle (hou po wen zhong tang).
+- With Zingiberis Rhizoma (gan jiang) for acute diarrhea from cold attack.
+- With Coptidis Rhizoma (huang lian) for acute diarrhea associated with sudden turmoil disorder from damp-heat.
+- Directs qi downward, reduces phlegm, and calms wheezing: for cough and wheezing from phlegm clogging the Lungs.
+- With Perillae Fructus (zi su zi) and Cinnamomi Cortex (rou gui) for cough and wheezing due to excess above and deficiency below with clogging of phlegm, as in Perilla Fruit Decoction for Directing Qi Downward (su zi jiang qi tang).
+- With Armeniacae Semen (xing ren) and Cinnamomi Ramulus (gui zhi) for cough and wheezing associated with externally-contracted wind, as in Cinnamon Twig Decoction plus Magnolia Bark and Apricot Kernel (gui zhi jia hou po xing zi tang).
 
 ## 🎯 Patterns & Symptoms
 
@@ -175,8 +185,12 @@ SORT Category, file.name
 **Toxicity:** `= this.herb_data.toxicity`
 
 **Contraindications:**
--
--
+Use with caution during pregnancy.
+
+Traditional Contraindications
+"Cannot be used in pregnancy." (Essentials of Materia Medica Distinctions)
+
+Acrid, warm, very hot, and specifically reducing and guiding-out by nature, dispersing without inhibition, it exhausts the primal qi, without the slightest tonifying or augmenting effect. ... If it is applied mistakenly, mild illnesses occur. (Harm and Benefit in the Materia Medica)
 
 **Drug Interactions:**
 -
@@ -209,8 +223,7 @@ WHERE file.name = this.file.name
 ## 🌱 Quality Criteria & Authentication
 
 **Quality Indicators:**
--
--
+Good quality consists of large, thick, oily, and not too fibrous pieces, with a dark purplish inner surface, intense aroma, and spicy taste.
 
 **Common Adulterants:**
 -
@@ -281,7 +294,7 @@ LIMIT 10
 - [[]]
 
 **Related Formulas:**
-- [[Formulas including Hou Po]]
+- [[Formulas including Ai Ye]]
 
 **Related Western Conditions:**
 - [[]]

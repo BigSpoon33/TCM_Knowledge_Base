@@ -20,35 +20,36 @@ tests: []
 # 🔹 Herb-Specific Data
 herb_data:
   hanzi: "萆薢"
-  pinyin: "Bi Xie"
-  pharmaceutical: "Dioscoreae Hypoglaucae, Rhizoma"
-  english: ""
+  pinyin: "bì xiè"
+  pharmaceutical: "Dioscoreae Hypoglaucae Rhizoma"
+  english: "Tokoro, fish-poison yam rhizome"
   alternate_names: []
 
   # TCM Properties
-  taste: []
-  temperature: ""
-  channels: []
+  taste: [Bitter, neutral]
+  temperature: "neutral"
+  channels: [Bladder, Liver, Stomach]
 
   # Clinical Information
-  dosage: ""
-  toxicity: ""
-  functions: []
+  dosage: "9-15g"
+  toxicity: "None noted"
+  functions: [Separates the pure from the turbid, Expels wind-dampness, relaxes the sinews, and unblocks the collaterals, Clears damp-heat from the skin]
   dui_yao: []
 
   # Additional Information
-  constituents: []
-  quality: ""
-  text_first_appeared: ""
+  constituents: [Saponins: diosgenin, yamogenin, hypoglaucin A, protohypoglaucine A, gracilin, protogracilin]
+  quality: "Good quality consists of large, thin, yellowish white, elastic, unfragmented slices."
+  text_first_appeared: "Divine Husbandman's Classic of the Materia Medica"
 
   # Source References
-  bensky_page: ""
+  bensky_pdf: "627"
+  bensky_page: "None"
 
 created: 2025-10-01
 updated: 2025-10-01
 ---
 
-# 🌿 Bi Xie
+# 🌿 Ai Ye
 
 **Pharmaceutical Name:** `= this.herb_data.pharmaceutical`
 **English Name:** `= this.herb_data.english`
@@ -71,8 +72,17 @@ updated: 2025-10-01
 
 ## 📖 Overview
 
-Brief description of the herb, source, botanical information, and general identity.
+Bitter and neutral, *Dioscoreae Hypoglaucae Rhizoma* (*bi xie*) enters the Bladder, Liver, and Stomach channels. Through the Liver channel it acts upon the sinews and expels wind; through the Stomach channel it acts upon the flesh, expelling dampness, which is eliminated through the Bladder. Dampness can block the sinews, bones, flesh and skin, leading to pain, softening the sinews and causing atrophy and loss of function, or seeping into the flesh and skin to form toxic sores. Turbid dampness can flow downward causing turbid painful urinary dribbling or vaginal discharge.
 
+This herb excels at expelling dampness by encouraging the separation of the pure from the turbid, which it then directs downward. An ancient adage points out that "It is best at treating dampness, next best at treating wind, and finally, it also treats cold." Its most appropriate indication is for turbid painful urinary dribbling and vaginal discharge due to lower burner turbid dampness. However, it is also effective for painful muscles due to damp-heat or wind-dampness, for eczema and damp sores due to seeping damp-heat, and atrophy of the limbs due to dampness obstructing the sinews and bones.
+
+Chen Shi-Duo observed that it is more appropriate for chronic painful obstruction than for acute painful obstruction, because its action is gradual, the effect only becoming apparent after several weeks.
+
+Thoroughly Revised Materia Medica describes an interesting pathological mechanism which throws light on one aspect of this herb:
+
+When a person has urinary frequency with unbearable pain while voiding, this condition is necessarily due to blocked hot constipation. Water and fluids can only enter the Small Intestine, and the Large Intestine becomes ever more dry and parched. When serious, the patient is feverish and desires cold drinks. The disorder stems from greed for wine and sex, or the overconsumption of acrid, heating, meaty or fermented things which accumulate into heat toxin. They rot and stagnate the blood; then, taking advantage of deficiency, enter the Small Intestine, thus causing pain on urination. This type of urinary frequency and pain on voiding is different from the grating pain of painful urinary dribbling. One should use 60g of *Dioscoreae Hypoglaucae Rhizoma* (*bi xie*) dry-fried with salt water and powdered, taken in doses of 6-9g. This will make the water turn and flow into the Large Intestine. At the same time, one should use scallion soup to frequently rub the anus in order to unblock the qi, then the urinary frequency and pain will be reduced as a matter of course.
+
+---
 ---
 
 ## 🔑 TCM Properties
@@ -85,21 +95,23 @@ Brief description of the herb, source, botanical information, and general identi
 
 ## ⚡ Functions & Actions
 
-```dataview
-LIST herb_data.functions
-WHERE file.name = this.file.name
-```
+*   Separates the pure from the turbid: for resolving turbid dampness in the lower burner manifested in cloudy urine (like rice porridge) or vaginal discharge. Can be used for problems due to either deficiency or damp-heat. For urine like rice porridge without pain or signs of heat, as in Tokoro Decoction to Separate the Clear (*bi xie fen qing yin*).
 
-**Key Functions:**
--
--
--
+*   With *Plantaginis Semen* (che qian zi), *Talcum* (hua shi), and *Phellodendri Cortex* (huang bai) for damp-heat pouring downward with urinary frequency, cloudy urine, and vaginal discharge with a red tongue body and a yellow, greasy coating.
 
-**Clinical Applications:**
--
--
+*   With *Alpiniae Oxyphyllae Fructus* (yi zhi ren), *Acori Tatarinowii Rhizoma* (shi chang pu), and *Linderae Radix*.
 
----
+*   Expels wind-dampness, relaxes the sinews, and unblocks the collaterals: for wind-dampness or damp-heat painful obstruction with lower back pain, numbness or stiffness of the lower extremities, or muscle aches. The effect is mild.
+
+    *   With *Clematidis Radix* (wei ling xian) for painful obstruction due to wind-dampness.
+    *   Add *Cinnamomi Ramulus* and *Aconiti Radix Lateralis Preparata* (zhi fu zi) if due to cold-dampness.
+    *   Add *Gentianae Macrophyllae Radix* (qin jiao) and *Coicis Semen* (yi yi ren) if due to damp-heat.
+
+*   With *Achyranthis Bidentatae Radix* (niu xi) and *Eucommiae Cortex* (du zhong) for pain in the lower back with weakness due to Kidney deficiency and wind-dampness.
+
+*   Clears damp-heat from the skin: for damp-heat skin lesions such as eczema and pustular sores.
+
+    *   With *Phellodendri Cortex* (huang bai) and *Coicis Semen* (yi yi ren) for damp-heat skin lesions.
 
 ## 🎯 Patterns & Symptoms
 
@@ -175,8 +187,7 @@ SORT Category, file.name
 **Toxicity:** `= this.herb_data.toxicity`
 
 **Contraindications:**
--
--
+"Contraindicated for yin deficiency with blazing fire, terminal dribbling of urine with no dampness present, and low back pain due to Kidney deficiency." (Thoroughly Revised Materia Medica)
 
 **Drug Interactions:**
 -
@@ -209,8 +220,7 @@ WHERE file.name = this.file.name
 ## 🌱 Quality Criteria & Authentication
 
 **Quality Indicators:**
--
--
+Good quality consists of large, thin, yellowish white, elastic, unfragmented slices.
 
 **Common Adulterants:**
 -
@@ -281,7 +291,7 @@ LIMIT 10
 - [[]]
 
 **Related Formulas:**
-- [[Formulas including Bi Xie]]
+- [[Formulas including Ai Ye]]
 
 **Related Western Conditions:**
 - [[]]

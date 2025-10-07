@@ -20,35 +20,36 @@ tests: []
 # 🔹 Herb-Specific Data
 herb_data:
   hanzi: "夏枯草"
-  pinyin: "Xia Ku Cao"
-  pharmaceutical: "Prunellae, Spica"
-  english: ""
+  pinyin: "xià kū cǎo"
+  pharmaceutical: "Prunellae Spica"
+  english: "Prunella, selfheal spike"
   alternate_names: []
 
   # TCM Properties
-  taste: []
-  temperature: ""
-  channels: []
+  taste: [Bitter, acrid, cold]
+  temperature: "cold"
+  channels: [Gallbladder, Liver]
 
   # Clinical Information
-  dosage: ""
-  toxicity: ""
-  functions: []
+  dosage: "9-15g"
+  toxicity: "Rare cases of allergic reaction have been reported with such symptoms as maculopaular rashes, pruritus, or allergic reactions of the mucosa of the throat, swollen lips and tongue, rhinitis, discomfort of the epigastrium, nausea, vomiting, abdominal pain, and diarrhea."
+  functions: [Clears Liver fire and brightens the eyes, Clears heat and dissipates nodules]
   dui_yao: []
 
   # Additional Information
-  constituents: []
-  quality: ""
-  text_first_appeared: ""
+  constituents: [Triterpenes: ursolic acid, methyl ursolate, methyl 2a-hydroxyursolate, oleanolic acid, methyl oleanolate, methyl maslinate, betulinic acid, β-amyrin, 2α, 3α-dihydroxyurs-12-en-28-oic acid, 2α, 3α, 24-trihydroxyolean-12-en-28-oic acid, 2α, 3α, 24-trihydroxyolean-11,13(18)-dien-28-oic acid, prunelin, pruvuloside A, B, sericoside, arjunglucoside I, β-sitosterol-β-D-glucoside, stigmasterol-β-O-glucoside, spinasterol-β-D-glucoside, Flavonoids: rutin, hyperin, delphinidin, isoquercitrin, quercetin, quercetin-3-O-glucoside, cinaroside, kaempferol-3-O-glucoside, Phenolic acids: rosmarinic acid, caffeic acid, Coumarins: umbelliferone, scopoletin, esculetin, Volatile oil: 1,8-cineol (45%), β-pinene, myrcene, linalool, linlyl acetate, linlyl oxide, menthone, iso-menthone, terpinen-4-ol, α-phellandrene, geranyl acetate, α-copaene, δ-elemene, d-camphor, d-fenchone, Other constituents: prunellin]
+  quality: "Good quality consists of reddish brown, long spikes with short stalks, and without leaves or foreign matter. In the export quality herb, the spikes should exceed 8cm in length."
+  text_first_appeared: "Divine Husbandman's Classic of the Materia Medica"
 
   # Source References
-  bensky_page: ""
+  bensky_pdf: "627"
+  bensky_page: "None"
 
 created: 2025-10-01
 updated: 2025-10-01
 ---
 
-# 🌿 Xia Ku Cao
+# 🌿 Ai Ye
 
 **Pharmaceutical Name:** `= this.herb_data.pharmaceutical`
 **English Name:** `= this.herb_data.english`
@@ -71,8 +72,19 @@ updated: 2025-10-01
 
 ## 📖 Overview
 
-Brief description of the herb, source, botanical information, and general identity.
+Acrid, bitter, and cold, Prunellae Spica (xià kū cǎo) cools and disperses. It is used for Liver fire, especially that due to constraint, and also disperses clumped stagnation, such as phlegm thickened by heat. Zhu Dan-Xi noted that Prunellae Spica (xià kū cǎo) also nourishes the yin and blood of the Liver, but many later commentators disagreed with this assertion. Since it grows in spring and early summer, but withers as soon as the first hint of yin qi appears after mid-summer, many writers describe Prunellae Spica (xià kū cǎo) as being "full of pure yang qi."
 
+Nodules of phlegm, such as scrofula, are often a result of Liver qi constraint, which allows fluids to accumulate, thicken, and become phlegm. Over time this phlegm and constraint engenders heat, which further thickens the phlegm and forms palpable clumps and nodules. In such cases, Prunellae Spica (xià kū cǎo) is often used as it can both cool Liver fire and disperse the clumps.
+
+This herb was noted for its efficacy in the treatment of clumping and nodules as early as the Divine Husbandman's Classic of the Materia Medica. In Indispensable Tools for Pattern Treatment, Wang Ken-Tang recommends a formula made of 180g of just this herb decocted and taken before meals to treat scrofula at any stage of development: "the more the better." Modern textbooks confirm that long-term consumption of Prunellae Spica (xià kū cǎo) as a syrup has a reliable therapeutic effect for scrofula.
+
+Harm and Benefit in the Materia Medica notes that it "treats pain in the eyes which occurs at night, because it disperses fire from constraint in the terminal yin channel." Materia medica textual entries for this herb over the centuries repeatedly mention its efficacy for the type of eye pain that worsens or only occurs at night. Zhang Shan-Lei is quite explicit in his explanation:
+
+The eyeball is linked to terminal yin [Liver]; if it worsens at night or on contact with cold herbs, this is constraint of yin fire in the terminal yin, unable to disperse. Naturally, one should not attempt to directly break it up with cold [because cold contracts]-this will just make it worse!
+
+Prunellae Spica (xià kū cǎo) can dredge and unblock Liver and Gallbladder qi: "If wood is constrained, allow it to reach out" [says the adage]. Furthermore, because it contains pure yang qi, it can disperse clumped stagnant heat in the midst of yin.
+
+---
 ---
 
 ## 🔑 TCM Properties
@@ -85,21 +97,16 @@ Brief description of the herb, source, botanical information, and general identi
 
 ## ⚡ Functions & Actions
 
-```dataview
-LIST herb_data.functions
-WHERE file.name = this.file.name
-```
+• Clears Liver fire and brightens the eyes: for upward-blazing of Liver fire with red, painful, or swollen eyes, or headache and dizziness. Also used for eye pain that increases in the evening due to Liver deficiency, especially when the eyes are neither red nor swollen.
+- With Chrysanthemi Flos (ju hua) and Haliotidis Concha (shí jué míng) for headache, dizziness, vertigo, and pain and redness in the eyes due to ascending Liver fire.
+- With Cyperi Rhizoma (xiāng fù) for eye pain with excessive tearing.
+- Add Angelicae sinensis Radix (dāng guī) and Paeoniae Radix alba (bái sháo) for eye pain that increases during the evening due to Liver deficiency.
 
-**Key Functions:**
--
--
--
+• Clears heat and dissipates nodules: for any neck lump or nodule, as in scrofula, lipoma, swollen glands, or goiter due to phlegm-fire. Also used for similar nodules in the inguinal canal and other parts of the body.
+- With Scrophulariae Radix (xuán shēn) and Eckloniae Thallus (kun bù) for hard scrofula from dry blood due to Liver yang excess, as in Prunella Syrup (xià kū cǎo gāo).
+- With Bupleuri Radix (chái hú) for neck nodules due to constrained Liver qi.
 
-**Clinical Applications:**
--
--
-
----
+• This herb has recently been used for hypertension, especially when accompanied by Liver fire or patterns of ascending yang.
 
 ## 🎯 Patterns & Symptoms
 
@@ -175,8 +182,9 @@ SORT Category, file.name
 **Toxicity:** `= this.herb_data.toxicity`
 
 **Contraindications:**
--
--
+"Long-term consumption will injure those with chronic digestive weakness." (Harm and Benefit in the Materia Medica)
+
+With Spleen and Stomach weakness and deficiency
 
 **Drug Interactions:**
 -
@@ -209,8 +217,7 @@ WHERE file.name = this.file.name
 ## 🌱 Quality Criteria & Authentication
 
 **Quality Indicators:**
--
--
+Good quality consists of reddish brown, long spikes with short stalks, and without leaves or foreign matter. In the export quality herb, the spikes should exceed 8cm in length.
 
 **Common Adulterants:**
 -
@@ -281,7 +288,7 @@ LIMIT 10
 - [[]]
 
 **Related Formulas:**
-- [[Formulas including Xia Ku Cao]]
+- [[Formulas including Ai Ye]]
 
 **Related Western Conditions:**
 - [[]]

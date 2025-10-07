@@ -20,35 +20,36 @@ tests: []
 # 🔹 Herb-Specific Data
 herb_data:
   hanzi: "香附"
-  pinyin: "Xiang Fu"
-  pharmaceutical: "Cyperi, Rhizoma"
-  english: ""
+  pinyin: "xiāng fù"
+  pharmaceutical: "Cyperi Rhizoma"
+  english: "Cyperus, nut-grass rhizome"
   alternate_names: []
 
   # TCM Properties
-  taste: []
-  temperature: ""
-  channels: []
+  taste: [Acrid, slightly bitter, slightly sweet, neutral]
+  temperature: "neutral"
+  channels: [Liver, Triple Burner, Gallbladder]
 
   # Clinical Information
-  dosage: ""
-  toxicity: ""
-  functions: []
+  dosage: "6-12g"
+  toxicity: "none mentioned"
+  functions: [Spreads and regulates Liver qi, Regulates menstruation and alleviates pain]
   dui_yao: []
 
   # Additional Information
-  constituents: []
-  quality: ""
-  text_first_appeared: ""
+  constituents: [Volatile oil: β-pinene, camphene, 1,8-cineole, limonene, p-cymene, cyperene, selinatriene, β-selinene, α-cyperone, β-cyperone, patchoulenone, α-rotunol, β-rotunol, cyperol, isocyperol, epoxyguaine, cyperolone, rotundone, kobusone, isokobusone, 4α,5α-oxidoeudesm-11-en-3α-ol, 4α,5α-oxidoeudesm-11-en-3β-ol, cyperenone, α-copaene, copadiene, β-elemene, δ-cadinene, calamenene, cyperotundone, sugeonol, sugeonol acetate, Flavonoids: rhamnetin-3-O-rhamnosyl-(1→4)-rhamnopyranoside, Other constituents: proteins, sugars]
+  quality: "Good quality consists of large, full, hard and solid rhizomes with an intense aroma. Small, lightweight, and wrinkled rhizomes are of inferior quality."
+  text_first_appeared: "Miscellaneous Records of Famous Physicians"
 
   # Source References
-  bensky_page: ""
+  bensky_pdf: "627"
+  bensky_page: "None"
 
 created: 2025-10-01
 updated: 2025-10-01
 ---
 
-# 🌿 Xiang Fu
+# 🌿 Ai Ye
 
 **Pharmaceutical Name:** `= this.herb_data.pharmaceutical`
 **English Name:** `= this.herb_data.english`
@@ -71,8 +72,17 @@ updated: 2025-10-01
 
 ## 📖 Overview
 
-Brief description of the herb, source, botanical information, and general identity.
+The subtle flavors and qualities of Cyperi Rhizoma (香附 xiāng fù) have multiple uses. It is acrid, and thus disperses blocked qi, and slightly bitter, enabling it to direct rebellious qi downward. It is neutral and can thus be used for either hot or cold disorders, and while it mainly enters the qi aspect of the Liver and Triple Burner, it has the effect of promoting qi flow in all twelve channels. Cyperi Rhizoma (香附 xiāng fù) is known for its ability to promote the movement of qi at such a deep level that it strongly influences the movement of blood, and so is known as a herb that 'moves qi within the blood.'
 
+It is appropriate in the treatment of emotional constraint, Liver and Stomach qi stagnation, distending pain in the chest and flanks, food stagnation, nausea, vomiting, and acid regurgitation. It is equally useful when Liver constraint affects blood flow, causing stasis and amenorrhea, dysmenorrhea, and postpartum disorders due to residual obstruction.
+
+The Grand Materia Medica states that it is neutral in quality, rather than cold. Its aroma can pierce. Its flavor is mainly acrid to disperse, slightly bitter to direct downward, and slightly sweet to harmonize. It is a primary herb for the qi level of the leg terminal yin Liver and arm lesser yang Triple Burner, but likewise unblocks the qi level of all twelve channels. It is the commander-in-chief of qi disorders, and for gynecology, the supreme leader.
+
+Li Shi-Zhen quotes Wang Hao-Gu as saying that it is yin within yang, a herb for the qi within the blood; whenever qi constrains qi and blood it must be used. Fried black it stops bleeding and treats continuous uterine bleeding-it is an immortal herb for women!
+
+Rectification of the Meaning of Materia Medica elaborates, noting that it has a particularly intense acrid flavor and a very rich aroma, and all its effects are through the qi. Thus it specifically treats disorders due to qi clumping. However, as its color contains purple, its center is relatively black, its substance is firm, solid, heavy, and weighty, so even though its qi prevails, it is still different from other acrid, warm, lightweight, raising and lifting herbs. This is why it enters the blood aspect, and reaches downward to the Kidneys and Liver. When Wang Hao-Gu says that it is yin within yang, and a qi-within-blood herb, this is a marvellously deep grasp of the innate law of its nature.
+
+---
 ---
 
 ## 🔑 TCM Properties
@@ -85,21 +95,18 @@ Brief description of the herb, source, botanical information, and general identi
 
 ## ⚡ Functions & Actions
 
-```dataview
-LIST herb_data.functions
-WHERE file.name = this.file.name
-```
-
-**Key Functions:**
--
--
--
-
-**Clinical Applications:**
--
--
-
----
+-   **Spreads and regulates Liver qi:** For constrained Liver qi patterns with hypochondriac pain and epigastric distention, as well as disharmony between the Liver and Spleen. The neutral quality of this herb, together with its ability to disperse and harmonize, account for its widespread use.
+    -   With Bupleuri Radix (柴胡 chái hú) and Paeoniae Radix alba (白芍 bái sháo) for pain and distention in the chest and flanks, as in Bupleurum Powder to Dredge the Liver (柴胡疏肝散 chái hú shū gān sàn).
+    -   With Aucklandiae Radix (木香 mù xiāng) and Citri sarcodactylis Fructus (佛手 fó shǒu) for pain in the epigastrium and abdomen, indigestion, vomiting, and diarrhea due to qi obstruction of the Liver and Spleen.
+    -   With Linderae Radix (乌药 wū yào) and Foeniculi Fructus (小茴香 xiǎo huí xiāng) for pain, distention, and prolapse in the lower abdomen due to cold and qi obstruction in the Liver and Kidneys.
+    -   With Alpiniae officinarum Rhizoma (高良姜 gāo liáng jiāng) for epigastric pain due to qi stagnation secondary to congealing from cold, as in Galangal and Cyperus Pill (良附丸 liáng fù wán).
+    -   With Atractylodis Rhizoma (苍术 cāng zhú) for indigestion, pain, and distention in the flanks and abdomen, nausea, vomiting, and acid regurgitation, as in Escape Restraint Pill (越鞠丸 yuè jú wán).
+    -   With Perillae Caulis (紫苏梗 zǐ sū gěng) for fullness, distention, and discomfort in the epigastrium and abdomen.
+    -   With Perillae Folium (紫苏叶 zǐ sū yè) for nasal congestion, epigastric and abdominal distention and discomfort associated with externally-contracted disorders, as in Cyperus and Perilla Leaf Powder (香苏散 xiāng sū sàn).
+    -   With Inulae Flos (旋覆花 xuán fù huā) for thin mucus in the hypochondria, as in Cyperus and Inula Decoction (香附旋覆花汤 xiāng fù xuán fù huā tāng).
+-   **Regulates menstruation and alleviates pain:** To facilitate the flow of Liver qi in gynecological disorders with such signs as dysmenorrhea or irregular menstruation.
+    -   With Angelicae sinensis Radix (当归 dāng guī) and Chuanxiong Rhizoma (川芎 chuān xiōng) for irregular menses and dysmenorrhea due to qi and blood stasis, as in Drive Out Blood Stasis in the Lower Abdomen Decoction (少腹逐瘀汤 shào fù zhú yū tāng).
+    -   With Bupleuri Radix (柴胡 chái hú), Trichosanthis Fructus (瓜蒌 guā lóu), and Citri reticulatae Folium (橘叶 jú yè) for breast masses that swell around the time of menstrual flow.
 
 ## 🎯 Patterns & Symptoms
 
@@ -175,8 +182,9 @@ SORT Category, file.name
 **Toxicity:** `= this.herb_data.toxicity`
 
 **Contraindications:**
--
--
+Contraindicated in those with qi deficiency and no stagnation, or in those with yin deficiency and heat, or heat in the blood.
+
+Drying by nature, [Cyperi Rhizoma (香附 xiāng fù)] is a bitter, warm herb that depletes blood and disperses qi; if qi-deficient patients or those weak in blood take it, the concern is that the qi will be harmed and the blood consumed, thus causing other illnesses. Whenever menstruation is early due to blood heat, the method should be to cool the blood-do not use this herb. If it is mistakenly used, the periods will come even earlier! (Harm and Benefit in the Materia Medica)
 
 **Drug Interactions:**
 -
@@ -209,8 +217,7 @@ WHERE file.name = this.file.name
 ## 🌱 Quality Criteria & Authentication
 
 **Quality Indicators:**
--
--
+Good quality consists of large, full, hard and solid rhizomes with an intense aroma. Small, lightweight, and wrinkled rhizomes are of inferior quality.
 
 **Common Adulterants:**
 -
@@ -281,7 +288,7 @@ LIMIT 10
 - [[]]
 
 **Related Formulas:**
-- [[Formulas including Xiang Fu]]
+- [[Formulas including Ai Ye]]
 
 **Related Western Conditions:**
 - [[]]

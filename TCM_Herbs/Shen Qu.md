@@ -1,7 +1,7 @@
 ---
 # 🔹 Core Metadata (Universal Fields)
 id: "herb-20251001123706"
-name: "Shen Qu"
+name: "Shen Qu / Massa medicata fermentata"
 type: "herb"
 aliases: []
 tags: [TCM, Herb]
@@ -19,36 +19,37 @@ tests: []
 
 # 🔹 Herb-Specific Data
 herb_data:
-  hanzi: "神麴"
-  pinyin: "Shen Qu"
-  pharmaceutical: "Massa Fermentata"
-  english: ""
+  hanzi: "神曲"
+  pinyin: "Shén Qū"
+  pharmaceutical: "Massa medicata fermentata"
+  english: "medicated leaven"
   alternate_names: []
 
   # TCM Properties
-  taste: []
-  temperature: ""
-  channels: []
+  taste: [sweet, acrid, warm]
+  temperature: "warm"
+  channels: [Spleen, Stomach]
 
   # Clinical Information
-  dosage: ""
-  toxicity: ""
-  functions: []
+  dosage: "6-15g"
+  toxicity: "none noted"
+  functions: [Reduces food stagnation, Harmonizes the Stomach, Promotes the flow of qi, Alleviates diarrhea]
   dui_yao: []
 
   # Additional Information
-  constituents: []
-  quality: ""
-  text_first_appeared: ""
+  constituents: [Fermented mass of the following ingredients: flour (100 parts), Armeniacae Semen amarum (4 parts), Phaseoli Semen (4 parts), Artemisiae annuae Herba recens (7 parts), Xanthii Herba recens (7 parts), Polygoni hydropiperis Herba recens (7 parts), Volatile oil, glycosides, fixed oil, vitamin B, yeast]
+  quality: "Good quality consists of dry, aged pieces without insect holes or an unpleasant moldy smell."
+  text_first_appeared: "Materia Medica of Medicinal Properties"
 
   # Source References
-  bensky_page: ""
+  bensky_pdf: "627"
+  bensky_page: "None"
 
 created: 2025-10-01
 updated: 2025-10-01
 ---
 
-# 🌿 Shen Qu
+# 🌿 Ai Ye
 
 **Pharmaceutical Name:** `= this.herb_data.pharmaceutical`
 **English Name:** `= this.herb_data.english`
@@ -71,8 +72,15 @@ updated: 2025-10-01
 
 ## 📖 Overview
 
-Brief description of the herb, source, botanical information, and general identity.
+Massa medicata fermentata (shén qū) is acrid, sweet, and warm, but its acrid flavor does not overly disperse, its sweetness does not accumulate or obstruct, and its warmth does not dry. It is highly valued for its ability to promote the flow of qi, regulate the middle, reduce food stagnation, and unbind the Stomach. It is most appropriate for food stagnation due to overconsumption of starch and grains, leading to qi stasis with abdominal distention and diarrhea.
 
+This substance directs qi downward and transforms phlegm, warms the Stomach, and transforms thin mucus. Seeking Accuracy in the Materia Medica explains that it is acrid, sweet, and warm; disperses qi, regulates the middle, warms the Stomach, transforms phlegm, drives out water, and reduces stagnation. In children it tonifies the Spleen.
+
+Physicians use it for regulating treatments; however, for best results it should be combined with herbs that tonify the Spleen.
+
+As a substance that strengthens the Spleen, it alleviates diarrhea and distention: "[It treats] all disorders of diarrhea, dysentery, distention, and fullness." (Grand Materia Medica) Less well-known, however, is its ability to reduce lactation and facilitate weaning: "For postpartum women who wish to cease lactating, dry-fry and grind [it], then take 6g with wine twice a day until the milk stops: very effective." (Grand Materia Medica)
+
+---
 ---
 
 ## 🔑 TCM Properties
@@ -85,21 +93,13 @@ Brief description of the herb, source, botanical information, and general identi
 
 ## ⚡ Functions & Actions
 
-```dataview
-LIST herb_data.functions
-WHERE file.name = this.file.name
-```
-
-**Key Functions:**
--
--
--
-
-**Clinical Applications:**
--
--
-
----
+- Reduces food stagnation and harmonizes the Stomach: for Stomach cold with food stagnation or accumulation, with such symptoms as epigastric and abdominal fullness or distention, lack of appetite, borborygmus, and diarrhea.
+    - With Atractylodis macrocephalae Rhizoma (bái zhú) for food stagnation and diarrhea due to Spleen deficiency.
+    - With Aurantii Fructus (zhǐ ké) for reduced appetite and fullness and distention of the epigastrium and abdomen due to cold stagnation, as in Unripe Bitter Orange Pill to Guide out Stagnation (zhǐ shí dǎo zhì wán).
+    - With Arecae Semen (bīng láng) for childhood nutritional impairment or focal distention of the abdomen due to food stagnation.
+    - With Aucklandiae Radix (mù xiāng) and Amomi Fructus (shā rén) for abdominal pain associated with food stagnation.
+    - With exterior-releasing herbs for diarrhea accompanying externally-contracted disorders.
+- Also added to pills that contain minerals to aid in their digestion and absorption, as in Magnetite and Cinnabar Pill (cí zhū wán).
 
 ## 🎯 Patterns & Symptoms
 
@@ -175,8 +175,7 @@ SORT Category, file.name
 **Toxicity:** `= this.herb_data.toxicity`
 
 **Contraindications:**
--
--
+"An acrid, warm, extremely drying medicinal. It should not be used when the Spleen yin is deficient, nor when Stomach fire blazes." (Harm and Benefit in the Materia Medica)
 
 **Drug Interactions:**
 -
@@ -209,8 +208,7 @@ WHERE file.name = this.file.name
 ## 🌱 Quality Criteria & Authentication
 
 **Quality Indicators:**
--
--
+Good quality consists of dry, aged pieces without insect holes or an unpleasant moldy smell.
 
 **Common Adulterants:**
 -
@@ -281,7 +279,7 @@ LIMIT 10
 - [[]]
 
 **Related Formulas:**
-- [[Formulas including Shen Qu]]
+- [[Formulas including Ai Ye]]
 
 **Related Western Conditions:**
 - [[]]

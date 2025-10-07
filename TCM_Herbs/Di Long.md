@@ -20,35 +20,36 @@ tests: []
 # 🔹 Herb-Specific Data
 herb_data:
   hanzi: "地龍"
-  pinyin: "Di Long"
+  pinyin: "Dì Lóng"
   pharmaceutical: "Pheretima"
-  english: ""
+  english: "Earthworm"
   alternate_names: []
 
   # TCM Properties
-  taste: []
-  temperature: ""
-  channels: []
+  taste: [Salty]
+  temperature: "Cold"
+  channels: [Bladder, Liver, Lung, Spleen]
 
   # Clinical Information
-  dosage: ""
-  toxicity: ""
-  functions: []
+  dosage: "4.5-15g"
+  toxicity: "Overdosage can cause such side effects as headache, dizziness, palpitations, dyspnea, high blood pressure followed by spontaneous low blood pressure, and gastrointestinal bleeding. Allergic skin reactions have been reported, such as pruritus and granular rashes. After injection of preparations containing this substance, anaphylactic shock has occurred, hence it should be used with caution in allergic patients."
+  functions: [Drains heat, Settles convulsions, Extinguishes wind, Stops spasms, Clears heat, Unblocks and promotes movement in the channels and collaterals, Calms wheezing, Promotes urination]
   dui_yao: []
 
   # Additional Information
-  constituents: []
-  quality: ""
-  text_first_appeared: ""
+  constituents: [Amino acids: ornithine, lysine, serine, proline, glycine, valine, leucine, phenylalanine, tyrosine, tryptophan, phosphatidylserine, Xanthine derivates: xanthine, hypoxanthine, adenine, Other constituents: lumbritin, lumbrofebin, terrestrolumbrilysin, guanine, guanidine, choline, cholesterol, free fatty acids, triglycerides, neutral lipids]
+  quality: "Good quality is long, full, fat, and has thick meat."
+  text_first_appeared: "Divine Husbandman's Classic of Materia Medica"
 
   # Source References
-  bensky_page: ""
+  bensky_pdf: "627"
+  bensky_page: "None"
 
 created: 2025-10-01
 updated: 2025-10-01
 ---
 
-# 🌿 Di Long
+# 🌿 Ai Ye
 
 **Pharmaceutical Name:** `= this.herb_data.pharmaceutical`
 **English Name:** `= this.herb_data.english`
@@ -71,8 +72,15 @@ updated: 2025-10-01
 
 ## 📖 Overview
 
-Brief description of the herb, source, botanical information, and general identity.
+Salty and cold, with a downward-directing nature, Pheretima (di long) directs downward, drains, and excels at moving and piercing. When it travels through the Liver channel, it not only clears heat, extinguishes wind, and settles convulsions, but also unblocks the channels and collaterals, stops pain, and unblocks clumping and blockage. When it travels through the Lung channel, it clears Lung heat and calms wheezing. Due to its salty coldness, it travels into the lower burner, entering the Kidney channel to facilitate the fluid pathways and unblock clumped urinary blockage or painful urinary dribbling.
 
+Commentary on the Divine Husbandman's Classic of Materia Medica states that it is greatly cold so that it can expel heat pathogens, eliminate high fever, and thus remedy delirium due to lurking heat following cold damage. Salty [flavor] primarily travels downward, facilitating urination, and thus treating enlarged abdomen and jaundice.
+
+Pheretima (di long) is used for a wide variety of disorders, including delirium and convulsions due to high fever; cough and wheezing with yellow phlegm due to Lung heat; pain in the limbs or hemiplegia due to damp-heat, cold dampness, or phlegm-dampness obstructing the collaterals; painful urinary dribbling or urinary blockage due to heat clumping, and jaundice with abdominal ascites. The Grand Materia Medica says that "Its nature is cold and travels downward; this coldness relieves all heat afflictions, the downward movement facilitates urination and treats afflictions of the leg, while unblocking the channels and collaterals."
+
+Fresh Pheretima (xian di long) is ground with sugar and applied topically for burns, chronic ulcerations of the lower limb, or mumps.
+
+---
 ---
 
 ## 🔑 TCM Properties
@@ -85,21 +93,19 @@ Brief description of the herb, source, botanical information, and general identi
 
 ## ⚡ Functions & Actions
 
-```dataview
-LIST herb_data.functions
-WHERE file.name = this.file.name
-```
-
-**Key Functions:**
--
--
--
-
-**Clinical Applications:**
--
--
-
----
+- Drains heat, settles convulsions, extinguishes wind, and stops spasms: for extremely high fever leading to changes in consciousness, incoherent speech, convulsions, and seizures. Can be used alone. Recently also used for schizophrenia of the hot-manic type.
+    - With Uncariae Ramulus cum Uncis (gou teng) and Bombyx batryticatus (bai jiang can) for childhood and adult convulsions and seizures associated with high fevers as in warm-heat pathogen diseases.
+- Clears heat and unblocks and promotes movement in the channels and collaterals: for swollen and painful joints with reduced range of motion. Most commonly used for hot painful obstruction, but can also be used for cold painful obstruction with the addition of other appropriate substances. Also used for hemiplegia due to lack of flow in the channels, such as the sequelae of wind-stroke.
+    - With Stephaniae tetrandrae Radix (fang ji), Gentianae macrophyllae Radix (qin jiao), and Lonicerae Caulis (ren dong teng) for hot painful obstruction.
+    - With Aconiti Radix preparata (zhi chuan wu), Aconiti kusnezoffii Radix preparata (zhi cao wu), and Olibanum (ru xiang) for cold painful obstruction, as in Minor Invigorate the Collaterals Special Pill (xiao huo luo dan).
+    - With Astragali Radix (huang qi), Angelicae sinensis Radix (dang gui), and Chuanxiong Rhizoma (chuan xiong) for hemiplegia or hemiparesis following wind-stroke, as in Tonify the Yang to Restore Five [Tenths] Decoction (bu yang huan wu tang).
+    - With Scorpio (quan xie), Paeoniae Radix rubra (chi shao), and Achyranthis bidentatae Radix (niu xi) for hemiplegia.
+- Clears heat and calms wheezing: for wheezing, especially due to Lung heat. Can be taken by itself for this purpose, either as a powder ingested directly (or in capsules) or the fresh product can be decocted with the addition of sugar to form a syrup.
+    - With Ephedrae Herba (ma huang), Armeniacae Semen (xing ren), Scutellariae Radix (huang qin), and Lepidii/Descurainiae Semen (ting li zi) for pathogenic heat clogging the Lungs with persistent wheezing and asthmatic sounds from the throat.
+- Clears heat and promotes urination: for hot painful urinary dribbling, and in severe cases, edema. Especially useful for problems associated with heat clumping in the Bladder with urinary difficulty or inability to urinate. Can be used by itself for this purpose.
+    - With Plantaginis Semen (che qian zi), Akebiae Caulis (mu tong), and Malvae Fructus (dong kui zi) for such problems as hot painful urinary dribbling with hesitant, painful urination.
+- Also used recently for hypertension associated with ascendant Liver yang patterns.
+    - With Scutellariae Radix (huang qin), Haliotidis Concha (shi jue ming), and Prunellae Spica (xia ku cao) for hypertension.
 
 ## 🎯 Patterns & Symptoms
 
@@ -175,8 +181,10 @@ SORT Category, file.name
 **Toxicity:** `= this.herb_data.toxicity`
 
 **Contraindications:**
--
--
+Contraindicated in those with weak Spleen and Stomach. Use with caution in those without heat from excess. See Toxicity below.
+
+Traditional Contraindications
+"It should not be used for conditions of cold injury, except for yang brightness heat from excess with restlessness; or for warm pathogen diseases in the absence of high fever, or if the Spleen and Stomach are weak and deficient." (Commentary on the Divine Husbandman's Classic of Materia Medica)
 
 **Drug Interactions:**
 -
@@ -209,8 +217,7 @@ WHERE file.name = this.file.name
 ## 🌱 Quality Criteria & Authentication
 
 **Quality Indicators:**
--
--
+Good quality is long, full, fat, and has thick meat.
 
 **Common Adulterants:**
 -
@@ -281,7 +288,7 @@ LIMIT 10
 - [[]]
 
 **Related Formulas:**
-- [[Formulas including Di Long]]
+- [[Formulas including Ai Ye]]
 
 **Related Western Conditions:**
 - [[]]

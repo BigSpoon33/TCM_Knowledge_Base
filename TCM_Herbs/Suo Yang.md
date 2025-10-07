@@ -20,35 +20,36 @@ tests: []
 # 🔹 Herb-Specific Data
 herb_data:
   hanzi: "鎖陽"
-  pinyin: "Suo Yang"
-  pharmaceutical: "Cynomorii, Herba"
-  english: ""
+  pinyin: "suǒ yáng"
+  pharmaceutical: "Cynomorii Herba"
+  english: "Fleshy stem of cynomorium"
   alternate_names: []
 
   # TCM Properties
-  taste: []
-  temperature: ""
-  channels: []
+  taste: [Sweet, Warm]
+  temperature: "Warm"
+  channels: [Large Intestine, Kidney, Liver]
 
   # Clinical Information
-  dosage: ""
-  toxicity: ""
-  functions: []
+  dosage: "5-15g"
+  toxicity: "N/A"
+  functions: [Tonifies the Kidneys, assists the yang, and augments the Liver yin and blood, Moistens the Intestines, unblocks the bowels, augments the essence and nourishes the blood]
   dui_yao: []
 
   # Additional Information
-  constituents: []
-  quality: ""
-  text_first_appeared: ""
+  constituents: [cynoterpene, acetylursolic acid, ursolic acid, triglycerides of palmitic acid, oleic acid and linoleic acid, β-sitosteryl palmitate, daucosterol, campesterol, aliphatic hydrocarbons, 15 different amino acids, aspartic acid, proline, serine, alanine, tannins]
+  quality: "Good quality consists of thick, heavy, and hard stems with an oily surface on cross section."
+  text_first_appeared: "Supplement to the Extension of the Materia Medica"
 
   # Source References
-  bensky_page: ""
+  bensky_pdf: "627"
+  bensky_page: "None"
 
 created: 2025-10-01
 updated: 2025-10-01
 ---
 
-# 🌿 Suo Yang
+# 🌿 Ai Ye
 
 **Pharmaceutical Name:** `= this.herb_data.pharmaceutical`
 **English Name:** `= this.herb_data.english`
@@ -71,8 +72,9 @@ updated: 2025-10-01
 
 ## 📖 Overview
 
-Brief description of the herb, source, botanical information, and general identity.
+Sweet and warm, but moist in texture, Cynomorii Herba (suo yang) augments the Liver and Kidney yin but excites the yang, and has a strong ability to nourish the sinews and treat male impotence. It is often used in the treatment of atrophy of the sinews and bones causing difficulty in walking, due to Liver and Kidney deficiency, and impotence due to Kidney yang deficiency. Because it is moist, it moistens the Intestines to promote movement of stool. The Grand Materia Medica says that it "moistens dryness, nourishes the sinews, treats atrophy and weakness." Thoroughly Revised Materia Medica states that it "treats atrophy and weakness, and lubricates the Intestines."
 
+---
 ---
 
 ## 🔑 TCM Properties
@@ -85,21 +87,13 @@ Brief description of the herb, source, botanical information, and general identi
 
 ## ⚡ Functions & Actions
 
-```dataview
-LIST herb_data.functions
-WHERE file.name = this.file.name
-```
-
-**Key Functions:**
--
--
--
-
-**Clinical Applications:**
--
--
-
----
+- Tonifies the Kidneys, assists the yang, and augments the Liver yin and blood: for Kidney yang deficiency leading to impotence, infertility, urinary frequency, and spermatorrhea. Also for atrophy disorder from Liver and Kidney deficiency.
+    - With Cistanches Herba (rou cong rong) for impotence or infertility due to insufficiency of the Liver and Kidneys along with exhausted essence and blood.
+    - With Tigris Os (hu gu), Achyranthis bidentatae Radix (niu xi), and Rehmanniae Radix preparata (shu di huang) for weakness, paralysis, motor impairment, and atrophy of the musculature associated with atrophy disorders from severe Liver and Kidney deficiency, as in Hidden Tiger Pill (hu qian wan).
+    - With Mantidis Ootheca (sang piao xiao) for premature ejaculation, urinary incontinence, and urinary frequency from Kidney yang deficiency.
+- Moistens the Intestines, unblocks the bowels, augments the essence and nourishes the blood: for constipation from qi or blood deficiency.
+    - With Mori Fructus (sang shen) and honey for constipation due to yang deficiency and insufficient blood in the elderly or debilitated.
+- A large dosage is needed to be effective.
 
 ## 🎯 Patterns & Symptoms
 
@@ -175,8 +169,10 @@ SORT Category, file.name
 **Toxicity:** `= this.herb_data.toxicity`
 
 **Contraindications:**
--
--
+Contraindicated in those with Kidney yin deficiency with heat signs, as well as those with diarrhea from Spleen deficiency or constipation due to heat from excess.
+
+Traditional Contraindications:
+"Contraindicated in those with loose stools, unstable essence, and overabundant fire causing constipation, excessive erections, and deficiency distention of the Heart qi." (Materia Medica of Combinations)
 
 **Drug Interactions:**
 -
@@ -209,8 +205,7 @@ WHERE file.name = this.file.name
 ## 🌱 Quality Criteria & Authentication
 
 **Quality Indicators:**
--
--
+Good quality consists of thick, heavy, and hard stems with an oily surface on cross section.
 
 **Common Adulterants:**
 -
@@ -281,7 +276,7 @@ LIMIT 10
 - [[]]
 
 **Related Formulas:**
-- [[Formulas including Suo Yang]]
+- [[Formulas including Ai Ye]]
 
 **Related Western Conditions:**
 - [[]]

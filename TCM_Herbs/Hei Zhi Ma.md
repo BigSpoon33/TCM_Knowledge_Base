@@ -20,35 +20,36 @@ tests: []
 # 🔹 Herb-Specific Data
 herb_data:
   hanzi: "黑芝麻"
-  pinyin: "Hei Zhi Ma"
-  pharmaceutical: "Sesami Nigrum, Semen"
-  english: ""
+  pinyin: "Hēi zhī má"
+  pharmaceutical: "Sesami Semen Nigrum"
+  english: "Black sesame seeds"
   alternate_names: []
 
   # TCM Properties
-  taste: []
-  temperature: ""
-  channels: []
+  taste: [Sweet]
+  temperature: "Neutral"
+  channels: [Kidney, Liver, Large Intestine]
 
   # Clinical Information
-  dosage: ""
-  toxicity: ""
-  functions: []
+  dosage: "9-30g"
+  toxicity: "Consumption may cause allergic reactions with such symptoms as asthma, pruritus, urticaria, edema, cough, sweating, nausea, vomiting, abdominal pain, sneezing, and an itchy throat."
+  functions: [Nourishes and fortifies the Liver and Kidneys, Nourishes the blood and extinguishes wind, Moistens and lubricates the Intestines]
   dui_yao: []
 
   # Additional Information
-  constituents: []
-  quality: ""
-  text_first_appeared: ""
+  constituents: [Fatty oil: oleic acid, linoleic acid, palmitic acid, stearic acid, arachidic acid, behenic acid, lignoceric acid, lecithin, Lignans: sesamin, sesamolin, sesamol, Proteins: α-globulin, β-globulin, 13s-globulin, albumin, glutelin, sesame lectin, Phytosterols: sitosterol, campesterol, D-5-avenasterol, stigmasterol, Sugars: planteose, sesamose, D-glucose, D-galactose, D-fructose, raffinose, stachyose, sucrose, hemicellulose A, B, Other constituents: amino acids, pedaliin, folic acid, nicotinic acid, riboflavin, vitamin B, vitamin E, cytochrome C]
+  quality: "Good quality consists of black, full seeds, uniform in size, with an intense aroma and lacking foreign matter."
+  text_first_appeared: "Divine Husbandman's Classic of the Materia Medica"
 
   # Source References
-  bensky_page: ""
+  bensky_pdf: "627"
+  bensky_page: "None"
 
 created: 2025-10-01
 updated: 2025-10-01
 ---
 
-# 🌿 Hei Zhi Ma
+# 🌿 Ai Ye
 
 **Pharmaceutical Name:** `= this.herb_data.pharmaceutical`
 **English Name:** `= this.herb_data.english`
@@ -71,8 +72,15 @@ updated: 2025-10-01
 
 ## 📖 Overview
 
-Brief description of the herb, source, botanical information, and general identity.
+Sweet, neutral, rather oily, and black, *Sesami Semen nigrum* (*hei zhi ma*) enters the Liver and Kidney channels to tonify the yin and blood, brighten the eyes, blacken the hair, moisten the skin, and lubricate the Intestines. Commentary on the Divine Husbandman's Classic of Materia Medica says that it is "harmonious in nature and flavor, neither hot nor cold; it is an excellent food that augments the Spleen and Stomach, and tonifies the Liver and Kidneys." For promoting lactation, the Grand Materia Medica recommends that the herb be dry-fried, mixed with a bit of salty water, and eaten.
 
+The eighth-century book Ri Materia Medica of Hua-Z observes that it:
+
+"Tonifies the middle, augments the qi, and nourishes the five yin organs so that it treats consumption, emaciation, and fatigue during the postpartum period, promotes resistance to extremes in temperature, and alleviates palpitations. It drives out wind-dampness, roving wind, and head wind."
+
+Liu Wan-Su explains: "To treat wind, first treat the blood; when the blood is invigorated, then wind will be expelled. [This herb] enters the Liver and augments the blood, and thus cannot be omitted from herbs that treat wind."
+
+---
 ---
 
 ## 🔑 TCM Properties
@@ -85,21 +93,17 @@ Brief description of the herb, source, botanical information, and general identi
 
 ## ⚡ Functions & Actions
 
-```dataview
-LIST herb_data.functions
-WHERE file.name = this.file.name
-```
+- **Nourishes and fortifies the Liver and Kidneys:** For yin deficiency of the Liver and Kidneys with such symptoms as blurred vision, tinnitus, and dizziness. Also used to help patients recover from severe illnesses and to increase the quantity of breast milk.
+    - With Mori Folium (*sang ye*) for dizziness, blurred vision, tinnitus, and headache associated with Liver and Kidney yin deficiency with ascendant yang. Also for numbness, flank pain, and constipation due to blood or yin deficiency.
+    - With Polygoni Multiflori Radix Preparata (*zhi he shou wu*), Cuscutae Semen (*tu si zi*), and Achyranthis Bidentata Radix (*niu xi*) for exhausted Kidneys and Liver with premature greying of the hair, dizziness, weak lower back and legs, and frequent nocturia.
 
-**Key Functions:**
--
--
--
+- **Nourishes the blood and extinguishes wind:** For headaches, dizziness, and numbness due to blood or yin deficiency. Particularly useful for dizziness that worsens with activity.
+    - With Atractylodis Macrocephalae Rhizoma (*bai zhu*) and Clematidis Radix (*wei ling xian*) for lower back and leg pain due to wind-dampness of mobile painful obstruction.
+    - With Coicis Semen (*yi yi ren*) and Rehmanniae Radix (*sheng di huang*) as a tincture for mobile painful obstruction in the elderly or debilitated marked by generalized weakness and lower back and leg pain.
 
-**Clinical Applications:**
--
--
-
----
+- **Moistens and lubricates the Intestines:** For constipation due to dry Intestines or blood deficiency.
+    - With Angelicae Sinensis Radix (*dang gui*) and Platycladi Semen (*bai zi ren*) for constipation due to blood deficiency.
+    - With chicken egg for constipation due to blood deficiency.
 
 ## 🎯 Patterns & Symptoms
 
@@ -175,8 +179,11 @@ SORT Category, file.name
 **Toxicity:** `= this.herb_data.toxicity`
 
 **Contraindications:**
--
--
+Contraindicated in those with diarrhea due to Spleen deficiency.
+
+"It lubricates the Intestines—it should not be eaten by those with instability of the essential qi." (Thoroughly Revised Materia Medica)
+
+"Forbidden when the lower base is unstable with loose stools, impotence, spermatorrhea, or vaginal discharge." (Seeking Accuracy in the Materia Medica)
 
 **Drug Interactions:**
 -
@@ -209,8 +216,7 @@ WHERE file.name = this.file.name
 ## 🌱 Quality Criteria & Authentication
 
 **Quality Indicators:**
--
--
+Good quality consists of black, full seeds, uniform in size, with an intense aroma and lacking foreign matter.
 
 **Common Adulterants:**
 -
@@ -281,7 +287,7 @@ LIMIT 10
 - [[]]
 
 **Related Formulas:**
-- [[Formulas including Hei Zhi Ma]]
+- [[Formulas including Ai Ye]]
 
 **Related Western Conditions:**
 - [[]]

@@ -1,7 +1,7 @@
 ---
 # 🔹 Core Metadata (Universal Fields)
 id: "herb-20251001123706"
-name: "Sang Bai Pi"
+name: "Mori Cortex / Sang Bai Pi"
 type: "herb"
 aliases: []
 tags: [TCM, Herb]
@@ -21,34 +21,35 @@ tests: []
 herb_data:
   hanzi: "桑白皮"
   pinyin: "Sang Bai Pi"
-  pharmaceutical: "Mori, Cortex"
-  english: ""
+  pharmaceutical: "Mori Cortex"
+  english: "Mulberry Root Bark"
   alternate_names: []
 
   # TCM Properties
-  taste: []
-  temperature: ""
-  channels: []
+  taste: [Sweet, Cold]
+  temperature: "Cold"
+  channels: [Lung]
 
   # Clinical Information
-  dosage: ""
-  toxicity: ""
-  functions: []
+  dosage: "6-15g"
+  toxicity: "Its nature is not entirely beneficial, so it should not be overused. It is forbidden in those with Lung deficiency and excessive urination, and also for cough from externally-contracted wind-cold."
+  functions: [Drains heat from the Lungs, stops coughs, and calms wheezing, Promotes urination and reduces edema]
   dui_yao: []
 
   # Additional Information
-  constituents: []
-  quality: ""
-  text_first_appeared: ""
+  constituents: [Flavonoids: morusin, cyclomorusin, oxydihydromorusin, morusinol, kuwanon A-V, mulberrin, mulberrochromene, cyclomulberrochromene, cyclomulberrin, mulberranol, moranoline, moracenin A-D, morachalcone A, morusenin A, B, sanggenon A-N, 5,7-dihydrochromone, Aromatic furane derivates: mulberrofuran A-I, Anthocyanosides: pelargonidin-3-glucoside, petunidin-3-rutinoside, Other constituents: volatile oil]
+  quality: "Good quality consists of thick, white, pliable pieces of bark without any orange outer bark."
+  text_first_appeared: "None"
 
   # Source References
-  bensky_page: ""
+  bensky_pdf: "627"
+  bensky_page: "None"
 
 created: 2025-10-01
 updated: 2025-10-01
 ---
 
-# 🌿 Sang Bai Pi
+# 🌿 Ai Ye
 
 **Pharmaceutical Name:** `= this.herb_data.pharmaceutical`
 **English Name:** `= this.herb_data.english`
@@ -71,8 +72,13 @@ updated: 2025-10-01
 
 ## 📖 Overview
 
-Brief description of the herb, source, botanical information, and general identity.
+Sang Bai Pi (桑白皮) - *Mori Cortex* is downward-directing in nature, primarily settles cough and wheezing due to heat, and facilitates urination. There is a saying that 'Draining Lung excess will not be successful without Mori Cortex (Sang Bai Pi).' It is most commonly used in two areas: cough and wheezing with yellow sputum (or blood in the sputum) due to heat from excess in the Lungs, and for edema with urinary difficulty due to heat from excess. While effective for general edema, it is particularly helpful for swelling around the eyes.
 
+*The Grand Materia Medica* notes that "Its strong point is facilitating urination, as 'excess requires draining of the child'; therefore, it is appropriate when there is water qi in the Lungs, and when Lung fire is excessive."
+
+*Transforming the Significance of Medicinal Substances* explains that it disperses heat and mainly treats wheezing, fullness, and cough, hot phlegm, and spitting of blood. All of these symptoms result from excess pathogenic constraint holding back the Lung qi so that the Lung cavity fails to maintain free and unobstructed activity. Using this herb to permeate and then disperse the constraint in order to facilitate the Lung qi will naturally rectify all symptoms.
+
+---
 ---
 
 ## 🔑 TCM Properties
@@ -85,21 +91,9 @@ Brief description of the herb, source, botanical information, and general identi
 
 ## ⚡ Functions & Actions
 
-```dataview
-LIST herb_data.functions
-WHERE file.name = this.file.name
-```
-
-**Key Functions:**
--
--
--
-
-**Clinical Applications:**
--
--
-
----
+- **Drains heat from the Lungs, stops coughs, and calms wheezing:** For cough and wheezing due to Lung heat. With Di Gu Pi (地骨皮) - *Lycii Cortex* and Gan Cao (甘草) - *Glycyrrhizae Radix* for cough with viscous sputum, fever, irritability, and thirst due to phlegm-heat obstructing the Lungs, as in Xie Bai San (瀉白散) - *Drain the White Powder*. With Zhi Fu Zi (制附子) - *Aconiti Radix Lateralis Preparata* for cough and wheezing with edema due to Kidney yang deficiency.
+- **Promotes urination and reduces edema:** Used in disorders where Lung heat obstructs the downward movement of Lung qi, preventing water from moving and cutting off perspiration. This manifests as floating edema, facial edema, swelling of the extremities, fever and thirst, urinary difficulty, and a floating pulse. With Da Fu Pi (大腹皮) - *Arecae Pericarpium* and Fu Ling Pi (茯苓皮) - *Poriae Cutis* for superficial edema with urinary difficulty, as in Wu Pi Yin (五皮飲) - *Five-Peel Decoction*. With Ting Li Zi (葶藶子) - *Lepidii/Descurainiae Semen* for swelling of the face and eyes with urinary difficulty.
+- **Also recently used for hypertension:** With Huang Qin (黃芩) - *Scutellariae Radix*, Jue Ming Zi (決明子) - *Cassiae Semen*, and Xia Ku Cao (夏枯草) - *Prunellae Spica* for hypertension due to ascendant Liver yang.
 
 ## 🎯 Patterns & Symptoms
 
@@ -175,8 +169,7 @@ SORT Category, file.name
 **Toxicity:** `= this.herb_data.toxicity`
 
 **Contraindications:**
--
--
+Contraindicated for cough or wheezing from Lung cold.
 
 **Drug Interactions:**
 -
@@ -209,8 +202,7 @@ WHERE file.name = this.file.name
 ## 🌱 Quality Criteria & Authentication
 
 **Quality Indicators:**
--
--
+Good quality consists of thick, white, pliable pieces of bark without any orange outer bark.
 
 **Common Adulterants:**
 -
@@ -281,7 +273,7 @@ LIMIT 10
 - [[]]
 
 **Related Formulas:**
-- [[Formulas including Sang Bai Pi]]
+- [[Formulas including Ai Ye]]
 
 **Related Western Conditions:**
 - [[]]

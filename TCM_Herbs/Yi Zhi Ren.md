@@ -1,7 +1,7 @@
 ---
 # 🔹 Core Metadata (Universal Fields)
 id: "herb-20251001123706"
-name: "Yi Zhi Ren"
+name: "alpinia fruit / Yi Zhi Ren"
 type: "herb"
 aliases: []
 tags: [TCM, Herb]
@@ -20,35 +20,36 @@ tests: []
 # 🔹 Herb-Specific Data
 herb_data:
   hanzi: "益智仁"
-  pinyin: "Yi Zhi Ren"
-  pharmaceutical: "Alpiniae Oxyphyllae, Fructus"
-  english: ""
+  pinyin: "yi zhi ren"
+  pharmaceutical: "Alpiniae Oxyphyllae Fructus"
+  english: "alpinia fruit, black cardamon, bitter-seeded cardamon"
   alternate_names: []
 
   # TCM Properties
-  taste: []
-  temperature: ""
-  channels: []
+  taste: [acrid]
+  temperature: "warm"
+  channels: [Kidney, Spleen]
 
   # Clinical Information
-  dosage: ""
-  toxicity: ""
-  functions: []
+  dosage: "3-9g"
+  toxicity: "None"
+  functions: [Warms the Kidneys, retains the essence, and secures the urine, Warms the Spleen, stops diarrhea, and controls salivation]
   dui_yao: []
 
   # Additional Information
-  constituents: []
-  quality: ""
-  text_first_appeared: ""
+  constituents: [Volatile oil: α-cyperone, 1,8-cineole, α-pinene, β-pinene, 4-terpineol, α-terpineol, β-elemene, 1-methyl-3-isopropoxycyclohexane, α-muurolene, myrcene, geranyl acetate, zingiberene, guaiol, zingiberol, α-eudesmol, aromadendrene, acetone, 3-buten-3-one, 2-pentanol, 2-pentanone, isooctanol, furylaldehyde, zingiberene, zingiberol, patchoulene, gingerol, spiro[4,4]nonane-2-one, α-cyperone, nootkatol, nootkatone, Diphenylheptanes: yakuchinone A, B, Flavonoids: letochrysin, izalpinin, chrysin, 3,5-dihydroxy-7,4'-dimethoxyflavone, Other constituents: amino acids, fatty acids, sugars, proteins]
+  quality: "Good quality consists of large, full fruit with an intense aroma."
+  text_first_appeared: "Omissions from the [Classic of the] Materia Medica"
 
   # Source References
-  bensky_page: ""
+  bensky_pdf: "627"
+  bensky_page: "None"
 
 created: 2025-10-01
 updated: 2025-10-01
 ---
 
-# 🌿 Yi Zhi Ren
+# 🌿 Ai Ye
 
 **Pharmaceutical Name:** `= this.herb_data.pharmaceutical`
 **English Name:** `= this.herb_data.english`
@@ -71,8 +72,15 @@ updated: 2025-10-01
 
 ## 📖 Overview
 
-Brief description of the herb, source, botanical information, and general identity.
+*Alpiniae oxyphyllae* Fructus (*yi zhi ren*) is acrid, warm, and aromatic, but also astringent, so that it warms the Spleen and Stomach to harmonize the middle, treat diarrhea, and contain excessive saliva; it also warms the Kidney yang and secures the lower burner. Thus it is often used in the treatment of Spleen and Stomach exposure to cold causing vomiting, diarrhea, abdominal pain, loss of appetite, and excessive salivation; and for cold from deficiency of the Kidneys leading to spermatorrhea, urinary incontinence, and continuous uterine bleeding.
 
+Essentials of the Materia Medica says that it binds the essence, stabilizes the *qi*, warms the middle to improve food intake, contains thick saliva and sputum, secures the urine, and treats nausea, vomiting, diarrhea, lodged cold accosting the Stomach, cold *qi* abdominal pain, continuous uterine bleeding, vaginal discharge, and draining of the essence.
+
+Encountering the Sources of the Classic of Materia Medica adds that it "augments the Spleen and Stomach, regulates the primal *qi*, tonifies Kidney deficiency [which allows] slippage of essence, Stomach deficiency with excessive salivation, and continuous uterine bleeding in women."
+
+Summarization of Rectification of the Meaning of Materia Medica summarizes: "Everything the commentators have said is nothing but the effect of warm binding ... it warmly tonifies the Spleen and Kidneys, but particularly governs securing and binding."
+
+---
 ---
 
 ## 🔑 TCM Properties
@@ -85,21 +93,13 @@ Brief description of the herb, source, botanical information, and general identi
 
 ## ⚡ Functions & Actions
 
-```dataview
-LIST herb_data.functions
-WHERE file.name = this.file.name
-```
-
-**Key Functions:**
--
--
--
-
-**Clinical Applications:**
--
--
-
----
+- Warms the Kidneys, retains the essence, and secures the urine: for such symptoms as frequent and copious urination, incontinence of urine, spermatorrhea, or dribbling of urine from Kidney yang deficiency. Also used for irregular uterine bleeding.
+    - With Linderae Radix (*wu yao*) and Dioscoreae Rhizoma (*shan yao*) for urinary incontinence or frequency from cold deficient Spleen and Kidney cold from deficiency, as in Shut the Sluice Pill (*suo quan wan*).
+    - With Amomi Fructus (*sha ren*) for uterine bleeding during pregnancy.
+- Warms the Spleen, stops diarrhea, and controls salivation: used in patterns of Spleen or Stomach cold from deficiency with such symptoms as diarrhea, cold abdominal pain, excessive salivation, and a thick, unpleasant taste in the mouth. Also used for abdominal pain, vomiting, and diarrhea from cold entering the Spleen and Kidneys.
+    - With Codonopsis Radix (*dang shen*), Pinelliae Rhizoma preparatum (*zhi ban xia*), and Poria (*fu ling*) for vomiting, diarrhea, cold and pain in the abdomen, reduced appetite, and excessive salivation associated with cold from deficiency of the Spleen and Stomach.
+    - With Atractylodis macrocephalae Rhizoma (*bai zhu*) and Zingiberis Rhizoma (*gan jiang*) for abdominal pain, vomiting, and diarrhea from cold entering the Spleen and Kidneys.
+    - With Dioscoreae Rhizoma (*shan yao*) to prevent the development of heat from deficiency as a side effect.
 
 ## 🎯 Patterns & Symptoms
 
@@ -175,8 +175,13 @@ SORT Category, file.name
 **Toxicity:** `= this.herb_data.toxicity`
 
 **Contraindications:**
--
--
+Contraindicated in those with lower burner problems due to heat.
+
+Traditional Contraindications
+
+"Do not mistakenly use if the blood is dry from fire." (Encountering the Sources of the Classic of Materia Medica)
+
+"Its nature is more to travel than to tonify. It should be used in tonifying prescriptions; if used by itself it disperses the *qi*." (Arranged Mirror of Medicine)
 
 **Drug Interactions:**
 -
@@ -209,8 +214,7 @@ WHERE file.name = this.file.name
 ## 🌱 Quality Criteria & Authentication
 
 **Quality Indicators:**
--
--
+Good quality consists of large, full fruit with an intense aroma.
 
 **Common Adulterants:**
 -
@@ -281,7 +285,7 @@ LIMIT 10
 - [[]]
 
 **Related Formulas:**
-- [[Formulas including Yi Zhi Ren]]
+- [[Formulas including Ai Ye]]
 
 **Related Western Conditions:**
 - [[]]

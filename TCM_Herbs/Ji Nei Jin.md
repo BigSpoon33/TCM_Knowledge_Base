@@ -19,36 +19,38 @@ tests: []
 
 # 🔹 Herb-Specific Data
 herb_data:
-  hanzi: "鷄內金"
-  pinyin: "Ji Nei Jin"
-  pharmaceutical: "Corneum Gigeriae Galli, Endothelium"
-  english: ""
+  hanzi: "雞內金"
+  pinyin: "ji nei jin"
+  pharmaceutical: "Gigeriae Galli Endothelium Corneum"
+  english: "Gizzard Lining"
   alternate_names: []
 
   # TCM Properties
-  taste: []
-  temperature: ""
-  channels: []
+  taste: [Sweet, neutral]
+  temperature: "neutral"
+  channels: [Bladder, Small Intestine, Spleen, Stomach]
 
   # Clinical Information
-  dosage: ""
-  toxicity: ""
-  functions: []
+  dosage: "3-9g"
+  toxicity: "There is one report of significant side effects from the combination of this herb with Rehmanniae Radix Preparata and Polygoni Multiflori Radix, including dry mouth, vertigo, hoarseness, diminished consciousness, and spasms of the limbs. There has been one report of epistaxis following ingestion of this substance."
+  functions: [Reduces all types of food stagnation, Stops enuresis, Dissolves stones]
   dui_yao: []
 
   # Additional Information
-  constituents: []
-  quality: ""
-  text_first_appeared: ""
+  constituents: [Proteins: ventriculin, amylase, pepsin, diastase, keratin, Amino acids: lysine, histidine, arginine, glutamic acid, aspartic acid, leucine, threonine, serine, glycine, alanine, cysteine, valine, methionine, isoleucine, tyrosine, phenylalanine, proline, tryptophan, Other constituents: vitamin B1, B2, nicotinic acid, Fixed oil (30%): erucic acid, linoleic acid, linolenic acid, Other constituents: sinapine, raphanin, brassicasterol, 22-dehydrocampesterol, β-sitosterol, γ-sitosterol]
+  quality: "-   Good quality consists of large, unfragmented, yellow, and clean pieces.
+-   Good quality consists of full, oily, reddish brown seeds without foreign matter."
+  text_first_appeared: "Divine Husbandman's Classic of the Materia Medica"
 
   # Source References
-  bensky_page: ""
+  bensky_pdf: "627"
+  bensky_page: "None"
 
 created: 2025-10-01
 updated: 2025-10-01
 ---
 
-# 🌿 Ji Nei Jin
+# 🌿 Ai Ye
 
 **Pharmaceutical Name:** `= this.herb_data.pharmaceutical`
 **English Name:** `= this.herb_data.english`
@@ -71,8 +73,13 @@ updated: 2025-10-01
 
 ## 📖 Overview
 
-Brief description of the herb, source, botanical information, and general identity.
+Sweet and harmonious in nature, Gigeriae Galli Endothelium Corneum (*ji nei jin*) augments the Spleen earth and tonifies the Stomach qi while reducing food stagnation and transforming stones. It enters the Bladder channel and inhibits urination. Because it reduces food stagnation, it is used for nausea, vomiting, diarrhea, and childhood nutritional impairment from accumulated undigested food. Because it transforms stones, it is used for stones in either the biliary or urinary tracts. And because it secures the Kidney essence and halts enuresis, it can be used for spermatorrhea, urinary incontinence, and childhood bed-wetting.
 
+This herb was a favorite of the early twentieth-century physician Zhang Xi-Chun. In Essays on Medicine Esteeming the Chinese and Respecting the Western, Zhang observes:
+
+"Not only can it reduce accumulation in the Spleen and Stomach, regardless of which organ is affected by accumulation, Gigeriae Galli Endothelium Corneum (*ji nei jin*) can reduce them all. Thus, for abdominal masses in men, and both mobile and fixed abdominal masses in women, if taken over the long term it can cure them all."
+
+---
 ---
 
 ## 🔑 TCM Properties
@@ -85,21 +92,15 @@ Brief description of the herb, source, botanical information, and general identi
 
 ## ⚡ Functions & Actions
 
-```dataview
-LIST herb_data.functions
-WHERE file.name = this.file.name
-```
-
-**Key Functions:**
--
--
--
-
-**Clinical Applications:**
--
--
-
----
+- **Strongly reduces food stagnation and improves the Spleen's transportive function:** for various types of food stagnation. Used alone for mild cases, usually dry-fried and powdered. Also important in the treatment of childhood nutritional impairment.
+    - With Hordei Fructus Germinatus (*mai ya*) and Crataegi Fructus (*shan zha*) for indigestion, fullness, and distention of the epigastrium and abdomen, and childhood nutritional impairment. For concurrent deficiency of the Spleen and Stomach with reduced appetite and diarrhea, add Atractylodis Macrocephalae Rhizoma (*bai zhu*) along with Codonopsis Radix (*dang shen*) and Dioscoreae Rhizoma (*shan yao*).
+    - With Salviae Miltiorrhizae Radix (*dan shen*) for epigastric pain, especially when associated with chronic hepatitis.
+    - With Trionycis Carapax (*bie jia*) for childhood nutritional impairment, abdominal distention, and subcostal focal distention.
+- **Secures the essence and stops enuresis:** for bed-wetting, urinary frequency, and urination at night.
+    - With Mantidis Ootheca (*sang piao xiao*), Fossilia Ossis (*long gu*), and Ostreae Concha (*mu li*) for bed-wetting in children or urinary frequency in adults. When the diagnosis is a deficient and cold Bladder, Cervi Cornu Pantotrichum (*lu rong*) is often added.
+    - With Cuscutae Semen (*tu si zi*) and Schisandrae Fructus (*wu wei zi*) for spontaneous emissions, as in Cuscuta Seed Pill (*tu si zi wan*).
+- **Transforms hardness and dissolves stones:** for stones in either the urinary or biliary tract.
+    - With *jin qian cao* (Lysimachiae/Desmodii/etc. Herba) for stones in the urinary or biliary tract.
 
 ## 🎯 Patterns & Symptoms
 
@@ -175,8 +176,10 @@ SORT Category, file.name
 **Toxicity:** `= this.herb_data.toxicity`
 
 **Contraindications:**
--
--
+Use with caution in those with Spleen deficiency where food stagnation is absent.
+-   Should not be used together with Ginseng Radix (*ren shen*), Rehmanniae Radix Preparata (*shu di huang*), or Polygoni Multiflori Radix Preparata (*zhi he shou wu*).
+-   Harm and Benefit in the Materia Medica cautions that it is "even more rapid in reducing phlegm and driving qi downward [than radish itself]. When deficient or weak patients consume it, qi becomes difficult to distribute affecting breathing."
+-   The Materia Medica of Combination states that it is contraindicated when taking tonics.
 
 **Drug Interactions:**
 -
@@ -209,8 +212,8 @@ WHERE file.name = this.file.name
 ## 🌱 Quality Criteria & Authentication
 
 **Quality Indicators:**
--
--
+-   Good quality consists of large, unfragmented, yellow, and clean pieces.
+-   Good quality consists of full, oily, reddish brown seeds without foreign matter.
 
 **Common Adulterants:**
 -
@@ -281,7 +284,7 @@ LIMIT 10
 - [[]]
 
 **Related Formulas:**
-- [[Formulas including Ji Nei Jin]]
+- [[Formulas including Ai Ye]]
 
 **Related Western Conditions:**
 - [[]]

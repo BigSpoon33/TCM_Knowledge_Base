@@ -1,7 +1,7 @@
 ---
 # 🔹 Core Metadata (Universal Fields)
 id: "herb-20251001123706"
-name: "Tian Hua Fen"
+name: "Trichosanthes Root / Tian Hua Fen"
 type: "herb"
 aliases: []
 tags: [TCM, Herb]
@@ -20,35 +20,36 @@ tests: []
 # 🔹 Herb-Specific Data
 herb_data:
   hanzi: "天花粉"
-  pinyin: "Tian Hua Fen"
-  pharmaceutical: "Trichosanthis, Radix"
-  english: ""
+  pinyin: "tian hua fen"
+  pharmaceutical: "Trichosanthis Radix"
+  english: "Trichosanthes root"
   alternate_names: []
 
   # TCM Properties
-  taste: []
-  temperature: ""
-  channels: []
+  taste: [Bitter, Slightly sweet]
+  temperature: "Cold"
+  channels: [Lung, Stomach]
 
   # Clinical Information
-  dosage: ""
-  toxicity: ""
-  functions: []
+  dosage: "10-15g"
+  toxicity: "No toxic side effects are to be expected when using the dried herb. There has been just one reported case of allergic reaction. Trichosanthin, an ingredient of this herb, is a toxic protein. When purified and administered by intra-amniotic or intramuscular injection, it has an abortifacient action in early pregnancy. The protein is destroyed by light, heat, and humidity. Thus, its presence is much reduced by the time the herb is dried, and non-existent after the dried herb is decocted. Trichosanthin should not be injected, as this can lead to the following side effects: elevated temperature, headache, skin rash, sore throat, and stiff neck. There have been a few reported cases of anaphylactic shock, along with one case of brachial artery thrombosis. Some reports discourage the use of injectable trichosanthin in any patient who has received it in the past because of the strong antigenicity of this protein. Other reactions include angioneurotic edema, abnormal ECG or arrhythmia, hypotension, severe epistaxis, profuse bleeding after miscarriage, hepatosplenomegaly, abdominal distention, and albuminuria. Trichosanthin should never be used in hypersensitive individuals, or those with heart, liver, or kidney problems. It should be used with caution in persons with hemorrhagic diseases, severe anemia, psychiatric disturbances, and in those with previous exposure to the herb. All of these cautions refer to the use of the purified protein trichosanthin and do not apply to decoctions or other use of the whole herb."
+  functions: [Drains heat and generates fluids, Clears and drains Lung heat, transforms phlegm, and moistens Lung dryness, Resolves toxicity and expels pus]
   dui_yao: []
 
   # Additional Information
-  constituents: []
-  quality: ""
-  text_first_appeared: ""
+  constituents: [Proteins: trichosanthin, α-trichosanthin, karasurin, α-momorcharin, β-momorcharin, trichosanthin-ZG, Polysaccharides: trichosan A, B, C, D, E, Amino acids: L-citrulline dihydrate, α-hydroxymethylserine, citrulline, alanine, valine, tyrosine, lysine, γ-aminobutyric acid, Other constituents: palmitic acid, enzymes, α-spinasterol, bryonolic acid]
+  quality: "Good quality consists of large, heavy, white, and powdery roots. Small, lightweight, fibrous, and yellow-colored roots are of inferior quality."
+  text_first_appeared: "Divine Husbandman's Classic of the Materia Medica"
 
   # Source References
-  bensky_page: ""
+  bensky_pdf: "627"
+  bensky_page: "None"
 
 created: 2025-10-01
 updated: 2025-10-01
 ---
 
-# 🌿 Tian Hua Fen
+# 🌿 Ai Ye
 
 **Pharmaceutical Name:** `= this.herb_data.pharmaceutical`
 **English Name:** `= this.herb_data.english`
@@ -71,8 +72,17 @@ updated: 2025-10-01
 
 ## 📖 Overview
 
-Brief description of the herb, source, botanical information, and general identity.
+This herb is best for cooling Lung and Stomach heat, and generating Lung and Stomach yin fluids, while also possessing toxicity-resolving and blood-invigorating properties. Because it enters the yang brightness channel, it is often used for wasting and thirsting disease, jaundice, breast abscess, and hemorrhoids. And because it acts at the level of the muscles and flesh, it can also reduce swelling and treat sores.
 
+In *Rectification of the Meaning of Materia Medica*, Zhang Jie-Bin explains:
+
+By flavor bitter, by nature cold, yet both of these qualities are very mild. It has both raising and downward-directing tendencies, and is therefore yang within yin. It is best for cooling heat in the Lungs, and excels at resolving thirst from heat. It has a powerful ability to direct phlegm-heat above the diaphragm downward, to dispel the swelling and toxins of breast abscess, hemorrhoids and sores, to expel pus, and to generate flesh. It also eliminates stagnant blood due to trauma, unblocks menstrual flow, expels the heat of mania, dispels yellow jaundice, moistens parched dryness, and also excels at resolving alcohol toxicity. Likewise it unblocks the Small Intestine and treats bulging disorder from Liver fire.
+
+Zhang Xi-Chun observes that "Most vine roots can unblock and mobilize channels and collaterals, but Trichosanthis Radix (tian hua fen) also has a cooling, toxicity-resolving nature, which results in its various actions."
+
+If a lesser yang disorder involves thirst but without nausea, *Discussion of Cold Damage* recommends that Trichosanthis Radix (tian hua fen) be substituted for Pinelliae Rhizoma preparata (ban xia) in Minor Bupleurum Decoction (xiao chai hu tang).
+
+---
 ---
 
 ## 🔑 TCM Properties
@@ -85,21 +95,18 @@ Brief description of the herb, source, botanical information, and general identi
 
 ## ⚡ Functions & Actions
 
-```dataview
-LIST herb_data.functions
-WHERE file.name = this.file.name
-```
-
-**Key Functions:**
--
--
--
-
-**Clinical Applications:**
--
--
-
----
+Drains heat and generates fluids: Used when heat injures the fluids, giving rise to thirst and irritability, thirst from yin deficiency, and wasting and thirsting disorder. Also used for cough with thick sputum or blood-streaked sputum.
+    With Anemarrhenae Rhizoma (zhi mu), Puerariae Radix (ge gen), Schisandrae Fructus (wu wei zi) for wasting and thirsting disorder and the thirst and irritability associated with injured fluids in the aftermath of a warm-heat pathogen disease, e.g., the formulas Glehnia/Adenophora and Ophiopogonis Decoction (sha shen mai men dong tang), and Jade Fluid Decoction (yu ye tang).
+    With *Phragmitis Rhizoma* (lu gen) and *Imperatae Rhizoma* (bai mao gen) for thirst and irritability from injured fluids in hot diseases.
+    With Glehniae/Adenophorae Radix ([bei/nan] sha shen), Ophiopogonis Radix (mai men dong), and Rehmanniae Radix (sheng di huang) for injured yin from Stomach heat. This presents clinically with excessive thirst and irritability, dryness in the mouth, cravings after eating, and emaciation. This is often seen in wasting and thirsting disorder.
+    With Ostreae Concha (mu li) for irritability and mental disorientation due to Lung and Stomach yin deficiency and ascending heat, coupled with thirst. Also used to treat goiter from clumping of phlegm-heat.
+Clears and drains Lung heat, transforms phlegm, and moistens Lung dryness: For phlegm-heat above the diphragm, especially when the heat has led to dryness.
+    With Fritillariae Bulbus (bei mu), Mori Cortex (sang bai pi), and Platycodi Radix (jie geng) for cough due to phlegm-heat in the Lungs with thick, viscous sputum or blood-streaked sputum.
+    With Trichosanthis Pericarpium (gua lou pi) for non-productive cough or one with scanty sputum, with a stifling sensation and thirst in the aftermath of a febrile disease.
+Resolves toxicity and expels pus: For hot toxic carbuncles and sores. Especially appropriate for breast abscess. For this purpose, it can be used both internally and topically.
+    With Lonicerae Flos (jin yin hua), Fritillariae thunbergii Bulbus (zhe bei mu), and Gleditsiae Fructus (zao jiao) to reduce swellings and expel pus.
+    With Olibanum (ru xiang) and Phaseoli Semen (chi xiao dou) for breast abscess. For this purpose, it can be used both internally and topically.
+    With *Manitis Squama* (chuan shan jia), Gleditsiae Fructus (zao jiao), and Lonicerae Flos (jin yin hua) for yang-type breast or Intestinal abscess.
 
 ## 🎯 Patterns & Symptoms
 
@@ -175,8 +182,7 @@ SORT Category, file.name
 **Toxicity:** `= this.herb_data.toxicity`
 
 **Contraindications:**
--
--
+Use with caution in those with cold from deficiency of the Spleen and Stomach. Traditionally, it is not to be used with herbs of the genus *Aconitum*. A pure yin herb: prohibited for those with cold from deficiency of the Spleen and Stomach." (*Harm and Benefit in the Materia Medica*)
 
 **Drug Interactions:**
 -
@@ -209,8 +215,7 @@ WHERE file.name = this.file.name
 ## 🌱 Quality Criteria & Authentication
 
 **Quality Indicators:**
--
--
+Good quality consists of large, heavy, white, and powdery roots. Small, lightweight, fibrous, and yellow-colored roots are of inferior quality.
 
 **Common Adulterants:**
 -
@@ -281,7 +286,7 @@ LIMIT 10
 - [[]]
 
 **Related Formulas:**
-- [[Formulas including Tian Hua Fen]]
+- [[Formulas including Ai Ye]]
 
 **Related Western Conditions:**
 - [[]]

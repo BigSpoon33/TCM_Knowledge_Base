@@ -20,35 +20,36 @@ tests: []
 # 🔹 Herb-Specific Data
 herb_data:
   hanzi: "王不留行"
-  pinyin: "Wang Bu Liu Xing"
-  pharmaceutical: "Vaccariae, Semen"
-  english: ""
+  pinyin: "wáng bù liú xíng"
+  pharmaceutical: "Vaccariae Semen"
+  english: "Cowherb Seed"
   alternate_names: []
 
   # TCM Properties
-  taste: []
-  temperature: ""
-  channels: []
+  taste: [Bitter]
+  temperature: "Neutral"
+  channels: [Liver, Stomach]
 
   # Clinical Information
-  dosage: ""
-  toxicity: ""
-  functions: []
+  dosage: "4.5-9g"
+  toxicity: "None"
+  functions: [Promotes the movement of blood and invigorates the channels, Reduces swellings]
   dui_yao: []
 
   # Additional Information
-  constituents: []
-  quality: ""
-  text_first_appeared: ""
+  constituents: [Triterpene saponines: vacsegoside A, B, C, D (sapogenine: gypsogenin-3-B-D-glucuronoside), isosaponarin (sapogenine: saponaretin), Flavonoids: sapxanthone, 1,8-dihydroxy-3,5-dimethoxy-9H-xanthone, vaccarin, Other constituents: phospholipides, phytin, stigmasterol, proteins, fats, alkaloids, coumarins]
+  quality: "Good quality consists of full, black seeds."
+  text_first_appeared: "None"
 
   # Source References
-  bensky_page: ""
+  bensky_pdf: "627"
+  bensky_page: "None"
 
 created: 2025-10-01
 updated: 2025-10-01
 ---
 
-# 🌿 Wang Bu Liu Xing
+# 🌿 Ai Ye
 
 **Pharmaceutical Name:** `= this.herb_data.pharmaceutical`
 **English Name:** `= this.herb_data.english`
@@ -71,8 +72,11 @@ updated: 2025-10-01
 
 ## 📖 Overview
 
-Brief description of the herb, source, botanical information, and general identity.
+Promoting movement without restraint, Vaccariae Semen (wang bu liu xing) enters the blood aspect and excels at facilitating movement in the blood vessels, transforming stasis, and dispersing swelling and distention. Its bitterness adds a downward-draining action that is quite strong, and many of its notable clinical effects derive from this, such as unblocking menstruation, inducing labor, and promoting the flow of breast milk. It is often used in the treatment of amenorrhea or dysmenorrhea due to stagnation of qi and blood, delayed initiation of labor, and postpartum obstruction of the collaterals of the breast, causing breast distention and preventing sufficient milk flow.
 
+Rectification of the Meaning of Materia Medica states that it unblocks and facilitates [blood flow] in a rapid accelerated (~ ji) manner, hence the name 'the king cannot stay its movement' (wang bu liu xing). This actually means that, even should the king command it to stop, its movement cannot halt: its dredging-facilitating nature is so violent. Its flavor is also bitter, so it drains and directs downward: it is only appropriate for hot clumping. ... It also treats difficult labor, and unblocks breast milk. Zhen Quan says it treats wind toxicity and unblocks the blood vessels. Ri Hua-Zi says it governs roving wind (you feng), wind rash, and irregular menstruation in women. Li Shi-Zhen says it promotes urination. Zhang Jie-Bin says that it facilitates the yang brightness channel, the Penetrating and Conception vessels, and the sea of blood, so that it unblocks menstrual stagnation and irregularity. Zhang Lu says it travels without restraint, and is best at facilitating the orifices. All of the above are the effects of breaking up clumping, disseminating, and guiding. If a person is deficient [however] it must be applied cautiously in a light dosage; it is strictly forbidden during pregnancy!
+
+---
 ---
 
 ## 🔑 TCM Properties
@@ -85,21 +89,15 @@ Brief description of the herb, source, botanical information, and general identi
 
 ## ⚡ Functions & Actions
 
-```dataview
-LIST herb_data.functions
-WHERE file.name = this.file.name
-```
-
-**Key Functions:**
--
--
--
-
-**Clinical Applications:**
--
--
-
----
+- Promotes the movement of blood and invigorates the channels: in the upper part of the body this herb promotes lactation, and in the lower part it unblocks menstruation.
+  - For insufficient lactation or amenorrhea due to blood stasis.
+  - With Angelicae sinensis Radix (dang gui) and Cyperi Rhizoma (xiang fu) for blood stasis leading to menstrual irregularities or amenorrhea.
+  - With Manitis Squama (chuan shan jia) for insufficient lactation and breast abscess.
+  - With Liquidambaris Fructus (lu lu tong), Tetrapanacis Medulla (tong cao), and Astragali Radix (huang qi) for insufficient lactation.
+  - With Astragali Radix (huang qi) and Angelicae sinensis Radix (dang gui) for insufficient lactation due to postpartum qi and blood deficiency.
+- Reduces swellings: for painful swellings, especially of the breast or testicles.
+  - With Taraxaci Herba (pu gong ying) and Trichosanthis Fructus (gua lou) for breast abscess.
+  - With Toosendan Fructus (chuan lian zi) and Isatidis/Baphicacanthis Radix (ban lan gen) for orchitis from mumps.
 
 ## 🎯 Patterns & Symptoms
 
@@ -175,8 +173,11 @@ SORT Category, file.name
 **Toxicity:** `= this.herb_data.toxicity`
 
 **Contraindications:**
--
--
+Contraindicated during pregnancy.
+
+"Those with blood loss disorders and those with continuous menstrual bleeding must both avoid it." (Treasury of Words on the Materia Medica)
+
+Zhang Shan-Lei cautions: "If a person is deficient it must be used with caution in a small dosage; it is strictly forbidden during pregnancy!"
 
 **Drug Interactions:**
 -
@@ -209,8 +210,7 @@ WHERE file.name = this.file.name
 ## 🌱 Quality Criteria & Authentication
 
 **Quality Indicators:**
--
--
+Good quality consists of full, black seeds.
 
 **Common Adulterants:**
 -
@@ -281,7 +281,7 @@ LIMIT 10
 - [[]]
 
 **Related Formulas:**
-- [[Formulas including Wang Bu Liu Xing]]
+- [[Formulas including Ai Ye]]
 
 **Related Western Conditions:**
 - [[]]
