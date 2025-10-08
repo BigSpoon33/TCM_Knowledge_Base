@@ -1,3 +1,25 @@
+---
+# 🔹 Core Metadata (Universal Fields)
+id: "disease-20251007173244"
+name: "Urticaria"
+type: "disease"
+aliases: []
+tags: ['TCM', 'Disease']
+
+# 🔹 Cross-Link Fields (Universal Relationship Slots)
+category: []
+related: []
+symptoms: ['Red rashes complicated by abdominal or epigastric pain', 'Red rashes with severe itching', 'White or light red rashes accompanied by heaviness of the body', 'constipation or diarrhoea']
+patterns: ['Accumulation of heat in the stomach and intestines', 'Differentiation', 'Wind [[damp]]', 'Wind damp', 'Wind heat']
+western_conditions: ['**']
+formulas: []
+herbs: []
+points: ['DU-14', 'SP-10', 'SP-6', 'SP-9']
+nutrition: []
+tests: []
+updated: "2025-10-07"
+---
+
 ------
 
 # 🩺 Urticaria

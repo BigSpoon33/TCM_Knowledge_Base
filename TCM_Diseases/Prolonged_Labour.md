@@ -1,3 +1,25 @@
+---
+# 🔹 Core Metadata (Universal Fields)
+id: "disease-20251007173244"
+name: "Prolonged Labour"
+type: "disease"
+aliases: []
+tags: ['TCM', 'Disease']
+
+# 🔹 Cross-Link Fields (Universal Relationship Slots)
+category: []
+related: []
+symptoms: ['Dark bluish complexion', 'Depressive mood', 'Dull and paroxysmal labour pains with mild weighing and distending sensation', 'Frequent nausea', 'Fullness in the chest and epigastrium', 'Lassitude', 'Pale complexion', 'Palpitation', 'Profuse hemorrhage in light colour', 'Prolonged delivery course', 'Scanty hemorrhage in dark red colour', 'Sharp pains in the waist and abdomen', 'Shortness of breath']
+patterns: ['Deficiency of qi and blood', 'Differentiation', 'Qi stagnation and blood stasis']
+western_conditions: ['**']
+formulas: []
+herbs: []
+points: ['BL-67', 'SP-6', 'ST-36']
+nutrition: []
+tests: []
+updated: "2025-10-07"
+---
+
 ------
 
 # 🩺 Prolonged Labour

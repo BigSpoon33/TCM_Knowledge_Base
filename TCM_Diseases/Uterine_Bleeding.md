@@ -1,3 +1,25 @@
+---
+# 🔹 Core Metadata (Universal Fields)
+id: "disease-20251007173244"
+name: "Uterine Bleeding"
+type: "disease"
+aliases: []
+tags: ['TCM', 'Disease']
+
+# 🔹 Cross-Link Fields (Universal Relationship Slots)
+category: []
+related: []
+symptoms: ['Anorexia', 'Apathy', 'Dizziness', 'Fidgets', 'Insomnia', 'Lassitude', 'Shortness of breath', 'Sudden onset of profuse or prolonged continuous vaginal bleeding in deep red colour', 'Sudden profuse bleeding or continuous scanty bleeding marked by light red and thin blood']
+patterns: ['Differentiation', 'Excessive heat', 'Qi deficiency']
+western_conditions: ['**']
+formulas: []
+herbs: []
+points: ['DU-20', 'DU-22', 'LIV-3', 'LIV-8', 'REN-3', 'REN-4', 'SP-1', 'SP-10', 'SP-6']
+nutrition: []
+tests: []
+updated: "2025-10-07"
+---
+
 ------
 
 # 🩺 Uterine Bleeding

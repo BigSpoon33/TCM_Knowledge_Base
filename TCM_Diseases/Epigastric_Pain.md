@@ -1,3 +1,25 @@
+---
+# 🔹 Core Metadata (Universal Fields)
+id: "disease-20251007173244"
+name: "Epigastric Pain"
+type: "disease"
+aliases: []
+tags: ['TCM', 'Disease']
+
+# 🔹 Cross-Link Fields (Universal Relationship Slots)
+category: []
+related: []
+symptoms: ['Abdominal distension', 'Anorexia', 'Belching with fetid odour', 'Distending pain in the epigastrium, aggravated on pressure or after meals', 'Dull pain in the epigastrium, which may be relieved by pressure and warmth', 'Frequent belching accompanied by nausea, vomiting, acid regurgitation', 'General lassitude', 'Paroxysmal pain in the epigastrium, radiating to the hypochondriac regions', 'Regurgitation of thin fluid']
+patterns: ['Attack of the stomach by the liver qi', 'Deficiency of the stomach with stagnation of cold', 'Differentiation', 'Retention of food']
+western_conditions: []
+formulas: []
+herbs: []
+points: []
+nutrition: []
+tests: []
+updated: "2025-10-07"
+---
+
 ------
 
 # 🩺 Epigastric Pain

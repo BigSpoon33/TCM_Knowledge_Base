@@ -1,3 +1,25 @@
+---
+# 🔹 Core Metadata (Universal Fields)
+id: "disease-20251007173244"
+name: "Boil and "Red-Thread Boil""
+type: "disease"
+aliases: []
+tags: ['TCM', 'Disease']
+
+# 🔹 Cross-Link Fields (Universal Relationship Slots)
+category: []
+related: []
+symptoms: ['Blister or pustula with a hard base, usually accompanied by tingling', 'Boil appearing like a grain of millet (yellow or purple) on the head, face, or extremity', 'If toxicity attacks the interior: high fever, restlessness, dizziness, vomiting, impaired consciousness', 'Increased redness, swelling, and burning pain', 'Often accompanied by chills and fever', 'Sometimes a red thread-like line extending proximally']
+patterns: ['Differentiation', 'Toxic Heat Accumulation']
+western_conditions: []
+formulas: []
+herbs: []
+points: ['DU-10', 'DU-12']
+nutrition: []
+tests: []
+updated: "2025-10-07"
+---
+
 ------
 
 # 🩺 Boil and "Red-Thread Boil"

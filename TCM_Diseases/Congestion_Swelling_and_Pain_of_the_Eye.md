@@ -1,3 +1,25 @@
+---
+# 🔹 Core Metadata (Universal Fields)
+id: "disease-20251007173244"
+name: "Congestion, Swelling and Pain of the Eye"
+type: "disease"
+aliases: []
+tags: ['TCM', 'Disease']
+
+# 🔹 Cross-Link Fields (Universal Relationship Slots)
+category: []
+related: ['Fire', 'Wind']
+symptoms: ['Bitter taste in the mouth', 'Congestion of the eye', 'Constipation', 'Fever', 'Irritability with feverish sensation', 'Lacrimation', 'Pain of the eye', 'Photophobia', 'Sticky discharge', 'Swelling of the eye']
+patterns: ['Differentiation', 'Liver and Gallbladder Fire Flaring Up', 'Liver and Gallbladder [[Fire]] Flaring Up', 'Wind Heat Attacking the Eye', '[[Wind]] Heat Attacking the Eye']
+western_conditions: ['**']
+formulas: []
+herbs: []
+points: ['LIV-2', 'LIV-3']
+nutrition: []
+tests: []
+updated: "2025-10-07"
+---
+
 ------
 
 # 🩺 Congestion, Swelling and Pain of the Eye

@@ -1,3 +1,25 @@
+---
+# 🔹 Core Metadata (Universal Fields)
+id: "disease-20251007173244"
+name: "Dysmenorrhea"
+type: "disease"
+aliases: []
+tags: ['TCM', 'Disease']
+
+# 🔹 Cross-Link Fields (Universal Relationship Slots)
+category: []
+related: []
+symptoms: ['Aversion to cold', 'Cold extremities', 'Distending pain in the lower abdomen, alleviated by passing out the clots', 'Distension in the hypochondriac region and breast', 'Dizziness', 'Dull pain appearing by the end of or after menstruation', 'Pain alleviated by warmth and pressure', 'Pain and cold feeling in the lower abdomen referring to the waist and back, alleviated by warmth', 'Pain in the lower abdomen, usually starting before menstruation', 'Pale complexion', 'Palpitation', 'Pink, scanty and thin menses', 'Retarded and scanty and dark purple menses with clots', 'Scanty dark red menses with clots']
+patterns: ['Deficiency syndrome', 'Differentiation', 'Excess syndrome', 's)']
+western_conditions: ['**']
+formulas: []
+herbs: []
+points: ['LIV-3', 'REN-3', 'REN-4', 'SP-10', 'SP-6', 'SP-8']
+nutrition: []
+tests: []
+updated: "2025-10-07"
+---
+
 ------
 
 # 🩺 Dysmenorrhea

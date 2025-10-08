@@ -1,3 +1,25 @@
+---
+# 🔹 Core Metadata (Universal Fields)
+id: "disease-20251007173244"
+name: "Infantile Paralysis"
+type: "disease"
+aliases: []
+tags: ['TCM', 'Disease']
+
+# 🔹 Cross-Link Fields (Universal Relationship Slots)
+category: []
+related: ['Cold']
+symptoms: ['Cold skin', 'Deformity of trunk (in chronic case)', 'Intractable paralysis', 'Muscular atrophy of affected part', 'Paralysis in any part of the body (especially lower limb)', 'Paralysis of abdominal muscles (revealed by bulging during crying)', 'Weakness of muscles']
+patterns: ['Differentiation', 'Sequellae of Infantile Paralysis (Obstructive Wei Syndrome, Chronic Stage)']
+western_conditions: ['**']
+formulas: []
+herbs: []
+points: ['DU-14', 'REN-4', 'SP-6', 'SP-9']
+nutrition: []
+tests: []
+updated: "2025-10-07"
+---
+
 ------
 
 # 🩺 Infantile Paralysis

@@ -1,3 +1,25 @@
+---
+# 🔹 Core Metadata (Universal Fields)
+id: "disease-20251007173244"
+name: "Epistaxis"
+type: "disease"
+aliases: []
+tags: ['TCM', 'Disease']
+
+# 🔹 Cross-Link Fields (Universal Relationship Slots)
+category: []
+related: ['Dryness']
+symptoms: ['Afternoon fever', 'Constipation', 'Cough', 'Dire thirst with preference for cold drink', 'Dryness of the mouth', 'Epistaxis accompanied by fever', 'Epistaxis accompanied by malar flush', 'Feverish sensation of the palms and soles', 'Foul breath', 'Irritability and restlessness', 'Night sweating']
+patterns: ['Deficiency of yin with preponderance of fire', 'Differentiation', 'Extreme heat in lung and stomach']
+western_conditions: []
+formulas: []
+herbs: []
+points: ['DU-23']
+nutrition: []
+tests: []
+updated: "2025-10-07"
+---
+
 ------
 
 # 🩺 Epistaxis

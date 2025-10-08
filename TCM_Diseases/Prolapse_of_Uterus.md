@@ -1,3 +1,25 @@
+---
+# 🔹 Core Metadata (Universal Fields)
+id: "disease-20251007173244"
+name: "Prolapse of Uterus"
+type: "disease"
+aliases: []
+tags: ['TCM', 'Disease']
+
+# 🔹 Cross-Link Fields (Universal Relationship Slots)
+category: []
+related: ['Dryness']
+symptoms: ['Bearing sensation in the lower abdomen', 'Dizziness', 'Drop of the uterus in the vagina or out of the vulva several inches', 'Dryness in the vagina', 'Frequent urine', 'Lassitude', 'Leukorrhagia', 'Palpitation', 'Prolapse of uterus', 'Shortness of breath', 'Sinking sensation in the lower abdomen', 'Sore and weak low back and legs', 'Tinnitus']
+patterns: ['Differentiation', 'Kidney deficiency', 'Qi deficiency']
+western_conditions: []
+formulas: []
+herbs: []
+points: ['DU-20', 'LIV-8', 'REN-12', 'REN-4', 'REN-6']
+nutrition: []
+tests: []
+updated: "2025-10-07"
+---
+
 ------
 
 # 🩺 Prolapse of Uterus

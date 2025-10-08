@@ -1,3 +1,25 @@
+---
+# 🔹 Core Metadata (Universal Fields)
+id: "disease-20251007173244"
+name: "Morning Sickness"
+type: "disease"
+aliases: []
+tags: ['TCM', 'Disease']
+
+# 🔹 Cross-Link Fields (Universal Relationship Slots)
+category: []
+related: []
+symptoms: ['Dizziness and eye distension', 'Epigastric fullness and hyperchondriac pain', 'Frequent belching and sighing', 'Fullness and distending feeling in the chest', 'Lassitude and sleepiness', 'Mental depression', 'Nausea and vomiting of liquid or indigested food immediately after meals', 'Vomiting of bitter or sour liquid']
+patterns: ['Deficiency in the Spleen and Stomach', 'Differentiation', 'Disharmony Between the Liver and Stomach']
+western_conditions: []
+formulas: []
+herbs: []
+points: ['LIV-3', 'REN-12', 'REN-13', 'REN-17', 'SP-4']
+nutrition: []
+tests: []
+updated: "2025-10-07"
+---
+
 ------
 
 # 🩺 Morning Sickness

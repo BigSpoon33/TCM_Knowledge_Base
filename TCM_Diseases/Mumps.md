@@ -1,3 +1,25 @@
+---
+# 🔹 Core Metadata (Universal Fields)
+id: "disease-20251007173244"
+name: "Mumps"
+type: "disease"
+aliases: []
+tags: ['TCM', 'Disease']
+
+# 🔹 Cross-Link Fields (Universal Relationship Slots)
+category: []
+related: ['Dryness', 'Wind']
+symptoms: ['Chills and fever', 'Constipation (if intense heat)', 'Dark urine (if intense heat)', 'Dryness of the mouth (if intense heat)', 'Dysmasesia', 'High fever with irritability (if intense heat)', 'More marked redness, pain and swelling in the parotid region (if intense heat)', 'Pain and swelling of the testis (if intense heat)', 'Redness, pain and swelling in unilateral or bilateral parotid regions']
+patterns: ['Differentiation', 'Epidemic [[Wind]]-Heat Attacking Shaoyang']
+western_conditions: ['**']
+formulas: []
+herbs: []
+points: ['DU-14', 'LIV-3', 'LIV-8']
+nutrition: []
+tests: []
+updated: "2025-10-07"
+---
+
 ------
 
 # 🩺 Mumps
