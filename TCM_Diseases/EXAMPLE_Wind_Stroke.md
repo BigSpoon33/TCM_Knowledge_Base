@@ -444,16 +444,16 @@ Points of the Du Meridian, the Liver Meridian of Foot-Jueyin and the twelve Jing
 | [[LU-11]] | Shaoshang | Dispel heat, regain consciousness (Jing-Well point) | Prick to bleed |
 | [[HE-9]] | Shaochong | Dispel heat, regain consciousness (Jing-Well point) | Prick to bleed |
 | [[P-9]] | Zhongchong | Dispel heat, regain consciousness (Jing-Well point) | Prick to bleed |
-| [[L.I.-1]] | Shangyang | Dispel heat, regain consciousness (Jing-Well point) | Prick to bleed |
+| [[LI-1]] | Shangyang | Dispel heat, regain consciousness (Jing-Well point) | Prick to bleed |
 | [[SJ-1]] | Guanchong | Dispel heat, regain consciousness (Jing-Well point) | Prick to bleed |
-| [[S.I.-1]] | Shaoze | Dispel heat, regain consciousness (Jing-Well point) | Prick to bleed |
+| [[SI-1]] | Shaoze | Dispel heat, regain consciousness (Jing-Well point) | Prick to bleed |
 
 #### Supplementary Points
 
 **For Clenched Jaws:**
 - [[ST-7]] (Xiaguan) - Promote circulation of qi and blood
 - [[ST-6]] (Jiache) - Relieve clenched jaws
-- [[L.I.-4]] (Hegu) - Yangming meridian supply to cheeks
+- [[LI-4]] (Hegu) - Yangming meridian supply to cheeks
 
 **For Aphasia and Stiffness of Tongue:**
 - [[DU-15]] (Yamen) - Local point of tongue
@@ -524,10 +524,10 @@ Points along the Du Meridian and the yang meridians of the affected side are mai
 
 | Point | Name | Function |
 |-------|------|----------|
-| [[L.I.-15]] | Jianyu | Regulate qi and blood in upper limb yang meridians |
-| [[L.I.-11]] | Quchi | Regulate qi and blood in upper limb yang meridians |
+| [[LI-15]] | Jianyu | Regulate qi and blood in upper limb yang meridians |
+| [[LI-11]] | Quchi | Regulate qi and blood in upper limb yang meridians |
 | [[SJ-5]] | Waiguan | Regulate qi and blood in upper limb yang meridians |
-| [[L.I.-4]] | Hegu | Regulate qi and blood in upper limb yang meridians |
+| [[LI-4]] | Hegu | Regulate qi and blood in upper limb yang meridians |
 
 **Lower Limbs:**
 

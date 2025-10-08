@@ -1,6 +1,6 @@
 ---
 # 🔹 Core Metadata (Universal Fields)
-id: "disease-20251007173244"
+id: "disease-20251007185406"
 name: "Wind Stroke"
 type: "disease"
 aliases: []
@@ -14,7 +14,7 @@ patterns: ['Attack on the meridians and collaterals', 'Attack on the zang-fu org
 western_conditions: []
 formulas: []
 herbs: []
-points: ['DU-15', 'DU-16', 'DU-20', 'DU-26', 'LIV-2', 'LIV-3', 'REN-23', 'REN-4', 'REN-6', 'REN-8', 'SJ-1', 'SJ-5', 'SP-6']
+points: ['DU-15', 'DU-16', 'DU-20', 'DU-26', 'LI-1', 'LI-11', 'LI-15', 'LI-4', 'LIV-2', 'LIV-3', 'REN-23', 'REN-4', 'REN-6', 'REN-8', 'SI-1', 'SJ-1', 'SJ-5', 'SP-6']
 nutrition: []
 tests: []
 updated: "2025-10-07"

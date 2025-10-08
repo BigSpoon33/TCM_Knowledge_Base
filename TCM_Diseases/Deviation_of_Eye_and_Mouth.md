@@ -1,6 +1,6 @@
 ---
 # 🔹 Core Metadata (Universal Fields)
-id: "disease-20251007173244"
+id: "disease-20251007185406"
 name: "Deviation of Eye and Mouth"
 type: "disease"
 aliases: []

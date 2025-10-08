@@ -1,6 +1,6 @@
 ---
 # 🔹 Core Metadata (Universal Fields)
-id: "disease-20251007173244"
+id: "disease-20251007185406"
 name: "Breast Abscess"
 type: "disease"
 aliases: []
@@ -14,7 +14,7 @@ patterns: ['Differentiation', 'Heat-Stagnation with Toxic Fire', 'Heat-Stagnatio
 western_conditions: ['**']
 formulas: []
 herbs: []
-points: ['GB-21', 'GB-41', 'LIV-3', 'REN-17', 'SJ-5', 'ST-18', 'ST-36']
+points: ['GB-21', 'GB-41', 'LI-4', 'LIV-3', 'REN-17', 'SI-1', 'SJ-5', 'ST-18', 'ST-36']
 nutrition: []
 tests: []
 updated: "2025-10-07"

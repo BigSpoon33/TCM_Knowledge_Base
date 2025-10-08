@@ -1,6 +1,6 @@
 ---
 # 🔹 Core Metadata (Universal Fields)
-id: "disease-20251007173244"
+id: "disease-20251007185406"
 name: "Urticaria"
 type: "disease"
 aliases: []
@@ -14,7 +14,7 @@ patterns: ['Accumulation of heat in the stomach and intestines', 'Differentiatio
 western_conditions: ['**']
 formulas: []
 herbs: []
-points: ['DU-14', 'SP-10', 'SP-6', 'SP-9']
+points: ['DU-14', 'LI-11', 'LI-4', 'SP-10', 'SP-6', 'SP-9']
 nutrition: []
 tests: []
 updated: "2025-10-07"
