@@ -1,7 +1,7 @@
 ---
 # 🔹 Core Metadata (Universal Fields)
-id: "disease-20251007173244"
-name: "Boil and "Red-Thread Boil""
+id: "disease-20251007185406"
+name: "🔹 Core Metadata (Universal Fields)"
 type: "disease"
 aliases: []
 tags: ['TCM', 'Disease']

@@ -1,6 +1,6 @@
 ---
 # 🔹 Core Metadata (Universal Fields)
-id: "disease-20251007173244"
+id: "disease-20251007185406"
 name: "Dysmenorrhea"
 type: "disease"
 aliases: []
@@ -14,7 +14,7 @@ patterns: ['Deficiency syndrome', 'Differentiation', 'Excess syndrome', 's)']
 western_conditions: ['**']
 formulas: []
 herbs: []
-points: ['LIV-3', 'REN-3', 'REN-4', 'SP-10', 'SP-6', 'SP-8']
+points: ['LI-4', 'LIV-3', 'REN-3', 'REN-4', 'SP-10', 'SP-6', 'SP-8']
 nutrition: []
 tests: []
 updated: "2025-10-07"

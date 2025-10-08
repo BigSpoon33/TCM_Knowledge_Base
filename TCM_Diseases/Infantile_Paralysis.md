@@ -1,6 +1,6 @@
 ---
 # 🔹 Core Metadata (Universal Fields)
-id: "disease-20251007173244"
+id: "disease-20251007185406"
 name: "Infantile Paralysis"
 type: "disease"
 aliases: []
@@ -10,7 +10,7 @@ tags: ['TCM', 'Disease']
 category: []
 related: ['Cold']
 symptoms: ['Cold skin', 'Deformity of trunk (in chronic case)', 'Intractable paralysis', 'Muscular atrophy of affected part', 'Paralysis in any part of the body (especially lower limb)', 'Paralysis of abdominal muscles (revealed by bulging during crying)', 'Weakness of muscles']
-patterns: ['Differentiation', 'Sequellae of Infantile Paralysis (Obstructive Wei Syndrome, Chronic Stage)']
+patterns: [", Chronic Stage)']", 'Differentiation', 'Sequellae of Infantile Paralysis (Obstructive Wei Syndrome, Chronic Stage)']
 western_conditions: ['**']
 formulas: []
 herbs: []
