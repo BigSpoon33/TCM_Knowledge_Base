@@ -1,3 +1,25 @@
+---
+# 🔹 Core Metadata (Universal Fields)
+id: "disease-20251007173244"
+name: "Sprain and Contusion"
+type: "disease"
+aliases: []
+tags: ['TCM', 'Disease']
+
+# 🔹 Cross-Link Fields (Universal Relationship Slots)
+category: []
+related: ['Cold', 'Damp', 'Wind']
+symptoms: ['Absence of marked swelling (in old injury)', 'Local swelling and pain', 'Motor impairment of joints (in serious cases)', 'Pain exacerbated in bad weather (in old injury)', 'Redness or ecchymosis', 'Repeated recurrence (in old injury)', 'Tenderness']
+patterns: ['Differentiation', 'Qi Stagnation and Blood Stasis with Wind-Cold-Damp Obstruction', 'Qi Stagnation and Blood Stasis with [[Wind]]-[[Cold]]-[[Damp]] Obstruction']
+western_conditions: []
+formulas: []
+herbs: []
+points: ['BL-10', 'BL-60', 'GB-21', 'GB-30', 'GB-34', 'GB-40', 'ST-13', 'ST-35', 'ST-41', 'ST-44']
+nutrition: []
+tests: []
+updated: "2025-10-07"
+---
+
 ------
 
 # 🩺 Sprain and Contusion

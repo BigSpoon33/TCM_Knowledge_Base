@@ -1,3 +1,25 @@
+---
+# 🔹 Core Metadata (Universal Fields)
+id: "disease-20251007173244"
+name: "Impotence"
+type: "disease"
+aliases: []
+tags: ['TCM', 'Disease']
+
+# 🔹 Cross-Link Fields (Universal Relationship Slots)
+category: []
+related: []
+symptoms: ['Inability of penis to erect', 'Lack of copulative power']
+patterns: ['Damp Heat Driving Downward', 'Decline of Mingmen Fire / Kidney Essence Exhaustion', 'Differentiation']
+western_conditions: []
+formulas: []
+herbs: []
+points: []
+nutrition: []
+tests: []
+updated: "2025-10-07"
+---
+
 ------
 
 # 🩺 Impotence

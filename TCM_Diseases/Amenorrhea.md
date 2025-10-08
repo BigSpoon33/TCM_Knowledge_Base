@@ -1,3 +1,25 @@
+---
+# 🔹 Core Metadata (Universal Fields)
+id: "disease-20251007173244"
+name: "Amenorrhea"
+type: "disease"
+aliases: []
+tags: ['TCM', 'Disease']
+
+# 🔹 Cross-Link Fields (Universal Relationship Slots)
+category: []
+related: []
+symptoms: ['Absence of menses for months', 'Afternoon fever and night sweating', 'Delayed menstrual cycle', 'Distension and fullness in the chest and hypochondriac region', 'Dizziness and tinnitus', 'Dry mouth and throat', 'Dry skin', 'Gradual decrease of menses and amenorrhea', 'Hard mass in lower abdomen', 'Hot sensation in the palms, soles and epigastrium', 'Lassitude', 'Loose stools', 'Lower abdominal distending pain aggravated by pressure', 'Poor appetite', 'Sallow complexion in prolonged cases', 'Sore and weak low back and knees', 'Vertigo and dizziness']
+patterns: ['Blood depletion', 'Blood stagnation', 'Differentiation']
+western_conditions: ['**']
+formulas: []
+herbs: []
+points: ['BL-18', 'BL-20', 'BL-23', 'KID-14', 'LIV-3', 'REN-3', 'REN-4', 'SP-10', 'SP-6', 'ST-29', 'ST-36']
+nutrition: []
+tests: []
+updated: "2025-10-07"
+---
+
 ------
 
 # 🩺 Amenorrhea

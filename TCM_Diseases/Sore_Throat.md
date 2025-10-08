@@ -1,3 +1,25 @@
+---
+# 🔹 Core Metadata (Universal Fields)
+id: "disease-20251007173244"
+name: "Sore Throat"
+type: "disease"
+aliases: []
+tags: ['TCM', 'Disease']
+
+# 🔹 Cross-Link Fields (Universal Relationship Slots)
+category: []
+related: []
+symptoms: ['Abrupt onset with chills', 'Gradual onset without fever or with low fever', 'congested and sore throat', 'constipation', 'dryness of the throat, more marked at night', 'dysphagia', 'fever', 'feverish sensation in the palms and soles', 'headache', 'slightly congested throat with intermittent pain or pain during swallowing', 'thirst']
+patterns: ['Differentiation', 'Syndrome of deficiency of yin', 'Syndrome of excess of heat']
+western_conditions: []
+formulas: []
+herbs: []
+points: ['REN-23']
+nutrition: []
+tests: []
+updated: "2025-10-07"
+---
+
 ------
 
 # 🩺 Sore Throat

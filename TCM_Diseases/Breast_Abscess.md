@@ -1,3 +1,25 @@
+---
+# 🔹 Core Metadata (Universal Fields)
+id: "disease-20251007173244"
+name: "Breast Abscess"
+type: "disease"
+aliases: []
+tags: ['TCM', 'Disease']
+
+# 🔹 Cross-Link Fields (Universal Relationship Slots)
+category: []
+related: ['Fire']
+symptoms: ['Growing of the lump with local bright redness and intermittent throbbing pain indicates suppuration', 'Mostly occurring after delivery', 'Redness, swelling and pain of the breast']
+patterns: ['Differentiation', 'Heat-Stagnation with Toxic Fire', 'Heat-Stagnation with Toxic [[Fire]]']
+western_conditions: ['**']
+formulas: []
+herbs: []
+points: ['GB-21', 'GB-41', 'LIV-3', 'REN-17', 'SJ-5', 'ST-18', 'ST-36']
+nutrition: []
+tests: []
+updated: "2025-10-07"
+---
+
 ------
 
 # 🩺 Breast Abscess

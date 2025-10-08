@@ -1,3 +1,25 @@
+---
+# 🔹 Core Metadata (Universal Fields)
+id: "disease-20251007173244"
+name: "Insufficient Lactation"
+type: "disease"
+aliases: []
+tags: ['TCM', 'Disease']
+
+# 🔹 Cross-Link Fields (Universal Relationship Slots)
+category: []
+related: []
+symptoms: ['Absence of milk secretion after delivery', 'Insufficient secretion of milk after delivery or even absence of milk', 'chest distress and hypochondriac pain', 'decreasing secretion during lactation period', 'distending pain in breast', 'dry skin', 'epigastric distension', 'lassitude', 'loose stools', 'loss of appetite', 'mental depression', 'no distending pain in the breast', 'pale complexion', 'palpitation', 'poor appetite']
+patterns: ['Deficiency of qi and blood', 'Differentiation', 'Liver qi stagnation']
+western_conditions: []
+formulas: []
+herbs: []
+points: ['LIV-14', 'LIV-3', 'REN-17', 'SP-6']
+nutrition: []
+tests: []
+updated: "2025-10-07"
+---
+
 ------
 
 # 🩺 Insufficient Lactation

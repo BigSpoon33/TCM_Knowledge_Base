@@ -1,3 +1,25 @@
+---
+# 🔹 Core Metadata (Universal Fields)
+id: "disease-20251007173244"
+name: "Toothache"
+type: "disease"
+aliases: []
+tags: ['TCM', 'Disease']
+
+# 🔹 Cross-Link Fields (Universal Relationship Slots)
+category: []
+related: []
+symptoms: ['Acute toothache', 'Dull pain off and on', 'Severe toothache', 'absence of foul breath', 'chills and fever', 'constipation', 'foul breath', 'gingival swelling', 'loose teeth', 'reddened tongue', 'thirst', 'yellow tongue coating']
+patterns: ['Differentiation', 'Toothache caused by deficiency of the kidney yin', 'Toothache caused by wind fire', 'Toothache due to stomach fire']
+western_conditions: ['**']
+formulas: []
+herbs: []
+points: []
+nutrition: []
+tests: []
+updated: "2025-10-07"
+---
+
 ------
 
 # 🩺 Toothache

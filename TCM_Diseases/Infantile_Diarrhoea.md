@@ -1,3 +1,25 @@
+---
+# 🔹 Core Metadata (Universal Fields)
+id: "disease-20251007173244"
+name: "Infantile Diarrhoea"
+type: "disease"
+aliases: []
+tags: ['TCM', 'Disease']
+
+# 🔹 Cross-Link Fields (Universal Relationship Slots)
+category: ['Pediatric Diseases']
+related: ['Damp']
+symptoms: ['Abdominal distension', 'Abdominal pain', 'Anorexia', 'Borborygmi', 'Burning sensation at the anus', 'Fever', 'Frequent eructation', 'Frequent fits of pain followed by bowel movements', 'Loose stools with yellow colour and offensive smell', 'Pain relieved after defecation', 'Scanty and dark urine', 'Sour and putrid feces', 'Thirst', 'Undigested milk and food in fecal discharge']
+patterns: ['Diarrhoea due to Damp Heat', 'Diarrhoea due to Overfeeding', 'Diarrhoea due to [[Damp]] Heat', 'Differentiation']
+western_conditions: []
+formulas: []
+herbs: []
+points: ['REN-11', 'REN-6', 'SP-9', 'ST-25', 'ST-37']
+nutrition: []
+tests: []
+updated: "2025-10-07"
+---
+
 ------
 
 # 🩺 Infantile Diarrhoea

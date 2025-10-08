@@ -1,3 +1,25 @@
+---
+# 🔹 Core Metadata (Universal Fields)
+id: "disease-20251007173244"
+name: "Deviation of Eye and Mouth"
+type: "disease"
+aliases: []
+tags: ['TCM', 'Disease']
+
+# 🔹 Cross-Link Fields (Universal Relationship Slots)
+category: []
+related: []
+symptoms: ['Drooping of the angle of the mouth', 'Headache (in some cases)', 'Inability to blow out the cheek', 'Inability to close the eye', 'Inability to frown', 'Inability to raise the eyebrow', 'Inability to show the teeth or whistle', 'Incomplete closure of the eye in the affected side', 'Pain in the mastoid region (in some cases)', 'Salivation', 'Sudden onset, usually right after waking up']
+patterns: ['Differentiation', 'Invasion of Exogenous Wind-Cold']
+western_conditions: ['**']
+formulas: []
+herbs: []
+points: ['DU-26']
+nutrition: []
+tests: []
+updated: "2025-10-07"
+---
+
 ------
 
 # 🩺 Deviation of Eye and Mouth

@@ -1,3 +1,25 @@
+---
+# 🔹 Core Metadata (Universal Fields)
+id: "disease-20251007173244"
+name: "Optic Atrophy"
+type: "disease"
+aliases: []
+tags: ['TCM', 'Disease']
+
+# 🔹 Cross-Link Fields (Universal Relationship Slots)
+category: []
+related: ['Dryness']
+symptoms: ['Aching of the lower back', 'Bitter taste in the mouth', 'Blurred vision', 'Disinclination to talk', 'Dizziness', 'Dry throat', 'Dryness of the eyes', 'Emotional depression', 'Hypochondriac pain', 'Lassitude', 'Loose stools', 'Nocturnal emission', 'Poor appetite', 'Tinnitus', 'Vertigo', 'Weakness of breath']
+patterns: ['Deficiency of qi and blood', 'Deficiency of the liver and kidney yin', 'Differentiation', 'Stagnation of the liver qi']
+western_conditions: []
+formulas: []
+herbs: []
+points: ['BL-1', 'BL-18', 'BL-23', 'GB-20', 'GB-34', 'GB-39', 'KID-3', 'LIV-14', 'LIV-3', 'SP-6', 'ST-38']
+nutrition: []
+tests: []
+updated: "2025-10-07"
+---
+
 ------
 
 # 🩺 Optic Atrophy

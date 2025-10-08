@@ -1,3 +1,25 @@
+---
+# 🔹 Core Metadata (Universal Fields)
+id: "disease-20251007173244"
+name: "Intestinal Abscess"
+type: "disease"
+aliases: []
+tags: ['TCM', 'Disease']
+
+# 🔹 Cross-Link Fields (Universal Relationship Slots)
+category: []
+related: ['Damp']
+symptoms: ['Chills', 'Constipation', 'Dark urine', 'Difficulty in extension of the right leg', 'Fever', 'High fever and spontaneous sweating (in serious cases)', 'Mild contracture of the abdominal wall', 'Nausea', 'Severe pain with contracture of the abdominal wall, marked tenderness or palpable mass (in serious cases)', 'Sudden paroxysmal pain in the upper abdomen or around the umbilicus, soon becoming continuous and localized in the right lower abdomen near Tianshu (S 25)', 'Tenderness', 'Vomiting']
+patterns: ['Damp Heat and Qi-Blood Stagnation in Intestines', 'Differentiation', '[[Damp]] Heat and Qi-Blood Stagnation in Intestines']
+western_conditions: ['**']
+formulas: []
+herbs: []
+points: ['DU-14', 'REN-12', 'REN-4', 'ST-25', 'ST-37']
+nutrition: []
+tests: []
+updated: "2025-10-07"
+---
+
 ------
 
 # 🩺 Intestinal Abscess

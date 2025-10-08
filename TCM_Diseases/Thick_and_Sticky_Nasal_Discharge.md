@@ -1,3 +1,25 @@
+---
+# 🔹 Core Metadata (Universal Fields)
+id: "disease-20251007173244"
+name: "Thick and Sticky Nasal Discharge"
+type: "disease"
+aliases: []
+tags: ['TCM', 'Disease']
+
+# 🔹 Cross-Link Fields (Universal Relationship Slots)
+category: []
+related: []
+symptoms: ['Nasal obstruction', 'cough', 'dull pain in the forehead', 'loss of the sense of smell', 'thick and sticky nasal discharge', 'yellow fetid nasal discharge']
+patterns: ['Differentiation', 'Pathogenic Heat Accumulated in the Lung']
+western_conditions: ['**']
+formulas: []
+herbs: []
+points: ['LU-7']
+nutrition: []
+tests: []
+updated: "2025-10-07"
+---
+
 ------
 
 # 🩺 Thick and Sticky Nasal Discharge

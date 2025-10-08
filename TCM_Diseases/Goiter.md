@@ -1,3 +1,25 @@
+---
+# 🔹 Core Metadata (Universal Fields)
+id: "disease-20251007173244"
+name: "Goiter"
+type: "disease"
+aliases: []
+tags: ['TCM', 'Disease']
+
+# 🔹 Cross-Link Fields (Universal Relationship Slots)
+category: []
+related: []
+symptoms: ['Boulimia (implied by point functions)', 'Diffusive swelling in the neck (soft, unclear margins, changes with emotions)', 'Dyspnea', 'Exophthalmos', 'Hoarseness of voice', 'Hot temper', 'Irregular menstruation', 'Irritability', 'Oval movable lumps below Adam’s Apple (smooth surface)', 'Palpitation', 'Stuffiness in the chest', 'Sweating', 'Tremor of the hands']
+patterns: ['Differentiation', 'Goiter (General Treatment)']
+western_conditions: ['**']
+formulas: []
+herbs: []
+points: ['BL-1', 'BL-2', 'GB-20', 'HE-7', 'KID-7', 'LIV-3', 'REN-17', 'REN-22', 'SP-6', 'ST-36']
+nutrition: []
+tests: []
+updated: "2025-10-07"
+---
+
 ------
 
 # 🩺 Goiter

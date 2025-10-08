@@ -1,3 +1,25 @@
+---
+# 🔹 Core Metadata (Universal Fields)
+id: "disease-20251007173244"
+name: "Deafness and Tinnitus"
+type: "disease"
+aliases: []
+tags: ['TCM', 'Disease']
+
+# 🔹 Cross-Link Fields (Universal Relationship Slots)
+category: []
+related: []
+symptoms: ['Constant ringing in the ear that cannot be eliminated by pressing', 'Distension sensation in the ear', 'Dizziness', 'Dry mouth (with upward perversion of pathogenic wind fire of the liver and gallbladder)', 'Excessive leukorrhea', 'Flushed face (with upward perversion of pathogenic wind fire of the liver and gallbladder)', 'Headache (with invasion of exogenous pathogenic wind)', 'Hot temper (with upward perversion of pathogenic wind fire of the liver and gallbladder)', 'Intermittent tinnitus aggravated by strain', 'Irritability (with upward perversion of pathogenic wind fire of the liver and gallbladder)', 'Protracted deafness', 'Seminal emission', 'Soreness and aching of the lower back', 'Sudden deafness', 'Tinnitus eliminated by pressing']
+patterns: ['Deficiency type', 'Differentiation', 'Excess type']
+western_conditions: ['**']
+formulas: []
+herbs: []
+points: ['DU-4', 'LIV-2']
+nutrition: []
+tests: []
+updated: "2025-10-07"
+---
+
 ------
 
 # 🩺 Deafness and Tinnitus
