@@ -26,6 +26,7 @@ class AutoSyncFrontmatter:
         self.points_dir = self.base_dir / "TCM_Points"
         self.herbs_dir = self.base_dir / "TCM_Herbs"
         self.techniques_dir = self.base_dir / "TCM_Techniques"
+        self.symptoms_dir = self.base_dir / "TCM_Symptoms"
 
         # Entity registries (name -> file_path)
         self.concepts = {}
@@ -33,6 +34,7 @@ class AutoSyncFrontmatter:
         self.points = {}
         self.herbs = {}
         self.techniques = {}
+        self.symptoms = {}
 
         # Extracted relationships
         self.extracted_data = {}  # file_path -> extracted data dict
@@ -80,11 +82,20 @@ class AutoSyncFrontmatter:
                     if name:
                         self.techniques[name] = file
 
+        # Symptoms
+        if self.symptoms_dir.exists():
+            for file in self.symptoms_dir.glob("*.md"):
+                if file.stem not in ["TEMPLATE_Symptom"]:
+                    name = self._extract_name_from_file(file)
+                    if name:
+                        self.symptoms[name] = file
+
         print(f"  ✓ {len(self.concepts)} concepts")
         print(f"  ✓ {len(self.diseases)} diseases")
         print(f"  ✓ {len(self.points)} points")
         print(f"  ✓ {len(self.herbs)} herbs")
         print(f"  ✓ {len(self.techniques)} techniques")
+        print(f"  ✓ {len(self.symptoms)} symptoms")
 
     def _extract_name_from_file(self, file_path: Path) -> str:
         """Extract entity name from file"""
@@ -158,7 +169,7 @@ class AutoSyncFrontmatter:
                 'category': set(),
             }
 
-            # Extract wikilinks - ONLY for concepts, herbs
+            # Extract wikilinks - for concepts, herbs, symptoms
             wikilinks = re.findall(r'\[\[([^\]]+)\]\]', content)
             for link in wikilinks:
                 # Check which type of entity this is
@@ -166,6 +177,8 @@ class AutoSyncFrontmatter:
                     extracted['related'].add(link)
                 elif link in self.herbs:
                     extracted['herbs'].add(link)
+                elif link in self.symptoms:
+                    extracted['symptoms'].add(link)
                 # Don't add unknown wikilinks to avoid clutter
 
             # Extract point codes from treatment sections
