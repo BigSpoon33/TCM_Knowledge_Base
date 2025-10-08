@@ -20,6 +20,7 @@ from pathlib import Path
 from typing import Dict, List, Optional, Tuple
 from dataclasses import dataclass
 import anthropic
+import google.generativeai as genai
 
 
 @dataclass
@@ -38,19 +39,44 @@ class Pattern:
 class HBKimExtractor:
     """Interactive extractor for HB Kim handbook"""
 
-    def __init__(self, pdf_path: Path, base_dir: Path):
+    def __init__(self, pdf_path: Path, base_dir: Path, vision_provider: str = "auto"):
         self.pdf_path = Path(pdf_path)
         self.base_dir = Path(base_dir)
         self.output_dir = self.base_dir / "extracted_data"
         self.output_dir.mkdir(exist_ok=True)
 
-        # Claude API for vision model fallback
-        self.claude_api_key = os.getenv("ANTHROPIC_API_KEY")
-        if self.claude_api_key:
-            self.client = anthropic.Anthropic(api_key=self.claude_api_key)
-        else:
-            self.client = None
-            print("⚠️  ANTHROPIC_API_KEY not found - vision model fallback disabled")
+        # Initialize vision model clients
+        self.vision_provider = vision_provider
+        self.claude_client = None
+        self.gemini_model = None
+
+        # Try Claude
+        claude_api_key = os.getenv("ANTHROPIC_API_KEY")
+        if claude_api_key:
+            self.claude_client = anthropic.Anthropic(api_key=claude_api_key)
+
+        # Try Gemini
+        gemini_api_key = os.getenv("GOOGLE_API_KEY")
+        if gemini_api_key:
+            genai.configure(api_key=gemini_api_key)
+            self.gemini_model = genai.GenerativeModel('gemini-1.5-flash')
+
+        # Auto-select provider
+        if self.vision_provider == "auto":
+            if self.gemini_model:
+                self.vision_provider = "gemini"
+                print("✅ Using Gemini vision model (faster, cheaper)")
+            elif self.claude_client:
+                self.vision_provider = "claude"
+                print("✅ Using Claude vision model")
+            else:
+                self.vision_provider = None
+                print("⚠️  No vision API keys found")
+                print("    Set GOOGLE_API_KEY or ANTHROPIC_API_KEY to enable")
+
+        # Report status
+        if not self.gemini_model and not self.claude_client:
+            print("⚠️  Vision model extraction disabled")
 
     def extract_page_range(self, start_page: int, end_page: int) -> str:
         """Extract text from PDF page range"""
@@ -191,9 +217,10 @@ class HBKimExtractor:
         return symptoms
 
     def extract_with_vision(self, page_number: int, extraction_prompt: str) -> Optional[str]:
-        """Use Claude vision model to extract from page image"""
-        if not self.client:
-            print("❌ Vision model not available (ANTHROPIC_API_KEY not set)")
+        """Use vision model (Gemini or Claude) to extract from page image"""
+        if not self.vision_provider:
+            print("❌ Vision model not available")
+            print("   Set GOOGLE_API_KEY or ANTHROPIC_API_KEY")
             return None
 
         # Convert page to image
@@ -203,15 +230,44 @@ class HBKimExtractor:
         if not self.convert_page_to_image(page_number, image_path):
             return None
 
-        # Read image as base64
-        import base64
-        with open(image_path, 'rb') as f:
-            image_data = base64.standard_b64encode(f.read()).decode('utf-8')
+        try:
+            if self.vision_provider == "gemini":
+                return self._extract_with_gemini(image_path, extraction_prompt)
+            elif self.vision_provider == "claude":
+                return self._extract_with_claude(image_path, extraction_prompt)
+            else:
+                print(f"❌ Unknown vision provider: {self.vision_provider}")
+                return None
+        finally:
+            # Clean up image
+            if image_path.exists():
+                image_path.unlink()
 
+    def _extract_with_gemini(self, image_path: Path, prompt: str) -> Optional[str]:
+        """Extract using Google Gemini vision"""
+        print(f"🤖 Sending to Gemini vision model...")
+
+        try:
+            from PIL import Image
+            image = Image.open(image_path)
+
+            response = self.gemini_model.generate_content([prompt, image])
+            return response.text
+
+        except Exception as e:
+            print(f"❌ Gemini error: {e}")
+            return None
+
+    def _extract_with_claude(self, image_path: Path, prompt: str) -> Optional[str]:
+        """Extract using Claude vision"""
         print(f"🤖 Sending to Claude vision model...")
 
         try:
-            message = self.client.messages.create(
+            import base64
+            with open(image_path, 'rb') as f:
+                image_data = base64.standard_b64encode(f.read()).decode('utf-8')
+
+            message = self.claude_client.messages.create(
                 model="claude-3-5-sonnet-20241022",
                 max_tokens=4000,
                 messages=[
@@ -228,7 +284,7 @@ class HBKimExtractor:
                             },
                             {
                                 "type": "text",
-                                "text": extraction_prompt
+                                "text": prompt
                             }
                         ],
                     }
@@ -238,12 +294,8 @@ class HBKimExtractor:
             return message.content[0].text
 
         except Exception as e:
-            print(f"❌ Vision model error: {e}")
+            print(f"❌ Claude error: {e}")
             return None
-        finally:
-            # Clean up image
-            if image_path.exists():
-                image_path.unlink()
 
     def preview_pattern(self, pattern: Pattern) -> str:
         """Generate preview of extracted pattern"""
