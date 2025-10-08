@@ -102,11 +102,37 @@ Extracted patterns are saved to `extracted_data/` with:
 
 ## Vision Model Setup
 
-To enable vision model fallback:
+The tool supports **two vision models** - Gemini (recommended) or Claude:
+
+### Option 1: Google Gemini (Recommended ✅)
 
 ```bash
-export ANTHROPIC_API_KEY="your-api-key"
+export GOOGLE_API_KEY="your-google-api-key"
 ```
+
+**Why Gemini:**
+- ✅ **Faster** - 2-3 seconds per page
+- ✅ **Cheaper** - ~$0.001-0.005 per page (200x cheaper than Claude!)
+- ✅ **Accurate** - Excellent OCR and table understanding
+- ✅ **Higher rate limits**
+
+**Get API key:** https://aistudio.google.com/app/apikey
+
+### Option 2: Claude Vision (Alternative)
+
+```bash
+export ANTHROPIC_API_KEY="your-anthropic-api-key"
+```
+
+**Why Claude:**
+- Very accurate for complex reasoning
+- ~$0.01-0.05 per page
+- 5-10 seconds per page
+- Good backup if Gemini fails
+
+### Auto-Selection
+
+The tool automatically uses Gemini if `GOOGLE_API_KEY` is set, otherwise falls back to Claude if `ANTHROPIC_API_KEY` is set.
 
 **When to use vision mode:**
 - Complex tables with borders
