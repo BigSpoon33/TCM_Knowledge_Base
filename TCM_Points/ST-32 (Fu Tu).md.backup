@@ -1,0 +1,157 @@
+---
+id: point-20251005203208
+name: ST-32
+type: point
+aliases:
+- FÚTÙ
+- Crouching Rabbit
+- 伏兔
+tags:
+- TCM
+- Acupuncture
+- Point
+- Stomach
+category:
+- Stomach Channel Points
+related: []
+symptoms: []
+patterns: []
+western_conditions: []
+formulas: []
+herbs: []
+points: []
+nutrition: []
+tests: []
+point_data:
+  code: ST-32
+  hanzi: 伏兔
+  pinyin: FÚTÙ
+  english: Crouching Rabbit
+  channel: Stomach
+  special_properties: []
+  location_description: On the thigh, on a line drawn between the lateral border of
+    the patella and the anterior superior iliac spine, in a depression 6 cun proximal
+    to the superior border of the patella.
+  location_notes: Divide the distance between the prominence of the greater trochanter
+    and the upper border of the patella into thirds; this point is located just superior
+    to the junction of the lower and middle thirds.
+  needling_method: Perpendicular or oblique insertion
+  needling_depth: 1 to 2 cun
+  needling_cautions: []
+  functions:
+  - Activates the channel and alleviates pain
+  - Dispels wind-damp
+  indications:
+    respiratory: []
+    digestive:
+    - abdominal distention with diminished qi
+    head_throat:
+    - heavy head
+    pain:
+    - Painful obstruction and atrophy disorder of the lower limb
+    - leg qi
+    - pain, numbness and contraction of the muscles of the thigh
+    - coldness and pain of the knee
+    - weakness of the knee
+    - lumbar pain
+    other:
+    - contraction of the arm
+    - Shan disorder
+    - diseases of the eight regions in women
+    - mania
+    - ghost talk
+    - urticaria
+  combinations:
+  - condition: Wind leg qi
+    points:
+    - GB-31
+    - ST-32
+    source: Thousand Ducat Formulas
+created: 2025-10-05
+updated: 2025-10-05
+banner: TCM_Points_Images/ST-32_diagram.jpg
+cssclasses:
+- noyaml
+---
+
+# 📍 ST-32 · FÚTÙ (伏兔)
+
+**Point Name:** Crouching Rabbit (FÚTÙ)
+**Channel:** Stomach Channel
+**Special Properties:** 
+
+---
+
+## 📍 Location
+
+On the thigh, on a line drawn between the lateral border of the patella and the anterior superior iliac spine, in a depression 6 cun proximal to the superior border of the patella.
+
+**Location Notes:**
+Divide the distance between the prominence of the greater trochanter and the upper border of the patella into thirds; this point is located just superior to the junction of the lower and middle thirds.
+
+![[ST-32_diagram.jpg]]
+
+**Chinese Characters:** ![[ST-32_chinese.png]]
+
+---
+
+## 🔧 Needling Technique
+
+**Method:** Perpendicular or oblique insertion
+**Depth:** 1 to 2 cun
+
+### ⚠️ Cautions
+
+---
+
+## ⚡ Functions & Actions
+- Activates the channel and alleviates pain
+- Dispels wind-damp
+
+---
+
+## 🎯 Clinical Indications
+
+### Digestive
+- abdominal distention with diminished qi
+
+### Head Throat
+- heavy head
+
+### Pain
+- Painful obstruction and atrophy disorder of the lower limb
+- leg qi
+- pain, numbness and contraction of the muscles of the thigh
+- coldness and pain of the knee
+- weakness of the knee
+- lumbar pain
+
+### Other
+- contraction of the arm
+- Shan disorder
+- diseases of the eight regions in women
+- mania
+- ghost talk
+- urticaria
+
+---
+
+## 🔗 Point Combinations
+
+**Wind leg qi**
+- Points: GB-31, ST-32
+- Source: *Thousand Ducat Formulas*
+
+---
+
+## 🧬 TCM Theory & Commentary
+
+Although principally used for channel disorders of the lower limb, the Sagelike Prescriptions from the Taiping Era recommends Fútù ST-32 for diseases of the eight regions in women. These are i. the external genitals, ii. the breast, iii. disorders of pregnancy, iv. post-partum disorders, v. uterine bleeding, vi. leucorrhoea, vii. menstruation and viii. abdominal masses.
+
+Summary of clinical application
+Local disorders affecting the leg and knee: painful obstruction, atrophy disorder, pain, numbness and contraction of the muscles of the thigh, cold, pain and weakness of the knee.
+
+---
+
+*Last updated: 2025-10-05*
+*Channel: Stomach | Type: [[TCM Acupuncture Points]]*

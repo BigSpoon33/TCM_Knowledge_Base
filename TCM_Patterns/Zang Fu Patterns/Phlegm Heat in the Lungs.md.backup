@@ -1,0 +1,489 @@
+---
+# =9 Core Metadata (Universal Fields)
+id: "pattern-20251010183503"
+name: "PHLEGM HEAT (FULL)"
+type: "pattern"
+aliases: ["Phlegm-Heat Obstructing the Lungs", "Tan Re Yong Fei"]
+tags: ['TCM', 'Pattern', 'Zang-Fu', 'Lung', 'Phlegm', 'Heat']
+
+# =9 Cross-Link Fields (Universal Relationship Slots)
+category: ["Zang Fu", "Lung Patterns", "Phlegm Patterns"]
+related: ["Phlegm-Damp Obstructing the Lungs", "Wind-Heat Invading the Lungs", "Lung Yin Deficiency"]
+symptoms: ["Cough", "Yellow Sputum", "Wheezing", "Chest Pain", "Fever"]
+patterns: []
+western_conditions: ["Acute Bronchitis", "Pneumonia", "Lung Abscess", "COPD Exacerbation", "Cystic Fibrosis"]
+formulas: ["Qing Qi Hua Tan Tang", "Ding Chuan Tang", "Wei Jing Tang"]
+herbs: ["Gua Lou", "Dan Nan Xing", "Huang Qin", "Zhe Bei Mu", "Sang Bai Pi", "Yu Xing Cao"]
+points: ['LU-5', 'LU-7', 'LU-10', 'LI-11', 'LU-1', 'BL-13', 'RN-12', 'ST-40', 'RN-22', 'DING-CHUAN']
+nutrition: []
+tests: []
+
+# =9 Pattern-Specific Data
+pattern_data:
+  pattern_type: "Zang Fu"
+  pattern_subtype: "Lung"
+  excess_deficiency: "Excess"
+  hot_cold: "Hot"
+  interior_exterior: "Interior"
+  yin_yang: "Yin"
+  etiology: ["Invasion of external Wind-Heat", "Overconsumption of greasy, spicy, or sweet foods", "Smoking", "Pre-existing Phlegm-Damp transforming into Heat", "Emotional constraint leading to Liver Fire scorching Lung fluids"]
+  pathomechanisms: ["External pathogens or internal factors generate Heat", "Heat congeals and thickens body fluids into Phlegm", "Phlegm and Heat bind together and obstruct the Lungs", "Obstruction impairs the Lung's function of descending and dispersing Qi, leading to cough, wheezing, and dyspnea", "Heat damages vessels, potentially leading to bloody sputum"]
+  disease_progression: "If not resolved, can severely damage Lung Qi and Yin, leading to chronic cough or deficiency patterns. In severe cases, it can condense into a Lung Abscess. The Heat can also consume body fluids, leading to constipation and dry mouth."
+  cardinal_symptoms: ['Cough', 'Asthmatic and coarse breathing', 'Yellow, thick sputum or expectoration of foul smelling bloody pus', 'S.O.B.', 'Chest pain on coughing', 'Flapping of ala nasi in severe cases', 'Dryness of the mouth', 'Yellow urine', 'Constipation']
+  tongue: "Red, yellow-sticky coating"
+  pulse: "Rolling and rapid"
+  treatment_principle: ["Clear Heat", "Transform Phlegm", "Disperse and Descend Lung Qi", "Stop Cough and Wheezing"]
+  contraindications: ["Avoid using warming, acrid, or tonifying herbs which can worsen the Heat and Phlegm", "Use caution with overly cold and bitter herbs that can damage Stomach Qi"]
+
+created: 2025-10-10
+updated: 2025-10-10
+---
+---
+# =9 Core Metadata (Universal Fields)
+id: "pattern-20251010183503"
+name: "PHLEGM HEAT (FULL)"
+type: "pattern"
+aliases: []
+tags: ['TCM', 'Pattern']
+
+# =9 Cross-Link Fields (Universal Relationship Slots)
+category: ['Zang Fu Treatment Pattern']
+related: []
+symptoms: []
+patterns: []
+western_conditions: []
+formulas: []
+herbs: []
+points: ['**', 'LU-5', 'LU-7', 'LU-10', 'LI-11', 'LU-1', 'UB-13', 'RN-12', 'ST-40']
+nutrition: []
+tests: []
+
+# =9 Pattern-Specific Data
+pattern_data:
+  pattern_type: "Zang Fu"
+  pattern_subtype: ""
+  excess_deficiency: "Excess"
+  hot_cold: "Neither"
+  interior_exterior: "Interior"
+  yin_yang: "Yin"
+  etiology: []
+  pathomechanisms: []
+  disease_progression: ""
+  cardinal_symptoms: ['Cough', 'Asthmatic and coarse breathing', 'Yellow, thick sputum or expectoration of foul smelling bloody pus', 'S.O.B.', 'Chest pain on coughing', 'Flapping of ala nasi in severe cases', 'Dryness of the mouth', 'Yellow urine', 'Constipation']
+  tongue: "Red, yellow-sticky coating"
+  pulse: "Rolling and rapid"
+  treatment_principle: []
+  contraindications: []
+
+created: 2025-10-10
+updated: 2025-10-10
+---
+
+# 🔮 PHLEGM HEAT (FULL)
+
+**Type:** `= this.pattern_data.pattern_type`
+**Nature:** `= this.pattern_data.excess_deficiency` | Hot
+**Location:** `= this.pattern_data.interior_exterior`
+
+---
+
+## 📖 Overview
+
+Phlegm-Heat Obstructing the Lungs is a common, acute, and Excess pattern characterized by the accumulation of thick, viscous Phlegm combined with Heat in the Lungs. This obstruction impairs the Lung's function of dispersing and descending Qi, leading to a productive cough with difficult-to-expectorate yellow sputum, wheezing, and shortness of breath.
+
+This pattern typically arises from two main pathways. It can develop from an external invasion of Wind-Heat that penetrates the Interior and combines with pre-existing Phlegm. Alternatively, it can form internally from factors like improper diet (excessive greasy, sweet, or spicy foods), smoking, or emotional stress leading to Liver Fire, all of which can generate Phlegm and Heat that settles in the Lungs. The presence of Heat is indicated by the yellow sputum, red tongue with yellow coating, rapid pulse, and other signs of heat like thirst and feverishness.
+
+---
+
+## 🎯 Pattern Classification
+
+**System:** `= this.pattern_data.pattern_type`
+**Subtype:** Lung
+
+**Eight Principles Analysis:**
+- Excess/Deficiency: `= this.pattern_data.excess_deficiency`
+- Hot/Cold: Hot
+- Interior/Exterior: `= this.pattern_data.interior_exterior`
+- Yin/Yang: `= this.pattern_data.yin_yang`
+
+---
+
+## 🧬 Etiology & Pathogenesis
+
+### Primary Causes
+- Invasion of external Wind-Heat which transforms into interior Phlegm-Heat
+- Overconsumption of greasy, spicy, fried, or sweet foods that generate Dampness and Heat
+- Long-term smoking, which injures Lung fluids and generates Phlegm-Heat
+- Stagnation of Liver Qi transforming into Fire, which rises and scorches the Lung fluids into Phlegm
+- Pre-existing Phlegm-Damp which stagnates and transforms into Heat over time
+
+### Pathomechanisms
+- Pathogenic Heat (either external or internal) congeals and thickens body fluids, transforming them into viscous Phlegm.
+- The combination of Phlegm and Heat creates a stubborn obstruction in the airways, blocking the free flow of Lung Qi.
+- Impairment of the Lung's dispersing and descending function leads to rebellious Qi, manifesting as cough, wheezing, and shortness of breath.
+- The Heat aspect consumes fluids, leading to dry mouth and constipation, and can damage blood vessels, causing blood-streaked sputum.
+
+**Development:**
+This is typically an acute condition or an acute exacerbation of a chronic one. It often follows a common cold or flu (Wind-Heat) or a period of dietary indiscretion. In chronic respiratory conditions, it represents a flare-up where underlying Phlegm combines with an acute Heat trigger.
+
+**Progression:**
+If left untreated, severe Phlegm-Heat can condense and lead to the formation of a Lung Abscess, indicated by foul-smelling, pus-like, or bloody sputum. Persistent Heat can also damage Lung Qi and Yin, leading to a mixed excess and deficiency pattern with a chronic, weaker cough and signs of dryness.
+
+**Common Transformations:**
+- May damage Lung Yin, leading to: [[Lung Yin Deficiency]] with Empty Heat
+- May damage Lung and Spleen Qi, leading to: [[Lung and Spleen Qi Deficiency]]
+- In severe cases, may lead to: [[Lung Abscess]]
+
+---
+
+## 🩺 Clinical Manifestations
+
+### Symptoms (CAM)
+- Cough
+- Asthmatic and coarse breathing
+- Yellow, thick sputum or expectoration of foul smelling bloody pus
+- S.O.B. (Shortness of Breath)
+- Chest pain on coughing
+- Flapping of ala nasi in severe cases
+- Dryness of the mouth
+- Yellow urine
+- Constipation
+
+### Complete Symptom Picture
+
+**Chief Symptoms:**
+- Barking cough with profuse, thick, sticky, yellow or green sputum
+- Sputum may be difficult to expectorate
+- Feeling of fullness and oppression in the chest
+- Shortness of breath, wheezing, or coarse breathing
+
+**Accompanying Symptoms:**
+- Fever or a sensation of heat
+- Thirst, desire for cold drinks
+- Red face
+- Flaring of nostrils (ala nasi) in severe dyspnea
+- Irritability, restlessness
+- Dark or yellow urine
+- Constipation with dry stools
+
+**Tongue:** `= this.pattern_data.tongue` (Red body with a thick, sticky yellow coating)
+
+**Pulse:** `= this.pattern_data.pulse` (Slippery/Rolling and Rapid)
+
+---
+
+## 🔍 Diagnostic Criteria
+
+### Must Have (Essential)
+1.  Productive cough with thick, yellow, or green sputum
+2.  Red tongue with a sticky yellow coating
+3.  Slippery (Rolling) and Rapid pulse
+
+### Usually Has (Common)
+- Shortness of breath or wheezing
+- Chest fullness or oppression
+- Thirst
+
+### May Have (Variable)
+- Fever
+- Constipation
+- Blood-streaked or foul-smelling sputum
+- Chest pain
+
+---
+
+## 🎯 Differential Diagnosis
+
+### Similar Patterns
+
+| Feature | Phlegm-Heat in Lungs | Phlegm-Damp in Lungs | Wind-Heat Invading Lungs |
+|---|---|---|---|
+| Sputum | Yellow/green, thick, sticky | White, copious, watery/foamy | Scanty, yellow, difficult to expectorate |
+| Tongue | Red, yellow sticky coat | Pale/Normal, white greasy coat | Red tip/edges, thin yellow coat |
+| Pulse | Slippery, Rapid | Slippery, Weak or Moderate | Floating, Rapid |
+| Key distinction | Interior Heat + Phlegm | Cold-Damp + Phlegm | Exterior attack, less Phlegm |
+
+**vs. [[Phlegm-Damp Obstructing the Lungs]]:**
+- Key difference: Phlegm-Damp is a Cold-Damp pattern. Sputum is white and profuse, the tongue has a white greasy coating, and the pulse is not rapid. Phlegm-Heat is defined by clear signs of Heat.
+
+**vs. [[Wind-Heat Invading the Lungs]]:**
+- Key difference: Wind-Heat is an exterior pattern. It has more pronounced exterior signs like fever and chills, sore throat, and a floating-rapid pulse. There is cough, but sputum is less profuse than in a full Phlegm-Heat interior pattern.
+
+**vs. [[Lung Yin Deficiency with Empty Heat]]:**
+- Key difference: This is a deficiency pattern. The cough is dry or with scanty, sticky sputum that may be blood-streaked. There are signs of Yin deficiency like night sweats, malar flush, and a peeled or thin, rapid pulse. Phlegm-Heat is a pure excess pattern.
+
+---
+
+## 💊 Treatment Approach
+
+### Treatment Principles
+- Clear Heat and resolve Phlegm
+- Purge Lung Fire
+- Restore the descending and dispersing function of Lung Qi
+- Stop cough and wheezing
+
+### Representative Formulas
+
+**Primary Formula:**
+- [[Qing Qi Hua Tan Tang]] (Clear the Qi and Transform Phlegm Decoction) → A classic formula to clear heat, transform phlegm, regulate Qi, and stop cough.
+
+**Alternative Formulas:**
+- [[Ding Chuan Tang]] (Arrest Wheezing Decoction) → For cases where wheezing and asthma are the most prominent symptoms.
+- [[Wei Jing Tang]] (Reed Decoction) → Used when Phlegm-Heat congeals to form a Lung abscess, with foul-smelling, pus-like sputum.
+
+```dataview
+TABLE
+    Category as "Formula Category",
+    Formula_Actions as "Primary Actions",
+    Chief_Herbs as "Chief Herbs"
+FROM ""
+WHERE type = "formula" AND contains(patterns, this.file.link)
+SORT Category, file.name
+```
+
+---
+
+### Key Herbs
+
+**Essential Herbs for This Pattern:**
+- [[Gua Lou]] (Fructus Trichosanthis) → Clears Lung Heat, transforms Hot Phlegm, expands the chest.
+- [[Dan Nan Xing]] (Arisaema cum Bile) → Powerfully clears Phlegm-Heat, especially from the channels.
+- [[Huang Qin]] (Radix Scutellariae) → Clears Heat and dries Dampness, especially from the Upper Jiao (Lungs).
+- [[Zhe Bei Mu]] (Bulbus Fritillariae Thunbergii) → Clears Heat, transforms Phlegm, and dissipates nodules.
+- [[Sang Bai Pi]] (Cortex Mori) → Drains Heat from the Lungs, stops cough and wheezing.
+
+```dataview
+TABLE
+    herb_data.taste as "Taste",
+    herb_data.temperature as "Temp",
+    herb_data.channels as "Channels",
+    herb_data.functions as "Functions"
+FROM ""
+WHERE type = "herb" AND contains(patterns, this.file.link)
+SORT file.name
+LIMIT 15
+```
+
+---
+
+### Acupuncture Points
+
+**Primary Points:**
+- [[ST-40 (Feng Long)]] → The primary empirical point for resolving Phlegm anywhere in the body.
+- [[LU-5 (Chi Ze)]] → He-Sea point of the Lung channel, powerfully clears Phlegm-Heat from the Lungs.
+- [[LI-11 (Qu Chi)]] → Major point to clear Heat from the Yangming channels and the whole body.
+- [[BL-13 (Fei Shu)]] → Back-Shu point of the Lung, regulates Lung Qi and clears Heat.
+
+**Supporting Points:**
+- [[RN-22 (Tian Tu)]] → Local point to descend rebellious Lung Qi, stops cough and wheezing.
+- [[DING-CHUAN]] → Extra point, specific for calming wheezing and asthma.
+- [[LU-1 (Zhong Fu)]] → Front-Mu point of the Lung, clears Heat and fullness from the chest.
+- [[LU-7 (Lie Que)]] → Luo-Connecting point, releases the exterior and descends Lung Qi.
+- [[LU-10 (Yu Ji)]] → Ying-Spring point, excellent for clearing Heat from the Lung channel, especially for sore throat.
+- [[RN-12 (Zhong Wan)]] → To support the Middle Jiao and prevent further Phlegm formation.
+
+**Point Combinations:**
+- [For severe cough & yellow phlegm]: LU-5 + ST-40 + BL-13
+- [For high fever]: LI-11 + DU-14
+- [For wheezing]: DING-CHUAN + RN-22 + PC-6
+
+```dataview
+TABLE
+    point_data.channel as "Channel",
+    point_data.functions as "Functions"
+FROM ""
+WHERE type = "point" AND contains(patterns, this.file.link)
+SORT point_data.channel, file.name
+```
+
+---
+
+## ⚠️ Contraindications & Cautions
+
+**Treatment Contraindications:**
+- Avoid tonifying herbs (like Ren Shen, Huang Qi) as they can trap the pathogen and worsen the condition.
+- Avoid warming and acrid herbs (like Ma Huang in its raw form, Gui Zhi) as they will aggravate the Heat.
+
+**Cautions:**
+- The use of very cold and bitter herbs (e.g., Huang Qin, Huang Lian) should be moderated to avoid injuring the Spleen and Stomach Qi, which can lead to poor digestion or diarrhea.
+- This is an excess pattern; treatment should focus on draining the excess, not tonifying.
+
+---
+
+## 🔄 Pattern Variations & Combinations
+
+### Common Variations
+- **Phlegm-Heat with Bowel Obstruction:** Severe constipation, abdominal fullness, and a tongue with a thick, dry, yellow coat. Requires herbs to purge the bowels, such as Da Huang. This is often treated with formulas like Xuan Bai Cheng Qi Tang.
+- **Phlegm-Heat with Exterior Wind-Heat:** Concurrent chills and fever, headache, and sore throat. Add herbs to release the exterior, such as Jin Yin Hua and Lian Qiao.
+
+### Common Combinations
+- **Combined with [[Liver Fire]]:** If caused by emotional stress, there may be signs of irritability, a wiry component to the pulse, and a red tongue with redder sides. Add herbs to clear Liver Fire, such as Long Dan Cao or Xia Ku Cao.
+- **Developing into [[Lung Abscess]]:** Characterized by coughing up copious foul-smelling, pus-like, bloody sputum. Requires stronger heat-clearing and toxin-resolving herbs like Yu Xing Cao and Pu Gong Ying, and formulas like Wei Jing Tang.
+
+---
+
+## 🏥 Western Medical Correlates
+
+**Common Western Diagnoses:**
+- Acute Bronchitis
+- Pneumonia (especially bacterial)
+- Lung Abscess
+- Acute exacerbation of Chronic Obstructive Pulmonary Disease (COPD)
+- Bronchiectasis
+- Cystic Fibrosis
+
+**Biomedical Understanding:**
+This pattern corresponds to an active infection and inflammatory process in the respiratory tract. The "Phlegm" is the mucus and inflammatory exudate produced in response to pathogens (bacteria, viruses). The "Heat" correlates with the signs of infection and inflammation: fever, elevated white blood cell count, and vasodilation. The yellow/green color of the sputum indicates the presence of neutrophils fighting the infection. The impaired Lung function correlates with bronchoconstriction, airway obstruction by mucus, and impaired gas exchange.
+
+---
+
+## 💡 Clinical Pearls & Experience
+
+### Clinical Tips
+- The color, consistency, and smell of the sputum are key to diagnosis. Yellow, thick, and foul-smelling sputum confirms Phlegm-Heat.
+- ST-40 is an indispensable distal point for any Phlegm pattern, and LU-5 is the key local point for Phlegm-Heat in the Lungs.
+- Always assess the state of the digestive system. If there is constipation, purging the bowels with herbs like Da Huang can help drain Heat from the Lungs via the Fu-organs.
+- Dietary advice is crucial. Patients must avoid dairy, sugar, greasy foods, and alcohol during treatment.
+
+### Common Mistakes
+- Using warming herbs for cough (e.g., from a Wind-Cold formula) which will drastically worsen the condition.
+- Focusing only on the Lungs and ignoring the Spleen (the source of Phlegm) and the bowels (a key exit route for Heat).
+- Insufficiently clearing Heat, allowing the pattern to linger and damage Lung Yin.
+
+---
+
+## 🔗 Related Notes & Cross-References
+
+### Related Patterns
+```dataview
+LIST
+FROM ""
+WHERE type = "pattern"
+    AND (contains(file.path, this.pattern_data.pattern_subtype) OR contains(related, this.file.link))
+    AND file.name != this.file.name
+SORT file.name
+LIMIT 10
+```
+
+### Key Symptoms
+```dataview
+LIST
+FROM ""
+WHERE type = "symptom" AND contains(patterns, this.file.link)
+SORT file.name
+```
+
+### Related Formulas
+- [[Qing Qi Hua Tan Tang]]
+- [[Ding Chuan Tang]]
+- [[Wei Jing Tang]]
+
+### Related Concepts
+- [[Phlegm as a Pathogen]]
+- [[Lung's Function of Descending Qi]]
+- [[Six Stages Theory (Yang Ming Stage)]]
+
+---
+
+## 📊 Pattern Comparison Table
+
+| Pattern | Sputum | Tongue | Pulse | Key Feature |
+|---|---|---|---|---|
+| Phlegm-Heat in Lungs | Yellow/Green, thick, profuse | Red, yellow sticky coat | Slippery, Rapid | Interior Excess Heat & Phlegm |
+| Phlegm-Damp in Lungs | White, copious, watery | Pale, white greasy coat | Slippery, Moderate | Interior Cold-Damp |
+| Wind-Heat Invasion | Scanty, sticky, yellow | Red tip, thin yellow coat | Floating, Rapid | Acute Exterior pattern |
+| Lung Yin Deficiency | Scanty, sticky, may have blood | Red, peeled, no coat | Thin, Rapid | Deficiency Heat & Dryness |
+
+---
+
+## 📝 Study Notes & Memory Aids
+
+### Key Learning Points
+1.  **Hallmarks:** Productive cough with yellow/green thick sputum, a red tongue with a yellow sticky coat, and a slippery, rapid pulse.
+2.  **Pathology:** This is an interior, excess, heat pattern. The core mechanism is Phlegm and Heat obstructing the Lung's function.
+3.  **Treatment Strategy:** The principle is to clear Heat and transform Phlegm simultaneously. Using only one type of herb is insufficient.
+4.  **Key Formula:** Qing Qi Hua Tan Tang is the go-to formula.
+
+### Memory Device/Mnemonic
+**"YELLOW LUNG"**
+- **Y**ellow, thick sputum
+- **E**xcess pattern
+- **L**oud, barking cough
+- **L**ung Qi obstructed
+- **O**ppression in the chest
+- **W**heezing / coarse breathing
+- **L**arge, rapid, slippery pulse
+- **U**rine is dark/yellow
+- **N**asty smell to sputum
+- **G**reasy yellow tongue coat
+
+---
+
+## 📦 Original Note Content (For Reference)
+
+> **Note:** The content below is the original note preserved for reference. Please review the enhanced sections above and manually integrate any missing information.
+
+```markdown
+---
+# =9 Core Metadata (Universal Fields)
+id: "pattern-20251010183503"
+name: "PHLEGM HEAT (FULL)"
+type: "pattern"
+aliases: []
+tags: ['TCM', 'Pattern']
+
+# =9 Cross-Link Fields (Universal Relationship Slots)
+category: ['Zang Fu Treatment Pattern']
+related: []
+symptoms: []
+patterns: []
+western_conditions: []
+formulas: []
+herbs: []
+points: ['**', 'LU-5', 'LU-7', 'LU-10', 'LI-11', 'LU-1', 'UB-13', 'RN-12', 'ST-40']
+nutrition: []
+tests: []
+
+# =9 Pattern-Specific Data
+pattern_data:
+  pattern_type: "Zang Fu"
+  pattern_subtype: ""
+  excess_deficiency: "Excess"
+  hot_cold: "Neither"
+  interior_exterior: "Interior"
+  yin_yang: "Yin"
+  etiology: []
+  pathomechanisms: []
+  disease_progression: ""
+  cardinal_symptoms: ['Cough', 'Asthmatic and coarse breathing', 'Yellow, thick sputum or expectoration of foul smelling bloody pus', 'S.O.B.', 'Chest pain on coughing', 'Flapping of ala nasi in severe cases', 'Dryness of the mouth', 'Yellow urine', 'Constipation']
+  tongue: "Red, yellow-sticky coating"
+  pulse: "Rolling and rapid"
+  treatment_principle: []
+  contraindications: []
+
+created: 2025-10-10
+updated: 2025-10-10
+---
+
+### PHLEGM HEAT (FULL)
+
+**Symptoms (CAM):**
+- Cough
+- Asthmatic and coarse breathing
+- Yellow, thick sputum or expectoration of foul smelling bloody pus
+- S.O.B.
+- Chest pain on coughing
+- Flapping of ala nasi in severe cases
+- Dryness of the mouth
+- Yellow urine
+- Constipation
+
+**Tongue:** Red, yellow-sticky coating
+
+**Pulse:** Rolling and rapid
+
+**Additional Notes:**
+**Treatment:** LU5, LU7, LU10, LI11, LU1, UB13, RN12, ST40
+
+---
+```

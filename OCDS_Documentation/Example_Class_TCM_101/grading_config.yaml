@@ -1,0 +1,102 @@
+# TCM 101 Grading Configuration
+
+# Component Weights (must sum to 1.0)
+weights:
+  quizzes: 0.40      # 40% - Primary knowledge assessment
+  flashcards: 0.30   # 30% - Retention and review
+  homework: 0.20     # 20% - Application and analysis
+  tasks: 0.10        # 10% - Engagement and completion
+
+# Quiz Grading Settings
+quiz_grading:
+  passing_score: 70
+  allow_retakes: true
+  max_attempts: 3
+  score_method: best  # best, average, last
+  retake_delay: 0     # Hours between attempts (0 = no delay)
+  show_correct_answers: true  # After first attempt
+  partial_credit: true
+  time_limit: null    # No time limit
+
+# Flashcard Grading Settings
+flashcard_grading:
+  completion_threshold: 80  # % of cards to complete for full credit
+  accuracy_weight: 0.5      # 50% completion, 50% accuracy
+  min_reviews: 3            # Minimum reviews per card
+  count_method: unique      # unique or total reviews
+
+# Homework Grading Settings
+homework_grading:
+  late_penalty: 10          # 10% per day
+  max_late_days: 3
+  allow_resubmission: true
+  max_resubmissions: 2
+  require_rubric: true
+  instructor_grading: true
+
+# Task Grading Settings
+task_grading:
+  required_only: false      # Include optional tasks
+  bonus_points: true        # Allow bonus points
+  completion_method: percentage  # percentage or all_or_nothing
+
+# Letter Grade Cutoffs
+letter_grades:
+  A: 93
+  A-: 90
+  B+: 87
+  B: 83
+  B-: 80
+  C+: 77
+  C: 73
+  C-: 70
+  D: 60
+  F: 0
+
+# Grade Display Settings
+display:
+  show_percentages: true
+  show_letter_grades: true
+  show_component_breakdown: true
+  show_trend: true
+  decimal_places: 1
+
+# Unlock Settings
+unlock_settings:
+  enable_early_unlock: true
+  early_unlock_threshold: 90  # 90% score allows early unlock
+  max_weeks_ahead: 1          # Can unlock 1 week early
+  
+# Review Flag Settings
+review_flags:
+  enabled: true
+  thresholds:
+    quiz_low: 60
+    quiz_critical: 50
+    homework_low: 70
+    task_completion_low: 50
+    inactive_days: 7
+  
+  severity_levels:
+    high:
+      notify_instructor: true
+      notify_student: true
+      offer_support: true
+    medium:
+      notify_instructor: true
+      notify_student: false
+      offer_support: true
+    low:
+      notify_instructor: false
+      notify_student: false
+      offer_support: false
+
+# Pacing Settings
+pacing:
+  enable_fast_track: true
+  fast_track_threshold: 90
+  max_weeks_ahead: 2
+  enable_extensions: true
+  auto_extend_threshold: 60
+  extension_days: 7
+  max_extensions: 2

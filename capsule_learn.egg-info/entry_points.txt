@@ -1,0 +1,3 @@
+[console_scripts]
+cap = capsule.cli:main
+capsule = capsule.cli:main

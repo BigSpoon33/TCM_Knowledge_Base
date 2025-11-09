@@ -1,0 +1,130 @@
+# TCM 101 Class Manifest
+# Traditional Chinese Medicine Fundamentals
+
+class_id: TCM_101
+title: "Traditional Chinese Medicine Fundamentals"
+subtitle: "Diagnosis and Pattern Differentiation"
+version: "1.0.0"
+created_date: 2025-11-06
+last_updated: 2025-11-06
+
+# Instructor Information
+author: "Dr. Jane Smith"
+institution: "Pacific College of Health Sciences"
+email: "dr.smith@example.edu"
+office_hours: "Tuesdays 2-4pm, Thursdays 10am-12pm"
+
+# Class Description
+description: |
+  Comprehensive introduction to Traditional Chinese Medicine diagnosis,
+  including tongue diagnosis, pulse diagnosis, and pattern differentiation.
+  Students will learn to identify major TCM patterns and apply diagnostic
+  principles to clinical cases.
+
+# Duration and Workload
+duration_weeks: 12
+estimated_hours_per_week: 8-10
+total_estimated_hours: 96-120
+
+# Prerequisites
+prerequisites:
+  - "Basic anatomy and physiology"
+  - "Introduction to TCM concepts"
+  - "Medical terminology"
+
+# Learning Objectives
+learning_objectives:
+  - "Master tongue and pulse diagnostic techniques"
+  - "Differentiate between major TCM patterns (Qi, Blood, Yin, Yang)"
+  - "Apply Eight Principles pattern differentiation"
+  - "Identify organ-specific patterns"
+  - "Correlate diagnostic findings with treatment principles"
+  - "Analyze clinical cases using TCM diagnostic framework"
+
+# Course Outcomes
+course_outcomes:
+  - "Students will accurately identify tongue and pulse patterns"
+  - "Students will differentiate complex TCM patterns"
+  - "Students will apply diagnostic principles to real cases"
+  - "Students will demonstrate clinical reasoning skills"
+
+# Topics Covered
+topics:
+  - "Tongue Diagnosis"
+  - "Pulse Diagnosis"
+  - "Eight Principles Pattern Differentiation"
+  - "Qi, Blood, and Fluid Patterns"
+  - "Organ Pattern Differentiation"
+  - "Six Stages Theory"
+  - "Four Levels Theory"
+  - "Clinical Case Analysis"
+
+# Required Materials
+required_materials:
+  - "Obsidian (latest version)"
+  - "Required plugins: Dataview, Meta-bind, Spaced Repetition, TaskNotes, Advanced Slides"
+  - "Maciocia, G. (2015). The Foundations of Chinese Medicine (3rd ed.)"
+  - "Bensky, D., et al. (2004). Chinese Herbal Medicine: Materia Medica (3rd ed.)"
+
+# Optional Materials
+optional_materials:
+  - "Tongue diagnosis photo atlas"
+  - "Pulse diagnosis training app"
+  - "Clinical case study videos"
+
+# Assessment Types
+assessments:
+  - type: "quizzes"
+    count: 12
+    weight: 0.40
+  - type: "flashcards"
+    count: 240
+    weight: 0.30
+  - type: "homework"
+    count: 12
+    weight: 0.20
+  - type: "tasks"
+    count: 12
+    weight: 0.10
+
+# Grading Scale
+grading_scale:
+  A: 93-100
+  A-: 90-92
+  B+: 87-89
+  B: 83-86
+  B-: 80-82
+  C+: 77-79
+  C: 73-76
+  C-: 70-72
+  D: 60-69
+  F: 0-59
+
+# Class Policies
+policies:
+  attendance: "Self-paced online course"
+  late_submissions: "10% penalty per day, maximum 3 days late"
+  retakes: "Quizzes may be retaken up to 3 times, best score counts"
+  academic_integrity: "All work must be original. Plagiarism will result in course failure."
+  
+# Support Resources
+support:
+  discussion_forum: "Available in class materials"
+  office_hours: "Virtual office hours via Zoom"
+  tutoring: "Available upon request"
+  technical_support: "Email dr.smith@example.edu"
+
+# Tags
+tags:
+  - tcm
+  - diagnosis
+  - fundamentals
+  - beginner
+  - online
+  - self-paced
+  - acupuncture
+  - chinese-medicine
+
+# License
+license: "Copyright 2025 Dr. Jane Smith. All rights reserved."
+distribution: "Licensed for educational use only"

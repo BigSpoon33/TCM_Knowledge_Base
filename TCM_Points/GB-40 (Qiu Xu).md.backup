@@ -1,0 +1,316 @@
+---
+id: point-20251005190225
+name: GB-40
+type: point
+aliases:
+- QIŪXŪ
+- Mound of Ruins
+- 丘墟
+tags:
+- TCM
+- Acupuncture
+- Point
+- Gall Bladder channel
+category:
+- Gall Bladder channel Channel Points
+related: []
+symptoms: []
+patterns: []
+western_conditions: []
+formulas: []
+herbs: []
+points: []
+nutrition: []
+tests: []
+point_data:
+  code: GB-40
+  hanzi: 丘墟
+  pinyin: QIŪXŪ
+  english: Mound of Ruins
+  channel: Gall Bladder channel
+  special_properties:
+  - Yuan-Source point
+  location_description: At the ankle joint, in the depression anterior and inferior
+    to the lateral malleolus.
+  location_notes: Locate at the junction of lines drawn along the anterior and inferior
+    borders of the lateral malleolus.
+  needling_method: Perpendicular insertion, directed towards Zhàohǎi KID-6.
+  needling_depth: 1 to 1.5 cun
+  needling_cautions: []
+  functions:
+  - Spreads Liver qi and clears Gall Bladder heat and damp-heat
+  - Activates the channel, alleviates pain and benefits the joints
+  - Regulates shaoyang
+  indications:
+    respiratory:
+    - Distention and pain of the chest and lateral costal region with inability to
+      catch the breath
+    - Sighing
+    digestive:
+    - Vomiting
+    - Acid regurgitation
+    - Hardness of the lower abdomen
+    head_throat:
+    - One-sided headache
+    - Redness, swelling and pain of the eyes
+    - Superficial visual obstruction
+    - Poor eyesight
+    - Throat painful obstruction
+    - Neck pain
+    - Swelling of the neck
+    pain:
+    - Pain of the lumbar spine
+    - Pain of the hip
+    - Atrophy disorder and painful obstruction of the lower limb
+    - Cramping and pain of the legs
+    - Sciatica
+    - Pain of the lower leg
+    - Drop foot
+    - Flaccidity of the ankle
+    - Swelling of the lateral ankle
+    - Pain of the wrist
+    other:
+    - Swelling in the axilla
+    - Sudden shan disorder
+    - Herpes zoster
+    - Chronic malaria with cold shivering
+    - Chills and fever with swelling of the neck
+    - Windstroke
+    - Paralysis
+  combinations:
+  - condition: Superficial visual obstruction
+    points:
+    - Qiūxū GB-40
+    - Tóngzǐliáo GB-1
+    source: Supplementing Life
+  - condition: Pain of the lateral costal region
+    points:
+    - Qiūxū GB-40
+    - Zhōngdú GB-32
+    source: Great Compendium
+  - condition: Fullness of the chest and lateral costal region radiating to the abdomen
+    points:
+    - Qiūxū GB-40
+    - Xiáxī GB-43
+    - Xiàjùxū ST-39
+    - Shènshū BL-23
+    source: Great Compendium
+  - condition: Stabbing pain of the chest
+    points:
+    - Qiūxū GB-40
+    - Fēnglóng ST-40
+    source: Thousand Ducat Formulas
+  - condition: Tension of the chest and back with a swollen sensation of the chest
+    points:
+    - Qiūxū GB-40
+    - Jīngqú LU-8
+    source: Thousand Ducat Formulas
+  - condition: Swelling of the axilla, chills and fever, swelling of the neck
+    points:
+    - Qiūxū GB-40
+    - Shēnmài BL-62
+    source: Thousand Ducat Formulas
+  - condition: Swelling of the axilla
+    points:
+    - Qiūxū GB-40
+    - Yángfǔ GB-38
+    - Zúlínqì GB-41
+    source: Great Compendium
+  - condition: Manic raving
+    points:
+    - Qiūxū GB-40
+    - Xiàjùxū ST-39
+    source: Thousand Ducat Formulas
+  - condition: Cramping of the sinews
+    points:
+    - Qiūxū GB-40
+    - Jinmen BL‑63
+    source: One Hundred Symptoms
+  - condition: Hip pain
+    points:
+    - Qiūxū GB-40
+    - Huántiào GB-30
+    - Yánglíngquán GB-34
+    source: Great Compendium
+  - condition: Flaccidity of the legs
+    points:
+    - Qiūxū GB-40
+    - Yánglíngquán GB-34
+    - Chōngyáng ST-42
+    - Tàichōng LIV-3
+    source: Great Compendium
+  - condition: Pain of the ankle and heel
+    points:
+    - Qiūxū GB-40
+    - Xuánzhōng GB-39
+    - Kūnlún BL-60
+    source: Song More Precious Than Jade
+  - condition: Chronic malaria
+    points:
+    - Qiūxū GB-40
+    - Zhōngzhǔ SJ-3
+    - Shāngyáng L.I.-1
+    source: Great Compendium
+created: 2025-10-05
+updated: 2025-10-05
+banner: "TCM_Points_Images/GB-40_diagram.jpg"
+cssclasses:
+- noyaml
+---
+
+# 📍 GB-40 · QIŪXŪ (丘墟)
+
+**Point Name:** Mound of Ruins (QIŪXŪ)
+**Channel:** Gall Bladder channel Channel
+**Special Properties:** Yuan-Source point
+
+---
+
+## 📍 Location
+
+At the ankle joint, in the depression anterior and inferior to the lateral malleolus.
+
+**Location Notes:**
+Locate at the junction of lines drawn along the anterior and inferior borders of the lateral malleolus.
+
+![[GB-40_diagram.jpg]]
+
+**Chinese Characters:** ![[GB-40_chinese.png]]
+
+---
+
+## 🔧 Needling Technique
+
+**Method:** Perpendicular insertion, directed towards Zhàohǎi KID-6.
+**Depth:** 1 to 1.5 cun
+
+### ⚠️ Cautions
+
+---
+
+## ⚡ Functions & Actions
+- Spreads Liver qi and clears Gall Bladder heat and damp-heat
+- Activates the channel, alleviates pain and benefits the joints
+- Regulates shaoyang
+
+---
+
+## 🎯 Clinical Indications
+
+### Respiratory
+- Distention and pain of the chest and lateral costal region with inability to catch the breath
+- Sighing
+
+### Digestive
+- Vomiting
+- Acid regurgitation
+- Hardness of the lower abdomen
+
+### Head Throat
+- One-sided headache
+- Redness, swelling and pain of the eyes
+- Superficial visual obstruction
+- Poor eyesight
+- Throat painful obstruction
+- Neck pain
+- Swelling of the neck
+
+### Pain
+- Pain of the lumbar spine
+- Pain of the hip
+- Atrophy disorder and painful obstruction of the lower limb
+- Cramping and pain of the legs
+- Sciatica
+- Pain of the lower leg
+- Drop foot
+- Flaccidity of the ankle
+- Swelling of the lateral ankle
+- Pain of the wrist
+
+### Other
+- Swelling in the axilla
+- Sudden shan disorder
+- Herpes zoster
+- Chronic malaria with cold shivering
+- Chills and fever with swelling of the neck
+- Windstroke
+- Paralysis
+
+---
+
+## 🔗 Point Combinations
+
+**Superficial visual obstruction**
+- Points: Qiūxū GB-40, Tóngzǐliáo GB-1
+- Source: *Supplementing Life*
+
+**Pain of the lateral costal region**
+- Points: Qiūxū GB-40, Zhōngdú GB-32
+- Source: *Great Compendium*
+
+**Fullness of the chest and lateral costal region radiating to the abdomen**
+- Points: Qiūxū GB-40, Xiáxī GB-43, Xiàjùxū ST-39, Shènshū BL-23
+- Source: *Great Compendium*
+
+**Stabbing pain of the chest**
+- Points: Qiūxū GB-40, Fēnglóng ST-40
+- Source: *Thousand Ducat Formulas*
+
+**Tension of the chest and back with a swollen sensation of the chest**
+- Points: Qiūxū GB-40, Jīngqú LU-8
+- Source: *Thousand Ducat Formulas*
+
+**Swelling of the axilla, chills and fever, swelling of the neck**
+- Points: Qiūxū GB-40, Shēnmài BL-62
+- Source: *Thousand Ducat Formulas*
+
+**Swelling of the axilla**
+- Points: Qiūxū GB-40, Yángfǔ GB-38, Zúlínqì GB-41
+- Source: *Great Compendium*
+
+**Manic raving**
+- Points: Qiūxū GB-40, Xiàjùxū ST-39
+- Source: *Thousand Ducat Formulas*
+
+**Cramping of the sinews**
+- Points: Qiūxū GB-40, Jinmen BL‑63
+- Source: *One Hundred Symptoms*
+
+**Hip pain**
+- Points: Qiūxū GB-40, Huántiào GB-30, Yánglíngquán GB-34
+- Source: *Great Compendium*
+
+**Flaccidity of the legs**
+- Points: Qiūxū GB-40, Yánglíngquán GB-34, Chōngyáng ST-42, Tàichōng LIV-3
+- Source: *Great Compendium*
+
+**Pain of the ankle and heel**
+- Points: Qiūxū GB-40, Xuánzhōng GB-39, Kūnlún BL-60
+- Source: *Song More Precious Than Jade*
+
+**Chronic malaria**
+- Points: Qiūxū GB-40, Zhōngzhǔ SJ-3, Shāngyáng L.I.-1
+- Source: *Great Compendium*
+
+---
+
+## 🧬 TCM Theory & Commentary
+
+According to Chen Shi-dou "Only when the Liver acquires ming men is it able to plan strategies, only when the Gall Bladder acquires ming men are decisions made". The Liver and Gall Bladder are entrusted with the ministerial fire which corresponds to the energy of spring, growth, forcefulness and decision making. In disharmony, this indispensable fire is prone to flare up, principally when the Liver and Gall Bladder lose their free-flowing function and qi stagnates and transforms to fire. The fire is drawn into the Gall Bladder channel as a whole, and especially rises upwards to the head. Qiūxū GB-40, the yuan-source point of the Gall Bladder channel, is indicated when there is heat and stagnant qi in various portions of the Gall Bladder channel giving rise to distention, pain, redness or swelling of the head, eyes, neck, throat, axilla and abdomen, distention and pain of the chest and lateral costal region with sighing and inability to catch the breath, and shan disorder.
+
+Qiūxū GB-40 is also indicated when heat and dampness combine, giving rise to such symptoms of damp-heat distressing the Gall Bladder fu or channel as cholecystitis and herpes zoster. If Liver and Gall Bladder heat or damp-heat transversely invade the Stomach, impairing its descending function, there may be vomiting and acid regurgitation.
+
+Qiūxū GB-40 is able to treat disorders of the lower limb as a whole and is frequently employed in combination with points such as Jūliáo GB-29, Huántiào GB-30 and Yánglíngquán GB-34 in the 'chain and lock' point association method. It is specifically indicated for hip pain, sciatica, cramping and pain of the legs, atrophy disorder, painful obstruction (especially of the ankle joint), drop foot and flaccidity or swelling of the ankle. In the cross-needling method of point selection, the wrist joint in the upper body corresponds to the ankle joint in the lower body, and Qiūxū GB-40 is indicated by a number of classical texts for contralateral wrist pain.
+
+According to both the Spiritual Pivot20 and the Essential Questions21 "Taiyang is the opening, yangming is the closing and shaoyang is the pivot". In the differentiation of fevers expounded in the Treatise on Injury by Cold by Zhang Zhong-jing, shaoyang syndrome represents the 'half-exterior half-interior' stage. The pathogenic factor resides between the taiyang and yangming levels and in this sense shaoyang is the pivot or hinge between the exterior and interior. Qiūxū GB-40 has long been used for chronic malaria, a classic example of a disease where the pathogenic factor enters the body and lodges at the half-exterior half-interior level. The alternating fever and chills reflect the battle between the correct qi and the pathogenic qi. When the correct qi predominates and is able to struggle with the pathogen, there is fever, and when the pathogenic qi predominates there are chills. Qiūxū GB-40, the yuan-source point of the foot shaoyang channel, is chosen to regulate the shaoyang channel and expel the pathogen, especially when chills predominate.
+
+Summary of clinical application
+Clears heat and stagnant qi from the Gall Bladder channel: distention, pain, redness or swelling of the head, eyes, neck, throat, axilla, chest, lateral costal region and abdomen; sighing,inability to catch the breath, shan disorder.
+Clears damp-heat from the Gall-Bladder: cholecystitis, herpes zoster, vomiting, acid regurgitation.
+For disorders the lower limb: hip pain, sciatica, cramp and pain of the legs, atrophy disorder, painful obstruction (especially of the ankle joint), drop foot, flaccidity or swelling of the ankle.
+For chronic malaria.
+
+---
+
+*Last updated: 2025-10-05*
+*Channel: Gall Bladder channel | Type: [[TCM Acupuncture Points]]*

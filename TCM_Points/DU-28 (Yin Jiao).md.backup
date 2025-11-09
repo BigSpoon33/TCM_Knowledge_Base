@@ -1,0 +1,168 @@
+---
+id: point-20251005184420
+name: DU-28
+type: point
+aliases:
+- YÍNJIĀO
+- Gum Intersection
+- 齦交
+tags:
+- TCM
+- Acupuncture
+- Point
+- Governing Vessel
+category:
+- Governing Vessel Channel Points
+related: []
+symptoms: []
+patterns: []
+western_conditions: []
+formulas: []
+herbs: []
+points: []
+nutrition: []
+tests: []
+point_data:
+  code: DU-28
+  hanzi: 齦交
+  pinyin: YÍNJIĀO
+  english: Gum Intersection
+  channel: Governing Vessel
+  special_properties:
+  - Meeting point of the Governing vessel with the Conception vessel and Stomach channel
+  location_description: Inside the mouth, in the superior frenulum, at the junction
+    of the upper lip and the gum.
+  location_notes: The superior frenulum is the midline band of fibrous tissue connecting
+    the upper lip and gum.
+  needling_method: i. Oblique insertion directed superiorly; ii. Prick to bleed.
+  needling_depth: 0.2 to 0.3 cun
+  needling_cautions: []
+  functions:
+  - Clear heat and benefits the gums
+  - Benefits the nose and eyes
+  indications:
+    respiratory:
+    - Nasal polyps
+    - Nasal sores
+    - Nasal congestion
+    digestive: []
+    head_throat:
+    - Redness, swelling and pain of the gums
+    - Erosion of the gums
+    - Bleeding from the gums
+    - Pain of the forehead and glabella
+    - Excessive lacrimation
+    - Redness, itching and pain of the inner canthus
+    - Pain of the eyes and lack of clarity of vision
+    - Superficial visual obstruction
+    pain:
+    - Pain of the forehead and glabella
+    - Pain of the eyes
+    other:
+    - Red face with agitation
+    - Jaundice
+    - Stiffness of the neck with inability to turn the head
+  combinations:
+  - condition: Stiffness and pain of the neck with inability to turn the head
+    points:
+    - DU-28
+    - DU-16
+    source: Supplementing Life
+  - condition: Madness
+    points:
+    - DU-28
+    - DU-26
+    source: Systematic Classic
+created: 2025-10-05
+updated: 2025-10-05
+banner: TCM_Points_Images/DU-28_diagram.jpg
+cssclasses:
+- noyaml
+---
+
+# 📍 DU-28 · YÍNJIĀO (齦交)
+
+**Point Name:** Gum Intersection (YÍNJIĀO)
+**Channel:** Governing Vessel Channel
+**Special Properties:** Meeting point of the Governing vessel with the Conception vessel and Stomach channel
+
+---
+
+## 📍 Location
+
+Inside the mouth, in the superior frenulum, at the junction of the upper lip and the gum.
+
+**Location Notes:**
+The superior frenulum is the midline band of fibrous tissue connecting the upper lip and gum.
+
+![[DU-28_diagram.jpg]]
+
+**Chinese Characters:** ![[DU-28_chinese.png]]
+
+---
+
+## 🔧 Needling Technique
+
+**Method:** i. Oblique insertion directed superiorly; ii. Prick to bleed.
+**Depth:** 0.2 to 0.3 cun
+
+### ⚠️ Cautions
+
+---
+
+## ⚡ Functions & Actions
+- Clear heat and benefits the gums
+- Benefits the nose and eyes
+
+---
+
+## 🎯 Clinical Indications
+
+### Respiratory
+- Nasal polyps
+- Nasal sores
+- Nasal congestion
+
+### Head Throat
+- Redness, swelling and pain of the gums
+- Erosion of the gums
+- Bleeding from the gums
+- Pain of the forehead and glabella
+- Excessive lacrimation
+- Redness, itching and pain of the inner canthus
+- Pain of the eyes and lack of clarity of vision
+- Superficial visual obstruction
+
+### Pain
+- Pain of the forehead and glabella
+- Pain of the eyes
+
+### Other
+- Red face with agitation
+- Jaundice
+- Stiffness of the neck with inability to turn the head
+
+---
+
+## 🔗 Point Combinations
+
+**Stiffness and pain of the neck with inability to turn the head**
+- Points: DU-28, DU-16
+- Source: *Supplementing Life*
+
+**Madness**
+- Points: DU-28, DU-26
+- Source: *Systematic Classic*
+
+---
+
+## 🧬 TCM Theory & Commentary
+
+Summary of clinical application
+Rarely used.
+Indicated for redness, swelling and pain of the gums, erosion of the gums, bleeding from the gums, nasal polyps, nasal sores, nasal congestion, pain of the forehead and glabella, excessive lacrimation, redness, itching and pain of the inner canthus, pain of the eyes and lack of clarity of vision, superficial visual obstruction, red face with agitation, jaundice, stiffness of the neck with inability to turn the head.
+
+---
+
+*Last updated: 2025-10-05*
+*Channel: Governing Vessel | Type: [[TCM Acupuncture Points]]*

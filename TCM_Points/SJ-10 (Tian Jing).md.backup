@@ -1,0 +1,329 @@
+---
+id: point-20251005200404
+name: SJ-10
+type: point
+aliases:
+- TIĀNJǏNG
+- Heavenly Well
+- 天井
+tags:
+- TCM
+- Acupuncture
+- Point
+- Sanjiao channel
+category:
+- Sanjiao channel Channel Points
+related: []
+symptoms: []
+patterns: []
+western_conditions: []
+formulas: []
+herbs: []
+points: []
+nutrition: []
+tests: []
+point_data:
+  code: SJ-10
+  hanzi: 天井
+  pinyin: TIĀNJǏNG
+  english: Heavenly Well
+  channel: Sanjiao channel
+  special_properties:
+  - He-Sea point
+  - Earth point
+  location_description: With the elbow flexed, this point is located in the depression
+    1 cun proximal to the olecranon.
+  location_notes: ''
+  needling_method: Perpendicular insertion
+  needling_depth: 0.5 to 1 cun
+  needling_cautions: []
+  functions:
+  - Transforms phlegm and dissipates nodules
+  - Regulates qi and descends rebellion
+  - Calms the spirit
+  - Clears heat from the Sanjiao channel
+  - Activates the channel and alleviates pain
+  indications:
+    respiratory:
+    - coughing phlegm
+    - coughing and vomiting pus and blood
+    - cough with fullness of the abdomen and no pleasure in eating or drinking
+    - chest painful obstruction with Heart pain
+    digestive:
+    - fullness of the abdomen and no pleasure in eating or drinking
+    - distention and pain of the lower abdomen
+    - haemorrhoids
+    head_throat:
+    - One-sided headache
+    - tongue thrusting
+    - deafness
+    - swelling and pain of the cheek
+    - swelling and pain of the throat
+    - throat painful obstruction with sweating
+    - eye pain
+    pain:
+    - chest painful obstruction with Heart pain
+    - pain of the lateral costal region
+    - Atrophy disorder and numbness of the arm
+    - painful obstruction of the arm
+    - wind painful obstruction with contraction of the sinews and pain of the bones
+    - pain of the neck and upper back
+    - pain of the scapula
+    - numbness of the shoulder
+    - pain of the shoulder and arm
+    - pain of the elbow radiating to the shoulder
+    - pain of the elbow
+    - pain of the lumbar region due to traumatic injury
+    other:
+    - Scrofula
+    - Epilepsy
+    - madness
+    - sadness
+    - propensity to fright
+    - fright palpitations
+    - somnolence
+    - leg qi attacking upwards
+    - clonic spasm
+    - malaria
+    - alternating chills and fever
+    - urticaria
+  combinations:
+  - condition: Scrofula
+    points:
+    - SJ-10
+    - HE-3
+    source: Song More Precious Than Jade
+  - condition: Scrofula
+    points:
+    - SJ-10
+    - SI-1
+    source: Great Compendium
+  - condition: Heart disorientation
+    points:
+    - SJ-10
+    - REN-14
+    - BL-15
+    source: Great Compendium
+  - condition: Sadness, anxiety and disorientation
+    points:
+    - SJ-10
+    - BL-15
+    - DU-11
+    source: Supplementing Life
+  - condition: Fright palpitations
+    points:
+    - SJ-2
+    - SJ-10
+    - DU-20
+    - DU-11
+    source: Supplementing Life
+  - condition: Somnolence with no desire to move the four limbs
+    points:
+    - SJ-10
+    - SJ-8
+    - LIV-10
+    - ST-45
+    - L.I.-3
+    source: Thousand Ducat Formulas
+  - condition: Chest painful obstruction, Heart pain and fullness of the Heart and
+      abdomen
+    points:
+    - SJ-10
+    - REN-17
+    source: Supplementing Life
+  - condition: Chest painful obstruction and Heart pain
+    points:
+    - SJ-10
+    - GB-41
+    source: Supplementing Life
+  - condition: Clonic spasm
+    points:
+    - SJ-10
+    - BL-59
+    source: Supplementing Life
+  - condition: Atrophy disorder and numbness of the arm
+    points:
+    - SJ-10
+    - SJ-5
+    - L.I.-11
+    source: Thousand Ducat Formulas
+  - condition: Wind painful obstruction
+    points:
+    - SJ-10
+    - LU-5
+    - HE-3
+    - BL-40
+    - GB-38
+    source: Great Compendium
+created: 2025-10-05
+updated: 2025-10-05
+banner: "TCM_Points_Images/SJ-10_diagram.jpg"
+cssclasses:
+- noyaml
+---
+
+# 📍 SJ-10 · TIĀNJǏNG (天井)
+
+**Point Name:** Heavenly Well (TIĀNJǏNG)
+**Channel:** Sanjiao channel Channel
+**Special Properties:** He-Sea point, Earth point
+
+---
+
+## 📍 Location
+
+With the elbow flexed, this point is located in the depression 1 cun proximal to the olecranon.
+
+**Location Notes:**
+
+
+![[SJ-10_diagram.jpg]]
+
+**Chinese Characters:** ![[SJ-10_chinese.png]]
+
+---
+
+## 🔧 Needling Technique
+
+**Method:** Perpendicular insertion
+**Depth:** 0.5 to 1 cun
+
+### ⚠️ Cautions
+
+---
+
+## ⚡ Functions & Actions
+- Transforms phlegm and dissipates nodules
+- Regulates qi and descends rebellion
+- Calms the spirit
+- Clears heat from the Sanjiao channel
+- Activates the channel and alleviates pain
+
+---
+
+## 🎯 Clinical Indications
+
+### Respiratory
+- coughing phlegm
+- coughing and vomiting pus and blood
+- cough with fullness of the abdomen and no pleasure in eating or drinking
+- chest painful obstruction with Heart pain
+
+### Digestive
+- fullness of the abdomen and no pleasure in eating or drinking
+- distention and pain of the lower abdomen
+- haemorrhoids
+
+### Head Throat
+- One-sided headache
+- tongue thrusting
+- deafness
+- swelling and pain of the cheek
+- swelling and pain of the throat
+- throat painful obstruction with sweating
+- eye pain
+
+### Pain
+- chest painful obstruction with Heart pain
+- pain of the lateral costal region
+- Atrophy disorder and numbness of the arm
+- painful obstruction of the arm
+- wind painful obstruction with contraction of the sinews and pain of the bones
+- pain of the neck and upper back
+- pain of the scapula
+- numbness of the shoulder
+- pain of the shoulder and arm
+- pain of the elbow radiating to the shoulder
+- pain of the elbow
+- pain of the lumbar region due to traumatic injury
+
+### Other
+- Scrofula
+- Epilepsy
+- madness
+- sadness
+- propensity to fright
+- fright palpitations
+- somnolence
+- leg qi attacking upwards
+- clonic spasm
+- malaria
+- alternating chills and fever
+- urticaria
+
+---
+
+## 🔗 Point Combinations
+
+**Scrofula**
+- Points: SJ-10, HE-3
+- Source: *Song More Precious Than Jade*
+
+**Scrofula**
+- Points: SJ-10, SI-1
+- Source: *Great Compendium*
+
+**Heart disorientation**
+- Points: SJ-10, REN-14, BL-15
+- Source: *Great Compendium*
+
+**Sadness, anxiety and disorientation**
+- Points: SJ-10, BL-15, DU-11
+- Source: *Supplementing Life*
+
+**Fright palpitations**
+- Points: SJ-2, SJ-10, DU-20, DU-11
+- Source: *Supplementing Life*
+
+**Somnolence with no desire to move the four limbs**
+- Points: SJ-10, SJ-8, LIV-10, ST-45, L.I.-3
+- Source: *Thousand Ducat Formulas*
+
+**Chest painful obstruction, Heart pain and fullness of the Heart and abdomen**
+- Points: SJ-10, REN-17
+- Source: *Supplementing Life*
+
+**Chest painful obstruction and Heart pain**
+- Points: SJ-10, GB-41
+- Source: *Supplementing Life*
+
+**Clonic spasm**
+- Points: SJ-10, BL-59
+- Source: *Supplementing Life*
+
+**Atrophy disorder and numbness of the arm**
+- Points: SJ-10, SJ-5, L.I.-11
+- Source: *Thousand Ducat Formulas*
+
+**Wind painful obstruction**
+- Points: SJ-10, LU-5, HE-3, BL-40, GB-38
+- Source: *Great Compendium*
+
+---
+
+## 🧬 TCM Theory & Commentary
+
+According to the Classic of Difficulties9 "The Sanjiao is the pathway of water and grain". The Sanjiao therefore is the passageway for food and fluids throughout the body. When fluids stagnate and condense, whether due to stagnation of Liver qi, the condensing action of heat on the body fluids, or deficiency of any of the three zang responsible for fluid transformation and transportation (the Lung in the upper jiao, the Spleen in the middle jiao and the Kidneys in the lower jiao), phlegm will be generated. Tiānjǐng SJ-10, the he-sea and earth point of the Sanjiao channel, has an important action on transforming phlegm and is indicated for a variety of phlegm patterns including scrofula, coughing of phlegm and psycho-emotional disorders.
+
+The disease known as scrofula, in which nodules appear on the side of the neck or in the axilla, always involves phlegm combined either with stagnant qi or heat. Tiānjǐng SJ-10 is traditionally indicated and included in various classical combinations for the treatment of this disease.
+
+According to the Classic of Difficulties10 he-sea points are indicated for 'counterflow qi'. The Sanjiao channel enters the chest at Shānzhōng REN-17, and Tiānjǐng SJ-10, the he-sea point of the Sanjiao channel, is able to regulate rebellious qi and transform phlegm in the treatment of such disorders as coughing of phlegm, chest painful obstruction with Heart pain, and coughing and vomiting of pus and blood.
+
+As a consequence of its action on transforming phlegm, and the coupled relationship of the Sanjiao and Pericardium channels, Tiānjǐng SJ-10 is also important in the treatment of disturbance of the Heart and spirit by phlegm or phlegm-heat. It is indicated in such disorders as epilepsy, madness, propensity to fright, fright palpitations, sadness and somnolence.
+
+Like many points of the Sanjiao channel, Tiānjǐng SJ-10 is able to clear heat from and invigorate the qi in the upper part of the channel and is indicated for one-sided headache, deafness, swelling and pain of the cheek, obstructed throat, throat painful obstruction with sweating, eye pain etc.
+
+Like Wàiguān SJ-5 and Zhīgōu SJ-6, the action of Tiānjǐng SJ-10 extends throughout the three jiao. As well as treating the head, neck, Lung and Heart in the upper jiao, it is indicated for pain of the lateral costal region in the middle jiao, and haemorrhoids and distention and pain of the abdomen in the lower jiao.
+
+In modern clinical practice the principal application of Tiānjǐng SJ-10 is in the treatment of pain, painful obstruction and atrophy disorder affecting the elbow, arm, shoulder, neck and upper back. There are also clear references in classical sources to its use in the treatment of wind painful obstruction affecting the entire body. This action of resolving painful obstruction is shared to a lesser extent by the two following points on this channel, Qǐnglěngyuān SJ-11 and Xiāoluò SJ-12.
+
+Summary of clinical application
+Transforms phlegm: scrofula (neck or axillary nodules), coughing phlegm, chest painful obstruction with Heart pain, psycho-emotional disorders (epilepsy, madness, sadness, propensity to fright, fright palpitations and somnolence).
+Descends rebellious qi: coughing, coughing and vomiting of pus and blood.
+Clears heat from the Sanjiao channel (one-sided headache, deafness, swelling and pain of the cheek, obstructed throat, throat painful obstruction with sweating, eye pain).
+Treats painful obstruction and atrophy disorder affecting the elbow, arm, shoulder, neck and upper back.
+
+---
+
+*Last updated: 2025-10-05*
+*Channel: Sanjiao channel | Type: [[TCM Acupuncture Points]]*

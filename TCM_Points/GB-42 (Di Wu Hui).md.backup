@@ -1,0 +1,182 @@
+---
+id: point-20251005190326
+name: GB-42
+type: point
+aliases:
+- DÌWǓHÙI
+- Earth Five Meetings
+- 地五會
+tags:
+- TCM
+- Acupuncture
+- Point
+- Gallbladder Channel
+category:
+- Gallbladder Channel Channel Points
+related: []
+symptoms: []
+patterns: []
+western_conditions: []
+formulas: []
+herbs: []
+points: []
+nutrition: []
+tests: []
+point_data:
+  code: GB-42
+  hanzi: 地五會
+  pinyin: DÌWǓHÙI
+  english: Earth Five Meetings
+  channel: Gallbladder Channel
+  special_properties: []
+  location_description: Between the 4th and 5th metatarsal bones, in the depression
+    proximal to the metatarsal heads, on the medial side of the tendon of m. extensor
+    digitorum longus (branch to little toe).
+  location_notes: Ask the patient to abduct their little toe in order to make the
+    branch of m. extensor digitorum longus more prominent. Run a finger from Xiáxī
+    GB-43 towards the ankle, along the interspace between the fourth and fifth metatarsals,
+    until it encounters the significant depression immediately before the tendon.
+  needling_method: Perpendicular insertion
+  needling_depth: 0.5 to 0.8 cun
+  needling_cautions:
+  - Incorrect angle of insertion will not enable the needle to pass between the shafts
+    of the fourth and fifth metatarsal bones.
+  functions:
+  - Spreads Liver qi
+  - Clears Gall Bladder heat
+  indications:
+    respiratory: []
+    digestive: []
+    head_throat:
+    - Headache
+    - redness of the eyes
+    - itching of the eyes
+    - pain of the eyes
+    - tinnitus
+    - deafness
+    pain:
+    - pain of the lateral costal region
+    - swelling and pain of the axilla
+    - distention and pain of the breasts
+    - swelling of the dorsum of the foot
+    - redness of the dorsum of the foot
+    - pain of the dorsum of the foot
+    - lumbar pain
+    other:
+    - Fullness of the chest
+    - breast abscess
+    - spitting blood due to internal injury
+  combinations:
+  - condition: Pain and itching of the eyes
+    points:
+    - Dìwǔhùi GB-42
+    - Guāngmíng GB-37
+    source: Ode to Elucidate Mysteries
+  - condition: Swelling of the axilla
+    points:
+    - Dìwǔhùi GB-42
+    - Yangfu GB‑38
+    - Shēnmài BL-62
+    - Wěiyáng BL-39
+    - Tiānchí P-1
+    - Zúlínqì GB-41
+    source: Thousand Ducat Formulas
+  - condition: Breast abscess
+    points:
+    - Dìwǔhùi GB-42
+    - Liángqiū ST-34
+    source: Supplementing Life
+created: 2025-10-05
+updated: 2025-10-05
+banner: TCM_Points_Images/GB-42_diagram.jpg
+cssclasses:
+- noyaml
+---
+
+# 📍 GB-42 · DÌWǓHÙI (地五會)
+
+**Point Name:** Earth Five Meetings (DÌWǓHÙI)
+**Channel:** Gallbladder Channel Channel
+**Special Properties:** 
+
+---
+
+## 📍 Location
+
+Between the 4th and 5th metatarsal bones, in the depression proximal to the metatarsal heads, on the medial side of the tendon of m. extensor digitorum longus (branch to little toe).
+
+**Location Notes:**
+Ask the patient to abduct their little toe in order to make the branch of m. extensor digitorum longus more prominent. Run a finger from Xiáxī GB-43 towards the ankle, along the interspace between the fourth and fifth metatarsals, until it encounters the significant depression immediately before the tendon.
+
+![[GB-42_diagram.jpg]]
+
+**Chinese Characters:** ![[GB-42_chinese.png]]
+
+---
+
+## 🔧 Needling Technique
+
+**Method:** Perpendicular insertion
+**Depth:** 0.5 to 0.8 cun
+
+### ⚠️ Cautions
+- Incorrect angle of insertion will not enable the needle to pass between the shafts of the fourth and fifth metatarsal bones.
+
+---
+
+## ⚡ Functions & Actions
+- Spreads Liver qi
+- Clears Gall Bladder heat
+
+---
+
+## 🎯 Clinical Indications
+
+### Head Throat
+- Headache
+- redness of the eyes
+- itching of the eyes
+- pain of the eyes
+- tinnitus
+- deafness
+
+### Pain
+- pain of the lateral costal region
+- swelling and pain of the axilla
+- distention and pain of the breasts
+- swelling of the dorsum of the foot
+- redness of the dorsum of the foot
+- pain of the dorsum of the foot
+- lumbar pain
+
+### Other
+- Fullness of the chest
+- breast abscess
+- spitting blood due to internal injury
+
+---
+
+## 🔗 Point Combinations
+
+**Pain and itching of the eyes**
+- Points: Dìwǔhùi GB-42, Guāngmíng GB-37
+- Source: *Ode to Elucidate Mysteries*
+
+**Swelling of the axilla**
+- Points: Dìwǔhùi GB-42, Yangfu GB‑38, Shēnmài BL-62, Wěiyáng BL-39, Tiānchí P-1, Zúlínqì GB-41
+- Source: *Thousand Ducat Formulas*
+
+**Breast abscess**
+- Points: Dìwǔhùi GB-42, Liángqiū ST-34
+- Source: *Supplementing Life*
+
+---
+
+## 🧬 TCM Theory & Commentary
+
+Note: the Systematic Classic of Acupuncture and Moxibustion, Great Compendium of Acupuncture and Moxibustion, and Illustrated Classic of Acupuncture Points on the Bronze Man all say that this point should not be treated by moxibustion otherwise emaciation and death will follow within three years. Modern sources however agree that there are no contraindications to moxibustion.
+
+---
+
+*Last updated: 2025-10-05*
+*Channel: Gallbladder Channel | Type: [[TCM Acupuncture Points]]*

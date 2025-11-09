@@ -1,0 +1,235 @@
+# TCM 101 Question Bank
+# Multiple choice questions for weekly quizzes
+
+questions:
+  # Week 1: Tongue Diagnosis
+  - id: q_week01_001
+    week: 1
+    type: multiple_choice
+    difficulty: easy
+    text: "Which tongue color indicates Heat in TCM diagnosis?"
+    options:
+      - id: A
+        text: "Pale"
+      - id: B
+        text: "Red"
+      - id: C
+        text: "Purple"
+      - id: D
+        text: "Blue"
+    correct_answer: B
+    explanation: "A red tongue indicates Heat. Pale indicates Cold/Deficiency, Purple indicates Blood Stasis, Blue indicates extreme Cold."
+    points: 1
+    tags: [tongue, heat, color]
+
+  - id: q_week01_002
+    week: 1
+    type: multiple_choice
+    difficulty: easy
+    text: "A thick tongue coating indicates:"
+    options:
+      - id: A
+        text: "Deficiency"
+      - id: B
+        text: "Excess pathogen"
+      - id: C
+        text: "Normal condition"
+      - id: D
+        text: "Yin deficiency"
+    correct_answer: B
+    explanation: "Thick coating indicates presence of an excess pathogen such as Dampness, Phlegm, or Food Stagnation."
+    points: 1
+    tags: [tongue, coating, excess]
+
+  - id: q_week01_003
+    week: 1
+    type: multiple_choice
+    difficulty: medium
+    text: "A pale, swollen tongue with tooth marks most likely indicates:"
+    options:
+      - id: A
+        text: "Liver Fire"
+      - id: B
+        text: "Spleen Qi Deficiency"
+      - id: C
+        text: "Heart Blood Stasis"
+      - id: D
+        text: "Kidney Yin Deficiency"
+    correct_answer: B
+    explanation: "Pale indicates Qi/Yang Deficiency, swollen indicates Dampness or Qi Deficiency, tooth marks indicate Spleen Qi Deficiency."
+    points: 1
+    tags: [tongue, spleen, deficiency]
+
+  - id: q_week01_004
+    week: 1
+    type: multiple_choice
+    difficulty: medium
+    text: "Which tongue coating color indicates Cold?"
+    options:
+      - id: A
+        text: "Yellow"
+      - id: B
+        text: "White"
+      - id: C
+        text: "Gray"
+      - id: D
+        text: "Black"
+    correct_answer: B
+    explanation: "White coating indicates Cold. Yellow indicates Heat, Gray can indicate Heat or Cold, Black indicates extreme Heat or Cold."
+    points: 1
+    tags: [tongue, coating, cold]
+
+  - id: q_week01_005
+    week: 1
+    type: multiple_choice
+    difficulty: hard
+    text: "A red tongue with no coating indicates:"
+    options:
+      - id: A
+        text: "Excess Heat"
+      - id: B
+        text: "Yin Deficiency with Heat"
+      - id: C
+        text: "Damp Heat"
+      - id: D
+        text: "Phlegm Heat"
+    correct_answer: B
+    explanation: "Red tongue indicates Heat, lack of coating indicates Yin Deficiency. Together they indicate Yin Deficiency with Heat."
+    points: 1
+    tags: [tongue, yin-deficiency, heat]
+
+  - id: q_week01_006
+    week: 1
+    type: multiple_choice
+    difficulty: medium
+    text: "The tip of the tongue corresponds to which organ(s)?"
+    options:
+      - id: A
+        text: "Liver and Gallbladder"
+      - id: B
+        text: "Spleen and Stomach"
+      - id: C
+        text: "Heart and Lungs"
+      - id: D
+        text: "Kidneys and Bladder"
+    correct_answer: C
+    explanation: "The tip of the tongue corresponds to the Heart and Lungs in traditional tongue diagnosis mapping."
+    points: 1
+    tags: [tongue, anatomy, organs]
+
+  - id: q_week01_007
+    week: 1
+    type: multiple_choice
+    difficulty: easy
+    text: "A normal healthy tongue should be:"
+    options:
+      - id: A
+        text: "Bright red with thick coating"
+      - id: B
+        text: "Pale red with thin white coating"
+      - id: C
+        text: "Purple with no coating"
+      - id: D
+        text: "Dark red with yellow coating"
+    correct_answer: B
+    explanation: "A normal healthy tongue is pale red (light pink) with a thin white coating."
+    points: 1
+    tags: [tongue, normal, baseline]
+
+  - id: q_week01_008
+    week: 1
+    type: multiple_choice
+    difficulty: medium
+    text: "Cracks on the tongue generally indicate:"
+    options:
+      - id: A
+        text: "Excess Heat"
+      - id: B
+        text: "Yin Deficiency"
+      - id: C
+        text: "Blood Stasis"
+      - id: D
+        text: "Dampness"
+    correct_answer: B
+    explanation: "Cracks on the tongue generally indicate Yin Deficiency or chronic Heat consuming fluids."
+    points: 1
+    tags: [tongue, cracks, yin-deficiency]
+
+  - id: q_week01_009
+    week: 1
+    type: multiple_choice
+    difficulty: hard
+    text: "A purple tongue with purple spots indicates:"
+    options:
+      - id: A
+        text: "Qi Stagnation"
+      - id: B
+        text: "Blood Stasis"
+      - id: C
+        text: "Phlegm accumulation"
+      - id: D
+        text: "Yin Deficiency"
+    correct_answer: B
+    explanation: "Purple color, especially with purple spots, indicates Blood Stasis. Purple-blue indicates Cold Stasis, purple-red indicates Heat with Stasis."
+    points: 1
+    tags: [tongue, blood-stasis, purple]
+
+  - id: q_week01_010
+    week: 1
+    type: multiple_choice
+    difficulty: medium
+    text: "A peeled coating (no coating in certain areas) indicates:"
+    options:
+      - id: A
+        text: "Excess pathogen"
+      - id: B
+        text: "Stomach/Kidney Yin Deficiency"
+      - id: C
+        text: "Dampness"
+      - id: D
+        text: "Blood Stagnation"
+    correct_answer: B
+    explanation: "Peeled coating indicates Yin Deficiency, particularly of the Stomach or Kidney depending on location."
+    points: 1
+    tags: [tongue, coating, yin-deficiency]
+
+  # Week 2: Pulse Diagnosis (sample questions)
+  - id: q_week02_001
+    week: 2
+    type: multiple_choice
+    difficulty: easy
+    text: "How many pulse positions are there on each wrist?"
+    options:
+      - id: A
+        text: "Two"
+      - id: B
+        text: "Three"
+      - id: C
+        text: "Four"
+      - id: D
+        text: "Five"
+    correct_answer: B
+    explanation: "There are three pulse positions on each wrist: Cun (inch), Guan (bar), and Chi (cubit)."
+    points: 1
+    tags: [pulse, positions, basics]
+
+  - id: q_week02_002
+    week: 2
+    type: multiple_choice
+    difficulty: medium
+    text: "A rapid pulse indicates:"
+    options:
+      - id: A
+        text: "Cold"
+      - id: B
+        text: "Heat"
+      - id: C
+        text: "Deficiency"
+      - id: D
+        text: "Dampness"
+    correct_answer: B
+    explanation: "A rapid pulse (over 90 beats per minute) indicates Heat. A slow pulse indicates Cold."
+    points: 1
+    tags: [pulse, heat, rapid]
+
+  # Additional questions for weeks 3-12 would follow...

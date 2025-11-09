@@ -1,0 +1,387 @@
+---
+id: point-20251005194606
+name: P-6
+type: point
+aliases:
+- NÈIGUĀN
+- Inner Pass
+- 內關
+tags:
+- TCM
+- Acupuncture
+- Point
+- Pericardium channel
+category:
+- Pericardium channel Channel Points
+related: []
+symptoms: []
+patterns: []
+western_conditions: []
+formulas: []
+herbs: []
+points: []
+nutrition: []
+tests: []
+point_data:
+  code: P-6
+  hanzi: 內關
+  pinyin: NÈIGUĀN
+  english: Inner Pass
+  channel: Pericardium channel
+  special_properties:
+  - Luo-Connecting point of the Pericardium channel
+  - Confluent point of the Yin Linking vessel
+  - One of 'the eight therapeutic methods'
+  - One of the 'six command points' for chest
+  location_description: On the flexor aspect of the forearm, 2 cun proximal to Dàlíng
+    P-7, between the tendons of palmaris longus and flexor carpi radialis.
+  location_notes: In the absence of the tendon of palmaris longus, locate this point
+    on the ulnar side of the tendon of flexor carpi radialis.
+  needling_method: Perpendicular insertion; Oblique proximal insertion for diseases
+    of the chest; Oblique distal insertion for numbness of the fingers. Can be joined
+    to Wàiguān SJ-5.
+  needling_depth: 0.5 to 1 cun (perpendicular); 1 to 1.5 cun (oblique proximal/distal)
+  needling_cautions:
+  - The median nerve lies directly under this point and needling commonly induces
+    a significant electric sensation. This is an acceptable manifestation of deqi
+    (arrival of qi), but once elicited, further manipulation is inappropriate and
+    may damage the nerve.
+  functions:
+  - Unbinds the chest and regulates qi
+  - Regulates the Heart and calms the spirit
+  - Harmonises the Stomach and alleviates nausea and vomiting
+  - Clears heat
+  - Opens the Yin Linking vessel
+  indications:
+    respiratory:
+    - stuffiness of the chest
+    - cough
+    - asthma
+    digestive:
+    - Nausea
+    - vomiting
+    - hiccup
+    - deficiency and cold of the Spleen and Stomach with incessant vomiting
+    - Spleen and Stomach qi deficiency with distention and fullness
+    - disharmony of the Spleen and Stomach
+    - epigastric pain
+    - stabbing epigastric pain
+    - low-grade abdominal pain
+    - food (ji) masses
+    - blood (jia) masses
+    - focal distention
+    - borborygmus
+    - diarrhoea
+    - blood in the stools
+    - prolapse of the rectum
+    head_throat:
+    - headache
+    - stiffness and pain of the head and neck
+    - yellow eyes
+    - red eyes
+    - red face with hot skin
+    - cracked and bleeding tongue
+    - dizziness
+    - post-partum dizziness
+    pain:
+    - Heart pain
+    - sudden Heart pain
+    - pain of the lateral costal region and Heart in women
+    - pain of the lateral costal region
+    - Pain and contraction of the elbow and upper arm
+    other:
+    - agitation of the Heart
+    - palpitations
+    - fright palpitations
+    - pounding sensation of the Heart
+    - disorders of Heart rate and rhythm
+    - Insomnia
+    - the five types of epilepsy
+    - mania
+    - poor memory
+    - apprehension
+    - fear and fright
+    - sadness
+    - loss of memory following windstroke
+    - inability to speak after windstroke
+    - windstroke
+    - hypertension
+    - Febrile disease
+    - fever with absence of sweating
+    - jaundice
+    - malaria
+    - irregular menstruation
+    - painful urinary dysfunction
+    - swelling of the axilla
+  combinations:
+  - condition: Oppression of the chest
+    points:
+    - Nèiguān P-6
+    - Jiànlǐ REN-11
+    source: One Hundred Symptoms
+  - condition: Pain of the Heart and chest
+    points:
+    - Nèiguān P-6
+    - Qūzé P-3
+    - Dàlíng P-7
+    source: Great Compendium
+  - condition: Fear and fright with Heart pain
+    points:
+    - Nèiguān P-6
+    - Shénmén HE-7
+    - Shàochōng HE-9
+    - Yánglíngquán GB-34
+    source: Compilation
+  - condition: Epilepsy
+    points:
+    - Nèiguān P-6
+    - Hòuxī SI-3
+    - Shénmén HE-7
+    - Xīnshū BL-15
+    - Yǐnbài SP-1
+    source: Complete Collection
+  - condition: Sudden turmoil disorder, headache, chest pain and dyspnoeic rales
+    points:
+    - Nèiguān P-6
+    - Rényíng ST-9
+    - Guan-Guānchōng SJ-1
+    - Sānyīnjiāo SP-6
+    - Zúsānlǐ ST-36
+    source: Compilation
+  - condition: Difficult ingestion
+    points:
+    - Nèiguān P-6
+    - Yújì LU-10
+    - Zúsānlǐ ST-36
+    source: Great Compendium
+  - condition: For quickly treating abdominal disease
+    points:
+    - Nèiguān P-6
+    - Zhàohǎi KID-6
+    source: Ode of the Jade Dragon
+  - condition: Abdominal pain
+    points:
+    - Nèiguān P-6
+    - Gōngsūn SP-4
+    source: Ode of Xi-hong
+  - condition: Abdominal pain
+    points:
+    - Nèiguān P-6
+    - Zúsānlǐ ST-36
+    - Zhōngwǎn REN-12
+    source: Great Compendium
+  - condition: Cracked and bleeding tongue
+    points:
+    - Nèiguān P-6
+    - Tàichōng LIV-3
+    - Yīnjiāo REN-7
+    source: Miscellaneous Diseases
+  - condition: Red (bloody) dysenteric disorder
+    points:
+    - Nèiguān P-6
+    - Tiānshū ST-25
+    - Nèitíng ST-44
+    - Yǐnbài SP-1
+    - Qìhǎi REN-6
+    - Zhàohǎi KID-6
+    source: Great Compendium
+  - condition: Insufficient lactation due to Liver qi stagnation
+    points:
+    - Nèiguān P-6
+    - Rǔgēn ST-18
+    - Shānzhōng REN-17
+    - Shàozé SI-1
+    - Tàichōng LIV-3
+    source: null
+created: 2025-10-05
+updated: 2025-10-05
+banner: TCM_Points_Images/P-6_diagram.jpg
+cssclasses:
+- noyaml
+---
+
+# 📍 P-6 · NÈIGUĀN (內關)
+
+**Point Name:** Inner Pass (NÈIGUĀN)
+**Channel:** Pericardium channel Channel
+**Special Properties:** Luo-Connecting point of the Pericardium channel, Confluent point of the Yin Linking vessel, One of 'the eight therapeutic methods', One of the 'six command points' for chest
+
+---
+
+## 📍 Location
+
+On the flexor aspect of the forearm, 2 cun proximal to Dàlíng P-7, between the tendons of palmaris longus and flexor carpi radialis.
+
+**Location Notes:**
+In the absence of the tendon of palmaris longus, locate this point on the ulnar side of the tendon of flexor carpi radialis.
+
+![[P-6_diagram.jpg]]
+
+**Chinese Characters:** ![[P-6_chinese.png]]
+
+---
+
+## 🔧 Needling Technique
+
+**Method:** Perpendicular insertion; Oblique proximal insertion for diseases of the chest; Oblique distal insertion for numbness of the fingers. Can be joined to Wàiguān SJ-5.
+**Depth:** 0.5 to 1 cun (perpendicular); 1 to 1.5 cun (oblique proximal/distal)
+
+### ⚠️ Cautions
+- The median nerve lies directly under this point and needling commonly induces a significant electric sensation. This is an acceptable manifestation of deqi (arrival of qi), but once elicited, further manipulation is inappropriate and may damage the nerve.
+
+---
+
+## ⚡ Functions & Actions
+- Unbinds the chest and regulates qi
+- Regulates the Heart and calms the spirit
+- Harmonises the Stomach and alleviates nausea and vomiting
+- Clears heat
+- Opens the Yin Linking vessel
+
+---
+
+## 🎯 Clinical Indications
+
+### Respiratory
+- stuffiness of the chest
+- cough
+- asthma
+
+### Digestive
+- Nausea
+- vomiting
+- hiccup
+- deficiency and cold of the Spleen and Stomach with incessant vomiting
+- Spleen and Stomach qi deficiency with distention and fullness
+- disharmony of the Spleen and Stomach
+- epigastric pain
+- stabbing epigastric pain
+- low-grade abdominal pain
+- food (ji) masses
+- blood (jia) masses
+- focal distention
+- borborygmus
+- diarrhoea
+- blood in the stools
+- prolapse of the rectum
+
+### Head Throat
+- headache
+- stiffness and pain of the head and neck
+- yellow eyes
+- red eyes
+- red face with hot skin
+- cracked and bleeding tongue
+- dizziness
+- post-partum dizziness
+
+### Pain
+- Heart pain
+- sudden Heart pain
+- pain of the lateral costal region and Heart in women
+- pain of the lateral costal region
+- Pain and contraction of the elbow and upper arm
+
+### Other
+- agitation of the Heart
+- palpitations
+- fright palpitations
+- pounding sensation of the Heart
+- disorders of Heart rate and rhythm
+- Insomnia
+- the five types of epilepsy
+- mania
+- poor memory
+- apprehension
+- fear and fright
+- sadness
+- loss of memory following windstroke
+- inability to speak after windstroke
+- windstroke
+- hypertension
+- Febrile disease
+- fever with absence of sweating
+- jaundice
+- malaria
+- irregular menstruation
+- painful urinary dysfunction
+- swelling of the axilla
+
+---
+
+## 🔗 Point Combinations
+
+**Oppression of the chest**
+- Points: Nèiguān P-6, Jiànlǐ REN-11
+- Source: *One Hundred Symptoms*
+
+**Pain of the Heart and chest**
+- Points: Nèiguān P-6, Qūzé P-3, Dàlíng P-7
+- Source: *Great Compendium*
+
+**Fear and fright with Heart pain**
+- Points: Nèiguān P-6, Shénmén HE-7, Shàochōng HE-9, Yánglíngquán GB-34
+- Source: *Compilation*
+
+**Epilepsy**
+- Points: Nèiguān P-6, Hòuxī SI-3, Shénmén HE-7, Xīnshū BL-15, Yǐnbài SP-1
+- Source: *Complete Collection*
+
+**Sudden turmoil disorder, headache, chest pain and dyspnoeic rales**
+- Points: Nèiguān P-6, Rényíng ST-9, Guan-Guānchōng SJ-1, Sānyīnjiāo SP-6, Zúsānlǐ ST-36
+- Source: *Compilation*
+
+**Difficult ingestion**
+- Points: Nèiguān P-6, Yújì LU-10, Zúsānlǐ ST-36
+- Source: *Great Compendium*
+
+**For quickly treating abdominal disease**
+- Points: Nèiguān P-6, Zhàohǎi KID-6
+- Source: *Ode of the Jade Dragon*
+
+**Abdominal pain**
+- Points: Nèiguān P-6, Gōngsūn SP-4
+- Source: *Ode of Xi-hong*
+
+**Abdominal pain**
+- Points: Nèiguān P-6, Zúsānlǐ ST-36, Zhōngwǎn REN-12
+- Source: *Great Compendium*
+
+**Cracked and bleeding tongue**
+- Points: Nèiguān P-6, Tàichōng LIV-3, Yīnjiāo REN-7
+- Source: *Miscellaneous Diseases*
+
+**Red (bloody) dysenteric disorder**
+- Points: Nèiguān P-6, Tiānshū ST-25, Nèitíng ST-44, Yǐnbài SP-1, Qìhǎi REN-6, Zhàohǎi KID-6
+- Source: *Great Compendium*
+
+**Insufficient lactation due to Liver qi stagnation**
+- Points: Nèiguān P-6, Rǔgēn ST-18, Shānzhōng REN-17, Shàozé SI-1, Tàichōng LIV-3
+- Source: *None*
+
+---
+
+## 🧬 TCM Theory & Commentary
+
+The Pericardium primary channel originates in the chest, its divergent channel enters the chest, its sinew channel disperses in the chest and over the anterior and posterior ribs and its luo-connecting channel connects with the Heart. Nèiguān P-6, a point of the Pericardium channel, is also the confluent point of the Yin Linking vessel which ascends through the chest. According to the Classic of Difficulties9 "When the Yin Linking vessel is diseased, Heart pain will result". In the Ode of the Obstructed River the use of Nèiguān P-6 is referred to as one of 'the eight therapeutic methods'. In this description of the application of the eight confluent points of the extraordinary vessels to affect specific symptoms and areas of the body, Nèiguān P-6 is indicated for disorders of the chest. The Investigation into Points Along the Channels by the Ming dynasty author Yan Zhen-shi says "Nèiguān P-6 treats all kinds of pain of the zangfu, chest and lateral costal region". Furthermore, Nèiguān P-6 was included among the 'six command points' (a grouping derived by later commentators from Gao Wu's 'four command points') for its pre-eminent effect on diseases of the chest and lateral costal region. Nèiguān P-6, therefore, has long been considered the single most important distal point for disorders of the chest and it is one of the primary points in acupuncture analgesia for chest surgery. Its range of actions extends not only to the Heart, but also to the Lung.
+
+Pain and stuffiness of the Heart and chest may result from various aetiologies including i. Heart qi and yang deficiency, ii. accumulation of cold, iii. accumulation of phlegm, iv.. blood stasis, v.. constrained Liver qi, vi. traumatic injury. Whatever the pattern, Nèiguān P-6 forms an essential part of any point combination. In the treatment of angina pectoris, however, certain doctors emphasise the use of Xīmén P-4 (the xi-cleft point of the Pericardium channel) during acute attacks and Nèiguān P-6 during remission. Nèiguān P-6 is also effective to treat other disorders of the chest such as asthma and cough, as well as pain in the lateral costal region and hypochondrium. These last two symptoms reflect not only the pathway of the Pericardium sinew channel, but also the relationship of Nèiguān P-6 to stagnation of Liver qi, explained by the paired relationship of the Pericardium and Liver jueyin channels. Nèiguān P-6, therefore, is especially effective in treating stagnation of Liver qi anywhere in the upper and middle jiao.
+
+The Pericardium is the 'wrapping' of the Heart which stores the spirit, and the Pericardium luo-connecting channel links Nèiguān P-6 directly with the Heart. The action of Nèiguān P-6 on regulating the Heart zang and calming the spirit emphasises its dual effect on both the physical and emotional aspects of the Heart. It is an important point in the treatment of palpitations, pounding of the Heart and disorders of Heart rhythm, and is also one of the main acupuncture points for regulating and calming the spirit and treating a wide range of emotional disorders whatever the underlying pattern. It is therefore indicated for insomnia, epilepsy, mania, poor memory, loss of memory following windstroke, fright, sadness, fear and apprehension.
+
+The Investigation into Points Along the Channels, echoing many other classical texts, states that Nèiguān P-6 is indicated "for disharmony of the Stomach and Spleen". The Pericardium primary and divergent channels both descend through the diaphragm to connect with the middle and lower jiao, and this explains the powerful effect of Nèiguān P-6 on the function of the middle jiao. Nèiguān P-6 is the pre-eminent point to treat nausea and vomiting due to any aetiology, including vomiting of pregnancy and the side-effects of chemotherapy and radiotherapy. Its considerable effect in the treatment of such side-effects has rendered it the subject of more research in recent years than any other acupuncture point. Nèiguān P-6 is further indicated for distention, fullness and pain of the epigastrium and abdomen, and is often combined with Gōngsūn SP-4, the confluent point of the Penetrating vessel, for this purpose.
+
+The Pericardium channel belongs to fire, and like many other points of the channel Nèiguān P-6 is indicated for a variety of manifestations of heat, including fevers, jaundice, red face with hot skin, painful urinary dysfunction, cracked and bleeding tongue etc.
+
+Finally the Great Compendium of Acupuncture and Moxibustion gives specific indications for excess and deficiency of the luo-connecting points. In the case of Nèiguān P-6 these are sudden Heart pain (excess); stiffness [and pain] of the head [and neck] (deficiency).
+
+Summary of clinical application
+“Neiguan P-6 treats all kinds of pain of the zangfu, chest and lateral costal region” (Yan Zhen-shi, Ming dynasty). Essential point for all disorders of the chest and Heart: Heart pain, stuffy chest, palpitations, disorders of Heart rate and rhythm, angina pectoris, pain of the lateral costal region, asthma, cough.
+Regulates the spirit: insomnia, epilepsy, mania, poor memory, fright, sadness, fear, apprehension.
+The Pericardium channel descends through the middle jiao: essential point for treating nausea or vomiting due to any aetiology including pregnancy and the side-effects of radiotherapy or chemotherapy.
+Combinations
+
+---
+
+*Last updated: 2025-10-05*
+*Channel: Pericardium channel | Type: [[TCM Acupuncture Points]]*

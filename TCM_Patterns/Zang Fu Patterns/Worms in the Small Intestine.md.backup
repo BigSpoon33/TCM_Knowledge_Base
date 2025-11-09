@@ -1,0 +1,451 @@
+---
+# =9 Core Metadata (Universal Fields)
+id: "pattern-20251010183503"
+name: "WORMS (Small Intestine)"
+type: "pattern"
+aliases: ["Intestinal Parasites", "Ji Chong"]
+tags: ['TCM', 'Pattern', 'Zang-Fu', 'Small-Intestine']
+
+# =9 Cross-Link Fields (Universal Relationship Slots)
+category: ['Zang Fu', 'Small Intestine Patterns']
+related: ["Spleen Qi Deficiency", "Food Stagnation"]
+symptoms: ["Abdominal Pain", "Pica", "Anal Itching", "Sallow Complexion"]
+patterns: []
+western_conditions: ["Helminthiasis", "Ascariasis", "Enterobiasis", "Cestodiasis"]
+formulas: ["Wu Mei Wan", "Fei Er Wan"]
+herbs: ["Bing Lang", "Shi Jun Zi", "Ku Lian Pi", "Da Suan", "Wu Mei"]
+points: ["ST-36", "ST-25", "SP-4", "LI-4", "Bai Chong Wo (M-LE-13)"]
+nutrition: []
+tests: ["Stool Test"]
+
+# =9 Pattern-Specific Data
+pattern_data:
+  pattern_type: "Zang Fu"
+  pattern_subtype: "Small Intestine"
+  excess_deficiency: "Mixed Excess-Deficiency"
+  hot_cold: "Neither"
+  interior_exterior: "Interior"
+  yin_yang: "Yin"
+  etiology: ["Ingestion of contaminated food or water", "Poor personal hygiene", "Underlying Spleen Qi Deficiency"]
+  pathomechanisms: ["Parasites consume Qi, Blood, and nutrients, leading to Deficiency", "Parasites obstruct the Qi mechanism of the intestines, causing pain and stagnation", "Parasite activity can generate toxic Heat or Dampness"]
+  disease_progression: "If left untreated, chronic parasitic infestation leads to severe malnutrition, Qi and Blood Deficiency, developmental issues in children (Gan syndrome), and potentially intestinal obstruction."
+  cardinal_symptoms: ["Intermittent, colicky abdominal pain", "Sallow complexion", "Variable appetite with strange cravings (pica)", "Visible worms or eggs in stool or vomit"]
+  tongue: "(Not specified) - Often pale with scattered red or blue spots. May have a greasy coating if Dampness is present."
+  pulse: "(Not specified) - Often wiry, especially on the right Chi position. May be weak if underlying Deficiency is severe."
+  treatment_principle: ["Expel parasites", "Regulate the Qi of the intestines", "Strengthen the Spleen"]
+  contraindications: ["Many antiparasitic herbs are toxic and should be used with extreme caution or avoided during pregnancy, lactation, and in very weak patients."]
+
+created: 2025-10-10
+updated: 2025-10-10
+---
+
+# 🔮 WORMS (Small Intestine)
+
+**Type:** `= this.pattern_data.pattern_type`
+**Nature:** `= this.pattern_data.excess_deficiency` | `= this.pattern_data.hot_cold`
+**Location:** `= this.pattern_data.interior_exterior`
+
+---
+
+## 📖 Overview
+
+Intestinal Parasites (Ji Chong) is a distinct pattern in TCM, primarily affecting the Small Intestine, but also involving the Spleen and Stomach. It is considered a Mixed Excess-Deficiency pattern: the parasites themselves represent an Excess pathogenic factor, while their presence almost invariably arises from and contributes to an underlying Deficiency of the host's righteous Qi (Zheng Qi), particularly Spleen Qi.
+
+The parasites consume the body's vital substances (Qi, Blood, and nutrients), leading to malnutrition, a sallow complexion, and fatigue. Simultaneously, their physical presence obstructs the flow of Qi in the intestines, causing intermittent, often colicky, abdominal pain. Diagnosis is confirmed by specific signs related to the type of worm, such as anal itching (pinworms), strange cravings (hookworms), or visual confirmation of worms.
+
+---
+
+## 🎯 Pattern Classification
+
+**System:** `= this.pattern_data.pattern_type`
+**Subtype:** `= this.pattern_data.pattern_subtype`
+
+**Eight Principles Analysis:**
+- Excess/Deficiency: `= this.pattern_data.excess_deficiency`
+- Hot/Cold: `= this.pattern_data.hot_cold`
+- Interior/Exterior: `= this.pattern_data.interior_exterior`
+- Yin/Yang: `= this.pattern_data.yin_yang`
+
+---
+
+## 🧬 Etiology & Pathogenesis
+
+### Primary Causes
+- Ingestion of contaminated food or water containing parasitic eggs or larvae
+- Poor personal and food hygiene
+- Underlying Spleen Qi Deficiency, which weakens digestive function and creates an environment favorable for parasites to thrive
+
+### Pathomechanisms
+- Parasites lodge in the intestines, consuming Qi, Blood, and nutrients directly from the host, leading to a state of Deficiency.
+- The physical presence and movement of worms obstruct the Qi mechanism of the Middle Jiao, causing stagnation which manifests as abdominal pain, distension, and bloating.
+- Parasitic activity can generate toxic byproducts, which may manifest as Dampness or Heat signs.
+
+**Development:**
+The condition begins with exposure to parasites. However, a robust digestive system (strong Spleen and Stomach Qi) can often resist infestation. The pattern typically develops when a person with pre-existing Spleen Qi Deficiency is exposed, allowing the parasites to establish themselves and multiply.
+
+**Progression:**
+`= this.pattern_data.disease_progression`
+
+**Common Transformations:**
+- May lead to severe [[Spleen Qi Deficiency]] or [[Blood Deficiency]]
+- In children, may develop into Gan Ji (Nutritional Impairment) syndrome
+- In acute cases, a large mass of worms can cause intestinal obstruction, a medical emergency
+
+---
+
+## 🩺 Clinical Manifestations
+
+### Symptoms (CAM):
+- Abdominal pain and distension
+- Bad taste in mouth
+- Sallow complexion
+- Cold limbs
+    - Roundworm (ascarid): abdominal pain, vomiting of roundworms
+    - Hookworms: eating strange objects (soil, wax, uncooked rice, tea leaves)
+    - Pinworms: itchy anus, worse in the evening
+    - Tapeworms: constant hunger
+
+### Symptoms (FCM):
+-
+
+### Key Symptoms:
+Abdominal pain/distension, bad taste in mouth, sallow complexion, specific symptoms for different worm types.
+
+### Complete Symptom Picture
+
+**Chief Symptoms:**
+- Intermittent, colicky, or gnawing abdominal pain, often located around the umbilicus
+- Sallow or pale-yellowish facial complexion, sometimes with small white spots
+- Variable appetite, which may be ravenous (tapeworm) or poor
+- Pica: desire to eat non-food items like dirt, clay, or uncooked rice (hookworm)
+- Anal itching (pruritus ani), especially at night (pinworm)
+- Grinding teeth at night (bruxism)
+
+**Accompanying Symptoms:**
+- Nausea, vomiting (may contain worms)
+- Bad taste in mouth or bad breath
+- Loose stools or alternating constipation and diarrhea
+- Abdominal distension and bloating
+- Cold limbs
+- Fatigue and listlessness
+- Visible worms or eggs in stool
+
+**Tongue:** `= this.pattern_data.tongue`
+
+**Pulse:** `= this.pattern_data.pulse`
+
+---
+
+## 🔍 Diagnostic Criteria
+
+### Must Have (Essential)
+1.  Intermittent, colicky periumbilical pain.
+2.  Specific signs such as anal itching (pinworms), pica (hookworms), or ravenous hunger (tapeworms).
+3.  Definitive evidence of worms (visualized in stool/vomit, or positive stool test).
+
+### Usually Has (Common)
+- Sallow complexion
+- Grinding teeth at night
+- Poor or variable appetite
+
+### May Have (Variable)
+- Cold limbs
+- Bad breath
+- White spots on the face or nails
+
+---
+
+## 🎯 Differential Diagnosis
+
+### Similar Patterns
+
+| Feature | WORMS (Small Intestine) | Spleen Qi Deficiency | Food Stagnation |
+|---|---|---|---|
+| Chief symptom | Intermittent, colicky pain | Dull ache, bloating after eating | Fullness, distending pain |
+| Appetite | Variable, pica, ravenous | Poor appetite | Aversion to food |
+| Complexion | Sallow, pale yellow | Sallow, pale | Normal or dull |
+| Key distinction | Specific signs (pica, anal itch) | Fatigue, loose stools | Relieved by bowel movement/vomit |
+
+**vs. [[Spleen Qi Deficiency]]:**
+- Key difference: Spleen Qi Deficiency features chronic fatigue, bloating, and loose stools as the primary complaints. Pain is typically dull and improves with pressure. The WORMS pattern is defined by the specific, often sharp, intermittent pain and unique signs like pica or anal itching, which are absent in simple Spleen Deficiency.
+
+**vs. [[Food Stagnation]]:**
+- Key difference: Pain from Food Stagnation is directly related to overeating, feels like fullness and distension, and is relieved by vomiting or a bowel movement. The pulse is Slippery and Forceful. Worm pain is often unrelated to meals, more colicky in nature, and the pulse is typically Wiry.
+
+---
+
+## 💊 Treatment Approach
+
+### Treatment Principles
+- Expel parasites from the intestines
+- Regulate the Qi of the Middle Jiao to stop pain
+- Strengthen the Spleen to address the root Deficiency and prevent recurrence
+
+### Representative Formulas
+
+**Primary Formula:**
+- [[Wu Mei Wan]] (Mume Pill) → A classic formula for roundworm (ascaris) infestation, especially with a mixed cold/heat presentation. It simultaneously expels parasites, warms the interior, and calms the worms.
+
+**Alternative Formulas:**
+- [[Fei Er Wan]] (Fat Baby Pill) → Used for childhood nutritional impairment (Gan Syndrome) due to parasites, addressing both the parasites and the resulting deficiency.
+- [[Hua Chong Wan]] (Transform Parasites Pill) → A broader-spectrum anti-parasitic formula.
+
+```dataview
+TABLE
+    Category as "Formula Category",
+    Formula_Actions as "Primary Actions",
+    Chief_Herbs as "Chief Herbs"
+FROM ""
+WHERE type = "formula" AND contains(patterns, this.file.link)
+SORT Category, file.name
+```
+
+---
+
+### Key Herbs
+
+**Essential Herbs for This Pattern:**
+- [[Bing Lang]] (Semen Arecae) → Expels various parasites (especially tapeworms), promotes urination, moves Qi.
+- [[Shi Jun Zi]] (Fructus Quisqualis) → Expels roundworms and pinworms, strengthens the Spleen.
+- [[Ku Lian Pi]] (Cortex Meliae) → A broad-spectrum antiparasitic herb, also clears Damp-Heat.
+- [[Da Suan]] (Bulbus Allii Sativi / Garlic) → Kills hookworms and pinworms.
+- [[Wu Mei]] (Fructus Mume) → Calms roundworms, astringes the intestines.
+
+```dataview
+TABLE
+    herb_data.taste as "Taste",
+    herb_data.temperature as "Temp",
+    herb_data.channels as "Channels",
+    herb_data.functions as "Functions"
+FROM ""
+WHERE type = "herb" AND contains(patterns, this.file.link)
+SORT file.name
+LIMIT 15
+```
+
+---
+
+### Acupuncture Points
+
+**Additional Notes:**
+Treatment: Acupuncture is not applicable
+
+**Practitioner's Note:**
+While herbal therapy is the primary modality for expelling parasites, acupuncture can be a valuable adjunctive treatment. It helps to regulate intestinal Qi, alleviate pain, and strengthen the Spleen to address the underlying deficiency. The original source's note likely emphasizes that needles alone cannot kill worms.
+
+**Primary Points:**
+- [[ST-25 (Tian Shu)]] → Front-Mu point of the Large Intestine, regulates the intestines, alleviates abdominal pain.
+- [[ST-36 (Zu San Li)]] → Tonifies Spleen and Stomach Qi, strengthens the body's resistance.
+- **Bai Chong Wo (M-LE-13)** → "Hundred Insects Nest," an extra point specifically indicated for intestinal parasites. Located 1 cun superior to SP-10.
+
+**Supporting Points:**
+- [[SP-4 (Gong Sun)]] → Confluent point of the Chong Mai, harmonizes the Middle Jiao, relieves abdominal pain.
+- [[LI-4 (He Gu)]] → Command point for the face and mouth, can address issues like bad breath and regulate Qi.
+- [[RN-6 (Qi Hai)]] → Tonifies Qi and strengthens the constitution.
+
+```dataview
+TABLE
+    point_data.channel as "Channel",
+    point_data.functions as "Functions"
+FROM ""
+WHERE type = "point" AND contains(patterns, this.file.link)
+SORT point_data.channel, file.name
+```
+
+---
+
+## ⚠️ Contraindications & Cautions
+
+**Treatment Contraindications:**
+- Many antiparasitic herbs (e.g., Bing Lang, Ku Lian Pi) have some level of toxicity and are contraindicated during pregnancy and lactation.
+- Use with extreme caution in patients who are very frail or have severe Qi and Blood Deficiency without concurrent tonifying herbs.
+
+**Cautions:**
+- Treatment should be followed by a course of Spleen-tonifying herbs to restore digestive health and prevent re-infestation.
+- Hygiene is paramount: advise patients on hand washing, proper food preparation, and treating other household members if necessary.
+
+---
+
+## 🔄 Pattern Variations & Combinations
+
+### Common Variations
+- **With Severe Qi Stagnation:** Excruciating abdominal pain. Add Qi-regulating herbs like [[Chuan Lian Zi]] and [[Yan Hu Suo]].
+- **With Damp-Heat:** Burning sensation in the anus, foul-smelling stools, yellow greasy tongue coat. Add Heat-clearing, Damp-draining herbs like [[Huang Lian]] and [[Huang Bai]].
+
+### Common Combinations
+- **With [[Spleen Qi Deficiency]]:** The most common combination. The antiparasitic formula should always be combined with or followed by Spleen tonics like [[Si Jun Zi Tang]].
+
+---
+
+## 🏥 Western Medical Correlates
+
+**Common Western Diagnoses:**
+- Helminthiasis (general term for worm infestation)
+- Ascariasis (Roundworm)
+- Enterobiasis (Pinworm)
+- Cestodiasis (Tapeworm)
+- Ancylostomiasis (Hookworm)
+
+**Biomedical Understanding:**
+This pattern directly corresponds to parasitic infections of the gastrointestinal tract. The TCM symptoms align well with biomedical understanding: parasites cause malabsorption and nutrient depletion (sallow complexion, deficiency), mechanical irritation and obstruction (abdominal pain), and specific allergic or toxic reactions (anal itching, pica).
+
+---
+
+## 💡 Clinical Pearls & Experience
+
+### Clinical Tips
+- Always inquire about teeth grinding, anal itching, and strange cravings, especially in children with digestive complaints.
+- White spots on the face ("worm spots" or "tinea faciei") or nails can be a supporting sign.
+- Treatment is often done in cycles (e.g., one week on, one week off) to target different stages of the parasite lifecycle.
+- Consider treating the entire family to prevent re-infection, especially with pinworms.
+
+### Common Mistakes
+- Focusing only on expelling parasites without tonifying the underlying Spleen Deficiency. This can lead to recurrence.
+- Using overly strong or toxic herbs for too long, which can damage the patient's Zheng Qi.
+
+---
+
+## 🔗 Related Notes & Cross-References
+
+### Related Patterns
+```dataview
+LIST
+FROM ""
+WHERE type = "pattern"
+    AND (contains(file.path, this.pattern_data.pattern_type) OR contains(related, this.file.link))
+    AND file.name != this.file.name
+SORT file.name
+LIMIT 10
+```
+
+### Key Symptoms
+```dataview
+LIST
+FROM ""
+WHERE type = "symptom" AND contains(patterns, this.file.link)
+SORT file.name
+```
+
+---
+
+## 📊 Pattern Comparison Table
+
+| Pattern | Pain Character | Appetite | Key Sign | Treatment Focus |
+|---|---|---|---|---|
+| WORMS (Intestinal) | Intermittent, colicky | Variable, pica | Anal itch, pica | Expel Parasites + Tonify Spleen |
+| Spleen Qi Deficiency | Dull, improves with pressure | Poor | Fatigue, loose stools | Tonify Spleen Qi |
+| Food Stagnation | Distending, fullness | Aversion to food | Foul belching/gas | Reduce Food Stagnation |
+| Liver Invading Spleen | Cramping, related to stress | Variable, worse with stress | Emotional triggers | Soothe Liver, Tonify Spleen |
+
+---
+
+## 📝 Study Notes & Memory Aids
+
+### Key Learning Points
+1.  This is a mixed Excess (the worm) and Deficiency (the host) pattern.
+2.  Treatment must address both aspects: first expel, then tonify.
+3.  Diagnosis relies on a combination of general deficiency signs (sallow face) and highly specific signs (anal itch, pica).
+
+### Memory Device/Mnemonic
+**"PICA"**
+- **P**ain (intermittent, periumbilical)
+- **I**tching (anal)
+- **C**ravings (strange, pica) & **C**omplexion (sallow)
+- **A**ppetite (variable)
+
+### Common Exam Questions
+- Q: What is the treatment principle for intestinal parasites?
+- A: First expel the parasites, then tonify the Spleen to address the root cause.
+
+- Q: A child presents with a sallow complexion, periumbilical pain, and a craving for eating dirt. What is the likely TCM pattern?
+- A: WORMS (Small Intestine), specifically suggesting hookworms.
+
+- Q: Name a classical formula for roundworms.
+- A: Wu Mei Wan.
+
+---
+
+## 📦 Original Note Content (For Reference)
+
+> **Note:** The content below is the original note preserved for reference. Please review the enhanced sections above and manually integrate any missing information.
+
+```markdown
+---
+# =9 Core Metadata (Universal Fields)
+id: "pattern-20251010183503"
+name: "WORMS (Small Intestine)"
+type: "pattern"
+aliases: []
+tags: ['TCM', 'Pattern']
+
+# =9 Cross-Link Fields (Universal Relationship Slots)
+category: ['Zang Fu Treatment Pattern']
+related: []
+symptoms: []
+patterns: []
+western_conditions: []
+formulas: []
+herbs: []
+points: ['Acupuncture', 'is', 'not', 'applicable']
+nutrition: []
+tests: []
+
+# =9 Pattern-Specific Data
+pattern_data:
+  pattern_type: "Zang Fu"
+  pattern_subtype: ""
+  excess_deficiency: "Mixed Excess-Deficiency"
+  hot_cold: "Neither"
+  interior_exterior: "Interior"
+  yin_yang: "Yin"
+  etiology: []
+  pathomechanisms: []
+  disease_progression: ""
+  cardinal_symptoms: ['Abdominal pain and distension', 'Bad taste in mouth', 'Sallow complexion', 'Cold limbs']
+  tongue: "(Not specified)"
+  pulse: "(Not specified)"
+  treatment_principle: []
+  contraindications: []
+
+created: 2025-10-10
+updated: 2025-10-10
+---
+
+## Small Intestine Full Patterns
+
+### WORMS (Small Intestine)
+
+**Symptoms (CAM):**
+- Abdominal pain and distension
+- Bad taste in mouth
+- Sallow complexion
+- Cold limbs
+    - Roundworm (ascarid): abdominal pain, vomiting of roundworms
+    - Hookworms: eating strange objects (soil, wax, uncooked rice, tea leaves)
+    - Pinworms: itchy anus, worse in the evening
+    - Tapeworms: constant hunger
+
+**Symptoms (FCM):**
+-
+
+**Tongue:** (Not specified)
+
+**Pulse:** (Not specified)
+
+**Key Symptoms:** Abdominal pain/distension, bad taste in mouth, sallow complexion, specific symptoms for different worm types.
+
+**Additional Notes:**
+Treatment: Acupuncture is not applicable
+
+---
+
+Differentiation / 3. Zang Fu
+
+---
+
+<a name="page-94"></a>
+
+# Page 94
+
+---
+```

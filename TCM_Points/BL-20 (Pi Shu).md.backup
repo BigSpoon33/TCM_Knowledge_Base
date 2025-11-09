@@ -1,0 +1,280 @@
+---
+id: point-20251005181347
+name: BL-20
+type: point
+aliases:
+- PÍSHŪ
+- Spleen Shu
+- 脾俞
+tags:
+- TCM
+- Acupuncture
+- Point
+- Bladder
+category:
+- Bladder Channel Points
+related: []
+symptoms: []
+patterns: []
+western_conditions: []
+formulas: []
+herbs: []
+points: []
+nutrition: []
+tests: []
+point_data:
+  code: BL-20
+  hanzi: 脾俞
+  pinyin: PÍSHŪ
+  english: Spleen Shu
+  channel: Bladder
+  special_properties:
+  - Back-Shu point of the Spleen
+  location_description: 1.5 cun lateral to the lower border of the spinous process
+    of the eleventh thoracic vertebra (T11).
+  location_notes: Locate at the visible highest point of the paraspinal muscles.
+  needling_method: Oblique insertion towards the spine, or transverse-oblique insertion.
+  needling_depth: 0.5 to 1 cun (oblique insertion towards the spine); 1 to 1.5 cun
+    (transverse-oblique insertion).
+  needling_cautions:
+  - perpendicular needling or oblique needling away from the spine carries a substantial
+    risk of causing a pneumothorax.
+  functions:
+  - Tonifies Spleen qi and yang
+  - Resolves dampness
+  - Raises Spleen qi and holds the blood
+  - Regulates and harmonises the qi of the middle jiao
+  indications:
+    respiratory:
+    - cough
+    digestive:
+    - Distention and pain of the abdomen
+    - focal distention
+    - abdominal (ji ju) masses
+    - lack of appetite
+    - remains thin despite much eating
+    - Spleen qi cold
+    - undigested food (in the stools)
+    - diarrhoea
+    - dysenteric disorder
+    - childhood nutritional impairment
+    - drum distention
+    - yellow body with abdominal fullness and vomiting
+    - blood in the stools
+    - vomiting blood
+    head_throat: []
+    pain:
+    - pain of the lateral costal region
+    - lumbar pain
+    - pain of the shoulder and back
+    - skin pain
+    other:
+    - chronic childhood fright wind
+    - deficiency-taxation
+    - jaundice
+    - blood in the urine
+    - menorrhagia
+    - chronic haemorrhage
+    - uterine prolapse
+    - oedema
+    - somnolence
+    - lassitude and heaviness of the body with no desire to move
+    - no desire to move the four limbs
+    - malarial diseases with chills and fever
+    - yawning
+    - turbid white urine
+    - clonic spasm
+  combinations:
+  - condition: Spleen deficiency with undigested food (in the stool)
+    points:
+    - Píshū BL-20
+    - Pángguāngshū BL-28
+    source: One Hundred Symptoms
+  - condition: Much eating but remains thin
+    points:
+    - Píshū BL-20
+    - Wèishū BL-21
+    source: Great Compendium
+  - condition: Abdominal pain with no pleasure in eating
+    points:
+    - Píshū BL-20
+    - Wèishū BL-21
+    source: Supplementing Life
+  - condition: Sadness below the Heart
+    points:
+    - Píshū BL-20
+    - Tīnggōng SI-19
+    source: One Hundred Symptoms
+  - condition: Vomiting blood and spontaneous external bleeding
+    points:
+    - Píshū BL-20
+    - Yǐnbài SP-1
+    - Gānshū BL-18
+    - Shàngwǎn REN-13
+    source: Great Compendium
+  - condition: Loss of use of the four limbs
+    points:
+    - Píshū BL-20
+    - Jíquán HE-1
+    - Rìyuè GB-24
+    source: Supplementing Life
+  - condition: Acute pain of both lateral costal regions
+    points:
+    - Píshū BL-20
+    - Gānshū BL-18
+    - Zhìshì BL-52
+    source: Thousand Ducat Formulas
+created: 2025-10-05
+updated: 2025-10-05
+banner: TCM_Points_Images/BL-20_diagram.jpg
+cssclasses:
+- noyaml
+---
+
+# 📍 BL-20 · PÍSHŪ (脾俞)
+
+**Point Name:** Spleen Shu (PÍSHŪ)
+**Channel:** Bladder Channel
+**Special Properties:** Back-Shu point of the Spleen
+
+---
+
+## 📍 Location
+
+1.5 cun lateral to the lower border of the spinous process of the eleventh thoracic vertebra (T11).
+
+**Location Notes:**
+Locate at the visible highest point of the paraspinal muscles.
+
+![[BL-20_diagram.jpg]]
+
+**Chinese Characters:** ![[BL-20_chinese.png]]
+
+---
+
+## 🔧 Needling Technique
+
+**Method:** Oblique insertion towards the spine, or transverse-oblique insertion.
+**Depth:** 0.5 to 1 cun (oblique insertion towards the spine); 1 to 1.5 cun (transverse-oblique insertion).
+
+### ⚠️ Cautions
+- perpendicular needling or oblique needling away from the spine carries a substantial risk of causing a pneumothorax.
+
+---
+
+## ⚡ Functions & Actions
+- Tonifies Spleen qi and yang
+- Resolves dampness
+- Raises Spleen qi and holds the blood
+- Regulates and harmonises the qi of the middle jiao
+
+---
+
+## 🎯 Clinical Indications
+
+### Respiratory
+- cough
+
+### Digestive
+- Distention and pain of the abdomen
+- focal distention
+- abdominal (ji ju) masses
+- lack of appetite
+- remains thin despite much eating
+- Spleen qi cold
+- undigested food (in the stools)
+- diarrhoea
+- dysenteric disorder
+- childhood nutritional impairment
+- drum distention
+- yellow body with abdominal fullness and vomiting
+- blood in the stools
+- vomiting blood
+
+### Pain
+- pain of the lateral costal region
+- lumbar pain
+- pain of the shoulder and back
+- skin pain
+
+### Other
+- chronic childhood fright wind
+- deficiency-taxation
+- jaundice
+- blood in the urine
+- menorrhagia
+- chronic haemorrhage
+- uterine prolapse
+- oedema
+- somnolence
+- lassitude and heaviness of the body with no desire to move
+- no desire to move the four limbs
+- malarial diseases with chills and fever
+- yawning
+- turbid white urine
+- clonic spasm
+
+---
+
+## 🔗 Point Combinations
+
+**Spleen deficiency with undigested food (in the stool)**
+- Points: Píshū BL-20, Pángguāngshū BL-28
+- Source: *One Hundred Symptoms*
+
+**Much eating but remains thin**
+- Points: Píshū BL-20, Wèishū BL-21
+- Source: *Great Compendium*
+
+**Abdominal pain with no pleasure in eating**
+- Points: Píshū BL-20, Wèishū BL-21
+- Source: *Supplementing Life*
+
+**Sadness below the Heart**
+- Points: Píshū BL-20, Tīnggōng SI-19
+- Source: *One Hundred Symptoms*
+
+**Vomiting blood and spontaneous external bleeding**
+- Points: Píshū BL-20, Yǐnbài SP-1, Gānshū BL-18, Shàngwǎn REN-13
+- Source: *Great Compendium*
+
+**Loss of use of the four limbs**
+- Points: Píshū BL-20, Jíquán HE-1, Rìyuè GB-24
+- Source: *Supplementing Life*
+
+**Acute pain of both lateral costal regions**
+- Points: Píshū BL-20, Gānshū BL-18, Zhìshì BL-52
+- Source: *Thousand Ducat Formulas*
+
+---
+
+## 🧬 TCM Theory & Commentary
+
+Píshū BL-20 is the back-shu point of the Spleen zang, where the qi of the Spleen emanates from the interior to the body surface, and like all the back-shu points (especially those of the zang) has a strong action on regulating and tonifying its corresponding zangfu at the deepest level.
+
+According to the Complete Works of Jing-yue "Ming men is the sea of essence [and] blood, the Spleen is the sea of water and grain, together they are the root of the five zang and six fu". The principal function of the Spleen is to dominate the transportation and transformation of the products of food and drink. This vital activity, the basis of the post-natal qi of the body, requires continual yang activity and heat and pathologically therefore, the Spleen suffers mainly from deficiency of qi and yang. This tendency underlies all patterns of disharmony of the Spleen zang.
+
+Spleen qi deficiency may result from constitutional deficiency, irregular diet, excessive thinking or overwork, insufficient or excessive exercise or prolonged illness. Deficiency of Spleen qi and impairment of the transportation and transformation function will give rise to such symptoms as lassitude, lack of appetite, diarrhoea with undigested food in the stools and childhood nutritional impairment, and Píshū BL-20 is an essential point in the treatment of such disorders.
+
+Píshū BL-20 is specifically indicated for the symptom of remaining thin despite much eating. The Treatise on the Spleen and Stomach by Li Dong-yuan30 offers an interesting discussion on the various possible relationships between appetite and obesity or leanness, saying i. that if the Spleen and Stomach are both excess, food intake is large and a person easily becomes fat; ii. if both are deficient there is either inability to eat and a person is thin, or alternatively a person easily becomes fat (yet weak), despite a low food intake, this latter condition being due to accumulation of phlegm-dampness; iii "There are also cases of thinness despite large food intake. [In this case] fire hidden in the qi phase in the Stomach results in large food intake, while Spleen vacuity leads to withered flesh. This is known as food languor. Shu-he has said, 'Large food intake is not incompatible with weak muscles' ". The apparently contradictory condition of Spleen deficiency with a large appetite is often encountered in clinical practice and Li Dong-yuan's explanation of hidden Stomach fire with Spleen qi deficiency explains this well.
+
+The important role that dampness plays in the pathology of the Spleen has been discussed in many classics. According to the Essential Questions "The Spleen loathes dampness"31, "Damp, swelling and fullness all pertain to the Spleen"32 and "When the Spleen is diseased, damp is generated"33, whilst the Case Histories from the Guide to Clinical Patterns by Ye Tian-shi of the Qing dynasty states "The Spleen likes dryness whilst the Stomach likes moisture". The origin of dampness may be interior or exterior. Interior deficiency of Spleen qi and impairment of the transportation and transformation function may give rise to incomplete separation of the clear and the turbid and the subsequent formation of interior dampness. This dampness may be carried to all parts of the body by virtue of the Spleen's function of distributing qi, but especially to the lower parts since 'the nature of dampness is heavy and turbid'. Alternatively, if exterior dampness or damp-heat attack the body, especially in cases of underlying Spleen deficiency, the function of the Spleen may quickly be compromised. Dampness gives rise to such symptoms as heaviness of the body, lassitude, somnolence, diarrhoea, dysenteric disorder, yin jaundice and oedema. Píshū BL-20 is an essential point both to tonify the Spleen qi and to resolve dampness, whether of internal or external origin.
+
+Two further patterns that may develop from deficiency of Spleen qi are i. failure of the Spleen to hold the blood, and ii. sinking of Spleen qi. According to the Treatise on Disorders of Blood "When Spleen yang is deficient it is unable to gather the blood", whilst the Supplement to The Thousand Ducat Formulas states "The Spleen gathers the blood, when the Spleen is deficient it is unable to unite the blood". Part of the Spleen's function of controlling the blood is to hold the blood in the vessels. Weakness of this function will lead to haemorrhage in any part of the body, giving rise to such indications as blood in the urine or stools, menorrhagia, vomiting of blood and indeed any kind of chronic haemorrhage. When the Spleen's function of raising the qi is impaired, there may be sinking or prolapse of the uterus. Píshū BL-20, through its action of tonifying and hence raising the Spleen qi, is able to treat both these conditions.
+
+An important further symptom of Spleen disharmony is stagnation in the middle jiao manifesting as abdominal fullness, distention and pain, or pain of the lateral costal region. There are three main causes of this disharmony: i. Spleen qi deficiency leads to impaired circulation of qi, and the treatment principle here is to both tonify and circulate the qi, ii. the formation and retention of dampness in the middle jiao may obstruct the circulation of qi, and the principle of treatment in this case is to resolve damp and circulate qi, iii. Liver-Spleen disharmony, due either to excess of the Liver which overacts on the Spleen, or deficiency of the Spleen which fails to counter the normal aggressive qi of the Liver. The aggressive Liver qi impairs the transportation and transformation function of the Spleen leading to stagnation. The treatment principle in this case is to harmonise the Liver and Spleen. In all these patterns Píshū BL-20 is a primary point.
+
+One particular form of abdominal stagnation for which Píshū BL-20 is indicated is known as focal distention. This is characterised primarily by a sensation of severe blockage and distention, or the appearance of a swelling like an upturned bowl. It is one of what is known as the 'five accumulations' and pertains to the Spleen.
+
+Since Píshū BL-20 tonifies the Spleen and regulates the middle jiao, it may also be used for treating the commonly encountered dual disharmony of the Stomach and Spleen with distention of both the epigastrium and abdomen, nausea and vomiting, and diarrhoea.
+
+Finally the Illustrated Supplement to the Classic of Categories states that Píshū BL-20 is one of five points (Fèishū BL-13, Xīnshū BL-15, Gānshū BL-18, Píshū BL-20 and Shènshū BL-23) which "drain heat from the five zang".
+
+Summary of clinical application
+Major point to tonify the Spleen and resolve dampness and stagnant qi: lack of appetite, remains thin despite much eating, childhood nutritional impairment, undigested food (in the stools), diarrhoea, dysenteric disorder, oedema, somnolence, lassitude and heaviness of the body with no desire to move, distention and pain of the abdomen, abdominal masses.
+Tonifies the Spleen to hold the blood in place and raise qi: blood in the stools or urine, vomiting blood, menorrhagia, chronic haemorrhage, uterine prolapse.
+
+---
+
+*Last updated: 2025-10-05*
+*Channel: Bladder | Type: [[TCM Acupuncture Points]]*

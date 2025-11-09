@@ -1,0 +1,85 @@
+---
+id: point-20251005205447
+name: ST-17
+type: point
+aliases:
+- ''
+- ''
+- ''
+tags:
+- TCM
+- Acupuncture
+- Point
+- Stomach
+category:
+- Stomach Channel Points
+related: []
+symptoms: []
+patterns: []
+western_conditions: []
+formulas: []
+herbs: []
+points: []
+nutrition: []
+tests: []
+point_data:
+  code: ST-17
+  hanzi: ''
+  pinyin: ''
+  english: ''
+  channel: Stomach
+  special_properties: []
+  location_description: ''
+  location_notes: ''
+  needling_method: ''
+  needling_depth: ''
+  needling_cautions: []
+  functions: []
+  indications:
+    respiratory: []
+    digestive: []
+    head_throat: []
+    pain: []
+    other: []
+  combinations: []
+created: 2025-10-05
+updated: 2025-10-05
+banner: TCM_Points_Images/ST-17_diagram.jpg
+cssclasses:
+- noyaml
+---
+
+# 📍 ST-17 ·  ()
+
+**Point Name:**  ()
+**Channel:** Stomach Channel
+
+---
+
+## 📍 Location
+
+
+
+![[ST-17_diagram.jpg]]
+
+**Chinese Characters:** ![[ST-17_chinese.png]]
+
+---
+
+## 🔧 Needling Technique
+
+**Method:** 
+**Depth:** 
+
+---
+
+## ⚡ Functions & Actions
+
+---
+
+## 🎯 Clinical Indications
+
+---
+
+*Last updated: 2025-10-05*
+*Channel: Stomach | Type: [[TCM Acupuncture Points]]*

@@ -1,0 +1,37 @@
+Metadata-Version: 2.4
+Name: capsule-learn
+Version: 0.1.0
+Summary: AI-powered TCM learning materials generator
+Home-page: https://github.com/yourusername/capsule
+Author: Your Name
+Author-email: Your Name <your.email@example.com>
+License: MIT
+Project-URL: Homepage, https://github.com/yourusername/capsule
+Project-URL: Documentation, https://capsule-learn.readthedocs.io
+Project-URL: Repository, https://github.com/yourusername/capsule
+Project-URL: Issues, https://github.com/yourusername/capsule/issues
+Keywords: tcm,traditional-chinese-medicine,learning,education,ai
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Education
+Classifier: Topic :: Education
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+Requires-Dist: click>=8.0.0
+Requires-Dist: rich>=13.0.0
+Requires-Dist: pyyaml>=6.0
+Requires-Dist: google-generativeai>=0.3.0
+Requires-Dist: chromadb>=0.4.0
+Requires-Dist: questionary>=2.0.0
+Provides-Extra: dev
+Requires-Dist: pytest>=7.0.0; extra == "dev"
+Requires-Dist: pytest-cov>=4.0.0; extra == "dev"
+Requires-Dist: black>=23.0.0; extra == "dev"
+Requires-Dist: flake8>=6.0.0; extra == "dev"
+Dynamic: author
+Dynamic: home-page
+Dynamic: requires-python

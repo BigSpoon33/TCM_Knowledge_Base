@@ -1,0 +1,264 @@
+---
+id: point-20251005181220
+name: BL-19
+type: point
+aliases:
+- DǍNSHŪ
+- Gall bladder Shu
+- 膽俞
+tags:
+- TCM
+- Acupuncture
+- Point
+- Gall Bladder
+category:
+- Gall Bladder Channel Points
+related: []
+symptoms: []
+patterns: []
+western_conditions: []
+formulas: []
+herbs: []
+points: []
+nutrition: []
+tests: []
+point_data:
+  code: BL-19
+  hanzi: 膽俞
+  pinyin: DǍNSHŪ
+  english: Gall bladder Shu
+  channel: Gall Bladder
+  special_properties:
+  - Back-Shu point of the Gall Bladder
+  - Four Flowers
+  location_description: 1.5 cun lateral to the lower border of the spinous process
+    of the tenth thoracic vertebra (T10).
+  location_notes: Locate at the visible highest point of the paraspinal muscles.
+  needling_method: Oblique insertion towards the spine, 0.5 to 1 cun, or transverse-oblique
+    insertion 1 to 1.5 cun.
+  needling_depth: 0.5 to 1 cun, or 1 to 1.5 cun
+  needling_cautions:
+  - perpendicular needling or oblique needling away from the spine carries a substantial
+    risk of causing a pneumothorax
+  functions:
+  - Clears damp-heat from the Liver and Gall Bladder
+  - Clears pathogenic factors from the shaoyang
+  - Tonifies and regulates Gall Bladder qi
+  - Tonifies deficiency
+  indications:
+    respiratory:
+    - dryness and pain of the throat
+    digestive:
+    - Jaundice
+    - yellow eyes
+    - bitter taste in the mouth with a dry tongue
+    - distention and pain of the chest and lateral costal region with inability to
+      turn
+    - vomiting
+    - difficult ingestion
+    - dry retching
+    - nausea
+    head_throat:
+    - dryness and pain of the throat
+    - headache
+    - blurred vision
+    pain:
+    - distention and pain of the chest and lateral costal region with inability to
+      turn
+    - headache
+    other:
+    - Fright palpitations with restless sleep
+    - insomnia
+    - Steaming bone taxation fever
+    - deficiency-taxation
+    - tidal fever
+    - cold shivering with absence of sweating
+    - swelling of the axilla
+  combinations:
+  - condition: Yellow eyes
+    points:
+    - BL-19
+    - BL-48
+    source: One Hundred Symptoms
+  - condition: Yellow eyes
+    points:
+    - BL-19
+    - DU-17
+    - BL-49
+    - BL-48
+    source: Supplementing Life
+  - condition: Pain of the lateral costal region
+    points:
+    - BL-19
+    - LIV-13
+    source: Thousand Ducat Formulas
+  - condition: Difficult ingestion
+    points:
+    - BL-19
+    - REN-19
+    - REN-16
+    source: Thousand Ducat Formulas
+  - condition: Dry mouth and tongue with difficult ingestion
+    points:
+    - BL-19
+    - LI-1
+    - BL-27
+    source: Thousand Ducat Formulas
+  - condition: The hundred syndromes of deficiency-taxation
+    points:
+    - BL-17
+    - BL-19
+    - BL-43
+    - M-BW-6
+    source: Compilation
+  - condition: Fright palpitations
+    points:
+    - BL-19
+    - LI-5
+    source: Divine Moxibustion
+  - condition: Indecisiveness, bitter taste in the mouth due to deficient Gall Bladder
+      qi flowing upwards
+    points:
+    - GB-24
+    - BL-19
+    source: Essential Questions
+created: 2025-10-05
+updated: 2025-10-05
+banner: TCM_Points_Images/BL-19_diagram.jpg
+cssclasses:
+- noyaml
+---
+
+# 📍 BL-19 · DǍNSHŪ (膽俞)
+
+**Point Name:** Gall bladder Shu (DǍNSHŪ)
+**Channel:** Gall Bladder Channel
+**Special Properties:** Back-Shu point of the Gall Bladder, Four Flowers
+
+---
+
+## 📍 Location
+
+1.5 cun lateral to the lower border of the spinous process of the tenth thoracic vertebra (T10).
+
+**Location Notes:**
+Locate at the visible highest point of the paraspinal muscles.
+
+![[BL-19_diagram.jpg]]
+
+**Chinese Characters:** ![[BL-19_chinese.png]]
+
+---
+
+## 🔧 Needling Technique
+
+**Method:** Oblique insertion towards the spine, 0.5 to 1 cun, or transverse-oblique insertion 1 to 1.5 cun.
+**Depth:** 0.5 to 1 cun, or 1 to 1.5 cun
+
+### ⚠️ Cautions
+- perpendicular needling or oblique needling away from the spine carries a substantial risk of causing a pneumothorax
+
+---
+
+## ⚡ Functions & Actions
+- Clears damp-heat from the Liver and Gall Bladder
+- Clears pathogenic factors from the shaoyang
+- Tonifies and regulates Gall Bladder qi
+- Tonifies deficiency
+
+---
+
+## 🎯 Clinical Indications
+
+### Respiratory
+- dryness and pain of the throat
+
+### Digestive
+- Jaundice
+- yellow eyes
+- bitter taste in the mouth with a dry tongue
+- distention and pain of the chest and lateral costal region with inability to turn
+- vomiting
+- difficult ingestion
+- dry retching
+- nausea
+
+### Head Throat
+- dryness and pain of the throat
+- headache
+- blurred vision
+
+### Pain
+- distention and pain of the chest and lateral costal region with inability to turn
+- headache
+
+### Other
+- Fright palpitations with restless sleep
+- insomnia
+- Steaming bone taxation fever
+- deficiency-taxation
+- tidal fever
+- cold shivering with absence of sweating
+- swelling of the axilla
+
+---
+
+## 🔗 Point Combinations
+
+**Yellow eyes**
+- Points: BL-19, BL-48
+- Source: *One Hundred Symptoms*
+
+**Yellow eyes**
+- Points: BL-19, DU-17, BL-49, BL-48
+- Source: *Supplementing Life*
+
+**Pain of the lateral costal region**
+- Points: BL-19, LIV-13
+- Source: *Thousand Ducat Formulas*
+
+**Difficult ingestion**
+- Points: BL-19, REN-19, REN-16
+- Source: *Thousand Ducat Formulas*
+
+**Dry mouth and tongue with difficult ingestion**
+- Points: BL-19, LI-1, BL-27
+- Source: *Thousand Ducat Formulas*
+
+**The hundred syndromes of deficiency-taxation**
+- Points: BL-17, BL-19, BL-43, M-BW-6
+- Source: *Compilation*
+
+**Fright palpitations**
+- Points: BL-19, LI-5
+- Source: *Divine Moxibustion*
+
+**Indecisiveness, bitter taste in the mouth due to deficient Gall Bladder qi flowing upwards**
+- Points: GB-24, BL-19
+- Source: *Essential Questions*
+
+---
+
+## 🧬 TCM Theory & Commentary
+
+Dǎnshū BL-19 is the back-shu point of the Gall Bladder fu, where the qi of the Gall Bladder emanates from the interior to the body surface. It is an important point to clear damp-heat from the Gall Bladder and Liver which gives rise to the classic symptoms of jaundice with yellow eyes, vomiting, distention of the lateral costal region and bitter taste in the mouth. Damp-heat in the Gall Bladder and Liver may arise in the following ways: i. stagnation of Liver qi both generates heat and invades the Spleen, suppressing its transportation and transformation function and leading to the formation of dampness, ii. Spleen deficiency leads to failure of its transportation and transformation function and subsequent formation of dampness which either stagnates and ferments over time and transforms to damp-heat or combines with pre-existing Liver stagnant heat, iii. invasion of exterior damp-heat, iv. consumption of contaminated food, or overconsumption of greasy, rich or spicy food and alcohol. In all cases the damp-heat impairs the Gall Bladder function of secreting bile, and whatever the aetiology Dǎnshū BL-19 is indicated.
+
+According to both the Spiritual Pivot27 and the Essential Questions28 "Taiyang is the opening, yangming is the closing and shaoyang is the pivot". In the Treatise on Injury by Cold by Zhang Zhong-jing, shaoyang pattern denotes the stage where the pathogen is 'half-exterior, half-interior'. In other words the pathogenic factor resides between the taiyang (exterior) and yangming (interior) levels and in this sense shaoyang is the pivot or hinge between the exterior and interior. When the pathogenic factor disrupts the Gall Bladder function it gives rise to stagnation of qi, impairment of the Stomach descending function and uprising of Gall Bladder heat. The clinical manifestations of shaoyang pattern include alternating fever and chills, dry throat, blurred vision, bitter taste in the mouth, fullness and distention of the chest and lateral costal region, and vomiting and nausea. All but the first of these symptoms are classical indications for Dǎnshū BL-19.
+
+According to five phase theory, wood is the mother of fire, and disorders of either the Liver or Gall Bladder wood may co-exist with or be transmitted to the Heart which belongs to fire. In the case of the Gall Bladder there are two main patterns of disharmony which may give rise to disturbance of the Heart and the spirit: i. Gall Bladder qi deficiency and ii. Gall Bladder damp-heat combined with Stomach phlegm-heat.
+
+According to the Essential Questions29 "the Gallbladder is the upright official from where judgement emanates". If there is sudden fright, unusual or abrupt noise or shock, or continuous fear and fright, whether in the formative years of childhood or as an adult, the qi of the Gall Bladder will be injured, giving rise to palpitations, restless sleep or insomnia, inability to sleep alone, mental restlessness, susceptibility to timidity and fear, and indecisiveness. The Gall Bladder qi can only be injured, however, when the Heart qi is also weak. This was emphasised both in Achieving Longevity by Guarding the Source, the 17th Century classic by Gong Ting-xin, which said "Susceptibility to fright ... timidity in which the patient fears being apprehended, all result from deficiency of the qi of Heart and Gall Bladder", and the Essential Readings from the Medical Tradition which explained "When the qi of the Heart and Gall Bladder is strong, sudden fright and danger will not cause disease. However, if the qi is deficient, it will be harmful."
+
+In the case of Gall Bladder damp-heat combined with Stomach phlegm-heat, there may be insomnia, palpitations and anxiety accompanied by bitter taste in the mouth, vomiting, and distention and pain of the chest and lateral costal region. In the treatment of both these patterns, Dǎnshū BL-19 forms an important part of the point prescription.
+
+Finally, bilateral Géshū BL-17 and Dǎnshū BL-19 are known as the 'four flowers', indicated for steaming bone taxation fever, deficiency-taxation, tidal fever etc. For a discussion of the history and application of these points see Géshū BL-17.
+
+Summary of clinical application
+For Liver and Gall Bladder damp-heat and shaoyang pattern: jaundice, yellow eyes, bitter taste in the mouth, distention and pain of the chest and lateral costal region, nausea, vomiting, dry throat, blurred vision.
+Tonifies the Gall Bladder qi and clears Gall Bladder and Stomach heat: fright palpitations with restless sleep, insomnia.
+Comprises the ‘four flowers’ with Géshū BL-17 to tonify deficiency and treat fevers: steaming bone taxation fever, deficiency taxation, tidal fever.
+
+---
+
+*Last updated: 2025-10-05*
+*Channel: Gall Bladder | Type: [[TCM Acupuncture Points]]*

@@ -1,0 +1,6 @@
+/* Hide Properties/YAML frontmatter in reading mode for notes with 'noyaml' CSS class */
+.workspace-leaf-content[data-mode="preview"]
+.markdown-preview-view.noyaml
+.metadata-container{
+    display: none;
+}

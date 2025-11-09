@@ -1,0 +1,246 @@
+# TCM 101 Timeline
+# 12-week course structure
+
+class_id: TCM_101
+title: "Traditional Chinese Medicine Fundamentals"
+pacing_strategy: hybrid  # hybrid, fixed, or self_paced
+
+# Global Pacing Settings
+pacing_settings:
+  default_week_duration: 7  # days
+  min_week_duration: 3      # Can't complete faster than 3 days
+  max_week_duration: 14     # Must complete within 14 days
+
+# Course Weeks
+weeks:
+  # Week 1: Introduction to Tongue Diagnosis
+  - week: 1
+    title: "Introduction to Tongue Diagnosis"
+    unlock_date: 2025-01-01
+    due_date: 2025-01-07
+    
+    description: |
+      Learn the fundamentals of tongue diagnosis including tongue body
+      characteristics, coating analysis, and pattern identification.
+    
+    topics:
+      - "Normal tongue characteristics"
+      - "Tongue body color and shape"
+      - "Tongue coating analysis"
+      - "Pattern identification from tongue"
+    
+    learning_objectives:
+      - "Identify normal tongue characteristics"
+      - "Recognize pathological tongue signs"
+      - "Correlate tongue findings with TCM patterns"
+    
+    materials:
+      - type: study
+        title: "Tongue Diagnosis Fundamentals"
+        estimated_time: 60
+        required: true
+      
+      - type: flashcards
+        title: "Tongue Diagnosis Terms"
+        card_count: 20
+        required: true
+      
+      - type: slides
+        title: "Introduction to Tongue Diagnosis"
+        slide_count: 25
+        required: false
+      
+      - type: quiz
+        title: "Week 1 Quiz: Tongue Diagnosis"
+        questions: 10
+        points: 10
+        required: true
+      
+      - type: homework
+        title: "Tongue Case Study Analysis"
+        points: 20
+        required: true
+      
+      - type: tasks
+        title: "Week 1 Task Checklist"
+        task_count: 8
+        required: true
+    
+    unlock_requirements: []  # Week 1 always unlocked
+    
+    estimated_workload: 8  # hours
+
+  # Week 2: Pulse Diagnosis Fundamentals
+  - week: 2
+    title: "Pulse Diagnosis Fundamentals"
+    unlock_date: 2025-01-08
+    due_date: 2025-01-14
+    
+    description: |
+      Master the basics of pulse diagnosis including pulse positions,
+      qualities, and their clinical significance.
+    
+    topics:
+      - "Pulse positions and depths"
+      - "28 pulse qualities"
+      - "Normal vs. pathological pulses"
+      - "Pattern identification from pulse"
+    
+    learning_objectives:
+      - "Locate the three pulse positions"
+      - "Identify major pulse qualities"
+      - "Correlate pulse findings with patterns"
+    
+    materials:
+      - type: study
+        title: "Pulse Diagnosis Fundamentals"
+        estimated_time: 75
+        required: true
+      
+      - type: flashcards
+        title: "Pulse Qualities and Patterns"
+        card_count: 25
+        required: true
+      
+      - type: slides
+        title: "Pulse Diagnosis Overview"
+        slide_count: 30
+        required: false
+      
+      - type: quiz
+        title: "Week 2 Quiz: Pulse Diagnosis"
+        questions: 10
+        points: 10
+        required: true
+      
+      - type: homework
+        title: "Pulse Pattern Analysis"
+        points: 20
+        required: true
+      
+      - type: tasks
+        title: "Week 2 Task Checklist"
+        task_count: 8
+        required: true
+    
+    unlock_requirements:
+      - material_id: quiz_week01
+        min_score: 70
+      - material_id: task_week01
+        min_completion: 80
+    
+    early_unlock_threshold: 90
+    estimated_workload: 9
+
+  # Week 3: Eight Principles Pattern Differentiation
+  - week: 3
+    title: "Eight Principles Pattern Differentiation"
+    unlock_date: 2025-01-15
+    due_date: 2025-01-21
+    
+    description: |
+      Learn the Eight Principles framework for pattern differentiation:
+      Yin/Yang, Interior/Exterior, Hot/Cold, Excess/Deficiency.
+    
+    topics:
+      - "Yin and Yang patterns"
+      - "Interior and Exterior patterns"
+      - "Hot and Cold patterns"
+      - "Excess and Deficiency patterns"
+    
+    learning_objectives:
+      - "Apply Eight Principles framework"
+      - "Differentiate between opposing patterns"
+      - "Identify complex pattern combinations"
+    
+    materials:
+      - type: study
+        title: "Eight Principles Framework"
+        estimated_time: 70
+        required: true
+      
+      - type: flashcards
+        title: "Eight Principles Patterns"
+        card_count: 20
+        required: true
+      
+      - type: quiz
+        title: "Week 3 Quiz: Eight Principles"
+        questions: 10
+        points: 10
+        required: true
+      
+      - type: homework
+        title: "Eight Principles Case Analysis"
+        points: 20
+        required: true
+      
+      - type: tasks
+        title: "Week 3 Task Checklist"
+        task_count: 8
+        required: true
+    
+    unlock_requirements:
+      - material_id: quiz_week02
+        min_score: 70
+      - material_id: task_week02
+        min_completion: 80
+    
+    estimated_workload: 8
+
+  # Weeks 4-12 would continue with similar structure...
+  # For brevity, showing structure for remaining weeks
+
+  - week: 4
+    title: "Qi, Blood, and Fluid Patterns"
+    unlock_date: 2025-01-22
+    due_date: 2025-01-28
+    estimated_workload: 9
+
+  - week: 5
+    title: "Organ Pattern Differentiation: Heart and Lung"
+    unlock_date: 2025-01-29
+    due_date: 2025-02-04
+    estimated_workload: 10
+
+  - week: 6
+    title: "Organ Pattern Differentiation: Spleen and Stomach"
+    unlock_date: 2025-02-05
+    due_date: 2025-02-11
+    estimated_workload: 10
+
+  - week: 7
+    title: "Organ Pattern Differentiation: Liver and Kidney"
+    unlock_date: 2025-02-12
+    due_date: 2025-02-18
+    estimated_workload: 10
+
+  - week: 8
+    title: "Midterm Review and Integration"
+    unlock_date: 2025-02-19
+    due_date: 2025-02-25
+    estimated_workload: 6
+
+  - week: 9
+    title: "Six Stages Theory"
+    unlock_date: 2025-02-26
+    due_date: 2025-03-04
+    estimated_workload: 9
+
+  - week: 10
+    title: "Four Levels Theory"
+    unlock_date: 2025-03-05
+    due_date: 2025-03-11
+    estimated_workload: 9
+
+  - week: 11
+    title: "Clinical Case Analysis"
+    unlock_date: 2025-03-12
+    due_date: 2025-03-18
+    estimated_workload: 10
+
+  - week: 12
+    title: "Final Integration and Review"
+    unlock_date: 2025-03-19
+    due_date: 2025-03-25
+    estimated_workload: 8
