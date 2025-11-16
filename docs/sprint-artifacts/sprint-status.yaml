@@ -54,7 +54,7 @@ development_status:
   epic-1: in-progress
   1-1-capsule-model-implementation: done
   1-2-capsule-cypher-model-implementation: done
-  1-3-note-model-with-frontmatter: backlog
+  1-3-note-model-with-frontmatter: done
   1-4-template-schema-model: backlog
   1-5-config-model: backlog
   epic-1-retrospective: optional

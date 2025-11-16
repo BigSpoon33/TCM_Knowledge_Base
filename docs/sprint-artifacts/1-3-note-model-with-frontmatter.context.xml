@@ -1,0 +1,205 @@
+<story-context id=".bmad/bmm/workflows/4-implementation/story-context/template" v="1.0">
+  <metadata>
+    <epicId>1</epicId>
+    <storyId>3</storyId>
+    <title>Note Model with Frontmatter</title>
+    <status>drafted</status>
+    <generatedAt>2025-11-16</generatedAt>
+    <generator>BMAD Story Context Workflow</generator>
+    <sourceStoryPath>docs/sprint-artifacts/1-3-note-model-with-frontmatter.md</sourceStoryPath>
+  </metadata>
+
+  <story>
+    <asA>developer building the Obsidian Capsule Delivery System</asA>
+    <iWant>a Note data model class that parses and manages markdown files with YAML frontmatter</iWant>
+    <soThat>notes can be programmatically read, modified, and written while preserving frontmatter structure and provenance tracking</soThat>
+    <tasks>
+      <task id="1" ac="3.1, 3.4">Create Note Dataclass Structure
+        <subtask>Create capsule/models/note.py</subtask>
+        <subtask>Import necessary types: dataclass, Optional, Any, dict, list</subtask>
+        <subtask>Define Note dataclass with fields: file_path (str), frontmatter (dict[str, Any]), body (str), source_capsules (Optional[list[str]])</subtask>
+        <subtask>Add docstring with usage examples</subtask>
+        <subtask>Run mypy to verify type hints</subtask>
+      </task>
+      <task id="2" ac="3.2, 3.4">Implement File Parsing
+        <subtask>Import python-frontmatter library</subtask>
+        <subtask>Add from_file(filepath: str) class method using frontmatter.load()</subtask>
+        <subtask>Extract metadata dict and body content</subtask>
+        <subtask>Handle FileNotFoundError gracefully</subtask>
+        <subtask>Add type hints to method signature</subtask>
+      </task>
+      <task id="3" ac="3.3, 3.4">Implement File Writing
+        <subtask>Add to_file(filepath: str) method using frontmatter.dumps()</subtask>
+        <subtask>Create parent directories if needed (pathlib.Path.mkdir)</subtask>
+        <subtask>Write to file with UTF-8 encoding</subtask>
+        <subtask>Test roundtrip (read → write → read)</subtask>
+      </task>
+      <task id="4" ac="3.1, 3.4">Add Helper Methods
+        <subtask>Add add_source_capsule(capsule_id: str) method</subtask>
+        <subtask>Add to_dict() method for serialization</subtask>
+        <subtask>Add __repr__() for debugging</subtask>
+      </task>
+      <task id="5" ac="3.5">Write Comprehensive Tests
+        <subtask>Create tests/test_models/test_note.py</subtask>
+        <subtask>Write 10 required unit tests (creation, parsing, writing, roundtrip, UTF-8)</subtask>
+        <subtask>Run tests with coverage: pytest --cov=capsule/models/note</subtask>
+        <subtask>Ensure >95% coverage</subtask>
+      </task>
+      <task id="6" ac="3.1">Update Package Exports
+        <subtask>Add Note to capsule/models/__init__.py</subtask>
+        <subtask>Verify import works: from capsule.models import Note</subtask>
+      </task>
+      <task id="7" ac="3.4, 3.5">Run Quality Checks and Commit
+        <subtask>Run black formatter</subtask>
+        <subtask>Run mypy --strict</subtask>
+        <subtask>Run all tests</subtask>
+        <subtask>Git add and commit changes</subtask>
+      </task>
+    </tasks>
+  </story>
+
+  <acceptanceCriteria>
+    <criterion id="AC3.1">Note Class Exists with Required Fields
+      - file_path: str (relative or absolute path to .md file)
+      - frontmatter: dict[str, Any] (YAML frontmatter as dictionary)
+      - body: str (markdown content after frontmatter)
+      - source_capsules: Optional[list[str]] (capsule IDs that contributed)</criterion>
+    <criterion id="AC3.2">Note Can Parse from Markdown File
+      - Note.from_file(filepath) class method
+      - Uses python-frontmatter library for parsing
+      - Handles files with or without frontmatter
+      - Preserves exact body content (newlines, formatting)
+      - Stores file path for later writing</criterion>
+    <criterion id="AC3.3">Note Can Write to Markdown File
+      - to_file(filepath) method
+      - Uses python-frontmatter library for writing
+      - Preserves frontmatter YAML structure
+      - Handles UTF-8 encoding
+      - Creates parent directories if needed</criterion>
+    <criterion id="AC3.4">Note Has Type Hints and Passes Mypy
+      - All fields have explicit type annotations
+      - Methods have return type annotations
+      - dict[str, Any] for frontmatter (flexible schema)
+      - Passes mypy --strict with zero errors</criterion>
+    <criterion id="AC3.5">Note Has Full Test Coverage
+      - 10 unit tests minimum
+      - Tests all public methods (from_file, to_file, add_source_capsule)
+      - Tests roundtrip (file → Note → file → Note)
+      - Tests edge cases (no frontmatter, UTF-8 encoding)
+      - Coverage >95%</criterion>
+  </acceptanceCriteria>
+
+  <artifacts>
+    <docs>
+      <doc path="docs/architecture.md" title="Architecture Document" section="Decision Summary Table">
+        python-frontmatter (1.0.0+): Safe frontmatter parsing, production-stable. Used for Import/Export and Merge operations. Handles YAML frontmatter automatically without manual parsing.
+      </doc>
+      <doc path="docs/architecture.md" title="Architecture Document" section="Complete Project Structure">
+        capsule/models/note.py - Note with frontmatter model. Fields: frontmatter dict, body content string, file path, provenance tracking (source_capsules).
+      </doc>
+      <doc path="docs/architecture.md" title="Architecture Document" section="Merge Algorithm">
+        Note model tracks source_capsules list to enable cross-domain composability. Different capsules can contribute to same note via additive merge. Will be used by merge algorithm in Epic 8.
+      </doc>
+      <doc path="docs/PRD.md" title="Product Requirements Document" section="FR47-FR50">
+        FR47: Notes can have multiple domain-specific data sections in frontmatter. FR48: System tracks which capsules have contributed to each note. FR49: Users can query notes by capsule membership via Dataview. FR50: System prevents data section conflicts when different capsules define same section.
+      </doc>
+      <doc path="docs/sprint-artifacts/1-1-capsule-model-implementation.md" title="Story 1.1 (Completed)" section="Dev Notes">
+        Dataclass pattern with explicit type hints. Use @dataclass decorator, Optional[T] = None for optional fields. All fields typed explicitly for mypy compliance.
+      </doc>
+      <doc path="docs/sprint-artifacts/1-2-capsule-cypher-model-implementation.md" title="Story 1.2 (Completed)" section="Dev Agent Record">
+        Established pattern: dataclass with dict[str, Any] for Python 3.10+, to_dict()/from_dict() methods, 10+ comprehensive tests, 100% coverage standard, Black/Mypy/Pytest quality gates.
+      </doc>
+    </docs>
+    <code>
+      <artifact path="capsule/models/__init__.py" kind="module" symbol="__init__" lines="all" reason="Package exports - need to add Note export here">
+        Current exports: Capsule, CapsuleCypher. Will add: Note
+      </artifact>
+      <artifact path="capsule/models/capsule.py" kind="model" symbol="Capsule" lines="1-106" reason="Reference pattern for dataclass structure and type hints">
+        Dataclass with str fields, __post_init__ validation. Pattern to follow for Note model.
+      </artifact>
+      <artifact path="capsule/models/cypher.py" kind="model" symbol="CapsuleCypher" lines="1-174" reason="Reference pattern for dict[str, Any] fields and serialization methods">
+        Shows dict[str, Any] pattern, to_dict()/from_dict() methods, Optional fields. Similar pattern for Note.
+      </artifact>
+      <artifact path="tests/test_models/test_cypher.py" kind="test" symbol="test_*" lines="all" reason="Reference pattern for comprehensive test suite (10 tests, 100% coverage)">
+        Tests cover: creation, validation, serialization, deserialization, roundtrip, nested structures. Follow this pattern for test_note.py.
+      </artifact>
+    </code>
+    <dependencies>
+      <python>
+        <package>python-frontmatter</package>
+        <version>>=1.0.0</version>
+        <usage>Parse and write YAML frontmatter in markdown files</usage>
+        <methods>frontmatter.load(file_obj), frontmatter.dumps(post)</methods>
+      </python>
+      <python>
+        <package>pathlib</package>
+        <version>stdlib</version>
+        <usage>Cross-platform path operations, create parent directories</usage>
+      </python>
+      <python>
+        <package>dataclasses</package>
+        <version>stdlib</version>
+        <usage>@dataclass decorator for model definition</usage>
+      </python>
+      <python>
+        <package>typing</package>
+        <version>stdlib</version>
+        <usage>Type hints: Optional, Any, dict, list</usage>
+      </python>
+    </dependencies>
+  </artifacts>
+
+  <constraints>
+    <constraint type="architecture">Use python-frontmatter library for all frontmatter operations (not ruamel.yaml). This is the standard for note manipulation per architecture decision table.</constraint>
+    <constraint type="architecture">Follow dataclass pattern established in Stories 1.1 and 1.2. Use @dataclass decorator, explicit type hints, Optional[T] = None for optional fields.</constraint>
+    <constraint type="architecture">Use pathlib.Path for all file operations. Always use UTF-8 encoding. Create parent directories with Path.mkdir(parents=True, exist_ok=True).</constraint>
+    <constraint type="testing">Minimum 10 unit tests required. Must achieve >95% code coverage. All tests must pass before commit.</constraint>
+    <constraint type="quality">Code must pass: black (formatting), mypy --strict (type checking), pytest (all tests). Zero errors tolerated.</constraint>
+    <constraint type="pattern">Provenance tracking via source_capsules field is critical for cross-domain composability (FR47-FR50). This enables multiple capsules to contribute to same note.</constraint>
+    <constraint type="file-structure">Place model at capsule/models/note.py, tests at tests/test_models/test_note.py, export from capsule/models/__init__.py</constraint>
+  </constraints>
+
+  <interfaces>
+    <interface name="Note.from_file" kind="class method" signature="@classmethod&#10;def from_file(cls, filepath: str) -> 'Note':" path="capsule/models/note.py">
+      Parse markdown file with frontmatter and return Note instance. Uses python-frontmatter library.
+    </interface>
+    <interface name="Note.to_file" kind="instance method" signature="def to_file(self, filepath: str) -> None:" path="capsule/models/note.py">
+      Write Note to markdown file with frontmatter. Uses python-frontmatter library. Creates parent dirs if needed.
+    </interface>
+    <interface name="Note.add_source_capsule" kind="instance method" signature="def add_source_capsule(self, capsule_id: str) -> None:" path="capsule/models/note.py">
+      Add capsule ID to source_capsules list for provenance tracking. Initializes list if None.
+    </interface>
+    <interface name="Note.to_dict" kind="instance method" signature="def to_dict(self) -> dict[str, Any]:" path="capsule/models/note.py">
+      Serialize Note to dictionary for JSON/YAML export.
+    </interface>
+    <interface name="python-frontmatter.load" kind="library function" signature="frontmatter.load(file_obj) -> Post" path="external library">
+      Parse frontmatter from file object. Returns Post object with .metadata (dict) and .content (str) attributes.
+    </interface>
+    <interface name="python-frontmatter.dumps" kind="library function" signature="frontmatter.dumps(post: Post) -> str" path="external library">
+      Serialize Post object (frontmatter + content) to markdown string with YAML frontmatter.
+    </interface>
+  </interfaces>
+
+  <tests>
+    <standards>
+      Project uses pytest framework with pytest-cov for coverage tracking. Tests located in tests/ directory mirroring src structure. All model tests in tests/test_models/. Naming convention: test_{module}_*.py. Test functions: test_{feature}_*. Use fixtures for sample data. Target: 100% coverage for models. Quality gates: Black formatted, mypy strict compliant, all tests passing.
+    </standards>
+    <locations>
+      tests/test_models/test_note.py - New file to create
+      tests/test_models/test_capsule.py - Reference existing pattern
+      tests/test_models/test_cypher.py - Reference existing pattern (10 tests, 100% coverage)
+    </locations>
+    <ideas>
+      <test id="1" ac="AC3.1">test_note_creation - Create Note with all fields, verify attributes</test>
+      <test id="2" ac="AC3.1">test_note_minimal - Create Note with no source_capsules (optional field)</test>
+      <test id="3" ac="AC3.2">test_from_file_with_frontmatter - Parse note with YAML frontmatter, verify dict</test>
+      <test id="4" ac="AC3.2">test_from_file_no_frontmatter - Parse note without frontmatter (empty dict expected)</test>
+      <test id="5" ac="AC3.3">test_to_file - Write note to file, verify file exists and contents correct</test>
+      <test id="6" ac="AC3.2,AC3.3">test_roundtrip - Read file → Note → Write file → Read again, verify identical</test>
+      <test id="7" ac="AC3.1">test_modify_frontmatter - Change frontmatter dict, verify changes persist</test>
+      <test id="8" ac="AC3.1">test_modify_body - Change body string, verify changes persist</test>
+      <test id="9" ac="AC3.1">test_add_source_capsule - Add capsule ID, verify list updated and duplicates prevented</test>
+      <test id="10" ac="AC3.2,AC3.3">test_utf8_content - Handle Chinese characters, emojis in frontmatter and body</test>
+    </ideas>
+  </tests>
+</story-context>
