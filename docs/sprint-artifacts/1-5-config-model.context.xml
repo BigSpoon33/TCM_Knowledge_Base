@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<context>
+    <epic>
+        <id>1</id>
+        <title>Core Data Models</title>
+        <description>Establish the foundational data structures for the Capsule project.</description>
+    </epic>
+    <story>
+        <id>1.5</id>
+        <title>Config Model</title>
+        <description>Implement a robust model for managing hierarchical user and project configurations.</description>
+        <status>drafted</status>
+    </story>
+    <artifacts>
+        <artifact>
+            <type>story_specification</type>
+            <path>docs/sprint-artifacts/1-5-config-model.md</path>
+            <description>The primary specification document outlining acceptance criteria and tasks.</description>
+        </artifact>
+        <artifact>
+            <type>implementation</type>
+            <path>capsule/models/config.py</path>
+            <description>The Python file where the Config dataclass will be implemented.</description>
+        </artifact>
+        <artifact>
+            <type>tests</type>
+            <path>tests/test_models/test_config.py</path>
+            <description>The unit test file for the Config model.</description>
+        </artifact>
+        <artifact>
+            <type>pattern_reference</type>
+            <path>capsule/models/capsule_cypher.py</path>
+            <description>Reference implementation for using ruamel.yaml for model persistence, established in Story 1.2.</description>
+        </artifact>
+    </artifacts>
+    <dependencies>
+        <dependency>
+            <type>external_library</type>
+            <name>ruamel.yaml</name>
+            <version>0.18.6</version>
+            <reason>Required for loading and saving YAML configuration files while preserving comments and structure.</reason>
+        </dependency>
+        <dependency>
+            <type>internal_pattern</type>
+            <name>Dataclass Model</name>
+            <reason>The project standard for creating models is to use Python's dataclasses with strong type hinting.</reason>
+        </dependency>
+    </dependencies>
+    <constraints>
+        <constraint>
+            <type>technical</type>
+            <description>The implementation must use `ruamel.yaml` for all YAML operations to ensure comments are preserved.</description>
+        </constraint>
+        <constraint>
+            <type>technical</type>
+            <description>Configuration loading must be hierarchical. The global config (`~/.config/capsule/config.yaml`) is loaded first, and then the local config (`<project_root>/.capsule/config.yaml`) is merged on top, with local settings overriding global ones.</description>
+        </constraint>
+        <constraint>
+            <type>quality</type>
+            <description>The code must be formatted with Black and pass Mypy strict type checking.</description>
+        </constraint>
+        <constraint>
+            <type>quality</type>
+            <description>Unit tests must achieve a minimum of 95% code coverage.</description>
+        </constraint>
+    </constraints>
+    <interfaces>
+        <interface>
+            <type>class</type>
+            <name>Config</name>
+            <signature>@dataclass class Config:</signature>
+            <description>The main dataclass for holding configuration settings.</description>
+            <fields>
+                <field name="llm_provider" type="str" default="'openai'">The default LLM provider.</field>
+                <field name="api_key" type="Optional[str]" default="None">The API key for the LLM provider.</field>
+                <field name="default_model" type="str" default="'gpt-4-turbo'">The default model to use for generation.</field>
+                <field name="project_dir" type="Optional[Path]" default="None">The root directory of the current project.</field>
+            </fields>
+        </interface>
+        <interface>
+            <type>class_method</type>
+            <name>from_yaml_file</name>
+            <signature>@classmethod def from_yaml_file(cls, path: Path) -> 'Config':</signature>
+            <description>Loads configuration settings from a single YAML file.</description>
+        </interface>
+        <interface>
+            <type>instance_method</type>
+            <name>to_yaml_file</name>
+            <signature>def to_yaml_file(self, path: Path) -> None:</signature>
+            <description>Saves the current configuration to a YAML file.</description>
+        </interface>
+        <interface>
+            <type>class_method</type>
+            <name>load_config</name>
+            <signature>@classmethod def load_config(cls) -> 'Config':</signature>
+            <description>Handles the hierarchical loading of global and local configuration files and returns a merged Config instance.</description>
+        </interface>
+        <interface>
+            <type>instance_method</type>
+            <name>validate</name>
+            <signature>def validate(self) -> None:</signature>
+            <description>Validates the configuration, raising an error if required fields are missing or invalid.</description>
+        </interface>
+    </interfaces>
+    <test_ideas>
+        <idea>Test loading from a global config file only.</idea>
+        <idea>Test loading from a local config file only.</idea>
+        <idea>Test hierarchical loading where local settings correctly override global settings.</idea>
+        <idea>Test the scenario where no config files exist, and the model initializes with default values.</idea>
+        <idea>Test saving a config to a file and then loading it back to verify data integrity.</idea>
+        <idea>Test the `validate` method by checking for a missing `api_key` when the provider requires one.</idea>
+        <idea>Test that `validate` passes when the configuration is valid.</idea>
+        <idea>Test file I/O handling, such as attempting to load a non-existent file or save to a read-only location.</idea>
+    </test_ideas>
+</context>
