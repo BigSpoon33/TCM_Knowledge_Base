@@ -63,7 +63,7 @@ development_status:
   # User configuration system, YAML handling, file operations, first-time setup
   epic-2: in-progress
   2-1-yaml-handler-with-ruamel: done
-  2-2-file-operations-utilities: backlog
+  2-2-file-operations-utilities: drafted
   2-3-user-config-system: backlog
   2-4-first-time-setup-command: backlog
   epic-2-retrospective: optional
