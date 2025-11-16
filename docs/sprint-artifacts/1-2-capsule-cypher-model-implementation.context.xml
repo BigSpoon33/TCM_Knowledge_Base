@@ -1,0 +1,242 @@
+<story-context id=".bmad/bmm/workflows/4-implementation/story-context/template" v="1.0">
+  <metadata>
+    <epicId>1</epicId>
+    <storyId>2</storyId>
+    <title>Capsule Cypher Model Implementation</title>
+    <status>drafted</status>
+    <generatedAt>2025-11-16</generatedAt>
+    <generator>BMAD Story Context Workflow</generator>
+    <sourceStoryPath>docs/sprint-artifacts/1-2-capsule-cypher-model-implementation.md</sourceStoryPath>
+  </metadata>
+
+  <story>
+    <asA>developer building the Obsidian Capsule Delivery System</asA>
+    <iWant>a CapsuleCypher data model class that represents the capsule manifest with validation</iWant>
+    <soThat>capsule metadata, file inventory, and schemas can be managed programmatically and serialized to YAML</soThat>
+    <tasks>
+      - Task 1: Create CapsuleCypher Model File (capsule/models/cypher.py)
+      - Task 2: Create Unit Tests (tests/test_models/test_cypher.py with 10 comprehensive tests)
+      - Task 3: Run Quality Checks (black, flake8, mypy, pytest)
+      - Task 4: Verify Acceptance Criteria (5 ACs validated)
+      - Task 5: Update capsule/models/__init__.py for package exports
+      - Task 6: Commit Changes with proper git message
+    </tasks>
+  </story>
+
+  <acceptanceCriteria>
+    <criterion id="AC2.1">
+      <description>CapsuleCypher Class Exists with Required Fields</description>
+      <fields>capsule_id, name, version, domain_type, folder_structure, contents, data_schemas, sequence_mode, required_plugins (optional), recommended_plugins (optional)</fields>
+      <verification>Python instantiation test with all required fields</verification>
+    </criterion>
+    <criterion id="AC2.2">
+      <description>CapsuleCypher Can Serialize to YAML</description>
+      <method>to_yaml() method using ruamel.yaml</method>
+      <verification>yaml_str contains expected keys (capsule_id, sequence_mode)</verification>
+    </criterion>
+    <criterion id="AC2.3">
+      <description>CapsuleCypher Can Be Created from YAML String</description>
+      <method>from_yaml() classmethod</method>
+      <verification>Deserialize YAML string and verify field values</verification>
+    </criterion>
+    <criterion id="AC2.4">
+      <description>CapsuleCypher Has Proper Type Hints (Mypy Passes)</description>
+      <verification>mypy capsule/models/cypher.py returns exit code 0</verification>
+    </criterion>
+    <criterion id="AC2.5">
+      <description>Unit Tests Pass</description>
+      <tests>10 tests covering: creation, required fields, optional fields, to_dict, from_dict, to_yaml, from_yaml, roundtrip, folder_structure, contents_inventory</tests>
+      <verification>pytest tests/test_models/test_cypher.py -v all pass</verification>
+    </criterion>
+  </acceptanceCriteria>
+
+  <artifacts>
+    <docs>
+      <doc>
+        <path>docs/PRD.md</path>
+        <title>Product Requirements Document</title>
+        <section>FR Group 3: Capsule Packaging (FR17-FR25)</section>
+        <snippet>FR17-FR25 define capsule cypher requirements: manifest generation, identity declaration, folder structure specification, domain schema definitions, sequence mode, plugin requirements, validation, and packaging capabilities.</snippet>
+      </doc>
+      <doc>
+        <path>docs/architecture.md</path>
+        <title>Architecture Document</title>
+        <section>Epic Group 3: Capsule Packaging (Lines 380-446)</section>
+        <snippet>Defines CapsuleCypher model structure with capsule_id, name, version, domain_type, folder_structure, contents (file inventory), data_schemas (frontmatter definitions), sequence_mode, and required_plugins fields. Uses ruamel.yaml for comment-preserving YAML roundtrip.</snippet>
+      </doc>
+      <doc>
+        <path>docs/architecture.md</path>
+        <title>Architecture Document</title>
+        <section>Technology Stack - YAML Handling (Lines 192-214)</section>
+        <snippet>Specifies ruamel.yaml 0.17.0+ for YAML cypher handling with comment preservation and roundtrip safety. Critical for capsule-cypher.yaml file manipulation.</snippet>
+      </doc>
+      <doc>
+        <path>docs/sprint-artifacts/1-1-capsule-model-implementation.md</path>
+        <title>Story 1.1 - Capsule Model Implementation</title>
+        <section>Dev Agent Record - Learnings</section>
+        <snippet>Established dataclass pattern with to_dict()/from_dict() methods. Proven approach: use @dataclass decorator, asdict() for serialization, full type hints for mypy compliance. ISO 8601 timestamps with timezone.utc. Comprehensive test coverage (creation, validation, serialization, roundtrip) achieves 100% code coverage.</snippet>
+      </doc>
+    </docs>
+    <code>
+      <file>
+        <path>capsule/models/capsule.py</path>
+        <kind>model</kind>
+        <symbol>Capsule</symbol>
+        <lines>1-106</lines>
+        <reason>Sibling model - reuse dataclass pattern, to_dict/from_dict methods, type hints approach. CapsuleCypher should follow same structure.</reason>
+      </file>
+      <file>
+        <path>capsule/models/__init__.py</path>
+        <kind>package</kind>
+        <symbol>N/A</symbol>
+        <lines>all</lines>
+        <reason>Needs update to export both Capsule and CapsuleCypher for clean imports</reason>
+      </file>
+      <file>
+        <path>tests/test_models/test_capsule.py</path>
+        <kind>test</kind>
+        <symbol>test_capsule_*</symbol>
+        <lines>1-120</lines>
+        <reason>Reference for test structure - CapsuleCypher tests should mirror this pattern (test creation, required fields, optional fields, serialization, deserialization, roundtrip)</reason>
+      </file>
+      <file>
+        <path>tests/test_models/__init__.py</path>
+        <kind>package</kind>
+        <symbol>N/A</symbol>
+        <lines>all</lines>
+        <reason>Already exists - no changes needed</reason>
+      </file>
+    </code>
+    <dependencies>
+      <python>
+        <package name="ruamel.yaml" version=">=0.17.0" reason="YAML roundtrip with comment preservation for cypher files" />
+        <package name="pytest" version=">=7.0" reason="Unit testing framework" />
+        <package name="black" version=">=23.0" reason="Code formatting" />
+        <package name="flake8" version=">=6.0" reason="Linting" />
+        <package name="mypy" version=">=1.0" reason="Type checking" />
+      </python>
+    </dependencies>
+  </artifacts>
+
+  <constraints>
+    <constraint type="architecture">
+      <rule>Use dataclass decorator for data models (established in Story 1.1)</rule>
+      <source>docs/sprint-artifacts/1-1-capsule-model-implementation.md - Dev Notes</source>
+    </constraint>
+    <constraint type="serialization">
+      <rule>Implement to_dict() and from_dict() for JSON/dict serialization</rule>
+      <rule>Implement to_yaml() and from_yaml() using ruamel.yaml for YAML roundtrip</rule>
+      <source>Architecture lines 192-214, Story 1.1 pattern</source>
+    </constraint>
+    <constraint type="type-hints">
+      <rule>All fields must have type annotations</rule>
+      <rule>Use dict[str, str] syntax for Python 3.10+</rule>
+      <rule>Use Optional[type] or type | None for optional fields</rule>
+      <rule>All methods must have return type annotations</rule>
+      <source>Story 1.1 - mypy compliance requirements</source>
+    </constraint>
+    <constraint type="naming">
+      <rule>Python modules: snake_case.py</rule>
+      <rule>Classes: PascalCase</rule>
+      <rule>Functions/methods: snake_case</rule>
+      <rule>Constants: UPPER_SNAKE_CASE</rule>
+      <source>Architecture lines 1531-1572 - Naming Conventions</source>
+    </constraint>
+    <constraint type="testing">
+      <rule>Aim for ~100% code coverage on data models</rule>
+      <rule>Test all public methods</rule>
+      <rule>Test edge cases (missing fields, optional fields)</rule>
+      <rule>Test roundtrip (serialize → deserialize preserves data)</rule>
+      <source>Story 1.1 testing pattern</source>
+    </constraint>
+    <constraint type="code-quality">
+      <rule>Run black formatter before commit</rule>
+      <rule>Pass flake8 linting (no violations)</rule>
+      <rule>Pass mypy type checking (no errors)</rule>
+      <rule>All pytest tests must pass</rule>
+      <source>Epic 0 quality standards</source>
+    </constraint>
+  </constraints>
+
+  <interfaces>
+    <interface>
+      <name>CapsuleCypher class interface</name>
+      <kind>dataclass</kind>
+      <signature>
+@dataclass
+class CapsuleCypher:
+    capsule_id: str
+    name: str
+    version: str
+    domain_type: str
+    folder_structure: dict[str, str]
+    contents: dict[str, Any]
+    data_schemas: dict[str, Any]
+    sequence_mode: str
+    required_plugins: Optional[list[dict[str, str]]] = None
+    recommended_plugins: Optional[list[dict[str, str]]] = None
+    
+    def to_dict() -> dict[str, Any]: ...
+    def from_dict(cls, data: dict[str, Any]) -> "CapsuleCypher": ...
+    def to_yaml() -> str: ...
+    def from_yaml(cls, yaml_content: str) -> "CapsuleCypher": ...
+      </signature>
+      <path>capsule/models/cypher.py</path>
+    </interface>
+    <interface>
+      <name>ruamel.yaml API</name>
+      <kind>external library</kind>
+      <signature>
+from ruamel.yaml import YAML
+
+yaml = YAML()
+yaml.default_flow_style = False
+yaml.dump(data, stream)  # Serialize
+data = yaml.load(yaml_content)  # Deserialize
+      </signature>
+      <path>external: ruamel.yaml library</path>
+    </interface>
+  </interfaces>
+
+  <tests>
+    <standards>
+      All models in capsule/models/ require comprehensive unit tests using pytest framework. Tests must be located in tests/test_models/ mirroring the source structure. Required test coverage: creation (basic instantiation), required fields validation (TypeError on missing), optional fields handling, serialization (to_dict, to_yaml), deserialization (from_dict, from_yaml), roundtrip verification (serialize → deserialize preserves data), and domain-specific structure validation. All tests must pass black, flake8, mypy, and pytest quality checks. Aim for ~100% code coverage on data models.
+    </standards>
+    <locations>
+      <location>tests/test_models/test_cypher.py</location>
+      <pattern>tests/test_models/test_*.py</pattern>
+    </locations>
+    <ideas>
+      <test id="test_cypher_creation" ac="AC2.1">
+        Create CapsuleCypher with all required fields and verify field values match input
+      </test>
+      <test id="test_cypher_required_fields" ac="AC2.1">
+        Verify TypeError raised when required fields missing (capsule_id, name, version, etc.)
+      </test>
+      <test id="test_cypher_optional_fields" ac="AC2.1">
+        Create CapsuleCypher with required_plugins and recommended_plugins lists and verify values
+      </test>
+      <test id="test_cypher_to_dict" ac="AC2.1">
+        Serialize to dict and verify structure (dict type, expected keys present)
+      </test>
+      <test id="test_cypher_from_dict" ac="AC2.1">
+        Deserialize from dict with all fields and verify CapsuleCypher instance created correctly
+      </test>
+      <test id="test_cypher_to_yaml" ac="AC2.2">
+        Serialize to YAML string and verify format (contains "capsule_id:", "sequence_mode:", etc.)
+      </test>
+      <test id="test_cypher_from_yaml" ac="AC2.3">
+        Deserialize from YAML string with nested structures (folder_structure, contents, data_schemas) and verify all fields parsed correctly
+      </test>
+      <test id="test_cypher_roundtrip_yaml" ac="AC2.2, AC2.3">
+        Serialize to YAML → Deserialize → Verify all fields preserved (including nested dicts, optional plugins)
+      </test>
+      <test id="test_cypher_folder_structure" ac="AC2.1">
+        Create CapsuleCypher with complex folder_structure dict (3+ entries) and verify all paths accessible
+      </test>
+      <test id="test_cypher_contents_inventory" ac="AC2.1">
+        Create CapsuleCypher with nested contents structure (root_notes list, study_material nested dict) and verify file inventory structure
+      </test>
+    </ideas>
+  </tests>
+</story-context>
