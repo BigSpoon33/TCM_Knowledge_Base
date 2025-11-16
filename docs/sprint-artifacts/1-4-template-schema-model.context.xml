@@ -1,0 +1,207 @@
+<story-context id=".bmad/bmm/workflows/4-implementation/story-context/template" v="1.0">
+  <metadata>
+    <epicId>1</epicId>
+    <storyId>4</storyId>
+    <title>Template Schema Model</title>
+    <status>drafted</status>
+    <generatedAt>2025-11-16</generatedAt>
+    <generator>BMAD Story Context Workflow</generator>
+    <sourceStoryPath>docs/sprint-artifacts/1-4-template-schema-model.md</sourceStoryPath>
+  </metadata>
+
+  <story>
+    <asA>developer building the Obsidian Capsule Delivery System</asA>
+    <iWant>a TemplateSchema data model that defines and validates frontmatter structures</iWant>
+    <soThat>capsules can enforce schema compliance for domain-specific note templates</soThat>
+    <tasks>
+      <task id="1" ac="4.1, 4.4">Create TemplateSchema Dataclass Structure
+        <subtask>Create capsule/models/template.py</subtask>
+        <subtask>Import necessary types: dataclass, Optional, Any, dict, list</subtask>
+        <subtask>Define TemplateSchema dataclass with fields: domain_type, version, required_fields, optional_fields, domain_sections</subtask>
+        <subtask>Add docstring with usage examples</subtask>
+        <subtask>Run mypy to verify type hints</subtask>
+      </task>
+      <task id="2" ac="4.2, 4.4">Implement YAML File Loading
+        <subtask>Import ruamel.yaml library</subtask>
+        <subtask>Add from_yaml_file(filepath: str) class method using ruamel.yaml.YAML()</subtask>
+        <subtask>Extract domain_type, version, required_fields, optional_fields, domain_sections</subtask>
+        <subtask>Handle FileNotFoundError gracefully</subtask>
+        <subtask>Validate required keys present</subtask>
+      </task>
+      <task id="3" ac="4.3, 4.4">Implement YAML File Writing
+        <subtask>Add to_yaml_file(filepath: str) method using ruamel.yaml.YAML()</subtask>
+        <subtask>Create parent directories if needed (pathlib.Path.mkdir)</subtask>
+        <subtask>Write to file with UTF-8 encoding</subtask>
+        <subtask>Test roundtrip (read → write → read)</subtask>
+      </task>
+      <task id="4" ac="4.1, 4.4">Add Helper Methods
+        <subtask>Add to_dict() method for serialization</subtask>
+        <subtask>Add __repr__() for debugging</subtask>
+        <subtask>Add validate_structure() method (basic validation)</subtask>
+      </task>
+      <task id="5" ac="4.5">Write Comprehensive Tests
+        <subtask>Create tests/test_models/test_template.py</subtask>
+        <subtask>Write 10 required unit tests (creation, YAML I/O, roundtrip, validation)</subtask>
+        <subtask>Create test fixtures (sample YAML template files)</subtask>
+        <subtask>Run tests with coverage: pytest --cov=capsule/models/template</subtask>
+        <subtask>Ensure >95% coverage</subtask>
+      </task>
+      <task id="6" ac="4.1">Update Package Exports
+        <subtask>Add TemplateSchema to capsule/models/__init__.py</subtask>
+        <subtask>Verify import works: from capsule.models import TemplateSchema</subtask>
+      </task>
+      <task id="7" ac="4.4, 4.5">Run Quality Checks and Commit
+        <subtask>Run black formatter</subtask>
+        <subtask>Run mypy --strict</subtask>
+        <subtask>Run all tests</subtask>
+        <subtask>Git add and commit changes</subtask>
+      </task>
+    </tasks>
+  </story>
+
+  <acceptanceCriteria>
+    <criterion id="AC4.1">TemplateSchema Class Exists with Required Fields
+      - domain_type: str (domain identifier like "tcm", "education")
+      - version: str (schema version following semver)
+      - required_fields: list[str] (universal fields required in all notes)
+      - optional_fields: list[str] (universal fields that may be present)
+      - domain_sections: dict[str, Any] (domain-specific frontmatter sections with field definitions)</criterion>
+    <criterion id="AC4.2">TemplateSchema Can Load from YAML File
+      - TemplateSchema.from_yaml_file(filepath) class method
+      - Uses ruamel.yaml for loading (preserves comments)
+      - Handles missing files with FileNotFoundError
+      - Validates required keys present in YAML</criterion>
+    <criterion id="AC4.3">TemplateSchema Can Save to YAML File
+      - to_yaml_file(filepath) method
+      - Uses ruamel.yaml for writing (preserves formatting)
+      - Creates parent directories if needed
+      - UTF-8 encoding</criterion>
+    <criterion id="AC4.4">TemplateSchema Has Type Hints and Passes Mypy
+      - All fields have explicit type annotations
+      - Methods have return type annotations
+      - dict[str, Any] for flexible domain_sections
+      - list[str] for required_fields and optional_fields
+      - Passes mypy --strict with zero errors</criterion>
+    <criterion id="AC4.5">TemplateSchema Has Full Test Coverage
+      - 10 unit tests minimum
+      - Tests all public methods (from_yaml_file, to_yaml_file, to_dict, validate_structure)
+      - Tests roundtrip (file → TemplateSchema → file → TemplateSchema)
+      - Tests edge cases (missing files, empty sections)
+      - Coverage >95%</criterion>
+  </acceptanceCriteria>
+
+  <artifacts>
+    <docs>
+      <doc path="docs/architecture.md" title="Architecture Document" section="Decision Summary Table">
+        ruamel.yaml (0.17.0+): Comment preservation, roundtrip safety. Used for Template Management and Validation. Handles YAML with comments unlike PyYAML.
+      </doc>
+      <doc path="docs/architecture.md" title="Architecture Document" section="Complete Project Structure">
+        capsule/models/template.py - Template schema model. Defines frontmatter schema structure, validates required vs optional fields, type checking for field definitions.
+      </doc>
+      <doc path="docs/architecture.md" title="Architecture Document" section="Template Schema Format">
+        Template YAML structure: domain_type, version, frontmatter_schema with required_fields, optional_fields, and domain_sections. Each domain section has required and optional sub-dicts with field types (string, array, number, boolean).
+      </doc>
+      <doc path="docs/PRD.md" title="Product Requirements Document" section="Packaging System">
+        Lines 153-158: Schema validation and compliance checking. Universal frontmatter template (6 universal fields + domain-specific sections). Cross-domain composability support.
+      </doc>
+      <doc path="docs/sprint-artifacts/1-2-capsule-cypher-model-implementation.md" title="Story 1.2 (Completed)" section="Dev Notes">
+        Uses ruamel.yaml for YAML operations with comment preservation. Pattern: to_yaml()/from_yaml() methods. Shows how to use ruamel.yaml.YAML() instance for loading/dumping.
+      </doc>
+      <doc path="docs/sprint-artifacts/1-3-note-model-with-frontmatter.md" title="Story 1.3 (Completed)" section="Dev Agent Record">
+        Established pattern: dataclass with explicit type hints, from_file/to_file methods, 15 comprehensive tests, 100% coverage standard, Black/Mypy/Pytest quality gates. Follow this pattern for TemplateSchema.
+      </doc>
+    </docs>
+    <code>
+      <artifact path="capsule/models/__init__.py" kind="module" symbol="__init__" lines="all" reason="Package exports - need to add TemplateSchema export here">
+        Current exports: Capsule, CapsuleCypher, Note. Will add: TemplateSchema
+      </artifact>
+      <artifact path="capsule/models/cypher.py" kind="model" symbol="CapsuleCypher" lines="1-174" reason="Reference pattern for ruamel.yaml usage - to_yaml()/from_yaml() methods">
+        Shows how to use ruamel.yaml for YAML serialization. Uses io.StringIO() for string operations. Pattern to follow for TemplateSchema YAML methods.
+      </artifact>
+      <artifact path="capsule/models/note.py" kind="model" symbol="Note" lines="1-207" reason="Reference pattern for dataclass structure, from_file/to_file methods, type hints">
+        Shows from_file/to_file pattern, UTF-8 encoding, parent directory creation. Similar pattern for from_yaml_file/to_yaml_file.
+      </artifact>
+      <artifact path="tests/test_models/test_cypher.py" kind="test" symbol="test_*" lines="all" reason="Reference pattern for testing YAML operations and roundtrip tests">
+        Tests YAML serialization/deserialization, roundtrip. Follow this pattern for test_template.py.
+      </artifact>
+      <artifact path="tests/test_models/test_note.py" kind="test" symbol="test_*" lines="all" reason="Reference pattern for comprehensive test suite (15 tests, 100% coverage)">
+        Shows test organization, fixtures, edge case coverage. Follow this pattern for TemplateSchema tests.
+      </artifact>
+    </code>
+    <dependencies>
+      <python>
+        <package>ruamel.yaml</package>
+        <version>>=0.17.0</version>
+        <usage>Load and write YAML with comment preservation</usage>
+        <methods>ruamel.yaml.YAML(), yaml.load(file), yaml.dump(data, file)</methods>
+        <note>Already installed in Story 1.2</note>
+      </python>
+      <python>
+        <package>pathlib</package>
+        <version>stdlib</version>
+        <usage>Cross-platform path operations, create parent directories</usage>
+      </python>
+      <python>
+        <package>dataclasses</package>
+        <version>stdlib</version>
+        <usage>@dataclass decorator for model definition</usage>
+      </python>
+      <python>
+        <package>typing</package>
+        <version>stdlib</version>
+        <usage>Type hints: Optional, Any, dict, list</usage>
+      </python>
+    </dependencies>
+  </artifacts>
+
+  <constraints>
+    <constraint type="architecture">Use ruamel.yaml library for all YAML operations (not PyYAML). This preserves comments and formatting per architecture decision table.</constraint>
+    <constraint type="architecture">Follow dataclass pattern established in Stories 1.1, 1.2, and 1.3. Use @dataclass decorator, explicit type hints, Optional[T] for optional fields.</constraint>
+    <constraint type="architecture">Use pathlib.Path for all file operations. Always use UTF-8 encoding. Create parent directories with Path.mkdir(parents=True, exist_ok=True).</constraint>
+    <constraint type="testing">Minimum 10 unit tests required. Must achieve >95% code coverage. All tests must pass before commit.</constraint>
+    <constraint type="quality">Code must pass: black (formatting), mypy --strict (type checking), pytest (all tests). Zero errors tolerated.</constraint>
+    <constraint type="pattern">Use from_yaml_file/to_yaml_file naming (consistent with YAML operations, similar to from_file/to_file from Story 1.3).</constraint>
+    <constraint type="file-structure">Place model at capsule/models/template.py, tests at tests/test_models/test_template.py, export from capsule/models/__init__.py</constraint>
+  </constraints>
+
+  <interfaces>
+    <interface name="TemplateSchema.from_yaml_file" kind="class method" signature="@classmethod&#10;def from_yaml_file(cls, filepath: str) -> 'TemplateSchema':" path="capsule/models/template.py">
+      Parse YAML template schema file and return TemplateSchema instance. Uses ruamel.yaml library.
+    </interface>
+    <interface name="TemplateSchema.to_yaml_file" kind="instance method" signature="def to_yaml_file(self, filepath: str) -> None:" path="capsule/models/template.py">
+      Write TemplateSchema to YAML file. Uses ruamel.yaml library. Creates parent dirs if needed.
+    </interface>
+    <interface name="TemplateSchema.to_dict" kind="instance method" signature="def to_dict(self) -> dict[str, Any]:" path="capsule/models/template.py">
+      Serialize TemplateSchema to dictionary for JSON/YAML export.
+    </interface>
+    <interface name="TemplateSchema.validate_structure" kind="instance method" signature="def validate_structure(self) -> bool:" path="capsule/models/template.py">
+      Basic validation of domain_sections structure. Returns True if valid, False otherwise.
+    </interface>
+    <interface name="ruamel.yaml.YAML" kind="library class" signature="yaml = YAML()&#10;yaml.load(stream)&#10;yaml.dump(data, stream)" path="external library">
+      ruamel.yaml instance for loading/dumping YAML with comment preservation. Use for from_yaml_file and to_yaml_file.
+    </interface>
+  </interfaces>
+
+  <tests>
+    <standards>
+      Project uses pytest framework with pytest-cov for coverage tracking. Tests located in tests/ directory mirroring src structure. All model tests in tests/test_models/. Naming convention: test_{module}_*.py. Test functions: test_{feature}_*. Use fixtures for sample data. Target: 100% coverage for models. Quality gates: Black formatted, mypy strict compliant, all tests passing.
+    </standards>
+    <locations>
+      tests/test_models/test_template.py - New file to create
+      tests/test_models/test_cypher.py - Reference existing pattern (YAML operations)
+      tests/test_models/test_note.py - Reference existing pattern (15 tests, 100% coverage)
+    </locations>
+    <ideas>
+      <test id="1" ac="AC4.1">test_template_schema_creation - Create TemplateSchema with all fields, verify attributes</test>
+      <test id="2" ac="AC4.1">test_template_schema_minimal - Create TemplateSchema with empty domain_sections</test>
+      <test id="3" ac="AC4.2">test_from_yaml_file - Load TemplateSchema from YAML file, verify fields</test>
+      <test id="4" ac="AC4.2">test_from_yaml_file_not_found - FileNotFoundError for missing file</test>
+      <test id="5" ac="AC4.3">test_to_yaml_file - Write TemplateSchema to YAML file, verify file exists and contents</test>
+      <test id="6" ac="AC4.2,AC4.3">test_roundtrip - Read file → TemplateSchema → Write file → Read again, verify identical</test>
+      <test id="7" ac="AC4.1">test_modify_required_fields - Change required_fields list, verify changes persist</test>
+      <test id="8" ac="AC4.1">test_modify_domain_sections - Change domain_sections dict, verify changes persist</test>
+      <test id="9" ac="AC4.1">test_to_dict - Serialize to dictionary, verify all fields present</test>
+      <test id="10" ac="AC4.1">test_nested_domain_sections - Validate complex nested structure handling</test>
+    </ideas>
+  </tests>
+</story-context>
