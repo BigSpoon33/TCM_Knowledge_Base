@@ -90,11 +90,11 @@ development_status:
   # Epic 5: Validation Engine
   # Schema validation, file inventory checks, data type validation, reporting
   epic-5: in-progress
-  5-1-core-validator-implementation: done
-  5-2-schema-validation-logic: done
-  5-3-file-inventory-validation: done
-  5-4-data-type-validation: in-progress
-  5-5-utf8-encoding-validation: done
+  5-1-core-validator-implementation: review
+  5-2-schema-validation-logic: backlog
+  5-3-file-inventory-validation: backlog
+  5-4-data-type-validation: backlog
+  5-5-utf8-encoding-validation: backlog
   5-6-validation-report-generation: backlog
   epic-5-retrospective: optional
 
@@ -132,9 +132,9 @@ development_status:
 
   # Epic 9: CLI Commands - Generation & Templates
   # Main CLI app, generate command, template management commands
-  epic-9: in-progress
-  9-1-main-cli-app-typer-setup: done
-  9-2-generate-command-implementation: done
+  epic-9: backlog
+  9-1-main-cli-app-typer-setup: backlog
+  9-2-generate-command-implementation: backlog
   9-3-template-create-command: backlog
   9-4-template-list-command: backlog
   9-5-template-validate-command: backlog
@@ -162,8 +162,8 @@ development_status:
 
   # Epic 12: Cross-Cutting Concerns & Polish
   # Error handling, logging, progress indicators, dry-run mode, help docs
-  epic-12: in-progress
-  12-1-error-handling-system: done
+  epic-12: backlog
+  12-1-error-handling-system: backlog
   12-2-logging-system-setup: backlog
   12-3-progress-indicators-rich-integration: backlog
   12-4-dry-run-mode-implementation: backlog
@@ -172,10 +172,10 @@ development_status:
 
   # Epic 13: Testing Infrastructure
   # Test framework, unit tests, integration tests, E2E tests, CI integration
-  epic-13: done
-  13-1-pytest-configuration-and-fixtures: done
-  13-2-unit-tests-for-core-logic: done
-  13-3-integration-tests-for-commands: done
-  13-4-e2e-tests-for-full-workflows: done
-  13-5-test-coverage-and-ci-integration: done
+  epic-13: backlog
+  13-1-pytest-configuration-and-fixtures: backlog
+  13-2-unit-tests-for-core-logic: backlog
+  13-3-integration-tests-for-commands: backlog
+  13-4-e2e-tests-for-full-workflows: backlog
+  13-5-test-coverage-and-ci-integration: backlog
   epic-13-retrospective: optional
