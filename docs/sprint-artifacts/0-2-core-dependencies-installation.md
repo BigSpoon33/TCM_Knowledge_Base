@@ -1,7 +1,7 @@
 # Story 0.2: Core Dependencies Installation
 
 **Epic:** Epic 0 - Foundation & Project Setup  
-**Status:** backlog  
+**Status:** ready-for-dev  
 **Story ID:** 0.2  
 **Story Key:** 0-2-core-dependencies-installation
 
@@ -265,6 +265,11 @@ Test imports individually first, then together to identify any specific package 
 ---
 
 ## Dev Agent Record
+
+### Context Reference
+
+- /home/shuma/Documents/AI_Suite/Obsidian_Capsule_Delivery/docs/sprint-artifacts/0-2-core-dependencies-installation.context.xml
+
 
 ### Debug Log
 

@@ -174,8 +174,7 @@
               "title": "Bookmarks"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       },
       {
         "id": "c87455d3c9ee8114",
@@ -419,8 +418,12 @@
       "obsidian-spaced-repetition:Review flashcards": false
     }
   },
-  "active": "fe250b0b971eff1c",
+  "active": "1e6dbe3c046fb5f2",
   "lastOpenFiles": [
+    "docs/sprint-artifacts/0-2-core-dependencies-installation.context.xml",
+    "docs/sprint-artifacts/stories/0-2-core-dependencies-installation.context.xml",
+    "docs/sprint-artifacts/stories/1-2-capsule-cypher-model-implementation.context.xml",
+    "docs/sprint-artifacts/5-2-schema-validation-logic.md",
     "capsule/__pycache__/__main__.cpython-313.pyc",
     "python_boilerplate.egg-info/SOURCES.txt",
     "python_boilerplate.egg-info/top_level.txt",
@@ -429,12 +432,9 @@
     "python_boilerplate.egg-info/dependency_links.txt",
     "python_boilerplate.egg-info/PKG-INFO",
     "python_boilerplate.egg-info",
-    "tests/conftest.py",
-    "tests/test_obsidian_capsule_cli.py",
     "docs/usage.md",
     "docs/installation.md",
     "docs/index.md",
-    "src/obsidian_capsule_cli/utils.py",
     "HISTORY.md",
     "CODE_OF_CONDUCT.md",
     "python-boilerplate/docs/usage.md",
@@ -456,7 +456,6 @@
     "docs/sprint-artifacts/validation-report-2025-11-18-23-20-02.md",
     "docs/sprint-artifacts/validation-report-2025-11-18-23-19-26.md",
     "docs/sprint-artifacts/validation-report-2025-11-18-23-18-49.md",
-    "docs/sprint-artifacts/validation-report-2025-11-18-23-18-14.md",
     "TCM_Points_Images/LI-9_diagram.jpg",
     "TCM_Points_Images/LI-9_header.png",
     "TCM_Points_Images/LI-9_chinese.png",

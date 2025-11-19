@@ -1,0 +1,121 @@
+<story-context id=".bmad/bmm/workflows/4-implementation/story-context/template" v="1.0">
+  <metadata>
+    <epicId>0</epicId>
+    <storyId>2</storyId>
+    <title>core-dependencies-installation</title>
+    <status>backlog</status>
+    <generatedAt>2025-11-18</generatedAt>
+    <generator>BMAD Story Context Workflow</generator>
+    <sourceStoryPath>/home/shuma/Documents/AI_Suite/Obsidian_Capsule_Delivery/docs/sprint-artifacts/0-2-core-dependencies-installation.md</sourceStoryPath>
+  </metadata>
+
+  <story>
+    <asA>developer building the Obsidian Capsule Delivery System</asA>
+    <iWant>to install all core and development dependencies specified in the architecture</iWant>
+    <soThat>the project has all required libraries available for future development stories.</soThat>
+    <tasks>
+      <task id="1" content="Update pyproject.toml with Dependencies">
+        <subtask id="1.1" content="Add core dependencies to [project] dependencies section"/>
+        <subtask id="1.2" content="Add dev dependencies to [project.optional-dependencies] dev section"/>
+        <subtask id="1.3" content="Verify pyproject.toml syntax is valid"/>
+      </task>
+      <task id="2" content="Create Virtual Environment (Recommended)">
+        <subtask id="2.1" content="Create virtual environment"/>
+        <subtask id="2.2" content="Activate virtual environment"/>
+        <subtask id="2.3" content="Verify virtual environment is active"/>
+      </task>
+      <task id="3" content="Install Core Dependencies">
+        <subtask id="3.1" content="Install package in editable mode with core dependencies"/>
+        <subtask id="3.2" content="Verify all core dependencies installed"/>
+        <subtask id="3.3" content="Run AC2.1 verification (check versions)"/>
+      </task>
+      <task id="4" content="Install Development Dependencies">
+        <subtask id="4.1" content="Install package with dev dependencies"/>
+        <subtask id="4.2" content="Verify all dev tools installed"/>
+        <subtask id="4.3" content="Run AC2.2 verification (check versions)"/>
+      </task>
+      <task id="5" content="Test All Imports">
+        <subtask id="5.1" content="Test core library imports"/>
+        <subtask id="5.2" content="Test all imports together (AC2.3)"/>
+      </task>
+      <task id="6" content="Verify CLI Still Works">
+        <subtask id="6.1" content="Test CLI with new dependencies"/>
+        <subtask id="6.2" content="Verify no import errors in CLI"/>
+      </task>
+      <task id="7" content="Create requirements.txt Files (Optional)">
+        <subtask id="7.1" content="Generate requirements.txt for production"/>
+        <subtask id="7.2" content="Document venv setup in README"/>
+      </task>
+      <task id="8" content="Commit Changes">
+        <subtask id="8.1" content="Add updated files to git"/>
+        <subtask id="8.2" content="Commit dependency updates"/>
+      </task>
+    </tasks>
+  </story>
+
+  <acceptanceCriteria>
+    <criterion id="AC2.1" content="All Core Dependencies Install Successfully">
+      <verification>pip install -e .</verification>
+      <requiredPackages>
+        <package name="typer" version=">= 0.9.0"/>
+        <package name="python-frontmatter" version=">= 1.0.0"/>
+        <package name="ruamel.yaml" version=">= 0.17.0"/>
+        <package name="jinja2" version=">= 3.1.0"/>
+        <package name="pyyaml" version=">= 6.0"/>
+        <package name="requests" version=">= 2.31.0"/>
+        <package name="google-generativeai" version=">= 0.3.0"/>
+      </requiredPackages>
+    </criterion>
+    <criterion id="AC2.2" content="All Dev Dependencies Install Successfully">
+      <verification>pip install -e .[dev]</verification>
+      <requiredTools>
+        <tool name="black" version=">= 23.0"/>
+        <tool name="flake8" version=">= 6.0"/>
+        <tool name="mypy" version=">= 1.0"/>
+        <tool name="pytest" version=">= 7.0"/>
+      </requiredTools>
+    </criterion>
+    <criterion id="AC2.3" content="All Dependencies Can Be Imported">
+      <test>python -c "import typer; import frontmatter; import ruamel.yaml; import jinja2; import yaml; import requests; import google.generativeai; print('✓ All imports successful')"</test>
+      <expected>No import errors, success message printed</expected>
+    </criterion>
+  </acceptanceCriteria>
+
+  <artifacts>
+    <docs>{{docs_artifacts}}</docs>
+    <code>
+      <artifact>
+        <path>pyproject.toml</path>
+        <kind>build</kind>
+        <symbol>dependencies</symbol>
+        <lines>16-18</lines>
+        <reason>Defines core project dependencies.</reason>
+      </artifact>
+      <artifact>
+        <path>pyproject.toml</path>
+        <kind>build</kind>
+        <symbol>optional-dependencies</symbol>
+        <lines>21-28</lines>
+        <reason>Defines development and test dependencies.</reason>
+      </artifact>
+    </code>
+    <dependencies>
+      <dependency name="typer" version="" ecosystem="python"/>
+      <dependency name="coverage" version="" ecosystem="python" scope="test"/>
+      <dependency name="pytest" version="" ecosystem="python" scope="test"/>
+      <dependency name="ruff" version="" ecosystem="python" scope="test"/>
+      <dependency name="ty" version="" ecosystem="python" scope="test"/>
+      <dependency name="ipdb" version="" ecosystem="python" scope="test"/>
+    </dependencies>
+  </artifacts>
+
+  <constraints>{{constraints}}</constraints>
+  <interfaces>{{interfaces}}</interfaces>
+  <tests>
+    <standards>Tests are run using pytest and coverage.</standards>
+    <locations>tests/</locations>
+    <ideas>
+      <idea for="AC2.3">Run a python script that imports all the core dependencies to ensure they are installed and importable.</idea>
+    </ideas>
+  </tests>
+</story-context>
