@@ -1,0 +1,215 @@
+---
+id: point-20251005181654
+name: BL-27
+type: point
+aliases:
+- XIǍOCHÁNGSHŪ
+- Small Intestine Shu
+- 小腸俞
+tags:
+- TCM
+- Acupuncture
+- Point
+- Bladder
+category:
+- Bladder Channel Points
+related: []
+symptoms: []
+patterns: []
+western_conditions: []
+formulas: []
+herbs: []
+points: []
+nutrition: []
+tests: []
+point_data:
+  code: BL-27
+  hanzi: 小腸俞
+  pinyin: XIǍOCHÁNGSHŪ
+  english: Small Intestine Shu
+  channel: Bladder
+  special_properties:
+  - Back-Shu point of the Small Intestine
+  location_description: 1.5 cun lateral to the midline, at the level of the first
+    posterior sacral foramen.
+  location_notes: i. As the inner line of the Bladder channel on the back descends
+    towards the sacrum, it runs closer to the midline; the 1.5 cun measurement in
+    this area, therefore, will be relatively shorter; ii. For guidance on locating
+    the sacral foramen see Surface Anatomy.
+  needling_method: Perpendicular insertion
+  needling_depth: 0.5 to 1 cun
+  needling_cautions: []
+  functions:
+  - Separates the pure from the turbid
+  - Regulates the intestines and Bladder
+  - Drains turbid dampness and clears damp-heat
+  - Regulates Small Intestine qi
+  indications:
+    respiratory: []
+    digestive:
+    - Diarrhoea
+    - dysenteric disorder
+    - blood and mucus in the stools
+    - haemorrhoids
+    - pain of haemorrhoids
+    - constipation
+    head_throat: []
+    pain:
+    - Lower abdominal pain
+    - painful shan disorder
+    - testicular pain that radiates to the lumbar region
+    other:
+    - Dark yellow urine
+    - enuresis
+    - retention of urine
+    - difficult urination and defecation
+    - blood in the urine
+    - leucorrhoea
+    - seminal emission
+    - Wasting and thirsting disorder
+    - dry mouth that is hard to endure
+    - agitation of the Heart with shortness of breath
+    - swollen feet
+  combinations:
+  - condition: Difficult urination and defecation, dribbling and retention of urine
+    points:
+    - DU-1
+    source: Thousand Ducat Formulas
+  - condition: Dark urine
+    points:
+    - BL-28
+    - SI-4
+    - BL-30
+    - BL-48
+    source: Supplementing Life
+  - condition: Dark urine
+    points:
+    - BL-48
+    - GB-12
+    - BL-30
+    source: Thousand Ducat Formulas
+  - condition: Borborygmus, abdominal distention and watery diarrhoea
+    points:
+    - BL-22
+    - BL-34
+    - BL-49
+    - LIV-13
+    source: Thousand Ducat Formulas
+  - condition: Shan disorder with lumbar pain
+    points:
+    - BL-29
+    - BL-30
+    source: Thousand Ducat Formulas
+created: 2025-10-05
+updated: 2025-10-05
+banner: TCM_Points_Images/BL-27_diagram.jpg
+cssclasses:
+- noyaml
+---
+
+# 📍 BL-27 · XIǍOCHÁNGSHŪ (小腸俞)
+
+**Point Name:** Small Intestine Shu (XIǍOCHÁNGSHŪ)
+**Channel:** Bladder Channel
+**Special Properties:** Back-Shu point of the Small Intestine
+
+---
+
+## 📍 Location
+
+1.5 cun lateral to the midline, at the level of the first posterior sacral foramen.
+
+**Location Notes:**
+i. As the inner line of the Bladder channel on the back descends towards the sacrum, it runs closer to the midline; the 1.5 cun measurement in this area, therefore, will be relatively shorter; ii. For guidance on locating the sacral foramen see Surface Anatomy.
+
+![[BL-27_diagram.jpg]]
+
+**Chinese Characters:** ![[BL-27_chinese.png]]
+
+---
+
+## 🔧 Needling Technique
+
+**Method:** Perpendicular insertion
+**Depth:** 0.5 to 1 cun
+
+### ⚠️ Cautions
+
+---
+
+## ⚡ Functions & Actions
+- Separates the pure from the turbid
+- Regulates the intestines and Bladder
+- Drains turbid dampness and clears damp-heat
+- Regulates Small Intestine qi
+
+---
+
+## 🎯 Clinical Indications
+
+### Digestive
+- Diarrhoea
+- dysenteric disorder
+- blood and mucus in the stools
+- haemorrhoids
+- pain of haemorrhoids
+- constipation
+
+### Pain
+- Lower abdominal pain
+- painful shan disorder
+- testicular pain that radiates to the lumbar region
+
+### Other
+- Dark yellow urine
+- enuresis
+- retention of urine
+- difficult urination and defecation
+- blood in the urine
+- leucorrhoea
+- seminal emission
+- Wasting and thirsting disorder
+- dry mouth that is hard to endure
+- agitation of the Heart with shortness of breath
+- swollen feet
+
+---
+
+## 🔗 Point Combinations
+
+**Difficult urination and defecation, dribbling and retention of urine**
+- Points: DU-1
+- Source: *Thousand Ducat Formulas*
+
+**Dark urine**
+- Points: BL-28, SI-4, BL-30, BL-48
+- Source: *Supplementing Life*
+
+**Dark urine**
+- Points: BL-48, GB-12, BL-30
+- Source: *Thousand Ducat Formulas*
+
+**Borborygmus, abdominal distention and watery diarrhoea**
+- Points: BL-22, BL-34, BL-49, LIV-13
+- Source: *Thousand Ducat Formulas*
+
+**Shan disorder with lumbar pain**
+- Points: BL-29, BL-30
+- Source: *Thousand Ducat Formulas*
+
+---
+
+## 🧬 TCM Theory & Commentary
+
+Xiǎochángshū BL-27 is the back-shu point of the Small Intestine fu, where the qi of the Small Intestine emanates from the interior to the body surface. According to Introduction to Medicine by Li Ting of the Ming dynasty "The Small Intestine separates the pure from the turbid; the water enters the upper opening of the Bladder and the dregs enter the upper opening of the Large Intestine". This quotation emphasises the role of the Small Intestine as an intermediary between the Stomach which 'rots and ripens' solid and liquid food, and the Large Intestine and Bladder which eliminate solid and liquid waste respectively. It is the Small Intestine which controls this process of separating the pure from the turbid. Although Xiao-Xiǎochángshū BL-27 is the back-shu point of the Small Intestine fu, therefore, its clinical action extends both to the Large Intestine and the Bladder.
+
+In intestinal disorders it primarily drains turbid dampness and clears damp-heat and can be used in the treatment of diarrhoea, dysenteric disorder and blood and mucus in the stools due to this aetiology. Xiǎochángshū BL-27 may also be used for constipation, and for haemorrhoids and accompanying pain.
+
+In disorders of the Bladder it also drains dampness and damp-heat and clears heat transmitted from the Heart (interiorly-exteriorly coupled with the Small Intestine), being indicated in the treatment of dark yellow urine, enuresis, retention of urine, blood in the urine and agitation of the Heart. Following the principle that dampness and damp-heat may be drained from the body via urination, Xiǎochángshū BL-27 is also indicated for damp-heat affecting other portions of the lower jiao with symptoms such as leucorrhoea and seminal emission. If damp-heat sinks to the lower limbs there may be swelling of the feet.
+
+Finally, Xiǎochángshū BL-27 may be used in the treatment of the pattern of Small Intestine qi pain. This form of painful shan disorder which may arise due to improper diet, stagnation of Liver qi or exposure to cold, leads to obstruction in the circulation of qi in the Small Intestine. Its characteristic symptoms are lower abdominal pain or testicular pain that may radiate to the lumbar region.
+
+---
+
+*Last updated: 2025-10-05*
+*Channel: Bladder | Type: [[TCM Acupuncture Points]]*

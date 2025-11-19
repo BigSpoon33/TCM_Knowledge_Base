@@ -1,0 +1,173 @@
+---
+id: point-20251005202810
+name: ST-23
+type: point
+aliases:
+- TÀIYǏ
+- Supreme Unity
+- 太乙
+tags:
+- TCM
+- Acupuncture
+- Point
+- Stomach
+category:
+- Stomach Channel Points
+related: []
+symptoms: []
+patterns: []
+western_conditions: []
+formulas: []
+herbs: []
+points: []
+nutrition: []
+tests: []
+point_data:
+  code: ST-23
+  hanzi: 太乙
+  pinyin: TÀIYǏ
+  english: Supreme Unity
+  channel: Stomach
+  special_properties: []
+  location_description: On the abdomen, 2 cun lateral to the midline and 2 cun superior
+    to the umbilicus, level with Xiàwǎn REN-10.
+  location_notes: The 2 cun line is located halfway between the midline and the palpable
+    lateral border of the rectus abdominis muscle.
+  needling_method: Perpendicular insertion
+  needling_depth: 1 to 1.5 cun
+  needling_cautions:
+  - in thin subjects, deep needling may penetrate the peritoneal cavity.
+  functions:
+  - Transforms phlegm and calms the spirit
+  - Harmonises the middle jiao
+  indications:
+    respiratory: []
+    digestive:
+    - Epigastric pain
+    - abdominal pain
+    - poor appetite
+    - diarrhoea
+    - shan disorder
+    head_throat:
+    - tongue thrusting
+    pain:
+    - Epigastric pain
+    - abdominal pain
+    other:
+    - Mania-depression
+    - agitation
+    - mad walking
+  combinations:
+  - condition: Mania-depression with tongue thrusting
+    points:
+    - ST-23
+    - ST-24
+    source: Systematic Classic
+  - condition: Madness and mania disorder with tongue thrusting
+    points:
+    - ST-23
+    - BL-58
+    - ST-24
+    source: Thousand Ducat Formulas
+  - condition: Tongue thrusting
+    points:
+    - ST-23
+    - KID-9
+    source: Supplementing Life
+created: 2025-10-05
+updated: 2025-10-05
+banner: TCM_Points_Images/ST-23_diagram.jpg
+cssclasses:
+- noyaml
+---
+
+# 📍 ST-23 · TÀIYǏ (太乙)
+
+**Point Name:** Supreme Unity (TÀIYǏ)
+**Channel:** Stomach Channel
+**Special Properties:** 
+
+---
+
+## 📍 Location
+
+On the abdomen, 2 cun lateral to the midline and 2 cun superior to the umbilicus, level with Xiàwǎn REN-10.
+
+**Location Notes:**
+The 2 cun line is located halfway between the midline and the palpable lateral border of the rectus abdominis muscle.
+
+![[ST-23_diagram.jpg]]
+
+**Chinese Characters:** ![[ST-23_chinese.png]]
+
+---
+
+## 🔧 Needling Technique
+
+**Method:** Perpendicular insertion
+**Depth:** 1 to 1.5 cun
+
+### ⚠️ Cautions
+- in thin subjects, deep needling may penetrate the peritoneal cavity.
+
+---
+
+## ⚡ Functions & Actions
+- Transforms phlegm and calms the spirit
+- Harmonises the middle jiao
+
+---
+
+## 🎯 Clinical Indications
+
+### Digestive
+- Epigastric pain
+- abdominal pain
+- poor appetite
+- diarrhoea
+- shan disorder
+
+### Head Throat
+- tongue thrusting
+
+### Pain
+- Epigastric pain
+- abdominal pain
+
+### Other
+- Mania-depression
+- agitation
+- mad walking
+
+---
+
+## 🔗 Point Combinations
+
+**Mania-depression with tongue thrusting**
+- Points: ST-23, ST-24
+- Source: *Systematic Classic*
+
+**Madness and mania disorder with tongue thrusting**
+- Points: ST-23, BL-58, ST-24
+- Source: *Thousand Ducat Formulas*
+
+**Tongue thrusting**
+- Points: ST-23, KID-9
+- Source: *Supplementing Life*
+
+---
+
+## 🧬 TCM Theory & Commentary
+
+The action of this point on calming the spirit and treating psycho-emotional disorders (recorded in various classics) is attributable to three factors: i. its ability, like several points of the Stomach channel (most notably Fēnglóng ST-40) to assist the Spleen in transforming phlegm, ii. the internal connection between the Stomach divergent channel and the Heart zang, and iii. the meeting of the Stomach channel with the Governing vessel (and thus the brain) at points Shéntíng DU-24 and Rénzhōng DU-26, both of which strongly influence the brain and spirit.
+
+Although there are many causes for the formation of phlegm, disharmony of the Stomach and Spleen is the most common. Once formed, phlegm or phlegm-heat may rise to veil the portals of the Heart and disturb the spirit, leading to such symptoms as mania-depression, agitation, and mad walking. The Heart channel ascends to the root of the tongue. When phlegm blocks the Heart there may be tongue thrusting, where the tongue is repeatedly thrust out of the mouth like a snake's tongue. This symptom is most commonly seen in the pattern of phlegm-heat accumulated in the Spleen and Heart, although it is also differentiated into Spleen and Kidney deficiency heat and may be seen in epilepsy. It is frequently accompanied by a red distended tongue, ulceration of the tongue, and thirst with desire for cold fluids.
+
+The name 'Taiyi' (Supreme Unity) refers to the state of undifferentiated oneness that according to Daoist theory existed before the arising of yin and yang duality and the separation of heaven and earth. One explanation of the naming of this point is that Tàiyǐ ST-23 lies close to that region of the abdomen that brings about separation of the pure and impure contents of the digestion, but where this process has not yet taken place.
+
+The dual action of Tàiyǐ ST-23 on psycho-emotional and abdominal disorders (such as pain and diarrhoea) renders it especially suitable for conditions where both present together. This combination of symptoms is commonly encountered in patients who present with anxiety focused both on the chest and abdomen, accompanied by palpitations, tightness of the chest, abdominal pain and diarrhoea.
+
+---
+
+*Last updated: 2025-10-05*
+*Channel: Stomach | Type: [[TCM Acupuncture Points]]*

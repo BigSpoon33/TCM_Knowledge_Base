@@ -1,0 +1,158 @@
+---
+id: point-20251005200820
+name: SJ-20
+type: point
+aliases:
+- JIǍOSŪN
+- Minute Angle
+- 角孫
+tags:
+- TCM
+- Acupuncture
+- Point
+- Sanjiao
+category:
+- Sanjiao Channel Points
+related: []
+symptoms: []
+patterns: []
+western_conditions: []
+formulas: []
+herbs: []
+points: []
+nutrition: []
+tests: []
+point_data:
+  code: SJ-20
+  hanzi: 角孫
+  pinyin: JIǍOSŪN
+  english: Minute Angle
+  channel: Sanjiao
+  special_properties:
+  - Meeting point of the Sanjiao, Small Intestine and Gall Bladder channels
+  location_description: On the side of the head, directly level with the apex of the
+    ear when the ear is folded forwards.
+  location_notes: Fold the ear so that the posterior part of the upper helix directly
+    covers the anterior part of the upper helix. Take care not to push the whole of
+    the ear forwards.
+  needling_method: Transverse insertion. May be needled anteriorly, posteriorly, inferiorly
+    or superiorly, with direction depending on symptomatology (towards headache or
+    other pain radiation, or to connect with other head points).
+  needling_depth: 0.5-1.5 cun. Inserted within the subcutaneous layers close to the
+    bone of the skull, rather than more shallowly.
+  needling_cautions: []
+  functions:
+  - Benefits the ears
+  - Benefits the teeth, gums and lips
+  - Clears heat
+  indications:
+    respiratory: []
+    digestive: []
+    head_throat:
+    - Tinnitus
+    - deafness
+    - discharge of pus from the ear
+    - redness and swelling of the back of the ear
+    - redness and swelling of the auricle
+    - Toothache
+    - tooth decay
+    - swelling and pain of the gums with inability to masticate
+    - stiffness of the lips
+    - dryness of the lips
+    - superficial visual obstruction
+    - stiffness of the nape of the neck with inability to turn the head
+    pain: []
+    other: []
+  combinations:
+  - condition: Pain of the gums
+    points:
+    - SJ-20
+    - SI-8
+    source: Great Compendium
+  - condition: Inability to chew
+    points:
+    - SJ-20
+    - ST-6
+    source: Thousand Ducat Formulas
+created: 2025-10-05
+updated: 2025-10-05
+banner: TCM_Points_Images/SJ-20_diagram.jpg
+cssclasses:
+- noyaml
+---
+
+# 📍 SJ-20 · JIǍOSŪN (角孫)
+
+**Point Name:** Minute Angle (JIǍOSŪN)
+**Channel:** Sanjiao Channel
+**Special Properties:** Meeting point of the Sanjiao, Small Intestine and Gall Bladder channels
+
+---
+
+## 📍 Location
+
+On the side of the head, directly level with the apex of the ear when the ear is folded forwards.
+
+**Location Notes:**
+Fold the ear so that the posterior part of the upper helix directly covers the anterior part of the upper helix. Take care not to push the whole of the ear forwards.
+
+![[SJ-20_diagram.jpg]]
+
+**Chinese Characters:** ![[SJ-20_chinese.png]]
+
+---
+
+## 🔧 Needling Technique
+
+**Method:** Transverse insertion. May be needled anteriorly, posteriorly, inferiorly or superiorly, with direction depending on symptomatology (towards headache or other pain radiation, or to connect with other head points).
+**Depth:** 0.5-1.5 cun. Inserted within the subcutaneous layers close to the bone of the skull, rather than more shallowly.
+
+### ⚠️ Cautions
+
+---
+
+## ⚡ Functions & Actions
+- Benefits the ears
+- Benefits the teeth, gums and lips
+- Clears heat
+
+---
+
+## 🎯 Clinical Indications
+
+### Head Throat
+- Tinnitus
+- deafness
+- discharge of pus from the ear
+- redness and swelling of the back of the ear
+- redness and swelling of the auricle
+- Toothache
+- tooth decay
+- swelling and pain of the gums with inability to masticate
+- stiffness of the lips
+- dryness of the lips
+- superficial visual obstruction
+- stiffness of the nape of the neck with inability to turn the head
+
+---
+
+## 🔗 Point Combinations
+
+**Pain of the gums**
+- Points: SJ-20, SI-8
+- Source: *Great Compendium*
+
+**Inability to chew**
+- Points: SJ-20, ST-6
+- Source: *Thousand Ducat Formulas*
+
+---
+
+## 🧬 TCM Theory & Commentary
+
+Although rarely used clinically, it is interesting to note that Jiǎosūn SJ-20 was traditionally indicated, and appeared in combination, for swelling and pain of the gums, dryness of the lips, inability to chew, toothache and tooth decay, and as such may be viewed as a useful adjacent point for such disorders. As far as stiffness of the lips is concerned, it is notable that of the few points that are traditionally said to treat these disorders, the majority (for example Jiǎosūn SJ-20, Ěrmén SJ-21, Shàngguān GB-3, Zhèngyíng GB-17) are in the region of the ear. Summary of clinical application Traditionally indicated for swelling and pain of the gums, dryness of the lips, inability to chew, toothache and tooth decay. Also for ear disorders: tinnitus, deafness, discharge of pus from the ear, redness and swelling of the back of the ear, redness and swelling of the auricle.
+
+---
+
+*Last updated: 2025-10-05*
+*Channel: Sanjiao | Type: [[TCM Acupuncture Points]]*

@@ -1,0 +1,12 @@
+---
+id: {{ id }}
+name: {{ name }}
+type: {{ type }}
+tags: {{ tags | tojson }}
+created: {{ created }}
+updated: {{ updated }}
+source_capsules: {{ source_capsules | tojson }}
+{{ domain_section }}
+---
+
+{{ content }}

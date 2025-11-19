@@ -1,0 +1,249 @@
+---
+id: point-20251005200606
+name: SJ-16
+type: point
+aliases:
+- TIĀNYǑU
+- Window of Heaven
+- 天牖
+tags:
+- TCM
+- Acupuncture
+- Point
+- Sanjiao
+category:
+- Sanjiao Channel Points
+related: []
+symptoms: []
+patterns: []
+western_conditions: []
+formulas: []
+herbs: []
+points: []
+nutrition: []
+tests: []
+point_data:
+  code: SJ-16
+  hanzi: 天牖
+  pinyin: TIĀNYǑU
+  english: Window of Heaven
+  channel: Sanjiao
+  special_properties:
+  - Window of Heaven point
+  location_description: On the posterior border of the sternocleidomastoid muscle,
+    approximately 1 cun inferior to Wángǔ GB-12, on a line drawn between Tiānzhù BL-10
+    and Tiānróng SI-17.
+  location_notes: None
+  needling_method: Perpendicular insertion
+  needling_depth: 0.5 to 1 cun
+  needling_cautions: []
+  functions:
+  - Benefits the head and sense organs
+  - Regulates and descends qi
+  indications:
+    respiratory:
+    - rhinitis with nosebleed
+    - loss of sense of smell
+    - stuffy nose
+    digestive: []
+    head_throat:
+    - Sudden deafness
+    - impaired hearing
+    - dimness of vision
+    - inability to open the eyes
+    - lacrimation
+    - Wind dizziness
+    - head wind
+    - swollen face
+    - swelling of the submandibular region
+    - throat painful obstruction
+    - swelling of the supraclavicular fossa
+    pain:
+    - pain of the eyes with inability to see
+    - headache
+    - Stiffness and pain of the neck with inability to turn the head
+    other:
+    - scrofula
+    - swelling of the breast
+    - malaria
+    - confused dreaming
+  combinations:
+  - condition: Sudden deafness
+    points:
+    - SJ-16
+    - SJ-9
+    source: Thousand Ducat Formulas
+  - condition: Wind dizziness and headache
+    points:
+    - SJ-16
+    - BL-12
+    - BL-60
+    - SJ-1
+    - REN-4
+    source: Thousand Ducat Formulas
+  - condition: Swelling of the face
+    points:
+    - BL-45
+    - SJ-16
+    - GB-20
+    source: Systematic Classic
+  - condition: Nasal discharge with inability to distinguish the fragrant from the
+      foul
+    points:
+    - SJ-16
+    - DU-26
+    source: Thousand Ducat Formulas
+  - condition: Lacrimation
+    points:
+    - SJ-16
+    - BL-15
+    source: Thousand Ducat Formulas
+  - condition: Pain of the shoulder and back
+    points:
+    - SJ-16
+    - ST-12
+    - DU-11
+    - BL-11
+    - REN-22
+    - ST-28
+    - L.I.-16
+    source: Thousand Ducat Formulas
+  - condition: Stiffness of the neck with inability to turn the head
+    points:
+    - SJ-16
+    - SI-3
+    source: Supplementing Life
+  - condition: Tired throat, swelling of the neck with inability to turn the head,
+      swelling of the cheek that radiates to the ear
+    points:
+    - SJ-16
+    - GB-12
+    - SI-2
+    source: Thousand Ducat Formulas
+created: 2025-10-05
+updated: 2025-10-05
+banner: TCM_Points_Images/SJ-16_diagram.jpg
+cssclasses:
+- noyaml
+---
+
+# 📍 SJ-16 · TIĀNYǑU (天牖)
+
+**Point Name:** Window of Heaven (TIĀNYǑU)
+**Channel:** Sanjiao Channel
+**Special Properties:** Window of Heaven point
+
+---
+
+## 📍 Location
+
+On the posterior border of the sternocleidomastoid muscle, approximately 1 cun inferior to Wángǔ GB-12, on a line drawn between Tiānzhù BL-10 and Tiānróng SI-17.
+
+**Location Notes:**
+None
+
+![[SJ-16_diagram.jpg]]
+
+**Chinese Characters:** ![[SJ-16_chinese.png]]
+
+---
+
+## 🔧 Needling Technique
+
+**Method:** Perpendicular insertion
+**Depth:** 0.5 to 1 cun
+
+### ⚠️ Cautions
+
+---
+
+## ⚡ Functions & Actions
+- Benefits the head and sense organs
+- Regulates and descends qi
+
+---
+
+## 🎯 Clinical Indications
+
+### Respiratory
+- rhinitis with nosebleed
+- loss of sense of smell
+- stuffy nose
+
+### Head Throat
+- Sudden deafness
+- impaired hearing
+- dimness of vision
+- inability to open the eyes
+- lacrimation
+- Wind dizziness
+- head wind
+- swollen face
+- swelling of the submandibular region
+- throat painful obstruction
+- swelling of the supraclavicular fossa
+
+### Pain
+- pain of the eyes with inability to see
+- headache
+- Stiffness and pain of the neck with inability to turn the head
+
+### Other
+- scrofula
+- swelling of the breast
+- malaria
+- confused dreaming
+
+---
+
+## 🔗 Point Combinations
+
+**Sudden deafness**
+- Points: SJ-16, SJ-9
+- Source: *Thousand Ducat Formulas*
+
+**Wind dizziness and headache**
+- Points: SJ-16, BL-12, BL-60, SJ-1, REN-4
+- Source: *Thousand Ducat Formulas*
+
+**Swelling of the face**
+- Points: BL-45, SJ-16, GB-20
+- Source: *Systematic Classic*
+
+**Nasal discharge with inability to distinguish the fragrant from the foul**
+- Points: SJ-16, DU-26
+- Source: *Thousand Ducat Formulas*
+
+**Lacrimation**
+- Points: SJ-16, BL-15
+- Source: *Thousand Ducat Formulas*
+
+**Pain of the shoulder and back**
+- Points: SJ-16, ST-12, DU-11, BL-11, REN-22, ST-28, L.I.-16
+- Source: *Thousand Ducat Formulas*
+
+**Stiffness of the neck with inability to turn the head**
+- Points: SJ-16, SI-3
+- Source: *Supplementing Life*
+
+**Tired throat, swelling of the neck with inability to turn the head, swelling of the cheek that radiates to the ear**
+- Points: SJ-16, GB-12, SI-2
+- Source: *Thousand Ducat Formulas*
+
+---
+
+## 🧬 TCM Theory & Commentary
+
+Tiānyǒu SJ-16 is one of five points referred to in Chapter 21 of the Spiritual Pivot as points of the 'Window of Heaven', and in this passage it is said "Sudden deafness with excess of qi, dimness of vision and hearing, select Tiānyǒu SJ-16". Tiānyǒu SJ-16 (Window of Heaven) in fact gave this group of points its name. In his commentary on the above passage, Zhou Zhi-cong said "The points and the orifices of the head and face are like the great windows of a high pavilion by virtue of which qi moves. When there is inversion qi below, then the channels in the upper region do not move and there is lack of clarity of vision and hearing ... ".
+
+In common with the other points of the Window of Heaven, Tiānyǒu SJ-16 is able to regulate and balance the qi between the head and the body, and is indicated when inversion qi (chaotic and rebellious qi) rushes to the head. This gives rise to such symptoms as headache and dizziness, sudden onset of deafness, swelling of the face and disorders of the eyes and nose.
+
+Also in common with other Window of Heaven points, Tiānyǒu SJ-16 treats scrofula.
+
+Summary of clinical application
+“Sudden deafness with excess of qi, dimness of vision and hearing, select Tiānyǒu SJ-16” (Spiritual Pivot). Window of Heaven point: regulates and balances the qi between the head and the body, for when inversion qi (chaotic and rebellious qi) rushes to the head (headache and dizziness, sudden onset of deafness, swelling of the face, disorders of the eyes and nose, scrofula).
+
+---
+
+*Last updated: 2025-10-05*
+*Channel: Sanjiao | Type: [[TCM Acupuncture Points]]*

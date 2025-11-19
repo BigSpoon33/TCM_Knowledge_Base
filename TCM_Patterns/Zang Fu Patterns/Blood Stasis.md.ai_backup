@@ -1,0 +1,65 @@
+---
+# =9 Core Metadata (Universal Fields)
+id: "pattern-20251010183503"
+name: "Heart Blood Stasis"
+type: "pattern"
+aliases: []
+tags: ['TCM', 'Pattern']
+
+# =9 Cross-Link Fields (Universal Relationship Slots)
+category: ['Zang Fu Treatment Pattern']
+related: []
+symptoms: []
+patterns: []
+western_conditions: []
+formulas: []
+herbs: []
+points: ['PC-6', 'PC-4', 'HT-7', 'RN-17', 'UB-14', 'UB-17', 'SP-10', 'KD-25']
+nutrition: []
+tests: []
+
+# =9 Pattern-Specific Data
+pattern_data:
+  pattern_type: "Zang Fu"
+  pattern_subtype: "Heart"
+  excess_deficiency: "Excess"
+  hot_cold: "Neither"
+  interior_exterior: "Interior"
+  yin_yang: "Yin"
+  etiology: []
+  pathomechanisms: []
+  disease_progression: ""
+  cardinal_symptoms: ['Palpitations', 'Intermittent cardiac pain (stabbing or stuffy in nature in the precordial region or behind the sternum) which often refers to the shoulder and arm', 'In severe case there may occur cyanosis of face, lips and nails', 'Cold limbs', 'Spontaneous sweating']
+  tongue: "purplish dark tongue or purplish spots"
+  pulse: "thready and hesitant or knotted"
+  treatment_principle: []
+  contraindications: []
+
+created: 2025-10-10
+updated: 2025-10-10
+---
+
+## Heart Empty + Full Patterns
+
+### BLOOD STASIS (Heart)
+
+**Symptoms (CAM):**
+- Palpitations
+- Intermittent cardiac pain (stabbing or stuffy in nature in the precordial region or behind the sternum) which often refers to the shoulder and arm
+- In severe case there may occur cyanosis of face, lips and nails
+- Cold limbs
+- Spontaneous sweating
+
+**Symptoms (FCM):**
+-
+
+**Tongue:** purplish dark tongue or purplish spots
+
+**Pulse:** thready and hesitant or knotted
+
+**Key Symptoms:** Palpitations, stabbing/stuffy cardiac pain, cyanosis of face/lips/nails, purplish tongue, thready hesitant/knotted pulse.
+
+**Additional Notes:**
+Treatment: PC6, PC4, HT7, RN17, UB14, UB17, SP10, KD25
+
+---

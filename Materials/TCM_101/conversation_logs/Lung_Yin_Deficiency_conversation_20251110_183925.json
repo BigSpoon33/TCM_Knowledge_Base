@@ -1,0 +1,115 @@
+{
+  "topic": "Lung Yin Deficiency",
+  "root_note_path": "/home/shuma/Documents/AI_Suite/TCM_Knowledge_Base/Materials/TCM_101/Root_Note_Lung_Yin_Deficiency.md",
+  "current_heading_index": 0,
+  "completed_headings": [],
+  "attempts_per_heading": {
+    "0": 0,
+    "1": 0,
+    "2": 0,
+    "3": 0,
+    "4": 0,
+    "5": 0,
+    "6": 0,
+    "7": 0,
+    "8": 0
+  },
+  "understanding_scores": {
+    "0": [],
+    "1": [],
+    "2": [],
+    "3": [],
+    "4": [],
+    "5": [],
+    "6": [],
+    "7": [],
+    "8": []
+  },
+  "conversation_history": [],
+  "start_time": "2025-11-10T18:39:25.569311",
+  "summary": {
+    "topic": "Lung Yin Deficiency",
+    "total_headings": 9,
+    "completed_headings": 0,
+    "progress_percentage": 0.0,
+    "total_time_minutes": 0.0,
+    "total_attempts": 0,
+    "overall_average_score": 0,
+    "heading_summaries": [
+      {
+        "title": "Overview",
+        "attempts": 0,
+        "scores": [],
+        "best_score": 0,
+        "average_score": 0,
+        "completed": false
+      },
+      {
+        "title": "Clinical Manifestations",
+        "attempts": 0,
+        "scores": [],
+        "best_score": 0,
+        "average_score": 0,
+        "completed": false
+      },
+      {
+        "title": "Etiology & Pathomechanisms",
+        "attempts": 0,
+        "scores": [],
+        "best_score": 0,
+        "average_score": 0,
+        "completed": false
+      },
+      {
+        "title": "Differential Diagnosis",
+        "attempts": 0,
+        "scores": [],
+        "best_score": 0,
+        "average_score": 0,
+        "completed": false
+      },
+      {
+        "title": "Treatment Principles",
+        "attempts": 0,
+        "scores": [],
+        "best_score": 0,
+        "average_score": 0,
+        "completed": false
+      },
+      {
+        "title": "Herbal Formulas",
+        "attempts": 0,
+        "scores": [],
+        "best_score": 0,
+        "average_score": 0,
+        "completed": false
+      },
+      {
+        "title": "Acupuncture Points",
+        "attempts": 0,
+        "scores": [],
+        "best_score": 0,
+        "average_score": 0,
+        "completed": false
+      },
+      {
+        "title": "Clinical Applications",
+        "attempts": 0,
+        "scores": [],
+        "best_score": 0,
+        "average_score": 0,
+        "completed": false
+      },
+      {
+        "title": "Study Tips",
+        "attempts": 0,
+        "scores": [],
+        "best_score": 0,
+        "average_score": 0,
+        "completed": false
+      }
+    ],
+    "weak_areas": [],
+    "strong_areas": []
+  }
+}

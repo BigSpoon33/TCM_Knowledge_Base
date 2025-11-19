@@ -1,0 +1,158 @@
+<story-context id="{bmad_folder}/bmm/workflows/4-implementation/story-context/template" v="1.0">
+  <metadata>
+    <epicId>4</epicId>
+    <storyId>4</storyId>
+    <title>Content Generator Core Logic</title>
+    <status>drafted</status>
+    <generatedAt>2025-11-18</generatedAt>
+    <generator>BMAD Story Context Workflow</generator>
+    <sourceStoryPath>docs/sprint-artifacts/4-4-content-generator-core-logic.md</sourceStoryPath>
+  </metadata>
+
+  <story>
+    <asA>a developer</asA>
+    <iWant>to implement the core logic for the content generator</iWant>
+    <soThat>I can orchestrate the research, templating, and validation processes to produce content capsules.</soThat>
+    <tasks>
+      <task id="1">Task 1: Create `ContentGenerator` Class Structure</task>
+      <task id="2">Task 2: Implement Constructor</task>
+      <task id="3">Task 3: Implement Template Loading</task>
+      <task id="4">Task 4: Implement the `generate` Method</task>
+      <task id="5">Task 5: Write Unit Tests</task>
+    </tasks>
+  </story>
+
+  <acceptanceCriteria>
+      <criterion id="1">A `ContentGenerator` class is created in `capsule/core/generator.py`.</criterion>
+      <criterion id="2">The `ContentGenerator` class initializes and uses the `ResearchProvider` and `Validator`.</criterion>
+      <criterion id="3">The `ContentGenerator` has a method to load Jinja2 templates from the `capsule/templates` directory.</criterion>
+      <criterion id="4">The `ContentGenerator` has a `generate` method that takes a topic, template, and research data as input.</criterion>
+      <criterion id="5">The `generate` method orchestrates the following steps:
+        *   Calls the `researcher` to get research data.
+        *   Loads the specified Jinja2 template.
+        *   Renders the template with the research data.
+        *   Calls the `validator` to validate the generated content.
+        *   Returns the generated content.
+      </criterion>
+      <criterion id="6">Unit tests are created for the `ContentGenerator` class in `tests/test_core/test_generator.py`.</criterion>
+    </acceptanceCriteria>
+
+  <artifacts>
+    <docs>
+      <doc>
+        <path>docs/architecture.md</path>
+        <title>Architecture Document</title>
+        <section>Epic Group 1: Content Generation (FR1-FR10)</section>
+        <snippet>
+          This section describes the architecture for the content generation epic, including the ContentGenerator class, its dependencies on the ResearchProvider and Validator, and the overall data flow.
+        </snippet>
+      </doc>
+      <doc>
+        <path>docs/architecture.md</path>
+        <title>Architecture Document</title>
+        <section>Complete Project Structure</section>
+        <snippet>
+          This section shows the complete project structure, including the location of the new files to be created: `capsule/core/generator.py` and `tests/test_core/test_generator.py`.
+        </snippet>
+      </doc>
+      <doc>
+        <path>docs/epics.md</path>
+        <title>Project Epics</title>
+        <section>Epic 4: Template System &amp; Content Generation</section>
+        <snippet>
+          This section outlines the stories for Epic 4, including the current story "4-4-content-generator-core-logic".
+        </snippet>
+      </doc>
+    </docs>
+    <code>
+      <artifact>
+        <path>capsule/core/researcher.py</path>
+        <kind>module</kind>
+        <symbol>ResearchProvider</symbol>
+        <reason>The ContentGenerator will depend on the ResearchProvider interface.</reason>
+      </artifact>
+      <artifact>
+        <path>capsule/core/validator.py</path>
+        <kind>module</kind>
+        <symbol>Validator</symbol>
+        <reason>The ContentGenerator will depend on the Validator class.</reason>
+      </artifact>
+      <artifact>
+        <path>tests/test_core/test_researcher.py</path>
+        <kind>test</kind>
+        <symbol>TestGeminiResearchProvider</symbol>
+        <reason>Provides an example of how to test a research provider.</reason>
+      </artifact>
+    </code>
+    <dependencies>
+      <dependency>
+        <ecosystem>python</ecosystem>
+        <package>jinja2</package>
+        <version>&gt;=3.1.0</version>
+      </dependency>
+      <dependency>
+        <ecosystem>python</ecosystem>
+        <package>typer</package>
+        <version>&gt;=0.9.0</version>
+      </dependency>
+      <dependency>
+        <ecosystem>python</ecosystem>
+        <package>python-frontmatter</package>
+        <version>&gt;=1.0.0</version>
+      </dependency>
+      <dependency>
+        <ecosystem>python</ecosystem>
+        <package>ruamel.yaml</package>
+        <version>&gt;=0.17.0</version>
+      </dependency>
+      <dependency>
+        <ecosystem>python</ecosystem>
+        <package>pyyaml</package>
+        <version>&gt;=6.0</version>
+      </dependency>
+      <dependency>
+        <ecosystem>python</ecosystem>
+        <package>requests</package>
+        <version>&gt;=2.31.0</version>
+      </dependency>
+      <dependency>
+        <ecosystem>python</ecosystem>
+        <package>google-generativeai</package>
+        <version>&gt;=0.3.0</version>
+      </dependency>
+    </dependencies>
+  </artifacts>
+
+  <constraints>
+      <constraint>The `ContentGenerator` class should be implemented in `capsule/core/generator.py`.</constraint>
+      <constraint>The `ContentGenerator` will depend on the `ResearchProvider` and `Validator` components.</constraint>
+      <constraint>The `ContentGenerator` will load Jinja2 templates from the `capsule/templates/` directory.</constraint>
+      <constraint>Unit tests are required for the `ContentGenerator` class.</constraint>
+    </constraints>
+  <interfaces>
+      <interface>
+        <name>ResearchProvider</name>
+        <kind>class</kind>
+        <signature>research(self, topic: str, max_sources: int = 10) -> ResearchResult</signature>
+        <path>capsule/core/researcher.py</path>
+      </interface>
+      <interface>
+        <name>Validator</name>
+        <kind>class</kind>
+        <signature>validate(self, content: str) -> bool</signature>
+        <path>capsule/core/validator.py</path>
+      </interface>
+    </interfaces>
+  <tests>
+      <standards>
+        The project uses pytest as the testing framework. Tests are organized in the `tests/` directory, mirroring the source structure. The test pyramid consists of 80% unit tests, 15% integration tests, and 5% E2E tests.
+      </standards>
+      <locations>
+        <location>tests/</location>
+      </locations>
+      <ideas>
+        <idea for_ac="2">Test the constructor and dependency injection of the `ContentGenerator` class.</idea>
+        <idea for_ac="4, 5">Test the `generate` method, mocking the `ResearchProvider` and `Validator` dependencies.</idea>
+      </ideas>
+    </tests>
+</story-context>

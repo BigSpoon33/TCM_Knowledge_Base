@@ -1,0 +1,149 @@
+<story-context id="{bmad_folder}/bmm/workflows/4-implementation/story-context/template" v="1.0">
+  <metadata>
+    <epicId>4</epicId>
+    <storyId>2</storyId>
+    <title>Universal Note Template</title>
+    <status>drafted</status>
+    <generatedAt>2025-11-18</generatedAt>
+    <generator>BMAD Story Context Workflow</generator>
+    <sourceStoryPath>/home/shuma/Documents/AI_Suite/Obsidian_Capsule_Delivery/docs/sprint-artifacts/4-2-universal-note-template.md</sourceStoryPath>
+  </metadata>
+
+  <story>
+    <asA>a developer</asA>
+    <iWant>to create a universal Jinja2 template for standard notes</iWant>
+    <soThat>all generated notes have a consistent structure and frontmatter.</soThat>
+    <tasks>
+- [ ] **Task 1: Create Universal Note Template File** (AC: #1)
+  - [ ] Subtask 1.1: Create a new file named `universal-note.md.j2` inside the `capsule/templates/` directory.
+- [ ] **Task 2: Implement Frontmatter Schema** (AC: #2, #3)
+  - [ ] Subtask 2.1: In the new template, add the frontmatter block (`---`).
+  - [ ] Subtask 2.2: Add placeholders for all universal fields: `id`, `name`, `type`, `tags`, `created`, `updated`, and `source_capsules`.
+  - [ ] Subtask 2.3: Add a placeholder for the dynamic `{{ domain_section }}`.
+- [ ] **Task 3: Add Body Content Placeholder** (AC: #4)
+  - [ ] Subtask 3.1: Below the frontmatter, add the `{{ content }}` placeholder for the note's body.
+- [ ] **Task 4: Write Unit Tests** (AC: #5)
+  - [ ] Subtask 4.1: Open the existing test file `tests/test_utils/test_templates.py`.
+  - [ ] Subtask 4.2: Add a new test function to verify that `universal-note.md.j2` can be loaded successfully.
+  - [ ] Subtask 4.3: Add another test function that renders the template with sample data, including a sample domain section.
+  - [ ] Subtask 4.4: Assert that the rendered output correctly contains the sample data in both the frontmatter and the body.
+    </tasks>
+  </story>
+
+  <acceptanceCriteria>
+1.  **Template Creation:** A new Jinja2 template named `universal-note.md.j2` is created in the `capsule/templates/` directory.
+2.  **Frontmatter Schema:** The template includes placeholders for the universal frontmatter fields defined in the architecture document (`id`, `name`, `type`, `tags`, `created`, `updated`, `source_capsules`).
+3.  **Domain Section:** The template includes a placeholder for a domain-specific data section (e.g., `{{ domain_section }}`).
+4.  **Body Content:** The template includes a placeholder for the main body content of the note (e.g., `{{ content }}`).
+5.  **Unit Tests:** Unit tests are added to `tests/test_utils/test_templates.py` to verify that the new template can be loaded and rendered with sample data.
+  </acceptanceCriteria>
+
+  <artifacts>
+    <docs>
+      <doc>
+        <path>docs/architecture.md</path>
+        <title>Architecture Document</title>
+        <section>Universal Frontmatter Pattern for Cross-Domain Notes</section>
+        <snippet>
+          The architecture uses a universal frontmatter schema that enables cross-domain composability while maintaining data integrity. This pattern is critical for ensuring that notes can be enhanced by multiple capsules without conflicts.
+        </snippet>
+      </doc>
+      <doc>
+        <path>docs/architecture.md</path>
+        <title>Architecture Document</title>
+        <section>Complete Project Structure</section>
+        <snippet>
+          The project structure section outlines the complete file and directory layout for the Obsidian Capsule Delivery System, including the designated location for Jinja2 templates in `capsule/templates/`.
+        </snippet>
+      </doc>
+      <doc>
+        <path>docs/sprint-artifacts/4-1-jinja2-template-engine-setup.md</path>
+        <title>Story 4.1: Jinja2 Template Engine Setup</title>
+        <section>Dev Agent Record</section>
+        <snippet>
+          This story successfully implemented the Jinja2 template engine utility in `capsule/utils/templates.py` and created corresponding unit tests in `tests/test_utils/test_templates.py`. This provides the foundation for the current story.
+        </snippet>
+      </doc>
+    <doc>
+        <path>docs/PRD.md</path>
+        <title>Product Requirements Document</title>
+        <section>Template Management</section>
+        <snippet>
+          This section of the PRD outlines the functional requirements for template management, including the ability for users to define capsule templates with custom frontmatter schemas.
+        </snippet>
+      </doc>
+      <doc>
+        <path>docs/epics.md</path>
+        <title>Project Epics</title>
+        <section>Epic 4: Template System & Content Generation</section>
+        <snippet>
+          This epic covers the implementation of the Jinja2 template system, including the creation of the universal note template and other study material templates.
+        </snippet>
+      </doc>
+    <code>
+      <artifact>
+        <path>capsule/utils/templates.py</path>
+        <kind>utility</kind>
+        <symbol>load_template</symbol>
+        <lines>13-16</lines>
+        <reason>
+          This function provides the interface for loading Jinja2 templates from the `capsule/templates/` directory. The new template will be loaded using this utility.
+        </reason>
+      </artifact>
+      <artifact>
+        <path>tests/test_utils/test_templates.py</path>
+        <kind>test</kind>
+        <symbol>test_load_template_successfully</symbol>
+        <lines>22-25</lines>
+        <reason>
+          This test provides the pattern for testing that a Jinja2 template can be loaded and rendered successfully. The new unit tests should follow this pattern.
+        </reason>
+      </artifact>
+    </code>
+    <dependencies>
+      <dependency>
+        <name>Jinja2</name>
+        <version>>=3.1.0</version>
+        <reason>
+          Jinja2 is the specified template engine for the project and is required for creating and rendering the new universal note template.
+        </reason>
+      </dependency>
+    </dependencies>
+  </artifacts>
+
+  <constraints>
+    <constraint>
+      The template engine must be Jinja2, as specified in the architecture document.
+    </constraint>
+    <constraint>
+      The template must adhere to the universal frontmatter pattern defined in the architecture document, including the fields: `id`, `name`, `type`, `tags`, `created`, `updated`, and `source_capsules`.
+    </constraint>
+    <constraint>
+      The new template file `universal-note.md.j2` must be created in the `capsule/templates/` directory.
+    </constraint>
+    <constraint>
+      Unit tests must be added to the existing `tests/test_utils/test_templates.py` file.
+    </constraint>
+  </constraints>
+  <interfaces>
+    <interface>
+      <name>load_template</name>
+      <kind>function</kind>
+      <signature>load_template(template_name: str) -> Template</signature>
+      <path>capsule/utils/templates.py</path>
+    </interface>
+  </interfaces>
+  <tests>
+    <standards>
+      Unit tests should be added to `tests/test_utils/test_templates.py` and follow the existing patterns in that file. The tests should use `pytest` and fixtures to create a mock template environment.
+    </standards>
+    <locations>
+      - `tests/test_utils/test_templates.py`
+    </locations>
+    <ideas>
+      - **AC1:** Create a test to verify that `universal-note.md.j2` can be loaded successfully.
+      - **AC2, AC3, AC4:** Create a test that renders the template with sample data, including all universal frontmatter fields, a sample domain section, and body content.
+      - **AC5:** Assert that the rendered output correctly contains the sample data in both the frontmatter and the body.
+    </ideas>
+  </tests>
+</story-context>

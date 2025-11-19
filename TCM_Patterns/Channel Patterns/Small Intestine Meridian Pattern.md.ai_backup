@@ -1,0 +1,83 @@
+---
+# =9 Core Metadata (Universal Fields)
+id: "pattern-20251010183503"
+name: ""
+type: "pattern"
+aliases: []
+tags: ['TCM', 'Pattern']
+
+# =9 Cross-Link Fields (Universal Relationship Slots)
+category: ['']
+related: []
+symptoms: []
+patterns: []
+western_conditions: []
+formulas: []
+herbs: []
+points: []
+nutrition: []
+tests: []
+
+# =9 Pattern-Specific Data
+pattern_data:
+  pattern_type: "Zang Fu"
+  pattern_subtype: ""
+  excess_deficiency: "Mixed Excess-Deficiency"
+  hot_cold: "Neither"
+  interior_exterior: "Interior"
+  yin_yang: "Yin"
+  etiology: []
+  pathomechanisms: []
+  disease_progression: ""
+  cardinal_symptoms: ['Deafness', 'Yellow sclera', 'Sore throat', 'Swelling of the cheeks', 'Distension and pain in the lower abdomen', 'Pain in the posterior border of the lateral aspect of the shoulder and arm']
+  tongue: ""
+  pulse: ""
+  treatment_principle: []
+  contraindications: []
+
+created: 2025-10-10
+updated: 2025-10-10
+---
+
+## SI (Small Intestine Meridian)
+
+**Symptoms (CAM):**
+- Deafness
+- Yellow sclera
+- Sore throat
+- Swelling of the cheeks
+- Distension and pain in the lower abdomen
+- Pain in the posterior border of the lateral aspect of the shoulder and arm
+
+## SI (Small Intestine Meridian) - Key Symptoms
+
+**Key Symptoms:**
+- Yellow sclera
+- Pain in the posterior border of the lateral aspect of the shoulder and arm
+- Malaria
+
+## SI Collateral (SI7)
+**Symptoms (CAM):**
+- Weakness of joints
+- Muscular atrophy
+- Motor impairment of the elbow
+- Warts on the skin
+
+
+## SI Collateral (SI7) MNL & SGH
+**Flows To:** Shoulder
+**Symptoms (FULL):**
+- Loose joints
+- Atrophy of arm muscles
+- Stiff elbow
+**Symptoms (EMPTY):**
+- Long, finger-shaped warts
+- Itching scabies
+
+## SI (Small Intestine Muscle Meridian)
+
+**Symptoms (CAM):**
+- **LIMB:** Strained little finger, pain along the medial aspect of the elbow and upper arm, pain below the axilla and on the posterior aspect of the axilla
+- **NECK & HEAD:** Pain of the scapula that reaches the neck, tinnitus, pain of the ear that may reach the submandibular region, a need to close the eyes for a long period of time before being able to see clearly, tension of the neck sinews that leads to sinew atrophy and swelling of the neck
+- 
+Heaven (3 levels Earth, Heaven, Human)

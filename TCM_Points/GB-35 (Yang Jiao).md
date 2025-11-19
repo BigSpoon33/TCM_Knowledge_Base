@@ -1,0 +1,176 @@
+---
+id: point-20251005185857
+name: GB-35
+type: point
+aliases:
+- YÁNGJIĀO
+- Yang Intersection
+- 陽交
+tags:
+- TCM
+- Acupuncture
+- Point
+- Gall Bladder
+category:
+- Gall Bladder Channel Points
+related: []
+symptoms: []
+patterns: []
+western_conditions: []
+formulas: []
+herbs: []
+points: []
+nutrition: []
+tests: []
+point_data:
+  code: GB-35
+  hanzi: 陽交
+  pinyin: YÁNGJIĀO
+  english: Yang Intersection
+  channel: Gall Bladder
+  special_properties:
+  - Xi-Cleft point
+  - Point of Yang Linking vessel
+  location_description: On the lateral aspect of the lower leg, 7 cun superior to
+    the prominence of the lateral malleolus, in the depression at the posterior border
+    of the fibula.
+  location_notes: i. The distance between the tip of the lateral malleolus and the
+    popliteal crease is 16 cun; locate Yángjiāo GB-35 one cun distal to the midpoint
+    of this line; ii. Above the region of Xuánzhōng GB-39, the fibula is not easily
+    palpable because it is covered by the peroneus brevis muscle; therefore feel for
+    the posterior border of the fibula above the malleolus where it is easily palpable
+    and extend a line towards the head of the fibula.
+  needling_method: Perpendicular insertion
+  needling_depth: 1 to 1.5 cun
+  needling_cautions: []
+  functions:
+  - Activates the channel and alleviates pain
+  - Regulates Gall Bladder qi and calms the spirit
+  indications:
+    respiratory: []
+    digestive: []
+    head_throat:
+    - Swelling of the face and eyes
+    - Throat painful obstruction
+    pain:
+    - Swelling and pain of the knee
+    - Atrophy disorder and painful obstruction of the lower limb
+    - Cold painful obstruction
+    - Contraction of the sinews in sudden turmoil disorder
+    - Pain of the chest and lateral costal region
+    other:
+    - Mania induced by fright
+    - Fullness and distention of the chest and lateral costal region
+  combinations:
+  - condition: Fullness of the chest
+    points:
+    - GB-35
+    - GB-41
+    source: Supplementing Life
+  - condition: Fright palpitations and pounding of the Heart
+    points:
+    - GB-35
+    - ST-41
+    source: One Hundred Symptoms
+  - condition: Loss of voice
+    points:
+    - GB-35
+    - L.I.-4
+    - KID-1
+    source: Systematic Classic
+  - condition: Bone painful obstruction and numbness of the hip joint and knee
+    points:
+    - GB-35
+    - GB-38
+    - GB-34
+    source: Thousand Ducat Formulas
+created: 2025-10-05
+updated: 2025-10-05
+banner: TCM_Points_Images/GB-35_diagram.jpg
+cssclasses:
+- noyaml
+---
+
+# 📍 GB-35 · YÁNGJIĀO (陽交)
+
+**Point Name:** Yang Intersection (YÁNGJIĀO)
+**Channel:** Gall Bladder Channel
+**Special Properties:** Xi-Cleft point, Point of Yang Linking vessel
+
+---
+
+## 📍 Location
+
+On the lateral aspect of the lower leg, 7 cun superior to the prominence of the lateral malleolus, in the depression at the posterior border of the fibula.
+
+**Location Notes:**
+i. The distance between the tip of the lateral malleolus and the popliteal crease is 16 cun; locate Yángjiāo GB-35 one cun distal to the midpoint of this line; ii. Above the region of Xuánzhōng GB-39, the fibula is not easily palpable because it is covered by the peroneus brevis muscle; therefore feel for the posterior border of the fibula above the malleolus where it is easily palpable and extend a line towards the head of the fibula.
+
+![[GB-35_diagram.jpg]]
+
+**Chinese Characters:** ![[GB-35_chinese.png]]
+
+---
+
+## 🔧 Needling Technique
+
+**Method:** Perpendicular insertion
+**Depth:** 1 to 1.5 cun
+
+### ⚠️ Cautions
+
+---
+
+## ⚡ Functions & Actions
+- Activates the channel and alleviates pain
+- Regulates Gall Bladder qi and calms the spirit
+
+---
+
+## 🎯 Clinical Indications
+
+### Head Throat
+- Swelling of the face and eyes
+- Throat painful obstruction
+
+### Pain
+- Swelling and pain of the knee
+- Atrophy disorder and painful obstruction of the lower limb
+- Cold painful obstruction
+- Contraction of the sinews in sudden turmoil disorder
+- Pain of the chest and lateral costal region
+
+### Other
+- Mania induced by fright
+- Fullness and distention of the chest and lateral costal region
+
+---
+
+## 🔗 Point Combinations
+
+**Fullness of the chest**
+- Points: GB-35, GB-41
+- Source: *Supplementing Life*
+
+**Fright palpitations and pounding of the Heart**
+- Points: GB-35, ST-41
+- Source: *One Hundred Symptoms*
+
+**Loss of voice**
+- Points: GB-35, L.I.-4, KID-1
+- Source: *Systematic Classic*
+
+**Bone painful obstruction and numbness of the hip joint and knee**
+- Points: GB-35, GB-38, GB-34
+- Source: *Thousand Ducat Formulas*
+
+---
+
+## 🧬 TCM Theory & Commentary
+
+Rarely used. Indicated for swelling and pain of the knee, atrophy disorder and painful obstruction of the lower limb, cold painful obstruction, contraction of the sinews in sudden turmoil disorder, mania induced by fright, fullness, distention and pain of the chest and lateral costal region, swelling of the face and eyes, throat painful obstruction.
+
+---
+
+*Last updated: 2025-10-05*
+*Channel: Gall Bladder | Type: [[TCM Acupuncture Points]]*

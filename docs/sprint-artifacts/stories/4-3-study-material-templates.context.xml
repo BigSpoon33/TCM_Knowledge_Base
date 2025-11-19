@@ -1,0 +1,116 @@
+<story-context id=".bmad/bmm/workflows/4-implementation/story-context/template" v="1.0">
+  <metadata>
+    <epicId>4</epicId>
+    <storyId>3</storyId>
+    <title>Study Material Templates</title>
+    <status>drafted</status>
+    <generatedAt>2025-11-18</generatedAt>
+    <generator>BMAD Story Context Workflow</generator>
+    <sourceStoryPath>/home/shuma/Documents/AI_Suite/Obsidian_Capsule_Delivery/docs/sprint-artifacts/4-3-study-material-templates.md</sourceStoryPath>
+  </metadata>
+
+  <story>
+    <asA>a developer</asA>
+    <iWant>to develop templates for various study materials (flashcards, quizzes)</iWant>
+    <soThat>the content generator can create a variety of study materials with a consistent structure.</soThat>
+    <tasks>
+- [ ] **Task 1: Create Flashcard Template** (AC: #1, #3)
+  - [ ] Subtask 1.1: Create the file `capsule/templates/flashcard.md.j2`.
+  - [ ] Subtask 1.2: Add frontmatter fields for flashcard data (e.g., `question`, `answer`).
+  - [ ] Subtask 1.3: Add placeholders for the flashcard content.
+- [ ] **Task 2: Create Quiz Template** (AC: #2, #3)
+  - [ ] Subtask 2.1: Create the file `capsule/templates/quiz.md.j2`.
+  - [ ] Subtask 2.2: Add frontmatter fields for quiz data (e.g., `title`, `questions`).
+  - [ ] Subtask 2.3: Add placeholders for the quiz content.
+- [ ] **Task 3: Write Unit Tests** (AC: #4)
+  - [ ] Subtask 3.1: Add a test to `tests/test_utils/test_templates.py` to load and render the flashcard template.
+  - [ ] Subtask 3.2: Add a test to `tests/test_utils/test_templates.py` to load and render the quiz template.
+    </tasks>
+  </story>
+
+  <acceptanceCriteria>
+1.  **Flashcard Template:** A new Jinja2 template for flashcards is created at `capsule/templates/flashcard.md.j2`.
+2.  **Quiz Template:** A new Jinja2 template for quizzes is created at `capsule/templates/quiz.md.j2`.
+3.  **Template Content:** Both templates include appropriate frontmatter fields and body structure for their respective content types.
+4.  **Unit Tests:** Unit tests are added to `tests/test_utils/test_templates.py` to verify that the new templates can be loaded and rendered with sample data.
+  </acceptanceCriteria>
+
+  <artifacts>
+    <docs>
+      <doc>
+        <path>docs/architecture.md</path>
+        <title>Architecture Document</title>
+        <section>Complete Project Structure</section>
+        <snippet>Templates must be Jinja2 and located in `capsule/templates/`.</snippet>
+      </doc>
+      <doc>
+        <path>docs/architecture.md</path>
+        <title>Architecture Document</title>
+        <section>Epic to Architecture Mapping - Epic Group 1: Content Generation</section>
+        <snippet>Defines the location for flashcard.md.j2 and quiz.md.j2 templates.</snippet>
+      </doc>
+      <doc>
+        <path>docs/architecture.md</path>
+        <title>Architecture Document</title>
+        <section>Testing Strategy</section>
+        <snippet>Unit tests are required for all new functionality.</snippet>
+      </doc>
+      <doc>
+        <path>docs/epics.md</path>
+        <title>Project Epics</title>
+        <section>Epic 4: Template System &amp; Content Generation</section>
+        <snippet>Confirms the story 4-3-study-material-templates.</snippet>
+      </doc>
+    </docs>
+    <code>
+      <code>
+        <path>tests/test_utils/test_templates.py</path>
+        <kind>test</kind>
+        <symbol>test_load_universal_note_template_successfully</symbol>
+        <lines>26-46</lines>
+        <reason>Provides a clear pattern for writing tests that load and render Jinja2 templates from the filesystem.</reason>
+      </code>
+    </code>
+    <dependencies>
+      <dependency>
+        <ecosystem>python</ecosystem>
+        <package>jinja2</package>
+        <version>&gt;=3.1.0</version>
+        <source>pyproject.toml</source>
+      </dependency>
+    </dependencies>
+  </artifacts>
+
+  <constraints>
+- Templates must be Jinja2 files (.j2 extension).
+- Templates must be located in the `capsule/templates/` directory.
+- Unit tests are required for all new templates.
+- Tests must be added to `tests/test_utils/test_templates.py`.
+- Tests should load the actual template files from the filesystem, not contain embedded template strings.
+  </constraints>
+  <interfaces>
+    <interface>
+      <name>Flashcard Template Context</name>
+      <kind>Jinja2</kind>
+      <signature>Variables: question (str), answer (str), and standard frontmatter fields.</signature>
+      <path>capsule/templates/flashcard.md.j2</path>
+    </interface>
+    <interface>
+      <name>Quiz Template Context</name>
+      <kind>Jinja2</kind>
+      <signature>Variables: title (str), questions (list of dicts with 'text' and 'options'), and standard frontmatter fields.</signature>
+      <path>capsule/templates/quiz.md.j2</path>
+    </interface>
+  </interfaces>
+  <tests>
+    <standards>Testing will be conducted using the pytest framework. Unit tests are required for the new templates and should adhere to the patterns established in the architecture document and existing tests. A critical standard, learned from the previous story (4-2), is that tests must load the actual template files from the filesystem rather than using embedded strings to ensure maintainability.</standards>
+    <locations>
+      - New unit tests must be added to `tests/test_utils/test_templates.py`.
+    </locations>
+    <ideas>
+      - **Test for AC #1 &amp; #3:** Create a test case that loads `flashcard.md.j2`, renders it with sample data (e.g., `question`, `answer`), and verifies that the output contains the correct frontmatter and body content.
+      - **Test for AC #2 &amp; #3:** Create a test case that loads `quiz.md.j2`, renders it with sample data (e.g., `title`, a list of `questions` with options), and verifies the rendered structure.
+      - **Robustness Test:** Add a test to confirm that `load_template` correctly raises a `TemplateNotFound` error when attempting to load a non-existent template.
+    </ideas>
+  </tests>
+</story-context>

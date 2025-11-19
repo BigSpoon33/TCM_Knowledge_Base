@@ -1,0 +1,90 @@
+---
+# =9 Core Metadata (Universal Fields)
+id: "pattern-20251010183503"
+name: ""
+type: "pattern"
+aliases: []
+tags: ['TCM', 'Pattern']
+
+# =9 Cross-Link Fields (Universal Relationship Slots)
+category: ['']
+related: []
+symptoms: []
+patterns: []
+western_conditions: []
+formulas: []
+herbs: []
+points: []
+nutrition: []
+tests: []
+
+# =9 Pattern-Specific Data
+pattern_data:
+  pattern_type: "Zang Fu"
+  pattern_subtype: ""
+  excess_deficiency: "Mixed Excess-Deficiency"
+  hot_cold: "Neither"
+  interior_exterior: "Interior"
+  yin_yang: "Yin"
+  etiology: []
+  pathomechanisms: []
+  disease_progression: ""
+  cardinal_symptoms: ['Borborygmus', 'Abdominal distension', 'Edema', 'Epigastric pain', 'Vomiting', 'Hunger', 'Epistaxis', 'Deviation of the mouth', 'Congested and sore throat', 'Pain in the chest, abdomen and lateral of the lower limb', 'Fever', 'Mania']
+  tongue: ""
+  pulse: ""
+  treatment_principle: []
+  contraindications: []
+
+created: 2025-10-10
+updated: 2025-10-10
+---
+
+## ST (Stomach Meridian)
+
+**Symptoms (CAM):**
+- Borborygmus
+- Abdominal distension
+- Edema
+- Epigastric pain
+- Vomiting
+- Hunger
+- Epistaxis
+- Deviation of the mouth
+- Congested and sore throat
+- Pain in the chest, abdomen and lateral of the lower limb
+- Fever
+- Mania
+
+## ST (Stomach Meridian) - Key Symptoms
+
+**Key Symptoms:**
+- Hunger
+- Deviation of the mouth
+
+## ST Collateral (ST40)
+**Symptoms (CAM):**
+- Depressive and manic mental disorders
+- Muscular atrophy and weakness in the lower leg
+- Congested and sore throat
+- Sudden hoarseness of voice (epilepsy)
+
+
+## ST Collateral (ST40) MNL & SGH
+**Flows To:** Neck
+**Symptoms (FULL):**
+- Insanity
+- Epilepsy
+- Rebellious: pharyngitis, sudden loss of voice
+**Symptoms (EMPTY):**
+- Flaccid or atrophied muscles of legs or feet
+
+
+## ST (Stomach Muscle Meridian)
+
+**Symptoms (CAM):**
+- **TRUNK & FACE:** Swelling of the anterior inguinal region, Shan (hernia) disorder, abdominal sinew spasm that extends to the ST12 (SCF) region and cheek, sudden deviation of the mouth
+- **EYE:** Cold: inability to close the eye / Heat: laxity of the sinews and the eye cannot be opened
+- **DEVIATION:** Cold: tense and pull the cheek → deviated mouth / Heat: sinew → deviated mouth
+
+
+Earth (3 levels Earth, Heaven, Human)

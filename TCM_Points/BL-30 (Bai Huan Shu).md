@@ -1,0 +1,200 @@
+---
+id: point-20251005181828
+name: BL-30
+type: point
+aliases:
+- BÁIHUÁNSHŪ
+- White Ring Shu
+- 白環俞
+tags:
+- TCM
+- Acupuncture
+- Point
+- Bladder
+category:
+- Bladder Channel Points
+related: []
+symptoms: []
+patterns: []
+western_conditions: []
+formulas: []
+herbs: []
+points: []
+nutrition: []
+tests: []
+point_data:
+  code: BL-30
+  hanzi: 白環俞
+  pinyin: BÁIHUÁNSHŪ
+  english: White Ring Shu
+  channel: Bladder
+  special_properties: []
+  location_description: 1.5 cun lateral to the midline, at the level of the fourth
+    posterior sacral foramen.
+  location_notes: i. As the inner line of the Bladder channel on the back descends
+    towards the sacrum, it runs closer to the midline; the 1.5 cun measurement in
+    this area, therefore, will be relatively shorter; ii. For guidance on locating
+    the sacral foramen see page 69.
+  needling_method: Perpendicular insertion
+  needling_depth: 0.5 to 1 cun
+  needling_cautions:
+  - some classical sources forbid moxibustion at this point
+  functions:
+  - Benefits the lumbar region and legs
+  - Regulates menstruation
+  - Stops leucorrhoea and seminal emission
+  indications:
+    respiratory: []
+    digestive:
+    - difficult defecation
+    - prolapse of the rectum
+    head_throat: []
+    pain:
+    - Pain of the lumbar spine and sacrum
+    - lumbar pain due to cold
+    - pain of the lumbar region and hip
+    - pain of the coccyx
+    - debility of the leg and knee
+    - contracted sinews associated with painful obstruction
+    other:
+    - difficulty in sitting and standing
+    - Irregular menstruation
+    - dysmenorrhoea
+    - uterine bleeding
+    - infertility
+    - Seminal emission
+    - seminal emission with dreams
+    - red and white leucorrhoea
+    - difficult urination
+    - dark urine
+    - white turbidity
+    - shan disorder
+    - warm malaria
+  combinations:
+  - condition: Back pain extending to the lumbar region
+    points:
+    - BL-30
+    - BL-40
+    source: One Hundred Symptoms
+  - condition: Lumbar pain due to Kidney deficiency
+    points:
+    - BL-30
+    - BL-23
+    - BL-40
+    - KID-3
+    source: Great Compendium
+  - condition: Red and white leucorrhoea
+    points:
+    - BL-30
+    - GB-26
+    - REN-4
+    - REN-6
+    - SP-6
+    - P-5
+    source: Great Compendium
+created: 2025-10-05
+updated: 2025-10-05
+banner: TCM_Points_Images/BL-30_diagram.jpg
+cssclasses:
+- noyaml
+---
+
+# 📍 BL-30 · BÁIHUÁNSHŪ (白環俞)
+
+**Point Name:** White Ring Shu (BÁIHUÁNSHŪ)
+**Channel:** Bladder Channel
+**Special Properties:** 
+
+---
+
+## 📍 Location
+
+1.5 cun lateral to the midline, at the level of the fourth posterior sacral foramen.
+
+**Location Notes:**
+i. As the inner line of the Bladder channel on the back descends towards the sacrum, it runs closer to the midline; the 1.5 cun measurement in this area, therefore, will be relatively shorter; ii. For guidance on locating the sacral foramen see page 69.
+
+![[BL-30_diagram.jpg]]
+
+**Chinese Characters:** ![[BL-30_chinese.png]]
+
+---
+
+## 🔧 Needling Technique
+
+**Method:** Perpendicular insertion
+**Depth:** 0.5 to 1 cun
+
+### ⚠️ Cautions
+- some classical sources forbid moxibustion at this point
+
+---
+
+## ⚡ Functions & Actions
+- Benefits the lumbar region and legs
+- Regulates menstruation
+- Stops leucorrhoea and seminal emission
+
+---
+
+## 🎯 Clinical Indications
+
+### Digestive
+- difficult defecation
+- prolapse of the rectum
+
+### Pain
+- Pain of the lumbar spine and sacrum
+- lumbar pain due to cold
+- pain of the lumbar region and hip
+- pain of the coccyx
+- debility of the leg and knee
+- contracted sinews associated with painful obstruction
+
+### Other
+- difficulty in sitting and standing
+- Irregular menstruation
+- dysmenorrhoea
+- uterine bleeding
+- infertility
+- Seminal emission
+- seminal emission with dreams
+- red and white leucorrhoea
+- difficult urination
+- dark urine
+- white turbidity
+- shan disorder
+- warm malaria
+
+---
+
+## 🔗 Point Combinations
+
+**Back pain extending to the lumbar region**
+- Points: BL-30, BL-40
+- Source: *One Hundred Symptoms*
+
+**Lumbar pain due to Kidney deficiency**
+- Points: BL-30, BL-23, BL-40, KID-3
+- Source: *Great Compendium*
+
+**Red and white leucorrhoea**
+- Points: BL-30, GB-26, REN-4, REN-6, SP-6, P-5
+- Source: *Great Compendium*
+
+---
+
+## 🧬 TCM Theory & Commentary
+
+Baihuanshu BL-30 is primarily used as a local point to activate the circulation of qi and treat pain of the lumbar region and sacrum, pain of the lumbar region and hip, and especially pain of the coccyx.
+
+In common with many points located on the sacrum (see Ciliao BL-32) Baihuanshu BL-30 is also able to regulate the function of the uterus and genito-urinary system. It is specifically indicated for stopping leakage in the form of seminal emission and nocturnal emission, leucorrhoea and white turbid urine.
+
+Summary of clinical application
+Mainly used for local pain of the lumbar spine, sacrum and coccyx.
+Also regulates the lower jiao: irregular menstruation, dysmenorrhoea, leucorrhoea, seminal emission, difficult defecation and urination, prolapse of the rectum, dark urine.
+
+---
+
+*Last updated: 2025-10-05*
+*Channel: Bladder | Type: [[TCM Acupuncture Points]]*

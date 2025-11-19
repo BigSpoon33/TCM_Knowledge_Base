@@ -1,0 +1,128 @@
+<story-context id="{bmad_folder}/bmm/workflows/4-implementation/story-context/template" v="1.0">
+  <metadata>
+    <epicId>3</epicId>
+    <storyId>3.3</storyId>
+    <title>Citation Tracking System</title>
+    <status>drafted</status>
+    <generatedAt>{{date}}</generatedAt>
+    <generator>BMAD Story Context Workflow</generator>
+    <sourceStoryPath>docs/sprint-artifacts/3-3-citation-tracking-system.md</sourceStoryPath>
+  </metadata>
+
+  <story>
+    <asA>a developer</asA>
+    <iWant>a system to track and store citations returned from the `ResearchProvider`</iWant>
+    <soThat>generated content can properly attribute its sources</soThat>
+    <tasks>
+### Task 1: Create Citation Data Model (AC: #1, #4)
+
+-   [ ] **Subtask 1.1:** Create a new file `capsule/models/citation.py`.
+-   [ ] **Subtask 1.2:** Implement the `Citation` data model with fields for `title`, `url`, and `source_name`.
+-   [ ] **Subtask 1.3:** Create a new test file `tests/test_models/test_citation.py`.
+-   [ ] **Subtask 1.4:** Write unit tests to validate the `Citation` model's instantiation and attributes.
+
+### Task 2: Update Research Provider Interface (AC: #2, #3, #5)
+
+-   [ ] **Subtask 2.1:** Modify the `ResearchProvider` ABC in `capsule/core/researcher.py` to specify that the `research` method returns a `Dict` containing a `List[Citation]`.
+-   [ ] **Subtask 2.2:** Update the `GeminiResearchProvider`'s `research` method to parse the API response and create `Citation` objects.
+-   [ ] **Subtask 2.3:** Update the mock API responses in `tests/test_core/test_researcher.py` to include citation data.
+-   [ ] **Subtask 2.4:** Modify the tests for `GeminiResearchProvider` to assert that the returned object contains a list of valid `Citation` instances.
+    </tasks>
+  </story>
+
+  <acceptanceCriteria>
+1.  **Citation Data Model:** A new data model, `Citation`, is created in `capsule/models/citation.py` to store citation information (e.g., `title`, `url`, `source_name`).
+2.  **Interface Update:** The `ResearchProvider` abstract base class in `capsule/core/researcher.py` is updated to reflect that its `research` method will return a list of `Citation` objects.
+3.  **Implementation Update:** The `GeminiResearchProvider` is modified to parse the citation data from the Gemini API response and return a list of `Citation` model instances.
+4.  **Model Unit Tests:** Unit tests are created in `tests/test_models/test_citation.py` to validate the `Citation` model.
+5.  **Provider Unit Tests:** The unit tests for `GeminiResearchProvider` in `tests/test_core/test_researcher.py` are updated to verify that the provider correctly parses and returns `Citation` objects.
+  </acceptanceCriteria>
+
+  <artifacts>
+    <docs>
+      <doc>
+        <path>docs/architecture.md</path>
+        <title>Architecture Document</title>
+        <section>Deep Research Provider Architecture</section>
+        <snippet>Defines the plugin-based provider abstraction with Gemini as the v1.0 default. The provider interface is specified, which the new citation model will need to conform to.</snippet>
+      </doc>
+      <doc>
+        <path>docs/architecture.md</path>
+        <title>Architecture Document</title>
+        <section>Complete Project Structure</section>
+        <snippet>Outlines the project's file and directory structure, indicating that new models should be placed in `capsule/models/` and tested in `tests/test_models/`.</snippet>
+      </doc>
+    </docs>
+    <code>
+      <file>
+        <path>capsule/core/researcher.py</path>
+        <kind>service</kind>
+        <symbol>ResearchProvider</symbol>
+        <lines>8-28</lines>
+        <reason>The abstract base class that needs to be modified to include the new Citation model in its return type.</reason>
+      </file>
+      <file>
+        <path>capsule/core/researcher.py</path>
+        <kind>service</kind>
+        <symbol>GeminiResearchProvider</symbol>
+        <lines>30-63</lines>
+        <reason>The concrete implementation that must be updated to parse citation data from the API and return Citation objects.</reason>
+      </file>
+      <file>
+        <path>capsule/models/citation.py</path>
+        <kind>model</kind>
+        <symbol>Citation</symbol>
+        <lines>N/A</lines>
+        <reason>This file needs to be created to define the structure of a citation.</reason>
+      </file>
+      <file>
+        <path>tests/test_core/test_researcher.py</path>
+        <kind>test</kind>
+        <symbol>TestGeminiResearchProvider</symbol>
+        <lines>N/A</lines>
+        <reason>This test suite must be updated to validate the new citation parsing logic.</reason>
+      </file>
+      <file>
+        <path>tests/test_models/test_citation.py</path>
+        <kind>test</kind>
+        <symbol>TestCitationModel</symbol>
+        <lines>N/A</lines>
+        <reason>This test file needs to be created to validate the new Citation model.</reason>
+      </file>
+    </code>
+    <dependencies>
+      <dependency>
+        <ecosystem>python</ecosystem>
+        <package>google-generativeai</package>
+        <version>>=0.3.0</version>
+        <reason>The library used to interact with the Google Gemini API for deep research.</reason>
+      </dependency>
+    </dependencies>
+  </artifacts>
+
+  <constraints>
+    <constraint>The implementation must follow the established plugin-based provider architecture.</constraint>
+    <constraint>The new Citation model should be a simple data class, consistent with other models in `capsule/models/`.</constraint>
+    <constraint>Testing must focus on unit tests, mocking the Gemini API response to ensure the citation parsing logic is correct and robust.</constraint>
+  </constraints>
+  <interfaces>
+    <interface>
+      <name>ResearchProvider</name>
+      <kind>class interface</kind>
+      <signature>research(self, topic: str, max_sources: int = 10) -> Dict</signature>
+      <path>capsule/core/researcher.py</path>
+    </interface>
+  </interfaces>
+  <tests>
+    <standards>The project uses pytest and follows a test pyramid approach, emphasizing unit tests. Mocks should be used to simulate external API calls, ensuring that tests are fast and reliable. All new logic should be accompanied by corresponding unit tests.</standards>
+    <locations>
+      <location>tests/test_models/</location>
+      <location>tests/test_core/</location>
+    </locations>
+    <ideas>
+      <idea for_ac="1, 4">Test Citation model instantiation: Verify that a `Citation` object can be created with the correct data (title, url, source_name) and that its attributes are stored properly.</idea>
+      <idea for_ac="2, 3, 5">Test `GeminiResearchProvider` citation parsing: Mock the Gemini API to return a response containing citation data. Verify that the `research` method correctly parses this response and returns a list of `Citation` objects.</idea>
+      <idea for_ac="2, 3, 5">Test `GeminiResearchProvider` with no citations: Mock an API response that does not contain citation data and verify that the `research` method returns an empty list for the citations.</idea>
+    </ideas>
+  </tests>
+</story-context>

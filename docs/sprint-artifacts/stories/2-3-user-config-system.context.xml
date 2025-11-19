@@ -1,0 +1,169 @@
+<story-context id="{bmad_folder}/bmm/workflows/4-implementation/story-context/template" v="1.0">
+  <metadata>
+    <epicId>2</epicId>
+    <storyId>2.3</storyId>
+    <title>User Config System</title>
+    <status>drafted</status>
+    <generatedAt>2025-11-16</generatedAt>
+    <generator>BMAD Story Context Workflow</generator>
+    <sourceStoryPath>/home/shuma/Documents/AI_Suite/Obsidian_Capsule_Delivery/docs/sprint-artifacts/2-3-user-config-system.md</sourceStoryPath>
+  </metadata>
+
+  <story>
+    <asA>a developer</asA>
+    <iWant>a robust configuration system that loads settings from a YAML file, provides default values, and makes them easily accessible throughout the application</iWant>
+    <soThat>the CLI can be configured by the user without modifying the source code</soThat>
+    <tasks>
+      <task id="3.1" title="Create Config Model and Exceptions">
+        <subtask id="3.1.1">Create the file `capsule/models/config.py`.</subtask>
+        <subtask id="3.1.2">Implement the `Config` class with methods for loading, creating defaults, and getting values.</subtask>
+        <subtask id="3.1.3">Add a `ConfigError` exception to `capsule/utils/exceptions.py`.</subtask>
+      </task>
+      <task id="3.2" title="Develop Unit Tests">
+        <subtask id="3.2.1">Create the test file `tests/test_models/test_config.py`.</subtask>
+        <subtask id="3.2.2">Write a test to verify that a default `config.yaml` is created if one does not exist.</subtask>
+        <subtask id="3.2.3">Write a test to confirm that existing values are loaded correctly from a `config.yaml` file.</subtask>
+        <subtask id="3.2.4">Write a test for the dot notation access method (`get()`).</subtask>
+        <subtask id="3.2.5">Write a test to ensure `ConfigError` is raised on malformed YAML.</subtask>
+      </task>
+    </tasks>
+  </story>
+
+  <acceptanceCriteria>
+      <criterion id="1">**Config Model:** A `Config` class is created in `capsule/models/config.py` that can load, parse, and provide default values for the user's configuration.</criterion>
+      <criterion id="2">**YAML Loading:** The system loads configuration from `~/.capsule/config.yaml` if it exists.</criterion>
+      <criterion id="3">**Default Creation:** If the configuration file does not exist, it is created with a default structure and sensible defaults.</criterion>
+      <criterion id="4">**Value Access:** The `Config` class provides a method to get configuration values using dot notation (e.g., `config.get('user.name')`).</criterion>
+      <criterion id="5">**Error Handling:** A `ConfigError` exception is raised for any issues related to loading or parsing the configuration.</criterion>
+      <criterion id="6">**Unit Tests:** The configuration system is thoroughly tested in `tests/test_models/test_config.py`.</criterion>
+    </acceptanceCriteria>
+
+  <artifacts>
+    <docs>
+      <doc>
+        <path>docs/architecture.md</path>
+        <title>Architecture Document</title>
+        <section>Configuration Management</section>
+        <snippet>
+**Principle:** Sensible defaults, easy overrides, validation
+
+**Implementation:**
+```python
+# capsule/models/config.py
+from pathlib import Path
+from typing import Optional
+import yaml
+
+class Config:
+    """User configuration model"""
+    
+    DEFAULT_CONFIG_PATH = Path.home() / '.capsule' / 'config.yaml'
+    
+    def __init__(self, config_path: Optional[Path] = None):
+        self.path = config_path or self.DEFAULT_CONFIG_PATH
+        self.data = self.load()
+    
+    def load(self) -> dict:
+        """Load config from file or create default"""
+        if not self.path.exists():
+            return self.create_default()
+        
+        with open(self.path) as f:
+            return yaml.safe_load(f)
+    
+    def create_default(self) -> dict:
+        """Create default configuration"""
+        default = {
+            'user': {
+                'name': 'User',
+                'vault_path': str(Path.home() / 'Documents' / 'Obsidian')
+            },
+            'research': {
+                'provider': 'gemini',
+                'api_key': '',
+                'max_sources': 10,
+                'enable_grounding': True
+            },
+            'generation': {
+                'default_template': 'education',
+                'ai_model': 'gemini-pro',
+            },
+            'import': {
+                'auto_backup': True,
+                'backup_location': str(Path.home() / '.capsule' / 'backups'),
+                'default_merge_strategy': 'section-level'
+            }
+        }
+        
+        # Write default config
+        self.path.parent.mkdir(parents=True, exist_ok=True)
+        with open(self.path, 'w') as f:
+            yaml.dump(default, f, default_flow_style=False)
+        
+        return default
+    
+    def get(self, key: str, default=None):
+        """Get config value with dot notation"""
+        keys = key.split('.')
+        value = self.data
+        for k in keys:
+            value = value.get(k, default)
+            if value is None:
+                return default
+        return value
+```
+        </snippet>
+      </doc>
+    </docs>
+    <code>
+      <artifact>
+        <path>capsule/models/config.py</path>
+        <kind>module</kind>
+        <symbol>Config</symbol>
+        <lines></lines>
+        <reason>This file needs to be created as per the story's acceptance criteria.</reason>
+      </artifact>
+      <artifact>
+        <path>capsule/utils/exceptions.py</path>
+        <kind>module</kind>
+        <symbol>ConfigError</symbol>
+        <lines></lines>
+        <reason>The story requires adding a ConfigError exception to this existing module.</reason>
+      </artifact>
+      <artifact>
+        <path>tests/test_models/test_config.py</path>
+        <kind>test</kind>
+        <symbol></symbol>
+        <lines></lines>
+        <reason>This test file needs to be created to provide comprehensive testing for the new module.</reason>
+      </artifact>
+    </code>
+    <dependencies>
+      <dependency>
+        <ecosystem>Python</ecosystem>
+        <package>PyYAML</package>
+        <version>>=6.0</version>
+      </dependency>
+    </dependencies>
+  </artifacts>
+
+  <constraints>
+      <constraint>Use `PyYAML` for YAML parsing.</constraint>
+      <constraint>The default configuration path is `~/.capsule/config.yaml`.</constraint>
+      <constraint>The `get` method must support dot notation for nested keys.</constraint>
+    </constraints>
+  <interfaces/>
+  <tests>
+      <standards>The project uses the `pytest` framework. Tests for models are located in `tests/test_models/`.</standards>
+      <locations>
+        <location>tests/test_models/test_config.py</location>
+      </locations>
+      <ideas>
+        <idea for="1">Test that the `Config` class can be instantiated.</idea>
+        <idea for="2">Test that a default `config.yaml` file is created if one does not exist.</idea>
+        <idea for="3">Test that an existing `config.yaml` file is loaded correctly.</idea>
+        <idea for="4">Test the `get` method with both top-level and nested keys.</idea>
+        <idea for="5">Test that `ConfigError` is raised when attempting to load a malformed YAML file.</idea>
+      </ideas>
+    </tests>
+</story-context>

@@ -1,0 +1,587 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<story-context id="bmad/story-context/0-1-project-scaffolding" v="1.0">
+  <metadata>
+    <epicId>epic-0</epicId>
+    <storyId>0.1</storyId>
+    <title>Project Scaffolding</title>
+    <status>ready-for-dev</status>
+    <generatedAt>2025-11-15</generatedAt>
+    <generator>BMAD Story Context Workflow</generator>
+    <sourceStoryPath>docs/sprint-artifacts/0-1-project-scaffolding.md</sourceStoryPath>
+  </metadata>
+
+  <story>
+    <asA>developer setting up the Obsidian Capsule Delivery System</asA>
+    <iWant>to initialize a professional Python project structure using Cookiecutter PyPackage</iWant>
+    <soThat>I have a solid foundation with proper directory structure, entry points, and basic packaging configuration that all future epics can build upon</soThat>
+    
+    <tasks>
+      <task id="1" ac="AC1.1">
+        <title>Install Cookiecutter and Generate Project Structure</title>
+        <subtasks>
+          <subtask id="1.1">Install Cookiecutter: pip install cookiecutter</subtask>
+          <subtask id="1.2">Run Cookiecutter with PyPackage template: cookiecutter gh:audreyfeldroy/cookiecutter-pypackage</subtask>
+          <subtask id="1.3">Verify Cookiecutter output structure: cd obsidian-capsule-cli && ls -la</subtask>
+          <subtask id="1.4">Create additional package subdirectories: mkdir -p capsule/{commands,core,models,templates,utils}</subtask>
+          <subtask id="1.5">Create additional test subdirectories: mkdir -p tests/test_{commands,core,models,utils}</subtask>
+          <subtask id="1.6">Create __init__.py files in all subdirectories</subtask>
+          <subtask id="1.7">Verify directory structure matches AC1.1 checklist</subtask>
+        </subtasks>
+      </task>
+      
+      <task id="2" ac="AC1.2">
+        <title>Create Package Initialization File</title>
+        <subtasks>
+          <subtask id="2.1">Update capsule/__init__.py with version and metadata</subtask>
+          <subtask id="2.2">Test package import: python -c "import capsule; print(f'Version: {capsule.__version__}')"</subtask>
+          <subtask id="2.3">Verify AC1.2 test passes</subtask>
+        </subtasks>
+      </task>
+      
+      <task id="3" ac="AC1.3">
+        <title>Create CLI Entry Point Skeleton</title>
+        <subtasks>
+          <subtask id="3.1">Create capsule/__main__.py</subtask>
+          <subtask id="3.2">Create capsule/cli.py with Typer app definition</subtask>
+          <subtask id="3.3">Create capsule/exceptions.py with base exception classes</subtask>
+          <subtask id="3.4">Test CLI help command: python -m capsule --help</subtask>
+          <subtask id="3.5">Test CLI version command: python -m capsule --version</subtask>
+          <subtask id="3.6">Verify AC1.3 all tests pass</subtask>
+        </subtasks>
+      </task>
+      
+      <task id="4">
+        <title>Create Basic Configuration Files</title>
+        <subtasks>
+          <subtask id="4.1">Verify pyproject.toml exists (created by Cookiecutter)</subtask>
+          <subtask id="4.2">Verify setup.py exists (created by Cookiecutter)</subtask>
+          <subtask id="4.3">Verify setup.cfg exists (created by Cookiecutter)</subtask>
+          <subtask id="4.4">Verify .gitignore exists (created by Cookiecutter)</subtask>
+          <subtask id="4.5">Verify README.md exists (created by Cookiecutter)</subtask>
+          <subtask id="4.6">Update README.md with basic project information</subtask>
+          <subtask id="4.7">Verify LICENSE file exists with MIT license</subtask>
+        </subtasks>
+      </task>
+      
+      <task id="5">
+        <title>Create Test Configuration Skeleton</title>
+        <subtasks>
+          <subtask id="5.1">Create tests/conftest.py for pytest fixtures</subtask>
+          <subtask id="5.2">Verify pytest can discover tests directory: pytest --collect-only</subtask>
+        </subtasks>
+      </task>
+      
+      <task id="6">
+        <title>Install in Editable Mode and Verify</title>
+        <subtasks>
+          <subtask id="6.1">Install package in editable mode: pip install -e .</subtask>
+          <subtask id="6.2">Verify package is installed: pip list | grep capsule</subtask>
+          <subtask id="6.3">Test installed CLI command: capsule --version</subtask>
+          <subtask id="6.4">Test installed CLI help: capsule --help</subtask>
+        </subtasks>
+      </task>
+      
+      <task id="7">
+        <title>Run All Acceptance Criteria Tests</title>
+        <subtasks>
+          <subtask id="7.1">Run AC1.1 directory structure verification</subtask>
+          <subtask id="7.2">Run AC1.2 package import test</subtask>
+          <subtask id="7.3">Run AC1.3 CLI entry point tests</subtask>
+          <subtask id="7.4">Document test results</subtask>
+        </subtasks>
+      </task>
+      
+      <task id="8" optional="true">
+        <title>Create Initial Git Commit</title>
+        <subtasks>
+          <subtask id="8.1">Initialize git repository (if not already done by Cookiecutter)</subtask>
+          <subtask id="8.2">Add all files to git: git add .</subtask>
+          <subtask id="8.3">Create initial commit with detailed message</subtask>
+          <subtask id="8.4">Verify clean git status</subtask>
+        </subtasks>
+      </task>
+    </tasks>
+  </story>
+
+  <acceptanceCriteria>
+    <criterion id="AC1.1">
+      <title>Project Directory Structure Matches Architecture Specification</title>
+      <description>Directory structure matches docs/architecture.md lines 72-186 exactly</description>
+      <verification>
+        <test>
+          <description>All directories and __init__.py files exist</description>
+          <command>ls -R capsule/ | grep __init__.py</command>
+          <command>ls -R tests/ | grep __init__.py</command>
+        </test>
+      </verification>
+      <requiredDirectories>
+        <directory>capsule/__init__.py</directory>
+        <directory>capsule/__main__.py</directory>
+        <directory>capsule/cli.py</directory>
+        <directory>capsule/exceptions.py</directory>
+        <directory>capsule/commands/__init__.py</directory>
+        <directory>capsule/core/__init__.py</directory>
+        <directory>capsule/models/__init__.py</directory>
+        <directory>capsule/templates/</directory>
+        <directory>capsule/utils/__init__.py</directory>
+        <directory>tests/__init__.py</directory>
+        <directory>tests/conftest.py</directory>
+        <directory>tests/test_commands/__init__.py</directory>
+        <directory>tests/test_core/__init__.py</directory>
+        <directory>tests/test_models/__init__.py</directory>
+        <directory>tests/test_utils/__init__.py</directory>
+      </requiredDirectories>
+    </criterion>
+    
+    <criterion id="AC1.2">
+      <title>Package is Importable in Python</title>
+      <description>Package can be imported and version is accessible</description>
+      <requirements>
+        <requirement>capsule/__init__.py defines __version__ = "0.1.0"</requirement>
+        <requirement>capsule/__init__.py defines __author__ = "BMad"</requirement>
+        <requirement>capsule/__init__.py defines __license__ = "MIT"</requirement>
+      </requirements>
+      <verification>
+        <test>
+          <command>python -c "import capsule; assert capsule.__version__ == '0.1.0'; print('✓ Package imports correctly')"</command>
+          <expectedOutput>✓ Package imports correctly</expectedOutput>
+        </test>
+      </verification>
+    </criterion>
+    
+    <criterion id="AC1.3">
+      <title>CLI Entry Point is Defined and Callable</title>
+      <description>CLI entry point exists and displays help</description>
+      <requirements>
+        <requirement>capsule/__main__.py exists and imports cli.app</requirement>
+        <requirement>capsule/cli.py defines Typer app with basic structure</requirement>
+        <requirement>Help message displays project information</requirement>
+      </requirements>
+      <verification>
+        <test id="1">
+          <description>Direct module execution</description>
+          <command>python -m capsule --help</command>
+          <expectedContains>
+            <item>Obsidian Capsule Delivery System</item>
+            <item>AI-powered educational content generation</item>
+            <item>--version</item>
+            <item>--help</item>
+          </expectedContains>
+        </test>
+        <test id="2">
+          <description>Entry point installed</description>
+          <command>pip install -e .</command>
+          <command>capsule --help</command>
+          <expectedContains>Same as Test 1</expectedContains>
+        </test>
+        <test id="3">
+          <description>Version callback works</description>
+          <command>capsule --version</command>
+          <expectedOutput>Obsidian Capsule CLI v0.1.0</expectedOutput>
+        </test>
+      </verification>
+    </criterion>
+  </acceptanceCriteria>
+
+  <artifacts>
+    <docs>
+      <doc>
+        <path>docs/architecture.md</path>
+        <title>Architecture Document</title>
+        <section>Project Initialization (lines 19-46)</section>
+        <snippet>Epic 0 establishes the foundational infrastructure using Cookiecutter PyPackage. First implementation story creates project skeleton with command: pip install cookiecutter; cookiecutter gh:audreyfeldroy/cookiecutter-pypackage. Establishes CLI framework (Typer), project structure, testing infrastructure, code quality tools, documentation structure, and version management.</snippet>
+      </doc>
+      
+      <doc>
+        <path>docs/architecture.md</path>
+        <title>Architecture Document</title>
+        <section>Decision Summary Table (lines 49-67)</section>
+        <snippet>CLI Framework: Typer 0.9.0+ (type-safe, modern, includes rich formatting). Project Structure: Cookiecutter PyPackage (professional structure, testing, docs). Testing Framework: pytest 7.0+. Code Formatting: black 23.0+. Linting: flake8 + mypy.</snippet>
+      </doc>
+      
+      <doc>
+        <path>docs/architecture.md</path>
+        <title>Architecture Document</title>
+        <section>Complete Project Structure (lines 72-186)</section>
+        <snippet>Defines exact directory structure: capsule/ (main package with subdirs: commands/, core/, models/, templates/, utils/), tests/ (mirror structure), docs/, .github/workflows/, and root config files (pyproject.toml, setup.py, setup.cfg, .gitignore, LICENSE, README.md).</snippet>
+      </doc>
+      
+      <doc>
+        <path>docs/sprint-artifacts/tech-spec-epic-0.md</path>
+        <title>Epic 0 Technical Specification</title>
+        <section>Detailed Design - APIs and Interfaces</section>
+        <snippet>Provides complete code examples for CLI entry point skeleton, Typer app definition with version callback, and custom exception classes. Includes full implementation code that can be copied directly.</snippet>
+      </doc>
+      
+      <doc>
+        <path>docs/sprint-artifacts/tech-spec-epic-0.md</path>
+        <title>Epic 0 Technical Specification</title>
+        <section>Workflows and Sequencing - Story 0.1 Implementation Sequence</section>
+        <snippet>Step-by-step guide: Install Cookiecutter → Run cookiecutter with specific answers → Create additional directories → Create __main__.py and cli.py skeletons → Verify directory structure matches architecture.</snippet>
+      </doc>
+      
+      <doc>
+        <path>docs/architecture.md</path>
+        <title>Architecture Document</title>
+        <section>Naming Conventions (lines 1527-1553)</section>
+        <snippet>Python modules: snake_case.py. Package directories: lowercase (no underscores). Classes: PascalCase. Functions: snake_case. Absolute imports only, no relative imports.</snippet>
+      </doc>
+      
+      <doc>
+        <path>docs/architecture.md</path>
+        <title>Architecture Document</title>
+        <section>ADR-001: Typer + Cookiecutter Decision (lines 1933-1959)</section>
+        <snippet>Decision to use Typer framework with Cookiecutter PyPackage structure. Rationale: Type hints provide safety and IDE support, Rich library integration for beautiful output, Cookiecutter gives professional structure, well-maintained industry-standard tools.</snippet>
+      </doc>
+    </docs>
+
+    <code>
+      <artifact>
+        <path>capsule/__init__.py</path>
+        <kind>package initialization</kind>
+        <symbol>__version__, __author__, __license__</symbol>
+        <lines>all</lines>
+        <reason>Package metadata and version info - TO BE CREATED by this story</reason>
+        <status>TO BE CREATED</status>
+      </artifact>
+      
+      <artifact>
+        <path>capsule/__main__.py</path>
+        <kind>entry point</kind>
+        <symbol>main entry</symbol>
+        <lines>all</lines>
+        <reason>CLI entry point for python -m capsule - TO BE CREATED by this story</reason>
+        <status>TO BE CREATED</status>
+      </artifact>
+      
+      <artifact>
+        <path>capsule/cli.py</path>
+        <kind>CLI application</kind>
+        <symbol>app, main, version_callback</symbol>
+        <lines>all</lines>
+        <reason>Typer app definition with version callback - TO BE CREATED by this story</reason>
+        <status>TO BE CREATED</status>
+      </artifact>
+      
+      <artifact>
+        <path>capsule/exceptions.py</path>
+        <kind>exception classes</kind>
+        <symbol>CapsuleError, ValidationError, FileError, NetworkError, UserCancelledError, ConfigError</symbol>
+        <lines>all</lines>
+        <reason>Custom exception hierarchy - TO BE CREATED by this story</reason>
+        <status>TO BE CREATED</status>
+      </artifact>
+      
+      <artifact>
+        <path>tests/conftest.py</path>
+        <kind>test configuration</kind>
+        <symbol>pytest fixtures</symbol>
+        <lines>all</lines>
+        <reason>Pytest configuration and fixtures - TO BE CREATED by this story</reason>
+        <status>TO BE CREATED</status>
+      </artifact>
+    </code>
+
+    <dependencies>
+      <python>
+        <runtime>
+          <package name="cookiecutter" version="latest" purpose="Project template generation" requiredFor="Story 0.1 Task 1"/>
+        </runtime>
+        <dev>
+          <note>Development dependencies will be installed in Story 0.2</note>
+          <planned>
+            <package name="typer[all]" version=">=0.9.0"/>
+            <package name="pytest" version=">=7.0"/>
+            <package name="black" version=">=23.0"/>
+            <package name="flake8" version=">=6.0"/>
+            <package name="mypy" version=">=1.0"/>
+          </planned>
+        </dev>
+      </python>
+      
+      <externalTools>
+        <tool name="Cookiecutter PyPackage Template" source="gh:audreyfeldroy/cookiecutter-pypackage" purpose="Generate professional Python project structure"/>
+      </externalTools>
+    </dependencies>
+  </artifacts>
+
+  <constraints>
+    <architectural>
+      <constraint id="ARCH-001">
+        <description>Project structure MUST match Architecture lines 72-186 exactly</description>
+        <source>docs/architecture.md</source>
+        <criticality>CRITICAL</criticality>
+        <verification>AC1.1</verification>
+      </constraint>
+      
+      <constraint id="ARCH-002">
+        <description>Package name MUST be "capsule" (not "obsidian-capsule-cli")</description>
+        <source>docs/architecture.md lines 19-46</source>
+        <criticality>CRITICAL</criticality>
+      </constraint>
+      
+      <constraint id="ARCH-003">
+        <description>Python version minimum: 3.8+ (NFR29)</description>
+        <source>docs/architecture.md line 1878</source>
+        <criticality>CRITICAL</criticality>
+      </constraint>
+      
+      <constraint id="ARCH-004">
+        <description>License MUST be MIT</description>
+        <source>ADR assumption in architecture</source>
+        <criticality>HIGH</criticality>
+      </constraint>
+      
+      <constraint id="ARCH-005">
+        <description>CLI framework MUST be Typer (ADR-001)</description>
+        <source>docs/architecture.md lines 1933-1959</source>
+        <criticality>CRITICAL</criticality>
+      </constraint>
+    </architectural>
+    
+    <naming>
+      <constraint id="NAME-001">
+        <description>Python modules: snake_case.py</description>
+        <source>docs/architecture.md lines 1527-1553</source>
+      </constraint>
+      
+      <constraint id="NAME-002">
+        <description>Package directories: lowercase (no underscores)</description>
+        <source>docs/architecture.md lines 1527-1553</source>
+      </constraint>
+      
+      <constraint id="NAME-003">
+        <description>Classes: PascalCase (e.g., CapsuleError)</description>
+        <source>docs/architecture.md lines 1527-1553</source>
+      </constraint>
+      
+      <constraint id="NAME-004">
+        <description>Functions: snake_case (e.g., version_callback)</description>
+        <source>docs/architecture.md lines 1527-1553</source>
+      </constraint>
+    </naming>
+    
+    <implementation>
+      <constraint id="IMPL-001">
+        <description>Use absolute imports only, no relative imports</description>
+        <source>docs/architecture.md lines 1562-1569</source>
+        <example>from capsule.cli import app  # NOT from ..cli import app</example>
+      </constraint>
+      
+      <constraint id="IMPL-002">
+        <description>Initial version MUST be 0.1.0 (semantic versioning)</description>
+        <source>docs/sprint-artifacts/tech-spec-epic-0.md</source>
+      </constraint>
+      
+      <constraint id="IMPL-003">
+        <description>All subdirectories MUST have __init__.py files</description>
+        <source>Python package requirements</source>
+      </constraint>
+    </implementation>
+  </constraints>
+
+  <interfaces>
+    <interface>
+      <name>capsule.__version__</name>
+      <kind>module variable</kind>
+      <signature>__version__: str = "0.1.0"</signature>
+      <path>capsule/__init__.py</path>
+      <description>Package version string following semantic versioning</description>
+    </interface>
+    
+    <interface>
+      <name>capsule CLI entry point</name>
+      <kind>command-line interface</kind>
+      <signature>capsule [OPTIONS]</signature>
+      <description>Main CLI command installed via entry_points in pyproject.toml</description>
+      <options>
+        <option>--version, -v : Show version and exit</option>
+        <option>--help : Show help message</option>
+      </options>
+    </interface>
+    
+    <interface>
+      <name>version_callback</name>
+      <kind>function</kind>
+      <signature>def version_callback(value: bool) -> None</signature>
+      <path>capsule/cli.py</path>
+      <description>Typer callback function that displays version and exits</description>
+    </interface>
+    
+    <interface>
+      <name>CapsuleError</name>
+      <kind>exception class</kind>
+      <signature>class CapsuleError(Exception): exit_code = 1</signature>
+      <path>capsule/exceptions.py</path>
+      <description>Base exception for all capsule errors with exit code</description>
+    </interface>
+  </interfaces>
+
+  <tests>
+    <standards>
+      Story 0.1 creates test infrastructure skeleton but does not implement comprehensive tests (those will be added in Epic 13). 
+      Basic smoke tests are recommended: test_package_import() verifies import works, test_cli_version_command() verifies CLI runs. 
+      Testing framework: pytest 7.0+ with fixtures in tests/conftest.py. 
+      Coverage target for Epic 0: 80%+.
+    </standards>
+    
+    <locations>
+      <location>tests/</location>
+      <location>tests/test_commands/</location>
+      <location>tests/test_core/</location>
+      <location>tests/test_models/</location>
+      <location>tests/test_utils/</location>
+    </locations>
+    
+    <ideas>
+      <test ac="AC1.2" priority="high">
+        <name>test_package_import</name>
+        <description>Verify capsule package can be imported and __version__ is defined</description>
+        <implementation>python -c "import capsule; assert capsule.__version__ == '0.1.0'"</implementation>
+      </test>
+      
+      <test ac="AC1.3" priority="high">
+        <name>test_cli_version_command</name>
+        <description>Verify capsule --version command works</description>
+        <implementation>subprocess.run([sys.executable, "-m", "capsule", "--version"], capture_output=True)</implementation>
+      </test>
+      
+      <test ac="AC1.3" priority="high">
+        <name>test_cli_help_command</name>
+        <description>Verify capsule --help command displays help</description>
+        <implementation>subprocess.run([sys.executable, "-m", "capsule", "--help"], capture_output=True)</implementation>
+      </test>
+      
+      <test ac="AC1.1" priority="medium">
+        <name>test_directory_structure</name>
+        <description>Verify all required directories exist</description>
+        <implementation>Check existence of all paths in AC1.1 requiredDirectories list</implementation>
+      </test>
+    </ideas>
+  </tests>
+  
+  <cookiecutterAnswers>
+    <answer prompt="Project name">obsidian-capsule-cli</answer>
+    <answer prompt="Project slug">obsidian-capsule-cli</answer>
+    <answer prompt="Package name">capsule</answer>
+    <answer prompt="Friendly name">Obsidian Capsule Delivery System</answer>
+    <answer prompt="Author name">BMad</answer>
+    <answer prompt="Email">bmad@example.com</answer>
+    <answer prompt="GitHub username">&lt;your-github-username&gt;</answer>
+    <answer prompt="Project description">CLI tool for AI-powered educational content generation in Obsidian</answer>
+    <answer prompt="License">MIT</answer>
+    <answer prompt="Python version">3.8</answer>
+  </cookiecutterAnswers>
+  
+  <implementationCodeExamples>
+    <example file="capsule/__init__.py">
+<![CDATA["""Obsidian Capsule Delivery System - Python CLI
+
+AI-powered educational content generation and distribution for Obsidian.
+"""
+
+__version__ = "0.1.0"
+__author__ = "BMad"
+__license__ = "MIT"
+
+# Package will be populated by subsequent stories
+]]>
+    </example>
+    
+    <example file="capsule/__main__.py">
+<![CDATA["""CLI entry point for python -m capsule"""
+from capsule.cli import app
+
+if __name__ == "__main__":
+    app()
+]]>
+    </example>
+    
+    <example file="capsule/cli.py">
+<![CDATA["""Main CLI application using Typer framework"""
+import typer
+from capsule import __version__
+
+app = typer.Typer(
+    name="capsule",
+    help="Obsidian Capsule Delivery System - AI-powered educational content generation",
+    add_completion=False,
+)
+
+def version_callback(value: bool):
+    """Display version information"""
+    if value:
+        typer.echo(f"Obsidian Capsule CLI v{__version__}")
+        raise typer.Exit()
+
+@app.callback()
+def main(
+    version: bool = typer.Option(
+        None,
+        "--version",
+        "-v",
+        callback=version_callback,
+        is_eager=True,
+        help="Show version and exit",
+    ),
+):
+    """
+    Obsidian Capsule Delivery System
+    
+    AI-powered content generation and distribution for Obsidian knowledge bases.
+    
+    For detailed documentation, visit: https://github.com/<username>/obsidian-capsule-delivery
+    """
+    pass
+
+if __name__ == "__main__":
+    app()
+]]>
+    </example>
+    
+    <example file="capsule/exceptions.py">
+<![CDATA["""Custom exceptions for capsule operations"""
+
+class CapsuleError(Exception):
+    """Base exception for all capsule errors"""
+    exit_code = 1
+
+class ValidationError(CapsuleError):
+    """Schema validation failed"""
+    exit_code = 1
+
+class FileError(CapsuleError):
+    """File operation failed"""
+    exit_code = 2
+
+class NetworkError(CapsuleError):
+    """Network/API error"""
+    exit_code = 3
+
+class UserCancelledError(CapsuleError):
+    """User cancelled operation"""
+    exit_code = 4
+
+class ConfigError(CapsuleError):
+    """Configuration error"""
+    exit_code = 5
+]]>
+    </example>
+    
+    <example file="tests/conftest.py">
+<![CDATA["""Pytest configuration and fixtures for capsule tests"""
+import pytest
+from pathlib import Path
+import tempfile
+
+@pytest.fixture
+def temp_dir():
+    """Create a temporary directory for testing"""
+    with tempfile.TemporaryDirectory() as tmpdir:
+        yield Path(tmpdir)
+
+# Additional fixtures will be added in Epic 13
+]]>
+    </example>
+  </implementationCodeExamples>
+</story-context>

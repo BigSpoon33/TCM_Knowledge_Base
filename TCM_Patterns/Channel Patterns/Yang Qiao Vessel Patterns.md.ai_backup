@@ -1,0 +1,50 @@
+---
+# =9 Core Metadata (Universal Fields)
+id: "pattern-20251010183503"
+name: ""
+type: "pattern"
+aliases: []
+tags: ['TCM', 'Pattern']
+
+# =9 Cross-Link Fields (Universal Relationship Slots)
+category: ['']
+related: []
+symptoms: []
+patterns: []
+western_conditions: []
+formulas: []
+herbs: []
+points: []
+nutrition: []
+tests: []
+
+# =9 Pattern-Specific Data
+pattern_data:
+  pattern_type: "Zang Fu"
+  pattern_subtype: ""
+  excess_deficiency: "Mixed Excess-Deficiency"
+  hot_cold: "Neither"
+  interior_exterior: "Interior"
+  yin_yang: "Yin"
+  etiology: []
+  pathomechanisms: []
+  disease_progression: ""
+  cardinal_symptoms: ['Epilepsy', 'Insomnia', 'Redness and pain in the inner canthus', 'Pain in the back and lumbar region', 'Eversion of the foot', 'Spasm of the lower limbs']
+  tongue: ""
+  pulse: ""
+  treatment_principle: []
+  contraindications: []
+
+created: 2025-10-10
+updated: 2025-10-10
+---
+
+## YANG QIAO (Yang Motility Vessel)
+
+**Symptoms (CAM):**
+- Epilepsy
+- Insomnia
+- Redness and pain in the inner canthus
+- Pain in the back and lumbar region
+- Eversion of the foot
+- Spasm of the lower limbs

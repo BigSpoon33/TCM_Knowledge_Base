@@ -1,0 +1,218 @@
+---
+id: point-20251005182437
+name: BL-45
+type: point
+aliases:
+- YĪXǏ
+- None
+- 譩譆
+tags:
+- TCM
+- Acupuncture
+- Point
+- Bladder
+category:
+- Bladder Channel Points
+related: []
+symptoms: []
+patterns: []
+western_conditions: []
+formulas: []
+herbs: []
+points: []
+nutrition: []
+tests: []
+point_data:
+  code: BL-45
+  hanzi: 譩譆
+  pinyin: YĪXǏ
+  english: None
+  channel: Bladder
+  special_properties: []
+  location_description: 3 cun lateral to the midline, level with the lower border
+    of the spinous process of the sixth thoracic vertebra (T6) and level with Dūshū
+    BL-16.
+  location_notes: When the shoulder is relaxed, the three cun line corresponds to
+    the medial border of the scapula.
+  needling_method: Oblique insertion
+  needling_depth: 0.3 to 0.5 cun
+  needling_cautions:
+  - deep perpendicular or deep oblique needling in a medial direction carries a substantial
+    risk of causing a pneumothorax.
+  functions:
+  - Expels wind, clears heat and descends Lung qi
+  - Invigorates qi and blood and alleviates pain
+  indications:
+    respiratory:
+    - Cough
+    - dyspnoea
+    digestive:
+    - abdominal distention
+    - pain of the hypogastrium
+    head_throat:
+    - visual dizziness
+    - eye pain
+    - nosebleed
+    - headache in children whilst eating
+    pain:
+    - Pain of the shoulder, scapula and back
+    - chest pain that radiates to the lumbar region
+    - pain of the lateral costal region accompanied by distention and pain of the
+      hypogastrium
+    - pain of the lateral costal region radiating to the Heart and Lung
+    other:
+    - febrile disease with absence of sweating
+    - attack by wind with absence of sweating
+    - malaria
+    - five palms agitated and hot
+    - contraction of the axilla
+  combinations:
+  - condition: Abdominal fullness
+    points:
+    - Yīxǐ BL-45
+    - Zúsānlǐ ST-36
+    source: Supplementing Life
+  - condition: Cough with rebellious qi, dyspnoea, vomiting of foam and clenched teeth
+    points:
+    - Yīxǐ BL-45
+    - Fútú L.I.-18
+    - Tiānróng SI-17
+    - Liánquán REN-23
+    - Pòhù BL-42
+    - Qìshè ST-11
+    source: Thousand Ducat Formulas
+  - condition: Swelling of the face
+    points:
+    - Yīxǐ BL-45
+    - Tiānyǒu SJ-16
+    - Fēngchí GB-20
+    source: Systematic Classic
+  - condition: Visual dizziness
+    points:
+    - Yīxǐ BL-45
+    - Shéntíng DU-24
+    - Shàngxīng DU-23
+    - Yǒngquǎn KID-1
+    - Yújì LU-10
+    - Dàdū SP-2
+    source: Supplementing Life
+  - condition: Contraction and cold of the shoulder and back, with pain of the inner
+      aspect of the scapula
+    points:
+    - Yīxǐ BL-45
+    - Chǐzé LU-5
+    - Géshū BL-17
+    - Jīnmén BL-63
+    source: Thousand Ducat Formulas
+created: 2025-10-05
+updated: 2025-10-05
+banner: TCM_Points_Images/BL-45_diagram.jpg
+cssclasses:
+- noyaml
+---
+
+# 📍 BL-45 · YĪXǏ (譩譆)
+
+**Point Name:** None (YĪXǏ)
+**Channel:** Bladder Channel
+**Special Properties:** 
+
+---
+
+## 📍 Location
+
+3 cun lateral to the midline, level with the lower border of the spinous process of the sixth thoracic vertebra (T6) and level with Dūshū BL-16.
+
+**Location Notes:**
+When the shoulder is relaxed, the three cun line corresponds to the medial border of the scapula.
+
+![[BL-45_diagram.jpg]]
+
+**Chinese Characters:** ![[BL-45_chinese.png]]
+
+---
+
+## 🔧 Needling Technique
+
+**Method:** Oblique insertion
+**Depth:** 0.3 to 0.5 cun
+
+### ⚠️ Cautions
+- deep perpendicular or deep oblique needling in a medial direction carries a substantial risk of causing a pneumothorax.
+
+---
+
+## ⚡ Functions & Actions
+- Expels wind, clears heat and descends Lung qi
+- Invigorates qi and blood and alleviates pain
+
+---
+
+## 🎯 Clinical Indications
+
+### Respiratory
+- Cough
+- dyspnoea
+
+### Digestive
+- abdominal distention
+- pain of the hypogastrium
+
+### Head Throat
+- visual dizziness
+- eye pain
+- nosebleed
+- headache in children whilst eating
+
+### Pain
+- Pain of the shoulder, scapula and back
+- chest pain that radiates to the lumbar region
+- pain of the lateral costal region accompanied by distention and pain of the hypogastrium
+- pain of the lateral costal region radiating to the Heart and Lung
+
+### Other
+- febrile disease with absence of sweating
+- attack by wind with absence of sweating
+- malaria
+- five palms agitated and hot
+- contraction of the axilla
+
+---
+
+## 🔗 Point Combinations
+
+**Abdominal fullness**
+- Points: Yīxǐ BL-45, Zúsānlǐ ST-36
+- Source: *Supplementing Life*
+
+**Cough with rebellious qi, dyspnoea, vomiting of foam and clenched teeth**
+- Points: Yīxǐ BL-45, Fútú L.I.-18, Tiānróng SI-17, Liánquán REN-23, Pòhù BL-42, Qìshè ST-11
+- Source: *Thousand Ducat Formulas*
+
+**Swelling of the face**
+- Points: Yīxǐ BL-45, Tiānyǒu SJ-16, Fēngchí GB-20
+- Source: *Systematic Classic*
+
+**Visual dizziness**
+- Points: Yīxǐ BL-45, Shéntíng DU-24, Shàngxīng DU-23, Yǒngquǎn KID-1, Yújì LU-10, Dàdū SP-2
+- Source: *Supplementing Life*
+
+**Contraction and cold of the shoulder and back, with pain of the inner aspect of the scapula**
+- Points: Yīxǐ BL-45, Chǐzé LU-5, Géshū BL-17, Jīnmén BL-63
+- Source: *Thousand Ducat Formulas*
+
+---
+
+## 🧬 TCM Theory & Commentary
+
+Yīxǐ BL-45 is level with Dūshū BL-16 which is listed in some classical texts as the back-shu point of the Governing vessel. Whilst Dūshū BL-16 has few indications which reflect disorder of the Governing vessel, some of the indications of Yīxǐ BL-45, for example visual dizziness, eye pain, nosebleed, malaria, headache and chest pain radiating to the lumbar region, may be understood in this way.
+
+Summary of clinical application
+Rarely used.
+Lies level with Dūshū BL-16 (listed in some classics as the backshu point of the Governing vessel) and has some Governing vessel indications: visual dizziness, eye pain, nosebleed, malaria, headache and chest pain radiating to the lumbar region.
+Also indicated for cough, dyspnoea, febrile disease with absence of sweating, attack by wind with absence of sweating, headache in children whilst eating, five palms agitated and hot, pain of the shoulder, scapula and back, pain of the lateral costal region accompanied by distention and pain of the hypogastrium, pain of the lateral costal region radiating to the Heart and Lung, abdominal distention, contraction of the axilla.
+
+---
+
+*Last updated: 2025-10-05*
+*Channel: Bladder | Type: [[TCM Acupuncture Points]]*

@@ -1,0 +1,166 @@
+<story-context id="{bmad_folder}/bmm/workflows/4-implementation/story-context/template" v="1.0">
+  <metadata>
+    <epicId>4</epicId>
+    <storyId>5</storyId>
+    <title>template-driven-generation-pipeline</title>
+    <status>drafted</status>
+    <generatedAt>2025-11-18</generatedAt>
+    <generator>BMAD Story Context Workflow</generator>
+    <sourceStoryPath>docs/sprint-artifacts/4-5-template-driven-generation-pipeline.md</sourceStoryPath>
+  </metadata>
+
+  <story>
+    <asA>a developer</asA>
+    <iWant>to build the pipeline that drives content generation from templates</iWant>
+    <soThat>I can automate the creation of educational materials.</soThat>
+    <tasks>
+      - Task 1: Implement `generate` Command Structure
+        - Subtask 1.1: Create the `capsule/commands/generate.py` file.
+        - Subtask 1.2: Define the `generate` command function with Typer.
+      - Task 2: Implement Pipeline Orchestration
+        - Subtask 2.1: Instantiate and use the `ContentGenerator` within the command.
+        - Subtask 2.2: Call the `generate` method of the `ContentGenerator`.
+      - Task 3: Handle Output Directory
+        - Subtask 3.1: Add an `--output` option to the `generate` command.
+        - Subtask 3.2: Implement logic to save the generated capsule to the specified directory.
+      - Task 4: Implement Study Material Generation
+        - Subtask 4.1: Add a `--materials` option to specify which study materials to generate.
+        - Subtask 4.2: Pass the selected materials to the `ContentGenerator`.
+      - Task 5: Write Unit Tests
+        - Subtask 5.1: Create the test file `tests/test_commands/test_generate.py`.
+        - Subtask 5.2: Write tests for the `generate` command, mocking dependencies.
+    </tasks>
+  </story>
+
+  <acceptanceCriteria>
+      1.  The `generate` command in the CLI can accept a topic and a template name.
+      2.  The command orchestrates the `ContentGenerator` to perform research, template rendering, and validation.
+      3.  The generated capsule, including root notes and study materials, is saved to a specified output directory.
+      4.  The pipeline correctly generates all specified study materials (flashcards, quizzes, etc.) based on the template.
+      5.  Unit tests are created for the `generate` command, mocking the `ContentGenerator` and file system operations.
+    </acceptanceCriteria>
+
+  <artifacts>
+    <docs>
+      <doc>
+        <path>docs/architecture.md</path>
+        <title>Architecture Document</title>
+        <section>Epic Group 1: Content Generation (FR1-FR10)</section>
+        <snippet>
+          This section describes the components and data flow for content generation, including the ContentGenerator, researcher, templates, and the `generate` command.
+        </snippet>
+      </doc>
+      <doc>
+        <path>docs/architecture.md</path>
+        <title>Architecture Document</title>
+        <section>CLI Command Structure Pattern</section>
+        <snippet>
+          This section provides a pattern for creating Typer CLI commands, including argument parsing, progress indicators, and error handling.
+        </snippet>
+      </doc>
+      <doc>
+        <path>docs/architecture.md</path>
+        <title>Architecture Document</title>
+        <section>Complete Project Structure</section>
+        <snippet>
+          This section shows the complete project structure, including the location of the `commands`, `core`, and `tests` directories.
+        </snippet>
+      </doc>
+      <doc>
+        <path>docs/PRD.md</path>
+        <title>Product Requirements Document</title>
+        <section>FR Group 1: Content Generation</section>
+        <snippet>
+          This section lists the functional requirements for content generation, including deep research, template-driven generation, and validation.
+        </snippet>
+      </doc>
+      <doc>
+        <path>docs/PRD.md</path>
+        <title>Product Requirements Document</title>
+        <section>CLI Tool Specifications</section>
+        <snippet>
+          This section provides the specifications for the CLI commands, including the `generate` command and its options.
+        </snippet>
+      </doc>
+      <doc>
+        <path>docs/epics.md</path>
+        <title>Project Epics</title>
+        <section>Epic 4: Template System & Content Generation</section>
+        <snippet>
+          This epic covers the Jinja2 templates, content generation pipeline, and study material creation. The story "4-5-template-driven-generation-pipeline" is part of this epic.
+        </snippet>
+      </doc>
+      <doc>
+        <path>docs/sprint-artifacts/tech-spec-epic-0.md</path>
+        <title>Epic Technical Specification: Foundation & Project Setup</title>
+        <section>Overview</section>
+        <snippet>
+          This document describes the foundational infrastructure of the project, including the project structure, dependencies, and CI/CD pipeline. It provides context on the overall project setup.
+        </snippet>
+      </doc>
+    </docs>
+    <code>
+      <artifact>
+        <path>capsule/core/generator.py</path>
+        <kind>Core Logic</kind>
+        <symbol>ContentGenerator</symbol>
+        <lines>6-24</lines>
+        <reason>This is the core class that orchestrates the content generation process. The `generate` command will use this class.</reason>
+      </artifact>
+      <artifact>
+        <path>tests/test_core/test_generator.py</path>
+        <kind>Test</kind>
+        <symbol>TestContentGenerator</symbol>
+        <lines></lines>
+        <reason>This file contains the unit tests for the ContentGenerator class. It serves as a reference for how to test the generator.</reason>
+      </artifact>
+      <artifact>
+        <path>capsule/commands/generate.py</path>
+        <kind>CLI Command</kind>
+        <symbol>generate</symbol>
+        <lines></lines>
+        <reason>This is the file where the `generate` command is implemented. The story requires modifying this file.</reason>
+      </artifact>
+    </code>
+    <dependencies>
+      <dependency>
+        <ecosystem>Python</ecosystem>
+        <package>jinja2</package>
+        <version>>=3.1.0</version>
+      </dependency>
+    </dependencies>
+  </artifacts>
+
+  <constraints>
+      - The `generate` command will be the primary entry point for content generation, orchestrating the `ContentGenerator`.
+      - Unit tests for the CLI command should mock the core logic to isolate the command's functionality.
+      - The `Validator` class used by the `ContentGenerator` is currently a placeholder. This pipeline should expect the validator to be basic.
+    </constraints>
+  <interfaces>
+      <interface>
+        <name>ContentGenerator.generate</name>
+        <kind>Method</kind>
+        <signature>generate(self, topic: str, template_name: str) -> str</signature>
+        <path>capsule/core/generator.py</path>
+      </interface>
+    </interfaces>
+  <tests>
+    <standards>
+      - Unit tests for the CLI command should mock the core logic to isolate the command's functionality.
+      - The project follows a test pyramid strategy, with a majority of unit tests, some integration tests, and a few E2E tests.
+      - Tests are organized in the `tests/` directory, mirroring the source structure.
+      - Pytest is the testing framework, and fixtures are used for setting up test data.
+    </standards>
+    <locations>
+      - `tests/test_commands/test_generate.py` (new file to be created)
+      - `tests/test_core/test_generator.py` (existing tests for core logic)
+    </locations>
+    <ideas>
+      - Test that the `generate` command calls the `ContentGenerator.generate` method with the correct arguments.
+      - Test that the `generate` command correctly handles the `--output` option.
+      - Test that the `generate` command correctly handles the `--materials` option.
+      - Test that the `generate` command correctly handles errors raised by the `ContentGenerator`.
+      - Test that the `generate` command prints the correct output upon success.
+    </ideas>
+  </tests>
+</story-context>

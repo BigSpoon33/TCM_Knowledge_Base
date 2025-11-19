@@ -1,0 +1,271 @@
+---
+id: point-20251005183724
+name: DU-14
+type: point
+aliases:
+- DÀZHUĪ
+- Great Vertebra
+- 大椎
+tags:
+- TCM
+- Acupuncture
+- Point
+- Governing vessel
+category:
+- Governing vessel Channel Points
+related: []
+symptoms: []
+patterns: []
+western_conditions: []
+formulas: []
+herbs: []
+points: []
+nutrition: []
+tests: []
+point_data:
+  code: DU-14
+  hanzi: 大椎
+  pinyin: DÀZHUĪ
+  english: Great Vertebra
+  channel: Governing vessel
+  special_properties:
+  - Meeting point of the Governing vessel with the six yang channels of the hand and
+    foot
+  - Point of the Sea of Qi
+  location_description: On the midline at the base of the neck, in the depression
+    below the spinous process of the seventh cervical vertebra.
+  location_notes: To locate C7 see Surface Anatomy.
+  needling_method: Perpendicular-oblique superior insertion
+  needling_depth: 0.5 to 1 cun
+  needling_cautions:
+  - the spinal canal lies between 1.25 and 1.75 cun deep to the skin surface, varying
+    according to body build
+  functions:
+  - Expels wind and firms the exterior
+  - Clears heat
+  - Treats malaria
+  - Tonifies deficiency
+  - Pacifies wind
+  indications:
+    respiratory:
+    - fullness of the chest and lateral costal region with dyspnoea
+    - shortness of breath with inability to speak
+    digestive:
+    - vomiting
+    - vomiting blood
+    head_throat:
+    - throat painful obstruction
+    - nosebleed that does not stop
+    pain:
+    - pain of the hundred joints
+    - stiffness of the spine
+    - stiffness of the nape and neck with inability to turn the head
+    other:
+    - injury by cold leading to high fever with agitation
+    - aversion to wind with shivering
+    - chills and fever
+    - warm malaria
+    - chronic malaria
+    - deficiency sweating
+    - night sweating
+    - steaming bone disorder
+    - heat in the bones
+    - lack of strength
+    - the five taxations and the seven injuries
+    - wind-taxation
+    - epilepsy
+    - chronic and acute childhood fright wind
+    - hypertension
+    - insomnia
+  combinations:
+  - condition: Malaria with much heat and little cold
+    points:
+    - DU-14
+    - SI-3
+    - P-5
+    - L.I.-11
+    source: Great Compendium
+  - condition: Malaria with much cold and little heat
+    points:
+    - DU-14
+    - SI-3
+    - L.I.-11
+    source: Compendium
+  - condition: Malaria
+    points:
+    - DU-14
+    - DU-2
+    source: Supplementing Life
+  - condition: Injury by cold with great heat that does not recede
+    points:
+    - DU-14
+    - L.I.-11
+    - GB-39
+    - ST-36
+    - KID-1
+    - L.I.-4
+    source: Great Compendium
+  - condition: Spleen cold malaria
+    points:
+    - DU-14
+    - P-5
+    - ST-18
+    source: Great Compendium
+  - condition: Spontaneous sweating
+    points:
+    - DU-14
+    - KID-7
+    - BL-43
+    source: Divine Moxibustion
+  - condition: Nosebleed
+    points:
+    - DU-14
+    - DU-15
+    source: Secrets of the Master of Cinnabar Creek
+created: 2025-10-05
+updated: 2025-10-05
+banner: TCM_Points_Images/DU-14_diagram.jpg
+cssclasses:
+- noyaml
+---
+
+# 📍 DU-14 · DÀZHUĪ (大椎)
+
+**Point Name:** Great Vertebra (DÀZHUĪ)
+**Channel:** Governing vessel Channel
+**Special Properties:** Meeting point of the Governing vessel with the six yang channels of the hand and foot, Point of the Sea of Qi
+
+---
+
+## 📍 Location
+
+On the midline at the base of the neck, in the depression below the spinous process of the seventh cervical vertebra.
+
+**Location Notes:**
+To locate C7 see Surface Anatomy.
+
+![[DU-14_diagram.jpg]]
+
+**Chinese Characters:** ![[DU-14_chinese.png]]
+
+---
+
+## 🔧 Needling Technique
+
+**Method:** Perpendicular-oblique superior insertion
+**Depth:** 0.5 to 1 cun
+
+### ⚠️ Cautions
+- the spinal canal lies between 1.25 and 1.75 cun deep to the skin surface, varying according to body build
+
+---
+
+## ⚡ Functions & Actions
+- Expels wind and firms the exterior
+- Clears heat
+- Treats malaria
+- Tonifies deficiency
+- Pacifies wind
+
+---
+
+## 🎯 Clinical Indications
+
+### Respiratory
+- fullness of the chest and lateral costal region with dyspnoea
+- shortness of breath with inability to speak
+
+### Digestive
+- vomiting
+- vomiting blood
+
+### Head Throat
+- throat painful obstruction
+- nosebleed that does not stop
+
+### Pain
+- pain of the hundred joints
+- stiffness of the spine
+- stiffness of the nape and neck with inability to turn the head
+
+### Other
+- injury by cold leading to high fever with agitation
+- aversion to wind with shivering
+- chills and fever
+- warm malaria
+- chronic malaria
+- deficiency sweating
+- night sweating
+- steaming bone disorder
+- heat in the bones
+- lack of strength
+- the five taxations and the seven injuries
+- wind-taxation
+- epilepsy
+- chronic and acute childhood fright wind
+- hypertension
+- insomnia
+
+---
+
+## 🔗 Point Combinations
+
+**Malaria with much heat and little cold**
+- Points: DU-14, SI-3, P-5, L.I.-11
+- Source: *Great Compendium*
+
+**Malaria with much cold and little heat**
+- Points: DU-14, SI-3, L.I.-11
+- Source: *Compendium*
+
+**Malaria**
+- Points: DU-14, DU-2
+- Source: *Supplementing Life*
+
+**Injury by cold with great heat that does not recede**
+- Points: DU-14, L.I.-11, GB-39, ST-36, KID-1, L.I.-4
+- Source: *Great Compendium*
+
+**Spleen cold malaria**
+- Points: DU-14, P-5, ST-18
+- Source: *Great Compendium*
+
+**Spontaneous sweating**
+- Points: DU-14, KID-7, BL-43
+- Source: *Divine Moxibustion*
+
+**Nosebleed**
+- Points: DU-14, DU-15
+- Source: *Secrets of the Master of Cinnabar Creek*
+
+---
+
+## 🧬 TCM Theory & Commentary
+
+The Governing vessel is known as the 'sea of the yang channels' and Dàzhuī DU-14 is the meeting point of the Governing vessel with the six yang channels of the hand and foot. As a consequence, Dàzhuī DU-14 has a strong action on i. clearing pathogenic factors from and firming the exterior yang portion of the body, ii. clearing yang heat, and iii. tonifying qi and yang.
+
+When exterior pathogenic factors attack the body they most commonly first lodge in the exterior portion, known in the six channel and four level theories of febrile diseases as the taiyang stage and defensive level respectively. Typical symptoms of this pattern are chills and fever, aversion to wind, shivering, and throat painful obstruction. If the pathogen penetrates to the interior (yangming stage or qi level) there will be high fever with agitation. If the pathogen resides between the exterior and interior (shaoyang stage) there will be alternating chills and fever, epitomised by malaria. Dàzhuī DU-14 is unique in its ability to clear pathogens from all these three stages. Zhang Zhong-jing, in the Treatise on Injury by Cold which otherwise discusses few acupuncture points, recommends needling Dàzhuī DU-14 in combination with Fèishū BL-13 and Gānshū BL-18 for the treatment of overlapping taiyang and shaoyang patterns.
+
+According to the Ming dynasty author Zhang Jing-yue "Malaria is an exogenous disease .... only in the condition of delicate health or overstrain or stress, is one apt to be attacked by the malarial pathogenic factor". By virtue of its ability to clear pathogenic factors from shaoyang and to tonify qi and yang, Dàzhuī DU-14 is ideally suited to treat both the root and manifestation of malaria.
+
+Dàzhuī DU-14 is one of the principal acupuncture points to treat disorders of sweating. Deficiency sweating arises either when pathogenic wind attacks the exterior and leads to disharmony of the nutritive qi and defensive qi, or when the defensive qi is deficient and unable to firm and control the pores. By virtue of its ability both to tonify the qi and to regulate the exterior, Dàzhuī DU-14 is able to treat both these forms of deficiency sweating. Night sweating and steaming bone disorder are most commonly seen in patterns of yin deficiency with heat, and here the action of Dàzhuī DU-14 is both to control the pores and clear the heat, and to tonify the deficiency.
+
+Bailao (Hundred Taxations) is an alternative name for this point found in the Glorious Anthology of Acupuncture and Moxibustion and other classics. This name vividly illustrates the ability of Dàzhuī DU-14 to treat deficiency and exhaustion of the whole body manifesting as lack of strength, the five taxations and the seven injuries. Another indication that reflects the ability of Dàzhuī DU-14 to tonify and strengthen the body is shortness of breath with inability to speak. This is explained in the Spiritual Pivot34 which classifies Dàzhuī DU-14 (along with Rényíng ST-9, Shānzhōng REN-17 and Yǎmén DU-15) as a point of the 'sea of qi'. This passage states "When the sea of qi is deficient, there is scanty energy insufficient for speech".
+
+According to the Treatment Strategies for Assorted Syndromes35 "Painful obstruction syndrome ... is due to deficiency of nutritive and defensive qi and to the space between skin and muscles being open, thus allowing wind-cold-dampness to ride the deficiency". Not only can underlying deficiency render a person prone to painful obstruction in this way, but if pathogenic wind-damp penetrates the bones and joints, over time it may lead to exhaustion. Dàzhuī DU-14, which is able to expel wind, regulate the pores and tonify qi, is specifically indicated for pain of the hundred joints (i.e. all the joints) and for wind-taxation (chronic painful obstruction leading to exhaustion of qi and blood).
+
+Like many points of the Governing vessel, Dàzhuī DU-14 is able to pacify interior wind (epilepsy and acute childhood fright wind), and to benefit the entire spine, particularly in the neck region. In clinical practice, Dàzhuī DU-14 is often needled towards one or other shoulder when neck pain radiates laterally.
+
+After ascending to the vertex, the Governing vessel descends through the midline of the nose. Dàzhuī DU-14 is indicated for nosebleed which does not stop, an indication that mirrors the folk practice of placing a key or other piece of cold metal, or a cold sponge, at the back of the neck to stop nosebleed.
+
+Summary of clinical application
+Clears pathogenic factors from taiyang (chills and fever, aversion to wind, shivering, throat painful obstruction), yangming (high fever with agitation) and shaoyang (alternating chills and fever). Treats malaria.
+For night sweating, steaming bone disorder, deficiency sweating due to exterior wind or defensive qi deficiency.
+Tonifies deficiency: lack of strength, the ‘five taxations’ and the ‘seven injuries’, shortness of breath with inability to speak.
+Treats painful obstruction, especially with underlying deficiency: pain of the hundred joints, wind-taxation.
+Pacifies wind (epilepsy), benefits the neck and spine and stops nosebleed.
+
+---
+
+*Last updated: 2025-10-05*
+*Channel: Governing vessel | Type: [[TCM Acupuncture Points]]*

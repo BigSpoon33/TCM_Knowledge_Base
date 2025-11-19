@@ -1,0 +1,117 @@
+<story-context id="{bmad_folder}/bmm/workflows/4-implementation/story-context/template" v="1.0">
+  <metadata>
+    <epicId>4</epicId>
+    <storyId>4.1</storyId>
+    <title>Jinja2 Template Engine Setup</title>
+    <status>ready</status>
+    <generatedAt>2025-11-18</generatedAt>
+    <generator>BMAD Story Context Workflow</generator>
+    <sourceStoryPath>docs/sprint-artifacts/4-1-jinja2-template-engine-setup.md</sourceStoryPath>
+  </metadata>
+
+  <story>
+    <asA>a developer</asA>
+    <iWant>to set up the Jinja2 template engine</iWant>
+    <soThat>I can generate content from templates in a standardized way.</soThat>
+    <tasks>
+      ### Task 3.1: Implement Jinja2 Template Engine
+
+-   [ ] **Subtask 3.1.1:** Create the file `capsule/utils/templates.py`.
+-   [ ] **Subtask 3.1.2:** Implement a function to create and configure a Jinja2 `Environment`.
+-   [ ] **Subtask 3.1.3:** Implement a function to load a template by name from the `capsule/templates` directory.
+-   [ ] **Subtask 3.1.4:** Create the test file `tests/test_utils/test_templates.py`.
+-   [ ] **Subtask 3.1.5:** Write unit tests for the template loading functions.
+    </tasks>
+  </story>
+
+  <acceptanceCriteria>
+1.  **Jinja2 Environment:** A Jinja2 environment is configured and available for use throughout the application.
+2.  **Template Loading:** A utility function is created to load Jinja2 templates from the `capsule/templates` directory.
+3.  **Unit Tests:** Unit tests are created in `tests/test_utils/test_templates.py` to validate that the Jinja2 environment can be created and that templates can be loaded successfully.
+  </acceptanceCriteria>
+
+  <artifacts>
+    <docs>
+      <doc>
+        <path>docs/architecture.md</path>
+        <title>Architecture Document</title>
+        <section>Decision Summary Table</section>
+        <snippet>The decision to use Jinja2 as the template engine is documented here, citing it as an industry standard that is powerful and well-documented.</snippet>
+      </doc>
+      <doc>
+        <path>docs/architecture.md</path>
+        <title>Architecture Document</title>
+        <section>Complete Project Structure</section>
+        <snippet>This section outlines the project structure, including the `capsule/templates/` directory for Jinja2 templates.</snippet>
+      </doc>
+      <doc>
+        <path>docs/architecture.md</path>
+        <title>Architecture Document</title>
+        <section>Epic to Architecture Mapping</section>
+        <snippet>This section maps the 'Template-Driven Generation' epic to the `capsule/core/generator.py` and `capsule/templates/` components.</snippet>
+      </doc>
+      <doc>
+        <path>docs/PRD.md</path>
+        <title>Product Requirements Document</title>
+        <section>FR Group 2: Template Management</section>
+        <snippet>This section details the functional requirements for template management, including the ability to define, validate, and share templates.</snippet>
+      </doc>
+    </docs>
+    <code>
+      <file>
+        <path>capsule/utils/templates.py</path>
+        <kind>utility</kind>
+        <symbol>create_jinja_environment(), load_template()</symbol>
+        <lines>TBD</lines>
+        <reason>New file to be created as the core implementation for this story. It will provide Jinja2 template loading capabilities.</reason>
+      </file>
+      <file>
+        <path>tests/test_utils/test_templates.py</path>
+        <kind>test</kind>
+        <symbol>TestTemplateUtils</symbol>
+        <lines>TBD</lines>
+        <reason>New test file to validate the functionality of the template utility module.</reason>
+      </file>
+    </code>
+    <dependencies>
+      <dependency>
+        <ecosystem>python</ecosystem>
+        <package>jinja2</package>
+        <version>&gt;=3.1.0</version>
+        <reason>Primary dependency to be added in this story.</reason>
+      </dependency>
+      <note>No dependency management file (pyproject.toml or requirements.txt) was found in the project. One should be created to manage project dependencies.</note>
+    </dependencies>
+  </artifacts>
+
+  <constraints>
+    - The `Jinja2` dependency must be added to the project's dependency list. The architecture specifies `jinja2>=3.1.0`.
+    - The new utility module must be placed in `capsule/utils/` as per the established project structure.
+    - All new code must be compliant with PEP 8 and include type hints, as enforced by the project's CI pipeline.
+  </constraints>
+  <interfaces>
+    <!-- No existing interfaces to consume. This story creates a new utility. -->
+    <interface>
+      <name>load_template</name>
+      <kind>function signature</kind>
+      <signature>def load_template(template_name: str) -> jinja2.Template:</signature>
+      <path>capsule/utils/templates.py</path>
+    </interface>
+  </interfaces>
+  <tests>
+    <standards>
+      - All tests will be implemented using the `pytest` framework.
+      - Tests will be organized within a class `TestTemplateUtils` in the specified test file.
+      - Test functions will be named descriptively, e.g., `test_load_template_successfully`.
+      - Pytest fixtures should be used to create a temporary `capsule/templates` directory with a dummy template for testing purposes.
+    </standards>
+    <locations>
+      - Unit tests for the template utility will be located in `tests/test_utils/test_templates.py`.
+    </locations>
+    <ideas>
+      - **Positive Test Case:** Verify that calling `load_template` with a valid template name returns a Jinja2 Template object.
+      - **Negative Test Case:** Verify that calling `load_template` with a non-existent template name raises a `jinja2.exceptions.TemplateNotFound` error.
+      - **Environment Test Case:** Verify that the `create_jinja_environment` function returns a correctly configured Jinja2 Environment object.
+    </ideas>
+  </tests>
+</story-context>

@@ -1,0 +1,146 @@
+<story-context id="{bmad_folder}/bmm/workflows/4-implementation/story-context/template" v="1.0">
+  <metadata>
+    <epicId>2</epicId>
+    <storyId>2.2</storyId>
+    <title>File Operations Utilities</title>
+    <status>drafted</status>
+    <generatedAt>2025-11-16</generatedAt>
+    <generator>BMAD Story Context Workflow</generator>
+    <sourceStoryPath>/home/shuma/Documents/AI_Suite/Obsidian_Capsule_Delivery/docs/sprint-artifacts/2-2-file-operations-utilities.md</sourceStoryPath>
+  </metadata>
+
+  <story>
+    <asA>a developer</asA>
+    <iWant>a centralized file operations utility module that provides safe, consistent, and well-tested functions for common file tasks like reading, writing, and copying</iWant>
+    <soThat>This will ensure that all file manipulations across the application are robust, handle errors gracefully, and follow standard practices like using UTF-8 encoding and atomic writes.</soThat>
+    <tasks>
+      <task id="3.1" title="Create FileOps Module and Exceptions">
+        <subtask id="3.1.1">Create the file `capsule/utils/file_ops.py`.</subtask>
+        <subtask id="3.1.2">Add a `FileError` exception to `capsule/utils/exceptions.py`.</subtask>
+      </task>
+      <task id="3.2" title="Implement Core File Functions">
+        <subtask id="3.2.1">Implement `safe_write(path: Path, content: str) -> None`.</subtask>
+        <subtask id="3.2.2">Implement `read_file(path: Path) -> str`.</subtask>
+        <subtask id="3.2.3">Ensure all file operations are wrapped in `try...except` blocks that raise `FileError`.</subtask>
+      </task>
+      <task id="3.3" title="Develop Unit Tests">
+        <subtask id="3.3.1">Create the test file `tests/test_utils/test_file_ops.py`.</subtask>
+        <subtask id="3.3.2">Write tests for `safe_write` to confirm atomicity and correct content.</subtask>
+        <subtask id="3.3.3">Write tests for `read_file` for both success and file-not-found cases.</subtask>
+        <subtask id="3.3.4">Write tests to verify that `FileError` is raised appropriately on permissions errors (using mocks).</subtask>
+      </task>
+    </tasks>
+  </story>
+
+  <acceptanceCriteria>
+      <criterion id="1">**FileOps Utility Module:** A module is created at `capsule/utils/file_ops.py` containing static utility functions.</criterion>
+      <criterion id="2">**Safe Write Function:** A `safe_write(path, content)` function is implemented that performs an atomic write by writing to a temporary file and then renaming it.</criterion>
+      <criterion id="3">**UTF-8 Enforcement:** All file reading and writing functions must enforce UTF-8 encoding.</criterion>
+      <criterion id="4">**Robust Error Handling:** Functions should raise custom `FileError` exceptions (defined in `capsule/utils/exceptions.py`) for issues like permissions errors or file not found.</criterion>
+      <criterion id="5">**Comprehensive Testing:** The module is fully tested in `tests/test_utils/test_file_ops.py`, covering success cases, error conditions, and edge cases.</criterion>
+    </acceptanceCriteria>
+
+  <artifacts>
+    <docs>
+      <doc>
+        <path>docs/architecture.md</path>
+        <title>Architecture Document</title>
+        <section>Decision Summary Table</section>
+        <snippet>| **File Operations** | pathlib + shutil | stdlib | Safe cross-platform file handling | All file operations | stdlib |</snippet>
+      </doc>
+      <doc>
+        <path>docs/architecture.md</path>
+        <title>Architecture Document</title>
+        <section>Complete Project Structure</section>
+        <snippet>capsule/utils/file_ops.py # Safe file operations</snippet>
+      </doc>
+      <doc>
+        <path>docs/architecture.md</path>
+        <title>Architecture Document</title>
+        <section>Security (NFR7-NFR12)</section>
+        <snippet>
+**NFR7: Data integrity (no data loss)**
+- **Implementation:** Atomic file writes (write to temp, then move)
+- **Pattern:**
+```python
+def safe_write(path: Path, content: str):
+    temp_path = path.with_suffix('.tmp')
+    temp_path.write_text(content, encoding='utf-8')
+    temp_path.replace(path)  # Atomic on POSIX
+```
+        </snippet>
+      </doc>
+    </docs>
+    <code>
+      <artifact>
+        <path>capsule/utils/exceptions.py</path>
+        <kind>module</kind>
+        <symbol>FileError</symbol>
+        <lines></lines>
+        <reason>The story requires adding a FileError exception to this existing module.</reason>
+      </artifact>
+      <artifact>
+        <path>capsule/utils/file_ops.py</path>
+        <kind>module</kind>
+        <symbol></symbol>
+        <lines></lines>
+        <reason>This file needs to be created as per the story's acceptance criteria.</reason>
+      </artifact>
+      <artifact>
+        <path>tests/test_utils/test_file_ops.py</path>
+        <kind>test</kind>
+        <symbol></symbol>
+        <lines></lines>
+        <reason>This test file needs to be created to provide comprehensive testing for the new module.</reason>
+      </artifact>
+    </code>
+    <dependencies>
+      <dependency>
+        <ecosystem>Python</ecosystem>
+        <package>click</package>
+        <version>>=8.0.0</version>
+      </dependency>
+      <dependency>
+        <ecosystem>Python</ecosystem>
+        <package>rich</package>
+        <version>>=13.0.0</version>
+      </dependency>
+      <dependency>
+        <ecosystem>Python</ecosystem>
+        <package>pyyaml</package>
+        <version>>=6.0</version>
+      </dependency>
+      <dependency>
+        <ecosystem>Python</ecosystem>
+        <package>google-generativeai</package>
+        <version>>=0.3.0</version>
+      </dependency>
+      <dependency>
+        <ecosystem>Python</ecosystem>
+        <package>questionary</package>
+        <version>>=2.0.0</version>
+      </dependency>
+    </dependencies>
+  </artifacts>
+
+  <constraints>
+      <constraint>Use `pathlib` and `shutil` for file operations.</constraint>
+      <constraint>Implement atomic writes for `safe_write` by writing to a temporary file and then renaming it.</constraint>
+      <constraint>All file reading and writing functions must enforce UTF-8 encoding.</constraint>
+      <constraint>Functions should raise custom `FileError` exceptions for issues like permissions errors or file not found.</constraint>
+    </constraints>
+  <interfaces/>
+  <tests>
+      <standards>The project uses the `pytest` framework for testing. Tests are organized in the `tests/` directory, mirroring the source code structure. Mocks should be used to simulate error conditions like permissions errors.</standards>
+      <locations>
+        <location>tests/test_utils/test_file_ops.py</location>
+      </locations>
+      <ideas>
+        <idea for="1">Test that the `file_ops` module can be imported and contains the expected functions.</idea>
+        <idea for="2">Test the `safe_write` function by writing content to a file and verifying the content. Use mocks to ensure that a temporary file is created and renamed.</idea>
+        <idea for="3">Test that all file reading and writing functions correctly handle UTF-8 encoded content, including special characters.</idea>
+        <idea for="4">Test that `FileError` is raised for file not found errors when reading, and for permissions errors when writing (using mocks).</idea>
+        <idea for="5">Create a comprehensive test suite in `tests/test_utils/test_file_ops.py` that covers all functions and acceptance criteria.</idea>
+      </ideas>
+    </tests>
+</story-context>

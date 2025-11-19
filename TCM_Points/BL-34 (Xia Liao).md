@@ -1,0 +1,162 @@
+---
+id: point-20251005181955
+name: BL-34
+type: point
+aliases:
+- XIÀLIÁO
+- Lower Crevice
+- 下髎
+tags:
+- TCM
+- Acupuncture
+- Point
+- Bladder
+category:
+- Bladder Channel Points
+related: []
+symptoms: []
+patterns: []
+western_conditions: []
+formulas: []
+herbs: []
+points: []
+nutrition: []
+tests: []
+point_data:
+  code: BL-34
+  hanzi: 下髎
+  pinyin: XIÀLIÁO
+  english: Lower Crevice
+  channel: Bladder
+  special_properties:
+  - Meeting point of the Bladder, and Gall Bladder channels
+  location_description: Over the fourth posterior sacral foramen.
+  location_notes: For guidance on locating the sacral foramen see Surface Anatomy.
+  needling_method: Perpendicular insertion
+  needling_depth: 0.5 to 1 cun, or 1.5 to 2 cun through the foramen.
+  needling_cautions: []
+  functions:
+  - Regulates the lower jiao and facilitates urination and defecation
+  - Regulates menstruation and stops leucorrhoea
+  - Benefits the lumbar region and legs
+  indications:
+    respiratory: []
+    digestive:
+    - Lower abdominal pain
+    - borborygmus
+    - diarrhoea
+    - difficult defecation
+    - constipation
+    - blood in the stool
+    - shan disorder
+    head_throat: []
+    pain:
+    - Pain of the sacrum and coccyx
+    - lumbar pain
+    - lumbar pain radiating to the testicles
+    other:
+    - Difficult urination
+    - painful urinary dysfunction
+    - Dysmenorrhoea
+    - itching, swelling and pain of the genitals
+    - incessant green leucorrhoea leading to vaginal pain and pain radiating to the
+      lower abdomen
+  combinations:
+  - condition: Borborygmus, abdominal distention and watery diarrhoea
+    points:
+    - BL-34
+    - BL-22
+    - BL-27
+    - BL-49
+    - LIV-13
+    source: Thousand Ducat Formulas
+created: 2025-10-05
+updated: 2025-10-05
+banner: TCM_Points_Images/BL-34_diagram.jpg
+cssclasses:
+- noyaml
+---
+
+# 📍 BL-34 · XIÀLIÁO (下髎)
+
+**Point Name:** Lower Crevice (XIÀLIÁO)
+**Channel:** Bladder Channel
+**Special Properties:** Meeting point of the Bladder, and Gall Bladder channels
+
+---
+
+## 📍 Location
+
+Over the fourth posterior sacral foramen.
+
+**Location Notes:**
+For guidance on locating the sacral foramen see Surface Anatomy.
+
+![[BL-34_diagram.jpg]]
+
+**Chinese Characters:** ![[BL-34_chinese.png]]
+
+---
+
+## 🔧 Needling Technique
+
+**Method:** Perpendicular insertion
+**Depth:** 0.5 to 1 cun, or 1.5 to 2 cun through the foramen.
+
+### ⚠️ Cautions
+
+---
+
+## ⚡ Functions & Actions
+- Regulates the lower jiao and facilitates urination and defecation
+- Regulates menstruation and stops leucorrhoea
+- Benefits the lumbar region and legs
+
+---
+
+## 🎯 Clinical Indications
+
+### Digestive
+- Lower abdominal pain
+- borborygmus
+- diarrhoea
+- difficult defecation
+- constipation
+- blood in the stool
+- shan disorder
+
+### Pain
+- Pain of the sacrum and coccyx
+- lumbar pain
+- lumbar pain radiating to the testicles
+
+### Other
+- Difficult urination
+- painful urinary dysfunction
+- Dysmenorrhoea
+- itching, swelling and pain of the genitals
+- incessant green leucorrhoea leading to vaginal pain and pain radiating to the lower abdomen
+
+---
+
+## 🔗 Point Combinations
+
+**Borborygmus, abdominal distention and watery diarrhoea**
+- Points: BL-34, BL-22, BL-27, BL-49, LIV-13
+- Source: *Thousand Ducat Formulas*
+
+---
+
+## 🧬 TCM Theory & Commentary
+
+See Cìliáo BL-32.
+
+Summary of clinical application
+Lower abdominal pain, borborygmus, diarrhoea, difficult defecation, constipation, blood in the stool, difficult urination, painful urinary dysfunction, shan disorder.
+Dysmenorrhoea, itching, swelling and pain of the genitals, incessant green leucorrhoea leading to vaginal pain and pain radiating to the lower abdomen.
+Pain of the sacrum and coccyx, lumbar pain, lumbar pain radiating to the testicles.
+
+---
+
+*Last updated: 2025-10-05*
+*Channel: Bladder | Type: [[TCM Acupuncture Points]]*

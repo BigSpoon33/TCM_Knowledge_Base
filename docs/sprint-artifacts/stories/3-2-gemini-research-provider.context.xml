@@ -1,0 +1,105 @@
+<story-context id="{bmad_folder}/bmm/workflows/4-implementation/story-context/template" v="1.0">
+  <metadata>
+    <epicId>3</epicId>
+    <storyId>3.2</storyId>
+    <title>Gemini Research Provider</title>
+    <status>drafted</status>
+    <generatedAt>2025-11-16</generatedAt>
+    <generator>BMAD Story Context Workflow</generator>
+    <sourceStoryPath>/home/shuma/Documents/AI_Suite/Obsidian_Capsule_Delivery/docs/sprint-artifacts/3-2-gemini-research-provider.md</sourceStoryPath>
+  </metadata>
+
+  <story>
+    <asA>a developer</asA>
+    <iWant>a concrete `GeminiResearchProvider` that implements the `ResearchProvider` interface</iWant>
+    <soThat>the application can perform deep research using the Google Gemini API</soThat>
+    <tasks>
+      <task id="3.1" title="Implement Gemini Research Provider">
+        <subtask id="3.1.1">Implement the `GeminiResearchProvider` class in `capsule/core/researcher.py`.</subtask>
+        <subtask id="3.1.2">In the `__init__` method, load the `Config` and retrieve the `research.api_key`.</subtask>
+        <subtask id="3.1.3">Implement the `research` method to construct a prompt, call the Gemini API, and handle the response.</subtask>
+        <subtask id="3.1.4">Add a `NetworkError` to `capsule/utils/exceptions.py`.</subtask>
+      </task>
+      <task id="3.2" title="Develop Unit Tests">
+        <subtask id="3.2.1">Add tests to `tests/test_core/test_researcher.py` for the `GeminiResearchProvider`.</subtask>
+        <subtask id="3.2.2">Write a test that mocks a successful API call and verifies that the data is transformed correctly.</subtask>
+        <subtask id="3.2.3">Write a test that mocks a failed API call and asserts that a `NetworkError` is raised.</subtask>
+        <subtask id="3.2.4">Write a test to ensure the provider correctly reads the API key from the mocked `Config`.</subtask>
+      </task>
+    </tasks>
+  </story>
+
+  <acceptanceCriteria>
+      <criterion id="1">**Concrete Implementation:** A `GeminiResearchProvider` class is created in `capsule/core/researcher.py` that inherits from `ResearchProvider`.</criterion>
+      <criterion id="2">**API Integration:** The `research` method is implemented to call the Google Gemini API using the `google-generativeai` library.</criterion>
+      <criterion id="3">**API Key Handling:** The provider retrieves the API key from the user's configuration via the `Config` model.</criterion>
+      <criterion id="4">**Error Handling:** A `NetworkError` is raised if the API call fails.</criterion>
+      <criterion id="5">**Data Transformation:** The response from the Gemini API is transformed into the required dictionary format (`content`, `citations`, `metadata`).</criterion>
+      <criterion id="6">**Unit Tests:** The `GeminiResearchProvider` is tested in `tests/test_core/test_researcher.py`, using mocks to simulate the API call.</criterion>
+    </acceptanceCriteria>
+
+  <artifacts>
+    <docs>
+      <doc>
+        <path>docs/architecture.md</path>
+        <title>Architecture Document</title>
+        <section>Deep Research Provider Architecture</section>
+        <snippet>
+**v1.0 Implementation:**
+- **GeminiResearchProvider** - Uses Gemini Pro with Google Search grounding
+- Built-in real-time web search (no separate search API needed)
+- Automatic citation generation
+- Handles FR2 (multi-source synthesis) and FR3 (citation generation)
+        </snippet>
+      </doc>
+    </docs>
+    <code>
+      <artifact>
+        <path>capsule/core/researcher.py</path>
+        <kind>module</kind>
+        <symbol>GeminiResearchProvider</symbol>
+        <lines></lines>
+        <reason>This class needs to be added to the existing researcher.py file.</reason>
+      </artifact>
+      <artifact>
+        <path>tests/test_core/test_researcher.py</path>
+        <kind>test</kind>
+        <symbol></symbol>
+        <lines></lines>
+        <reason>Tests for the GeminiResearchProvider need to be added to this file.</reason>
+      </artifact>
+      <artifact>
+        <path>capsule/utils/exceptions.py</path>
+        <kind>module</kind>
+        <symbol>NetworkError</symbol>
+        <lines></lines>
+        <reason>A new exception for network errors needs to be added.</reason>
+      </artifact>
+    </code>
+    <dependencies>
+      <dependency>
+        <ecosystem>Python</ecosystem>
+        <package>google-generativeai</package>
+        <version>>=0.3.0</version>
+      </dependency>
+    </dependencies>
+  </artifacts>
+
+  <constraints>
+      <constraint>The `GeminiResearchProvider` must inherit from `ResearchProvider`.</constraint>
+      <constraint>The implementation must use the `google-generativeai` library.</constraint>
+      <constraint>The API key must be retrieved from the `Config` model.</constraint>
+    </constraints>
+  <interfaces/>
+  <tests>
+      <standards>The project uses the `pytest` framework. Tests for core logic are located in `tests/test_core/`.</standards>
+      <locations>
+        <location>tests/test_core/test_researcher.py</location>
+      </locations>
+      <ideas>
+        <idea for="1">Test that a successful API call returns the correctly formatted dictionary.</idea>
+        <idea for="2">Test that a failed API call raises a `NetworkError`.</idea>
+        <idea for="3">Test that the `GeminiResearchProvider` correctly initializes by reading the API key from a mocked `Config` object.</idea>
+      </ideas>
+    </tests>
+</story-context>

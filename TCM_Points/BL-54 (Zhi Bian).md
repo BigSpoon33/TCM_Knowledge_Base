@@ -1,0 +1,184 @@
+---
+id: point-20251005182814
+name: BL-54
+type: point
+aliases:
+- ZHÌBIĀN
+- Order’s Limit
+- 秩邊
+tags:
+- TCM
+- Acupuncture
+- Point
+- None
+category:
+- None Channel Points
+related: []
+symptoms: []
+patterns: []
+western_conditions: []
+formulas: []
+herbs: []
+points: []
+nutrition: []
+tests: []
+point_data:
+  code: BL-54
+  hanzi: 秩邊
+  pinyin: ZHÌBIĀN
+  english: Order’s Limit
+  channel: None
+  special_properties: []
+  location_description: On the buttock, in the depression 3 cun lateral to the sacro-coccygeal
+    hiatus.
+  location_notes: i. The sacro-coccygeal hiatus is the depression between the bony
+    prominences of the sacral and coccygeal cornua (just below the spinous process
+    of the fourth sacral vertebra if this is palpable); ii. When the shoulder is relaxed,
+    the three cun line corresponds to the medial border of the scapula; iii. Alternatively
+    this point may be located midway between the midline and the lateral edge of the
+    buttock, when the lateral edge is firmly pressed in with the palm of the hand.
+  needling_method: i. Perpendicular insertion 1.5 to 2.5 cun; ii. Slanted towards
+    the anus or the genitalia 2 to 3 cun.
+  needling_depth: 1.5 to 2.5 cun (perpendicular); 2 to 3 cun (slanted towards anus
+    or genitalia)
+  needling_cautions: []
+  functions:
+  - Benefits the lumbar region, activates the channel and alleviates pain
+  - Regulates urination and treats haemorrhoids
+  indications:
+    respiratory: []
+    digestive:
+    - difficult defecation
+    - haemorrhoids
+    head_throat: []
+    pain:
+    - Pain and coldness of the lumbar region and sacrum
+    - Kidney deficiency lumbar pain
+    - pain of the buttock
+    - sciatica
+    - painful obstruction and atrophy disorder of the lower limb
+    - pain of the genitals
+    other:
+    - Difficult urination
+    - retention of urine
+    - dark urine
+    - seminal emission
+    - turbid leucorrhoea
+  combinations:
+  - condition: Aversion to cold in the back and stiffness of the spine with difficulty
+      in bending
+    points:
+    - BL-54
+    - BL-46
+    - BL-64
+    source: Thousand Ducat Formulas
+  - condition: Red and hesitant urinary flow
+    points:
+    - BL-54
+    - REN-4
+    - REN-6
+    - BL-48
+    source: Supplementing Life
+  - condition: Retention of urine
+    points:
+    - BL-54
+    - BL-53
+    source: Supplementing Life
+created: 2025-10-05
+updated: 2025-10-05
+banner: TCM_Points_Images/BL-54_diagram.jpg
+cssclasses:
+- noyaml
+---
+
+# 📍 BL-54 · ZHÌBIĀN (秩邊)
+
+**Point Name:** Order’s Limit (ZHÌBIĀN)
+**Channel:** None Channel
+**Special Properties:** 
+
+---
+
+## 📍 Location
+
+On the buttock, in the depression 3 cun lateral to the sacro-coccygeal hiatus.
+
+**Location Notes:**
+i. The sacro-coccygeal hiatus is the depression between the bony prominences of the sacral and coccygeal cornua (just below the spinous process of the fourth sacral vertebra if this is palpable); ii. When the shoulder is relaxed, the three cun line corresponds to the medial border of the scapula; iii. Alternatively this point may be located midway between the midline and the lateral edge of the buttock, when the lateral edge is firmly pressed in with the palm of the hand.
+
+![[BL-54_diagram.jpg]]
+
+**Chinese Characters:** ![[BL-54_chinese.png]]
+
+---
+
+## 🔧 Needling Technique
+
+**Method:** i. Perpendicular insertion 1.5 to 2.5 cun; ii. Slanted towards the anus or the genitalia 2 to 3 cun.
+**Depth:** 1.5 to 2.5 cun (perpendicular); 2 to 3 cun (slanted towards anus or genitalia)
+
+### ⚠️ Cautions
+
+---
+
+## ⚡ Functions & Actions
+- Benefits the lumbar region, activates the channel and alleviates pain
+- Regulates urination and treats haemorrhoids
+
+---
+
+## 🎯 Clinical Indications
+
+### Digestive
+- difficult defecation
+- haemorrhoids
+
+### Pain
+- Pain and coldness of the lumbar region and sacrum
+- Kidney deficiency lumbar pain
+- pain of the buttock
+- sciatica
+- painful obstruction and atrophy disorder of the lower limb
+- pain of the genitals
+
+### Other
+- Difficult urination
+- retention of urine
+- dark urine
+- seminal emission
+- turbid leucorrhoea
+
+---
+
+## 🔗 Point Combinations
+
+**Aversion to cold in the back and stiffness of the spine with difficulty in bending**
+- Points: BL-54, BL-46, BL-64
+- Source: *Thousand Ducat Formulas*
+
+**Red and hesitant urinary flow**
+- Points: BL-54, REN-4, REN-6, BL-48
+- Source: *Supplementing Life*
+
+**Retention of urine**
+- Points: BL-54, BL-53
+- Source: *Supplementing Life*
+
+---
+
+## 🧬 TCM Theory & Commentary
+
+Zhìbiān BL-54 is an indispensable point in the treatment of pain of the lumbar region, sacrum and buttocks and of sciatica. Along with Bāohuāng BL-53 and Huántiào GB-30, Zhìbiān BL-54 is one of the points that should be palpated, and needled if tender, in all cases where pain radiates to the buttock and down the leg.
+
+According to Investigation Into Points Along the Channels by Yan Zhen-shi of the Ming dynasty, Zhìbiān BL-54 is indicated for "Kidney deficiency lumbar pain, seminal emission and turbid leucorrhoea". This quotation emphasises that the use of Zhìbiān BL-54 in the treatment of lumbar pain is not confined to cases of stagnation (such as painful obstruction), but extends also to aching of the lumbar region due to weakness of the Kidneys.
+
+In common with many points of the sacral region which lies over the Bladder and intestines, Zhìbiān BL-54 is able to regulate obstructed and difficult urination and defecation. Zhìbiān BL-54 is also mentioned in a number of classics for the treatment of "the five types of haemorrhoids with swelling".
+
+Summary of clinical application
+Commonly used in the treatment of pain of the lumbar region, sacrum and buttocks and of sciatica. Along with Bāohuāng BL-53 and Huántiào GB-30 , this is one of the points that should be palpated, and needled if tender, in all cases where pain radiates to the buttock and down the leg.
+Treats obstructed urination and defecation as well as haemorrhoids.
+
+---
+
+*Last updated: 2025-10-05*
+*Channel: None | Type: [[TCM Acupuncture Points]]*

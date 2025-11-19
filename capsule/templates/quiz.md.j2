@@ -1,0 +1,20 @@
+---
+title: "{{ title }}"
+questions:
+  {% for q in questions %}
+  - text: "{{ q.text }}"
+    options:
+      {% for o in q.options %}
+      - "{{ o }}"
+      {% endfor %}
+  {% endfor %}
+---
+
+# {{ title }}
+
+{% for q in questions %}
+## {{ q.text }}
+{% for o in q.options %}
+- [ ] {{ o }}
+{% endfor %}
+{% endfor %}

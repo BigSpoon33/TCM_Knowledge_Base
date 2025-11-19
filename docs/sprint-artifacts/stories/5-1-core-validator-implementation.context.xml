@@ -1,0 +1,150 @@
+<story-context id="{bmad_folder}/bmm/workflows/4-implementation/story-context/template" v="1.0">
+  <metadata>
+    <epicId>5</epicId>
+    <storyId>1</storyId>
+    <title>core-validator-implementation</title>
+    <status>drafted</status>
+    <generatedAt>2025-11-18</generatedAt>
+    <generator>BMAD Story Context Workflow</generator>
+    <sourceStoryPath>/home/shuma/Documents/AI_Suite/Obsidian_Capsule_Delivery/docs/sprint-artifacts/5-1-core-validator-implementation.md</sourceStoryPath>
+  </metadata>
+
+  <story>
+    <asA>a developer</asA>
+    <iWant>to implement the core validation engine</iWant>
+    <soThat>I can ensure the integrity of capsules and their contents.</soThat>
+    <tasks>
+- [ ] **Task 1: Implement `Validator` class** (AC: #1, #2, #3)
+  - [ ] Subtask 1.1: Create the `Validator` class in `capsule/core/validator.py`.
+  - [ ] Subtask 1.2: Implement the `validate_capsule()` method.
+  - [ ] Subtask 1.3: Implement methods for validating capsule structure, frontmatter schema, file inventory, and data types.
+- [ ] **Task 2: Implement validation utility functions** (AC: #4)
+  - [ ] Subtask 2.1: Create the `capsule/utils/validators.py` file.
+  - [ ] Subtask 2.2: Implement utility functions for common validation tasks.
+- [ ] **Task 3: Integrate `Validator` with `ContentGenerator`** (AC: #5)
+  - [ ] Subtask 3.1: Modify `capsule/core/generator.py` to use the new `Validator`.
+- [ ] **Task 4: Write unit tests** (AC: #6)
+  - [ ] Subtask 4.1: Create the test file `tests/test_core/test_validator.py`.
+  - [ ] Subtask 4.2: Write unit tests for the `Validator` class.
+  - [ ] Subtask 4.3: Create the test file `tests/test_utils/test_validators.py`.
+  - [ ] Subtask 4.4: Write unit tests for the validation utility functions.
+    </tasks>
+  </story>
+
+  <acceptanceCriteria>
+1.  A `Validator` class is implemented in `capsule/core/validator.py`.
+2.  The `Validator` class has a method `validate_capsule()` that orchestrates the validation of a capsule.
+3.  The `validate_capsule()` method calls other methods to validate the capsule structure, frontmatter schema, file inventory, and data types.
+4.  A set of validation utility functions are implemented in `capsule/utils/validators.py`.
+5.  The placeholder `Validator` in `capsule/core/generator.py` is replaced with the new `Validator`.
+6.  Unit tests are created for the `Validator` class and the validation utility functions.
+  </acceptanceCriteria>
+
+  <artifacts>
+    <docs>
+      <doc>
+        <path>docs/architecture.md</path>
+        <title>Architecture Document</title>
+        <section>Epic Group 6: Validation & Quality (FR39-FR45)</section>
+        <snippet>
+capsule/core/validator.py
+  └─ Validation engine
+      ├─ validate_capsule() → Overall validation
+      ├─ validate_cypher_structure()
+      ├─ validate_frontmatter_against_schema()
+      ├─ validate_file_inventory()
+      ├─ validate_data_types()
+      └─ generate_validation_report()
+
+capsule/utils/validators.py
+  └─ Common validation functions
+      ├─ is_valid_semver()
+      ├─ is_valid_yaml()
+      ├─ is_utf8_encoded()
+      └─ check_required_fields()
+        </snippet>
+      </doc>
+      <doc>
+        <path>docs/epics.md</path>
+        <title>Project Epics</title>
+        <section>Epic 5: Validation Engine</section>
+        <snippet>
+**Summary:** Schema validation, file inventory checks, data type validation, reporting.
+
+### Stories
+- **5-1-core-validator-implementation:** Implement the core validation engine.
+- **5-2-schema-validation-logic:** Add logic for validating against frontmatter schemas.
+- **5-3-file-inventory-validation:** Implement validation for file inventories in capsules.
+- **5-4-data-type-validation:** Add data type validation for schema fields.
+- **5-5-utf8-encoding-validation:** Implement checks for UTF-8 encoding.
+- **5-6-validation-report-generation:** Create functionality to generate validation reports.
+        </snippet>
+      </doc>
+    </docs>
+    <code>
+      <file>
+        <path>capsule/core/generator.py</path>
+        <kind>core</kind>
+        <symbol>ContentGenerator</symbol>
+        <lines>8-10, 30</lines>
+        <reason>The ContentGenerator class uses a placeholder Validator that needs to be replaced with the new implementation.</reason>
+      </file>
+      <file>
+        <path>capsule/utils/validation.py</path>
+        <kind>utils</kind>
+        <symbol>Validator</symbol>
+        <lines>48-50</lines>
+        <reason>This file contains the placeholder Validator class that will be replaced.</reason>
+      </file>
+      <file>
+        <path>capsule/core/validator.py</path>
+        <kind>core</kind>
+        <symbol>Validator</symbol>
+        <lines>N/A</lines>
+        <reason>This is a new file that will contain the core validation engine.</reason>
+      </file>
+      <file>
+        <path>capsule/utils/validators.py</path>
+        <kind>utils</kind>
+        <symbol>N/A</symbol>
+        <lines>N/A</lines>
+        <reason>This is a new file that will contain validation utility functions.</reason>
+      </file>
+    </code>
+    <dependencies>
+      <dependency>
+        <ecosystem>python</ecosystem>
+        <package>jinja2</package>
+        <version>>=3.1.0</version>
+      </dependency>
+    </dependencies>
+  </artifacts>
+
+  <constraints>
+    <constraint>Unit tests must be written using the pytest framework.</constraint>
+    <constraint>The new Validator class should be designed to be extensible for future validation rules.</constraint>
+  </constraints>
+  <interfaces>
+    No existing interfaces are expected to be reused for this story. The `Validator` class will expose a new interface for validating capsules.
+  </interfaces>
+  <tests>
+    <standards>
+      The project uses the pytest framework for testing. Tests should be organized in the `tests/` directory, mirroring the structure of the `capsule/` package.
+    </standards>
+    <locations>
+      - `tests/test_core/test_validator.py`
+      - `tests/test_utils/test_validators.py`
+    </locations>
+    <ideas>
+      - Test that `Validator.validate_capsule()` calls all individual validation methods.
+      - Test the validation of a valid capsule structure.
+      - Test the validation of an invalid capsule structure.
+      - Test the validation of a valid frontmatter schema.
+      - Test the validation of an invalid frontmatter schema.
+      - Test the validation of a complete file inventory.
+      - Test the validation of an incomplete file inventory.
+      - Test the validation of correct data types.
+      - Test the validation of incorrect data types.
+    </ideas>
+  </tests>
+</story-context>

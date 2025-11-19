@@ -1,0 +1,147 @@
+---
+id: point-20251005182008
+name: BL-35
+type: point
+aliases:
+- HUÌYÁNG
+- Meeting of Yang
+- 會陽
+tags:
+- TCM
+- Acupuncture
+- Point
+- None
+category:
+- None Channel Points
+related: []
+symptoms: []
+patterns: []
+western_conditions: []
+formulas: []
+herbs: []
+points: []
+nutrition: []
+tests: []
+point_data:
+  code: BL-35
+  hanzi: 會陽
+  pinyin: HUÌYÁNG
+  english: Meeting of Yang
+  channel: None
+  special_properties: []
+  location_description: 0.5 cun lateral to the Governing vessel, level with the tip
+    of the coccyx.
+  location_notes: ''
+  needling_method: Perpendicular insertion towards the genital region
+  needling_depth: 1 to 1.5 cun
+  needling_cautions: []
+  functions:
+  - Clears damp-heat and regulates the lower jiao
+  - Benefits the coccyx and treats haemorrhoids
+  indications:
+    respiratory: []
+    digestive:
+    - Diarrhoea
+    - dysenteric disorder
+    - blood in the stool
+    - chronic haemorrhoids
+    - prolapse of the rectum
+    head_throat: []
+    pain:
+    - Pain of the coccyx
+    - pain of the lumbar region and leg
+    other:
+    - Itching of the genitals
+    - sweating of the genitals
+    - leucorrhoea
+    - Yang qi deficiency
+    - impotence
+    - cold abdomen
+  combinations:
+  - condition: Cold abdomen
+    points:
+    - BL-35
+    - SP-7
+    source: Supplementing Life
+created: 2025-10-05
+updated: 2025-10-05
+banner: TCM_Points_Images/BL-35_diagram.jpg
+cssclasses:
+- noyaml
+---
+
+# 📍 BL-35 · HUÌYÁNG (會陽)
+
+**Point Name:** Meeting of Yang (HUÌYÁNG)
+**Channel:** None Channel
+**Special Properties:** 
+
+---
+
+## 📍 Location
+
+0.5 cun lateral to the Governing vessel, level with the tip of the coccyx.
+
+**Location Notes:**
+
+
+![[BL-35_diagram.jpg]]
+
+**Chinese Characters:** ![[BL-35_chinese.png]]
+
+---
+
+## 🔧 Needling Technique
+
+**Method:** Perpendicular insertion towards the genital region
+**Depth:** 1 to 1.5 cun
+
+### ⚠️ Cautions
+
+---
+
+## ⚡ Functions & Actions
+- Clears damp-heat and regulates the lower jiao
+- Benefits the coccyx and treats haemorrhoids
+
+---
+
+## 🎯 Clinical Indications
+
+### Digestive
+- Diarrhoea
+- dysenteric disorder
+- blood in the stool
+- chronic haemorrhoids
+- prolapse of the rectum
+
+### Pain
+- Pain of the coccyx
+- pain of the lumbar region and leg
+
+### Other
+- Itching of the genitals
+- sweating of the genitals
+- leucorrhoea
+- Yang qi deficiency
+- impotence
+- cold abdomen
+
+---
+
+## 🔗 Point Combinations
+
+**Cold abdomen**
+- Points: BL-35, SP-7
+- Source: *Supplementing Life*
+
+---
+
+## 🧬 TCM Theory & Commentary
+
+Mainly for pain of the coccyx and haemorrhoids. Also indicated for diarrhoea, dysenteric disorder, blood in the stool, prolapse of the rectum, itching of the genitals, sweating of the genitals, leucorrhoea.
+
+---
+
+*Last updated: 2025-10-05*
+*Channel: None | Type: [[TCM Acupuncture Points]]*

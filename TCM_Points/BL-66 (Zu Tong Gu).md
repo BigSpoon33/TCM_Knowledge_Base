@@ -1,0 +1,184 @@
+---
+id: point-20251005183332
+name: BL-66
+type: point
+aliases:
+- ZÚTŌNGGǓ
+- Foot Connecting Valley
+- 足通谷
+tags:
+- TCM
+- Acupuncture
+- Point
+- Bladder channel
+category:
+- Bladder channel Channel Points
+related: []
+symptoms: []
+patterns: []
+western_conditions: []
+formulas: []
+herbs: []
+points: []
+nutrition: []
+tests: []
+point_data:
+  code: BL-66
+  hanzi: 足通谷
+  pinyin: ZÚTŌNGGǓ
+  english: Foot Connecting Valley
+  channel: Bladder channel
+  special_properties:
+  - Ying-Spring point
+  - Water point
+  location_description: On the lateral side of the foot, in the depression anterior
+    and inferior to the fifth metatarso-phalangeal joint.
+  location_notes: First locate Shùgǔ BL-65, then run the finger over the prominence
+    of the metatarso-phalangeal joint until it falls into the depression at the base
+    of the little toe.
+  needling_method: Perpendicular-oblique insertion towards the sole
+  needling_depth: 0.2 to 0.3 cun
+  needling_cautions: []
+  functions:
+  - Clears the head
+  - Descends Lung and Stomach qi
+  indications:
+    respiratory:
+    - cough
+    - dyspnoea
+    - fullness of the chest with congested fluids
+    digestive:
+    - Vomiting
+    - undigested food (in the stool)
+    head_throat:
+    - Heaviness of the head
+    - neck pain
+    - visual dizziness
+    - redness of the eyes
+    - nosebleed
+    pain: []
+    other:
+    - sweating without aversion to cold
+    - malaria
+    - Mania
+    - propensity to fright
+  combinations:
+  - condition: Rhinitis with nose bleed
+    points:
+    - Zútōnggǔ BL-66
+    - Pianli L.I.-6
+    - Hegu L.I.-4
+    - Sanjian L.I.-3
+    - Kūnlún BL-60
+    source: Supplementing Life
+  - condition: Sudden loss of voice
+    points:
+    - Zútōnggǔ BL-66
+    - Zhīgōu SJ-6
+    - Sānyángluò SJ-8
+    source: Supplementing Life
+  - condition: Vomiting
+    points:
+    - Zútōnggǔ BL-66
+    - Shāngqiū SP-5
+    - Yōumén KID-21
+    source: Thousand Ducat Formulas
+created: 2025-10-05
+updated: 2025-10-05
+banner: TCM_Points_Images/BL-66_diagram.jpg
+cssclasses:
+- noyaml
+---
+
+# 📍 BL-66 · ZÚTŌNGGǓ (足通谷)
+
+**Point Name:** Foot Connecting Valley (ZÚTŌNGGǓ)
+**Channel:** Bladder channel Channel
+**Special Properties:** Ying-Spring point, Water point
+
+---
+
+## 📍 Location
+
+On the lateral side of the foot, in the depression anterior and inferior to the fifth metatarso-phalangeal joint.
+
+**Location Notes:**
+First locate Shùgǔ BL-65, then run the finger over the prominence of the metatarso-phalangeal joint until it falls into the depression at the base of the little toe.
+
+![[BL-66_diagram.jpg]]
+
+**Chinese Characters:** ![[BL-66_chinese.png]]
+
+---
+
+## 🔧 Needling Technique
+
+**Method:** Perpendicular-oblique insertion towards the sole
+**Depth:** 0.2 to 0.3 cun
+
+### ⚠️ Cautions
+
+---
+
+## ⚡ Functions & Actions
+- Clears the head
+- Descends Lung and Stomach qi
+
+---
+
+## 🎯 Clinical Indications
+
+### Respiratory
+- cough
+- dyspnoea
+- fullness of the chest with congested fluids
+
+### Digestive
+- Vomiting
+- undigested food (in the stool)
+
+### Head Throat
+- Heaviness of the head
+- neck pain
+- visual dizziness
+- redness of the eyes
+- nosebleed
+
+### Other
+- sweating without aversion to cold
+- malaria
+- Mania
+- propensity to fright
+
+---
+
+## 🔗 Point Combinations
+
+**Rhinitis with nose bleed**
+- Points: Zútōnggǔ BL-66, Pianli L.I.-6, Hegu L.I.-4, Sanjian L.I.-3, Kūnlún BL-60
+- Source: *Supplementing Life*
+
+**Sudden loss of voice**
+- Points: Zútōnggǔ BL-66, Zhīgōu SJ-6, Sānyángluò SJ-8
+- Source: *Supplementing Life*
+
+**Vomiting**
+- Points: Zútōnggǔ BL-66, Shāngqiū SP-5, Yōumén KID-21
+- Source: *Thousand Ducat Formulas*
+
+---
+
+## 🧬 TCM Theory & Commentary
+
+Zútōnggǔ BL-66 is the water point of the Bladder water channel. Like all the distal points of the Bladder channel, its principal action is to clear pathologically ascending qi and yang from the head. This was emphasised in the Spiritual Pivot75 which stated "When [chaotic] qi is in the head, select Tiānzhù BL-10 and Dàzhù BL-11. If needling these fails to work, select the spring and stream points of the foot taiyang" (i.e. Shùgǔ BL-65 and Zútōnggǔ BL-66).
+
+If chaotic qi affects not only the head, but also impairs the descending function of the Lungs and Stomach, the consequent rebellion of qi will give rise to coughing, dyspnoea, fullness of the chest and vomiting.
+
+Summary of clinical application
+Clears the head: heaviness of the head, neck pain, visual dizziness, redness of the eyes, nosebleed.
+Descends Lung and Stomach qi: coughing, dyspnoea, fullness of the chest, vomiting.
+
+---
+
+*Last updated: 2025-10-05*
+*Channel: Bladder channel | Type: [[TCM Acupuncture Points]]*

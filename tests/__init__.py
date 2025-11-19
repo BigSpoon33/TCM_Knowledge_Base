@@ -1,1 +1,1 @@
-# This file makes this a Python package
+"""Unit test package for obsidian_capsule_cli."""

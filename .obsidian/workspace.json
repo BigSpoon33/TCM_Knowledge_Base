@@ -8,77 +8,119 @@
         "type": "tabs",
         "children": [
           {
-            "id": "3174c59b53b1f7f2",
+            "id": "1af74e58af7006a6",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "OCDS_Documentation/Example_Class_TCM_101/Dashboards/Student_Dashboard.md",
+                "file": "TCM_Formulas/Chai Ge Jie Ji Tang.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Student_Dashboard"
+              "title": "Chai Ge Jie Ji Tang"
             }
           },
           {
-            "id": "cfa327db03af62ae",
+            "id": "4dadb630968a1ee8",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "OCDS_Documentation/Example_Class_TCM_101/Materials/Week_01/Flashcards.md",
+                "file": "TCM_Formulas/Suo Quan Wan.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Flashcards"
+              "title": "Suo Quan Wan"
             }
           },
           {
-            "id": "ec8ceb72cf695860",
+            "id": "3bbf13afd9418c93",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Module 6 Acu Prescriptions.md",
+                "file": "TCM_Formulas/An Gong Niu Huang Wan.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Module 6 Acu Prescriptions"
+              "title": "An Gong Niu Huang Wan"
             }
           },
           {
-            "id": "b91fe8015f4dda2e",
+            "id": "023ad4f11c3ec984",
             "type": "leaf",
             "state": {
-              "type": "markdown",
+              "type": "pdf",
               "state": {
-                "file": "Materials/Traditional_Chinese_Medicine_Edema/Edema_Tasks.md",
-                "mode": "source",
-                "source": false
+                "file": "Books/Chinese Herbal Formulas and Applications Pharmacological Effects Clinical Research by John K. Chen Tina T. Chen Minh Nguyen Lily Huang Jimmy Chang Rick Friesen Chien-Hui Liao (z-lib.org).pdf"
               },
-              "icon": "lucide-file",
-              "title": "Edema_Tasks"
+              "icon": "lucide-file-text",
+              "title": "Chinese Herbal Formulas and Applications Pharmacological Effects Clinical Research by John K. Chen Tina T. Chen Minh Nguyen Lily Huang Jimmy Chang Rick Friesen Chien-Hui Liao (z-lib.org)"
             }
           },
           {
-            "id": "f595908d319c33c7",
+            "id": "f9431312fdbc592a",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "GitToken.md",
+                "file": "Student Dashboard.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "GitToken"
+              "title": "Student Dashboard"
+            }
+          },
+          {
+            "id": "5d961daf1b3a0964",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "TCM_Formulas/Bai Hu Jia Ren Shen Tang.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Bai Hu Jia Ren Shen Tang"
+            }
+          },
+          {
+            "id": "d63986d392640324",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "TCM_Formulas/Ma Huang Tang.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Ma Huang Tang"
             }
           }
         ],
         "currentTab": 4
+      },
+      {
+        "id": "6124e58568eba0b6",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "a5d1ef7014124cad",
+            "type": "leaf",
+            "state": {
+              "type": "empty",
+              "state": {},
+              "icon": "lucide-file",
+              "title": "New tab"
+            }
+          }
+        ]
       }
     ],
     "direction": "vertical"
@@ -111,7 +153,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "diabetes san jiao",
+                "query": "",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -132,7 +174,8 @@
               "title": "Bookmarks"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       },
       {
         "id": "c87455d3c9ee8114",
@@ -145,13 +188,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "GitToken.md",
+                "file": "Student Dashboard.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of GitToken"
+              "title": "Outline of Student Dashboard"
             }
           },
           {
@@ -160,15 +203,15 @@
             "state": {
               "type": "recent-files",
               "state": {},
-              "icon": "clock",
-              "title": "Recent Files"
+              "icon": "lucide-ghost",
+              "title": "recent-files"
             }
           }
         ]
       }
     ],
     "direction": "horizontal",
-    "width": 337.5
+    "width": 240.5
   },
   "right": {
     "id": "bcdd16cf9c8c971e",
@@ -233,12 +276,22 @@
             "state": {
               "type": "advanced-tables-toolbar",
               "state": {},
-              "icon": "spreadsheet",
-              "title": "Advanced Tables"
+              "icon": "lucide-ghost",
+              "title": "advanced-tables-toolbar"
             }
           },
           {
             "id": "fe250b0b971eff1c",
+            "type": "leaf",
+            "state": {
+              "type": "review-queue-list-view",
+              "state": {},
+              "icon": "SpacedRepIcon",
+              "title": "Notes Review Queue"
+            }
+          },
+          {
+            "id": "43cf307065e75534",
             "type": "leaf",
             "state": {
               "type": "review-queue-list-view",
@@ -261,8 +314,8 @@
             "state": {
               "type": "tasknotes-pomodoro-view",
               "state": {},
-              "icon": "clock",
-              "title": "Pomodoro"
+              "icon": "lucide-ghost",
+              "title": "tasknotes-pomodoro-view"
             }
           }
         ]
@@ -278,7 +331,7 @@
             "state": {
               "type": "localgraph",
               "state": {
-                "file": "GitToken.md",
+                "file": "Materials/Traditional_Chinese_Medicine_Edema/Edema_Tasks.md",
                 "options": {
                   "collapse-filter": true,
                   "search": "",
@@ -328,7 +381,7 @@
                 }
               },
               "icon": "lucide-git-fork",
-              "title": "Graph of GitToken"
+              "title": "Graph of Edema_Tasks"
             }
           }
         ]
@@ -350,7 +403,6 @@
       "workspaces:Manage workspace layouts": false,
       "omnisearch:Omnisearch": false,
       "obsidian-advanced-slides:Show Slide Preview": false,
-      "obsidian-spaced-repetition:Review flashcards": false,
       "table-editor-obsidian:Advanced Tables Toolbar": false,
       "obsidian-excalidraw-plugin:New drawing": false,
       "obsidian-kanban:Create new board": false,
@@ -363,56 +415,57 @@
       "tasknotes:Open kanban board": false,
       "tasknotes:Open pomodoro": false,
       "tasknotes:Open pomodoro stats": false,
-      "tasknotes:Create new task": false
+      "tasknotes:Create new task": false,
+      "obsidian-spaced-repetition:Review flashcards": false
     }
   },
-  "active": "f595908d319c33c7",
+  "active": "fe250b0b971eff1c",
   "lastOpenFiles": [
-    "Materials/Traditional_Chinese_Medicine_Edema/Edema_Tasks.md",
-    "Materials/Traditional_Chinese_Medicine_Edema/Edema_Study_Material.md",
-    "Materials/Traditional_Chinese_Medicine_Edema/Edema_Slides.md",
-    "Materials/Traditional_Chinese_Medicine_Edema/Edema_Guided_Conversation.md",
-    "Materials/Traditional_Chinese_Medicine_Edema/Edema_Flashcards.md",
-    "Materials/Traditional_Chinese_Medicine_Edema/Edema_Bank.md",
-    "Materials/Traditional_Chinese_Medicine_External_Wind_Heat/Root_Note_External_Wind_Heat.md",
-    "Materials/Traditional_Chinese_Medicine_Edema/Root_Note_Edema.md",
-    "Materials/Traditional_Chinese_Medicine_Edema",
-    "Materials/Traditional_Chinese_Medicine_External_Wind_Heat/External_Wind_Heat_Bank.md",
-    "Materials/Traditional_Chinese_Medicine_External_Wind_Heat/External_Wind_Heat_Flashcards.md",
-    "Materials/Traditional_Chinese_Medicine_External_Wind_Heat/External_Wind_Heat_Guided_Conversation.md",
-    "Materials/Traditional_Chinese_Medicine_External_Wind_Heat/External_Wind_Heat_Tasks.md",
-    "Materials/Traditional_Chinese_Medicine_External_Wind_Heat/External_Wind_Heat_Study_Material.md",
-    "Materials/Traditional_Chinese_Medicine_External_Wind_Heat/External_Wind_Heat_Slides.md",
-    "GitToken.md",
-    "Materials/TCM_101/Heart_Blood_Deficiency_Guided_Conversation.md",
-    "Materials/Traditional_Chinese_Medicine_External_Wind_Heat",
-    "scripts/__pycache__/deep_research_pipeline.cpython-313.pyc",
-    "capsule/commands/__pycache__/research.cpython-313.pyc",
-    "Materials/TCM_101/Lung_Yin_Deficiency_Guided_Conversation.md",
-    "capsule/commands/__pycache__/conversation.cpython-313.pyc",
-    "CAPSULE_CLI_COMPLETE.md",
-    "capsule/commands/__pycache__/config.cpython-313.pyc",
-    "capsule/utils/__pycache__/validation.cpython-313.pyc",
-    "capsule/commands/__pycache__/list.cpython-313.pyc",
-    "capsule/commands/__pycache__/__init__.cpython-313.pyc",
-    "capsule/commands/__pycache__",
-    "QUICKSTART_GUIDED_CONVERSATION.md",
-    "Materials/TCM_101/Root_Note_Lung_Yin_Deficiency.md",
-    "GUIDED_CONVERSATION_COMPLETE.md",
-    "Materials/TCM_101/Lung_Yin_Deficiency_Slides.md",
-    "QUICKSTART_SLIDES.md",
-    "SLIDES_GENERATION_COMPLETE.md",
-    "Materials/TCM_101/Heart_Blood_Deficiency_Tasks.md",
-    "Materials/TCM_101/Heart_Blood_Deficiency_Study_Material.md",
-    "OCDS_Documentation/Example_Class_TCM_101/Images/skullhoodaxe.jpg",
-    "images/patterns/figures/Ch48_Figure_48_5_p845.png",
-    "images/patterns/Ch45_Four_Levels_Theory_p813_1.png",
-    "images/patterns/figures/Ch45_Figure_45_10_p811.png",
-    "images/patterns/figures/Ch43_Figure_43_1_p758.png",
-    "images/patterns/Ch49_Five_Elements_p852_0.png",
-    "images/patterns/Ch48_Eight_Extraordinary_Vessels_p842_0.png",
-    "images/patterns/Ch48_Eight_Extraordinary_Vessels_p845_0.png",
-    "images/patterns/Ch48_Eight_Extraordinary_Vessels_p848_0.png",
-    "images/patterns/Ch47_12_Channels_p834_1.png"
+    "capsule/__pycache__/__main__.cpython-313.pyc",
+    "python_boilerplate.egg-info/SOURCES.txt",
+    "python_boilerplate.egg-info/top_level.txt",
+    "python_boilerplate.egg-info/requires.txt",
+    "python_boilerplate.egg-info/entry_points.txt",
+    "python_boilerplate.egg-info/dependency_links.txt",
+    "python_boilerplate.egg-info/PKG-INFO",
+    "python_boilerplate.egg-info",
+    "tests/conftest.py",
+    "tests/test_obsidian_capsule_cli.py",
+    "docs/usage.md",
+    "docs/installation.md",
+    "docs/index.md",
+    "src/obsidian_capsule_cli/utils.py",
+    "HISTORY.md",
+    "CODE_OF_CONDUCT.md",
+    "python-boilerplate/docs/usage.md",
+    "python-boilerplate/docs/installation.md",
+    "python-boilerplate/docs/index.md",
+    "python-boilerplate/README.md",
+    "python-boilerplate/HISTORY.md",
+    "python-boilerplate/CONTRIBUTING.md",
+    "python-boilerplate/CODE_OF_CONDUCT.md",
+    "scripts/00 - Scripts MoC.md",
+    "review_notes.md",
+    "missed hours.md",
+    "midterm2 classics.md",
+    "meridian todo.md",
+    "mditerm2 cramming classics and integrated clinical.md",
+    "docs/technical-research-capsules.md",
+    "docs/sprint-artifacts/validation-report.md",
+    "docs/sprint-artifacts/validation-report-2025-11-18-23-41-44.md",
+    "docs/sprint-artifacts/validation-report-2025-11-18-23-20-02.md",
+    "docs/sprint-artifacts/validation-report-2025-11-18-23-19-26.md",
+    "docs/sprint-artifacts/validation-report-2025-11-18-23-18-49.md",
+    "docs/sprint-artifacts/validation-report-2025-11-18-23-18-14.md",
+    "TCM_Points_Images/LI-9_diagram.jpg",
+    "TCM_Points_Images/LI-9_header.png",
+    "TCM_Points_Images/LI-9_chinese.png",
+    "TCM_Points_Images/LI-8_diagram.jpg",
+    "TCM_Points_Images/LI-8_header.png",
+    "TCM_Points_Images/LI-8_chinese.png",
+    "TCM_Points_Images/LI-7_diagram.jpg",
+    "TCM_Points_Images/LI-7_header.png",
+    "TCM_Points_Images/LI-7_chinese.png",
+    "TCM_Points_Images/LI-6_diagram.jpg"
   ]
 }

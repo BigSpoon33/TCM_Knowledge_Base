@@ -1,0 +1,48 @@
+---
+# =9 Core Metadata (Universal Fields)
+id: "pattern-20251010183503"
+name: ""
+type: "pattern"
+aliases: []
+tags: ['TCM', 'Pattern']
+
+# =9 Cross-Link Fields (Universal Relationship Slots)
+category: ['']
+related: []
+symptoms: []
+patterns: []
+western_conditions: []
+formulas: []
+herbs: []
+points: []
+nutrition: []
+tests: []
+
+# =9 Pattern-Specific Data
+pattern_data:
+  pattern_type: "Zang Fu"
+  pattern_subtype: ""
+  excess_deficiency: "Mixed Excess-Deficiency"
+  hot_cold: "Neither"
+  interior_exterior: "Interior"
+  yin_yang: "Yin"
+  etiology: []
+  pathomechanisms: []
+  disease_progression: ""
+  cardinal_symptoms: ['Interior syndromes such as:']
+  tongue: ""
+  pulse: ""
+  treatment_principle: []
+  contraindications: []
+
+created: 2025-10-10
+updated: 2025-10-10
+---
+
+## YIN WEI (Yin Linking Vessel)
+
+**Symptoms (CAM):**
+- Interior syndromes such as:
+    - Chest pain
+    - Cardiac pain
+    - Stomachache

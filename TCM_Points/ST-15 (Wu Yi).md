@@ -1,0 +1,160 @@
+---
+id: point-20251005202452
+name: ST-15
+type: point
+aliases:
+- WŪYÌ
+- Room Screen
+- 屋翳
+tags:
+- TCM
+- Acupuncture
+- Point
+- Stomach
+category:
+- Stomach Channel Points
+related: []
+symptoms: []
+patterns: []
+western_conditions: []
+formulas: []
+herbs: []
+points: []
+nutrition: []
+tests: []
+point_data:
+  code: ST-15
+  hanzi: 屋翳
+  pinyin: WŪYÌ
+  english: Room Screen
+  channel: Stomach
+  special_properties: []
+  location_description: On the chest, in the second intercostal space, 4 cun lateral
+    to the midline (Zǐgōng REN-19), on the mamillary line.
+  location_notes: i. First locate the costal cartilage of the second rib which is
+    level with the sternal angle, then locate the second intercostal space below it;
+    ii. Note that in males the nipple lies in the fourth intercostal space; iii Note
+    that the intercostal space curves upwards laterally, so that Wūyì ST-15 will lie
+    superior to the level of Zǐgōng REN-19.
+  needling_method: Transverse-oblique insertion laterally or medially along the intercostal
+    space, or transverse insertion superiorly or inferiorly along the channel.
+  needling_depth: 0.5 to 0.8 cun
+  needling_cautions:
+  - deep or perpendicular insertion carries a substantial risk of puncturing the lung
+  functions:
+  - Descends rebellious qi and unbinds the chest
+  - Benefits the breasts
+  - Alleviates pain and itching of the skin
+  indications:
+    respiratory:
+    - Cough
+    - wheezing
+    - dyspnoea
+    - shortness of breath
+    - coughing of pus and blood
+    - distention and pain of the chest and lateral costal region
+    digestive: []
+    head_throat: []
+    pain:
+    - Breast pain
+    - distention and pain of the chest and lateral costal region
+    - Pain of the skin making wearing of clothes unbearable
+    - pain and weakness of the limbs
+    other:
+    - Breast abscess
+    - generalised itching
+    - heaviness of the body
+    - swollen body
+    - weakness of the limbs
+  combinations:
+  - condition: Itching with much pain
+    points:
+    - ST-15
+    - BL-67
+    source: One Hundred Symptoms
+created: 2025-10-05
+updated: 2025-10-05
+banner: TCM_Points_Images/ST-15_diagram.jpg
+cssclasses:
+- noyaml
+---
+
+# 📍 ST-15 · WŪYÌ (屋翳)
+
+**Point Name:** Room Screen (WŪYÌ)
+**Channel:** Stomach Channel
+**Special Properties:** 
+
+---
+
+## 📍 Location
+
+On the chest, in the second intercostal space, 4 cun lateral to the midline (Zǐgōng REN-19), on the mamillary line.
+
+**Location Notes:**
+i. First locate the costal cartilage of the second rib which is level with the sternal angle, then locate the second intercostal space below it; ii. Note that in males the nipple lies in the fourth intercostal space; iii Note that the intercostal space curves upwards laterally, so that Wūyì ST-15 will lie superior to the level of Zǐgōng REN-19.
+
+![[ST-15_diagram.jpg]]
+
+**Chinese Characters:** ![[ST-15_chinese.png]]
+
+---
+
+## 🔧 Needling Technique
+
+**Method:** Transverse-oblique insertion laterally or medially along the intercostal space, or transverse insertion superiorly or inferiorly along the channel.
+**Depth:** 0.5 to 0.8 cun
+
+### ⚠️ Cautions
+- deep or perpendicular insertion carries a substantial risk of puncturing the lung
+
+---
+
+## ⚡ Functions & Actions
+- Descends rebellious qi and unbinds the chest
+- Benefits the breasts
+- Alleviates pain and itching of the skin
+
+---
+
+## 🎯 Clinical Indications
+
+### Respiratory
+- Cough
+- wheezing
+- dyspnoea
+- shortness of breath
+- coughing of pus and blood
+- distention and pain of the chest and lateral costal region
+
+### Pain
+- Breast pain
+- distention and pain of the chest and lateral costal region
+- Pain of the skin making wearing of clothes unbearable
+- pain and weakness of the limbs
+
+### Other
+- Breast abscess
+- generalised itching
+- heaviness of the body
+- swollen body
+- weakness of the limbs
+
+---
+
+## 🔗 Point Combinations
+
+**Itching with much pain**
+- Points: ST-15, BL-67
+- Source: *One Hundred Symptoms*
+
+---
+
+## 🧬 TCM Theory & Commentary
+
+Rarely used. Both ST-14 and ST-15 are mostly indicated for local disorders of the chest, with Wuyi ST-15 also indicated for breast pain and abscess, pain of the skin making wearing of clothes unbearable, generalised itching, heaviness of the body, swollen body, pain and weakness of the limbs.
+
+---
+
+*Last updated: 2025-10-05*
+*Channel: Stomach | Type: [[TCM Acupuncture Points]]*
