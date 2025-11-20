@@ -18,11 +18,13 @@ class TestCypherGeneration(unittest.TestCase):
         # Create dummy capsule structure
         (self.test_dir / "root_notes").mkdir(exist_ok=True)
         (self.test_dir / "media").mkdir(exist_ok=True)
-        (self.test_dir / "schemas").mkdir(exist_ok=True)
 
-        # Create dummy schema file
-        with open(self.test_dir / "schemas" / "note_schema.yaml", "w") as f:
-            f.write("type: object\nproperties:\n  title:\n    type: string")
+        self.domain_template_dir = Path("capsule/templates/domains")
+        self.domain_template_dir.mkdir(exist_ok=True)
+        with open(self.domain_template_dir / "test.yaml", "w") as f:
+            yaml.dump(
+                {"data_schemas": {"note_schema": {"type": "object", "properties": {"title": {"type": "string"}}}}}, f
+            )
 
         # Create dummy files
         with open(self.test_dir / "root_notes" / "note1.md", "w") as f:
@@ -45,11 +47,12 @@ class TestCypherGeneration(unittest.TestCase):
 
         shutil.rmtree(self.test_dir)
         shutil.rmtree(self.output_dir)
+        os.remove(self.domain_template_dir / "test.yaml")
 
     def test_data_schemas(self):
         cypher = self.packager.generate_cypher()
         self.assertIn("note_schema", cypher.data_schemas)
-        self.assertEqual(cypher.data_schemas["note_schema"]["type"], "object")
+        self.assertEqual(cypher.data_schemas["note_schema"]["properties"]["title"]["type"], "string")
 
     def test_file_inventory(self):
         cypher = self.packager.generate_cypher()

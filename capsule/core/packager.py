@@ -37,18 +37,18 @@ class CapsulePackager:
         logger.info(f"CapsulePackager initialized for capsule {self.capsule.capsule_id}")
 
     def _scan_schemas(self) -> dict:
-        """Scan the capsule directory for data schemas."""
-        logger.info(f"Scanning for data schemas in {self.capsule_path}")
-        schemas_path = self.capsule_path / "schemas"
+        """Load the data schemas from the domain schema file."""
+        logger.info(f"Loading data schemas for domain {self.capsule.domain_type}")
+        domain_schema_path = Path(f"capsule/templates/domains/{self.capsule.domain_type}.yaml")
         data_schemas = {}
-        if schemas_path.is_dir():
-            for file_path in schemas_path.iterdir():
-                if file_path.suffix in (".yaml", ".yml", ".json"):
-                    schema_name = file_path.stem
-                    with open(file_path, "r") as f:
-                        yaml = YAML()
-                        data_schemas[schema_name] = yaml.load(f)
-        logger.info(f"Found {len(data_schemas)} data schemas in {self.capsule_path}")
+        if domain_schema_path.is_file():
+            with open(domain_schema_path, "r") as f:
+                yaml = YAML()
+                domain_schema = yaml.load(f)
+                data_schemas = domain_schema.get("data_schemas", {})
+        else:
+            logger.warning(f"Domain schema file not found at {domain_schema_path}")
+        logger.info(f"Loaded {len(data_schemas)} data schemas for domain {self.capsule.domain_type}")
         return data_schemas
 
     def generate_cypher(self) -> CapsuleCypher:
