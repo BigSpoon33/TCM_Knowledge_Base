@@ -1,17 +1,11 @@
-# Engineering Backlog
 
-This backlog collects cross-cutting or future action items that emerge from reviews and planning.
-
-Routing guidance:
-
-- Use this file for non-urgent optimizations, refactors, or follow-ups that span multiple stories/epics.
-- Must-fix items to ship a story belong in that story’s `Tasks / Subtasks`.
-- Same-epic improvements may also be captured under the epic Tech Spec `Post-Review Follow-ups` section.
-
-| Date | Story | Epic | Type | Severity | Owner | Status | Notes |
-| ---- | ----- | ---- | ---- | -------- | ----- | ------ | ----- |
-| 2025-11-18 | 5.1 | 5 | Bug | High | TBD | Open | Implement the `validate_data_types` method in the `Validator` class. |
-| 2025-11-18 | 5.1 | 5 | Bug | Medium | TBD | Open | Implement the `validate_frontmatter_schema` method in the `Validator` class to actually validate the frontmatter schema. |
-| 2025-11-18 | 5.1 | 5 | Test | Medium | TBD | Open | Add more test cases to `tests/test_core/test_validator.py` to cover different validation scenarios (e.g., invalid cypher, extra files, invalid frontmatter). |
-| 2025-11-18 | 5.1 | 5 | TechDebt | Low | TBD | Open | Refactor the `Validator` class to parse the `capsule-cypher.yaml` file only once. |
-| 2025-11-18 | 5.1 | 5 | Test | Low | TBD | Open | Add explicit assertions to the `test_validate_capsule_with_valid_capsule` test. |
+| 2025-11-19 | 6.1 | 6 | TechDebt | Medium | TBD | Open | Refactor `CapsulePackager.generate_cypher` to not use hardcoded values. |
+| 2025-11-19 | 6.1 | 6 | Bug | Medium | TBD | Open | Add error handling to `CapsulePackager`. |
+| 2025-11-19 | 6.1 | 6 | TechDebt | Medium | TBD | Open | Add more comprehensive tests to `test_packager.py`. |
+| 2025-11-19 | 6.1 | 6 | Enhancement | Low | TBD | Open | Add logging to `CapsulePackager`. |
+| 2025-11-19 | Ad-Hoc Review | N/A | Bug | High | TBD | Open | Refactor `capsule/core/packager.py` to generate cypher from actual capsule content. |
+| 2025-11-19 | Ad-Hoc Review | N/A | TechDebt | Medium | TBD | Open | Refactor `capsule/core/generator.py` to remove the `MockCapsule` dependency. |
+| 2025-11-19 | Ad-Hoc Review | N/A | Enhancement | Low | TBD | Open | Implement the `validate_data_types` method in `capsule/core/validator.py`. |
+| 2025-11-19 | Ad-Hoc Review | N/A | TechDebt | Low | TBD | Open | Make `cypher_data` in `capsule/core/generator.py` dynamic. |
+| 2025-11-19 | Ad-Hoc Review | N/A | TechDebt | Medium | TBD | Open | Implement the full `Validator` class to replace the placeholder. |
+| 2025-11-19 | Ad-Hoc Review | N/A | TechDebt | Low | TBD | Open | Create a centralized configuration model for constants and settings. |
