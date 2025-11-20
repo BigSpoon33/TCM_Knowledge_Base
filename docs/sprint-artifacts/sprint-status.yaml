@@ -105,8 +105,8 @@ development_status:
   # Cypher generation, file inventory management, export to folder/zip
   epic-6: backlog
   6-1-capsule-packager-core: done
-  6-2-cypher-generation-from-capsule: drafted
-  6-3-file-inventory-management: backlog
+  6-2-cypher-generation-from-capsule: done
+  6-3-file-inventory-management: drafted
   6-4-export-to-folder-bundle: backlog
   6-5-export-to-capsule-zip: backlog
   epic-6-retrospective: optional
