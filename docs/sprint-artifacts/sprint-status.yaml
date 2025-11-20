@@ -90,18 +90,18 @@ development_status:
   # Epic 5: Validation Engine
   # Schema validation, file inventory checks, data type validation, reporting
   epic-5: in-progress
-  5-1-core-validator-implementation: review
-  5-2-schema-validation-logic: backlog
-  5-3-file-inventory-validation: backlog
-  5-4-data-type-validation: backlog
-  5-5-utf8-encoding-validation: backlog
-  5-6-validation-report-generation: backlog
+  5-1-core-validator-implementation: done
+  5-2-schema-validation-logic: done
+  5-3-file-inventory-validation: done
+  5-4-data-type-validation: done
+  5-5-utf8-encoding-validation: done
+  5-6-validation-report-generation: review
   epic-5-retrospective: optional
 
   # Epic 6: Capsule Packaging
   # Cypher generation, file inventory management, export to folder/zip
   epic-6: backlog
-  6-1-capsule-packager-core: backlog
+  6-1-capsule-packager-core: review
   6-2-cypher-generation-from-capsule: backlog
   6-3-file-inventory-management: backlog
   6-4-export-to-folder-bundle: backlog
