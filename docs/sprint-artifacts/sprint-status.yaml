@@ -39,6 +39,7 @@ project_key: ocds
 tracking_system: file-system
 story_location: docs/sprint-artifacts
 
+# NOTE: Retrospectives for Epics 0-4 were skipped. A 'Historical Pattern Review' is recommended.
 development_status:
   # Epic 0: Foundation & Project Setup
   # Establishes modern Python project structure, dependencies, and development tools
@@ -95,14 +96,16 @@ development_status:
   5-3-file-inventory-validation: done
   5-4-data-type-validation: done
   5-5-utf8-encoding-validation: done
-  5-6-validation-report-generation: review
-  epic-5-retrospective: optional
+  5-6-validation-report-generation: done
+  epic-5-retrospective: done
+  5-7-validator-class-implementation: done
+  adhoc-1-central-config: done
 
   # Epic 6: Capsule Packaging
   # Cypher generation, file inventory management, export to folder/zip
   epic-6: backlog
-  6-1-capsule-packager-core: review
-  6-2-cypher-generation-from-capsule: backlog
+  6-1-capsule-packager-core: done
+  6-2-cypher-generation-from-capsule: drafted
   6-3-file-inventory-management: backlog
   6-4-export-to-folder-bundle: backlog
   6-5-export-to-capsule-zip: backlog

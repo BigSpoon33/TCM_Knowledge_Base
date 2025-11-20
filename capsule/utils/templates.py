@@ -1,16 +1,13 @@
 from jinja2 import Environment, FileSystemLoader, Template
-from pathlib import Path
+from capsule.constants import TEMPLATES_DIR
 
-# Define the base directory of the project to resolve paths correctly
-# This assumes the script is in capsule/utils/templates.py
-BASE_DIR = Path(__file__).resolve().parent.parent.parent
-TEMPLATE_DIR = BASE_DIR / "capsule" / "templates"
 
-def create_jinja_environment() -> Environment:
+def create_jinja_environment(template_dir=TEMPLATES_DIR) -> Environment:
     """Creates and configures a Jinja2 environment."""
-    return Environment(loader=FileSystemLoader(TEMPLATE_DIR))
+    return Environment(loader=FileSystemLoader(template_dir))
 
-def load_template(template_name: str) -> Template:
+
+def load_template(template_name: str, template_dir=TEMPLATES_DIR) -> Template:
     """Loads a Jinja2 template by name."""
-    env = create_jinja_environment()
+    env = create_jinja_environment(template_dir)
     return env.get_template(template_name)

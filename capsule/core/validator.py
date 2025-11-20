@@ -1,5 +1,6 @@
 import yaml
 from capsule.utils.validators import check_required_fields, is_valid_semver
+import frontmatter
 
 
 class Validator:
@@ -66,15 +67,10 @@ class Validator:
         if not file_path.exists():
             return
 
-        with open(file_path, "r") as f:
-            content = f.read()
-            # This is a simplified frontmatter parsing logic.
-            # A more robust implementation would use a dedicated library.
-            frontmatter_str = content.split("---")[1]
-            frontmatter = yaml.safe_load(frontmatter_str)
+        post = frontmatter.load(file_path)
 
         for field, properties in schema.items():
-            if properties.get("required") and field not in frontmatter:
+            if properties.get("required") and field not in post.metadata:
                 raise ValueError(f"Missing required field '{field}' in {file_path}")
 
     def validate_file_inventory(self):
@@ -129,16 +125,15 @@ class Validator:
         if not file_path.exists():
             return
 
-        with open(file_path, "r") as f:
-            content = f.read()
-            # This is a simplified frontmatter parsing logic.
-            # A more robust implementation would use a dedicated library.
-            frontmatter_str = content.split("---")[1]
-            frontmatter = yaml.safe_load(frontmatter_str)
+        post = frontmatter.load(file_path)
 
-        for field, field_type in schema.items():
-            if field in frontmatter:
-                if not isinstance(frontmatter[field], eval(field_type)):
+        type_map = {"str": str, "int": int, "float": float, "list": list, "dict": dict, "bool": bool}
+
+        for field, properties in schema.items():
+            field_type_str = properties.get("type")
+            if field in post.metadata and field_type_str:
+                expected_type = type_map.get(field_type_str)
+                if expected_type and not isinstance(post.metadata[field], expected_type):
                     raise TypeError(
-                        f"Invalid data type for field '{field}' in {file_path}. Expected {field_type}, got {type(frontmatter[field]).__name__}"
+                        f"Invalid data type for field '{field}' in {file_path}. Expected {field_type_str}, got {type(post.metadata[field]).__name__}"
                     )
