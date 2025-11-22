@@ -30,6 +30,19 @@ class ResearchProvider(ABC):
         """
         pass
 
+    @abstractmethod
+    def generate_content(self, prompt: str) -> str:
+        """
+        Generates content based on a specific prompt.
+
+        Args:
+            prompt: The prompt to send to the LLM.
+
+        Returns:
+            Generated text content.
+        """
+        pass
+
 
 class GeminiResearchProvider(ResearchProvider):
     """A research provider that uses the Google Gemini API."""
@@ -42,7 +55,7 @@ class GeminiResearchProvider(ResearchProvider):
         genai.configure(api_key=api_key)
         self.model = genai.GenerativeModel("gemini-pro")
 
-    def research(self, topic: str, max_sources: int = 10) -> Dict:
+    def research(self, topic: str, max_sources: int = 10) -> ResearchResult:
         """
         Performs research using the Gemini API.
 
@@ -59,6 +72,14 @@ class GeminiResearchProvider(ResearchProvider):
             metadata = {"provider": "gemini"}
 
             return ResearchResult(content=content, citations=citations, metadata=metadata)
+        except Exception as e:
+            raise NetworkError(f"An error occurred while calling the Gemini API: {e}") from e
+
+    def generate_content(self, prompt: str) -> str:
+        """Generates content using Gemini."""
+        try:
+            response = self.model.generate_content(prompt)
+            return response.text
         except Exception as e:
             raise NetworkError(f"An error occurred while calling the Gemini API: {e}") from e
 
@@ -97,3 +118,6 @@ class DummyResearchProvider(ResearchProvider):
                 ],
             },
         )
+
+    def generate_content(self, prompt: str) -> str:
+        return f"Generated content for prompt: {prompt[:30]}..."
