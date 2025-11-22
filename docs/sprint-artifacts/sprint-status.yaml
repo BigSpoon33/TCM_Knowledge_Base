@@ -106,29 +106,29 @@ development_status:
   epic-6: backlog
   6-1-capsule-packager-core: done
   6-2-cypher-generation-from-capsule: done
-  6-3-file-inventory-management: drafted
-  6-4-export-to-folder-bundle: backlog
-  6-5-export-to-capsule-zip: backlog
-  epic-6-retrospective: optional
+  6-3-file-inventory-management: done
+  6-4-export-to-folder-bundle: done
+  6-5-export-to-capsule-zip: done
+  epic-6-retrospective: done
 
   # Epic 7: Import/Export Operations
   # Backup management, import/export commands, version conflict detection, preview
   epic-7: backlog
-  7-1-backup-management-system: backlog
-  7-2-capsule-exporter-implementation: backlog
-  7-3-capsule-importer-with-preview: backlog
-  7-4-version-conflict-detection: backlog
-  7-5-import-preview-data-structure: backlog
-  7-6-interactive-approval-workflow: backlog
-  epic-7-retrospective: optional
+  7-1-backup-management-system: done
+  7-2-capsule-exporter-implementation: done
+  7-3-capsule-importer-with-preview: done
+  7-4-version-conflict-detection: done
+  7-5-import-preview-data-structure: done
+  7-6-interactive-approval-workflow: done
+  epic-7-retrospective: done
 
   # Epic 8: Merge Strategies
   # Section-level merge, additive merge, conflict detection, provenance tracking
   epic-8: backlog
-  8-1-frontmatter-parser-utilities: backlog
-  8-2-section-level-merge-algorithm: backlog
-  8-3-additive-merge-algorithm: backlog
-  8-4-conflict-detection-logic: backlog
+  8-1-frontmatter-parser-utilities: done
+  8-2-section-level-merge-algorithm: done
+  8-3-additive-merge-algorithm: done
+  8-4-conflict-detection-logic: review
   8-5-user-content-preservation: backlog
   8-6-provenance-tracking: backlog
   epic-8-retrospective: optional
