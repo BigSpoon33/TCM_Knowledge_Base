@@ -1,7 +1,7 @@
 import typer
 from rich.progress import Progress, SpinnerColumn, TextColumn
 from capsule.models.config import Config
-from capsule.core.researcher import GeminiResearchProvider
+from capsule.core.researcher import GeminiResearchProvider, DummyResearchProvider
 from capsule.utils.validation import Validator
 from capsule.core.generator import ContentGenerator
 from pathlib import Path
@@ -37,7 +37,11 @@ def generate(
             return
 
         # Create generator
-        researcher = GeminiResearchProvider()
+        if no_research:
+            researcher = DummyResearchProvider()
+        else:
+            researcher = GeminiResearchProvider()
+
         validator = Validator()
         generator = ContentGenerator(researcher, validator)
 

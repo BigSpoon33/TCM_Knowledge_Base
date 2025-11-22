@@ -9,26 +9,30 @@ yaml = ruamel.yaml.YAML()
 yaml.preserve_quotes = True
 yaml.indent(mapping=2, sequence=4, offset=2)
 
+
 @dataclass
 class Config:
     """
     Manages user-level and project-level configurations for the Capsule CLI.
     """
+
     llm_provider: str = "openai"
     api_key: Optional[str] = None
     default_model: str = "gpt-4-turbo"
     project_dir: Optional[Path] = None
+    user: Dict[str, str] = field(default_factory=dict)
+    research: Dict[str, str] = field(default_factory=dict)
 
     @classmethod
     def from_yaml_file(cls, path: Path) -> "Config":
         """Loads a Config from a YAML file."""
-        with open(path, 'r', encoding='utf-8') as f:
+        with open(path, "r", encoding="utf-8") as f:
             data = yaml.load(f)
         return cls(**data)
 
     def to_yaml_file(self, path: Path) -> None:
         """Saves the Config to a YAML file."""
-        with open(path, 'w', encoding='utf-8') as f:
+        with open(path, "w", encoding="utf-8") as f:
             yaml.dump(self.to_dict(), f)
 
     def to_dict(self) -> Dict[str, Any]:
@@ -38,6 +42,8 @@ class Config:
             "api_key": self.api_key,
             "default_model": self.default_model,
             "project_dir": str(self.project_dir) if self.project_dir else None,
+            "user": self.user,
+            "research": self.research,
         }
 
     def validate(self) -> None:
@@ -54,18 +60,43 @@ class Config:
         Handles the hierarchical loading of global and local configuration
         files and returns a merged Config instance.
         """
-        global_config_path = Path.home() / ".config" / "capsule" / "config.yaml"
+        # Check standard XDG config path
+        xdg_config_path = Path.home() / ".config" / "capsule" / "config.yaml"
+        # Check legacy/alternative home config path
+        legacy_config_path = Path.home() / ".capsule" / "config.yaml"
+
         # For project_dir, we'd typically search up from cwd for a .capsule dir
         # For now, we'll assume cwd is project root if .capsule exists
         local_config_path = Path.cwd() / ".capsule" / "config.yaml"
 
         config_data = {}
-        if global_config_path.exists():
-            with open(global_config_path, 'r', encoding='utf-8') as f:
-                config_data.update(yaml.load(f))
 
+        # Load from legacy path first (lowest priority of globals)
+        if legacy_config_path.exists():
+            with open(legacy_config_path, "r", encoding="utf-8") as f:
+                config_data.update(yaml.load(f) or {})
+
+        # Load from XDG path (overrides legacy)
+        if xdg_config_path.exists():
+            with open(xdg_config_path, "r", encoding="utf-8") as f:
+                config_data.update(yaml.load(f) or {})
+
+        # Load from local path (highest priority)
         if local_config_path.exists():
-            with open(local_config_path, 'r', encoding='utf-8') as f:
-                config_data.update(yaml.load(f))
-        
+            with open(local_config_path, "r", encoding="utf-8") as f:
+                config_data.update(yaml.load(f) or {})
+
         return cls(**config_data)
+
+    def get(self, key: str, default: Any = None) -> Any:
+        """
+        Gets a value from the config using dot notation.
+        """
+        keys = key.split(".")
+        value = self.to_dict()
+        for k in keys:
+            if isinstance(value, dict):
+                value = value.get(k, default)
+            else:
+                return default
+        return value

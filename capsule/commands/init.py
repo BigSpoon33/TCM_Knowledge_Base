@@ -9,6 +9,7 @@ from ..utils.exceptions import ConfigError
 
 console = Console()
 
+
 def init():
     """
     Initializes the Capsule CLI configuration.
@@ -18,24 +19,24 @@ def init():
     try:
         # Get defaults from a temporary config object without creating the file
         temp_config = Config()
-        
+
         questions = [
             {
-                'type': 'text',
-                'name': 'user.name',
-                'message': 'What is your name?',
-                'default': temp_config.get('user.name', 'User'),
+                "type": "text",
+                "name": "user.name",
+                "message": "What is your name?",
+                "default": temp_config.get("user.name", "User"),
             },
             {
-                'type': 'text',
-                'name': 'user.vault_path',
-                'message': 'What is the path to your Obsidian vault?',
-                'default': temp_config.get('user.vault_path', str(Path.home() / 'Documents' / 'Obsidian')),
+                "type": "text",
+                "name": "user.vault_path",
+                "message": "What is the path to your Obsidian vault?",
+                "default": temp_config.get("user.vault_path", str(Path.home() / "Documents" / "Obsidian")),
             },
             {
-                'type': 'password',
-                'name': 'research.api_key',
-                'message': 'What is your Google AI API key for research?',
+                "type": "password",
+                "name": "research.api_key",
+                "message": "What is your Google AI API key for research?",
             },
         ]
 
@@ -46,14 +47,22 @@ def init():
             raise typer.Abort()
 
         # Now, create the real config and save it
-        config = Config()
-        config.data['user']['name'] = answers.get('user.name')
-        config.data['user']['vault_path'] = answers.get('user.vault_path')
-        config.data['research']['api_key'] = answers.get('research.api_key')
-        
-        config.save()
+        config = Config(
+            user={
+                "name": answers.get("user.name"),
+                "vault_path": answers.get("user.vault_path"),
+            },
+            research={
+                "api_key": answers.get("research.api_key"),
+            },
+        )
 
-        console.print(f"[green]✓ Configuration saved to {config.path}[/green]")
+        # Use XDG standard path
+        config_path = Path.home() / ".config" / "capsule" / "config.yaml"
+        config_path.parent.mkdir(parents=True, exist_ok=True)
+        config.to_yaml_file(config_path)
+
+        console.print(f"[green]✓ Configuration saved to {config_path}[/green]")
 
     except Exception as e:
         console.print(f"[bold red]Error during initialization: {e}[/bold red]")
