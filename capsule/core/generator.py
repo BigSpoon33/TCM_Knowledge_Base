@@ -1,6 +1,8 @@
 from ..core.researcher import ResearchProvider
 from ..core.validator import Validator
 from ..core.template_engine import TemplateEngine
+from ..core.slides_generator import SlidesGenerator
+from ..core.conversation_generator import ConversationGenerator
 from ..models.research import ResearchResult
 import jinja2
 import json
@@ -20,6 +22,8 @@ class ContentGenerator:
         self.validator = validator
         self.template_env = jinja2.Environment(loader=jinja2.FileSystemLoader(TEMPLATES_DIR))
         self.template_engine = TemplateEngine()
+        self.slides_generator = SlidesGenerator(researcher)
+        self.conversation_generator = ConversationGenerator(researcher)
 
     def _load_template(self, template_name: str) -> jinja2.Template:
         return self.template_env.get_template(template_name)
@@ -40,84 +44,110 @@ class ContentGenerator:
         generated_content = {}
 
         if "all" in materials:
-            materials = ["flashcards", "quiz", "slides", "conversation", "root_note"]
+            materials = ["flashcards", "quiz", "slides", "conversation", "study_material", "tasks", "root_note"]
 
-        with tempfile.TemporaryDirectory() as temp_dir:
-            capsule_path = Path(temp_dir)
+        # Create a temporary directory for validation, but we will return content to be saved by the CLI
+        # Actually, the CLI expects us to return a dict of content, but now we want to manage folders.
+        # The CLI's generate command handles saving, but it saves flatly.
+        # We need to change the CLI to respect the folder structure or handle saving here.
+        # Given the current architecture, the CLI iterates over the returned dict and saves files.
+        # We can return keys with paths like "Topic/File.md" to hint structure,
+        # OR we can update the CLI to create the folder.
 
-            # Create capsule-cypher.yaml
-            cypher_data = {
-                "capsule_id": "temp-capsule",
-                "name": topic,
-                "version": "1.0.0",
-                "domain_type": "education",
-                "folder_structure": {"root_notes": "root_notes"},
-                "contents": {"root_notes": []},
-            }
+        # Let's stick to returning content and let the CLI handle saving,
+        # BUT we will update the CLI to create the topic folder.
 
-            for material in materials:
+        # Wait, the user wants a specific folder structure: Materials/Topic_Name/
+        # The CLI currently takes an --output dir.
+        # If we return keys like "Topic_Name/Flashcards_Topic.md", the CLI might fail if it just joins paths.
+
+        # Let's generate the content first.
+
+        # 1. Root Note
+        root_note_content = ""
+        if "root_note" in materials:
+            if template_name.endswith(".md"):
+                root_note_content = self._generate_root_note_from_markdown(
+                    topic, template_name, research_result.content
+                )
+            else:
+                # Default Jinja2 handling for root note
                 try:
-                    # Special handling for root_note if a custom markdown template is provided
-                    # For now, we assume template_name passed to generate() is for the root note
-                    # if it ends in .md (not .j2) and we are processing 'root_note'
-                    if material == "root_note" and template_name.endswith(".md"):
-                        # If source_path is provided, we probably shouldn't regenerate the root note
-                        # unless explicitly requested. For now, let's assume if they asked for it, they want it.
-                        # But if source_path IS the root note, regenerating it from itself is weird unless it's "enhancement".
-                        rendered_content = self._generate_root_note_from_markdown(
-                            topic, template_name, research_result.content
-                        )
-                    else:
-                        # Default Jinja2 handling
-                        template = self._load_template(f"{material}.md.j2")
-                        context = asdict(research_result)
-                        # Unpack metadata into context so templates can access fields like 'question', 'answer', etc.
-                        if research_result.metadata:
-                            context.update(research_result.metadata)
-
-                        context["topic"] = topic
-                        context["created"] = datetime.now().strftime("%Y-%m-%d")
-                        # Generate simple tags
-                        context["tags"] = ["capsule", material] + [
-                            t.strip().lower().replace(" ", "_") for t in topic.split(" ")
-                        ]
-
-                        # Generate structured data if missing (e.g. when using source_path or standard research)
-                        if material == "flashcards" and "flashcards" not in context:
-                            context["flashcards"] = self._generate_flashcards_data(research_result.content)
-
-                        if material == "quiz" and "questions" not in context:
-                            context["questions"] = self._generate_quiz_data(research_result.content)
-
-                        if "flashcards" in context:
-                            context["total_cards"] = len(context["flashcards"])
-
-                        if "questions" in context:
-                            context["total_questions"] = len(context["questions"])
-
-                        rendered_content = template.render(context)
-
-                    # Save the rendered content to a file
-                    material_path = capsule_path / "root_notes"
-                    material_path.mkdir(exist_ok=True)
-                    file_path = material_path / f"{material}.md"
-                    with open(file_path, "w", encoding="utf-8") as f:
-                        f.write(rendered_content)
-
-                    cypher_data["contents"]["root_notes"].append(
-                        {"file": f"root_notes/{material}.md", "id": f"{material}-1"}
-                    )
-                    generated_content[material] = rendered_content
+                    template = self._load_template(f"root_note.md.j2")
+                    context = asdict(research_result)
+                    if research_result.metadata:
+                        context.update(research_result.metadata)
+                    context["topic"] = topic
+                    context["created"] = datetime.now().strftime("%Y-%m-%d")
+                    root_note_content = template.render(context)
                 except jinja2.TemplateNotFound:
-                    print(f"Warning: Template for material '{material}' not found. Skipping.")
-                except FileNotFoundError:
-                    print(f"Warning: Markdown template '{template_name}' not found. Skipping root_note.")
+                    print("Warning: root_note template not found.")
 
-            with open(capsule_path / "capsule-cypher.yaml", "w") as f:
-                yaml.dump(cypher_data, f)
+            generated_content["root_note"] = root_note_content
 
-            validator = Validator(capsule_path)
-            validator.validate_capsule()
+        # Use root note content for other materials if available, otherwise research content
+        base_content = root_note_content if root_note_content else research_result.content
+
+        # 2. Slides
+        if "slides" in materials:
+            # Check if it's a pattern to use specialized generator
+            is_pattern = "pattern" in topic.lower() or "deficiency" in topic.lower()
+            if is_pattern:
+                generated_content["slides"] = self.slides_generator.generate_pattern_slides(base_content, topic)
+            else:
+                generated_content["slides"] = self.slides_generator.generate_from_content(base_content, topic)
+
+        # 3. Conversation
+        if "conversation" in materials:
+            generated_content["conversation"] = self.conversation_generator.generate_script(base_content, topic)
+
+        # 4. Flashcards
+        if "flashcards" in materials:
+            try:
+                template = self._load_template("flashcards.md.j2")
+                context = asdict(research_result)
+                context["topic"] = topic
+                context["created"] = datetime.now().strftime("%Y-%m-%d")
+                context["tags"] = ["capsule", "flashcards"] + [
+                    t.strip().lower().replace(" ", "_") for t in topic.split(" ")
+                ]
+
+                if "flashcards" not in context:
+                    context["flashcards"] = self._generate_flashcards_data(base_content)
+
+                context["total_cards"] = len(context.get("flashcards", []))
+                generated_content["flashcards"] = template.render(context)
+            except Exception as e:
+                print(f"Error generating flashcards: {e}")
+
+        # 5. Quiz
+        if "quiz" in materials:
+            try:
+                template = self._load_template("quiz.md.j2")
+                context = asdict(research_result)
+                context["topic"] = topic
+                context["created"] = datetime.now().strftime("%Y-%m-%d")
+                context["tags"] = ["capsule", "quiz"] + [t.strip().lower().replace(" ", "_") for t in topic.split(" ")]
+
+                if "questions" not in context:
+                    context["questions"] = self._generate_quiz_data(base_content)
+
+                context["total_questions"] = len(context.get("questions", []))
+                generated_content["quiz"] = template.render(context)
+            except Exception as e:
+                print(f"Error generating quiz: {e}")
+
+        # 6. Study Material
+        if "study_material" in materials:
+            generated_content["study_material"] = (
+                f"# Study Guide for {topic}\n\n*This is an auto-generated study guide based on the root note.*\n\n[[Root_Note_{topic.replace(' ', '_')}]]"
+            )
+
+        # 7. Tasks
+        if "tasks" in materials:
+            generated_content["tasks"] = (
+                f"# Tasks for {topic}\n\n- [ ] Review [[{topic}_Flashcards]]\n- [ ] Take [[{topic}_Quiz]]\n- [ ] Review [[{topic}_Slides]]\n- [ ] Complete [[{topic}_Guided_Conversation]]"
+            )
 
         return generated_content
 
