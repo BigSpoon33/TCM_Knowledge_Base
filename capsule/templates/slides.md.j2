@@ -1,0 +1,14 @@
+---
+type: slides
+topic: {{ topic }}
+---
+
+# Slides: {{ topic }}
+
+{{ content }}
+
+---
+## References
+{% for citation in citations %}
+- [{{ citation.title }}]({{ citation.url }}) - {{ citation.source_name }}
+{% endfor %}

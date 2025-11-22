@@ -1,0 +1,13 @@
+---
+type: note
+topic: {{ topic }}
+---
+
+# {{ topic }}
+
+{{ content }}
+
+## Sources
+{% for citation in citations %}
+- {{ citation.title }}: {{ citation.url }}
+{% endfor %}

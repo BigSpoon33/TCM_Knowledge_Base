@@ -7,6 +7,7 @@ import tempfile
 import yaml
 from pathlib import Path
 from ..constants import TEMPLATES_DIR
+from ..models.capsule import Capsule
 
 
 class ContentGenerator:
@@ -29,13 +30,6 @@ class ContentGenerator:
         with tempfile.TemporaryDirectory() as temp_dir:
             capsule_path = Path(temp_dir)
 
-            # Create a mock capsule object with a path attribute
-            class MockCapsule:
-                def __init__(self, path):
-                    self.path = path
-
-            mock_capsule = MockCapsule(capsule_path)
-
             # Create capsule-cypher.yaml
             cypher_data = {
                 "capsule_id": "temp-capsule",
@@ -49,7 +43,9 @@ class ContentGenerator:
             for material in materials:
                 try:
                     template = self._load_template(f"{material}.md.j2")
-                    rendered_content = template.render(asdict(research_result))
+                    context = asdict(research_result)
+                    context["topic"] = topic
+                    rendered_content = template.render(context)
 
                     # Save the rendered content to a file
                     material_path = capsule_path / "root_notes"
@@ -68,6 +64,7 @@ class ContentGenerator:
             with open(capsule_path / "capsule-cypher.yaml", "w") as f:
                 yaml.dump(cypher_data, f)
 
-            self.validator.validate_capsule(mock_capsule)
+            validator = Validator(capsule_path)
+            validator.validate_capsule()
 
         return generated_content
