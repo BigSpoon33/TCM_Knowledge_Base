@@ -53,9 +53,14 @@ def generate(
         ) as progress:
             gen_task = progress.add_task("Generating content...", total=None)
             materials_list = [m.strip() for m in materials.split(",")]
-            generated_capsule = generator.generate(
-                topic=topic, template_name=f"{template}.md.j2", materials=materials_list
-            )
+
+            # Determine template name
+            if template.endswith(".md") or template.endswith(".j2"):
+                template_name = template
+            else:
+                template_name = f"{template}.md.j2"
+
+            generated_capsule = generator.generate(topic=topic, template_name=template_name, materials=materials_list)
             progress.update(gen_task, completed=True)
 
             # Validation and Saving phase

@@ -50,6 +50,10 @@ class TemplateEngine:
         # Build body content
         body_str = self._build_body(self.headings, sections)
 
+        # Basic variable substitution
+        body_str = body_str.replace("{{ topic }}", topic)
+        body_str = body_str.replace("{{ Topic }}", topic)
+
         return f"{frontmatter_str}\n{body_str}"
 
     def _extract_frontmatter(self, content: str) -> Dict[str, Any]:
