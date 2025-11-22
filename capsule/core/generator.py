@@ -44,6 +44,10 @@ class ContentGenerator:
                 try:
                     template = self._load_template(f"{material}.md.j2")
                     context = asdict(research_result)
+                    # Unpack metadata into context so templates can access fields like 'question', 'answer', etc.
+                    if research_result.metadata:
+                        context.update(research_result.metadata)
+
                     context["topic"] = topic
                     rendered_content = template.render(context)
 

@@ -79,5 +79,16 @@ class DummyResearchProvider(ResearchProvider):
 
     def research(self, topic: str, max_sources: int = 10) -> ResearchResult:
         return ResearchResult(
-            content=f"Content for {topic} (Research Skipped)", citations=[], metadata={"provider": "dummy"}
+            content=f"Content for {topic} (Research Skipped)",
+            citations=[],
+            metadata={
+                "provider": "dummy",
+                "question": f"What is {topic}?",
+                "answer": f"{topic} is a subject of study.",
+                "title": f"{topic} Quiz",
+                "questions": [
+                    {"text": f"Is {topic} real?", "options": ["Yes", "No", "Maybe"]},
+                    {"text": f"Is {topic} important?", "options": ["Very", "Somewhat", "Not at all"]},
+                ],
+            },
         )
