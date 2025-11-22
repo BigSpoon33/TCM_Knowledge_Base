@@ -1,0 +1,144 @@
+<story-context id="{bmad_folder}/bmm/workflows/4-implementation/story-context/template" v="1.0">
+  <metadata>
+    <epicId>9</epicId>
+    <storyId>5</storyId>
+    <title>template-validate-command</title>
+    <status>drafted</status>
+    <generatedAt>2025-11-22</generatedAt>
+    <generator>BMAD Story Context Workflow</generator>
+    <sourceStoryPath>docs/sprint-artifacts/9-5-template-validate-command.md</sourceStoryPath>
+  </metadata>
+
+  <story>
+    <asA>a content creator</asA>
+    <iWant>to implement the capsule template validate command</iWant>
+    <soThat>I can ensure my custom templates are well-formed and comply with the project's schema.</soThat>
+    <tasks>
+      - [ ] **Task 1 (AC: #1-6)**: Implement the `validate` command logic in `capsule/commands/template.py`.
+        - [ ] Subtask 1.1: Add the Typer command function that accepts a file path.
+        - [ ] Subtask 1.2: Implement the core validation logic (likely in `capsule/core/validator.py` or a new utility).
+        - [ ] Subtask 1.3: Add success and error output messages using `rich`.
+      - [ ] **Task 2 (AC: #1-6)**: Add unit tests for the `validate` command in `tests/test_commands/test_template.py`.
+        - [ ] Subtask 2.1: Create a valid sample template for testing.
+        - [ ] Subtask 2.2: Create an invalid sample template with errors.
+        - [ ] Subtask 2.3: Write a test case to verify the success output for the valid template.
+        - [ ] Subtask 2.4: Write a test case to verify the error output for the invalid template.
+    </tasks>
+  </story>
+
+  <acceptanceCriteria>
+      1. The `validate` command MUST be implemented under the `template` subcommand.
+      2. The command MUST accept a file path to a template schema YAML file as an argument.
+      3. The command MUST validate the schema for correct structure, required fields, and data types.
+      4. The command MUST output a success message if the template is valid.
+      5. The command MUST output a detailed error message if the template is invalid, specifying the issue.
+      6. The command's implementation MUST follow the CLI command structure pattern defined in the architecture.
+    </acceptanceCriteria>
+
+  <artifacts>
+    <docs>
+      <doc>
+        <path>docs/architecture.md</path>
+        <title>Architecture Document</title>
+        <section>Epic Group 2: Template Management (FR11-FR16)</section>
+        <snippet>
+          Defines the architecture for template management, including the `template validate` command.
+        </snippet>
+      </doc>
+      <doc>
+        <path>docs/epics.md</path>
+        <title>Project Epics</title>
+        <section>Epic 9: CLI Commands - Generation &amp; Templates</section>
+        <snippet>
+          Lists the stories for Epic 9, including 9-5-template-validate-command.
+        </snippet>
+      </doc>
+    </docs>
+    <code>
+      <file>
+        <path>capsule/commands/template.py</path>
+        <kind>command</kind>
+        <symbol>app</symbol>
+        <lines></lines>
+        <reason>The new `validate` command will be added to this file.</reason>
+      </file>
+      <file>
+        <path>tests/test_commands/test_template.py</path>
+        <kind>test</kind>
+        <symbol></symbol>
+        <lines></lines>
+        <reason>Unit tests for the `validate` command will be added to this file.</reason>
+      </file>
+      <file>
+        <path>capsule/core/validator.py</path>
+        <kind>core</kind>
+        <symbol>Validator</symbol>
+        <lines></lines>
+        <reason>The core validation logic for template schemas might be added here.</reason>
+      </file>
+    </code>
+    <dependencies>
+      <dependency>
+        <name>typer</name>
+        <version></version>
+      </dependency>
+      <dependency>
+        <name>python-frontmatter</name>
+        <version></version>
+      </dependency>
+      <dependency>
+        <name>click</name>
+        <version>>=8.0.0</version>
+      </dependency>
+      <dependency>
+        <name>rich</name>
+        <version>>=13.0.0</version>
+      </dependency>
+      <dependency>
+        <name>pyyaml</name>
+        <version>>=6.0</version>
+      </dependency>
+      <dependency>
+        <name>google-generativeai</name>
+        <version>>=0.3.0</version>
+      </dependency>
+      <dependency>
+        <name>questionary</name>
+        <version>>=2.0.0</version>
+      </dependency>
+      <dependency>
+        <name>ruamel.yaml</name>
+        <version>>=0.17.0</version>
+      </dependency>
+    </dependencies>
+  </artifacts>
+
+  <constraints>
+      - The `validate` command MUST be implemented under the `template` subcommand.
+      - The command MUST accept a file path to a template schema YAML file as an argument.
+      - The command's implementation MUST follow the CLI command structure pattern defined in the architecture.
+      - Unit tests should cover validation of a valid template and a template with errors.
+    </constraints>
+  <interfaces>
+      <interface>
+        <name>template validate</name>
+        <kind>CLI command</kind>
+        <signature>capsule template validate [OPTIONS] FILEPATH</signature>
+        <path>capsule/commands/template.py</path>
+      </interface>
+    </interfaces>
+  <tests>
+    <standards>
+      The project follows a testing pyramid approach, with a majority of tests being unit tests. Tests should be co-located in the `tests/` directory, mirroring the source structure. Unit tests should cover validation of a valid template and a template with errors.
+    </standards>
+    <locations>
+      - `tests/test_commands/test_template.py`
+    </locations>
+    <ideas>
+      - Create a valid sample template for testing.
+      - Create an invalid sample template with errors.
+      - Write a test case to verify the success output for the valid template.
+      - Write a test case to verify the error output for the invalid template.
+    </ideas>
+  </tests>
+</story-context>

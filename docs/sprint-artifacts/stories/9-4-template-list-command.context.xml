@@ -1,0 +1,124 @@
+<story-context id=".bmad/bmm/workflows/4-implementation/story-context/template" v="1.0">
+  <metadata>
+    <epicId>9</epicId>
+    <storyId>4</storyId>
+    <title>template-list-command</title>
+    <status>drafted</status>
+    <generatedAt>2025-11-22</generatedAt>
+    <generator>BMAD Story Context Workflow</generator>
+    <sourceStoryPath>docs/sprint-artifacts/9-4-template-list-command.md</sourceStoryPath>
+  </metadata>
+
+  <story>
+    <asA>As a content creator,</asA>
+    <iWant>I want to implement the `capsule template list` command,</iWant>
+    <soThat>so that I can easily see all available templates for content generation.</soThat>
+    <tasks>
+        - [ ] **Task 1 (AC: #1-5)**: Implement the `list` command logic in `capsule/commands/template.py`.
+        - [ ] **Task 2 (AC: #1-5)**: Add unit tests for the `list` command in `tests/test_commands/test_template.py`.
+    </tasks>
+  </story>
+
+  <acceptanceCriteria>
+    1. The `list` command MUST be implemented under the `template` subcommand.
+    2. The command MUST list all available Jinja2 templates from the `capsule/templates` directory.
+    3. The output SHOULD be formatted as a table with columns for "Template Name" and "Domain".
+    4. The command MUST handle the case where no templates are found and display a user-friendly message.
+    5. The command's implementation MUST follow the CLI command structure pattern defined in the architecture.
+  </acceptanceCriteria>
+
+  <artifacts>
+    <docs>
+      <doc>
+        <path>docs/architecture.md</path>
+        <title>Architecture Document</title>
+        <section>Epic Group 2: Template Management (FR11-FR16)</section>
+        <snippet>
+          This section outlines the architecture for template management, including custom template creation, validation, domain schema definition, and sharing. It also defines the CLI commands for templates: `create`, `list`, and `validate`.
+        </snippet>
+      </doc>
+      <doc>
+        <path>docs/architecture.md</path>
+        <title>Architecture Document</title>
+        <section>CLI Command Structure Pattern</section>
+        <snippet>
+          This section defines the standard pattern for implementing CLI commands using Typer, including argument parsing, progress indicators with `rich`, and consistent error handling.
+        </snippet>
+      </doc>
+      <doc>
+        <path>docs/epics.md</path>
+        <title>Project Epics</title>
+        <section>Epic 9: CLI Commands - Generation &amp; Templates</section>
+        <snippet>
+          This epic covers the implementation of the main CLI application and the commands for content generation and template management. It includes the stories for `generate`, `template create`, `template list`, and `template validate`.
+        </snippet>
+      </doc>
+    </docs>
+    <code>
+      <artifact>
+        <path>capsule/commands/template.py</path>
+        <kind>command</kind>
+        <symbol>app</symbol>
+        <lines>1-43</lines>
+        <reason>This file contains the `template` subcommand group. The new `list` command should be added here.</reason>
+      </artifact>
+      <artifact>
+        <path>tests/test_commands/test_template.py</path>
+        <kind>test</kind>
+        <symbol>TestTemplateCreate</symbol>
+        <lines>1-43</lines>
+        <reason>This file contains the tests for the `template` subcommand. New tests for the `list` command should be added here.</reason>
+      </artifact>
+    </code>
+    <dependencies>
+      <dependency>
+        <name>typer</name>
+        <version>latest</version>
+      </dependency>
+      <dependency>
+        <name>rich</name>
+        <version>>=13.0.0</version>
+      </dependency>
+      <dependency>
+        <name>python-frontmatter</name>
+        <version>latest</version>
+      </dependency>
+      <dependency>
+        <name>pyyaml</name>
+        <version>>=6.0</version>
+      </dependency>
+      <dependency>
+        <name>ruamel.yaml</name>
+        <version>>=0.17.0</version>
+      </dependency>
+    </dependencies>
+  </artifacts>
+
+  <constraints>
+    - The `list` command MUST be implemented under the `template` subcommand.
+    - The command's implementation MUST follow the CLI command structure pattern defined in the architecture.
+    - The output SHOULD be formatted as a table with columns for "Template Name" and "Domain", using the `rich` library.
+  </constraints>
+  <interfaces>
+    <interface>
+      <name>template list</name>
+      <kind>CLI command</kind>
+      <signature>capsule template list</signature>
+      <path>capsule/commands/template.py</path>
+    </interface>
+  </interfaces>
+  <tests>
+    <standards>
+      Unit tests should be written using pytest. Tests should cover both successful execution and edge cases, such as when no templates are found. Mocks should be used for file system operations to ensure tests are isolated and repeatable.
+    </standards>
+    <locations>
+      - `tests/test_commands/test_template.py`
+    </locations>
+    <ideas>
+      - Test that the `list` command runs successfully and exits with code 0.
+      - Test that the output table contains the headers "Template Name" and "Domain".
+      - Test that the command correctly lists all `.md.j2` files in the `capsule/templates` directory.
+      - Test that the command displays a user-friendly message when the `capsule/templates` directory does not exist or is empty.
+    </ideas>
+  </tests>
+</story-context>
