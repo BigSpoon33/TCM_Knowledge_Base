@@ -60,7 +60,12 @@ def generate(
             else:
                 template_name = f"{template}.md.j2"
 
-            generated_capsule = generator.generate(topic=topic, template_name=template_name, materials=materials_list)
+            generated_capsule = generator.generate(
+                topic=topic,
+                template_name=template_name,
+                materials=materials_list,
+                source_path=Path(hybrid) if hybrid else None,
+            )
             progress.update(gen_task, completed=True)
 
             # Validation and Saving phase
