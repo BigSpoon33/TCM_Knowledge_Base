@@ -128,15 +128,15 @@ development_status:
   8-1-frontmatter-parser-utilities: done
   8-2-section-level-merge-algorithm: done
   8-3-additive-merge-algorithm: done
-  8-4-conflict-detection-logic: review
-  8-5-user-content-preservation: backlog
-  8-6-provenance-tracking: backlog
+  8-4-conflict-detection-logic: done
+  8-5-user-content-preservation: done
+  8-6-provenance-tracking: done
   epic-8-retrospective: optional
 
   # Epic 9: CLI Commands - Generation & Templates
   # Main CLI app, generate command, template management commands
   epic-9: backlog
-  9-1-main-cli-app-typer-setup: backlog
+  9-1-main-cli-app-typer-setup: done
   9-2-generate-command-implementation: backlog
   9-3-template-create-command: backlog
   9-4-template-list-command: backlog

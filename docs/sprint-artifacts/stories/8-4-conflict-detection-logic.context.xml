@@ -1,0 +1,187 @@
+<story-context id="{bmad_folder}/bmm/workflows/4-implementation/story-context/template" v="1.0">
+  <metadata>
+    <epicId>8</epicId>
+    <storyId>4</storyId>
+    <title>Conflict Detection Logic</title>
+    <status>drafted</status>
+    <generatedAt>2025-11-21</generatedAt>
+    <generator>BMAD Story Context Workflow</generator>
+    <sourceStoryPath>docs/sprint-artifacts/8-4-conflict-detection-logic.md</sourceStoryPath>
+  </metadata>
+
+  <story>
+    <asA>A System Architect</asA>
+    <iWant>to implement the ConflictDetector class</iWant>
+    <soThat>I can identify when multiple capsules or the user are trying to modify the same data, preventing data loss and ensuring integrity.</soThat>
+    <tasks>
+- [ ] Implement `Conflict` data class
+  - [ ] Define fields: key, existing_value, new_value, source_capsule, severity
+  - [ ] Add to `capsule/core/merger.py` or `capsule/models/note.py`
+- [ ] Implement `ConflictDetector` class in `capsule/core/merger.py`
+  - [ ] Create `detect_conflicts(existing_fm, new_fm)` method
+  - [ ] Implement logic to iterate top-level keys
+  - [ ] Implement provenance checking against `source_capsules`
+- [ ] Implement User Conflict Logic
+  - [ ] Check if key exists in `existing_fm` but not in `source_capsules`
+  - [ ] Flag as `USER_CONFLICT` (Warning/Error)
+- [ ] Implement Capsule Conflict Logic
+  - [ ] Check if key is in `source_capsules` but from a different capsule ID
+  - [ ] Compare values for equality
+  - [ ] Flag as `CAPSULE_CONFLICT` if different
+- [ ] Create Unit Tests
+  - [ ] Test no conflict (identical values)
+  - [ ] Test capsule conflict (different values, different owner)
+  - [ ] Test user conflict (existing unmanaged key)
+  - [ ] Test no conflict (new key)
+    </tasks>
+  </story>
+
+  <acceptanceCriteria>
+1. **Provenance Check**: The system must check if a field being updated is already managed by another capsule using the `source_capsules` list.
+2. **Capsule Conflict Detection**: If a field is managed by another capsule and the new value differs, flag as `CAPSULE_CONFLICT`.
+3. **User Conflict Detection**: If a field exists but is NOT in `source_capsules` (user-created), flag as `USER_CONFLICT`.
+4. **No Conflict on Identical Values**: If values are identical, no conflict should be raised regardless of ownership.
+5. **Conflict Reporting**: The system must return a list of `Conflict` objects containing key, existing value, new value, source, and severity.
+  </acceptanceCriteria>
+
+  <artifacts>
+    <docs>
+      <doc>
+        <path>docs/architecture.md</path>
+        <title>Architecture Document</title>
+        <section>Epic Group 5: Merge Strategies (FR32-FR38)</section>
+        <snippet>
+          This section describes the merge strategies, including the `merger.py` module, the `detect_conflicts()` function, and the merge algorithm.
+        </snippet>
+      </doc>
+      <doc>
+        <path>docs/architecture.md</path>
+        <title>Architecture Document</title>
+        <section>ADR-003: Section-Level Merge Strategy</section>
+        <snippet>
+          This ADR explains the decision behind the section-level merge strategy, which is crucial for conflict detection.
+        </snippet>
+      </doc>
+      <doc>
+        <path>docs/epics.md</path>
+        <title>Project Epics</title>
+        <section>Epic 8: Merge Strategies</section>
+        <snippet>
+          This epic contains the story 8-4-conflict-detection-logic.
+        </snippet>
+      </doc>
+    </docs>
+    <code>
+      <artifact>
+        <path>capsule/core/merger.py</path>
+        <kind>module</kind>
+        <symbol>section_level_merge</symbol>
+        <lines>5-30</lines>
+        <reason>Existing merge logic for same-capsule updates.</reason>
+      </artifact>
+      <artifact>
+        <path>capsule/core/merger.py</path>
+        <kind>module</kind>
+        <symbol>additive_merge</symbol>
+        <lines>33-66</lines>
+        <reason>Existing merge logic for different-capsule updates, includes basic conflict detection.</reason>
+      </artifact>
+      <artifact>
+        <path>capsule/models/note.py</path>
+        <kind>module</kind>
+        <symbol>Note</symbol>
+        <lines>14-207</lines>
+        <reason>Data model for notes, including frontmatter and provenance tracking.</reason>
+      </artifact>
+      <artifact>
+        <path>tests/test_core/test_merger.py</path>
+        <kind>test</kind>
+        <symbol>TestSectionLevelMerge</symbol>
+        <lines>6-72</lines>
+        <reason>Existing tests for the section_level_merge function.</reason>
+      </artifact>
+      <artifact>
+        <path>tests/test_core/test_merger.py</path>
+        <kind>test</kind>
+        <symbol>TestAdditiveMerge</symbol>
+        <lines>74-121</lines>
+        <reason>Existing tests for the additive_merge function.</reason>
+      </artifact>
+    </code>
+    <dependencies>
+      <dependency>
+        <ecosystem>python</ecosystem>
+        <package>typer</package>
+      </dependency>
+      <dependency>
+        <ecosystem>python</ecosystem>
+        <package>python-frontmatter</package>
+      </dependency>
+      <dependency>
+        <ecosystem>python</ecosystem>
+        <package>click</package>
+        <version>>=8.0.0</version>
+      </dependency>
+      <dependency>
+        <ecosystem>python</ecosystem>
+        <package>rich</package>
+        <version>>=13.0.0</version>
+      </dependency>
+      <dependency>
+        <ecosystem>python</ecosystem>
+        <package>pyyaml</package>
+        <version>>=6.0</version>
+      </dependency>
+      <dependency>
+        <ecosystem>python</ecosystem>
+        <package>google-generativeai</package>
+        <version>>=0.3.0</version>
+      </dependency>
+      <dependency>
+        <ecosystem>python</ecosystem>
+        <package>questionary</package>
+        <version>>=2.0.0</version>
+      </dependency>
+      <dependency>
+        <ecosystem>python</ecosystem>
+        <package>ruamel.yaml</package>
+        <version>>=0.17.0</version>
+      </dependency>
+    </dependencies>
+  </artifacts>
+
+  <constraints>
+    - The `ConflictDetector` should be part of the `merger` module or a standalone utility used by the merger.
+    - Follow the provided data structure for `Conflict`.
+  </constraints>
+  <interfaces>
+    <interface>
+      <name>Conflict</name>
+      <kind>Python Dataclass</kind>
+      <signature>
+        @dataclass
+        class Conflict:
+            key: str
+            existing_value: Any
+            new_value: Any
+            source_capsule: str
+            severity: str  # "WARNING", "ERROR"
+      </signature>
+      <path>capsule/core/merger.py</path>
+    </interface>
+  </interfaces>
+  <tests>
+    <standards>
+      The project uses pytest as the testing framework. Tests are organized in the tests/ directory, mirroring the source structure.
+    </standards>
+    <locations>
+      - tests/test_core/test_merger.py
+    </locations>
+    <ideas>
+      - Test no conflict (identical values)
+      - Test capsule conflict (different values, different owner)
+      - Test user conflict (existing unmanaged key)
+      - Test no conflict (new key)
+    </ideas>
+  </tests>
+</story-context>

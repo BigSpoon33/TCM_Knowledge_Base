@@ -39,6 +39,10 @@ This is note 1.
 
 
 def test_validator_success(sample_capsule):
+    """
+    Tests that a valid capsule passes validation.
+    The test passes if no exception is raised.
+    """
     validator = Validator(sample_capsule)
     validator.validate_capsule()
 
@@ -67,3 +71,38 @@ def test_validator_invalid_data_type(sample_capsule):
     validator = Validator(sample_capsule)
     with pytest.raises(TypeError, match="Invalid data type for field 'title'"):
         validator.validate_capsule()
+
+
+def test_validator_invalid_cypher_file(sample_capsule):
+    # Corrupt the capsule-cypher.yaml file
+    cypher_path = sample_capsule / "capsule-cypher.yaml"
+    with open(cypher_path, "r") as f:
+        cypher_data = yaml.safe_load(f)
+
+    del cypher_data["capsule_id"]
+
+    with open(cypher_path, "w") as f:
+        yaml.dump(cypher_data, f)
+
+    validator = Validator(sample_capsule)
+    with pytest.raises(ValueError, match="Missing required fields in capsule-cypher.yaml: capsule_id"):
+        validator.validate_capsule_structure()
+
+
+def test_validator_missing_file_in_cypher(sample_capsule):
+    # Remove a file that is listed in the cypher
+    (sample_capsule / "notes" / "note1.md").unlink()
+
+    validator = Validator(sample_capsule)
+    with pytest.raises(FileNotFoundError, match="File from cypher not found in capsule"):
+        validator.validate_file_inventory()
+
+
+def test_validator_extra_file_in_directory(sample_capsule):
+    # Add an extra file to the capsule directory
+    with open(sample_capsule / "notes" / "extra_note.md", "w") as f:
+        f.write("This is an extra note.")
+
+    validator = Validator(sample_capsule)
+    with pytest.raises(FileExistsError, match="Extra files found in capsule"):
+        validator.validate_file_inventory()

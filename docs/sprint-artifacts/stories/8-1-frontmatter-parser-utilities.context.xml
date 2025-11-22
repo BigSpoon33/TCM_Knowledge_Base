@@ -1,0 +1,75 @@
+<story-context id="{bmad_folder}/bmm/workflows/4-implementation/story-context/template" v="1.0">
+  <metadata>
+    <epicId>{{epic_id}}</epicId>
+    <storyId>{{story_id}}</storyId>
+    <title>{{story_title}}</title>
+    <status>{{story_status}}</status>
+    <generatedAt>{{date}}</generatedAt>
+    <generator>BMAD Story Context Workflow</generator>
+    <sourceStoryPath>{{story_path}}</sourceStoryPath>
+  </metadata>
+
+  <story>
+    <asA>a developer</asA>
+    <iWant>robust frontmatter parsing utilities that preserve comments and ordering</iWant>
+    <soThat>the core merge logic can safely read and write note files without data loss</soThat>
+    <tasks><task id="1" ac="1,2">Implement `FrontmatterHandler` class
+      <subtask>Create the file `capsule/utils/frontmatter.py`.</subtask>
+      <subtask>Implement the `FrontmatterHandler` class with `__init__`, `load`, and `save` methods.</subtask>
+      <subtask>Use `ruamel.yaml` for all YAML parsing and dumping operations.</subtask>
+    </task>
+    <task id="2" ac="3">Implement Round-trip Safety
+      <subtask>Create unit tests in `tests/test_utils/test_frontmatter.py`.</subtask>
+      <subtask>Write a test that reads a complex markdown file with comments, parses it, saves it, and asserts the content is identical.</subtask>
+    </task>
+    <task id="3" ac="4">Implement Content Interface
+      <subtask>Add `get_frontmatter()` and `get_body()` methods to the handler.</subtask>
+      <subtask>Add `set_frontmatter(data)` and `set_body(content)` methods.</subtask>
+    </task>
+    <task id="4" ac="5">Add Unit Test Coverage
+      <subtask>Write unit tests for all public methods of the `FrontmatterHandler`.</subtask>
+      <subtask>Ensure test coverage for the new module is above 90%.</subtask>
+    </task></tasks>
+  </story>
+
+  <acceptanceCriteria><criterion id="1">A `FrontmatterHandler` class is implemented in `capsule/utils/frontmatter.py`.</criterion>
+    <criterion id="2">The handler uses the `ruamel.yaml` library to parse and dump YAML frontmatter.</criterion>
+    <criterion id="3">The handler successfully preserves all comments, block styles, and key order during a round-trip operation (read -> parse -> dump -> write).</criterion>
+    <criterion id="4">The handler provides a clean interface to get and set frontmatter and body content separately.</criterion>
+    <criterion id="5">All new code is covered by unit tests that verify comment and format preservation.</criterion></acceptanceCriteria>
+
+  <artifacts>
+    <docs><doc path="docs/architecture.md" title="Architecture Document" section="Decision Summary Table" snippet="YAML Cypher Handling | ruamel.yaml | 0.17.0+ | Comment preservation, roundtrip safety" />
+    <doc path="docs/architecture.md" title="Architecture Document" section="Complete Project Structure" snippet="capsule/utils/frontmatter.py # Frontmatter parsing utilities" />
+    <doc path="docs/tech-specs/epic-8-merge-strategies.md" title="Technical Specification: Epic 8 - Merge Strategies" section="4.1 Components" snippet="`capsule/utils/frontmatter.py`: Robust utilities for reading/writing frontmatter. Must use `ruamel.yaml` to preserve comments and ordering." />
+    <doc path="docs/tech-specs/epic-8-merge-strategies.md" title="Technical Specification: Epic 8 - Merge Strategies" section="7. Stories &amp; Implementation Plan" snippet="8-1: Frontmatter Parser Utilities - Goal: Robust utilities for reading/writing frontmatter without destroying comments or ordering." /></docs>
+    <code><code path="capsule/utils/frontmatter.py" kind="utility" symbol="FrontmatterHandler" lines="TBD" reason="New file to be created for handling markdown frontmatter with comment preservation." />
+    <code path="tests/test_utils/test_frontmatter.py" kind="test" symbol="TestFrontmatterHandler" lines="TBD" reason="New test file to verify the functionality and round-trip safety of the FrontmatterHandler." /></code>
+    <dependencies><dependency ecosystem="python" package="ruamel.yaml" version="^0.17.0" reason="Required for round-trip YAML parsing with comment preservation. NOTE: This is MISSING from pyproject.toml and must be added." />
+      <dependency ecosystem="python" package="python-frontmatter" version="^1.0.0" reason="Existing library for basic frontmatter handling." />
+      <dependency ecosystem="python" package="pytest" version="^7.0" reason="Primary framework for unit and integration testing." /></dependencies>
+  </artifacts>
+
+  <constraints><constraint source="docs/architecture.md#Decision-Summary-Table">Must use `ruamel.yaml` for its comment preservation and roundtrip safety features.</constraint>
+    <constraint source="docs/tech-specs/epic-8-merge-strategies.md#4.1-Components">The new utility must be located at `capsule/utils/frontmatter.py`.</constraint>
+    <constraint source="Story Dev Notes">Round-trip testing is the most critical aspect and must verify preservation of comments, block styles, and key order.</constraint></constraints>
+  <interfaces><interface name="FrontmatterHandler" kind="class" signature="class FrontmatterHandler:" path="capsule/utils/frontmatter.py">
+      <method name="__init__" signature="def __init__(self, content: str):" />
+      <method name="load" signature="def load(self, file_path: Path) -> 'FrontmatterHandler':" />
+      <method name="save" signature="def save(self, file_path: Path):" />
+      <method name="get_frontmatter" signature="def get_frontmatter(self) -> Dict:" />
+      <method name="get_body" signature="def get_body(self) -> str:" />
+      <method name="set_frontmatter" signature="def set_frontmatter(self, data: Dict):" />
+      <method name="set_body" signature="def set_body(self, content: str):" />
+    </interface></interfaces>
+  <tests>
+    <standards>The project uses the pytest framework for all testing. Tests for utilities are located in a mirrored directory structure under `tests/test_utils/`. The primary focus for this story is on robust unit tests that verify the contract of the `FrontmatterHandler`. A critical requirement is a round-trip test using a complex fixture to ensure that no comments, formatting, or key ordering is lost during a read/write cycle. Body content must also be preserved byte-for-byte.</standards>
+    <locations><location type="unit-tests" path="tests/test_utils/test_frontmatter.py" />
+    <location type="fixtures" path="tests/fixtures/sample_notes/complex_note.md" /></locations>
+    <ideas><idea ac="3,5">Implement a round-trip test that reads a fixture file with complex YAML (including comments, block scalars, and specific ordering), parses it, saves it to a new file, and asserts that the input and output files are identical.</idea>
+      <idea ac="4,5">Test the `get_frontmatter` and `get_body` methods to ensure they correctly separate the two content types.</idea>
+      <idea ac="4,5">Test the `set_frontmatter` and `set_body` methods to ensure they can modify the respective parts of the note independently and correctly.</idea>
+      <idea ac="1,2,5">Test that the handler correctly uses `ruamel.yaml` by mocking the library and asserting it is called.</idea>
+      <idea ac="5">Test edge cases, such as files with no frontmatter, empty frontmatter, or only frontmatter.</idea></ideas>
+  </tests>
+</story-context>

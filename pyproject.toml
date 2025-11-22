@@ -1,13 +1,13 @@
 [project]
-name = "python-boilerplate"
+name = "capsule-learn"
 version = "0.1.0"
-description = "Python Boilerplate contains all the boilerplate you need to create a Python package."
+description = "AI-powered learning assistant for TCM studies"
 readme = "README.md"
 authors = [
-  {name = "Audrey M. Roy Greenfeld", email = "bmad@example.com"}
+  {name = "TCM Knowledge Base", email = "bmad@example.com"}
 ]
 maintainers = [
-  {name = "Audrey M. Roy Greenfeld", email = "bmad@example.com"}
+  {name = "TCM Knowledge Base", email = "bmad@example.com"}
 ]
 classifiers = [
     # TODO
@@ -15,7 +15,13 @@ classifiers = [
 license = {text = "MIT"}
 dependencies = [
   "typer",
-  "python-frontmatter"
+  "python-frontmatter",
+  "click>=8.0.0",
+  "rich>=13.0.0",
+  "pyyaml>=6.0",
+  "google-generativeai>=0.3.0",
+  "questionary>=2.0.0",
+  "ruamel.yaml>=0.17.0",
 ]
 requires-python = ">= 3.10"
 
@@ -34,7 +40,8 @@ changelog = "https://github.com/BigSpoon33/obsidian_capsule_cli/blob/master/chan
 homepage = "https://github.com/BigSpoon33/obsidian_capsule_cli"
 
 [project.scripts]
-obsidian_capsule_cli = "obsidian_capsule_cli.cli:app"
+capsule = "capsule.cli:main"
+cap = "capsule.cli:main"
 
 [tool.ty]
 # All rules are enabled as "error" by default; no need to specify unless overriding.

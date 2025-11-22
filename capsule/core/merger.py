@@ -1,6 +1,7 @@
 from typing import Dict, Any, List
 from dataclasses import dataclass
 from capsule.exceptions import MergeConflict
+from capsule.models.note import Note
 
 
 @dataclass
@@ -223,3 +224,85 @@ def additive_merge(
             merged[section_key] = section_value
 
     return merged
+
+
+def merge_notes(existing_note: Note, incoming_note: Note, capsule_id: str) -> Note:
+    """
+    Merge frontmatter from incoming note into existing note while ALWAYS preserving
+    the existing note's body content.
+
+    This is the core merge function that implements the Capsule merge algorithm:
+    1. Same capsule ID + newer version → UPDATE sections (section-level merge)
+    2. Different capsule ID → ADD sections (additive merge)
+    3. User content (body) → ALWAYS PRESERVE
+    4. Conflicts → Raise MergeConflict exception
+
+    Args:
+        existing_note: The current note in the vault
+        incoming_note: The new note from the capsule import
+        capsule_id: The ID of the capsule being imported
+
+    Returns:
+        Merged Note with combined frontmatter and the existing note's body
+
+    Raises:
+        MergeConflict: If domain sections conflict during additive merge
+
+    Example:
+        >>> existing = Note(
+        ...     file_path="test.md",
+        ...     frontmatter={
+        ...         "id": "note-1",
+        ...         "source_capsules": ["TCM_v1"],
+        ...         "herb_data": {"temperature": "warm"}
+        ...     },
+        ...     body="My personal notes about this herb."
+        ... )
+        >>> incoming = Note(
+        ...     file_path="test.md",
+        ...     frontmatter={
+        ...         "herb_data": {"temperature": "warm", "dosage": "3-9g"}
+        ...     },
+        ...     body="This body will be DISCARDED."
+        ... )
+        >>> merged = merge_notes(existing, incoming, "TCM_v1")
+        >>> merged.frontmatter["herb_data"]["dosage"]
+        '3-9g'
+        >>> merged.body
+        'My personal notes about this herb.'
+    """
+    # Extract frontmatter
+    existing_fm = existing_note.frontmatter
+    existing_body = existing_note.body
+
+    # Check capsule provenance to determine merge strategy
+    existing_sources = existing_fm.get("source_capsules", [])
+
+    # Handle both simple string format and detailed dict format for source_capsules
+    existing_capsule_ids = []
+    if existing_sources:
+        for source in existing_sources:
+            if isinstance(source, dict):
+                # Detailed format with capsule_id, version, sections_managed
+                existing_capsule_ids.append(source.get("capsule_id", ""))
+            elif isinstance(source, str):
+                # Simple string format (just capsule ID)
+                existing_capsule_ids.append(source)
+
+    # Determine merge strategy based on capsule provenance
+    if capsule_id in existing_capsule_ids:
+        # Same capsule update - section-level merge
+        merged_fm = section_level_merge(existing_fm, incoming_note.frontmatter)
+    else:
+        # Different capsule - additive merge
+        merged_fm = additive_merge(
+            existing_fm, incoming_note.frontmatter, capsule_id, file_path=existing_note.file_path
+        )
+        # Add capsule to source list if not already present
+        if capsule_id not in existing_capsule_ids:
+            if "source_capsules" not in merged_fm:
+                merged_fm["source_capsules"] = []
+            merged_fm["source_capsules"].append(capsule_id)
+
+    # CRITICAL: Always preserve user content (body)
+    return Note(file_path=existing_note.file_path, frontmatter=merged_fm, body=existing_body, source_capsules=None)

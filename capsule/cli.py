@@ -14,7 +14,7 @@ app = typer.Typer(
 )
 
 app.command(name="generate")(generate.generate)
-app.add_typer(validate.app, name="validate")
+app.command(name="validate")(validate.validate)
 app.add_typer(export.app)
 app.add_typer(import_cmd.app)
 app.command()(init.init)

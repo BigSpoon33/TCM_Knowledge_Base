@@ -1,0 +1,189 @@
+<story-context id=".bmad/bmm/workflows/4-implementation/story-context/template" v="1.0">
+  <metadata>
+    <epicId>7</epicId>
+    <storyId>1</storyId>
+    <title>backup-management-system</title>
+    <status>drafted</status>
+    <generatedAt>2025-11-20</generatedAt>
+    <generator>BMAD Story Context Workflow</generator>
+    <sourceStoryPath>/home/shuma/Documents/AI_Suite/Obsidian_Capsule_Delivery/docs/sprint-artifacts/7-1-backup-management-system.md</sourceStoryPath>
+  </metadata>
+
+  <story>
+    <asA>a user</asA>
+    <iWant>to have my vault automatically backed up before a capsule is imported</iWant>
+    <soThat>I can safely restore my vault if the import fails or causes issues.</soThat>
+    <tasks>
+      - [ ] **Task 1: Implement Backup Utility** (AC: #1, #2, #3)
+        - [ ] Subtask 1.1: Create `capsule/utils/backup.py` with a function to create a timestamped zip archive of a given directory.
+        - [ ] Subtask 1.2: Ensure the function reads the target directory from the user configuration.
+      - [ ] **Task 2: Integrate Backup into Import Command** (AC: #1, #4, #5)
+        - [ ] Subtask 2.1: Modify `capsule/core/importer.py` to call the backup utility before processing an import.
+        - [ ] Subtask 2.2: Add a `--no-backup` flag to `capsule/commands/import_cmd.py`.
+        - [ ] Subtask 2.3: Implement error handling in the importer to display the backup location on failure.
+      - [ ] **Task 3: Add Unit Tests** (AC: #6)
+        - [ ] Subtask 3.1: Create `tests/utils/test_backup.py`.
+        - [ ] Subtask 3.2: Write unit tests for the backup utility, using mocks for the file system.
+        - [ ] Subtask 3.3: Add tests to `tests/commands/test_import_cmd.py` to verify the `--no-backup` flag and backup-on-failure message.
+    </tasks>
+  </story>
+
+  <acceptanceCriteria>
+    1. The `capsule import` command creates a timestamped zip backup of the entire vault before starting the import process. (AC: #1)
+    2. The backup is stored in the location specified in the user configuration (`~/.capsule/backups/` by default). (AC: #2)
+    3. The backup filename follows the format `vault_YYYY-MM-DD_HH-MM-SS.zip`. (AC: #3)
+    4. A `--no-backup` option is available on the `capsule import` command to skip the backup process. (AC: #4)
+    5. If the import process fails, a message is displayed informing the user of the backup location. (AC: #5)
+    6. Unit tests are created to verify the backup functionality, including successful creation and correct file contents. (AC: #6)
+  </acceptanceCriteria>
+
+  <artifacts>
+        <docs>
+      <doc>
+        <path>docs/PRD.md</path>
+        <title>Product Requirements Document</title>
+        <section>FR Group 4: Import/Export Operations</section>
+        <snippet>FR29: System creates backup of vault before import operations</snippet>
+      </doc>
+      <doc>
+        <path>docs/PRD.md</path>
+        <title>Product Requirements Document</title>
+        <section>CLI Tool Specifications</section>
+        <snippet>capsule import &lt;capsule-file&gt; [options]
+--no-backup # Skip backup creation (not recommended)</snippet>
+      </doc>
+      <doc>
+        <path>docs/PRD.md</path>
+        <title>Product Requirements Document</title>
+        <section>Security Requirements</section>
+        <snippet>NFR8: Import operations create timestamped backups before modifications</snippet>
+      </doc>
+      <doc>
+        <path>docs/architecture.md</path>
+        <title>Architecture Document</title>
+        <section>Epic Group 4: Import/Export Operations</section>
+        <snippet>capsule/utils/backup.py - Backup management</snippet>
+      </doc>
+      <doc>
+        <path>docs/architecture.md</path>
+        <title>Architecture Document</title>
+        <section>Security (NFR7-NFR12)</section>
+        <snippet>NFR8: Backups before modifications - Implementation: capsule/utils/backup.py creates timestamped zips. Trigger: Every import operation creates backup first. Storage: ~/.capsule/backups/vault_YYYY-MM-DD_HH-MM-SS.zip</snippet>
+      </doc>
+      <doc>
+        <path>docs/epics.md</path>
+        <title>Project Epics</title>
+        <section>Epic 7: Import/Export Operations</section>
+        <snippet>7-1-backup-management-system: Create a system for backing up the vault before imports.</snippet>
+      </doc>
+    </docs>
+        <code>
+      <artifact>
+        <path>capsule/utils/backup.py</path>
+        <kind>new file</kind>
+        <symbol>create_backup</symbol>
+        <lines>TBD</lines>
+        <reason>Module to handle the creation of timestamped zip backups of the vault.</reason>
+      </artifact>
+      <artifact>
+        <path>capsule/core/importer.py</path>
+        <kind>new file</kind>
+        <symbol>Importer</symbol>
+        <lines>TBD</lines>
+        <reason>Core logic for the import process, will trigger the backup.</reason>
+      </artifact>
+      <artifact>
+        <path>capsule/commands/import.py</path>
+        <kind>new file</kind>
+        <symbol>import_cmd</symbol>
+        <lines>TBD</lines>
+        <reason>CLI command to handle capsule imports, including the --no-backup flag.</reason>
+      </artifact>
+      <artifact>
+        <path>tests/utils/test_backup.py</path>
+        <kind>new file</kind>
+        <symbol>TestBackup</symbol>
+        <lines>TBD</lines>
+        <reason>Unit tests for the backup utility.</reason>
+      </artifact>
+    </code>
+        <dependencies>
+      <dependency>
+        <name>typer</name>
+        <version></version>
+      </dependency>
+      <dependency>
+        <name>python-frontmatter</name>
+        <version></version>
+      </dependency>
+      <dependency>
+        <name>click</name>
+        <version>>=8.0.0</version>
+      </dependency>
+      <dependency>
+        <name>rich</name>
+        <version>>=13.0.0</version>
+      </dependency>
+      <dependency>
+        <name>pyyaml</name>
+        <version>>=6.0</version>
+      </dependency>
+      <dependency>
+        <name>google-generativeai</name>
+        <version>>=0.3.0</version>
+      </dependency>
+      <dependency>
+        <name>questionary</name>
+        <version>>=2.0.0</version>
+      </dependency>
+      <dependency>
+        <name>pytest</name>
+        <version></version>
+      </dependency>
+    </dependencies>
+  </artifacts>
+
+    <constraints>
+    - The `capsule/utils/backup.py` module should contain the logic for creating timestamped vault backups.
+    - The backup system should use the `zipfile` and `datetime` standard libraries.
+    - The `capsule/core/importer.py` module should trigger the backup before any import operations.
+    - Backups should be stored in `~/.capsule/backups/`.
+  </constraints>
+  <interfaces>
+    <interface>
+      <name>create_backup</name>
+      <kind>function signature</kind>
+      <signature>def create_backup(vault_path: Path, backup_dir: Path) -> Path:</signature>
+      <path>capsule/utils/backup.py</path>
+    </interface>
+    <interface>
+      <name>Importer.run</name>
+      <kind>method signature</kind>
+      <signature>def run(self, capsule_path: Path, no_backup: bool = False):</signature>
+      <path>capsule/core/importer.py</path>
+    </interface>
+    <interface>
+      <name>import_cmd</name>
+      <kind>CLI command</kind>
+      <signature>capsule import &lt;capsule_path&gt; [--no-backup]</signature>
+      <path>capsule/commands/import.py</path>
+    </interface>
+  </interfaces>
+    <tests>
+    <standards>
+      Unit tests should be created for the backup functionality. Tests should cover successful backup creation, handling of file errors, and verification of backup contents. Mocks should be used for file system operations to keep tests fast and isolated.
+    </standards>
+    <locations>
+      - tests/utils/test_backup.py
+      - tests/commands/test_import.py
+    </locations>
+    <ideas>
+      - Test that a backup is created before import. (AC: #1)
+      - Test that the backup is stored in the correct location. (AC: #2)
+      - Test that the backup filename has the correct format. (AC: #3)
+      - Test that the --no-backup flag prevents a backup from being created. (AC: #4)
+      - Test that the backup location is displayed on import failure. (AC: #5)
+      - Test that the backup contains the correct files. (AC: #6)
+    </ideas>
+  </tests>
+</story-context>

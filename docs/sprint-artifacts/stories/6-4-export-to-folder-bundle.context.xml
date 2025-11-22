@@ -1,0 +1,142 @@
+<story-context id=".bmad/bmm/workflows/4-implementation/story-context/template" v="1.0">
+  <metadata>
+    <epicId>6</epicId>
+    <storyId>4</storyId>
+    <title>export-to-folder-bundle</title>
+    <status>drafted</status>
+    <generatedAt>2025-11-19</generatedAt>
+    <generator>BMAD Story Context Workflow</generator>
+    <sourceStoryPath>/home/shuma/Documents/AI_Suite/Obsidian_Capsule_Delivery/docs/sprint-artifacts/6-4-export-to-folder-bundle.md</sourceStoryPath>
+  </metadata>
+  <story>
+    <asA>a user</asA>
+    <iWant>to export a capsule as a folder bundle</iWant>
+    <soThat>I can easily share it with others or use it in a different vault</soThat>
+    <tasks>
+- [ ] **Task 1: Implement `export` command** (AC: #1, #2)
+    - [ ] Subtask 1.1: Create `capsule/commands/export.py` with a Typer command.
+    - [ ] Subtask 1.2: Add arguments for source and destination directories.
+- [ ] **Task 2: Implement export logic in `CapsulePackager`** (AC: #3, #4, #5)
+    - [ ] Subtask 2.1: Create a method in `CapsulePackager` to handle folder export.
+    - [ ] Subtask 2.2: Integrate validation before exporting.
+    - [ ] Subtask 2.3: Implement file copy logic.
+- [ ] **Task 3: Add Unit Tests** (AC: #7)
+    - [ ] Subtask 3.1: Add unit tests for the `export` command.
+    - [ ] Subtask 3.2: Add unit tests for the folder export logic in `CapsulePackager`.
+    - [ ] Subtask 3.3: Add unit test to verify the success message is printed (AC: #6).
+    </tasks>
+  </story>
+  <acceptanceCriteria>
+1. A CLI command `capsule export --format folder` is available.
+2. The command takes a source capsule directory and a destination directory as arguments.
+3. The command validates the source capsule before exporting.
+4. The command copies the entire contents of the source capsule directory to the destination directory.
+5. The command preserves the file and folder structure of the source capsule.
+6. The command prints a success message with the path to the exported folder.
+7. Unit tests are added to verify the export functionality.
+  </acceptanceCriteria>
+  <artifacts>
+    <docs>
+      <doc>
+        <path>docs/architecture.md</path>
+        <title>Architecture Document</title>
+        <section>Epic Group 3: Capsule Packaging (FR17-FR25)</section>
+        <snippet>Defines the architecture for capsule packaging, including the packager, validator, and export command components. Specifies that capsule/core/packager.py handles the core logic and capsule/commands/export.py is the CLI entry point.</snippet>
+      </doc>
+      <doc>
+        <path>docs/epics.md</path>
+        <title>Project Epics</title>
+        <section>Epic 6: Capsule Packaging</section>
+        <snippet>Outlines the stories for the Capsule Packaging epic, including story 6-4 which is to implement the functionality to export a capsule as a folder bundle.</snippet>
+      </doc>
+    </docs>
+    <code>
+      <artifact>
+        <path>capsule/core/packager.py</path>
+        <kind>Core Logic</kind>
+        <symbol>CapsulePackager</symbol>
+        <lines>15-143</lines>
+        <reason>Contains the core logic for scanning capsule contents and creating the folder bundle. The new command will orchestrate this class.</reason>
+      </artifact>
+      <artifact>
+        <path>capsule/commands/export.py</path>
+        <kind>CLI Command</kind>
+        <symbol>export</symbol>
+        <lines>N/A</lines>
+        <reason>This new file will contain the `capsule export` command, which is the main entry point for this story's functionality.</reason>
+      </artifact>
+      <artifact>
+        <path>tests/test_commands/test_export.py</path>
+        <kind>Test</kind>
+        <symbol>N/A</symbol>
+        <lines>N/A</lines>
+        <reason>A new test file to verify the functionality of the `export` command, following patterns from existing tests.</reason>
+      </artifact>
+      <artifact>
+        <path>tests/test_core/test_packager.py</path>
+        <kind>Test</kind>
+        <symbol>N/A</symbol>
+        <lines>N/A</lines>
+        <reason>Contains existing tests for the CapsulePackager. New tests for the folder export logic should be added here.</reason>
+      </artifact>
+    </code>
+    <dependencies>
+      <dependency>
+        <name>typer</name>
+        <version>N/A</version>
+        <reason>The CLI framework used to build the `capsule export` command.</reason>
+      </dependency>
+      <dependency>
+        <name>python-frontmatter</name>
+        <version>N/A</version>
+        <reason>Used for parsing frontmatter from markdown files during the capsule scan.</reason>
+      </dependency>
+      <dependency>
+        <name>ruamel.yaml</name>
+        <version>N/A</version>
+        <reason>Used for generating the `capsule-cypher.yaml` file with preserved comments and structure.</reason>
+      </dependency>
+      <dependency>
+        <name>pytest</name>
+        <version>N/A</version>
+        <reason>The testing framework for writing unit tests for the new export functionality.</reason>
+      </dependency>
+    </dependencies>
+  </artifacts>
+  <constraints>
+    <constraint>The core logic for exporting a capsule as a folder bundle should be implemented in `capsule/core/packager.py`.</constraint>
+    <constraint>The CLI command `export` should be implemented in a new file, `capsule/commands/export.py`.</constraint>
+    <constraint>Unit tests should be added to `tests/test_commands/test_export.py` and `tests/test_core/test_packager.py`.</constraint>
+    <constraint>The implementation must align with the architecture defined in `docs/architecture.md` for "Epic Group 3: Capsule Packaging".</constraint>
+    <constraint>The `_scan_schemas` method in `packager.py` should be made more robust, as noted in the review of the previous story (6.3).</constraint>
+  </constraints>
+  <interfaces>
+    <interface>
+      <name>CapsulePackager.create_folder_bundle</name>
+      <kind>Method</kind>
+      <signature>create_folder_bundle(self, cypher: CapsuleCypher) -> None</signature>
+      <path>capsule/core/packager.py</path>
+    </interface>
+    <interface>
+      <name>capsule export</name>
+      <kind>CLI Command</kind>
+      <signature>capsule export --format folder &lt;source_path&gt; &lt;destination_path&gt;</signature>
+      <path>capsule/commands/export.py</path>
+    </interface>
+  </interfaces>
+  <tests>
+    <standards>Unit tests should be created to verify that the export functionality works correctly. This includes testing with different capsule structures (e.g., nested folders, various file types), as well as testing edge cases like empty capsules or invalid source/destination paths. Mocks should be used for file system operations to ensure tests are fast and reliable.</standards>
+    <locations>
+      <location>tests/test_commands/test_export.py</location>
+      <location>tests/test_core/test_packager.py</location>
+    </locations>
+    <ideas>
+      <idea for="AC-1, AC-2">Test that the `capsule export` command is registered and correctly parses the source and destination arguments.</idea>
+      <idea for="AC-3">Test that the `CapsulePackager`'s validation logic is called before an export is attempted.</idea>
+      <idea for="AC-4, AC-5">Test that the folder bundle is created with the exact file and folder structure as the source capsule.</idea>
+      <idea for="AC-6">Test that a success message, including the path to the exported bundle, is printed to the console.</idea>
+      <idea for="AC-7">Write unit tests for the new `export` method in `CapsulePackager`, mocking file system operations.</idea>
+      <idea for="Edge Cases">Test failure modes, such as an invalid source path, a non-writable destination path, and an empty source capsule.</idea>
+    </ideas>
+  </tests>
+</story-context>

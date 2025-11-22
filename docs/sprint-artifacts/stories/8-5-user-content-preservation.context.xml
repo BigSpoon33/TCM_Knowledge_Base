@@ -1,0 +1,107 @@
+<story-context id="{bmad_folder}/bmm/workflows/4-implementation/story-context/template" v="1.0">
+  <metadata>
+    <epicId>8</epicId>
+    <storyId>5</storyId>
+    <title>user-content-preservation</title>
+    <status>drafted</status>
+    <generatedAt>2025-11-21</generatedAt>
+    <generator>BMAD Story Context Workflow</generator>
+    <sourceStoryPath>docs/sprint-artifacts/8-5-user-content-preservation.md</sourceStoryPath>
+  </metadata>
+
+  <story>
+    <asA>a user</asA>
+    <iWant>my notes' body content to be preserved during capsule imports</iWant>
+    <soThat>I can add my own annotations and information to a note without fear of it being overwritten by a capsule update.</soThat>
+    <tasks>
+      - [ ] **Task 1 (AC: #1, #2, #3)**: Modify `merge_notes` function in `capsule/core/merger.py` to preserve the body of the existing note.
+        - [ ] **Subtask 1.1**: Ensure that the `merge_notes` function correctly combines the frontmatter from the existing and incoming notes.
+        - [ ] **Subtask 1.2**: Ensure that the `merge_notes` function always uses the body from the existing note and discards the body from the incoming note.
+      - [ ] **Task 2 (AC: #4)**: Add a unit test to `tests/test_core/test_merger.py` to verify body preservation.
+        - [ ] **Subtask 2.1**: Create a test case with an existing note that has body content and an incoming note with different body content.
+        - [ ] **Subtask 2.2**: Assert that the merged note has the combined frontmatter and the body content of the original existing note.
+    </tasks>
+  </story>
+
+  <acceptanceCriteria>
+    1. When a note is updated via a capsule import, the body content of the existing note MUST be preserved.
+    2. The frontmatter of the note SHOULD be updated according to the defined merge strategy (section-level or additive).
+    3. The body content MUST NOT be modified, even if the incoming note from the capsule has different body content.
+    4. This preservation of body content MUST be verified with a dedicated unit test.
+  </acceptanceCriteria>
+
+  <artifacts>
+    <docs>
+      <doc>
+        <path>docs/architecture.md</path>
+        <title>Architecture Document</title>
+        <section>Epic Group 5: Merge Strategies (FR32-FR38)</section>
+        <snippet>
+          The `merge_notes` function in `merger.py` is the core of this. The rules are: "1. Same capsule ID + newer version → UPDATE sections", "2. Different capsule ID → ADD sections (additive merge)", "3. User content (body) → ALWAYS PRESERVE", "4. Conflicts → Prompt user for resolution". This directly relates to the story.
+        </snippet>
+      </doc>
+      <doc>
+        <path>docs/architecture.md</path>
+        <title>Architecture Document</title>
+        <section>Merge Algorithm (Critical Implementation Pattern)</section>
+        <snippet>
+          The python code for `merge_notes` is provided, which will be the basis for the implementation. It explicitly shows `return Note(frontmatter=merged_fm, body=existing_body, path=existing_note.path)` which preserves the body.
+        </snippet>
+      </doc>
+      <doc>
+        <path>docs/epics.md</path>
+        <title>Project Epics</title>
+        <section>Epic 8: Merge Strategies</section>
+        <snippet>
+          This epic covers the merge strategies. Story `8-5-user-content-preservation` is listed here.
+        </snippet>
+      </doc>
+    </docs>
+    <code>
+      <artifact>
+        <path>capsule/core/merger.py</path>
+        <kind>file</kind>
+        <symbol>section_level_merge, additive_merge</symbol>
+        <reason>This file contains the core logic for merging frontmatter. The new `merge_notes` function will be added here, and it will use the existing `section_level_merge` and `additive_merge` functions.</reason>
+      </artifact>
+      <artifact>
+        <path>tests/test_core/test_merger.py</path>
+        <kind>test</kind>
+        <symbol>TestSectionLevelMerge, TestAdditiveMerge</symbol>
+        <reason>This file contains the tests for the merging logic. A new test class or test method will be added to verify the body preservation.</reason>
+      </artifact>
+    </code>
+    <dependencies>
+      <dependency>typer</dependency>
+      <dependency>python-frontmatter</dependency>
+      <dependency>click&gt;=8.0.0</dependency>
+      <dependency>rich&gt;=13.0.0</dependency>
+      <dependency>pyyaml&gt;=6.0</dependency>
+      <dependency>google-generativeai&gt;=0.3.0</dependency>
+      <dependency>questionary&gt;=2.0.0</dependency>
+      <dependency>ruamel.yaml&gt;=0.17.0</dependency>
+      <dependency>pytest (test)</dependency>
+    </dependencies>
+  </artifacts>
+
+  <constraints>
+    - User content (body) must always be preserved.
+    - The frontmatter should be merged using the existing `section_level_merge` or `additive_merge` functions based on the `capsule_id`.
+  </constraints>
+  <interfaces>
+    <interface>
+      <name>merge_notes</name>
+      <kind>function signature</kind>
+      <signature>merge_notes(existing_note: Note, incoming_note: Note, capsule_id: str) -> Note</signature>
+      <path>capsule/core/merger.py</path>
+    </interface>
+  </interfaces>
+  <tests>
+    <standards>A new unit test should be added to the existing test suite in `tests/test_core/test_merger.py` to specifically test for body preservation.</standards>
+    <locations>tests/test_core/test_merger.py</locations>
+    <ideas>
+      - Create a test case with an existing note that has body content and an incoming note with different body content.
+      - Assert that the merged note has the combined frontmatter and the body content of the original existing note.
+    </ideas>
+  </tests>
+</story-context>

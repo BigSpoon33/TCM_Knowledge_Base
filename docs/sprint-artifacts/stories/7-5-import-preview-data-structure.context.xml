@@ -1,0 +1,163 @@
+<story-context id=".bmad/bmm/workflows/4-implementation/story-context/template" v="1.0">
+  <metadata>
+    <epicId>7</epicId>
+    <storyId>5</storyId>
+    <title>import-preview-data-structure</title>
+    <status>drafted</status>
+    <generatedAt>2025-11-21</generatedAt>
+    <generator>BMAD Story Context Workflow</generator>
+    <sourceStoryPath>/home/shuma/Documents/AI_Suite/Obsidian_Capsule_Delivery/docs/sprint-artifacts/7-5-import-preview-data-structure.md</sourceStoryPath>
+  </metadata>
+
+  <story>
+    <asA>a developer</asA>
+    <iWant>a well-defined data structure for the import preview</iWant>
+    <soThat>I can accurately represent the impact of an import to the user</soThat>
+    <tasks>
+- [ ] **Task 1: Define Nested Dataclasses** (AC: #2, #3, #4, #5, #6)
+  - [ ] Subtask 1.1: In `capsule/core/importer.py`, create the `CapsuleInfo` dataclass.
+  - [ ] Subtask 1.2: Create the `Impact` dataclass.
+  - [ ] Subtask 1.3: Create the `UpdateDetail` dataclass.
+  - [ ] Subtask 1.4: Create the `ConflictDetail` dataclass.
+- [ ] **Task 2: Define Main `ImportPreview` Dataclass** (AC: #1)
+  - [ ] Subtask 2.1: In `capsule/core/importer.py`, create the `ImportPreview` dataclass, composing it from the nested dataclasses and `List` types.
+- [ ] **Task 3: Integrate Data Structure into Importer** (AC: #7)
+  - [ ] Subtask 3.1: Refactor the `analyze_impact` method in `CapsuleImporter` to build and return an instance of `ImportPreview`.
+  - [ ] Subtask 3.2: Ensure all logic for detecting new files, updates, and conflicts correctly populates the new data structure.
+- [ ] **Task 4: Update CLI Display Logic** (AC: #8)
+  - [ ] Subtask 4.1: Modify the `_display_preview` (or equivalent) method in `CapsuleImporter` to take an `ImportPreview` object as input.
+  - [ ] Subtask 4.2: Update the `rich` table and panel generation to source all data from the `ImportPreview` object.
+- [ ] **Task 5: Update Unit Tests** (AC: #1-#8)
+  - [ ] Subtask 5.1: In `tests/test_core/test_importer.py`, update the tests for `analyze_impact` to check the returned `ImportPreview` object's attributes.
+  - [ ] Subtask 5.2: Add assertions to verify the structure and content of the nested dataclasses for various import scenarios.
+    </tasks>
+  </story>
+
+  <acceptanceCriteria>
+1. A main `ImportPreview` dataclass is defined in `capsule/core/importer.py`.
+2. The `ImportPreview` class contains nested dataclasses for structured data: `CapsuleInfo`, `Impact`, `UpdateDetail`, and `ConflictDetail`.
+3. The `CapsuleInfo` dataclass contains `id` (str), `version` (str), and `file_count` (int).
+4. The `Impact` dataclass contains counts for `new_files` (int), `updated_files` (int), and `conflicts` (int).
+5. The `UpdateDetail` dataclass contains `file` (str), `strategy` (str), and `changes` (str).
+6. The `ConflictDetail` dataclass contains `file` (str), `reason` (str), and `sources` (List[str]).
+7. The `CapsuleImporter.analyze_impact()` method is refactored to return a fully populated `ImportPreview` object.
+8. The CLI preview display logic in `importer.py` is updated to read its data from the `ImportPreview` object.
+  </acceptanceCriteria>
+
+  <artifacts>
+        <docs>
+      <doc>
+        <path>docs/architecture.md</path>
+        <title>Architecture Document</title>
+        <section>Epic Group 4: Import/Export Operations (FR26-FR31)</section>
+        <snippet>
+          Defines the architecture for the import/export workflow, including the components for importer.py, exporter.py, and backup.py. It explicitly shows the data structure for the import preview.
+        </snippet>
+      </doc>
+      <doc>
+        <path>docs/epics.md</path>
+        <title>Project Epics</title>
+        <section>Epic 7: Import/Export Operations</section>
+        <snippet>
+          Outlines the user stories for the import/export epic, including story 7-5 which is to design the data structure for the import preview.
+        </snippet>
+      </doc>
+    </docs>
+        <code>
+      <artifact>
+        <path>capsule/core/importer.py</path>
+        <kind>core</kind>
+        <symbol>Importer.analyze_impact</symbol>
+        <lines>208-302</lines>
+        <reason>
+          This is the primary method to be refactored. It currently returns a basic class instance, but will be updated to return the new, structured `ImportPreview` dataclass.
+        </reason>
+      </artifact>
+      <artifact>
+        <path>capsule/core/importer.py</path>
+        <kind>core</kind>
+        <symbol>ImportPreview</symbol>
+        <lines>24-48</lines>
+        <reason>
+          The existing `ImportPreview` class will be replaced with a more structured set of nested dataclasses as defined in the acceptance criteria.
+        </reason>
+      </artifact>
+      <artifact>
+        <path>tests/test_core/test_importer.py</path>
+        <kind>test</kind>
+        <symbol>TestImporter</symbol>
+        <lines>N/A</lines>
+        <reason>
+          The test suite for the importer will need to be updated to validate the new `ImportPreview` data structure.
+        </reason>
+      </artifact>
+    </code>
+        <dependencies>
+      <ecosystem name="Python">
+        <package name="typer" version="any"/>
+        <package name="python-frontmatter" version="any"/>
+        <package name="click" version="&gt;=8.0.0"/>
+        <package name="rich" version="&gt;=13.0.0"/>
+        <package name="pyyaml" version="&gt;=6.0"/>
+        <package name="google-generativeai" version="&gt;=0.3.0"/>
+        <package name="questionary" version="&gt;=2.0.0"/>
+      </ecosystem>
+    </dependencies>
+  </artifacts>
+
+    <constraints>
+    <constraint>
+      The new data structure should be implemented using Python's `@dataclass` for type safety and immutability.
+    </constraint>
+    <constraint>
+      The `ImportPreview` dataclass and its nested dataclasses should be defined within `capsule/core/importer.py`.
+    </constraint>
+    <constraint>
+      The `analyze_impact` method should return a new, fully-formed `ImportPreview` object. The object itself should not be modified after creation.
+    </constraint>
+    <constraint>
+      The `capsule_id` must be strictly validated to prevent path traversal vulnerabilities.
+    </constraint>
+  </constraints>
+    <interfaces>
+    <interface>
+      <name>ImportPreview</name>
+      <kind>dataclass</kind>
+      <signature>
+        @dataclass
+        class ImportPreview:
+            capsule_info: CapsuleInfo
+            impact: Impact
+            new_files: List[str]
+            updates: List[UpdateDetail]
+            conflicts: List[ConflictDetail]
+      </signature>
+      <path>capsule/core/importer.py</path>
+    </interface>
+  </interfaces>
+  <tests>
+        <standards>
+      The project uses pytest as its testing framework. Tests are organized in a parallel `tests` directory that mirrors the source structure. Unit tests should focus on individual functions and classes, mocking external dependencies where necessary. Fixtures are used extensively to provide consistent test data, such as temporary vaults and sample capsule structures.
+    </standards>
+        <locations>
+      - `tests/test_core/test_importer.py`
+    </locations>
+        <ideas>
+      <idea for="AC#1-6">
+        Verify that `analyze_impact` returns an `ImportPreview` object with correctly structured nested dataclasses (`CapsuleInfo`, `Impact`, `UpdateDetail`, `ConflictDetail`) and that all fields have the correct data types.
+      </idea>
+      <idea for="AC#7">
+        Test the `analyze_impact` method's output for a new capsule installation scenario, ensuring all files are correctly listed in `new_files`.
+      </idea>
+      <idea for="AC#7">
+        Test the `analyze_impact` method's output for an update scenario, ensuring files are correctly categorized as `updates` with the appropriate merge strategy.
+      </idea>
+      <idea for="AC#7">
+        Test the `analyze_impact` method's output for a scenario with conflicts, ensuring conflicting files are correctly listed in `conflicts` with the reason and sources.
+      </idea>
+      <idea for="AC#8">
+        Verify that the data returned by `analyze_impact` contains all necessary information for the CLI display logic to render a complete and accurate preview.
+      </idea>
+    </ideas>
+  </tests>
+</story-context>

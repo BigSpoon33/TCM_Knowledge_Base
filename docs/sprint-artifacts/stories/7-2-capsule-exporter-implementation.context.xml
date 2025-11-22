@@ -1,0 +1,142 @@
+<story-context id="{bmad_folder}/bmm/workflows/4-implementation/story-context/template" v="1.0">
+  <metadata>
+    <epicId>7</epicId>
+    <storyId>2</storyId>
+    <title>capsule-exporter-implementation</title>
+    <status>drafted</status>
+    <generatedAt>2025-11-20</generatedAt>
+    <generator>BMAD Story Context Workflow</generator>
+    <sourceStoryPath>docs/sprint-artifacts/7-2-capsule-exporter-implementation.md</sourceStoryPath>
+  </metadata>
+
+  <story>
+    <asA>a developer</asA>
+    <iWant>to export a capsule to a distributable format (folder or zip)</iWant>
+    <soThat>I can share it with others or move it to another vault</soThat>
+    <tasks>
+      <task id="1" description="Implement Exporter Core Logic">
+        <subtask id="1.1" description="Create capsule/core/exporter.py with an Exporter class."/>
+        <subtask id="1.2" description="Implement a method to run validation on the capsule."/>
+        <subtask id="1.3" description="Implement a method to generate an export manifest."/>
+        <subtask id="1.4" description="Implement a method to package the capsule into a zip archive."/>
+      </task>
+      <task id="2" description="Implement Export CLI Command">
+        <subtask id="2.1" description="Create capsule/commands/export.py with an export command."/>
+        <subtask id="2.2" description="Add options to the command for specifying the output format (folder or zip)."/>
+        <subtask id="2.3" description="Integrate the Exporter class into the command."/>
+      </task>
+      <task id="3" description="Add Unit Tests">
+        <subtask id="3.1" description="Create tests/core/test_exporter.py with tests for the Exporter class."/>
+        <subtask id="3.2" description="Create tests/commands/test_export.py with tests for the export command."/>
+      </task>
+    </tasks>
+  </story>
+
+  <acceptanceCriteria>
+      <criterion id="1" description="The `capsule export` command can package a capsule into a folder bundle."/>
+      <criterion id="2" description="The `capsule export` command can package a capsule into a `.capsule` zip archive."/>
+      <criterion id="3" description="The export command runs validation before packaging."/>
+      <criterion id="4" description="The export command generates an export manifest."/>
+      <criterion id="5" description="The CLI command should be implemented in `capsule/commands/export.py`."/>
+      <criterion id="6" description="The core logic should be in `capsule/core/exporter.py`."/>
+    </acceptanceCriteria>
+
+  <artifacts>
+    <docs>
+      <artifact>
+        <path>docs/architecture.md</path>
+        <title>Architecture Document</title>
+        <section>Epic Group 4: Import/Export Operations (FR26-FR31)</section>
+        <snippet>
+          <![CDATA[
+          **Epics:**
+          - Export Capsule to Distribution Format
+          - Import Capsule with Preview
+          - Backup Management
+          - Version Conflict Detection
+
+          **Architecture Components:**
+          ```
+          capsule/core/exporter.py
+            └─ Export orchestration
+                ├─ Validate capsule before export
+                ├─ Create folder bundle or zip
+                └─ Generate export manifest
+
+          capsule/core/importer.py
+            └─ Import orchestration
+                ├─ Extract .capsule archive
+                ├─ Load cypher and analyze
+                ├─ Preview changes (what will be added/modified)
+                ├─ Detect version conflicts
+                ├─ Create backup before import
+                └─ Execute import with merge strategy
+
+          capsule/utils/backup.py
+            └─ Backup management
+                ├─ Create timestamped vault backups
+                ├─ Use zipfile for compression
+                └─ Manage backup retention (cleanup old backups)
+
+          capsule/commands/import_cmd.py
+            └─ CLI import command
+                ├─ Parse capsule file
+                ├─ Show preview
+                ├─ Get user approval
+                └─ Execute import
+          ```
+          ]]>
+        </snippet>
+      </artifact>
+      <artifact>
+        <path>docs/epics.md</path>
+        <title>Project Epics</title>
+        <section>Epic 7: Import/Export Operations</section>
+        <snippet>
+          <![CDATA[
+          **Summary:** Backup management, import/export commands, version conflict detection, preview.
+
+          **Stories:**
+          - **7-1-backup-management-system:** Create a system for backing up the vault before imports.
+          - **7-2-capsule-exporter-implementation:** Implement the `capsule export` command.
+          - **7-3-capsule-importer-with-preview:** Implement the `capsule import` command with a preview feature.
+          - **7-4-version-conflict-detection:** Add logic to detect version conflicts during import.
+          - **7-5-import-preview-data-structure:** Design the data structure for the import preview.
+          - **7-6-interactive-approval-workflow:** Implement an interactive approval step for imports.
+          ]]>
+        </snippet>
+      </artifact>
+    </docs>
+    <code></code>
+    <dependencies>
+      <dependency name="typer"/>
+      <dependency name="python-frontmatter"/>
+      <dependency name="click" version="&gt;=8.0.0"/>
+      <dependency name="rich" version="&gt;=13.0.0"/>
+      <dependency name="pyyaml" version="&gt;=6.0"/>
+      <dependency name="google-generativeai" version="&gt;=0.3.0"/>
+      <dependency name="questionary" version="&gt;=2.0.0"/>
+    </dependencies>
+  </artifacts>
+
+  <constraints>
+      <constraint>The `capsule export` command should be implemented in `capsule/commands/export.py`.</constraint>
+      <constraint>The core logic for exporting should be in `capsule/core/exporter.py`.</constraint>
+      <constraint>The exporter should validate the capsule before packaging.</constraint>
+      <constraint>The exporter should be able to create a folder bundle or a zip archive.</constraint>
+    </constraints>
+  <interfaces></interfaces>
+  <tests>
+      <standards>Unit tests should be created for the exporter functionality. Tests should cover successful export, handling of file errors, and verification of the exported contents.</standards>
+      <locations>
+        <location>tests/core/test_exporter.py</location>
+        <location>tests/commands/test_export.py</location>
+      </locations>
+      <ideas>
+        <idea criterion="1">Test successful export to a folder bundle.</idea>
+        <idea criterion="2">Test successful export to a zip archive.</idea>
+        <idea criterion="3">Test that validation is run before packaging.</idea>
+        <idea criterion="4">Test that an export manifest is generated.</idea>
+      </ideas>
+    </tests>
+</story-context>

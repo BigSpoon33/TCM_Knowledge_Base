@@ -1,0 +1,51 @@
+# Validation Report
+
+**Generated on:** {{ timestamp }}
+
+## Summary
+
+**Overall Status:** <span style="color:{{ 'green' if summary.status == 'PASSED' else 'red' }}">{{ summary.status }}</span>
+- **Total Checks:** {{ summary.total_checks }}
+- **Total Errors:** {{ summary.total_errors }}
+
+---
+
+## 1. File Inventory Check
+
+{% if inventory_check.errors %}
+| File Path | Status | Details |
+|-----------|--------|---------|
+{% for error in inventory_check.errors %}
+| `{{ error.file_path }}` | <span style="color:red">ERROR</span> | {{ error.details }} |
+{% endfor %}
+{% else %}
+<p style="color:green">All expected files are present and no unexpected files were found.</p>
+{% endif %}
+
+---
+
+## 2. Schema Validation
+
+{% if schema_validation.errors %}
+| File Path | Status | Details |
+|-----------|--------|---------|
+{% for error in schema_validation.errors %}
+| `{{ error.file_path }}` | <span style="color:red">ERROR</span> | ```{{ error.details }}``` |
+{% endfor %}
+{% else %}
+<p style="color:green">All configuration files passed schema validation.</p>
+{% endif %}
+
+---
+
+## 3. UTF-8 Encoding Check
+
+{% if encoding_check.errors %}
+| File Path | Status | Details |
+|-----------|--------|---------|
+{% for error in encoding_check.errors %}
+| `{{ error.file_path }}` | <span style="color:red">ERROR</span> | {{ error.details }} |
+{% endfor %}
+{% else %}
+<p style="color:green">All files are correctly encoded in UTF-8.</p>
+{% endif %}

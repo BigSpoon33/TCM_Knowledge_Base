@@ -24,7 +24,6 @@ class Validator:
         self.validate_capsule_structure()
         self.validate_frontmatter_schema()
         self.validate_file_inventory()
-        self.validate_data_types()
 
     def validate_capsule_structure(self):
         """
@@ -69,9 +68,19 @@ class Validator:
 
         post = frontmatter.load(file_path)
 
+        type_map = {"str": str, "int": int, "float": float, "list": list, "dict": dict, "bool": bool}
+
         for field, properties in schema.items():
             if properties.get("required") and field not in post.metadata:
                 raise ValueError(f"Missing required field '{field}' in {file_path}")
+
+            field_type_str = properties.get("type")
+            if field in post.metadata and field_type_str:
+                expected_type = type_map.get(field_type_str)
+                if expected_type and not isinstance(post.metadata[field], expected_type):
+                    raise TypeError(
+                        f"Invalid data type for field '{field}' in {file_path}. Expected {field_type_str}, got {type(post.metadata[field]).__name__}"
+                    )
 
     def validate_file_inventory(self):
         """
@@ -92,48 +101,6 @@ class Validator:
                 raise FileNotFoundError(f"File from cypher not found in capsule: {file_path}")
 
         actual_files = {f for f in self.capsule_path.glob("**/*") if f.is_file()}
-        extra_files = actual_files - cypher_files - {self.cypher_path}
+        extra_files = actual_files - cypher_files - {self.cypher_path, self.capsule_path / "export-manifest.json"}
         if extra_files:
             raise FileExistsError(f"Extra files found in capsule: {', '.join(str(f) for f in extra_files)}")
-
-    def validate_data_types(self):
-        """
-        Validates the data types of a capsule.
-        """
-        if "schema" not in self.cypher:
-            return
-
-        schema = self.cypher["schema"]
-        for content_type, files in self.cypher["contents"].items():
-            if content_type not in schema:
-                continue
-
-            content_schema = schema[content_type]
-            if isinstance(files, list):
-                for file_info in files:
-                    self._validate_file_data_types(file_info, content_schema)
-            elif isinstance(files, dict):
-                for sub_type, sub_files in files.items():
-                    if sub_type not in content_schema:
-                        continue
-                    sub_type_schema = content_schema[sub_type]
-                    for file_info in sub_files:
-                        self._validate_file_data_types(file_info, sub_type_schema)
-
-    def _validate_file_data_types(self, file_info, schema):
-        file_path = self.capsule_path / file_info["file"]
-        if not file_path.exists():
-            return
-
-        post = frontmatter.load(file_path)
-
-        type_map = {"str": str, "int": int, "float": float, "list": list, "dict": dict, "bool": bool}
-
-        for field, properties in schema.items():
-            field_type_str = properties.get("type")
-            if field in post.metadata and field_type_str:
-                expected_type = type_map.get(field_type_str)
-                if expected_type and not isinstance(post.metadata[field], expected_type):
-                    raise TypeError(
-                        f"Invalid data type for field '{field}' in {file_path}. Expected {field_type_str}, got {type(post.metadata[field]).__name__}"
-                    )

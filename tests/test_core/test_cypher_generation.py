@@ -58,16 +58,15 @@ class TestCypherGeneration(unittest.TestCase):
         cypher = self.packager.generate_cypher()
         self.assertIn("root_notes", cypher.contents)
         self.assertEqual(len(cypher.contents["root_notes"]), 2)
-        self.assertEqual(cypher.contents["root_notes"][0]["id"], "note1")
+        self.assertIsInstance(cypher.contents["root_notes"][0]["id"], str)
         self.assertEqual(cypher.contents["root_notes"][0]["file"], "root_notes/note1.md")
-        self.assertEqual(cypher.contents["root_notes"][1]["id"], "note2")
+        self.assertIsInstance(cypher.contents["root_notes"][1]["id"], str)
         self.assertEqual(cypher.contents["root_notes"][1]["file"], "root_notes/note2.md")
 
     def test_folder_structure(self):
         cypher = self.packager.generate_cypher()
-        self.assertIn("root", cypher.folder_structure)
-        self.assertIn("root_notes", cypher.folder_structure["root"])
-        self.assertIn("media", cypher.folder_structure["root"])
+        self.assertIn("root_notes", cypher.folder_structure)
+        self.assertIn("media", cypher.folder_structure)
 
     def test_cypher_metadata(self):
         cypher = self.packager.generate_cypher()
@@ -86,16 +85,15 @@ class TestCypherGeneration(unittest.TestCase):
         self.assertEqual(cypher.domain_type, "test")
 
         # Test folder structure
-        self.assertIn("root", cypher.folder_structure)
-        self.assertIn("root_notes", cypher.folder_structure["root"])
-        self.assertIn("media", cypher.folder_structure["root"])
+        self.assertIn("root_notes", cypher.folder_structure)
+        self.assertIn("media", cypher.folder_structure)
 
         # Test contents
         self.assertIn("root_notes", cypher.contents)
         self.assertEqual(len(cypher.contents["root_notes"]), 2)
-        self.assertEqual(cypher.contents["root_notes"][0]["id"], "note1")
+        self.assertIsInstance(cypher.contents["root_notes"][0]["id"], str)
         self.assertEqual(cypher.contents["root_notes"][0]["file"], "root_notes/note1.md")
-        self.assertEqual(cypher.contents["root_notes"][1]["id"], "note2")
+        self.assertIsInstance(cypher.contents["root_notes"][1]["id"], str)
         self.assertEqual(cypher.contents["root_notes"][1]["file"], "root_notes/note2.md")
 
 

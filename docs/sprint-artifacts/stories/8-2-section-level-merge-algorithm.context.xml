@@ -1,0 +1,225 @@
+<story-context id=".bmad/bmm/workflows/4-implementation/story-context/template" v="1.0">
+  <metadata>
+    <epicId>8</epicId>
+    <storyId>2</storyId>
+    <title>section-level-merge-algorithm</title>
+    <status>drafted</status>
+    <generatedAt>2025-11-21</generatedAt>
+    <generator>BMAD Story Context Workflow</generator>
+    <sourceStoryPath>docs/sprint-artifacts/8-2-section-level-merge-algorithm.md</sourceStoryPath>
+  </metadata>
+
+  <story>
+    <asA>a developer</asA>
+    <iWant>to implement the section-level merge strategy</iWant>
+    <soThat>capsule updates can be applied safely without losing data from other sections.</soThat>
+    <tasks>
+        <task id="1" description="Implement `section_level_merge` function">
+            <subtask id="1.1" description="Create the file `capsule/core/merger.py` if it doesn't exist."/>
+            <subtask id="1.2" description="Implement the `section_level_merge` function with the specified signature."/>
+        </task>
+        <task id="2" description="Implement Merge Logic">
+            <subtask id="2.1" description="Implement the logic to update existing sections."/>
+            <subtask id="2.2" description="Implement the logic to preserve other sections."/>
+        </task>
+        <task id="3" description="Add Unit Test Coverage">
+            <subtask id="3.1" description="Create the file `tests/test_core/test_merger.py`."/>
+            <subtask id="3.2" description="Write unit tests for the `section_level_merge` function, covering all scenarios."/>
+        </task>
+    </tasks>
+  </story>
+
+  <acceptanceCriteria>
+    <criterion id="1" description="A function `section_level_merge(existing: dict, incoming: dict) -> dict` is implemented in `capsule/core/merger.py`."/>
+    <criterion id="2" description="The function correctly updates existing sections in the frontmatter with values from the incoming frontmatter."/>
+    <criterion id="3" description="The function preserves sections that are present in the existing frontmatter but not in the incoming frontmatter."/>
+    <criterion id="4" description="The function is covered by unit tests with various scenarios, including updating existing keys, adding new keys to a section, and preserving other sections."/>
+  </acceptanceCriteria>
+
+  <artifacts>
+    <docs>
+      <doc>
+        <path>docs/architecture.md</path>
+        <title>Architecture Document</title>
+        <section>Epic Group 5: Merge Strategies (FR32-FR38)</section>
+        <snippet>
+          Defines the core components for merging, including the `merger.py` module and the critical `section_level_merge` and `additive_merge` functions. It outlines the rules for handling updates from the same capsule versus enhancements from different capsules, ensuring user content is always preserved.
+        </snippet>
+      </doc>
+      <doc>
+        <path>docs/architecture.md</path>
+        <title>Architecture Document</title>
+        <section>Merge Algorithm (Critical Implementation Pattern)</section>
+        <snippet>
+          Provides the pseudo-code for the merge logic, detailing how `section_level_merge` should operate by updating matching sections (domain data and universal fields) while preserving all others. This is the primary technical guide for the story's implementation.
+        </snippet>
+      </doc>
+      <doc>
+        <path>docs/epics.md</path>
+        <title>Project Epics</title>
+        <section>Epic 8: Merge Strategies</section>
+        <snippet>
+          Outlines the high-level goals for all merge-related stories, including section-level merge, additive merge, conflict detection, and provenance tracking. This confirms the story's place in the larger project plan.
+        </snippet>
+      </doc>
+      <doc>
+        <path>docs/sprint-artifacts/8-2-section-level-merge-algorithm.md</path>
+        <title>Story 8.2: section-level-merge-algorithm</title>
+        <section>Dev Notes</section>
+        <snippet>
+          Highlights the dependency on `FrontmatterHandler` from the previous story (8-1) and emphasizes the importance of robust testing against various frontmatter structures. It also links directly to the merge algorithm pattern in the architecture doc.
+        </snippet>
+      </doc>
+      <doc>
+        <path>docs/architecture.md</path>
+        <title>Architecture Document</title>
+        <section>Complete Project Structure</section>
+        <snippet>
+          Provides a complete tree view of the project structure, showing where the new `capsule/core/merger.py` module and its corresponding test file `tests/test_core/test_merger.py` should be located. This is crucial for ensuring the new code is placed correctly within the existing architecture.
+        </snippet>
+      </doc>
+    </docs>
+    <code>
+      <artifact>
+        <path>capsule/core/merger.py</path>
+        <kind>New Module</kind>
+        <symbol>section_level_merge</symbol>
+        <lines>N/A</lines>
+        <reason>
+          This is the new file where the core logic for the section-level merge algorithm will be implemented, as specified by the story.
+        </reason>
+      </artifact>
+      <artifact>
+        <path>capsule/utils/frontmatter.py</path>
+        <kind>Existing Utility</kind>
+        <symbol>FrontmatterHandler</symbol>
+        <lines>Class definition</lines>
+        <reason>
+          This existing class is a critical dependency. It must be used for all reading and writing of notes to ensure that YAML comments and formatting are preserved, a key requirement from the previous story.
+        </reason>
+      </artifact>
+      <artifact>
+        <path>tests/test_core/test_merger.py</path>
+        <kind>New Test File</kind>
+        <symbol>TestSectionLevelMerge</symbol>
+        <lines>N/A</lines>
+        <reason>
+          This new test file will contain the unit tests for the `section_level_merge` function, ensuring it meets all acceptance criteria.
+        </reason>
+      </artifact>
+      <artifact>
+        <path>tests/fixtures/sample_notes/</path>
+        <kind>Existing Test Fixtures</kind>
+        <symbol>N/A</symbol>
+        <lines>Directory</lines>
+        <reason>
+          This directory contains sample note files for testing. The new tests should follow the established pattern of using these fixtures to ensure consistency.
+        </reason>
+      </artifact>
+    </code>
+    <dependencies>
+      <dependency ecosystem="python">
+        <package>typer</package>
+        <version>latest</version>
+      </dependency>
+      <dependency ecosystem="python">
+        <package>python-frontmatter</package>
+        <version>latest</version>
+      </dependency>
+      <dependency ecosystem="python">
+        <package>click</package>
+        <version>>=8.0.0</version>
+      </dependency>
+      <dependency ecosystem="python">
+        <package>rich</package>
+        <version>>=13.0.0</version>
+      </dependency>
+      <dependency ecosystem="python">
+        <package>pyyaml</package>
+        <version>>=6.0</version>
+      </dependency>
+      <dependency ecosystem="python">
+        <package>google-generativeai</package>
+        <version>>=0.3.0</version>
+      </dependency>
+      <dependency ecosystem="python">
+        <package>questionary</package>
+        <version>>=2.0.0</version>
+      </dependency>
+      <dependency ecosystem="python">
+        <package>ruamel.yaml</package>
+        <version>>=0.17.0</version>
+      </dependency>
+      <dependency ecosystem="python-dev">
+        <package>pytest</package>
+        <version>latest</version>
+      </dependency>
+      <dependency ecosystem="python-dev">
+        <package>ruff</package>
+        <version>latest</version>
+      </dependency>
+    </dependencies>
+  </artifacts>
+
+  <constraints>
+    <constraint>
+      The implementation must strictly follow the merge algorithm pseudo-code defined in `docs/architecture.md` to ensure consistency with the project's core design.
+    </constraint>
+    <constraint>
+      All frontmatter parsing and writing must be handled by the `FrontmatterHandler` class from `capsule/utils/frontmatter.py` to ensure data integrity and preserve YAML formatting.
+    </constraint>
+    <constraint>
+      Unit tests must be comprehensive, covering all scenarios outlined in the acceptance criteria, and should utilize the existing fixture patterns found in `tests/fixtures/`.
+    </constraint>
+  </constraints>
+  <interfaces>
+    <interface>
+      <name>section_level_merge</name>
+      <kind>Function Signature</kind>
+      <signature>def section_level_merge(existing: dict, incoming: dict) -> dict:</signature>
+      <path>capsule/core/merger.py</path>
+    </interface>
+    <interface>
+      <name>FrontmatterHandler</name>
+      <kind>Class Interface</kind>
+      <signature>
+        - load(file_path: Path) -> FrontmatterHandler
+        - save(file_path: Path)
+        - get_frontmatter() -> Any
+        - set_frontmatter(data: dict)
+        - get_body() -> str
+        - set_body(content: str)
+      </signature>
+      <path>capsule/utils/frontmatter.py</path>
+    </interface>
+  </interfaces>
+  <tests>
+    <standards>
+      The project follows a standard Python testing pyramid using the `pytest` framework. Unit tests are the foundation and should be comprehensive, testing contracts rather than implementations. Tests must follow the existing pattern of using fixtures for sample data, located in `tests/fixtures/`, to ensure consistency and reusability. All new logic must be accompanied by corresponding unit tests.
+    </standards>
+    <locations>
+      <location type="implementation">tests/test_core/test_merger.py</location>
+      <location type="fixtures">tests/fixtures/sample_notes/</location>
+    </locations>
+    <ideas>
+      <idea for_ac="2">
+        Test that a domain section (e.g., `herb_data`) in the existing frontmatter is completely replaced by the corresponding section from the incoming frontmatter.
+      </idea>
+      <idea for_ac="3">
+        Test that sections present in the existing frontmatter but absent in the incoming frontmatter (e.g., `recipe_data`) are preserved without modification.
+      </idea>
+      <idea for_ac="2,4">
+        Test that universal fields like `tags` or `aliases` are correctly updated from the incoming frontmatter.
+      </idea>
+      <idea for_ac="4">
+        Test a scenario where the incoming frontmatter adds a new key to an existing domain section dictionary, verifying the new key is present and old keys are retained.
+      </idea>
+      <idea for_ac="4">
+        Test the edge case where the incoming frontmatter is empty; the existing frontmatter should remain unchanged.
+      </idea>
+      <idea for_ac="4">
+        Test the edge case where the existing frontmatter is empty; the merged frontmatter should be identical to the incoming one.
+      </idea>
+    </ideas>
+  </tests>
+</story-context>

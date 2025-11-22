@@ -1,0 +1,637 @@
+"""Import capsule with preview and analysis capabilities."""
+
+from pathlib import Path
+from typing import Dict, List, Any, Optional
+from dataclasses import dataclass
+import zipfile
+import tempfile
+import shutil
+import frontmatter
+import typer
+import yaml
+from rich.console import Console
+from rich.table import Table
+from rich.panel import Panel
+from rich.text import Text
+
+from capsule.models.config import Config
+from capsule.models.cypher import CapsuleCypher
+from capsule.core.validator import Validator
+from capsule.utils.backup import create_backup
+from capsule.utils.yaml_handler import YAMLHandler
+from capsule.utils.versioning import compare_versions
+
+
+@dataclass
+class CapsuleInfo:
+    """Metadata about the capsule."""
+
+    id: str
+    version: str
+    file_count: int
+    name: str
+    domain_type: str
+
+
+@dataclass
+class Impact:
+    """Summary of import impact."""
+
+    new_files: int
+    updated_files: int
+    conflicts: int
+
+
+@dataclass
+class UpdateDetail:
+    """Details about a file update."""
+
+    file: str
+    strategy: str
+    changes: str
+
+
+@dataclass
+class ConflictDetail:
+    """Details about a file conflict."""
+
+    file: str
+    reason: str
+    sources: List[str]
+
+
+@dataclass
+class ImportPreview:
+    """
+    Data structure representing the import preview.
+
+    Contains all information needed to display what will happen during import.
+    """
+
+    capsule_info: CapsuleInfo
+    impact: Impact
+    new_files: List[str]
+    updates: List[UpdateDetail]
+    conflicts: List[ConflictDetail]
+    import_type: str = "NEW"
+    version_diff: Optional[str] = None
+
+
+class Importer:
+    """
+    Handles the capsule import process, including extraction, validation,
+    and preview generation.
+
+    Security:
+        - Validates zip file paths to prevent path traversal attacks.
+        - Creates backups before modifying the vault.
+    """
+
+    def __init__(self, config: Config):
+        """
+        Initialize importer with user configuration.
+
+        Args:
+            config: User configuration containing vault path and settings
+        """
+        self.config = config
+        self.console = Console()
+        self.extracted_path: Optional[Path] = None
+        self.temp_dir: Optional[str] = None
+        self.cypher: Optional[CapsuleCypher] = None
+
+    def run(self, capsule_path: Path, no_backup: bool = False) -> None:
+        """
+        Run the import process with preview.
+
+        Args:
+            capsule_path: Path to capsule file (.capsule zip) or folder
+            no_backup: If True, skips the backup process
+
+        Raises:
+            ValueError: If vault path is not configured
+            FileNotFoundError: If capsule path doesn't exist
+        """
+        # Create backup if requested
+        backup_path = None
+        if not no_backup:
+            vault_path_str = self.config.get("user.vault_path")
+            if not vault_path_str:
+                raise ValueError("Vault path is not set in the configuration.")
+            vault_path = Path(vault_path_str)
+
+            backup_dir_str = self.config.get("import.backup_location", str(Path.home() / ".capsule" / "backups"))
+            backup_dir = Path(backup_dir_str)
+
+            typer.echo("Creating vault backup...")
+            backup_path = create_backup(vault_path, backup_dir)
+            typer.echo(f"Backup created at: {backup_path}")
+
+        try:
+            # Extract capsule (handles both zip and folder)
+            self.extract_capsule(capsule_path)
+
+            # Load and parse cypher
+            self.load_cypher()
+
+            # Validate capsule structure
+            self.validate_capsule()
+
+            # Analyze impact on vault
+            vault_path = Path(self.config.get("user.vault_path"))
+            preview = self.analyze_impact(vault_path)
+
+            # Display preview
+            self.display_preview(preview)
+
+            # TODO: In future stories (7-6), add interactive approval here
+            typer.echo("\n" + "=" * 50)
+            typer.secho(
+                "ℹ️  Preview complete. Actual import execution will be implemented in story 7-6.", fg=typer.colors.BLUE
+            )
+            typer.echo("=" * 50)
+
+        except Exception as e:
+            typer.secho(f"❌ Error during import: {e}", fg=typer.colors.RED)
+            if backup_path:
+                typer.echo(f"Your vault has been backed up at: {backup_path}")
+            raise typer.Exit(code=1)
+        finally:
+            # Clean up temporary extraction directory
+            self.cleanup()
+
+    def extract_capsule(self, capsule_path: Path) -> None:
+        """
+        Extract capsule from zip archive or use folder directly.
+
+        Security:
+            - Checks for path traversal attempts in zip archives.
+            - Raises ValueError if a file path attempts to escape the extraction directory.
+
+        Args:
+            capsule_path: Path to .capsule zip file or capsule folder
+
+        Raises:
+            FileNotFoundError: If capsule path doesn't exist
+            zipfile.BadZipFile: If zip file is corrupted
+            ValueError: If path traversal is detected
+        """
+        if not capsule_path.exists():
+            raise FileNotFoundError(f"Capsule not found: {capsule_path}")
+
+        if capsule_path.is_dir():
+            # Already a directory, use it directly
+            self.extracted_path = capsule_path
+            typer.echo(f"Using capsule folder: {capsule_path}")
+        else:
+            # Extract zip archive to temporary directory
+            self.temp_dir = tempfile.mkdtemp(prefix="capsule_import_")
+            extract_to = Path(self.temp_dir)
+
+            typer.echo(f"Extracting capsule archive: {capsule_path}")
+            with zipfile.ZipFile(capsule_path, "r") as zip_ref:
+                # Validate paths to prevent path traversal attacks (Python < 3.11.4)
+                for member in zip_ref.namelist():
+                    member_path = (extract_to / member).resolve()
+                    try:
+                        member_path.relative_to(extract_to.resolve())
+                    except ValueError:
+                        raise ValueError(f"Path traversal detected in archive: {member}")
+
+                zip_ref.extractall(extract_to)
+
+            # Find the root capsule directory (handle nested structure)
+            # Look for capsule-cypher.yaml in extracted contents
+            cypher_candidates = list(extract_to.rglob("capsule-cypher.yaml"))
+            if not cypher_candidates:
+                raise FileNotFoundError(f"No capsule-cypher.yaml found in archive: {capsule_path}")
+
+            self.extracted_path = cypher_candidates[0].parent
+            typer.echo(f"Capsule extracted to: {self.extracted_path}")
+
+    def load_cypher(self) -> None:
+        """
+        Load and parse the capsule-cypher.yaml file.
+
+        Raises:
+            FileNotFoundError: If cypher file doesn't exist
+            ValueError: If cypher structure is invalid
+        """
+        if not self.extracted_path:
+            raise ValueError("Capsule must be extracted before loading cypher")
+
+        cypher_path = self.extracted_path / "capsule-cypher.yaml"
+        if not cypher_path.exists():
+            raise FileNotFoundError(f"capsule-cypher.yaml not found in {self.extracted_path}")
+
+        typer.echo("Loading capsule cypher...")
+        cypher_data = YAMLHandler.read(cypher_path)
+        self.cypher = CapsuleCypher.from_dict(cypher_data)
+        typer.echo(f"Loaded cypher for: {self.cypher.name} v{self.cypher.version}")
+
+    def validate_capsule(self) -> None:
+        """
+        Validate capsule structure using existing Validator.
+
+        Raises:
+            ValueError: If validation fails
+        """
+        if not self.extracted_path:
+            raise ValueError("Capsule must be extracted before validation")
+
+        typer.echo("Validating capsule structure...")
+        validator = Validator(self.extracted_path)
+        validator.validate_capsule()
+        typer.secho("✓ Capsule validation passed", fg=typer.colors.GREEN)
+
+    def analyze_impact(self, vault_path: Path) -> ImportPreview:
+        """
+        Analyze the impact of importing this capsule on the vault.
+
+        Compares capsule files with existing vault files to determine:
+        - New files (not in vault)
+        - Updated files (in both capsule and vault)
+        - Potential conflicts (different capsule sources)
+        - Version conflicts (downgrades)
+
+        Args:
+            vault_path: Path to Obsidian vault
+
+        Returns:
+            ImportPreview object with analysis results
+        """
+        if not self.cypher or not self.extracted_path:
+            raise ValueError("Cypher must be loaded before impact analysis")
+
+        typer.echo("Analyzing impact on vault...")
+
+        # Check for installed version
+        import_type = "NEW"
+        version_diff = None
+
+        # Check for installed version in the capsule-specific directory
+        # We assume the capsule metadata is stored in vault_path / capsule_id / capsule-cypher.yaml
+        installed_cypher_path = vault_path / self.cypher.capsule_id / "capsule-cypher.yaml"
+
+        if installed_cypher_path.exists():
+            try:
+                installed_data = YAMLHandler.read(installed_cypher_path)
+                installed_cypher = CapsuleCypher.from_dict(installed_data)
+
+                if installed_cypher.capsule_id == self.cypher.capsule_id:
+                    installed_version = installed_cypher.version
+
+                    # Compare versions
+                    try:
+                        comparison = compare_versions(self.cypher.version, installed_version)
+
+                        if comparison > 0:
+                            import_type = "UPDATE"
+                            version_diff = f"{installed_version} -> {self.cypher.version}"
+                        elif comparison < 0:
+                            import_type = "DOWNGRADE"
+                            version_diff = f"{installed_version} -> {self.cypher.version}"
+                        else:
+                            import_type = "SAME"
+                            version_diff = f"{installed_version} (Reinstall)"
+                    except ValueError as e:
+                        typer.echo(f"Warning: Version comparison failed: {e}")
+
+            except Exception as e:
+                # If we can't read the installed cypher, assume NEW or ignore
+                typer.echo(f"Warning: Could not read installed capsule-cypher.yaml: {e}")
+
+        # Collect all capsule files
+        capsule_files = self._collect_capsule_files()
+
+        new_files = []
+        updates = []
+        conflicts = []
+
+        for rel_path in capsule_files:
+            vault_file = vault_path / rel_path
+            capsule_file = self.extracted_path / rel_path
+
+            if not vault_file.exists():
+                # File doesn't exist in vault - will be created
+                new_files.append(str(rel_path))
+            else:
+                # File exists - analyze for updates/conflicts
+                update_info = self._analyze_file_update(vault_file, capsule_file, rel_path)
+
+                if update_info.get("conflict"):
+                    conflicts.append(
+                        ConflictDetail(
+                            file=update_info["file"],
+                            reason=update_info["reason"],
+                            sources=update_info["sources"],
+                        )
+                    )
+                else:
+                    updates.append(
+                        UpdateDetail(
+                            file=update_info["file"],
+                            strategy=update_info["strategy"],
+                            changes=update_info["changes"],
+                        )
+                    )
+
+        # Count file statistics
+        impact = Impact(new_files=len(new_files), updated_files=len(updates), conflicts=len(conflicts))
+
+        # Capsule metadata
+        capsule_info = CapsuleInfo(
+            id=self.cypher.capsule_id,
+            name=self.cypher.name,
+            version=self.cypher.version,
+            domain_type=self.cypher.domain_type,
+            file_count=len(capsule_files),
+        )
+
+        return ImportPreview(
+            capsule_info,
+            impact,
+            new_files,
+            updates,
+            conflicts,
+            import_type=import_type,
+            version_diff=version_diff,
+        )
+
+    def _collect_capsule_files(self) -> List[str]:
+        """
+        Collect all file paths from cypher contents.
+
+        Returns:
+            List of relative file paths
+        """
+        files = []
+        contents = self.cypher.contents
+
+        for content_type, items in contents.items():
+            if isinstance(items, list):
+                # Direct list of files
+                for item in items:
+                    if isinstance(item, dict) and "file" in item:
+                        files.append(item["file"])
+            elif isinstance(items, dict):
+                # Nested structure (e.g., study_material -> flashcards -> files)
+                for sub_type, sub_items in items.items():
+                    if isinstance(sub_items, list):
+                        for item in sub_items:
+                            if isinstance(item, dict) and "file" in item:
+                                files.append(item["file"])
+
+        return files
+
+    def _analyze_file_update(self, vault_file: Path, capsule_file: Path, rel_path: str) -> Dict[str, Any]:
+        """
+        Analyze how a specific file will be updated.
+
+        Determines merge strategy and detects conflicts.
+
+        Args:
+            vault_file: Existing file in vault
+            capsule_file: Incoming file from capsule
+            rel_path: Relative path for display
+
+        Returns:
+            Dictionary with update details
+        """
+        try:
+            # Parse frontmatter from both files
+            vault_note = frontmatter.load(vault_file)
+            capsule_note = frontmatter.load(capsule_file)
+
+            vault_sources = vault_note.metadata.get("source_capsules", [])
+            incoming_capsule = self.cypher.capsule_id
+
+            # Determine merge strategy
+            if incoming_capsule in vault_sources:
+                # Same capsule update - section-level merge
+                strategy = "section-level"
+                changes = "Will update matching sections with new data"
+                conflict = False
+            else:
+                # Different capsule - additive merge
+                strategy = "additive"
+
+                # Check for domain section conflicts
+                conflict_sections = self._detect_section_conflicts(vault_note.metadata, capsule_note.metadata)
+
+                if conflict_sections:
+                    conflict = True
+                    changes = f"Conflict in sections: {', '.join(conflict_sections)}"
+                    return {
+                        "file": str(rel_path),
+                        "conflict": True,
+                        "reason": changes,
+                        "sources": vault_sources + [incoming_capsule],
+                    }
+                else:
+                    conflict = False
+                    changes = "Will add new domain sections"
+
+            return {"file": str(rel_path), "strategy": strategy, "changes": changes, "conflict": False}
+
+        except yaml.YAMLError as e:
+            # YAML parsing error in frontmatter
+            return {
+                "file": str(rel_path),
+                "strategy": "replace",
+                "changes": f"Will replace file (invalid YAML in frontmatter: {e})",
+                "conflict": False,
+            }
+        except UnicodeDecodeError as e:
+            # File encoding error
+            return {
+                "file": str(rel_path),
+                "strategy": "replace",
+                "changes": f"Will replace file (encoding error: {e})",
+                "conflict": False,
+            }
+        except Exception as e:
+            # Generic fallback for other parsing errors
+            return {
+                "file": str(rel_path),
+                "strategy": "replace",
+                "changes": f"Will replace file (frontmatter parse error: {e})",
+                "conflict": False,
+            }
+
+    def _detect_section_conflicts(self, existing_fm: Dict[str, Any], incoming_fm: Dict[str, Any]) -> List[str]:
+        """
+        Detect conflicting domain sections between two frontmatters.
+
+        Args:
+            existing_fm: Existing note's frontmatter
+            incoming_fm: Incoming note's frontmatter
+
+        Returns:
+            List of conflicting section names
+        """
+        conflicts = []
+
+        # Check for domain sections (keys ending with '_data')
+        for key in incoming_fm.keys():
+            if key.endswith("_data") and key in existing_fm:
+                # Both have the same domain section - potential conflict
+                conflicts.append(key)
+
+        return conflicts
+
+    def display_preview(self, preview: ImportPreview) -> None:
+        """
+        Display formatted import preview using rich library.
+
+        Args:
+            preview: ImportPreview object with analysis results
+        """
+        console = Console()
+
+        # Header
+        console.print()
+        console.print(Panel.fit("[bold cyan]Capsule Import Preview[/bold cyan]", border_style="cyan"))
+        console.print()
+
+        # Import Type & Version Warning
+        if preview.import_type == "DOWNGRADE":
+            console.print(f"[bold red]⚠️  DOWNGRADE DETECTED: {preview.version_diff}[/bold red]")
+            console.print()
+        elif preview.import_type == "UPDATE":
+            console.print(f"[bold green]Update Available: {preview.version_diff}[/bold green]")
+            console.print()
+        elif preview.import_type == "SAME":
+            console.print(f"[bold yellow]Reinstalling same version: {preview.version_diff}[/bold yellow]")
+            console.print()
+        else:
+            console.print("[bold green]New Installation[/bold green]")
+            console.print()
+
+        # Capsule metadata
+        console.print("[bold]Capsule Information:[/bold]")
+        info = preview.capsule_info
+        console.print(f"  ID:           {info.id}")
+        console.print(f"  Name:         {info.name}")
+        console.print(f"  Version:      {info.version}")
+        console.print(f"  Domain:       {info.domain_type}")
+        console.print(f"  Total Files:  {info.file_count}")
+        console.print()
+
+        # Impact summary
+        console.print("[bold]Impact Analysis:[/bold]")
+        impact = preview.impact
+        console.print(f"  [green]New files:      {impact.new_files}[/green]")
+        console.print(f"  [yellow]Updated files:  {impact.updated_files}[/yellow]")
+
+        if impact.conflicts > 0:
+            console.print(f"  [red]Conflicts:      {impact.conflicts}[/red]")
+        else:
+            console.print(f"  [green]Conflicts:      {impact.conflicts}[/green]")
+        console.print()
+
+        # New files list (limited to first 10)
+        if preview.new_files:
+            console.print("[bold green]New Files to be Created:[/bold green]")
+            display_count = min(10, len(preview.new_files))
+            for file_path in preview.new_files[:display_count]:
+                console.print(f"  + {file_path}")
+
+            if len(preview.new_files) > 10:
+                remaining = len(preview.new_files) - 10
+                console.print(f"  ... and {remaining} more files")
+            console.print()
+
+        # Updated files
+        if preview.updates:
+            console.print("[bold yellow]Files to be Updated:[/bold yellow]")
+
+            table = Table(show_header=True, header_style="bold yellow")
+            table.add_column("File", style="dim")
+            table.add_column("Strategy")
+            table.add_column("Changes")
+
+            display_count = min(10, len(preview.updates))
+            for update in preview.updates[:display_count]:
+                table.add_row(update.file, update.strategy, update.changes)
+
+            console.print(table)
+
+            if len(preview.updates) > 10:
+                remaining = len(preview.updates) - 10
+                console.print(f"\n  ... and {remaining} more files")
+            console.print()
+
+        # Conflicts
+        if preview.conflicts:
+            console.print("[bold red]⚠️  Conflicts Detected:[/bold red]")
+
+            table = Table(show_header=True, header_style="bold red")
+            table.add_column("File", style="dim")
+            table.add_column("Reason", style="red")
+            table.add_column("Sources")
+
+            for conflict in preview.conflicts:
+                sources = ", ".join(conflict.sources)
+                table.add_row(conflict.file, conflict.reason, sources)
+
+            console.print(table)
+            console.print()
+            console.print("[red]⚠️  These conflicts must be resolved before import can proceed.[/red]")
+
+    def generate_preview(self, vault_path: Path) -> ImportPreview:
+        """
+        Public method to generate preview.
+
+        This is an alias for analyze_impact() to match the architecture
+        specification in architecture.md.
+
+        Args:
+            vault_path: Path to Obsidian vault
+
+        Returns:
+            ImportPreview object
+        """
+        return self.analyze_impact(vault_path)
+
+    def execute_import(self, preview: ImportPreview) -> None:
+        """
+        Execute the import based on the preview.
+
+        Args:
+            preview: The import preview containing files to process
+        """
+        typer.echo("\nExecuting import...")
+
+        vault_path = Path(self.config.get("user.vault_path"))
+
+        # Handle New Files
+        for rel_path in preview.new_files:
+            src = self.extracted_path / rel_path
+            dst = vault_path / rel_path
+
+            # Ensure parent dir exists
+            dst.parent.mkdir(parents=True, exist_ok=True)
+
+            shutil.copy2(src, dst)
+            typer.echo(f"Created: {rel_path}")
+
+        # Handle Updates
+        for update in preview.updates:
+            if update.strategy in ["section-level", "additive"]:
+                typer.echo(
+                    f"Skipping update for {update.file}: Merge strategy '{update.strategy}' not implemented yet (Epic 8)"
+                )
+            elif update.strategy == "replace":
+                src = self.extracted_path / update.file
+                dst = vault_path / update.file
+                shutil.copy2(src, dst)
+                typer.echo(f"Updated (Replaced): {update.file}")
+
+        typer.secho("\n✅ Import execution completed.", fg=typer.colors.GREEN)
+
+    def cleanup(self) -> None:
+        """Clean up temporary extraction directory if it exists."""
+        if self.temp_dir and Path(self.temp_dir).exists():
+            shutil.rmtree(self.temp_dir)
+            self.temp_dir = None

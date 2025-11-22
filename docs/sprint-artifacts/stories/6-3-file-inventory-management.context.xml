@@ -1,0 +1,109 @@
+<story-context id="{bmad_folder}/bmm/workflows/4-implementation/story-context/template" v="1.0">
+  <metadata>
+    <epicId>6</epicId>
+    <storyId>3</storyId>
+    <title>file-inventory-management</title>
+    <status>ready-for-dev</status>
+    <generatedAt>2025-11-19</generatedAt>
+    <generator>BMAD Story Context Workflow</generator>
+    <sourceStoryPath>docs/sprint-artifacts/6-3-file-inventory-management.md</sourceStoryPath>
+  </metadata>
+
+  <story>
+    <asA>a developer</asA>
+    <iWant>to manage the file inventory within the `capsule-cypher.yaml` file</iWant>
+    <soThat>I can accurately track all the files that are part of a capsule.</soThat>
+    <tasks>
+      - [ ] **Task 1: Implement File Inventory Generation** (AC: #1, #2, #3, #4, #5)
+    - [ ] Subtask 1.1: Create a method in `CapsulePackager` to scan the capsule directory.
+    - [ ] Subtask 1.2: Implement logic to generate a unique ID for each file.
+    - [ ] Subtask 1.3: Implement logic to create the `contents` dictionary with folder and file entries.
+    - [ ] Subtask 1.4: Integrate the file inventory generation into the main cypher generation process.
+- [ ] **Task 2: Add Unit Tests** (AC: #6)
+    - [ ] Subtask 2.1: Add unit tests for a simple capsule with a flat file structure.
+    - [ ] Subtask 2.2: Add unit tests for a capsule with nested folders.
+    - [ ] Subtask 2.3: Add unit tests for a capsule with various file types.
+    - [ ] Subtask 2.4: Add unit tests for an empty capsule.
+    </tasks>
+  </story>
+
+  <acceptanceCriteria>
+1. A method exists in `CapsulePackager` that scans a capsule directory and generates a file inventory.
+2. The file inventory is stored in the `contents` section of the `capsule-cypher.yaml` file.
+3. The `contents` section is a dictionary where keys are folder names and values are lists of file entries.
+4. Each file entry in the inventory contains the file's relative path and a unique ID.
+5. The file inventory accurately reflects the complete file and folder structure of the capsule.
+6. Unit tests are added to verify the file inventory generation for various directory structures.
+  </acceptanceCriteria>
+
+  <artifacts>
+    <docs>
+      <doc>
+        <path>docs/epics.md</path>
+        <title>Project Epics</title>
+        <section>Epic 6: Capsule Packaging</section>
+        <snippet>Summary: Cypher generation, file inventory management, export to folder/zip.</snippet>
+      </doc>
+      <doc>
+        <path>docs/architecture.md</path>
+        <title>Architecture Document</title>
+        <section>Capsule Cypher Structure (Implementation Detail)</section>
+        <snippet>The `contents` section is a dictionary where keys are folder names and values are lists of file entries. Each file entry in the inventory contains the file's relative path and a unique ID.</snippet>
+      </doc>
+    </docs>
+    <code>
+      <code>
+        <path>capsule/core/packager.py</path>
+        <kind>core</kind>
+        <symbol>CapsulePackager</symbol>
+        <lines></lines>
+        <reason>This class will be extended to include file inventory management.</reason>
+      </code>
+      <code>
+        <path>capsule/models/cypher.py</path>
+        <kind>model</kind>
+        <symbol>CapsuleCypher</symbol>
+        <lines></lines>
+        <reason>This model will be used to store the file inventory data.</reason>
+      </code>
+      <code>
+        <path>tests/test_core/test_packager.py</path>
+        <kind>test</kind>
+        <symbol></symbol>
+        <lines></lines>
+        <reason>New tests for file inventory management should be added here.</reason>
+      </code>
+    </code>
+    <dependencies>
+      <dependency>
+        <ecosystem>python</ecosystem>
+        <package>typer</package>
+        <version></version>
+      </dependency>
+      <dependency>
+        <ecosystem>python</ecosystem>
+        <package>python-frontmatter</package>
+        <version></version>
+      </dependency>
+    </dependencies>
+  </artifacts>
+
+  <constraints>
+The implementation must adhere to the `Capsule Cypher Structure` defined in `docs/architecture.md`. Specifically, the `contents` section should be a dictionary where keys are the folder names (e.g., `root_notes`, `study_material`) and values are lists of file entries. Each file entry should be a dictionary containing the `file` path and a unique `id`.
+Unit tests are required to verify that the file inventory is generated correctly for various capsule structures, including nested folders and different file types.
+  </constraints>
+  <interfaces/>
+  <tests>
+    <standards>Unit tests are required to verify that the file inventory is generated correctly for various capsule structures, including nested folders and different file types.</standards>
+    <locations>
+      - tests/test_core/test_packager.py
+      - tests/test_core/test_file_inventory.py (new file)
+    </locations>
+    <ideas>
+      - Test with a simple capsule with a flat file structure.
+      - Test with a capsule with nested folders.
+      - Test with a capsule with various file types.
+      - Test with an empty capsule.
+    </ideas>
+  </tests>
+</story-context>

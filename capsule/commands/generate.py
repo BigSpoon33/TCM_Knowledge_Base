@@ -9,7 +9,7 @@ from pathlib import Path
 
 def generate(
     topic: str = typer.Argument(..., help="Topic to research and generate content about"),
-    template: str = typer.Option("education", "--template", "-t", help="Template name to use"),
+    template: str = typer.Option("root_note", "--template", "-t", help="Template name to use"),
     output: str = typer.Option(".", "--output", "-o", help="Output directory"),
     materials: str = typer.Option(
         "all", "--materials", "-m", help="Materials to generate: flashcards,quizzes,slides,conversations"
@@ -27,7 +27,18 @@ def generate(
 
     try:
         # Load config
-        config = Config()
+        config = Config.load_config()
+
+        # Infer topic from hybrid file if empty
+        if (not topic or not topic.strip()) and hybrid:
+            topic = Path(hybrid).stem.replace("_", " ").title()
+            if "Root Note" in topic:
+                topic = topic.replace("Root Note", "").strip()
+            typer.echo(f"ℹ️  Inferred topic from hybrid file: {topic}")
+
+        if not topic or not topic.strip():
+            typer.secho("❌ Error: Topic is required.", fg=typer.colors.RED)
+            raise typer.Exit(code=1)
 
         # Show what will happen
         if dry_run:

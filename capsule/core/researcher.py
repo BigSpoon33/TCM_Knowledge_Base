@@ -48,12 +48,12 @@ class GeminiResearchProvider(ResearchProvider):
     """A research provider that uses the Google Gemini API."""
 
     def __init__(self):
-        self.config = Config()
+        self.config = Config.load_config()
         api_key = self.config.get("research.api_key")
         if not api_key:
             raise ConfigError("Gemini API key is not set in the configuration.")
         genai.configure(api_key=api_key)
-        self.model = genai.GenerativeModel("gemini-pro")
+        self.model = genai.GenerativeModel("gemini-2.0-flash")
 
     def research(self, topic: str, max_sources: int = 10) -> ResearchResult:
         """

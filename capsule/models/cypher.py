@@ -49,9 +49,9 @@ class CapsuleCypher:
     folder_structure: dict[str, str]
     contents: dict[str, Any]
     data_schemas: dict[str, Any]
-    sequence_mode: str
 
     # Optional fields
+    sequence_mode: Optional[str] = None
     required_plugins: Optional[list[dict[str, str]]] = None
     recommended_plugins: Optional[list[dict[str, str]]] = None
 

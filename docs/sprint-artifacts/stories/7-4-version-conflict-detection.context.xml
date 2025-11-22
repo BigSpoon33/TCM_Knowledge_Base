@@ -1,0 +1,133 @@
+<story-context id="7-4-version-conflict-detection" v="1.0">
+  <metadata>
+    <epicId>7</epicId>
+    <storyId>4</storyId>
+    <title>version-conflict-detection</title>
+    <status>drafted</status>
+    <generatedAt>2025-11-21</generatedAt>
+    <generator>BMAD Story Context Workflow</generator>
+    <sourceStoryPath>docs/sprint-artifacts/7-4-version-conflict-detection.md</sourceStoryPath>
+  </metadata>
+
+  <story>
+    <asA>As a user,</asA>
+    <iWant>I want the system to detect version conflicts during import,</iWant>
+    <soThat>so that I don't accidentally overwrite a newer capsule version with an older one.</soThat>
+    <tasks>
+- [ ] **Task 1: Implement Version Comparison Logic** (AC: #1, #5)
+  - [ ] Subtask 1.1: Update `capsule/utils/validators.py` or create `capsule/utils/versioning.py` to handle version comparison using `semver`.
+  - [ ] Subtask 1.2: Implement `compare_versions(v1, v2)` returning comparison result (-1, 0, 1).
+
+- [ ] **Task 2: Update `CapsuleImporter.analyze_impact`** (AC: #1, #2, #3, #4)
+  - [ ] Subtask 2.1: Retrieve installed capsule version from vault (check for existing `capsule-cypher.yaml` in target path).
+  - [ ] Subtask 2.2: Compare incoming version vs installed version.
+  - [ ] Subtask 2.3: Determine import type: `NEW`, `UPDATE`, `DOWNGRADE`, `SAME`.
+
+- [ ] **Task 3: Update `ImportPreview` Data Structure** (AC: #6)
+  - [ ] Subtask 3.1: Add `import_type` (str) and `version_diff` (str) fields to `ImportPreview` class in `capsule/core/importer.py`.
+
+- [ ] **Task 4: Update CLI Display** (AC: #2, #3, #4)
+  - [ ] Subtask 4.1: Update `capsule/core/importer.py` display logic to show import type in preview header.
+  - [ ] Subtask 4.2: Add warning styling (red/yellow) for Downgrades in the `rich` output.
+
+- [ ] **Task 5: Add Tests** (AC: #1-#6)
+  - [ ] Subtask 5.1: Add unit tests for version comparison logic.
+  - [ ] Subtask 5.2: Add unit tests for `analyze_impact` with different version scenarios (new, update, downgrade, same).
+    </tasks>
+  </story>
+
+  <acceptanceCriteria>
+1. The system compares the version of the incoming capsule with the installed version (if any).
+2. If the incoming version is older than the installed version, a warning is displayed in the preview (Downgrade).
+3. If the incoming version is the same as the installed version, a notice is displayed (Reinstall).
+4. If the incoming version is newer, it is marked as an update.
+5. The system uses semantic versioning (semver) for comparisons.
+6. The import preview data structure includes version comparison results.
+  </acceptanceCriteria>
+
+  <artifacts>
+    <docs>
+      <doc>
+        <path>docs/PRD.md</path>
+        <title>Product Requirements Document</title>
+        <section>FR30, FR31, FR38</section>
+        <snippet>FR30: System detects version conflicts (importing older version over newer). FR38: System updates version information in frontmatter during updates.</snippet>
+      </doc>
+      <doc>
+        <path>docs/architecture.md</path>
+        <title>Architecture Document</title>
+        <section>Epic Group 4: Import/Export Operations</section>
+        <snippet>Import Preview Data Structure includes 'import_type' and 'version_diff'. Importer detects version conflicts and determines merge strategy.</snippet>
+      </doc>
+      <doc>
+        <path>docs/epics.md</path>
+        <title>Project Epics</title>
+        <section>Epic 7: Import/Export Operations</section>
+        <snippet>7-4-version-conflict-detection: Add logic to detect version conflicts during import.</snippet>
+      </doc>
+    </docs>
+    <code>
+      <item>
+        <path>capsule/core/importer.py</path>
+        <kind>class</kind>
+        <symbol>Importer</symbol>
+        <lines>50-303</lines>
+        <reason>Main class handling import logic, impact analysis, and preview generation.</reason>
+      </item>
+      <item>
+        <path>capsule/utils/versioning.py</path>
+        <kind>function</kind>
+        <symbol>compare_versions</symbol>
+        <lines>4-25</lines>
+        <reason>Utility function for semantic version comparison.</reason>
+      </item>
+      <item>
+        <path>capsule/commands/import_cmd.py</path>
+        <kind>command</kind>
+        <symbol>import_cmd</symbol>
+        <lines>11-73</lines>
+        <reason>CLI command entry point for import operation.</reason>
+      </item>
+    </code>
+    <dependencies>
+      <dep>semver</dep>
+      <dep>rich</dep>
+      <dep>typer</dep>
+      <dep>ruamel.yaml</dep>
+    </dependencies>
+  </artifacts>
+
+  <constraints>
+- Use `semver` library for version comparison.
+- Use `rich` library for displaying warnings and previews.
+- Handle missing or invalid `capsule-cypher.yaml` gracefully.
+- Ensure backward compatibility with existing vaults.
+  </constraints>
+  <interfaces>
+    <interface>
+      <name>compare_versions</name>
+      <kind>function</kind>
+      <signature>def compare_versions(v1: str, v2: str) -> int</signature>
+      <path>capsule/utils/versioning.py</path>
+    </interface>
+    <interface>
+      <name>analyze_impact</name>
+      <kind>method</kind>
+      <signature>def analyze_impact(self, vault_path: Path) -> ImportPreview</signature>
+      <path>capsule/core/importer.py</path>
+    </interface>
+  </interfaces>
+  <tests>
+    <standards>Use pytest. Write unit tests for utility functions and integration tests for the importer class.</standards>
+    <locations>tests/test_core/, tests/test_utils/</locations>
+    <ideas>
+- Test `compare_versions` with various semver strings (valid/invalid).
+- Test `analyze_impact` with:
+  - No installed capsule (NEW)
+  - Older installed version (UPDATE)
+  - Newer installed version (DOWNGRADE)
+  - Same installed version (SAME)
+  - Corrupted installed cypher
+    </ideas>
+  </tests>
+</story-context>

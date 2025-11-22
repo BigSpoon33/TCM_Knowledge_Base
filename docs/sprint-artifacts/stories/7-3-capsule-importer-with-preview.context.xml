@@ -1,0 +1,308 @@
+<story-context id=".bmad/bmm/workflows/4-implementation/story-context/template" v="1.0">
+  <metadata>
+    <epicId>7</epicId>
+    <storyId>3</storyId>
+    <title>capsule-importer-with-preview</title>
+    <status>drafted</status>
+    <generatedAt>2025-11-21</generatedAt>
+    <generator>BMAD Story Context Workflow</generator>
+    <sourceStoryPath>docs/sprint-artifacts/7-3-capsule-importer-with-preview.md</sourceStoryPath>
+  </metadata>
+
+  <story>
+    <asA>a user</asA>
+    <iWant>to import a capsule with a preview of changes before applying them</iWant>
+    <soThat>I can review what will be added, modified, or potentially conflict before committing to the import operation</soThat>
+    <tasks>
+- [ ] **Task 1: Create `capsule/commands/import_cmd.py`** (AC: #1)
+  - [ ] Subtask 1.1: Create the CLI command module for `capsule import` using Typer.
+  - [ ] Subtask 1.2: Add command arguments for capsule source (zip or folder path).
+  - [ ] Subtask 1.3: Add command option for target vault path (defaults to config value).
+
+- [ ] **Task 2: Create `capsule/core/importer.py` core logic** (AC: #1, #2, #5)
+  - [ ] Subtask 2.1: Implement `CapsuleImporter` class with `__init__` method.
+  - [ ] Subtask 2.2: Implement `extract_capsule()` method to handle zip archives and folders.
+  - [ ] Subtask 2.3: Implement `load_cypher()` method to parse `capsule-cypher.yaml`.
+  - [ ] Subtask 2.4: Implement `validate_capsule()` method using existing `Validator` class.
+
+- [ ] **Task 3: Implement preview analysis logic** (AC: #3)
+  - [ ] Subtask 3.1: Implement `analyze_impact()` method to compare capsule files with vault.
+  - [ ] Subtask 3.2: Detect new files (files in capsule not in vault).
+  - [ ] Subtask 3.3: Detect updated files (files in both capsule and vault).
+  - [ ] Subtask 3.4: Detect potential conflicts (existing files from different capsule sources).
+  - [ ] Subtask 3.5: Determine merge strategy for each updated file (section-level or additive).
+
+- [ ] **Task 4: Implement preview data structure** (AC: #3)
+  - [ ] Subtask 4.1: Define `ImportPreview` data structure (see architecture.md line 488).
+  - [ ] Subtask 4.2: Implement `generate_preview()` method returning `ImportPreview` object.
+
+- [ ] **Task 5: Implement preview display** (AC: #4)
+  - [ ] Subtask 5.1: Format preview output using `rich` library for beautiful console display.
+  - [ ] Subtask 5.2: Display capsule metadata section.
+  - [ ] Subtask 5.3: Display impact summary with counts.
+  - [ ] Subtask 5.4: Display detailed lists of new files, updates, and conflicts.
+
+- [ ] **Task 6: Wire command to core logic** (AC: #1-#5)
+  - [ ] Subtask 6.1: In `import_cmd.py`, call `CapsuleImporter` methods.
+  - [ ] Subtask 6.2: Handle errors gracefully with clear messages.
+  - [ ] Subtask 6.3: Stop execution after preview display (approval workflow is next story).
+
+- [ ] **Task 7: Add unit tests** (AC: #6)
+  - [ ] Subtask 7.1: Create `tests/test_commands/test_import_cmd.py`.
+  - [ ] Subtask 7.2: Create `tests/test_core/test_importer.py`.
+  - [ ] Subtask 7.3: Test capsule extraction from zip archives.
+  - [ ] Subtask 7.4: Test cypher loading and parsing.
+  - [ ] Subtask 7.5: Test impact analysis with various scenarios (new files, updates, conflicts).
+  - [ ] Subtask 7.6: Test preview data structure generation.
+  - [ ] Subtask 7.7: Test validation before preview.
+    </tasks>
+  </story>
+
+  <acceptanceCriteria>
+1. The `capsule import` command extracts and analyzes a `.capsule` zip archive or folder.
+2. The command loads and parses the `capsule-cypher.yaml` file from the capsule.
+3. The command generates a preview showing:
+   - Capsule metadata (id, name, version, domain_type, file_count)
+   - Impact analysis (new files count, updated files count, potential conflicts count)
+   - List of files that will be newly created
+   - List of existing files that will be updated with their merge strategies
+   - List of detected conflicts with reasons
+4. The preview is displayed to the user before any files are written to disk.
+5. The command validates the capsule structure and cypher before generating the preview.
+6. Unit tests verify preview data structure generation and display logic.
+  </acceptanceCriteria>
+
+  <artifacts>
+    <docs>
+      <doc>
+        <path>docs/architecture.md</path>
+        <title>Architecture Document</title>
+        <section>Epic Group 4: Import/Export Operations (FR26-FR31)</section>
+        <snippet>Defines the CapsuleImporter component structure at lines 458-486. The importer should extract capsules, load cypher, analyze impact, detect conflicts, create backups, and execute imports with merge strategy. Import preview data structure is defined at lines 488-520 with capsule_info, impact summary, new_files list, updates with merge strategies, and conflicts with reasons.</snippet>
+      </doc>
+      <doc>
+        <path>docs/architecture.md</path>
+        <title>Architecture Document</title>
+        <section>Epic Group 5: Merge Strategies (FR32-FR38)</section>
+        <snippet>Lines 525-630 define the merge algorithm pattern. Section-level merge for same capsule updates, additive merge for different capsules. The merge decision logic at lines 560-621 shows how to determine merge strategy based on capsule provenance in frontmatter.</snippet>
+      </doc>
+      <doc>
+        <path>docs/epics.md</path>
+        <title>Project Epics</title>
+        <section>Epic 7: Import/Export Operations</section>
+        <snippet>Story 7-3 implements the capsule import command with preview feature. This is the first phase of import workflow - extraction, analysis, and preview generation. Does NOT implement actual import execution or approval workflow (those are in stories 7-5 and 7-6).</snippet>
+      </doc>
+    </docs>
+
+    <code>
+      <artifact>
+        <path>capsule/core/importer.py</path>
+        <kind>Core Logic</kind>
+        <symbol>Importer</symbol>
+        <lines>1-48</lines>
+        <reason>Existing skeleton implementation with backup logic. Needs expansion to add extraction, cypher loading, validation, preview generation, and impact analysis methods as specified in architecture.md.</reason>
+      </artifact>
+      <artifact>
+        <path>capsule/commands/import_cmd.py</path>
+        <kind>CLI Command</kind>
+        <symbol>import_cmd</symbol>
+        <lines>1-25</lines>
+        <reason>Existing minimal CLI command implementation. Needs enhancement to handle preview display using rich library and proper error handling pattern from architecture.md lines 822-898.</reason>
+      </artifact>
+      <artifact>
+        <path>capsule/core/validator.py</path>
+        <kind>Validator</kind>
+        <symbol>Validator</symbol>
+        <lines>1-107</lines>
+        <reason>Existing validation engine to be reused for capsule validation before preview. Validates capsule structure, frontmatter schema, and file inventory as required by AC #5.</reason>
+      </artifact>
+      <artifact>
+        <path>capsule/core/exporter.py</path>
+        <kind>Reference Implementation</kind>
+        <symbol>Exporter</symbol>
+        <lines>1-102</lines>
+        <reason>Reference implementation showing the Command → Core pattern, validation before operations, and rich output formatting. Story 6-5 established this pattern to follow for import command.</reason>
+      </artifact>
+      <artifact>
+        <path>capsule/commands/export.py</path>
+        <kind>Reference Implementation</kind>
+        <symbol>export</symbol>
+        <lines>1-40</lines>
+        <reason>Shows CLI command pattern with Typer, error handling with try/except, and use of rich for output. Import command should follow this established pattern.</reason>
+      </artifact>
+      <artifact>
+        <path>capsule/models/capsule.py</path>
+        <kind>Data Model</kind>
+        <symbol>Capsule</symbol>
+        <lines>1-100</lines>
+        <reason>Capsule data model with metadata fields (capsule_id, name, version, domain_type) needed for preview display capsule_info section.</reason>
+      </artifact>
+      <artifact>
+        <path>capsule/models/cypher.py</path>
+        <kind>Data Model</kind>
+        <symbol>CapsuleCypher</symbol>
+        <lines>1-170</lines>
+        <reason>CapsuleCypher model for parsing capsule-cypher.yaml. Provides from_yaml() method for loading and to_dict() for access to folder_structure, contents, and data_schemas.</reason>
+      </artifact>
+      <artifact>
+        <path>capsule/utils/yaml_handler.py</path>
+        <kind>Utility</kind>
+        <symbol>yaml_handler</symbol>
+        <lines>N/A</lines>
+        <reason>YAML reading utilities for parsing capsule-cypher.yaml with ruamel.yaml comment preservation as specified in architecture.md.</reason>
+      </artifact>
+      <artifact>
+        <path>capsule/utils/backup.py</path>
+        <kind>Utility</kind>
+        <symbol>create_backup</symbol>
+        <lines>N/A</lines>
+        <reason>Backup creation used in existing Importer.run() method. Already integrated for pre-import backups as per NFR8 (architecture.md line 1708).</reason>
+      </artifact>
+    </code>
+
+    <dependencies>
+      <python>
+        <package>
+          <name>typer</name>
+          <version>&gt;=0.9.0</version>
+          <reason>CLI framework with type safety for capsule import command implementation and automatic help generation.</reason>
+        </package>
+        <package>
+          <name>rich</name>
+          <version>&gt;=13.0.0</version>
+          <reason>Beautiful console output for preview display with tables, progress bars, and color formatting (via Typer). Used for preview formatting in AC #4.</reason>
+        </package>
+        <package>
+          <name>python-frontmatter</name>
+          <version>&gt;=1.0.0</version>
+          <reason>Safe frontmatter parsing for analyzing existing vault notes and determining merge strategies in impact analysis.</reason>
+        </package>
+        <package>
+          <name>ruamel.yaml</name>
+          <version>&gt;=0.17.0</version>
+          <reason>YAML handling with comment preservation for reading capsule-cypher.yaml as specified in architecture.md technology stack.</reason>
+        </package>
+        <package>
+          <name>pyyaml</name>
+          <version>&gt;=6.0</version>
+          <reason>Additional YAML parsing support used by validator for safe_load operations.</reason>
+        </package>
+        <package>
+          <name>pytest</name>
+          <version>&gt;=7.0</version>
+          <reason>Testing framework for unit tests verifying preview generation, extraction, and validation logic as required by AC #6.</reason>
+        </package>
+        <package>
+          <name>pytest-mock</name>
+          <version>&gt;=3.10</version>
+          <reason>Mocking library for testing file system operations (extraction, file reading) without actual disk I/O.</reason>
+        </package>
+      </python>
+      <stdlib>
+        <module>
+          <name>zipfile</name>
+          <reason>Extract .capsule zip archives in extract_capsule() method for AC #1.</reason>
+        </module>
+        <module>
+          <name>pathlib</name>
+          <reason>Cross-platform file path handling for capsule extraction, file comparison, and vault path operations.</reason>
+        </module>
+        <module>
+          <name>tempfile</name>
+          <reason>Create temporary directories for zip extraction before analysis.</reason>
+        </module>
+      </stdlib>
+    </dependencies>
+  </artifacts>
+
+  <constraints>
+    <constraint>Follow Command → Core pattern: capsule/commands/import_cmd.py delegates to capsule/core/importer.py for business logic (established in story 6-5).</constraint>
+    <constraint>Use existing Validator class from capsule/core/validator.py for capsule validation before preview generation (AC #5).</constraint>
+    <constraint>Preview data structure must match architecture.md lines 488-520 format with capsule_info, impact, new_files, updates, and conflicts sections.</constraint>
+    <constraint>Import command must NOT write any files to vault in this story - only extraction to temp directory and preview display. Actual import execution is story 7-6.</constraint>
+    <constraint>Use rich library (available via Typer) for formatted console output following pattern from export command.</constraint>
+    <constraint>Error handling must use consistent pattern from architecture.md lines 900-944 with CapsuleError base exception and clear error messages.</constraint>
+    <constraint>File paths in preview must be relative to vault root, not absolute paths, for clarity and portability.</constraint>
+    <constraint>Test fixtures should follow patterns from tests/conftest.py as noted in architecture.md line 1483 (temp_vault, sample_capsule fixtures).</constraint>
+    <constraint>Merge strategy determination logic should reference provenance tracking (source_capsules field in frontmatter) to decide between section-level and additive merge per architecture.md lines 560-621.</constraint>
+  </constraints>
+
+  <interfaces>
+    <interface>
+      <name>CapsuleImporter.__init__</name>
+      <kind>Constructor</kind>
+      <signature>__init__(self, config: Config, vault_path: Path)</signature>
+      <path>capsule/core/importer.py</path>
+      <description>Initialize importer with user config and target vault path for impact analysis.</description>
+    </interface>
+    <interface>
+      <name>CapsuleImporter.extract_capsule</name>
+      <kind>Method</kind>
+      <signature>extract_capsule(self, capsule_source: Path) -> Path</signature>
+      <path>capsule/core/importer.py</path>
+      <description>Extract zip archive or validate folder capsule, return path to capsule directory. Handles both .capsule zip files and folder bundles.</description>
+    </interface>
+    <interface>
+      <name>CapsuleImporter.load_cypher</name>
+      <kind>Method</kind>
+      <signature>load_cypher(self, capsule_path: Path) -> CapsuleCypher</signature>
+      <path>capsule/core/importer.py</path>
+      <description>Load and parse capsule-cypher.yaml using CapsuleCypher.from_yaml() for AC #2.</description>
+    </interface>
+    <interface>
+      <name>CapsuleImporter.validate_capsule</name>
+      <kind>Method</kind>
+      <signature>validate_capsule(self, capsule_path: Path) -> bool</signature>
+      <path>capsule/core/importer.py</path>
+      <description>Run Validator on capsule before preview generation, return True if valid for AC #5.</description>
+    </interface>
+    <interface>
+      <name>CapsuleImporter.analyze_impact</name>
+      <kind>Method</kind>
+      <signature>analyze_impact(self, cypher: CapsuleCypher, capsule_path: Path) -> Dict</signature>
+      <path>capsule/core/importer.py</path>
+      <description>Compare capsule files with vault to detect new files, updates, and conflicts. Returns impact analysis dictionary for preview.</description>
+    </interface>
+    <interface>
+      <name>CapsuleImporter.generate_preview</name>
+      <kind>Method</kind>
+      <signature>generate_preview(self, cypher: CapsuleCypher, impact: Dict) -> Dict</signature>
+      <path>capsule/core/importer.py</path>
+      <description>Generate preview data structure matching architecture.md format with capsule_info, impact summary, new_files, updates, conflicts for AC #3.</description>
+    </interface>
+    <interface>
+      <name>import_cmd</name>
+      <kind>CLI Command</kind>
+      <signature>capsule import &lt;capsule_path&gt; [--vault-path PATH] [--no-backup]</signature>
+      <path>capsule/commands/import_cmd.py</path>
+      <description>CLI entry point for capsule import with preview display. Shows formatted preview using rich library then exits (no approval yet).</description>
+    </interface>
+    <interface>
+      <name>Validator.validate_capsule</name>
+      <kind>Method</kind>
+      <signature>validate_capsule(self) -> None</signature>
+      <path>capsule/core/validator.py</path>
+      <description>Existing validator to reuse for capsule validation before preview. Raises exceptions on validation errors.</description>
+    </interface>
+  </interfaces>
+
+  <tests>
+    <standards>Unit tests must use fixtures from tests/conftest.py (temp_vault, sample_capsule). Mock file system operations for extraction tests. Create sample capsule fixtures for testing scenarios (new files, updates, conflicts). Test edge cases: missing cypher, invalid capsule structure, empty vault. Follow test pyramid: 80% unit tests for pure functions, 15% integration tests for component interaction, 5% E2E tests. Use pytest-mock for mocking external dependencies (file operations, API calls).</standards>
+    <locations>
+      <location>tests/test_commands/test_import_cmd.py</location>
+      <location>tests/test_core/test_importer.py</location>
+    </locations>
+    <ideas>
+      <idea for="AC-1">Test extract_capsule() with both zip archives and folder bundles. Verify extraction to temp directory and correct path returned.</idea>
+      <idea for="AC-2">Test load_cypher() successfully parses capsule-cypher.yaml and returns CapsuleCypher object with correct metadata.</idea>
+      <idea for="AC-3">Test generate_preview() returns dictionary with all required sections: capsule_info (id, name, version, domain_type, file_count), impact (new_files, updated_files, conflicts counts), new_files list, updates with merge strategies, conflicts with reasons.</idea>
+      <idea for="AC-4">Test import_cmd displays preview with rich formatting. Mock preview generation and verify output contains capsule metadata, impact summary, and file lists.</idea>
+      <idea for="AC-5">Test validate_capsule() is called before preview generation. Verify import aborts if validation fails with clear error message.</idea>
+      <idea for="AC-6">Test impact analysis correctly identifies new files (in capsule, not in vault), updated files (in both), and conflicts (different capsule source).</idea>
+      <idea for="Edge Cases">Test with missing capsule-cypher.yaml (should fail validation), empty capsule (preview shows 0 files), vault with no existing notes (all files are new).</idea>
+      <idea for="Merge Strategy">Test merge strategy determination: same capsule ID → section-level merge, different capsule ID → additive merge, conflicting domain sections → detect conflict.</idea>
+      <idea for="CLI">Test command argument parsing for capsule_path and vault_path option. Test --no-backup flag is passed correctly to importer.</idea>
+      <idea for="Error Handling">Test graceful error handling for corrupt zip files, invalid YAML in cypher, unreadable vault directory, validation failures.</idea>
+    </ideas>
+  </tests>
+</story-context>

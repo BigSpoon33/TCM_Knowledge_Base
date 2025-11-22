@@ -18,7 +18,7 @@ def init():
 
     try:
         # Get defaults from a temporary config object without creating the file
-        temp_config = Config()
+        temp_config = Config.load_config()
 
         questions = [
             {

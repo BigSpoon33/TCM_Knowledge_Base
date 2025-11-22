@@ -7,6 +7,7 @@ import os
 from unittest.mock import patch
 from capsule.models.config import Config, yaml
 
+
 class TestConfig(unittest.TestCase):
     def setUp(self):
         self.temp_dir = tempfile.TemporaryDirectory()
@@ -16,6 +17,8 @@ class TestConfig(unittest.TestCase):
             "api_key": "test_key",
             "default_model": "gpt-4",
             "project_dir": self.temp_path,
+            "user": {},
+            "research": {},
         }
         self.config = Config(**self.config_data)
 
@@ -49,6 +52,7 @@ class TestConfig(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "API key is not set"):
             config.validate()
 
+
 class TestConfigLoading(unittest.TestCase):
     def setUp(self):
         self.original_cwd = os.getcwd()
@@ -62,7 +66,7 @@ class TestConfigLoading(unittest.TestCase):
         self.mock_home_dir.mkdir()
 
         # Patch Path.home() to return our mock home directory
-        self.patcher = patch('pathlib.Path.home', return_value=self.mock_home_dir)
+        self.patcher = patch("pathlib.Path.home", return_value=self.mock_home_dir)
         self.patcher.start()
 
     def tearDown(self):
@@ -73,7 +77,7 @@ class TestConfigLoading(unittest.TestCase):
     def test_load_config_no_files(self):
         os.chdir(self.mock_project_dir)
         config = Config.load_config()
-        self.assertEqual(config, Config()) # Should be default config
+        self.assertEqual(config, Config())  # Should be default config
 
     def test_load_config_global_only(self):
         # Create global config
@@ -85,7 +89,7 @@ class TestConfigLoading(unittest.TestCase):
         os.chdir(self.mock_project_dir)
         config = Config.load_config()
         self.assertEqual(config.api_key, "global_key")
-        self.assertEqual(config.default_model, "gpt-4-turbo") # Default
+        self.assertEqual(config.default_model, "gpt-4-turbo")  # Default
 
     def test_load_config_local_only(self):
         # Create local config
@@ -113,8 +117,9 @@ class TestConfigLoading(unittest.TestCase):
 
         os.chdir(self.mock_project_dir)
         config = Config.load_config()
-        self.assertEqual(config.api_key, "local_key") # Local overrides
-        self.assertEqual(config.default_model, "gpt-3.5") # Global is used
+        self.assertEqual(config.api_key, "local_key")  # Local overrides
+        self.assertEqual(config.default_model, "gpt-3.5")  # Global is used
+
 
 if __name__ == "__main__":
     unittest.main()

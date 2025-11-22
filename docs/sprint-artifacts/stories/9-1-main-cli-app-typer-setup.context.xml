@@ -1,0 +1,159 @@
+<story-context id=".bmad/bmm/workflows/4-implementation/story-context/template" v="1.0">
+  <metadata>
+    <epicId>9</epicId>
+    <storyId>1</storyId>
+    <title>main-cli-app-typer-setup</title>
+    <status>drafted</status>
+    <generatedAt>2025-11-21</generatedAt>
+    <generator>BMAD Story Context Workflow</generator>
+    <sourceStoryPath>docs/sprint-artifacts/9-1-main-cli-app-typer-setup.md</sourceStoryPath>
+  </metadata>
+  <story>
+    <asA>a developer</asA>
+    <iWant>to set up the main Typer application for the CLI</iWant>
+    <soThat>I can start implementing the various CLI commands</soThat>
+    <tasks>
+- [ ] **Task 1 (AC: #1, #2)**: Create the main Typer application in `capsule/cli.py`.
+- [ ] **Task 2 (AC: #6)**: Update `capsule/__main__.py` to call the Typer app.
+- [ ] **Task 3 (AC: #3)**: Register the CLI application as an entry point in `pyproject.toml`.
+- [ ] **Task 4 (AC: #4, #5)**: Add global options for `--verbose`, `--config-path`, and version display.
+- [ ] **Task 5**: Create initial unit tests for the CLI app in `tests/test_commands/test_cli.py`.
+    </tasks>
+  </story>
+  <acceptanceCriteria>
+1. A `cli.py` file MUST be created in the `capsule/` directory.
+2. The `cli.py` file MUST contain a Typer application instance.
+3. The main CLI app MUST be registered as an entry point in `pyproject.toml`.
+4. The Typer app MUST include global options for `--verbose` and `--config-path`.
+5. The Typer app MUST have a mechanism for version display.
+6. The `__main__.py` file in `capsule/` MUST be updated to call the Typer app.
+  </acceptanceCriteria>
+  <artifacts>
+    <docs>
+      <doc>
+        <path>docs/architecture.md</path>
+        <title>Architecture Document</title>
+        <section>CLI Framework</section>
+        <snippet>The architecture uses Typer for modern CLI handling with type safety...</snippet>
+      </doc>
+      <doc>
+        <path>docs/architecture.md</path>
+        <title>Architecture Document</title>
+        <section>Complete Project Structure</section>
+        <snippet>
+          capsule/                          # Main package (renamed from src/capsule)
+          ├── __main__.py                   # Entry point: python -m capsule
+          ├── cli.py                        # Typer CLI app definition
+          ├── commands/                     # CLI command implementations
+        </snippet>
+      </doc>
+      <doc>
+        <path>docs/architecture.md</path>
+        <title>Architecture Document</title>
+        <section>CLI Command Structure Pattern</section>
+        <snippet>
+          # capsule/cli.py
+          └─ Main Typer app
+              ├─ Command registration
+              ├─ Global options (--verbose, --config-path)
+              └─ Version display
+        </snippet>
+      </doc>
+      <doc>
+        <path>docs/architecture.md</path>
+        <title>Architecture Document</title>
+        <section>ADR-001: Typer + Cookiecutter for Python CLI</section>
+        <snippet>Decision: Use Typer framework with Cookiecutter PyPackage structure for a modern Python CLI with type safety, good DX, and professional project structure.</snippet>
+      </doc>
+      <doc>
+        <path>docs/epics.md</path>
+        <title>Project Epics</title>
+        <section>Epic 9: CLI Commands - Generation &amp; Templates</section>
+        <snippet>Summary: Main CLI app, generate command, template management commands. Story 9-1 is the setup for this epic.</snippet>
+      </doc>
+    </docs>
+    <code>
+      <artifact>
+        <path>capsule/cli.py</path>
+        <kind>CLI Application</kind>
+        <symbol>app: Typer</symbol>
+        <lines>1-55</lines>
+        <reason>Primary file to be MODIFIED. Needs global options --verbose and --config-path added to the main callback.</reason>
+      </artifact>
+      <artifact>
+        <path>capsule/__main__.py</path>
+        <kind>Entry Point</kind>
+        <symbol>__main__</symbol>
+        <lines>1-5</lines>
+        <reason>Existing entry point. Correctly calls the Typer app. No changes likely needed.</reason>
+      </artifact>
+      <artifact>
+        <path>pyproject.toml</path>
+        <kind>Configuration</kind>
+        <symbol>[project.scripts]</symbol>
+        <lines>42-44</lines>
+        <reason>Existing script entry point. Correctly configured. No changes likely needed.</reason>
+      </artifact>
+      <artifact>
+        <path>capsule/commands/</path>
+        <kind>Directory</kind>
+        <symbol>N/A</symbol>
+        <lines>N/A</lines>
+        <reason>Contains existing CLI command modules that can be used as a reference for structure.</reason>
+      </artifact>
+    </code>
+    <dependencies>
+        <ecosystem>python</ecosystem>
+        <manifest>pyproject.toml</manifest>
+        <packages>
+          <package name="typer" version="any" />
+          <package name="python-frontmatter" version="any" />
+          <package name="click" version="&gt;=8.0.0" />
+          <package name="rich" version="&gt;=13.0.0" />
+          <package name="pyyaml" version="&gt;=6.0" />
+          <package name="google-generativeai" version="&gt;=0.3.0" />
+          <package name="questionary" version="&gt;=2.0.0" />
+          <package name="ruamel.yaml" version="&gt;=0.17.0" />
+        </packages>
+        <devDependencies>
+          <package name="pytest" version="any" />
+          <package name="coverage" version="any" />
+          <package name="ruff" version="any" />
+          <package name="ty" version="any" />
+          <package name="ipdb" version="any" />
+        </devDependencies>
+      </dependencies>
+  </artifacts>
+  <constraints>
+      <constraint>The CLI framework MUST be Typer.</constraint>
+      <constraint>The main application logic MUST reside in `capsule/cli.py`.</constraint>
+      <constraint>Global options MUST be implemented in the main app callback.</constraint>
+      <constraint>New unit tests SHOULD be created in `tests/test_commands/test_cli.py` to verify the new global options.</constraint>
+      <constraint>Follow existing patterns from `architecture.md` for CLI structure.</constraint>
+    </constraints>
+  <interfaces>
+      <interface>
+        <name>Global CLI Options</name>
+        <kind>Typer Options</kind>
+        <signature>--verbose: bool, --config-path: Path</signature>
+        <path>capsule/cli.py</path>
+        <reason>These options need to be added to the main Typer app callback as per the Acceptance Criteria.</reason>
+      </interface>
+    </interfaces>
+  <tests>
+    <standards>
+      Unit tests are the primary testing method for CLI commands. The testing framework is pytest. Tests should be located in a directory structure that mirrors the application code. Mocks should be used for external services or file system interactions.
+    </standards>
+    <locations>
+      <location type="directory">tests/test_commands/</location>
+      <location type="file">tests/test_commands/test_cli.py</location>
+    </locations>
+    <ideas>
+      <idea for="AC4">Test that the `--verbose` flag correctly configures the application's logging level to DEBUG.</idea>
+      <idea for="AC4">Test that the `--config-path` option accepts a file path and makes it available to the application context.</idea>
+      <idea for="AC5">Test that the `--version` flag prints the correct version string and exits the application cleanly.</idea>
+      <idea for="AC-General">Test the CLI's default behavior when no global options are provided.</idea>
+      <idea for="AC-General">Test that providing an invalid config path raises the appropriate error.</idea>
+    </ideas>
+  </tests>
+</story-context>

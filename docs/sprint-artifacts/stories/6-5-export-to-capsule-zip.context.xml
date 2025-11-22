@@ -1,0 +1,128 @@
+<story-context id="{bmad_folder}/bmm/workflows/4-implementation/story-context/template" v="1.0">
+  <metadata>
+    <epicId>6</epicId>
+    <storyId>5</storyId>
+    <title>export-to-capsule-zip</title>
+    <status>drafted</status>
+    <generatedAt>2025-11-19</generatedAt>
+    <generator>BMAD Story Context Workflow</generator>
+    <sourceStoryPath>/home/shuma/Documents/AI_Suite/Obsidian_Capsule_Delivery/docs/sprint-artifacts/6-5-export-to-capsule-zip.md</sourceStoryPath>
+  </metadata>
+
+  <story>
+    <asA>a user</asA>
+    <iWant>to export a capsule as a `.capsule` zip archive</iWant>
+    <soThat>I can easily share it in a single file</soThat>
+    <tasks>
+- [ ] **Task 1: Update `export` command** (AC: #1)
+  - [ ] Subtask 1.1: Modify the `export` command in `capsule/commands/export.py` to accept a `zip` format option.
+- [ ] **Task 2: Implement zip export logic in `CapsulePackager`** (AC: #2, #3, #4)
+  - [ ] Subtask 2.1: Create a method in `CapsulePackager` to handle zip export.
+  - [ ] Subtask 2.2: Integrate validation before exporting (addressing tech debt from previous story).
+  - [ ] Subtask 2.3: Implement logic to create a zip archive of the capsule contents.
+- [ ] **Task 3: Add Unit Tests** (AC: #6)
+  - [ ] Subtask 3.1: Add unit tests for the `export` command with the `--format zip` option.
+  - [ ] Subtask 3.2: Add unit tests for the zip export logic in `CapsulePackager`.
+  - [ ] Subtask 3.3: Add unit test to verify the success message is printed for zip export (AC: #5).
+</tasks>
+  </story>
+
+  <acceptanceCriteria>
+1. The `capsule export` command accepts a `--format zip` option.
+2. When `--format zip` is used, the command creates a `.capsule.zip` archive.
+3. The zip archive contains all files and folders from the source capsule directory.
+4. The command validates the source capsule before exporting.
+5. The command prints a success message with the path to the exported zip file.
+6. Unit tests are added to verify the zip export functionality.
+</acceptanceCriteria>
+
+  <artifacts>
+    <docs>
+      <doc>
+        <path>docs/architecture.md</path>
+        <title>Architecture Document</title>
+        <section>Epic Group 3: Capsule Packaging (FR17-FR25)</section>
+        <snippet>
+          Handles capsule packaging, including generating the cypher, validating files, and creating a .capsule zip archive.
+          Components: capsule/core/packager.py, capsule/core/validator.py, capsule/commands/export.py
+        </snippet>
+      </doc>
+      <doc>
+        <path>docs/epics.md</path>
+        <title>Project Epics</title>
+        <section>Epic 6: Capsule Packaging</section>
+        <snippet>
+          Summary: Cypher generation, file inventory management, export to folder/zip.
+          Story 6-5: export-to-capsule-zip.
+        </snippet>
+      </doc>
+    </docs>
+    <code>
+      <file>
+        <path>capsule/commands/export.py</path>
+        <kind>command</kind>
+        <symbol>export</symbol>
+        <lines></lines>
+        <reason>CLI entry point for the export command. Needs to be modified to accept a `--format zip` option.</reason>
+      </file>
+      <file>
+        <path>capsule/core/packager.py</path>
+        <kind>core</kind>
+        <symbol>CapsulePackager</symbol>
+        <lines></lines>
+        <reason>Contains the core logic for packaging capsules. A new method will be added to handle zip export.</reason>
+      </file>
+      <file>
+        <path>tests/test_commands/test_export.py</path>
+        <kind>test</kind>
+        <symbol></symbol>
+        <lines></lines>
+        <reason>Unit tests for the export command. New tests will be added for the zip format.</reason>
+      </file>
+      <file>
+        <path>tests/test_core/test_packager.py</path>
+        <kind>test</kind>
+        <symbol></symbol>
+        <lines></lines>
+        <reason>Unit tests for the CapsulePackager. New tests will be added for the zip export logic.</reason>
+      </file>
+    </code>
+    <dependencies>
+      <ecosystem>
+        <name>Python</name>
+        <manifest>pyproject.toml</manifest>
+        <packages>
+          <package>
+            <name>typer</name>
+            <version></version>
+          </package>
+          <package>
+            <name>python-frontmatter</name>
+            <version></version>
+          </package>
+        </packages>
+      </ecosystem>
+    </dependencies>
+  </artifacts>
+
+  <constraints>
+    - The implementation should align with the architecture defined in `docs/architecture.md` under "Epic Group 3: Capsule Packaging".
+    - The `capsule/core/packager.py` should contain the core logic for packaging.
+    - `capsule/commands/export.py` should be the CLI entry point.
+    - Validation logic must be implemented before exporting.
+  </constraints>
+  
+  <tests>
+    <standards>Unit tests should be created to verify that the zip export functionality works correctly. This includes testing with different capsule structures and edge cases. Mocks should be used for file system operations.</standards>
+    <locations>
+      - tests/test_commands/test_export.py
+      - tests/test_core/test_packager.py
+    </locations>
+    <ideas>
+      - Test that the `export` command creates a zip file with the correct name.
+      - Test that the zip file contains all the files from the source capsule.
+      - Test that the validation is called before exporting.
+      - Test that a success message is printed.
+    </ideas>
+  </tests>
+</story-context>

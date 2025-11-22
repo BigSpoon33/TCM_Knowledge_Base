@@ -73,7 +73,7 @@ class ContentGenerator:
             else:
                 # Default Jinja2 handling for root note
                 try:
-                    template = self._load_template(f"root_note.md.j2")
+                    template = self._load_template(template_name)
                     context = asdict(research_result)
                     if research_result.metadata:
                         context.update(research_result.metadata)

@@ -1,0 +1,126 @@
+<story-context id=".bmad/bmm/workflows/4-implementation/story-context/template" v="1.0">
+  <metadata>
+    <epicId>8</epicId>
+    <storyId>3</storyId>
+    <title>additive-merge-algorithm</title>
+    <status>drafted</status>
+    <generatedAt>2025-11-21</generatedAt>
+    <generator>BMAD Story Context Workflow</generator>
+    <sourceStoryPath>docs/sprint-artifacts/8-3-additive-merge-algorithm.md</sourceStoryPath>
+  </metadata>
+  <story>
+    <asA>a developer</asA>
+    <iWant>to implement the `additive_merge` algorithm</iWant>
+    <soThat>notes can be enhanced with new information from different capsules without data loss</soThat>
+    <tasks>
+- [ ] **Task 1: Implement `additive_merge` function** (AC: #1)
+  - [ ] Subtask 1.1: Add the `additive_merge` function to `capsule/core/merger.py`.
+- [ ] **Task 2: Implement Additive Merge Logic** (AC: #2, #3)
+  - [ ] Subtask 2.1: Implement the logic to add new domain sections.
+  - [ ] Subtask 2.2: Ensure all existing sections are preserved.
+- [ ] **Task 3: Implement Conflict Detection** (AC: #4)
+  - [ ] Subtask 3.1: Add logic to detect and raise a `MergeConflict` for overlapping domain sections.
+- [ ] **Task 4: Add Unit Test Coverage** (AC: #5)
+  - [ ] Subtask 4.1: Add unit tests for the `additive_merge` function to `tests/test_core/test_merger.py`.
+  - [ ] Subtask 4.2: Include tests for successful additive merges.
+  - [ ] Subtask 4.3: Include tests for the `MergeConflict` exception.
+    </tasks>
+  </story>
+  <acceptanceCriteria>
+1. An `additive_merge` function is implemented in `capsule/core/merger.py`.
+2. The function correctly adds new domain sections from an incoming note to an existing note.
+3. The function preserves all existing sections in the original note.
+4. The function raises a `MergeConflict` exception if a domain section from the incoming note already exists in the existing note.
+5. The function is covered by comprehensive unit tests.
+  </acceptanceCriteria>
+  <artifacts>
+    <docs>
+      <doc>
+        <path>docs/architecture.md</path>
+        <title>Architecture Document</title>
+        <section>Epic Group 5: Merge Strategies (FR32-FR38)</section>
+        <snippet>
+          Defines the `additive_merge` algorithm, which adds new, non-conflicting domain sections from an incoming note to an existing note, preserving all user content. It is designed for combining information from different capsules.
+        </snippet>
+      </doc>
+      <doc>
+        <path>docs/epics.md</path>
+        <title>Project Epics</title>
+        <section>Epic 8: Merge Strategies</section>
+        <snippet>
+          Outlines the high-level goal of implementing merge strategies, including section-level merge, additive merge, conflict detection, and provenance tracking.
+        </snippet>
+      </doc>
+    </docs>
+    <code>
+      <file>
+        <path>capsule/core/merger.py</path>
+        <kind>module</kind>
+        <symbol>additive_merge</symbol>
+        <lines>TBD</lines>
+        <reason>Primary implementation file for the new additive_merge function.</reason>
+      </file>
+      <file>
+        <path>tests/test_core/test_merger.py</path>
+        <kind>test</kind>
+        <symbol>TestAdditiveMerge</symbol>
+        <lines>TBD</lines>
+        <reason>Unit tests for the new additive_merge function will be added here.</reason>
+      </file>
+      <file>
+        <path>capsule/utils/frontmatter.py</path>
+        <kind>utility</kind>
+        <symbol>FrontmatterHandler</symbol>
+        <lines>N/A</lines>
+        <reason>Will be used for safe reading and writing of note files with frontmatter.</reason>
+      </file>
+      <file>
+        <path>capsule/exceptions.py</path>
+        <kind>module</kind>
+        <symbol>MergeConflict</symbol>
+        <lines>TBD</lines>
+        <reason>A MergeConflict exception will be raised by the additive_merge function if a domain section conflict is detected.</reason>
+      </file>
+    </code>
+    <dependencies>
+      <dependency>
+        <name>python-frontmatter</name>
+        <version>1.0.0+</version>
+        <reason>Core library for parsing and manipulating frontmatter in Markdown files.</reason>
+      </dependency>
+      <dependency>
+        <name>pytest</name>
+        <version>7.0+</version>
+        <reason>The testing framework used for the project. New tests will be written using pytest.</reason>
+      </dependency>
+    </dependencies>
+  </artifacts>
+  <constraints>
+    <constraint>The implementation must strictly follow the `additive_merge` algorithm outlined in `docs/architecture.md`.</constraint>
+    <constraint>The function must only add new domain sections (e.g., `herb_data`, `recipe_data`) and must not overwrite existing ones.</constraint>
+    <constraint>A `MergeConflict` exception must be raised if a domain section from the incoming note already exists in the existing note.</constraint>
+    <constraint>The note body (user-generated content) must be preserved without any modifications.</constraint>
+    <constraint>The testing pattern in `tests/test_core/test_merger.py`, which uses pytest fixtures, must be followed for new tests.</constraint>
+  </constraints>
+  <interfaces>
+    <interface>
+      <name>additive_merge</name>
+      <kind>function</kind>
+      <signature>additive_merge(existing: dict, incoming: dict, capsule_id: str) -> dict</signature>
+      <path>capsule/core/merger.py</path>
+    </interface>
+  </interfaces>
+  <tests>
+    <standards>
+      Unit tests should be written using pytest and follow the existing patterns in `tests/test_core/test_merger.py`. This includes using fixtures for sample notes and testing both successful execution and exception-raising scenarios.
+    </standards>
+    <locations>
+      <location>tests/test_core/test_merger.py</location>
+    </locations>
+    <ideas>
+      <idea for="AC:2,3">Create a test case where an incoming note with a new domain section (e.g., `recipe_data`) is merged into an existing note with a different domain section (e.g., `herb_data`) and verify that both sections are present in the result.</idea>
+      <idea for="AC:4">Create a test case where both the existing and incoming notes define the same domain section (e.g., `herb_data`) and verify that a `MergeConflict` exception is raised.</idea>
+      <idea for="AC:5">Ensure that all new logic in the `additive_merge` function is covered by unit tests, including edge cases like empty frontmatter or notes with no domain sections.</idea>
+    </ideas>
+  </tests>
+</story-context>

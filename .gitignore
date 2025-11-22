@@ -212,3 +212,6 @@ __marimo__/
 
 # Anki Exports
 anki_exports/
+
+.obsidian/
+**/*.pyc

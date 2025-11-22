@@ -1,0 +1,142 @@
+<story-context id="{bmad_folder}/bmm/workflows/4-implementation/story-context/template" v="1.0">
+  <metadata>
+    <epicId>8</epicId>
+    <storyId>6</storyId>
+    <title>provenance-tracking</title>
+    <status>drafted</status>
+    <generatedAt>2025-11-21</generatedAt>
+    <generator>BMAD Story Context Workflow</generator>
+    <sourceStoryPath>docs/sprint-artifacts/8-6-provenance-tracking.md</sourceStoryPath>
+  </metadata>
+
+  <story>
+    <asA>a user</asA>
+    <iWant>to track the provenance of information in my notes</iWant>
+    <soThat>I know which capsules have contributed to a note and can manage updates and versions effectively.</soThat>
+    <tasks>
+      - **Task 1 (AC: #5)**: Update the `Note` model in `capsule/models/note.py` to include the `source_capsules` field.
+      - **Task 2 (AC: #1, #2, #3, #4, #6)**: Modify the `merge_notes` function in `capsule/core/merger.py` to manage the `source_capsules` array.
+      - **Task 3 (AC: #7)**: Add unit tests to `tests/test_core/test_merger.py` to verify provenance tracking.
+    </tasks>
+  </story>
+
+  <acceptanceCriteria>
+    1. When a note is created from a capsule, a `source_capsules` array MUST be added to the frontmatter, containing the ID of the source capsule.
+    2. When a note is updated by the same capsule, the `source_capsules` array MUST remain unchanged.
+    3. When a note is updated by a different capsule (additive merge), the new capsule's ID MUST be appended to the `source_capsules` array.
+    4. The `source_capsules` array MUST NOT contain duplicate capsule IDs.
+    5. The `Note` model in `capsule/models/note.py` MUST be updated to include the `source_capsules` field.
+    6. The `merge_notes` function in `capsule/core/merger.py` MUST be updated to manage the `source_capsules` array according to the rules above.
+    7. Unit tests MUST be created to verify the correct behavior of the `source_capsules` array during note creation and merging.
+  </acceptanceCriteria>
+
+  <artifacts>
+    <docs>
+      <doc>
+        <path>docs/architecture.md</path>
+        <title>Architecture Document</title>
+        <section>Universal Frontmatter Pattern for Cross-Domain Notes</section>
+        <snippet>
+          The Universal Frontmatter Pattern for Cross-Domain Notes is the primary guide for this story. It specifies the use of a `source_capsules` array in the frontmatter.
+        </snippet>
+      </doc>
+      <doc>
+        <path>docs/architecture.md</path>
+        <title>Architecture Document</title>
+        <section>Merge Algorithm</section>
+        <snippet>
+          The merge algorithm shows how the `source_capsules` array is used to determine whether to perform a section-level merge or an additive merge.
+        </snippet>
+      </doc>
+      <doc>
+        <path>docs/epics.md</path>
+        <title>Project Epics</title>
+        <section>Epic 8: Merge Strategies</section>
+        <snippet>
+          This epic includes the story "8-6-provenance-tracking" and outlines the goals of implementing merge strategies, including provenance tracking.
+        </snippet>
+      </doc>
+    </docs>
+    <code>
+      <code>
+        <path>capsule/models/note.py</path>
+        <kind>model</kind>
+        <symbol>Note</symbol>
+        <lines></lines>
+        <reason>The Note model needs to be updated to include the `source_capsules` field.</reason>
+      </code>
+      <code>
+        <path>capsule/core/merger.py</path>
+        <kind>core</kind>
+        <symbol>merge_notes</symbol>
+        <lines></lines>
+        <reason>The merge_notes function needs to be modified to manage the `source_capsules` array.</reason>
+      </code>
+      <code>
+        <path>tests/test_core/test_merger.py</path>
+        <kind>test</kind>
+        <symbol></symbol>
+        <lines></lines>
+        <reason>Unit tests need to be added to verify the provenance tracking implementation.</reason>
+      </code>
+    </code>
+    <dependencies>
+      <dependency>
+        <ecosystem>Python</ecosystem>
+        <manifest>pyproject.toml</manifest>
+      </dependency>
+      <dependency>
+        <ecosystem>Python</ecosystem>
+        <manifest>requirements/base.txt</manifest>
+      </dependency>
+      <dependency>
+        <ecosystem>Python</ecosystem>
+        <manifest>requirements/dev.txt</manifest>
+      </dependency>
+      <dependency>
+        <ecosystem>Python</ecosystem>
+        <manifest>requirements/test.txt</manifest>
+      </dependency>
+    </dependencies>
+  </artifacts>
+
+  <constraints>
+      <constraint>
+        The "Universal Frontmatter Pattern for Cross-Domain Notes" in `architecture.md` is the primary guide for this story. It specifies the use of a `source_capsules` array in the frontmatter.
+      </constraint>
+    </constraints>
+  <interfaces>
+      <interface>
+        <name>merge_notes</name>
+        <kind>function</kind>
+        <signature>def merge_notes(existing_note: Note, incoming_note: Note, capsule_id: str) -> Note:</signature>
+        <path>capsule/core/merger.py</path>
+      </interface>
+    </interfaces>
+  <tests>
+    <standards>
+      Unit tests should be added to verify that the `source_capsules` array is correctly created and updated during merge operations. The project uses pytest as the testing framework.
+    </standards>
+    <locations>
+      <location>tests/test_core/test_merger.py</location>
+    </locations>
+    <ideas>
+      <idea>
+        <ac_id>#7</ac_id>
+        <description>Create a test case for initial note creation.</description>
+      </idea>
+      <idea>
+        <ac_id>#7</ac_id>
+        <description>Create a test case for an update from the same capsule.</description>
+      </idea>
+      <idea>
+        <ac_id>#7</ac_id>
+        <description>Create a test case for an additive merge from a different capsule.</description>
+      </idea>
+      <idea>
+        <ac_id>#7</ac_id>
+        <description>Create a test case to ensure no duplicate capsule IDs are added.</description>
+      </idea>
+    </ideas>
+  </tests>
+</story-context>

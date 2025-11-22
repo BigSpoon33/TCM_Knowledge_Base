@@ -110,6 +110,11 @@ This document outlines the major epics for the Obsidian_Capsule_Delivery project
 - **8-5-user-content-preservation:** Ensure user content in the note body is always preserved.
 - **8-6-provenance-tracking:** Implement provenance tracking in the frontmatter.
 
+### Post-Review Follow-ups
+- [ ] Consider creating a Tech Spec for Epic 8 to formally document the merge strategies and their implementation details.
+- [ ] **From Story 8-6**: Create a Tech Spec for Epic 8 to formally document the merge strategies and their implementation details.
+
+
 ---
 
 ## Epic 9: CLI Commands - Generation & Templates
