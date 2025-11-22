@@ -6,6 +6,7 @@ from typing import List, Dict
 import tempfile
 import yaml
 from pathlib import Path
+from datetime import datetime
 from ..constants import TEMPLATES_DIR
 from ..models.capsule import Capsule
 
@@ -49,6 +50,18 @@ class ContentGenerator:
                         context.update(research_result.metadata)
 
                     context["topic"] = topic
+                    context["created"] = datetime.now().strftime("%Y-%m-%d")
+                    # Generate simple tags
+                    context["tags"] = ["capsule", material] + [
+                        t.strip().lower().replace(" ", "_") for t in topic.split(" ")
+                    ]
+
+                    if "flashcards" in context:
+                        context["total_cards"] = len(context["flashcards"])
+
+                    if "questions" in context:
+                        context["total_questions"] = len(context["questions"])
+
                     rendered_content = template.render(context)
 
                     # Save the rendered content to a file

@@ -1,8 +1,26 @@
 ---
-question: "{{ question }}"
-answer: "{{ answer }}"
+ocds_type: flashcard
+material_id: flashcards_{{ topic | lower | replace(" ", "_") }}
+title: "{{ topic }} Flashcards"
+description: Spaced repetition flashcards for {{ topic }}
+topic: {{ topic }}
+total_cards: {{ total_cards | default(0) }}
+created: {{ created }}
+tags:
+{% for tag in tags %}
+  - {{ tag }}
+{% endfor %}
 ---
 
-# {{ question }}
+# {{ topic }} Flashcards
 
-{{ answer }}
+{% for card in flashcards %}
+## {{ topic }}
+{{ card.front }}
+?
+{{ card.back }}
+
+**Flashcard {{ loop.index }}**
+
+---
+{% endfor %}

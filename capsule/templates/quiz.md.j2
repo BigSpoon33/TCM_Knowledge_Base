@@ -1,20 +1,28 @@
 ---
-title: "{{ title }}"
-questions:
-  {% for q in questions %}
-  - text: "{{ q.text }}"
-    options:
-      {% for o in q.options %}
-      - "{{ o }}"
-      {% endfor %}
-  {% endfor %}
+ocds_type: question_bank
+material_id: bank_{{ topic | lower | replace(" ", "_") }}
+title: "{{ topic }} Question Bank"
+description: Question bank for {{ topic }}
+topic: {{ topic }}
+total_questions: {{ total_questions | default(0) }}
+created: {{ created }}
+tags:
+{% for tag in tags %}
+  - {{ tag }}
+{% endfor %}
 ---
 
-# {{ title }}
+# {{ topic }} Question Bank
 
 {% for q in questions %}
-## {{ q.text }}
+### Question {{ loop.index }}
+
+**{{ q.text }}**
+
+**Options:**
 {% for o in q.options %}
-- [ ] {{ o }}
+- {{ o }}
 {% endfor %}
+
+---
 {% endfor %}

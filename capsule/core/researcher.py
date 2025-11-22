@@ -45,6 +45,9 @@ class GeminiResearchProvider(ResearchProvider):
     def research(self, topic: str, max_sources: int = 10) -> Dict:
         """
         Performs research using the Gemini API.
+
+        TODO: Update this method to return structured data (JSON) compatible with
+        the new flashcard and quiz templates. Currently, it only returns unstructured text.
         """
         prompt = f"Perform a comprehensive research on the topic: '{topic}'. Synthesize information from multiple sources and provide a detailed summary. Also, include a list of citations for the sources used."
 
@@ -83,8 +86,10 @@ class DummyResearchProvider(ResearchProvider):
             citations=[],
             metadata={
                 "provider": "dummy",
-                "question": f"What is {topic}?",
-                "answer": f"{topic} is a subject of study.",
+                "flashcards": [
+                    {"front": f"What is {topic}?", "back": f"{topic} is a subject of study."},
+                    {"front": f"Why is {topic} important?", "back": "It is crucial for understanding."},
+                ],
                 "title": f"{topic} Quiz",
                 "questions": [
                     {"text": f"Is {topic} real?", "options": ["Yes", "No", "Maybe"]},
