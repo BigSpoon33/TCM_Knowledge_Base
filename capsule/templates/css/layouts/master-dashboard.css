@@ -1,0 +1,30 @@
+/* ==========================================================================
+   OCDS MASTER DASHBOARD LAYOUT
+   Grid layouts for the Master Dashboard.
+   ========================================================================== */
+
+.ocds-master-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: var(--ocds-spacing-lg);
+}
+
+.ocds-master-header {
+  grid-column: span 12;
+}
+
+.ocds-master-stats {
+  grid-column: span 12;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--ocds-spacing-md);
+  margin-bottom: var(--ocds-spacing-xl);
+}
+
+.ocds-master-main {
+  grid-column: span 8;
+}
+
+.ocds-master-sidebar {
+  grid-column: span 4;
+}

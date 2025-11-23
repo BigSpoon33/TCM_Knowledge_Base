@@ -1,0 +1,36 @@
+/* ==========================================================================
+   OCDS SECTIONS & CARDS
+   Container styles.
+   ========================================================================== */
+
+.ocds-section {
+  margin-bottom: var(--ocds-spacing-2xl);
+}
+
+.ocds-card {
+  background-color: var(--ocds-bg-card);
+  border-radius: var(--ocds-radius-md);
+  padding: var(--ocds-spacing-lg);
+  box-shadow: var(--ocds-shadow-sm);
+  transition: transform var(--ocds-transition-fast), box-shadow var(--ocds-transition-fast);
+  border: 1px solid transparent;
+}
+
+.ocds-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--ocds-shadow-md);
+  background-color: var(--ocds-bg-card-hover);
+}
+
+.ocds-card__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--ocds-spacing-md);
+}
+
+.ocds-card__title {
+  font-size: var(--ocds-font-size-lg);
+  font-weight: 600;
+  margin: 0;
+}

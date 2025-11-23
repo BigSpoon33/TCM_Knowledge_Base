@@ -1,30 +1,28 @@
 ---
 type: capsule_dashboard
-capsule_id: "{{ capsule.capsule_id }}"
-version: "{{ capsule.version }}"
-created: "{{ capsule.created | default(now()) }}"
-updated: "{{ capsule.updated | default(now()) }}"
-cssclass: ocds-dashboard ocds-theme-{{ theme | default('neon') }}
+capsule_id: "test_capsule_123"
+version: "1.0.0"
+created: "2025-11-01"
+updated: "2025-11-22"
+cssclass: ocds-dashboard ocds-theme-neon
 
 # Dashboard Metadata
-{% if capsule.dashboard_metadata %}
 dashboard_metadata:
-  class: "{{ capsule.dashboard_metadata.class | default('') }}"
-  topic: "{{ capsule.dashboard_metadata.topic | default('') }}"
-  category: "{{ capsule.dashboard_metadata.category | default('') }}"
-  active: {{ capsule.dashboard_metadata.active | default(true) | lower }}
-{% endif %}
+  class: "TCM 101"
+  topic: "Foundations"
+  category: "Theory"
+  active: true
 
-source_capsules: ["{{ capsule.capsule_id }}"]
+source_capsules: ["test_capsule_123"]
 ---
 
-<div class="ocds-dashboard ocds-theme-{{ theme | default('neon') }}">
+<div class="ocds-dashboard ocds-theme-neon">
 
 <div class="ocds-header">
-  <h1 class="ocds-header__title">{{ capsule.name }}</h1>
+  <h1 class="ocds-header__title">Test Capsule</h1>
   <div class="ocds-header__meta">
-    <span>v{{ capsule.version }}</span>
-    <span>{{ capsule.domain_type }}</span>
+    <span>v1.0.0</span>
+    <span>TCM</span>
   </div>
 </div>
 
@@ -35,8 +33,8 @@ source_capsules: ["{{ capsule.capsule_id }}"]
     <div class="ocds-card__header">
       <h3 class="ocds-card__title">Overview</h3>
     </div>
-    <p><strong>ID:</strong> `{{ capsule.capsule_id }}`</p>
-    <p><strong>Mode:</strong> {{ capsule.sequence_mode }}</p>
+    <p><strong>ID:</strong> `test_capsule_123`</p>
+    <p><strong>Mode:</strong> sequenced</p>
     <br>
     
     <!-- Navigation Buttons -->
@@ -62,12 +60,12 @@ source_capsules: ["{{ capsule.capsule_id }}"]
   </div>
 
   <div class="ocds-stat-card">
-    <div class="ocds-stat-value">`$= dv.pages().where(p => p.source_capsules && p.source_capsules.includes("{{ capsule.capsule_id }}") && p.type != "dashboard" && p.type != "capsule_dashboard").length`</div>
+    <div class="ocds-stat-value">`$= dv.pages().where(p => p.source_capsules && p.source_capsules.includes("test_capsule_123") && p.type != "dashboard" && p.type != "capsule_dashboard").length`</div>
     <div class="ocds-stat-label">Root Notes</div>
   </div>
 
   <div class="ocds-stat-card">
-    <div class="ocds-stat-value">`$= dv.pages().where(p => p.source_capsules && p.source_capsules.includes("{{ capsule.capsule_id }}") && ["flashcard", "quiz", "slide", "conversation"].includes(p.type)).length`</div>
+    <div class="ocds-stat-value">`$= dv.pages().where(p => p.source_capsules && p.source_capsules.includes("test_capsule_123") && ["flashcard", "quiz", "slide", "conversation"].includes(p.type)).length`</div>
     <div class="ocds-stat-label">Study Mats</div>
   </div>
 </div>
@@ -80,7 +78,7 @@ source_capsules: ["{{ capsule.capsule_id }}"]
   ```dataview
   TABLE type, tags, updated
   FROM ""
-  WHERE contains(source_capsules, "{{ capsule.capsule_id }}")
+  WHERE contains(source_capsules, "test_capsule_123")
     AND type != "dashboard"
     AND type != "capsule_dashboard"
     AND type != "quiz"
@@ -105,7 +103,7 @@ source_capsules: ["{{ capsule.capsule_id }}"]
       ```dataview
       LIST
       FROM ""
-      WHERE contains(source_capsules, "{{ capsule.capsule_id }}")
+      WHERE contains(source_capsules, "test_capsule_123")
         AND type = "flashcard"
       SORT file.name ASC
       LIMIT 10
@@ -131,7 +129,7 @@ source_capsules: ["{{ capsule.capsule_id }}"]
       ```dataview
       TABLE quiz_data.difficulty as "Difficulty"
       FROM ""
-      WHERE contains(source_capsules, "{{ capsule.capsule_id }}")
+      WHERE contains(source_capsules, "test_capsule_123")
         AND type = "quiz"
       SORT file.name ASC
       LIMIT 10
@@ -151,13 +149,12 @@ source_capsules: ["{{ capsule.capsule_id }}"]
   </div>
 </div>
 
-{% if capsule.sequence_mode == "sequenced" %}
 <div class="ocds-section">
   <h2>📊 Progress Tracking</h2>
   
   <div class="ocds-card">
     ```dataviewjs
-    const capsuleId = "{{ capsule.capsule_id }}";
+    const capsuleId = "test_capsule_123";
     const pages = dv.pages().where(p => p.source_capsules && p.source_capsules.includes(capsuleId));
     let totalTasks = 0;
     let completedTasks = 0;
@@ -191,14 +188,13 @@ source_capsules: ["{{ capsule.capsule_id }}"]
   <div class="ocds-table-container">
   ```dataview
   TASK
-  WHERE contains(source_capsules, "{{ capsule.capsule_id }}")
+  WHERE contains(source_capsules, "test_capsule_123")
     AND !completed
   SORT due ASC
   LIMIT 10
   ```
   </div>
 </div>
-{% endif %}
 
 <div class="ocds-section">
   <h2>Recent Activity</h2>
@@ -206,7 +202,9 @@ source_capsules: ["{{ capsule.capsule_id }}"]
   ```dataview
   TABLE type, updated
   FROM ""
-  WHERE contains(source_capsules, "{{ capsule.capsule_id }}")
+  WHERE contains(source_capsules, "test_capsule_123")
+    AND type != "dashboard"
+    AND type != "capsule_dashboard"
   SORT updated DESC
   LIMIT 10
   ```
@@ -214,7 +212,9 @@ source_capsules: ["{{ capsule.capsule_id }}"]
 </div>
 
 <div class="ocds-section">
-  {{ domain_sections }}
+  ### Domain Specific Content
+
+This is a placeholder for domain sections.
 </div>
 
 </div> <!-- End Content -->

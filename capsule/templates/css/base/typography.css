@@ -1,0 +1,70 @@
+/* ==========================================================================
+   OCDS DASHBOARD TYPOGRAPHY
+   Font definitions and text styles.
+   ========================================================================== */
+
+.ocds-dashboard {
+  font-family: var(--ocds-font-family);
+  font-size: var(--ocds-font-size-base);
+  line-height: 1.6;
+  color: var(--text-normal);
+}
+
+/* Headings */
+.ocds-dashboard h1,
+.ocds-dashboard-h1 {
+  font-size: var(--ocds-font-size-3xl);
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  color: var(--text-normal);
+  margin-bottom: var(--ocds-spacing-lg);
+  border-bottom: 2px solid var(--ocds-border-color);
+  padding-bottom: var(--ocds-spacing-sm);
+}
+
+.ocds-dashboard h2,
+.ocds-dashboard-h2 {
+  font-size: var(--ocds-font-size-2xl);
+  font-weight: 600;
+  letter-spacing: -0.025em;
+  color: var(--text-normal);
+  margin-top: var(--ocds-spacing-xl);
+  margin-bottom: var(--ocds-spacing-md);
+}
+
+.ocds-dashboard h3,
+.ocds-dashboard-h3 {
+  font-size: var(--ocds-font-size-xl);
+  font-weight: 600;
+  color: var(--text-normal);
+  margin-bottom: var(--ocds-spacing-sm);
+}
+
+/* Text Utilities */
+.ocds-text-sm {
+  font-size: var(--ocds-font-size-sm);
+}
+
+.ocds-text-xs {
+  font-size: var(--ocds-font-size-xs);
+}
+
+.ocds-text-muted {
+  color: var(--ocds-color-secondary);
+}
+
+.ocds-text-mono {
+  font-family: var(--ocds-font-mono);
+}
+
+.ocds-text-center {
+  text-align: center;
+}
+
+.ocds-text-right {
+  text-align: right;
+}
+
+.ocds-font-bold {
+  font-weight: 700;
+}

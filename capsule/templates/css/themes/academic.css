@@ -1,0 +1,39 @@
+/* ==========================================================================
+   OCDS ACADEMIC THEME
+   Traditional, serif-based, formal.
+   ========================================================================== */
+
+.ocds-dashboard.ocds-theme-academic {
+  /* Academic Palette */
+  --ocds-color-primary: #8b0000;      /* Dark Red */
+  --ocds-color-primary-hover: #a52a2a;
+  --ocds-color-secondary: #555555;
+  
+  --ocds-bg-dashboard: #fdfbf7;       /* Warm Paper */
+  --ocds-bg-card: #ffffff;
+  --ocds-bg-card-hover: #f5f5f5;
+  
+  --ocds-border-color: #d3d3d3;
+  
+  /* Typography */
+  --ocds-font-family: "Georgia", "Times New Roman", serif;
+}
+
+/* Dark mode adjustment */
+.theme-dark .ocds-dashboard.ocds-theme-academic {
+  --ocds-bg-dashboard: #1c1c1c;
+  --ocds-bg-card: #2a2a2a;
+  --ocds-color-primary: #ff6b6b;
+}
+
+.ocds-dashboard.ocds-theme-academic h1,
+.ocds-dashboard.ocds-theme-academic h2,
+.ocds-dashboard.ocds-theme-academic h3 {
+  font-family: "Georgia", "Times New Roman", serif;
+  font-style: italic;
+}
+
+.ocds-dashboard.ocds-theme-academic h1 {
+  border-bottom: 3px double var(--ocds-color-primary);
+  text-align: center;
+}

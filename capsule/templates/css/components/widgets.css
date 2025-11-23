@@ -1,0 +1,36 @@
+/* ==========================================================================
+   OCDS WIDGETS
+   Meta-Bind widget styling.
+   ========================================================================== */
+
+/* Buttons */
+.ocds-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem 1rem;
+  border-radius: var(--ocds-radius-md);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--ocds-transition-fast);
+  border: 1px solid transparent;
+}
+
+.ocds-btn-primary {
+  background-color: var(--ocds-color-primary);
+  color: white;
+}
+
+.ocds-btn-primary:hover {
+  background-color: var(--ocds-color-primary-hover);
+  transform: translateY(-1px);
+  text-decoration: none;
+}
+
+/* Inputs */
+.ocds-input {
+  padding: 0.5rem;
+  border-radius: var(--ocds-radius-sm);
+  border: 1px solid var(--ocds-border-color);
+  background-color: var(--ocds-bg-dashboard);
+}

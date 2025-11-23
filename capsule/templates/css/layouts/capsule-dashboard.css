@@ -1,0 +1,26 @@
+/* ==========================================================================
+   OCDS CAPSULE DASHBOARD LAYOUT
+   Layouts for Capsule Dashboards.
+   ========================================================================== */
+
+.ocds-capsule-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: var(--ocds-spacing-lg);
+}
+
+.ocds-capsule-header {
+  grid-column: span 12;
+}
+
+.ocds-capsule-nav {
+  grid-column: span 12;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: var(--ocds-spacing-md);
+  margin-bottom: var(--ocds-spacing-xl);
+}
+
+.ocds-capsule-content {
+  grid-column: span 12;
+}

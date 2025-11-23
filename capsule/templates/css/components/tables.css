@@ -1,0 +1,37 @@
+/* ==========================================================================
+   OCDS TABLES
+   Dataview table enhancements.
+   ========================================================================== */
+
+.ocds-table-container {
+  overflow-x: auto;
+  border-radius: var(--ocds-radius-md);
+  border: 1px solid var(--ocds-border-color);
+}
+
+.ocds-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--ocds-font-size-sm);
+}
+
+.ocds-table th {
+  background-color: var(--ocds-bg-card);
+  padding: var(--ocds-spacing-sm) var(--ocds-spacing-md);
+  text-align: left;
+  font-weight: 600;
+  border-bottom: 2px solid var(--ocds-border-color);
+}
+
+.ocds-table td {
+  padding: var(--ocds-spacing-sm) var(--ocds-spacing-md);
+  border-bottom: 1px solid var(--ocds-border-color);
+}
+
+.ocds-table tr:last-child td {
+  border-bottom: none;
+}
+
+.ocds-table tr:hover td {
+  background-color: var(--ocds-bg-card-hover);
+}

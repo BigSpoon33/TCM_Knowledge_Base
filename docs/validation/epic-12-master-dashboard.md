@@ -1,21 +1,21 @@
 ---
 type: master_dashboard
 title: "My Knowledge System"
-created: "{{ now() }}"
-updated: "{{ now() }}"
-cssclass: ocds-dashboard ocds-theme-{{ theme | default('neon') }}
+created: "2025-11-22"
+updated: "2025-11-22"
+cssclass: ocds-dashboard ocds-theme-neon
 filter_class: ""
 filter_topic: ""
 filter_category: ""
 filter_active: true
 ---
 
-<div class="ocds-dashboard ocds-theme-{{ theme | default('neon') }}">
+<div class="ocds-dashboard ocds-theme-neon">
 
 <div class="ocds-header">
   <h1 class="ocds-header__title">My Knowledge System</h1>
   <div class="ocds-header__meta">
-    <span>Updated: {{ now() }}</span>
+    <span>Updated: 2025-11-22</span>
   </div>
 </div>
 

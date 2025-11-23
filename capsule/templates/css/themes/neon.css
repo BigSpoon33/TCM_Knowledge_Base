@@ -1,0 +1,47 @@
+/* ==========================================================================
+   OCDS NEON THEME
+   High contrast, vibrant theme inspired by cyberpunk aesthetics.
+   ========================================================================== */
+
+body.theme-dark .ocds-theme-neon {
+  /* Neon Palette */
+  --ocds-color-primary: #00ff9d;      /* Neon Green */
+  --ocds-color-primary-hover: #00cc7d;
+  --ocds-color-secondary: #ff00ff;    /* Neon Pink */
+  
+  --ocds-bg-dashboard: #0a0a0a;       /* Near Black */
+  --ocds-bg-card: #111111;
+  --ocds-bg-card-hover: #1a1a1a;
+  
+  --ocds-border-color: #333333;
+  
+  /* Glow Effects */
+  --ocds-shadow-sm: 0 0 5px rgba(0, 255, 157, 0.2);
+  --ocds-shadow-md: 0 0 10px rgba(0, 255, 157, 0.3);
+  --ocds-shadow-lg: 0 0 20px rgba(0, 255, 157, 0.4);
+  
+  /* Typography */
+  --ocds-font-family: "JetBrains Mono", monospace; /* Tech feel */
+}
+
+/* Apply to dashboard container if theme class is present */
+.ocds-dashboard.ocds-theme-neon {
+  background-color: var(--ocds-bg-dashboard);
+  color: #e0e0e0;
+}
+
+.ocds-dashboard.ocds-theme-neon h1,
+.ocds-dashboard.ocds-theme-neon h2 {
+  color: var(--ocds-color-primary);
+  text-shadow: 0 0 5px rgba(0, 255, 157, 0.5);
+  border-bottom-color: var(--ocds-color-secondary);
+}
+
+.ocds-dashboard.ocds-theme-neon a {
+  color: var(--ocds-color-secondary);
+}
+
+.ocds-dashboard.ocds-theme-neon a:hover {
+  color: #ff66ff;
+  text-shadow: 0 0 5px rgba(255, 0, 255, 0.5);
+}

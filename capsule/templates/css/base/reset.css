@@ -1,0 +1,50 @@
+/* ==========================================================================
+   OCDS DASHBOARD RESET
+   Normalizes behavior within dashboard containers.
+   ========================================================================== */
+
+/* Scoped reset for dashboard container */
+.ocds-dashboard {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+  padding: var(--ocds-spacing-md);
+}
+
+.ocds-dashboard *,
+.ocds-dashboard *::before,
+.ocds-dashboard *::after {
+  box-sizing: inherit;
+}
+
+/* Remove default margins from common elements inside dashboard */
+.ocds-dashboard h1,
+.ocds-dashboard h2,
+.ocds-dashboard h3,
+.ocds-dashboard h4,
+.ocds-dashboard p,
+.ocds-dashboard ul,
+.ocds-dashboard ol {
+  margin-top: 0;
+  margin-bottom: var(--ocds-spacing-md);
+}
+
+/* Image reset */
+.ocds-dashboard img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Link reset */
+.ocds-dashboard a {
+  text-decoration: none;
+  color: var(--ocds-color-primary);
+  transition: color var(--ocds-transition-fast);
+}
+
+.ocds-dashboard a:hover {
+  color: var(--ocds-color-primary-hover);
+  text-decoration: underline;
+}

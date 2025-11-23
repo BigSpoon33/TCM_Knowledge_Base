@@ -1,0 +1,27 @@
+/* ==========================================================================
+   OCDS HEADERS
+   Dashboard header styles.
+   ========================================================================== */
+
+.ocds-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--ocds-spacing-xl);
+  padding-bottom: var(--ocds-spacing-md);
+  border-bottom: 2px solid var(--ocds-border-color);
+}
+
+.ocds-header__title {
+  margin: 0;
+  font-size: var(--ocds-font-size-3xl);
+  font-weight: 800;
+  color: var(--ocds-color-primary);
+}
+
+.ocds-header__meta {
+  display: flex;
+  gap: var(--ocds-spacing-md);
+  font-size: var(--ocds-font-size-sm);
+  color: var(--ocds-color-secondary);
+}

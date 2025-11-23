@@ -1,0 +1,35 @@
+/* ==========================================================================
+   OCDS MINIMAL THEME
+   Clean, professional, distraction-free.
+   ========================================================================== */
+
+.ocds-dashboard.ocds-theme-minimal {
+  /* Minimal Palette */
+  --ocds-color-primary: var(--text-normal);
+  --ocds-color-primary-hover: var(--text-muted);
+  --ocds-color-secondary: var(--text-faint);
+  
+  --ocds-bg-dashboard: var(--background-primary);
+  --ocds-bg-card: transparent;
+  --ocds-bg-card-hover: var(--background-primary-alt);
+  
+  --ocds-border-color: var(--background-modifier-border);
+  
+  /* Remove shadows for flat look */
+  --ocds-shadow-sm: none;
+  --ocds-shadow-md: none;
+  --ocds-shadow-lg: none;
+  
+  /* Typography */
+  --ocds-font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+.ocds-dashboard.ocds-theme-minimal h1 {
+  border-bottom: none;
+  font-weight: 900;
+  letter-spacing: -0.05em;
+}
+
+.ocds-dashboard.ocds-theme-minimal .ocds-card {
+  border: 1px solid var(--ocds-border-color);
+}
