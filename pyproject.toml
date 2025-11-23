@@ -31,8 +31,9 @@ requires-python = ">= 3.10"
 
 [project.optional-dependencies]
 test = [
-    "coverage",  # testing
+    "coverage[toml]",  # testing with TOML support
     "pytest",  # testing
+    "pytest-cov",  # coverage integration for pytest
     "ruff",  # linting
     "ty", # checking types
     "ipdb", # debugging
@@ -67,13 +68,48 @@ select = [
 
 [tool.pytest.ini_options]
 minversion = "6.0"
-addopts = "-ra -q"
+addopts = "-ra -q --cov=capsule --cov-report=term-missing --cov-report=html --cov-report=xml"
 testpaths = [
     "tests",
 ]
 python_files = "test_*.py"
 python_classes = "Test*"
 python_functions = "test_*"
+markers = [
+    "e2e: marks tests as end-to-end tests (slower, full workflows)",
+    "unit: marks tests as unit tests (fast, isolated)",
+    "integration: marks tests as integration tests (moderate speed)",
+]
+
+[tool.coverage.run]
+source = ["capsule"]
+branch = true
+omit = [
+    "tests/*",
+    "*/__pycache__/*",
+    "*/conftest.py",
+    "*/__init__.py",
+    "capsule/__main__.py",
+]
+
+[tool.coverage.report]
+precision = 2
+show_missing = true
+skip_covered = false
+fail_under = 60.0
+exclude_lines = [
+    "pragma: no cover",
+    "def __repr__",
+    "raise AssertionError",
+    "raise NotImplementedError",
+    "if __name__ == .__main__.:",
+    "if TYPE_CHECKING:",
+    "class .*\\bProtocol\\):",
+    "@(abc\\.)?abstractmethod",
+]
+
+[tool.coverage.html]
+directory = "htmlcov"
 
 [tool.uv]
 package = true

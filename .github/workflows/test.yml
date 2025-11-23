@@ -41,6 +41,21 @@ jobs:
     - name: Install project
       run: |
         pip install .
-    - name: Run tests
+    - name: Run tests with coverage
       run: |
-        pytest
+        pytest --cov=capsule --cov-report=term-missing --cov-report=html --cov-report=xml --cov-fail-under=60
+    - name: Upload coverage reports
+      if: always()
+      uses: actions/upload-artifact@v4
+      with:
+        name: coverage-reports-${{ matrix.python-version }}
+        path: |
+          htmlcov/
+          coverage.xml
+          .coverage
+        retention-days: 30
+    - name: Display coverage summary
+      if: always()
+      run: |
+        echo "=== Coverage Summary ==="
+        coverage report --precision=2
