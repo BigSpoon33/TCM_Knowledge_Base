@@ -1,6 +1,6 @@
 # Story 14.3: integration-tests-for-commands
 
-Status: review
+Status: done
 
 ## Story
 

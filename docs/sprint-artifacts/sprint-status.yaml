@@ -199,8 +199,8 @@ development_status:
   # Renumbered from Epic 13 after dashboard split
   epic-14: in-progress
   14-1-pytest-configuration-and-fixtures: done
-  14-2-unit-tests-for-core-logic: backlog
-  14-3-integration-tests-for-commands: backlog
+  14-2-unit-tests-for-core-logic: done
+  14-3-integration-tests-for-commands: done
   14-4-e2e-tests-for-full-workflows: backlog
   14-5-test-coverage-and-ci-integration: backlog
   epic-14-retrospective: optional

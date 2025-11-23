@@ -64,17 +64,17 @@ class Packager:
                     if file_path.is_file() and not file_path.name.startswith("."):
                         # Store relative path
                         rel_path = str(file_path.relative_to(self.capsule_path))
-                        files.append(rel_path)
-                contents[folder_name] = sorted(files)
+                        files.append({"file": rel_path})
+                contents[folder_name] = sorted(files, key=lambda x: x["file"])
 
         # Handle root files (optional, putting them in a 'root' category if they exist)
         root_files = []
         for item in self.capsule_path.iterdir():
             if item.is_file() and not item.name.startswith("."):
-                root_files.append(item.name)
+                root_files.append({"file": item.name})
 
         if root_files:
-            contents["root"] = sorted(root_files)
+            contents["root"] = sorted(root_files, key=lambda x: x["file"])
 
         return CapsuleCypher(
             capsule_id=capsule_id,

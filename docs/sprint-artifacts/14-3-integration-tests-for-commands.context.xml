@@ -1,0 +1,166 @@
+<story-context id=".bmad/bmm/workflows/4-implementation/story-context/template" v="1.0">
+  <metadata>
+    <epicId>14</epicId>
+    <storyId>3</storyId>
+    <title>integration-tests-for-commands</title>
+    <status>drafted</status>
+    <generatedAt>Sun Nov 23 2025</generatedAt>
+    <generator>BMad Story Context Workflow</generator>
+    <sourceStoryPath>docs/sprint-artifacts/14-3-integration-tests-for-commands.md</sourceStoryPath>
+  </metadata>
+
+  <story>
+    <asA>Developer</asA>
+    <iWant>to write integration tests for the CLI commands</iWant>
+    <soThat>I can ensure the command-line interface works correctly, handles arguments properly, and integrates with the core logic as expected.</soThat>
+    <tasks>
+- [ ] Create `tests/test_commands/test_generate.py` (AC: 1)
+  - [ ] Test `generate` with valid arguments
+  - [ ] Test `generate` with missing/invalid arguments
+  - [ ] Test `generate` with `--dry-run`
+- [ ] Create `tests/test_commands/test_template.py` (AC: 2)
+  - [ ] Test `template create`
+  - [ ] Test `template list`
+  - [ ] Test `template validate`
+- [ ] Create `tests/test_commands/test_export.py` (AC: 3)
+  - [ ] Test `export` to zip
+  - [ ] Test `export` to folder
+- [ ] Create `tests/test_commands/test_import.py` (AC: 4)
+  - [ ] Test `import` with auto-approve
+  - [ ] Test `import` with interactive prompts (mocked input)
+- [ ] Create `tests/test_commands/test_validate.py` (AC: 5)
+  - [ ] Test `validate` on valid capsule
+  - [ ] Test `validate` on invalid capsule
+- [ ] Create `tests/test_commands/test_status_list.py` (AC: 6)
+  - [ ] Test `status` command
+  - [ ] Test `list` command
+- [ ] Run full test suite and verify all tests pass (AC: 7, 8, 9)
+</tasks>
+  </story>
+
+  <acceptanceCriteria>
+1. Integration tests implemented for `capsule generate` command (mocking research API).
+2. Integration tests implemented for `capsule template` commands (create, list, validate).
+3. Integration tests implemented for `capsule export` command.
+4. Integration tests implemented for `capsule import` command (handling user input/prompts).
+5. Integration tests implemented for `capsule validate` command.
+6. Integration tests implemented for `capsule status` and `capsule list` commands.
+7. Tests verify correct exit codes (0 for success, non-zero for failure).
+8. Tests verify expected output messages (stdout/stderr).
+9. Tests verify file system side effects (files created/modified) using temporary directories.
+</acceptanceCriteria>
+
+  <artifacts>
+    <docs>
+      <doc>
+        <path>docs/architecture.md</path>
+        <title>Architecture Document</title>
+        <section>Testing Strategy</section>
+        <snippet>Test contracts, not implementations. Test Pyramid: Unit (80%), Integration (15%), E2E (5%). Use `typer.testing.CliRunner` for command testing.</snippet>
+      </doc>
+      <doc>
+        <path>docs/architecture.md</path>
+        <title>Architecture Document</title>
+        <section>CLI Command Structure Pattern</section>
+        <snippet>Shows how commands are structured using Typer and Rich, and how error handling is implemented.</snippet>
+      </doc>
+      <doc>
+        <path>docs/epics.md</path>
+        <title>Project Epics</title>
+        <section>Epic 14: Testing Infrastructure</section>
+        <snippet>Summary: Test framework, unit tests, integration tests, E2E tests, CI integration.</snippet>
+      </doc>
+    </docs>
+    <code>
+      <item>
+        <path>capsule/commands/generate.py</path>
+        <kind>command</kind>
+        <symbol>generate</symbol>
+        <reason>Command to be tested</reason>
+      </item>
+      <item>
+        <path>capsule/commands/template.py</path>
+        <kind>command</kind>
+        <symbol>template</symbol>
+        <reason>Command to be tested</reason>
+      </item>
+      <item>
+        <path>capsule/commands/export.py</path>
+        <kind>command</kind>
+        <symbol>export</symbol>
+        <reason>Command to be tested</reason>
+      </item>
+      <item>
+        <path>capsule/commands/import_cmd.py</path>
+        <kind>command</kind>
+        <symbol>import_cmd</symbol>
+        <reason>Command to be tested</reason>
+      </item>
+      <item>
+        <path>capsule/commands/validate.py</path>
+        <kind>command</kind>
+        <symbol>validate</symbol>
+        <reason>Command to be tested</reason>
+      </item>
+      <item>
+        <path>capsule/commands/status.py</path>
+        <kind>command</kind>
+        <symbol>status</symbol>
+        <reason>Command to be tested</reason>
+      </item>
+      <item>
+        <path>capsule/commands/list.py</path>
+        <kind>command</kind>
+        <symbol>list</symbol>
+        <reason>Command to be tested</reason>
+      </item>
+      <item>
+        <path>tests/conftest.py</path>
+        <kind>fixture</kind>
+        <symbol>mock_config, mock_researcher</symbol>
+        <reason>Fixtures for testing</reason>
+      </item>
+      <item>
+        <path>tests/test_commands/test_generate.py</path>
+        <kind>test</kind>
+        <reason>Existing test file to be updated/verified</reason>
+      </item>
+    </code>
+    <dependencies>
+      <item>pytest</item>
+      <item>typer</item>
+      <item>rich</item>
+      <item>pytest-mock</item>
+    </dependencies>
+  </artifacts>
+
+  <constraints>
+    <item>Use `typer.testing.CliRunner` for command testing.</item>
+    <item>Mock external APIs (like Gemini) using `unittest.mock` or `pytest-mock`.</item>
+    <item>Use `tmp_path` fixture for file operations to avoid side effects.</item>
+    <item>Tests should be placed in `tests/test_commands/`.</item>
+    <item>Use real core components where possible, only mocking external dependencies.</item>
+  </constraints>
+
+  <interfaces>
+    <interface>
+      <name>CliRunner</name>
+      <kind>class</kind>
+      <signature>typer.testing.CliRunner</signature>
+      <path>typer</path>
+    </interface>
+  </interfaces>
+
+  <tests>
+    <standards>Use `pytest` as the testing framework. Use `typer.testing.CliRunner` for invoking CLI commands. Mock external dependencies like `ResearchProvider`. Verify exit codes (0 for success) and check stdout/stderr for expected messages. Ensure no side effects by using temporary directories.</standards>
+    <locations>tests/test_commands/</locations>
+    <ideas>
+      <idea>Test `generate` command with mocked researcher but real generator logic to verify integration.</idea>
+      <idea>Test `template create` to ensure it creates files in the correct location.</idea>
+      <idea>Test `export` command to verify it creates zip/folder correctly.</idea>
+      <idea>Test `import` command with mocked user input for interactive prompts.</idea>
+      <idea>Test `validate` command with both valid and invalid capsule structures.</idea>
+      <idea>Test `status` and `list` commands to ensure they display correct information.</idea>
+    </ideas>
+  </tests>
+</story-context>
