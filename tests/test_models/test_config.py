@@ -6,6 +6,7 @@ import unittest
 from pathlib import Path
 from unittest.mock import patch
 
+from capsule.exceptions import ConfigError
 from capsule.models.config import Config, yaml
 
 
@@ -37,6 +38,13 @@ class TestConfig(unittest.TestCase):
         expected_dict = self.config_data.copy()
         expected_dict["project_dir"] = str(self.temp_path)
         expected_dict["import"] = expected_dict.pop("import_settings")
+        # Add default logging config
+        expected_dict["logging"] = {
+            "level": "INFO",
+            "file_path": "~/.capsule/logs/capsule.log",
+            "rotate_bytes": 5 * 1024 * 1024,
+            "backup_count": 3,
+        }
         self.assertDictEqual(self.config.to_dict(), expected_dict)
 
     def test_to_from_yaml_file(self):
@@ -52,7 +60,7 @@ class TestConfig(unittest.TestCase):
 
     def test_validation_failure(self):
         config = Config(api_key=None)
-        with self.assertRaisesRegex(ValueError, "API key is not set"):
+        with self.assertRaisesRegex(ConfigError, "API key is not set"):
             config.validate()
 
 

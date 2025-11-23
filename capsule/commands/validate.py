@@ -5,6 +5,7 @@ from rich.console import Console
 from rich.panel import Panel
 
 from capsule.core.validator import Validator
+from capsule.exceptions import CapsuleError
 
 console = Console()
 
@@ -18,9 +19,16 @@ def validate(
         dir_okay=True,
         resolve_path=True,
     ),
-    verbose: bool = typer.Option(False, "--verbose", "-v", help="Enable verbose output."),
+    verbose: bool = typer.Option(
+        False, "--verbose", "-v", help="Enable verbose output.", rich_help_panel="Validation Options"
+    ),
 ):
-    """Validates a capsule's structure, cypher, and contents against its schema."""
+    """
+    Validates a capsule's structure, cypher, and contents against its schema.
+
+    This command performs a comprehensive check of the capsule to ensure it meets
+    all requirements for distribution and import.
+    """
 
     console.print(f"[bold blue]Validating capsule at:[/bold blue] {path}")
 
@@ -42,8 +50,8 @@ def validate(
 
     except typer.Exit:
         raise
-    except (ValueError, FileNotFoundError, TypeError, FileExistsError) as e:
-        # The Validator raises standard exceptions, we should catch them and print nicely
+    except CapsuleError as e:
+        # The Validator raises CapsuleError, we should catch them and print nicely
         console.print(
             Panel.fit(
                 f"[bold red]✗ Validation Failed[/bold red]\n\n[red]{str(e)}[/red]",
@@ -51,6 +59,8 @@ def validate(
                 border_style="red",
             )
         )
+        if e.hint:
+            console.print(f"[yellow]Hint:[/yellow] {e.hint}")
 
         if verbose:
             console.print_exception()

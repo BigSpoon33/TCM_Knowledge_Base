@@ -1,0 +1,150 @@
+<story-context id=".bmad/bmm/workflows/4-implementation/story-context/template" v="1.0">
+  <metadata>
+    <epicId>13</epicId>
+    <storyId>1</storyId>
+    <title>error-handling-system</title>
+    <status>drafted</status>
+    <generatedAt>2025-11-22</generatedAt>
+    <generator>BMAD Story Context Workflow</generator>
+    <sourceStoryPath>docs/sprint-artifacts/13-1-error-handling-system.md</sourceStoryPath>
+  </metadata>
+
+  <story>
+    <asA>a developer using the `obsidian-capsule-cli`</asA>
+    <iWant>a consistent and predictable error handling system</iWant>
+    <soThat>I can quickly diagnose and resolve issues without ambiguity</soThat>
+    <tasks>
+- [ ] **Task 1: Create Exception Hierarchy** (AC: #1)
+  - [ ] Create the `capsule/exceptions.py` file.
+  - [ ] Define the `CapsuleError` base class.
+  - [ ] Define specific exception classes like `ValidationError`, `FileError`, etc., inheriting from `CapsuleError`.
+- [ ] **Task 2: Implement Global Error Handler** (AC: #2)
+  - [ ] Modify `capsule/cli.py` to include a `try...except CapsuleError` block around the main application logic.
+  - [ ] Implement the error handling logic to print a formatted error message to the console.
+- [ ] **Task 3: Refactor Existing Code** (AC: #3)
+  - [ ] Identify all places in the codebase where exceptions are raised or errors are handled.
+  - [ ] Replace standard exceptions with the new custom exceptions from `capsule/exceptions.py`.
+- [ ] **Task 4: Write Unit Tests** (AC: #4)
+  - [ ] Create a new test file `tests/test_cli.py`.
+  - [ ] Write unit tests for the global error handler, mocking the CLI commands and raising different types of `CapsuleError`.
+- [ ] **Task 5: Write Integration Tests** (AC: #5)
+  - [ ] Create a new test file in `tests/test_commands/` for error handling.
+  - [ ] Write integration tests that run the CLI with invalid arguments and assert that the correct error messages and exit codes are produced.
+    </tasks>
+  </story>
+
+  <acceptanceCriteria>
+1. A custom exception hierarchy is defined in `capsule/exceptions.py`, with a base `CapsuleError` class.
+2. The main CLI application in `capsule/cli.py` catches all `CapsuleError` exceptions and prints a user-friendly error message.
+3. All commands use the new exception hierarchy for error conditions.
+4. Unit tests verify that the exception handler in `cli.py` correctly formats and displays error messages.
+5. Integration tests verify that invalid inputs to CLI commands produce the expected error messages and exit codes.
+  </acceptanceCriteria>
+
+  <artifacts>
+    <docs>
+      <doc>
+        <path>docs/architecture.md</path>
+        <title>Architecture Document</title>
+        <section>Error Handling Strategy</section>
+        <snippet>
+The error handling strategy is based on the principle of failing fast with clear, actionable errors. It defines a custom exception hierarchy with a base `CapsuleError` class and specific error types for different scenarios. All commands are expected to use a consistent `handle_error` function to display user-friendly error messages and set appropriate exit codes.
+        </snippet>
+      </doc>
+    </docs>
+    <code>
+      <file>
+        <path>capsule/cli.py</path>
+        <kind>CLI application</kind>
+        <symbol>cli_callback</symbol>
+        <lines>34-83</lines>
+        <reason>This is the main entry point of the CLI application and the place where the global error handler will be implemented.</reason>
+      </file>
+      <file>
+        <path>capsule/exceptions.py</path>
+        <kind>New module</kind>
+        <symbol>CapsuleError</symbol>
+        <lines>N/A</lines>
+        <reason>This new file will contain the custom exception hierarchy for the application.</reason>
+      </file>
+    </code>
+    <dependencies>
+      <dependency>
+        <name>typer</name>
+        <version></version>
+      </dependency>
+      <dependency>
+        <name>python-frontmatter</name>
+        <version></version>
+      </dependency>
+      <dependency>
+        <name>click</name>
+        <version>>=8.0.0</version>
+      </dependency>
+      <dependency>
+        <name>rich</name>
+        <version>>=13.0.0</version>
+      </dependency>
+      <dependency>
+        <name>pyyaml</name>
+        <version>>=6.0</version>
+      </dependency>
+      <dependency>
+        <name>google-generativeai</name>
+        <version>>=0.3.0</version>
+      </dependency>
+      <dependency>
+        <name>questionary</name>
+        <version>>=2.0.0</version>
+      </dependency>
+      <dependency>
+        <name>ruamel.yaml</name>
+        <version>>=0.17.0</version>
+      </dependency>
+      <dependency>
+        <name>semver</name>
+        <version></version>
+      </dependency>
+      <dependency>
+        <name>jinja2</name>
+        <version></version>
+      </dependency>
+      <dependency>
+        <name>chardet</name>
+        <version></version>
+      </dependency>
+      <dependency>
+        <name>jsonschema</name>
+        <version></version>
+      </dependency>
+    </dependencies>
+  </artifacts>
+
+  <constraints>{{constraints}}</constraints>
+  <interfaces>
+      <interface>
+        <name>handle_error</name>
+        <kind>Function signature</kind>
+        <signature>def handle_error(e: Exception):</signature>
+        <path>docs/architecture.md</path>
+      </interface>
+  </interfaces>
+  <tests>
+    <standards>
+The testing strategy follows the test pyramid model with a focus on unit tests (80%), followed by integration tests (15%) and end-to-end tests (5%). Tests are located in the `tests/` directory, mirroring the source code structure.
+    </standards>
+    <locations>
+      <location>tests/</location>
+    </locations>
+    <ideas>
+      <idea>
+        <ac_id>4</ac_id>
+        <description>Write unit tests for the global error handler in `cli.py`, mocking the CLI commands and raising different types of `CapsuleError` to verify correct formatting and display of error messages.</description>
+      </idea>
+      <idea>
+        <ac_id>5</ac_id>
+        <description>Write integration tests that run the CLI with invalid arguments and assert that the correct error messages and exit codes are produced.</description>
+      </idea>
+    </ideas>
+  </tests>
+</story-context>

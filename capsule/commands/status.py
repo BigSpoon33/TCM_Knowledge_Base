@@ -18,6 +18,7 @@ def status(
     Show a summary of all installed capsules in the vault.
 
     Displays a list of installed capsules including their ID, version, and domain.
+    Also shows the configured vault location.
     """
     try:
         # Load config

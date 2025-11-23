@@ -1,0 +1,184 @@
+---
+type: master_dashboard
+title: "My Knowledge System"
+created: "2025-11-22T19:40:33-08:00"
+updated: "2025-11-22T19:40:33-08:00"
+---
+
+# Master Dashboard - My Knowledge System
+
+> **Plugin Required**: This dashboard requires [Dataview](https://github.com/blacksmithgu/obsidian-dataview) v0.5.0+.
+> Queries below will appear as code blocks until the plugin is installed.
+
+---
+
+## 📚 Installed Capsules
+
+```dataview
+TABLE 
+  capsule_id as "ID",
+  version as "Version",
+  dashboard_metadata.topic as "Topic",
+  dashboard_metadata.category as "Category"
+FROM ""
+WHERE type = "capsule_dashboard"
+SORT file.name ASC
+```
+
+---
+
+## 📊 Progress Overview
+
+```dataviewjs
+// Calculate aggregate progress across all capsules
+const capsules = dv.pages()
+  .where(p => p.type === "capsule_dashboard");
+
+let totalNotes = 0;
+let totalStudyMaterials = 0;
+
+for (let capsule of capsules) {
+    const capsuleNotes = dv.pages()
+        .where(p => p.source_capsules && p.source_capsules.includes(capsule.capsule_id))
+        .where(p => p.type && p.type !== "dashboard" && p.type !== "capsule_dashboard" && p.type !== "master_dashboard");
+    totalNotes += capsuleNotes.length;
+    
+    const studyMats = dv.pages()
+        .where(p => p.source_capsules && p.source_capsules.includes(capsule.capsule_id))
+        .where(p => ["flashcard", "quiz", "slide", "conversation"].includes(p.type));
+    totalStudyMaterials += studyMats.length;
+}
+
+dv.paragraph(`
+**Total Notes:** ${totalNotes}  
+**Total Study Materials:** ${totalStudyMaterials}  
+**Capsules Installed:** ${capsules.length}
+`);
+```
+
+---
+
+## 🔍 Interactive Capsule Filters
+
+> Type in the fields below to dynamically filter the capsule list.
+
+**Class:** <input type="text" id="classFilter" placeholder="e.g., TCM101">
+**Topic:** <input type="text" id="topicFilter" placeholder="e.g., Herbal Medicine">
+**Category:** <input type="text" id="categoryFilter" placeholder="e.g., CALE">
+**Status:** 
+<select id="activeFilter">
+  <option value="all">All</option>
+  <option value="true">Active</option>
+  <option value="false">Inactive</option>
+</select>
+
+```dataviewjs
+const classInput = dv.container.querySelector("#classFilter");
+const topicInput = dv.container.querySelector("#topicFilter");
+const categoryInput = dv.container.querySelector("#categoryFilter");
+const activeInput = dv.container.querySelector("#activeFilter");
+
+const render = () => {
+  let pages = dv.pages('""').where(p => p.type === "capsule_dashboard");
+
+  const classValue = classInput.value.toLowerCase();
+  const topicValue = topicInput.value.toLowerCase();
+  const categoryValue = categoryInput.value.toLowerCase();
+  const activeValue = activeInput.value;
+
+  if (classValue) {
+    pages = pages.where(p => p.dashboard_metadata?.class && p.dashboard_metadata.class.toLowerCase().includes(classValue));
+  }
+  if (topicValue) {
+    pages = pages.where(p => p.dashboard_metadata?.topic && p.dashboard_metadata.topic.toLowerCase().includes(topicValue));
+  }
+  if (categoryValue) {
+    pages = pages.where(p => p.dashboard_metadata?.category && p.dashboard_metadata.category.toLowerCase().includes(categoryValue));
+  }
+  if (activeValue !== "all") {
+    const isActive = activeValue === "true";
+    pages = pages.where(p => p.dashboard_metadata?.active === isActive);
+  }
+
+  dv.table(
+    ["Capsule", "ID", "Class", "Topic", "Category", "Active"],
+    pages
+      .sort(p => p.file.name, 'asc')
+      .map(p => [
+        dv.fileLink(p.file.path),
+        p.capsule_id,
+        p.dashboard_metadata?.class || "",
+        p.dashboard_metadata?.topic || "",
+        p.dashboard_metadata?.category || "",
+        p.dashboard_metadata?.active ? "✅" : "❌"
+      ])
+  );
+}
+
+classInput.onkeyup = render;
+topicInput.onkeyup = render;
+categoryInput.onkeyup = render;
+activeInput.onchange = render;
+
+render();
+```
+
+---
+
+## 🗓️ Active Timelines (Sequenced Capsules)
+
+Tasks from sequenced capsules:
+
+```dataview
+TASK
+WHERE source_capsules
+  AND !completed
+SORT due ASC
+LIMIT 20
+```
+
+---
+
+## 🔗 Cross-Capsule Connections
+
+Notes enhanced by multiple capsules:
+
+```dataview
+TABLE 
+  source_capsules as "Contributing Capsules",
+  type as "Type",
+  tags
+FROM ""
+WHERE source_capsules
+  AND length(source_capsules) > 1
+SORT length(source_capsules) DESC
+LIMIT 20
+```
+
+---
+
+## 📈 This Week's Activity
+
+```dataview
+TABLE 
+  type as "Type", 
+  file.mtime as "Last Updated"
+FROM ""
+WHERE file.mtime >= date(today) - dur(7 days)
+  AND source_capsules
+SORT file.mtime DESC
+LIMIT 30
+```
+
+---
+
+## 🎯 Capsule Links
+
+Quick navigation to all capsule dashboards:
+
+```dataview
+LIST
+FROM ""
+WHERE type = "capsule_dashboard"
+SORT file.name ASC
+```

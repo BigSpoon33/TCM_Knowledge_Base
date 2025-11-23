@@ -1,0 +1,143 @@
+<story-context id="13-5-help-documentation-and-examples" v="1.0">
+  <metadata>
+    <epicId>13</epicId>
+    <storyId>5</storyId>
+    <title>help-documentation-and-examples</title>
+    <status>drafted</status>
+    <generatedAt>2025-11-23</generatedAt>
+    <generator>BMad Story Context Workflow</generator>
+    <sourceStoryPath>docs/sprint-artifacts/13-5-help-documentation-and-examples.md</sourceStoryPath>
+  </metadata>
+
+  <story>
+    <asA>As a user of the `obsidian-capsule-cli`</asA>
+    <iWant>I want to see clear help documentation with practical examples for every command</iWant>
+    <soThat>so that I can understand how to use the tool effectively without consulting external docs</soThat>
+    <tasks>
+      - Task 1: Update Main App Help (AC: #1)
+      - Task 2: Update `generate` Command Help (AC: #2, #3, #4)
+      - Task 3: Update `import` and `export` Command Help (AC: #2, #3, #4)
+      - Task 4: Update `template` Command Group Help (AC: #2, #3, #4)
+      - Task 5: Update Utility Commands Help (AC: #2, #3, #4)
+      - Task 6: Verification (AC: #7)
+    </tasks>
+  </story>
+
+  <acceptanceCriteria>
+    1. **Global Help**: Running `capsule --help` displays a clear overview of the application, available commands, and version information.
+    2. **Command Help**: Running `capsule [command] --help` displays detailed description, arguments, options, and **examples** for:
+        - `generate`
+        - `import`
+        - `export`
+        - `validate`
+        - `template` (and subcommands `create`, `list`, `validate`)
+        - `status`
+        - `list`
+        - `init`
+    3. **Examples Section**: Every command help output includes an "Examples" section (using `epilog`) showing common usage patterns.
+    4. **Option Descriptions**: All options (including `--dry-run`, `--verbose`, `--json`) have clear, descriptive help text.
+    5. **Rich Formatting**: Help output uses `rich` formatting (colors/styles) where appropriate to improve readability.
+    6. **Consistency**: All commands follow a consistent help format (Description -> Arguments -> Options -> Examples).
+    7. **Verification**: Manual verification (via `typer.testing.CliRunner`) confirms help output contains expected sections and examples.
+  </acceptanceCriteria>
+
+  <artifacts>
+    <docs>
+      <doc>
+        <path>docs/PRD.md</path>
+        <title>Product Requirements Document</title>
+        <section>FR Group 8: CLI Interface</section>
+        <snippet>FR57: Users can access help documentation via `capsule --help`. Help documentation includes examples for each command.</snippet>
+      </doc>
+      <doc>
+        <path>docs/tech-spec.md</path>
+        <title>Technical Specification</title>
+        <section>Epic Group 8: CLI Interface</section>
+        <snippet>Help Documentation: Improve help documentation with examples. Use `epilog` parameter in `@app.command()` to add the examples section.</snippet>
+      </doc>
+      <doc>
+        <path>docs/architecture.md</path>
+        <title>Architecture Document</title>
+        <section>CLI Command Structure Pattern</section>
+        <snippet>Shows how `typer` and `rich` are used in commands. Example: `capsule generate "Introduction to TCM Herbs" --template tcm` in docstring.</snippet>
+      </doc>
+    </docs>
+    <code>
+      <item>
+        <path>capsule/cli.py</path>
+        <kind>file</kind>
+        <symbol>app</symbol>
+        <lines>12-16</lines>
+        <reason>Main Typer app definition where global help and epilog should be added.</reason>
+      </item>
+      <item>
+        <path>capsule/commands/generate.py</path>
+        <kind>file</kind>
+        <symbol>generate</symbol>
+        <lines>14-30</lines>
+        <reason>Example of command definition. Needs `epilog` with examples added.</reason>
+      </item>
+      <item>
+        <path>capsule/commands/template.py</path>
+        <kind>file</kind>
+        <symbol>create</symbol>
+        <lines>58-66</lines>
+        <reason>Example of subcommand definition. Needs `epilog` with examples added.</reason>
+      </item>
+      <item>
+        <path>capsule/commands/import_cmd.py</path>
+        <kind>file</kind>
+        <symbol>import_capsule</symbol>
+        <reason>Target for adding help examples.</reason>
+      </item>
+      <item>
+        <path>capsule/commands/export.py</path>
+        <kind>file</kind>
+        <symbol>export_capsule</symbol>
+        <reason>Target for adding help examples.</reason>
+      </item>
+    </code>
+    <dependencies>
+      <package name="typer" version=">=0.9.0" />
+      <package name="rich" version=">=13.0.0" />
+    </dependencies>
+  </artifacts>
+
+  <constraints>
+    - **Typer Epilog**: Use the `epilog` parameter in `@app.command()` to add the examples section.
+    - **Rich Markup**: Typer supports rich markup in help strings (e.g., `[bold]Example:[/bold]`).
+    - **Consistency**: Ensure all examples use the same style (e.g., `capsule generate ...`).
+    - **Dry Run**: Explicitly mention `--dry-run` in examples for commands that support it.
+  </constraints>
+
+  <interfaces>
+    <interface>
+      <name>Typer Command</name>
+      <kind>Decorator</kind>
+      <signature>@app.command(help="...", epilog="...")</signature>
+      <path>capsule/cli.py</path>
+    </interface>
+  </interfaces>
+
+  <tests>
+    <standards>
+      Use `typer.testing.CliRunner` to invoke commands with `--help` flag.
+      Assert that the output contains the "Examples" section and specific example commands.
+      Verify that rich formatting codes are processed (or present if checking raw output).
+    </standards>
+    <locations>
+      <path>tests/test_commands/test_cli.py</path>
+      <path>tests/test_commands/test_generate.py</path>
+      <path>tests/test_commands/test_import.py</path>
+      <path>tests/test_commands/test_export.py</path>
+      <path>tests/test_commands/test_template.py</path>
+    </locations>
+    <ideas>
+      <idea id="1">Verify `capsule --help` shows global examples in epilog.</idea>
+      <idea id="2">Verify `capsule generate --help` shows usage examples including `--dry-run`.</idea>
+      <idea id="3">Verify `capsule import --help` shows usage examples including `--preview`.</idea>
+      <idea id="4">Verify `capsule export --help` shows usage examples including `--format`.</idea>
+      <idea id="5">Verify `capsule template create --help` shows usage examples.</idea>
+    </ideas>
+  </tests>
+</story-context>

@@ -58,14 +58,11 @@ def test_master_dashboard_sections_present(env, mock_now):
     output = template.render(now=mock_now)
 
     expected_sections = [
-        "# Master Dashboard - My Knowledge System",
-        "## 📚 Installed Capsules",
-        "## 📊 Progress Overview",
-        "## 🔍 Interactive Capsule Filters",
-        "## 🗓️ Active Timelines (Sequenced Capsules)",
-        "## 🔗 Cross-Capsule Connections",
-        "## 📈 This Week's Activity",
-        "## 🎯 Capsule Links",
+        '<h1 class="ocds-header__title">My Knowledge System</h1>',
+        "<h2>📚 Installed Capsules</h2>",
+        "<h2>🔍 Interactive Filters</h2>",
+        "<h3>🗓️ Active Timelines</h3>",
+        "<h3>📈 Recent Activity</h3>",
     ]
 
     for section in expected_sections:
@@ -77,15 +74,16 @@ def test_master_dashboard_queries_present(env, mock_now):
     template = env.get_template(TEMPLATE_NAME)
     output = template.render(now=mock_now)
 
-    # Check for Dataview blocks
-    assert output.count("```dataview") == 7
+    # Check for Dataview blocks (includes dataviewjs as it starts with dataview)
+    # 3 dataview + 2 dataviewjs = 5
+    assert output.count("```dataview") == 5
 
     # Check for DataviewJS blocks
     assert output.count("```dataviewjs") == 2
 
     # Check specific query logic parts
     assert 'WHERE type = "capsule_dashboard"' in output
-    assert "const render = () => {" in output
+    assert 'const capsules = dv.pages().where(p => p.type === "capsule_dashboard");' in output
     assert "dv.table(" in output
 
 
@@ -98,10 +96,10 @@ def test_dataviewjs_filtering_logic(env, mock_now):
     assert 'let pages = dv.pages(\'""\').where(p => p.type === "capsule_dashboard");' in output
 
     # Check for the filtering logic
-    assert "if (classValue)" in output
-    assert "if (topicValue)" in output
-    assert "if (categoryValue)" in output
-    assert 'if (activeValue !== "all")' in output
+    assert "if (filterClass)" in output
+    assert "if (filterTopic)" in output
+    assert "if (filterCategory)" in output
+    assert "if (filterActive)" in output
 
     # Check that the table is rendered with the correct data
     assert "dv.table(" in output

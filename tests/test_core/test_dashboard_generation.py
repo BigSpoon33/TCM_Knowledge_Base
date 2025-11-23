@@ -63,13 +63,13 @@ class TestDashboardGeneration:
         capsule_dashboard = vault_path / "TCM_Herbs_v1" / "capsule-dashboard.md"
         assert capsule_dashboard.exists()
         content = capsule_dashboard.read_text()
-        assert "Capsule Dashboard: TCM Herbs" in content
+        assert 'capsule_id: "TCM_Herbs_v1"' in content
         assert "### Formulas" in content  # Domain section
 
         master_dashboard = vault_path / "Master Dashboard.md"
         assert master_dashboard.exists()
         master_content = master_dashboard.read_text()
-        assert "Master Dashboard" in master_content
+        assert 'title: "My Knowledge System"' in master_content
 
     def test_generate_dashboards_master_exists(self, mock_config, sample_capsule):
         """Test generating dashboards when master dashboard already exists"""

@@ -1,0 +1,133 @@
+<story-context id="13-4-dry-run-mode-implementation" v="1.0">
+  <metadata>
+    <epicId>13</epicId>
+    <storyId>4</storyId>
+    <title>dry-run-mode-implementation</title>
+    <status>drafted</status>
+    <generatedAt>2025-11-23</generatedAt>
+    <generator>BMad Story Context Workflow</generator>
+    <sourceStoryPath>docs/sprint-artifacts/13-4-dry-run-mode-implementation.md</sourceStoryPath>
+  </metadata>
+
+  <story>
+    <asA>user of the `obsidian-capsule-cli`</asA>
+    <iWant>to run commands in a "dry-run" mode</iWant>
+    <soThat>I can preview what changes will be made to my file system without actually modifying anything</soThat>
+    <tasks>
+      <task>Refactor File Operations for Dry-Run (AC: #1, #7)</task>
+      <task>Update Content Generator (AC: #2, #5, #6)</task>
+      <task>Update Capsule Importer (AC: #3, #5, #6)</task>
+      <task>Update Capsule Exporter (AC: #4, #5, #6)</task>
+      <task>Integration Testing (AC: #8)</task>
+    </tasks>
+  </story>
+
+  <acceptanceCriteria>
+    <criterion>capsule/utils/file_ops.py is refactored to support dry-run mode, logging actions to console/log instead of executing them when enabled.</criterion>
+    <criterion>capsule/commands/generate.py accepts --dry-run flag and passes it to ContentGenerator.</criterion>
+    <criterion>capsule/commands/import_cmd.py accepts --dry-run flag and passes it to CapsuleImporter.</criterion>
+    <criterion>capsule/commands/export.py accepts --dry-run flag and passes it to CapsuleExporter.</criterion>
+    <criterion>Core logic classes (ContentGenerator, CapsuleImporter, CapsuleExporter) are updated to use the dry-run aware file operations for all side effects.</criterion>
+    <criterion>When --dry-run is used, console output clearly indicates "[DRY RUN]" for would-be actions (e.g., "Would write file: ...").</criterion>
+    <criterion>Unit tests verify FileOps behaves correctly in both normal and dry-run modes.</criterion>
+    <criterion>Integration tests verify commands with --dry-run do not create, modify, or delete files on the filesystem.</criterion>
+  </acceptanceCriteria>
+
+  <artifacts>
+    <docs>
+      <doc>
+        <path>docs/PRD.md</path>
+        <title>Product Requirements Document</title>
+        <section>FR Group 8: CLI Interface</section>
+        <snippet>FR58: CLI supports dry-run mode for preview without execution</snippet>
+      </doc>
+      <doc>
+        <path>docs/architecture.md</path>
+        <title>Architecture Document</title>
+        <section>CLI Command Structure Pattern</section>
+        <snippet>dry_run: bool = typer.Option(False, "--dry-run", help="Preview without creating files")</snippet>
+      </doc>
+      <doc>
+        <path>docs/sprint-artifacts/tech-spec-epic-13.md</path>
+        <title>Technical Specification: Epic 13</title>
+        <section>2.3.3 Dry-Run Interface</section>
+        <snippet>All core logic classes (ContentGenerator, CapsuleImporter, CapsuleExporter) will accept a dry_run boolean in their __init__ or method signatures.</snippet>
+      </doc>
+    </docs>
+    <code>
+      <item>
+        <path>capsule/utils/file_ops.py</path>
+        <kind>utility</kind>
+        <symbol>FileOps</symbol>
+        <reason>Central point for file system side effects, needs refactoring for dry-run safety.</reason>
+      </item>
+      <item>
+        <path>capsule/commands/generate.py</path>
+        <kind>command</kind>
+        <symbol>generate</symbol>
+        <reason>Needs --dry-run flag support.</reason>
+      </item>
+      <item>
+        <path>capsule/commands/import_cmd.py</path>
+        <kind>command</kind>
+        <symbol>import_capsule</symbol>
+        <reason>Needs --dry-run flag support.</reason>
+      </item>
+      <item>
+        <path>capsule/commands/export.py</path>
+        <kind>command</kind>
+        <symbol>export</symbol>
+        <reason>Needs --dry-run flag support.</reason>
+      </item>
+      <item>
+        <path>capsule/core/generator.py</path>
+        <kind>core</kind>
+        <symbol>ContentGenerator</symbol>
+        <reason>Needs to use dry-run aware file ops.</reason>
+      </item>
+      <item>
+        <path>capsule/core/importer.py</path>
+        <kind>core</kind>
+        <symbol>CapsuleImporter</symbol>
+        <reason>Needs to use dry-run aware file ops.</reason>
+      </item>
+      <item>
+        <path>capsule/core/exporter.py</path>
+        <kind>core</kind>
+        <symbol>CapsuleExporter</symbol>
+        <reason>Needs to use dry-run aware file ops.</reason>
+      </item>
+    </code>
+    <dependencies>
+      <package>rich</package>
+      <package>typer</package>
+    </dependencies>
+  </artifacts>
+
+  <constraints>
+    <constraint>FileOps Centralization: All file system side effects MUST go through capsule/utils/file_ops.py.</constraint>
+    <constraint>Dependency Injection: Pass the dry_run state down from the CLI command to the core logic classes.</constraint>
+    <constraint>Rich Integration: Use rich for dry-run messages to make them distinct (e.g., yellow or dim color).</constraint>
+    <constraint>Logging: Ensure dry-run actions are also logged to the file log (at INFO level) for auditability.</constraint>
+  </constraints>
+
+  <interfaces>
+    <interface>
+      <name>FileOps</name>
+      <kind>Class/Module</kind>
+      <signature>write_text(path, content, dry_run=False), mkdir(path, dry_run=False), etc.</signature>
+      <path>capsule/utils/file_ops.py</path>
+    </interface>
+  </interfaces>
+
+  <tests>
+    <standards>Use pytest. Mock file system operations for unit tests. Use CliRunner for integration tests to verify output.</standards>
+    <locations>tests/test_utils/test_file_ops.py, tests/test_commands/test_dry_run_integration.py</locations>
+    <ideas>
+      <idea>Test generate --dry-run asserts no files created</idea>
+      <idea>Test import --dry-run asserts no backup/files created</idea>
+      <idea>Test export --dry-run asserts no zip/folder created</idea>
+      <idea>Verify console output contains [DRY RUN] messages</idea>
+    </ideas>
+  </tests>
+</story-context>

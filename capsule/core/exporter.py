@@ -12,16 +12,17 @@ logger = logging.getLogger(__name__)
 class Exporter:
     """Handles the high-level logic for exporting a capsule."""
 
-    def __init__(self, capsule_path: Path):
+    def __init__(self, capsule_path: Path, dry_run: bool = False):
         logger.debug(f"Exporter initialized for capsule path: {capsule_path}")
         self.capsule_path = capsule_path
+        self.dry_run = dry_run
         self.validator = Validator(self.capsule_path)
         self.cypher_path = self.capsule_path / "capsule-cypher.yaml"
 
         with open(self.cypher_path) as f:
             self.cypher = yaml.safe_load(f)
 
-        self.packager = Packager(self.capsule_path, self.cypher)
+        self.packager = Packager(self.capsule_path, self.cypher, dry_run=dry_run)
 
     def validate_capsule(self):
         logger.info(f"Starting validation for capsule: {self.capsule_path}")

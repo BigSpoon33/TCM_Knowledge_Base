@@ -12,12 +12,18 @@ from ..core.slides_generator import SlidesGenerator
 from ..core.template_engine import TemplateEngine
 from ..core.validator import Validator
 from ..models.research import ResearchResult
+from ..utils.file_ops import FileOps
+from ..utils.logger import get_logger
+
+logger = get_logger(__name__)
 
 
 class ContentGenerator:
-    def __init__(self, researcher: ResearchProvider, validator: Validator):
+    def __init__(self, researcher: ResearchProvider, validator: Validator, dry_run: bool = False):
         self.researcher = researcher
         self.validator = validator
+        self.dry_run = dry_run
+        self.file_ops = FileOps(dry_run=dry_run)
         self.template_env = jinja2.Environment(loader=jinja2.FileSystemLoader(TEMPLATES_DIR))
         self.template_engine = TemplateEngine()
         self.slides_generator = SlidesGenerator(researcher)
@@ -31,8 +37,7 @@ class ContentGenerator:
     ) -> dict[str, str]:
         if source_path and source_path.exists():
             # Read content from source file
-            with open(source_path, encoding="utf-8") as f:
-                content = f.read()
+            content = self.file_ops.read_text(source_path)
 
             # Create a pseudo-research result from the file content
             research_result = ResearchResult(content=content, citations=[], metadata={"source_file": str(source_path)})
@@ -58,7 +63,7 @@ class ContentGenerator:
                 continue  # Already handled
 
             if material not in MATERIAL_CONFIG:
-                print(f"Warning: Unknown material type '{material}'")
+                logger.warning(f"Unknown material type '{material}'")
                 continue
 
             # Dynamic dispatch to _generate_{material}
@@ -69,9 +74,9 @@ class ContentGenerator:
                     if content:
                         generated_content[material] = content
                 except Exception as e:
-                    print(f"Error generating {material}: {e}")
+                    logger.error(f"Error generating {material}: {e}", exc_info=True)
             else:
-                print(f"Warning: No handler found for material '{material}'")
+                logger.warning(f"No handler found for material '{material}'")
 
         return generated_content
 
@@ -89,7 +94,7 @@ class ContentGenerator:
                 context["created"] = datetime.now().strftime("%Y-%m-%d")
                 return template.render(context)
             except jinja2.TemplateNotFound:
-                print("Warning: root_note template not found.")
+                logger.warning("root_note template not found")
                 return ""
 
     def _generate_slides(self, topic: str, base_content: str, research_result: ResearchResult) -> str:
@@ -153,7 +158,7 @@ class ContentGenerator:
             response = response.replace("```json", "").replace("```", "").strip()
             return json.loads(response)
         except Exception as e:
-            print(f"Error generating flashcards: {e}")
+            logger.error(f"Error generating flashcards: {e}", exc_info=True)
             return []
 
     def _generate_quiz_data(self, content: str) -> list[dict]:
@@ -179,7 +184,7 @@ class ContentGenerator:
             response = response.replace("```json", "").replace("```", "").strip()
             return json.loads(response)
         except Exception as e:
-            print(f"Error generating quiz: {e}")
+            logger.error(f"Error generating quiz: {e}", exc_info=True)
             return []
 
     def _generate_root_note_from_markdown(self, topic: str, template_path_str: str, context_text: str) -> str:

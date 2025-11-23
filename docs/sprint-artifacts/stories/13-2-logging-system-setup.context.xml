@@ -1,0 +1,283 @@
+<story-context id=".bmad/bmm/workflows/4-implementation/story-context/template" v="1.0">
+  <metadata>
+    <epicId>13</epicId>
+    <storyId>2</storyId>
+    <title>logging-system-setup</title>
+    <status>drafted</status>
+    <generatedAt>Sun Nov 23 2025</generatedAt>
+    <generator>BMAD Story Context Workflow</generator>
+    <sourceStoryPath>docs/sprint-artifacts/13-2-logging-system-setup.md</sourceStoryPath>
+  </metadata>
+
+  <story>
+    <asA>developer using the `obsidian-capsule-cli`</asA>
+    <iWant>a structured logging system that captures detailed debug information to files while showing clean output in the console</iWant>
+    <soThat>I can troubleshoot issues effectively without cluttering my terminal</soThat>
+    <tasks>
+      - Task 1: Implement Logging Configuration in Config Model (AC: #5)
+        - Update `capsule/models/config.py` to add a `logging` section with fields: `level`, `file_path`, `rotate_bytes`, `backup_count`
+        - Set default values matching Tech Spec (INFO, `~/.capsule/logs/capsule.log`, 5MB, 3 backups)
+        - Update unit tests for Config model to verify logging fields
+      - Task 2: Create Logger Setup Utility (AC: #1, #2, #3, #6)
+        - Create `capsule/utils/logger.py` with `setup_logging(verbose: bool = False)` function
+        - Implement file handler with `RotatingFileHandler` (5MB rotation, 3 backups, DEBUG level)
+        - Implement console handler using `RichHandler` from `rich.logging` (respects verbose flag)
+        - Apply structured format to file handler: `%(asctime)s - %(name)s - %(levelname)s - %(message)s`
+        - Create log directory (`~/.capsule/logs/`) if it doesn't exist
+        - Return configured logger instance
+      - Task 3: Integrate Logging into CLI Application (AC: #4)
+        - Modify `capsule/cli.py` to call `setup_logging()` on application startup
+        - Pass `--verbose` flag from CLI context to `setup_logging(verbose=...)`
+        - Ensure logging is initialized before any command execution
+      - Task 4: Replace Print Statements with Logger Calls (AC: #4)
+        - Audit codebase for `print()` statements (exclude help text)
+        - Replace with appropriate logger calls (`logger.debug()`, `logger.info()`, `logger.warning()`, `logger.error()`)
+        - Ensure `rich.console` is used only for structured output (tables, progress bars, error messages)
+      - Task 5: Write Unit Tests (AC: #7)
+        - Create `tests/test_utils/test_logger.py`
+        - Test that `setup_logging()` creates log directory if missing
+        - Test that file handler is configured with correct rotation settings
+        - Test that console handler level changes based on verbose flag (INFO vs DEBUG)
+        - Test that log format matches specification
+        - Test that logger returns correct instance with proper name
+      - Task 6: Write Integration Tests (AC: #8)
+        - Create integration test in `tests/test_commands/` for logging behavior
+        - Run a command without `--verbose` and verify console shows INFO+ messages only
+        - Run a command with `--verbose` and verify console shows DEBUG messages
+        - Verify that `~/.capsule/logs/capsule.log` contains all log entries (DEBUG level) regardless of console verbosity
+        - Verify log file rotation works when file exceeds 5MB (mock file size)
+    </tasks>
+  </story>
+
+  <acceptanceCriteria>
+    1. A `setup_logging()` function is implemented in `capsule/utils/logger.py` that configures both file and console handlers.
+    2. File handler writes to `~/.capsule/logs/capsule.log` with rotation (5MB max, 3 backups) and always logs at DEBUG level.
+    3. Console handler respects the `--verbose` flag: INFO level by default, DEBUG level when verbose is enabled.
+    4. The logging configuration is integrated into `capsule/cli.py` and called on application startup before any commands execute.
+    5. The `Config` model in `capsule/models/config.py` includes logging configuration fields (`level`, `file_path`, `rotate_bytes`, `backup_count`).
+    6. Log messages follow the structured format: `%(asctime)s - %(name)s - %(levelname)s - %(message)s`.
+    7. Unit tests verify that the logger setup creates the log directory, configures handlers correctly, and respects verbosity settings.
+    8. Integration tests verify that running CLI commands with `--verbose` produces debug-level console output and all logs are written to the file.
+  </acceptanceCriteria>
+
+  <artifacts>
+    <docs>
+      <!-- Epic 13 Technical Specification -->
+      <doc>
+        <path>docs/sprint-artifacts/tech-spec-epic-13.md</path>
+        <title>Technical Specification: Epic 13 - Cross-Cutting Concerns &amp; Polish</title>
+        <section>2.3.2 Logging Interface</section>
+        <snippet>Defines the `setup_logging(verbose: bool = False)` function that configures root logger with RotatingFileHandler (JSON or formatted text) for debugging and RichHandler for console output.</snippet>
+      </doc>
+      <doc>
+        <path>docs/sprint-artifacts/tech-spec-epic-13.md</path>
+        <title>Technical Specification: Epic 13</title>
+        <section>2.2 Data Models - Configuration Model Updates</section>
+        <snippet>Config model will be updated to support logging preferences including level (INFO), file_path (~/.capsule/logs/capsule.log), rotate_bytes (5MB), and backup_count (3).</snippet>
+      </doc>
+      <doc>
+        <path>docs/sprint-artifacts/tech-spec-epic-13.md</path>
+        <title>Technical Specification: Epic 13</title>
+        <section>2.4 Security Considerations - Log Sanitization</section>
+        <snippet>The logging system must include a filter to redact sensitive information (API keys, auth tokens) before writing to disk or console.</snippet>
+      </doc>
+      
+      <!-- Architecture Documentation -->
+      <doc>
+        <path>docs/architecture.md</path>
+        <title>Architecture Document - OCDS</title>
+        <section>Logging Strategy (lines 1473-1551)</section>
+        <snippet>Dual-Handler Pattern: File handler captures everything at DEBUG level for comprehensive debugging; console handler shows INFO+ by default to keep terminal clean. Rich Integration: Console handler uses RichHandler from rich.logging to maintain consistent formatting.</snippet>
+      </doc>
+      <doc>
+        <path>docs/architecture.md</path>
+        <title>Architecture Document - OCDS</title>
+        <section>Complete Project Structure (lines 130-140)</section>
+        <snippet>Defines capsule/utils/ pattern for utility modules including logger.py for logging setup logic.</snippet>
+      </doc>
+    </docs>
+
+    <code>
+      <!-- Existing Files to Modify -->
+      <file>
+        <path>capsule/cli.py</path>
+        <kind>CLI application entry point</kind>
+        <symbol>cli_callback, main</symbol>
+        <lines>1-108</lines>
+        <reason>Need to integrate setup_logging() call on application startup. Currently has basic logging.basicConfig() (lines 68-78) that should be replaced with the new setup_logging() function. The global error handler (lines 90-103) is already implemented from Story 13-1.</reason>
+      </file>
+      <file>
+        <path>capsule/models/config.py</path>
+        <kind>Configuration data model</kind>
+        <symbol>Config</symbol>
+        <lines>29-36</lines>
+        <reason>Config model already includes logging configuration fields (level, file_path, rotate_bytes, backup_count) with proper defaults matching the spec. This satisfies AC #5.</reason>
+      </file>
+      <file>
+        <path>capsule/exceptions.py</path>
+        <kind>Exception hierarchy</kind>
+        <symbol>FileError</symbol>
+        <lines>20-24</lines>
+        <reason>Use FileError for log directory creation failures as recommended in Dev Notes from Story 13-1.</reason>
+      </file>
+      
+      <!-- Existing Utility Pattern Examples -->
+      <file>
+        <path>capsule/utils/file_ops.py</path>
+        <kind>File operations utility</kind>
+        <symbol>safe_write, read_file</symbol>
+        <lines>1-45</lines>
+        <reason>Example of existing utility pattern - uses FileError exception, follows similar structure for new logger.py utility.</reason>
+      </file>
+      
+      <!-- Test Pattern Examples -->
+      <file>
+        <path>tests/test_utils/test_file_ops.py</path>
+        <kind>Utility test example</kind>
+        <symbol>test_safe_write_success, test_read_file_success</symbol>
+        <lines>1-63</lines>
+        <reason>Test pattern example for testing utility functions - use similar structure for test_logger.py with pytest fixtures, mocking, and error case testing.</reason>
+      </file>
+      <file>
+        <path>tests/test_models/test_config.py</path>
+        <kind>Config model tests</kind>
+        <symbol>TestConfig</symbol>
+        <lines>1-137</lines>
+        <reason>Existing tests for Config model - need to update to verify logging configuration fields are properly serialized/deserialized.</reason>
+      </file>
+    </code>
+
+    <dependencies>
+      <python>
+        <!-- Runtime Dependencies -->
+        <package name="rich" version="&gt;=13.0.0">Progress bars, spinners, colored output, and RichHandler for logging</package>
+        <package name="typer" version="latest">CLI framework with --verbose flag support</package>
+        
+        <!-- Standard Library -->
+        <package name="logging" version="stdlib">Core logging module</package>
+        <package name="logging.handlers" version="stdlib">RotatingFileHandler for log rotation</package>
+        <package name="pathlib" version="stdlib">Path manipulation for log directory creation</package>
+        
+        <!-- Testing Dependencies -->
+        <package name="pytest" version="latest">Testing framework</package>
+        <package name="unittest.mock" version="stdlib">Mocking for unit tests (patch, Mock)</package>
+      </python>
+    </dependencies>
+  </artifacts>
+
+  <constraints>
+    <!-- Development Patterns from Architecture -->
+    <constraint>Follow capsule/utils/ pattern established in architecture.md for utility modules</constraint>
+    <constraint>Use FileError from capsule/exceptions.py for log directory creation failures (established in Story 13-1)</constraint>
+    <constraint>Console handler must use RichHandler from rich.logging to maintain consistency with existing error handler from Story 13-1</constraint>
+    <constraint>Test files must mirror source structure: tests/test_utils/test_logger.py for capsule/utils/logger.py</constraint>
+    
+    <!-- Logging Strategy Constraints -->
+    <constraint>File handler ALWAYS logs at DEBUG level regardless of verbose flag - this is for comprehensive debugging</constraint>
+    <constraint>Console handler respects verbose flag: INFO by default, DEBUG when --verbose is enabled</constraint>
+    <constraint>Log format for file handler must be: %(asctime)s - %(name)s - %(levelname)s - %(message)s</constraint>
+    <constraint>Log directory (~/.capsule/logs/) must be created automatically with proper permissions (0755)</constraint>
+    <constraint>Use RotatingFileHandler with 5MB max file size and 3 backup files</constraint>
+    
+    <!-- Testing Standards -->
+    <constraint>Unit tests must use pytest fixtures and mocking (patch, Mock) - follow pattern from test_file_ops.py</constraint>
+    <constraint>Integration tests must verify end-to-end logging behavior with real CLI commands</constraint>
+    <constraint>Use caplog pytest fixture to capture log records for verification</constraint>
+    <constraint>Mock file size to test rotation logic without creating large files</constraint>
+    
+    <!-- Code Quality -->
+    <constraint>Replace print() statements with logger calls - exclude help text and structured output (tables, progress bars)</constraint>
+    <constraint>Logging initialization must occur before any command execution in CLI startup</constraint>
+    <constraint>Config model extension is additive only - no breaking changes to existing fields</constraint>
+  </constraints>
+
+  <interfaces>
+    <!-- Logging Setup Interface -->
+    <interface>
+      <name>setup_logging</name>
+      <kind>Function</kind>
+      <signature>def setup_logging(verbose: bool = False) -> logging.Logger</signature>
+      <path>capsule/utils/logger.py</path>
+      <description>Configures root logger with RotatingFileHandler (DEBUG level, 5MB rotation, 3 backups) and RichHandler (INFO or DEBUG based on verbose flag). Creates log directory if missing. Returns configured logger instance.</description>
+    </interface>
+    
+    <!-- Config Model Logging Fields -->
+    <interface>
+      <name>Config.logging</name>
+      <kind>Data model field</kind>
+      <signature>logging: dict[str, Any] = field(default_factory=lambda: {"level": "INFO", "file_path": "~/.capsule/logs/capsule.log", "rotate_bytes": 5242880, "backup_count": 3})</signature>
+      <path>capsule/models/config.py</path>
+      <description>Logging configuration in Config model. Already implemented with proper defaults.</description>
+    </interface>
+    
+    <!-- CLI Callback Integration Point -->
+    <interface>
+      <name>cli_callback</name>
+      <kind>Function</kind>
+      <signature>def cli_callback(ctx: typer.Context, version: bool, verbose: bool, config_path: Path | None)</signature>
+      <path>capsule/cli.py</path>
+      <description>CLI initialization callback where logging should be set up. Currently has basic logging.basicConfig() that needs to be replaced with setup_logging(verbose=verbose).</description>
+    </interface>
+    
+    <!-- Exception Interface (Reuse) -->
+    <interface>
+      <name>FileError</name>
+      <kind>Exception class</kind>
+      <signature>class FileError(CapsuleError)</signature>
+      <path>capsule/exceptions.py</path>
+      <description>Custom exception for file operation failures. Use when log directory creation fails.</description>
+    </interface>
+    
+    <!-- Rich Handler Interface -->
+    <interface>
+      <name>RichHandler</name>
+      <kind>Class (from rich.logging)</kind>
+      <signature>RichHandler(rich_tracebacks=True, markup=True)</signature>
+      <path>External: rich.logging</path>
+      <description>Console logging handler from rich library. Already used in cli.py (line 70-76). Provides formatted console output consistent with error handler.</description>
+    </interface>
+    
+    <!-- Rotating File Handler Interface -->
+    <interface>
+      <name>RotatingFileHandler</name>
+      <kind>Class (from logging.handlers)</kind>
+      <signature>RotatingFileHandler(filename, maxBytes=5242880, backupCount=3)</signature>
+      <path>Standard library: logging.handlers</path>
+      <description>File logging handler with rotation. Rotates log file when it exceeds maxBytes size.</description>
+    </interface>
+  </interfaces>
+
+  <tests>
+    <standards>
+      Testing follows pytest framework with fixtures for test isolation. Unit tests use unittest.mock (patch, Mock) to isolate components and verify behavior without side effects. Integration tests use real CLI invocations via typer.testing.CliRunner to verify end-to-end behavior. The caplog pytest fixture is used to capture and verify log records. Test files mirror source structure (tests/test_utils/ for capsule/utils/). Assertions verify both positive cases (successful operations) and error cases (exceptions, edge conditions). Coverage is measured and maintained above 80%.
+    </standards>
+    
+    <locations>
+      tests/test_utils/test_logger.py - Unit tests for logger setup
+      tests/test_models/test_config.py - Update existing tests to verify logging configuration fields
+      tests/test_commands/ - Integration tests for logging behavior (new file for logging integration test)
+    </locations>
+    
+    <ideas>
+      <!-- Unit Test Ideas (AC #7) -->
+      <test id="AC-7-1">Test that setup_logging() creates ~/.capsule/logs/ directory if it doesn't exist (use tmp_path fixture)</test>
+      <test id="AC-7-2">Test that file handler is configured with RotatingFileHandler, 5MB maxBytes, 3 backupCount, and DEBUG level</test>
+      <test id="AC-7-3">Test that console handler uses RichHandler and level is INFO when verbose=False</test>
+      <test id="AC-7-4">Test that console handler level is DEBUG when verbose=True</test>
+      <test id="AC-7-5">Test that file handler format matches: %(asctime)s - %(name)s - %(levelname)s - %(message)s</test>
+      <test id="AC-7-6">Test that logger returns correct instance with proper name (root logger or named logger)</test>
+      <test id="AC-7-7">Test that FileError is raised when log directory creation fails (mock Path.mkdir to raise PermissionError)</test>
+      
+      <!-- Config Model Test Ideas (AC #5) -->
+      <test id="AC-5-1">Test that Config.logging has correct default values (level=INFO, file_path=~/.capsule/logs/capsule.log, rotate_bytes=5242880, backup_count=3)</test>
+      <test id="AC-5-2">Test that Config.logging is properly serialized to YAML (to_yaml_file) and deserialized (from_yaml_file)</test>
+      
+      <!-- Integration Test Ideas (AC #8) -->
+      <test id="AC-8-1">Run a CLI command without --verbose and verify console shows only INFO+ messages (capture console output, assert no DEBUG messages)</test>
+      <test id="AC-8-2">Run a CLI command with --verbose and verify console shows DEBUG messages (capture console output, assert DEBUG messages present)</test>
+      <test id="AC-8-3">Verify that ~/.capsule/logs/capsule.log contains all log entries at DEBUG level regardless of --verbose flag (read log file, verify DEBUG entries present)</test>
+      <test id="AC-8-4">Verify log file rotation works when file exceeds 5MB (mock file size or write large log entries, verify rotation occurs and backup files created)</test>
+      <test id="AC-8-5">Verify that logging is initialized before any command executes (test that early command code can use logger without errors)</test>
+    </ideas>
+  </tests>
+</story-context>

@@ -13,6 +13,7 @@ from capsule.core.importer import (
     ImportPreview,
     UpdateDetail,
 )
+from capsule.exceptions import FileError, ValidationError
 from capsule.models.config import Config
 
 
@@ -164,7 +165,7 @@ class TestExtractCapsule:
         importer = Importer(mock_config)
         nonexistent = temp_dir / "nonexistent.capsule"
 
-        with pytest.raises(FileNotFoundError, match="Capsule not found"):
+        with pytest.raises(FileError, match="Capsule not found"):
             importer.extract_capsule(nonexistent)
 
     def test_extract_zip_without_cypher(self, mock_config, temp_dir):
@@ -176,7 +177,7 @@ class TestExtractCapsule:
 
         importer = Importer(mock_config)
 
-        with pytest.raises(FileNotFoundError, match="No capsule-cypher.yaml found"):
+        with pytest.raises(ValidationError, match="No capsule-cypher.yaml found"):
             importer.extract_capsule(zip_path)
 
     def test_extract_zip_with_path_traversal(self, mock_config, temp_dir):
@@ -188,7 +189,7 @@ class TestExtractCapsule:
 
         importer = Importer(mock_config)
 
-        with pytest.raises(ValueError, match="Path traversal detected"):
+        with pytest.raises(ValidationError, match="Path traversal detected"):
             importer.extract_capsule(zip_path)
 
 
@@ -211,7 +212,7 @@ class TestLoadCypher:
         """Test error when loading before extraction"""
         importer = Importer(mock_config)
 
-        with pytest.raises(ValueError, match="Capsule must be extracted"):
+        with pytest.raises(ValidationError, match="Capsule must be extracted"):
             importer.load_cypher()
 
     def test_load_missing_cypher(self, mock_config, temp_dir):
@@ -222,7 +223,7 @@ class TestLoadCypher:
         importer = Importer(mock_config)
         importer.extracted_path = capsule_path
 
-        with pytest.raises(FileNotFoundError, match="capsule-cypher.yaml not found"):
+        with pytest.raises(FileError, match="capsule-cypher.yaml not found"):
             importer.load_cypher()
 
 
@@ -242,7 +243,7 @@ class TestValidateCapsule:
         """Test error when validating before extraction"""
         importer = Importer(mock_config)
 
-        with pytest.raises(ValueError, match="Capsule must be extracted"):
+        with pytest.raises(ValidationError, match="Capsule must be extracted"):
             importer.validate_capsule()
 
 

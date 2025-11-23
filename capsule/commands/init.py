@@ -13,6 +13,9 @@ console = Console()
 def init():
     """
     Initializes the Capsule CLI configuration.
+
+    Walks you through the setup process to configure your user details,
+    vault location, and API keys.
     """
     console.print("[bold cyan]Welcome to Capsule! Let's set up your configuration.[/bold cyan]")
 

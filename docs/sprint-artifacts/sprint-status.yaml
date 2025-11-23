@@ -156,7 +156,7 @@ development_status:
   # Epic 11: Dashboard Functionality (Core/Data Layer)
   # Hierarchical dashboard system - functional capabilities (get it working)
   # Split from original Epic 11 in retrospective (2025-11-22)
-  epic-11: contexted
+  epic-11: done
   11-0-dataview-dataviewjs-technical-spike: done
   11-1-capsule-dashboard-metadata-schema: done
   11-2-master-dashboard-template-with-filtering: done
@@ -172,28 +172,43 @@ development_status:
   # Epic 12: Dashboard Polish & Interactivity (Presentation Layer)
   # Visual design, CSS theming, interactive widgets (make it beautiful)
   # Created from Epic 11 split in retrospective (2025-11-22)
-  epic-12: backlog
-  # Stories TBD after Epic 11 completion
-  epic-12-retrospective: optional
+  epic-12: done
+  12-1-core-dashboard-css-framework: done
+  12-2-dataview-table-enhancement: done
+  12-3-progress-indicators: done
+  12-4-navigation-components: done
+  12-5-custom-callouts: done
+  12-6-mobile-optimization: done
+  12-7-meta-bind-integration: done
+  12-8-documentation-and-examples: done
+  epic-12-retrospective: done
 
   # Epic 13: Cross-Cutting Concerns & Polish
   # Error handling, logging, progress indicators, dry-run mode, help docs
   # Renumbered from Epic 12 after dashboard split
-  epic-13: backlog
-  13-1-error-handling-system: backlog
-  13-2-logging-system-setup: backlog
-  13-3-progress-indicators-rich-integration: backlog
-  13-4-dry-run-mode-implementation: backlog
-  13-5-help-documentation-and-examples: backlog
-  epic-13-retrospective: optional
+  epic-13: done
+  13-1-error-handling-system: done
+  13-2-logging-system-setup: done
+  13-3-progress-indicators-rich-integration: done
+  13-4-dry-run-mode-implementation: done
+  13-5-help-documentation-and-examples: done
+  epic-13-retrospective: done
 
   # Epic 14: Testing Infrastructure
   # Test framework, unit tests, integration tests, E2E tests, CI integration
   # Renumbered from Epic 13 after dashboard split
-  epic-14: backlog
-  14-1-pytest-configuration-and-fixtures: backlog
+  epic-14: in-progress
+  14-1-pytest-configuration-and-fixtures: done
   14-2-unit-tests-for-core-logic: backlog
   14-3-integration-tests-for-commands: backlog
   14-4-e2e-tests-for-full-workflows: backlog
   14-5-test-coverage-and-ci-integration: backlog
   epic-14-retrospective: optional
+
+  # Preparation Sprint (2025-11-23)
+  # Critical path items cleared before Epic 14
+  prep-sprint: done
+  prep-1-verify-css-deployment: done
+  prep-2-mobile-responsiveness-check: done
+  prep-3-pytest-config: done
+  prep-4-user-guide-update: done

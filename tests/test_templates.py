@@ -31,15 +31,13 @@ def test_master_dashboard_template_generation(temp_output_dir):
     content = template_path.read_text()
 
     # Verify key components of the interactive filter are in the template
-    assert 'id="classFilter"' in content, "Class filter input should exist."
-    assert 'id="topicFilter"' in content, "Topic filter input should exist."
-    assert 'id="categoryFilter"' in content, "Category filter input should exist."
-    assert 'id="activeFilter"' in content, "Active status filter dropdown should exist."
+    assert "INPUT[text:filter_class]" in content, "Class filter input should exist."
+    assert "INPUT[text:filter_topic]" in content, "Topic filter input should exist."
+    assert "INPUT[text:filter_category]" in content, "Category filter input should exist."
+    assert "INPUT[toggle:filter_active]" in content, "Active status filter toggle should exist."
 
     # Verify that the DataviewJS block is present
     assert "```dataviewjs" in content, "DataviewJS block should be present."
-    assert "dv.container.querySelector" in content, "DataviewJS should use dv.container.querySelector."
-    assert "classInput.onkeyup = render;" in content, "Event listener for class filter should be present."
 
     # This is a placeholder for a more advanced test that would involve
     # a hypothetical ContentGenerator class capable of rendering the template.

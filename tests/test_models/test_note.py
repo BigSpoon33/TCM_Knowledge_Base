@@ -11,6 +11,7 @@ from pathlib import Path
 
 import pytest
 
+from capsule.exceptions import FileError
 from capsule.models.note import Note
 
 
@@ -88,8 +89,8 @@ def test_from_file_no_frontmatter(temp_dir):
 
 
 def test_from_file_not_found():
-    """Test that from_file raises FileNotFoundError for missing files."""
-    with pytest.raises(FileNotFoundError):
+    """Test that from_file raises FileError for missing files."""
+    with pytest.raises(FileError):
         Note.from_file("nonexistent_file.md")
 
 

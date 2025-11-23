@@ -8,6 +8,7 @@ from typing import Any
 
 from capsule.exceptions import FileError
 from capsule.models.cypher import CapsuleCypher
+from capsule.utils.file_ops import FileOps
 
 logger = logging.getLogger(__name__)
 
@@ -15,9 +16,11 @@ logger = logging.getLogger(__name__)
 class Packager:
     """Handles the low-level logic for packaging a capsule."""
 
-    def __init__(self, capsule_path: Path, cypher: dict | None = None):
+    def __init__(self, capsule_path: Path, cypher: dict | None = None, dry_run: bool = False):
         self.capsule_path = capsule_path
         self.cypher = cypher or {}
+        self.dry_run = dry_run
+        self.file_ops = FileOps(dry_run=dry_run)
         logger.debug(f"Packager initialized for capsule path: {self.capsule_path}")
 
     def generate_cypher(
@@ -99,28 +102,21 @@ class Packager:
         logger.info(f"Packaging capsule to zip archive at: {output_path}")
         try:
             manifest = self.generate_manifest()
-            with zipfile.ZipFile(output_path, "w", zipfile.ZIP_DEFLATED) as zf:
-                zf.writestr("export-manifest.json", json.dumps(manifest, indent=2))
-                for file_path in self.capsule_path.rglob("*"):
-                    if file_path.is_file():
-                        arcname = file_path.relative_to(self.capsule_path)
-                        zf.write(file_path, arcname)
-            logger.info(f"Successfully created zip archive at: {output_path}")
-        except OSError as e:
+            self.file_ops.create_zip(output_path, self.capsule_path, manifest)
+            if not self.dry_run:
+                logger.info(f"Successfully created zip archive at: {output_path}")
+        except FileError as e:
             logger.error(f"Failed to create zip archive at {output_path}: {e}", exc_info=True)
-            raise FileError(f"Failed to create zip archive at {output_path}: {e}") from e
+            raise
 
     def package_to_folder(self, output_path: Path):
         logger.info(f"Packaging capsule to folder at: {output_path}")
         try:
             manifest = self.generate_manifest()
-            if output_path.exists():
-                logger.warning(f"Output path {output_path} exists. Removing it.")
-                shutil.rmtree(output_path)
-            shutil.copytree(self.capsule_path, output_path)
-            with open(output_path / "export-manifest.json", "w") as f:
-                json.dump(manifest, f, indent=2)
-            logger.info(f"Successfully created folder bundle at: {output_path}")
-        except OSError as e:
+            self.file_ops.copytree(self.capsule_path, output_path)
+            self.file_ops.write_text(output_path / "export-manifest.json", json.dumps(manifest, indent=2))
+            if not self.dry_run:
+                logger.info(f"Successfully created folder bundle at: {output_path}")
+        except FileError as e:
             logger.error(f"Failed to create folder bundle at {output_path}: {e}", exc_info=True)
-            raise FileError(f"Failed to create folder bundle at {output_path}: {e}") from e
+            raise

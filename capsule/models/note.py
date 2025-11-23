@@ -11,6 +11,8 @@ from typing import Any
 
 import frontmatter  # type: ignore[import-untyped]
 
+from capsule.exceptions import FileError
+
 
 @dataclass
 class Note:
@@ -82,7 +84,7 @@ class Note:
         path = Path(filepath)
 
         if not path.exists():
-            raise FileNotFoundError(f"File not found: {filepath}")
+            raise FileError(f"File not found: {filepath}")
 
         # Parse frontmatter using python-frontmatter library
         with open(path, encoding="utf-8") as f:

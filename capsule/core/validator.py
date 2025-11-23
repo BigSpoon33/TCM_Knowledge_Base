@@ -1,7 +1,7 @@
 import frontmatter
 import yaml
 
-from capsule.exceptions import ValidationError
+from capsule.exceptions import FileError, ValidationError
 from capsule.utils.validators import check_required_fields, is_valid_semver
 
 
@@ -14,7 +14,7 @@ class Validator:
         self.capsule_path = capsule_path
         self.cypher_path = self.capsule_path / "capsule-cypher.yaml"
         if not self.cypher_path.exists():
-            raise FileNotFoundError(f"capsule-cypher.yaml not found in {self.capsule_path}")
+            raise FileError(f"capsule-cypher.yaml not found in {self.capsule_path}")
 
         with open(self.cypher_path) as f:
             self.cypher = yaml.safe_load(f)
@@ -74,13 +74,13 @@ class Validator:
 
         for field, properties in schema.items():
             if properties.get("required") and field not in post.metadata:
-                raise ValueError(f"Missing required field '{field}' in {file_path}")
+                raise ValidationError(f"Missing required field '{field}' in {file_path}")
 
             field_type_str = properties.get("type")
             if field in post.metadata and field_type_str:
                 expected_type = type_map.get(field_type_str)
                 if expected_type and not isinstance(post.metadata[field], expected_type):
-                    raise TypeError(
+                    raise ValidationError(
                         f"Invalid data type for field '{field}' in {file_path}. Expected {field_type_str}, got {type(post.metadata[field]).__name__}"
                     )
 
@@ -100,9 +100,9 @@ class Validator:
 
         for file_path in cypher_files:
             if not file_path.exists():
-                raise FileNotFoundError(f"File from cypher not found in capsule: {file_path}")
+                raise ValidationError(f"File from cypher not found in capsule: {file_path}")
 
         actual_files = {f for f in self.capsule_path.glob("**/*") if f.is_file()}
         extra_files = actual_files - cypher_files - {self.cypher_path, self.capsule_path / "export-manifest.json"}
         if extra_files:
-            raise FileExistsError(f"Extra files found in capsule: {', '.join(str(f) for f in extra_files)}")
+            raise ValidationError(f"Extra files found in capsule: {', '.join(str(f) for f in extra_files)}")

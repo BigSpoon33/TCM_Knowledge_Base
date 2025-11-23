@@ -6,6 +6,8 @@ from typing import Any
 
 import ruamel.yaml
 
+from capsule.exceptions import ConfigError
+
 yaml = ruamel.yaml.YAML()
 yaml.preserve_quotes = True
 yaml.indent(mapping=2, sequence=4, offset=2)
@@ -24,6 +26,14 @@ class Config:
     user: dict[str, str] = field(default_factory=dict)
     research: dict[str, str] = field(default_factory=dict)
     import_settings: dict[str, Any] = field(default_factory=dict)
+    logging: dict[str, Any] = field(
+        default_factory=lambda: {
+            "level": "INFO",
+            "file_path": "~/.capsule/logs/capsule.log",
+            "rotate_bytes": 5 * 1024 * 1024,
+            "backup_count": 3,
+        }
+    )
 
     @classmethod
     def from_yaml_file(cls, path: Path) -> "Config":
@@ -51,6 +61,7 @@ class Config:
             "user": self.user,
             "research": self.research,
             "import": self.import_settings,
+            "logging": self.logging,
         }
 
     def validate(self) -> None:
@@ -59,7 +70,9 @@ class Config:
         are missing or invalid.
         """
         if not self.api_key:
-            raise ValueError("API key is not set in the configuration.")
+            raise ConfigError(
+                "API key is not set in the configuration.", hint="Run 'capsule config --api-key <key>' to set it."
+            )
 
     @classmethod
     def load_config(cls) -> "Config":

@@ -1,5 +1,7 @@
 import semver
 
+from capsule.exceptions import ValidationError
+
 
 def compare_versions(v1: str, v2: str) -> int:
     """
@@ -15,14 +17,14 @@ def compare_versions(v1: str, v2: str) -> int:
          1 if v1 > v2
 
     Raises:
-        ValueError: If either version string is invalid
+        ValidationError: If either version string is invalid
     """
     try:
         ver1 = semver.VersionInfo.parse(v1)
         ver2 = semver.VersionInfo.parse(v2)
         return ver1.compare(ver2)
     except ValueError as e:
-        raise ValueError(f"Invalid semantic version: {e}")
+        raise ValidationError(f"Invalid semantic version: {e}")
 
 
 def is_valid_semver(version: str) -> bool:

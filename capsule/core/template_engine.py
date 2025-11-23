@@ -4,6 +4,7 @@ from pathlib import Path
 from typing import Any
 
 import yaml
+from capsule.exceptions import FileError
 
 
 class TemplateEngine:
@@ -23,7 +24,7 @@ class TemplateEngine:
         Parse template file and extract structure.
         """
         if not template_path.exists():
-            raise FileNotFoundError(f"Template not found: {template_path}")
+            raise FileError(f"Template not found: {template_path}")
 
         with open(template_path, encoding="utf-8") as f:
             self.raw_content = f.read()

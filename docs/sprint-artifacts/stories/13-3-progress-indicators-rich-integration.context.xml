@@ -1,0 +1,252 @@
+<story-context id=".bmad/bmm/workflows/4-implementation/story-context/template" v="1.0">
+  <metadata>
+    <epicId>13</epicId>
+    <storyId>13.3</storyId>
+    <title>progress-indicators-rich-integration</title>
+    <status>drafted</status>
+    <generatedAt>2025-11-23</generatedAt>
+    <generator>BMAD Story Context Workflow</generator>
+    <sourceStoryPath>docs/sprint-artifacts/13-3-progress-indicators-rich-integration.md</sourceStoryPath>
+  </metadata>
+
+  <story>
+    <asA>user of the `obsidian-capsule-cli`</asA>
+    <iWant>visual progress indicators (spinners and progress bars) during long-running operations</iWant>
+    <soThat>I can see that the system is working and understand how much time remains</soThat>
+    <tasks>
+      - **Task 1: Create Progress Utility Module** (AC: #1, #2, #6)
+        - Create `capsule/utils/progress.py` with helper functions wrapping `rich.progress`
+        - Implement `create_spinner(message)` - returns Progress with SpinnerColumn
+        - Implement `create_progress_bar(message, total)` - returns Progress with BarColumn and percentage
+        - Implement `create_multi_task_progress()` - returns Progress for multiple simultaneous tasks
+        - Set `transient=False` by default to show completion status
+        - Apply consistent styling (colors, column order) across all progress types
+        - Add docstrings with usage examples for each helper function
+
+      - **Task 2: Add Progress to Generate Command** (AC: #3, #5)
+        - Update `capsule/commands/generate.py` to import progress utility
+        - Add spinner for research phase showing "Deep research... (X/Y sources processed)"
+        - Add progress bar for generation phase showing "Generating content... X%"
+        - Wrap progress contexts in try/finally to ensure cleanup on errors
+        - Update task descriptions dynamically as operation progresses
+        - Test error handling - verify progress cleans up when generation fails
+
+      - **Task 3: Add Progress to Import Command** (AC: #4, #5)
+        - Update `capsule/commands/import_cmd.py` to import progress utility
+        - Add progress bar for backup creation showing "Creating backup... X%"
+        - Add progress bar for file extraction showing "Extracting files... (X/Y files)"
+        - Wrap progress contexts in try/finally to ensure cleanup on errors
+        - Test error handling - verify progress cleans up when import fails
+
+      - **Task 4: Verify Logging Compatibility** (AC: #7)
+        - Run generate command with `--verbose` flag
+        - Verify console log messages don't interfere with progress bars
+        - Verify progress bars don't disrupt log output formatting
+        - Test with RichHandler from Story 13-2 - confirm no visual conflicts
+        - Document any special configuration needed for coexistence
+
+      - **Task 5: Write Unit Tests** (AC: #8)
+        - Create `tests/test_utils/test_progress.py`
+        - Test `create_spinner()` returns Progress with correct columns
+        - Test `create_progress_bar()` returns Progress with bar and percentage
+        - Test `create_multi_task_progress()` supports multiple tasks
+        - Test styling consistency across all progress types
+        - Test that `transient=False` is applied by default
+        - Mock Progress object to verify column configuration
+
+      - **Task 6: Write Integration Tests** (AC: #9)
+        - Create integration tests in `tests/test_commands/test_progress_integration.py`
+        - Test generate command shows research spinner and generation progress bar
+        - Test import command shows backup and extraction progress bars
+        - Test progress cleanup on error (trigger validation failure, verify no artifacts)
+        - Capture console output and verify progress messages appear
+        - Visual verification (manual): Run commands and observe progress indicators
+    </tasks>
+  </story>
+
+  <acceptanceCriteria>
+    1. A unified progress utility is created in `capsule/utils/progress.py` that wraps `rich.progress` with consistent styling
+    2. Progress utility provides helper functions for common patterns: spinner, progress bar, multi-task tracking
+    3. `capsule/commands/generate.py` shows progress for research phase (spinner with source count) and generation phase (progress bar with percentage)
+    4. `capsule/commands/import_cmd.py` shows progress for backup creation and file extraction (progress bar with file count)
+    5. Progress indicators clean up gracefully on exceptions without leaving visual artifacts
+    6. Progress bars use `transient=False` so users can see completion status after operation finishes
+    7. Console logging and progress bars coexist without interference (verified with `--verbose` flag)
+    8. Unit tests verify progress utility creates correct progress objects and applies consistent styling
+    9. Integration tests verify progress indicators appear during real command execution
+  </acceptanceCriteria>
+
+  <artifacts>
+    <docs>
+      <doc>
+        <path>docs/sprint-artifacts/tech-spec-epic-13.md</path>
+        <title>Technical Specification: Epic 13 - Cross-Cutting Concerns & Polish</title>
+        <section>2.3.3 Progress Indicators (Phase 2)</section>
+        <snippet>Progress Indicators goal is to improve user experience for long-running tasks. Tasks include: Create `capsule/utils/progress.py` wrapping `rich.progress`, update `capsule/commands/generate.py` to show progress for research and generation steps, update `capsule/commands/import_cmd.py` to show progress for backup and file extraction, ensure progress bars clean up correctly on errors.</snippet>
+      </doc>
+      <doc>
+        <path>docs/architecture.md</path>
+        <title>Architecture Document - OCDS</title>
+        <section>CLI Command Structure Pattern (lines 821-917)</section>
+        <snippet>Progress indicator strategy: Use `rich.progress` for all visual feedback (spinners, progress bars), transient=False to keep completed progress visible, standard column pattern is SpinnerColumn, TextColumn, BarColumn (optional), PercentageColumn (optional). Always use context manager pattern `with Progress() as progress:` to ensure cleanup on exceptions. Error resilience: wrap progress contexts in try/finally blocks if additional cleanup needed.</snippet>
+      </doc>
+      <doc>
+        <path>docs/sprint-artifacts/13-2-logging-system-setup.md</path>
+        <title>Story 13.2: logging-system-setup (Status: review)</title>
+        <section>Learnings from Previous Story & Dev Agent Record</section>
+        <snippet>Story 13-2 uses RichHandler for logging console output - progress indicators should use compatible rich.progress components. Logging uses both file handler (RotatingFileHandler) and console handler (RichHandler) - progress adds third rich component (Progress). Logger configured to avoid interference with progress bars - verify compatibility. Story 13-2 achieved 23 tests (14 unit, 9 integration) - aim for similar coverage.</snippet>
+      </doc>
+    </docs>
+    <code>
+      <artifact>
+        <path>capsule/utils/logger.py</path>
+        <kind>utility</kind>
+        <symbol>setup_logging, get_logger</symbol>
+        <lines>1-100</lines>
+        <reason>Logger utility from Story 13-2 that uses RichHandler - progress indicators must be compatible with this logging setup to avoid visual conflicts</reason>
+      </artifact>
+      <artifact>
+        <path>capsule/commands/generate.py</path>
+        <kind>command</kind>
+        <symbol>generate</symbol>
+        <lines>1-100</lines>
+        <reason>Generate command currently uses basic Progress with SpinnerColumn and TextColumn (lines 63-67) - needs enhancement with comprehensive progress indicators for research and generation phases per AC #3</reason>
+      </artifact>
+      <artifact>
+        <path>capsule/commands/import_cmd.py</path>
+        <kind>command</kind>
+        <symbol>import_capsule</symbol>
+        <lines>1-100</lines>
+        <reason>Import command uses console.status() for simple status messages (lines 56, 62, 95, 99) - needs replacement with progress bars for backup creation and file extraction per AC #4</reason>
+      </artifact>
+      <artifact>
+        <path>capsule/core/generator.py</path>
+        <kind>core</kind>
+        <symbol>ContentGenerator.generate</symbol>
+        <lines>unknown</lines>
+        <reason>Core generator logic that will need to report progress back to the command layer for progress bar updates during content generation</reason>
+      </artifact>
+      <artifact>
+        <path>capsule/core/importer.py</path>
+        <kind>core</kind>
+        <symbol>Importer.execute_import</symbol>
+        <lines>unknown</lines>
+        <reason>Core importer logic that will need to report progress for file extraction and import operations to support progress bars in import command</reason>
+      </artifact>
+    </code>
+    <dependencies>
+      <python>
+        <package name="rich" version=">=13.0.0" source="pyproject.toml">Already included via typer dependency. Provides Progress, SpinnerColumn, TextColumn, BarColumn, PercentageColumn for progress indicators</package>
+        <package name="typer" version="latest" source="pyproject.toml">CLI framework that includes rich as a dependency</package>
+      </python>
+    </dependencies>
+  </artifacts>
+
+  <constraints>
+    1. **Progress Indicator Strategy** (from architecture.md, lines 821-917): Use `rich.progress` for all visual feedback. Use `transient=False` to keep completed progress visible for user confirmation. Standard column pattern: SpinnerColumn, TextColumn, BarColumn (optional), PercentageColumn (optional). Always use context manager pattern to ensure cleanup on exceptions.
+
+    2. **Rich Components Coexistence**: Story 13-2 integrated RichHandler for logging. Progress indicators must work alongside RichHandler without visual conflicts. Test with `--verbose` flag to ensure log messages and progress bars don't interfere.
+
+    3. **Error Resilience**: Wrap progress contexts in try/finally blocks if additional cleanup needed beyond context manager. Progress bars must clean up gracefully on exceptions without leaving visual artifacts.
+
+    4. **Utility Module Pattern**: Follow the same utility module pattern established in `capsule/utils/logger.py` (Story 13-2). Create clean, well-documented helper functions with usage examples in docstrings.
+
+    5. **Testing Standards**: Unit tests must verify correct Progress object configuration (columns, transient setting). Integration tests must verify progress appears during real command execution. Error handling tests must verify cleanup. Manual visual verification recommended for final acceptance. Aim for similar coverage to Story 13-2 (23 tests total).
+
+    6. **No Breaking Changes**: Generator and Importer modifications are additive. Existing functionality must remain unchanged. Progress indicators enhance user experience without altering core behavior.
+
+    7. **File Structure Alignment**: Test files mirror source structure: `tests/test_utils/test_progress.py` for `capsule/utils/progress.py`. Integration tests in `tests/test_commands/test_progress_integration.py` matching CLI command structure.
+  </constraints>
+
+  <interfaces>
+    <interface>
+      <name>create_spinner</name>
+      <kind>function</kind>
+      <signature>def create_spinner(message: str) -> Progress</signature>
+      <path>capsule/utils/progress.py (to be created)</path>
+      <description>Creates a Progress object with SpinnerColumn and TextColumn for indeterminate progress tasks. Returns configured Progress instance with transient=False.</description>
+    </interface>
+    <interface>
+      <name>create_progress_bar</name>
+      <kind>function</kind>
+      <signature>def create_progress_bar(message: str, total: int) -> Progress</signature>
+      <path>capsule/utils/progress.py (to be created)</path>
+      <description>Creates a Progress object with BarColumn and PercentageColumn for determinate progress tasks. Returns configured Progress instance with transient=False.</description>
+    </interface>
+    <interface>
+      <name>create_multi_task_progress</name>
+      <kind>function</kind>
+      <signature>def create_multi_task_progress() -> Progress</signature>
+      <path>capsule/utils/progress.py (to be created)</path>
+      <description>Creates a Progress object that supports multiple simultaneous tasks with comprehensive column layout. Returns configured Progress instance with transient=False.</description>
+    </interface>
+    <interface>
+      <name>RichHandler</name>
+      <kind>class</kind>
+      <signature>class RichHandler(logging.Handler)</signature>
+      <path>rich.logging</path>
+      <description>Logging handler from rich library used in Story 13-2. Progress indicators must be compatible with RichHandler's console output to avoid visual conflicts.</description>
+    </interface>
+    <interface>
+      <name>Progress</name>
+      <kind>class</kind>
+      <signature>class Progress(JupyterMixin)</signature>
+      <path>rich.progress</path>
+      <description>Core Progress class from rich library. Context manager that provides progress tracking with customizable columns. Must be used with 'with' statement for automatic cleanup.</description>
+    </interface>
+  </interfaces>
+
+  <tests>
+    <standards>
+      **Testing Framework**: pytest with rich mocking support
+
+      **Unit Test Standards**:
+      - Test file: `tests/test_utils/test_progress.py`
+      - Mock `rich.progress.Progress` to verify configuration without actual rendering
+      - Verify column configuration (type and order of columns)
+      - Verify `transient=False` setting is applied
+      - Test each helper function independently
+      - Verify consistent styling across all progress types
+
+      **Integration Test Standards**:
+      - Test file: `tests/test_commands/test_progress_integration.py`
+      - Use pytest's `capfd` fixture to capture console output
+      - Verify progress messages appear in output
+      - Test progress behavior during actual command execution
+      - Test error scenarios: verify progress cleans up when operations fail
+      - Visual verification (manual): Run commands and observe progress indicators
+
+      **Coverage Target**: Aim for similar coverage to Story 13-2 (~23 tests: 14 unit, 9 integration)
+
+      **Error Handling Tests**:
+      - Trigger validation failures during generation
+      - Trigger import errors
+      - Verify no visual artifacts left behind after errors
+      - Verify try/finally cleanup works correctly
+    </standards>
+    <locations>
+      - tests/test_utils/test_progress.py (unit tests for progress utility)
+      - tests/test_commands/test_progress_integration.py (integration tests for command progress)
+    </locations>
+    <ideas>
+      <test idea="1" for_ac="1,2,6">
+        **Test progress utility helper functions**: Mock Progress class and verify that `create_spinner()`, `create_progress_bar()`, and `create_multi_task_progress()` return correctly configured Progress objects with appropriate columns and transient=False setting.
+      </test>
+      <test idea="2" for_ac="3">
+        **Test generate command progress**: Run generate command with test topic and verify console output contains research spinner message and generation progress bar percentage. Verify progress cleanup on completion.
+      </test>
+      <test idea="3" for_ac="4">
+        **Test import command progress**: Run import command with test capsule and verify console output contains backup progress bar and file extraction progress bar with file counts.
+      </test>
+      <test idea="4" for_ac="5">
+        **Test progress cleanup on errors**: Trigger a validation error during generation and verify that progress bar cleans up correctly without leaving visual artifacts. Use capfd fixture to capture and verify clean output.
+      </test>
+      <test idea="5" for_ac="7">
+        **Test logging-progress coexistence**: Run generate command with `--verbose` flag and verify that logger debug messages and progress bars appear correctly without visual conflicts. Verify RichHandler and Progress work together.
+      </test>
+      <test idea="6" for_ac="8">
+        **Test column styling consistency**: Verify all helper functions apply the same color scheme, column width settings, and formatting patterns for consistent visual experience.
+      </test>
+    </ideas>
+  </tests>
+</story-context>

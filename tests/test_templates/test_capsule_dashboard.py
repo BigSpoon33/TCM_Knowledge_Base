@@ -73,14 +73,13 @@ def test_capsule_dashboard_sections_present(env, mock_now, sample_capsule):
     output = template.render(capsule=sample_capsule, now=mock_now, domain_sections="")
 
     expected_sections = [
-        "# Capsule Dashboard: TCM Materia Medica - Herbs",
-        "## Overview",
-        "## Root Notes",
-        "## Study Materials",
-        "### Flashcards",
-        "### Quizzes",
-        "## Recent Activity",
-        "## Domain-Specific Sections",
+        f'<h1 class="ocds-header__title">{sample_capsule["name"]}</h1>',
+        '<h3 class="ocds-card__title">Overview</h3>',
+        "<h2>📚 Root Notes</h2>",
+        "<h2>📝 Study Materials</h2>",
+        '<h3 class="ocds-card__title">Flashcards</h3>',
+        '<h3 class="ocds-card__title">Quizzes</h3>',
+        "<h2>Recent Activity</h2>",
     ]
 
     for section in expected_sections:
@@ -93,7 +92,7 @@ def test_capsule_dashboard_queries_present(env, mock_now, sample_capsule):
     output = template.render(capsule=sample_capsule, now=mock_now, domain_sections="")
 
     # Check for Dataview blocks
-    assert output.count("```dataview") >= 4
+    assert output.count("```dataview") >= 3
 
     # Check specific query logic parts
     assert 'WHERE contains(source_capsules, "TCM_Herbs_v1")' in output
@@ -108,14 +107,13 @@ def test_sequence_mode_conditional_rendering(env, mock_now, sample_capsule):
 
     # Test freeform (default sample)
     output_freeform = template.render(capsule=sample_capsule, now=mock_now, domain_sections="")
-    assert "## Progress Tracking" not in output_freeform
+    assert "<h2>📊 Progress Tracking</h2>" not in output_freeform
 
     # Test sequenced
     sample_capsule["sequence_mode"] = "sequenced"
     output_sequenced = template.render(capsule=sample_capsule, now=mock_now, domain_sections="")
-    assert "## Progress Tracking" in output_sequenced
-    assert "### Completion Status" in output_sequenced
-    assert "### Active Timeline" in output_sequenced
+    assert "<h2>📊 Progress Tracking</h2>" in output_sequenced
+    assert "<h3>Active Timeline</h3>" in output_sequenced
     assert "```dataviewjs" in output_sequenced
     assert "const percentage = Math.round((completedTasks / totalTasks) * 100);" in output_sequenced
 

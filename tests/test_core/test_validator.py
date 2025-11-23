@@ -1,4 +1,3 @@
-
 import frontmatter
 import pytest
 import yaml
@@ -58,7 +57,7 @@ def test_validator_missing_field(sample_capsule):
         f.write(frontmatter.dumps(post))
 
     validator = Validator(sample_capsule)
-    with pytest.raises(ValueError, match="Missing required field 'title'"):
+    with pytest.raises(ValidationError, match="Missing required field 'title'"):
         validator.validate_capsule()
 
 
@@ -71,7 +70,7 @@ def test_validator_invalid_data_type(sample_capsule):
         f.write(frontmatter.dumps(post))
 
     validator = Validator(sample_capsule)
-    with pytest.raises(TypeError, match="Invalid data type for field 'title'"):
+    with pytest.raises(ValidationError, match="Invalid data type for field 'title'"):
         validator.validate_capsule()
 
 
@@ -96,7 +95,7 @@ def test_validator_missing_file_in_cypher(sample_capsule):
     (sample_capsule / "notes" / "note1.md").unlink()
 
     validator = Validator(sample_capsule)
-    with pytest.raises(FileNotFoundError, match="File from cypher not found in capsule"):
+    with pytest.raises(ValidationError, match="File from cypher not found in capsule"):
         validator.validate_file_inventory()
 
 
@@ -106,5 +105,5 @@ def test_validator_extra_file_in_directory(sample_capsule):
         f.write("This is an extra note.")
 
     validator = Validator(sample_capsule)
-    with pytest.raises(FileExistsError, match="Extra files found in capsule"):
+    with pytest.raises(ValidationError, match="Extra files found in capsule"):
         validator.validate_file_inventory()

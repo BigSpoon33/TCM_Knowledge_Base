@@ -28,7 +28,10 @@
 | 2025-11-22 | 10.3 | 10 | Test | Low | TBD | Open | Add an explicit E2E test to verify that a backup file is created during a standard import. |
 | 2025-11-22 | 11.6 | 11 | TechDebt | Low | TBD | Open | Consider moving complex Javascript snippets from Python strings to separate .js files. |
 | 2025-11-22 | 11.8 | 11 | Bug | High | TBD | Closed | Update `capsule/core/merger.py` to include `dashboard_metadata`, `capsule_id`, `version`, `created`, `updated` in `section_level_merge` (or add specific dashboard merge logic) (AC #3). |
+| 2025-11-22 | 13.1 | 13 | TechDebt | Low | TBD | Open | Consider adding more integration tests for different error scenarios in other commands. |
 | 2025-11-22 | 11.8 | 11 | Test | Medium | TBD | Closed | Add a test case in `tests/test_core/test_dashboard_generation.py` that specifically verifies `dashboard_metadata` is updated when merging an existing dashboard (AC #3). |
+| 2025-11-23 | 13.4 | 13 | TechDebt | Low | TBD | Open | Consider consolidating backup creation logic between `capsule/commands/import_cmd.py` and `capsule/core/importer.py` to avoid duplication. |
+
 
 
 

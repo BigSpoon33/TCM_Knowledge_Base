@@ -49,7 +49,8 @@ def test_import_dry_run(mock_importer, mock_config, mock_preview, tmp_path):
 
     assert result.exit_code == 0
     assert "[Dry Run]" in result.stdout
-    mock_importer.execute_import.assert_not_called()
+    # In the new implementation, execute_import IS called (to handle dry run logic internally)
+    mock_importer.execute_import.assert_called_once()
 
 
 def test_import_yes(mock_importer, mock_config, mock_preview, tmp_path):

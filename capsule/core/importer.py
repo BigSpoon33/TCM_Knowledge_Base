@@ -18,6 +18,7 @@ from rich.table import Table
 
 from capsule.core.merger import merge_notes
 from capsule.core.validator import Validator
+from capsule.exceptions import CapsuleError, ConfigError, FileError, ValidationError
 from capsule.models.capsule import Capsule
 from capsule.models.config import Config
 from capsule.models.cypher import CapsuleCypher
@@ -25,6 +26,7 @@ from capsule.models.note import Note
 from capsule.utils import dataview_queries
 from capsule.utils.backup import create_backup
 from capsule.utils.versioning import compare_versions
+from capsule.utils.file_ops import FileOps
 from capsule.utils.yaml_handler import YAMLHandler
 
 
@@ -93,14 +95,17 @@ class Importer:
         - Creates backups before modifying the vault.
     """
 
-    def __init__(self, config: Config):
+    def __init__(self, config: Config, dry_run: bool = False):
         """
         Initialize importer with user configuration.
 
         Args:
             config: User configuration containing vault path and settings
+            dry_run: If True, simulate operations without modifying vault
         """
         self.config = config
+        self.dry_run = dry_run
+        self.file_ops = FileOps(dry_run=dry_run)
         self.console = Console()
         self.extracted_path: Path | None = None
         self.temp_dir: str | None = None
@@ -115,15 +120,18 @@ class Importer:
             no_backup: If True, skips the backup process
 
         Raises:
-            ValueError: If vault path is not configured
-            FileNotFoundError: If capsule path doesn't exist
+            ConfigError: If vault path is not configured
+            FileError: If capsule path doesn't exist
         """
         # Create backup if requested
         backup_path = None
-        if not no_backup:
+        if not no_backup and not self.dry_run:
             vault_path_str = self.config.get("user.vault_path")
             if not vault_path_str:
-                raise ValueError("Vault path is not set in the configuration.")
+                raise ConfigError(
+                    "Vault path is not set in the configuration.",
+                    hint="Run 'capsule config --vault-path <path>' to set it.",
+                )
             vault_path = Path(vault_path_str)
 
             backup_dir_str = self.config.get("import.backup_location", str(Path.home() / ".capsule" / "backups"))
@@ -132,6 +140,8 @@ class Importer:
             typer.echo("Creating vault backup...")
             backup_path = create_backup(vault_path, backup_dir)
             typer.echo(f"Backup created at: {backup_path}")
+        elif self.dry_run and not no_backup:
+            typer.echo("[DRY RUN] Would create vault backup")
 
         try:
             # Extract capsule (handles both zip and folder)
@@ -158,10 +168,12 @@ class Importer:
             typer.echo("=" * 50)
 
         except Exception as e:
-            typer.secho(f"❌ Error during import: {e}", fg=typer.colors.RED)
             if backup_path:
                 typer.echo(f"Your vault has been backed up at: {backup_path}")
-            raise typer.Exit(code=1)
+
+            if isinstance(e, CapsuleError):
+                raise e
+            raise CapsuleError(f"Error during import: {e}") from e
         finally:
             # Clean up temporary extraction directory
             self.cleanup()
@@ -178,12 +190,12 @@ class Importer:
             capsule_path: Path to .capsule zip file or capsule folder
 
         Raises:
-            FileNotFoundError: If capsule path doesn't exist
+            FileError: If capsule path doesn't exist
             zipfile.BadZipFile: If zip file is corrupted
-            ValueError: If path traversal is detected
+            ValidationError: If path traversal is detected
         """
         if not capsule_path.exists():
-            raise FileNotFoundError(f"Capsule not found: {capsule_path}")
+            raise FileError(f"Capsule not found: {capsule_path}")
 
         if capsule_path.is_dir():
             # Already a directory, use it directly
@@ -202,7 +214,10 @@ class Importer:
                     try:
                         member_path.relative_to(extract_to.resolve())
                     except ValueError:
-                        raise ValueError(f"Path traversal detected in archive: {member}")
+                        raise ValidationError(
+                            f"Path traversal detected in archive: {member}",
+                            hint="The capsule archive contains malicious paths.",
+                        )
 
                 zip_ref.extractall(extract_to)
 
@@ -210,7 +225,10 @@ class Importer:
             # Look for capsule-cypher.yaml in extracted contents
             cypher_candidates = list(extract_to.rglob("capsule-cypher.yaml"))
             if not cypher_candidates:
-                raise FileNotFoundError(f"No capsule-cypher.yaml found in archive: {capsule_path}")
+                raise ValidationError(
+                    f"No capsule-cypher.yaml found in archive: {capsule_path}",
+                    hint="Ensure the archive is a valid capsule.",
+                )
 
             self.extracted_path = cypher_candidates[0].parent
             typer.echo(f"Capsule extracted to: {self.extracted_path}")
@@ -220,15 +238,15 @@ class Importer:
         Load and parse the capsule-cypher.yaml file.
 
         Raises:
-            FileNotFoundError: If cypher file doesn't exist
-            ValueError: If cypher structure is invalid
+            FileError: If cypher file doesn't exist
+            ValidationError: If cypher structure is invalid
         """
         if not self.extracted_path:
-            raise ValueError("Capsule must be extracted before loading cypher")
+            raise ValidationError("Capsule must be extracted before loading cypher")
 
         cypher_path = self.extracted_path / "capsule-cypher.yaml"
         if not cypher_path.exists():
-            raise FileNotFoundError(f"capsule-cypher.yaml not found in {self.extracted_path}")
+            raise FileError(f"capsule-cypher.yaml not found in {self.extracted_path}")
 
         typer.echo("Loading capsule cypher...")
         cypher_data = YAMLHandler.read(cypher_path)
@@ -240,10 +258,10 @@ class Importer:
         Validate capsule structure using existing Validator.
 
         Raises:
-            ValueError: If validation fails
+            ValidationError: If validation fails
         """
         if not self.extracted_path:
-            raise ValueError("Capsule must be extracted before validation")
+            raise ValidationError("Capsule must be extracted before validation")
 
         typer.echo("Validating capsule structure...")
         validator = Validator(self.extracted_path)
@@ -267,7 +285,7 @@ class Importer:
             ImportPreview object with analysis results
         """
         if not self.cypher or not self.extracted_path:
-            raise ValueError("Cypher must be loaded before impact analysis")
+            raise ValidationError("Cypher must be loaded before impact analysis")
 
         typer.echo("Analyzing impact on vault...")
 
@@ -642,10 +660,11 @@ class Importer:
             dst = vault_path / rel_path
 
             # Ensure parent dir exists
-            dst.parent.mkdir(parents=True, exist_ok=True)
+            self.file_ops.mkdir(dst.parent, parents=True, exist_ok=True)
 
-            shutil.copy2(src, dst)
-            typer.echo(f"Created: {rel_path}")
+            self.file_ops.copy(src, dst)
+            if not self.dry_run:
+                typer.echo(f"Created: {rel_path}")
 
         # Handle Updates
         for update in preview.updates:
@@ -656,8 +675,9 @@ class Importer:
             elif update.strategy == "replace":
                 src = self.extracted_path / update.file
                 dst = vault_path / update.file
-                shutil.copy2(src, dst)
-                typer.echo(f"Updated (Replaced): {update.file}")
+                self.file_ops.copy(src, dst)
+                if not self.dry_run:
+                    typer.echo(f"Updated (Replaced): {update.file}")
 
         # Generate Dashboards
         typer.echo("\nGenerating dashboards...")
@@ -670,7 +690,10 @@ class Importer:
         )
         self.generate_dashboards(capsule, vault_path)
 
-        typer.secho("\n✅ Import execution completed.", fg=typer.colors.GREEN)
+        if self.dry_run:
+            typer.secho("\n✅ Dry run complete! No files were modified.", fg=typer.colors.YELLOW)
+        else:
+            typer.secho("\n✅ Import execution completed.", fg=typer.colors.GREEN)
 
     def generate_dashboards(self, capsule: Capsule, vault_path: Path) -> list[Path]:
         """
@@ -708,10 +731,10 @@ class Importer:
 
             # Write capsule dashboard
             capsule_dir = vault_path / capsule.capsule_id
-            capsule_dir.mkdir(parents=True, exist_ok=True)
+            self.file_ops.mkdir(capsule_dir, parents=True, exist_ok=True)
             capsule_dashboard_path = capsule_dir / "capsule-dashboard.md"
 
-            if capsule_dashboard_path.exists():
+            if capsule_dashboard_path.exists() and not self.dry_run:
                 # Merge with existing dashboard
                 # Parse generated content to create Note object
                 post = frontmatter.loads(capsule_dashboard_content)
@@ -725,10 +748,13 @@ class Importer:
                 merged_note = merge_notes(existing_note, new_note, capsule.capsule_id)
                 merged_note.to_file(str(capsule_dashboard_path))
                 typer.echo(f"Updated capsule dashboard (merged): {capsule_dashboard_path}")
+            elif capsule_dashboard_path.exists() and self.dry_run:
+                typer.echo(f"[DRY RUN] Would update capsule dashboard (merged): {capsule_dashboard_path}")
             else:
                 # Write new dashboard
-                capsule_dashboard_path.write_text(capsule_dashboard_content, encoding="utf-8")
-                typer.echo(f"Generated capsule dashboard: {capsule_dashboard_path}")
+                self.file_ops.write_text(capsule_dashboard_path, capsule_dashboard_content, encoding="utf-8")
+                if not self.dry_run:
+                    typer.echo(f"Generated capsule dashboard: {capsule_dashboard_path}")
 
             generated_files.append(capsule_dashboard_path)
 
@@ -737,9 +763,10 @@ class Importer:
             if not master_dashboard_path.exists():
                 master_template = env.get_template("master-dashboard.md.j2")
                 master_content = master_template.render(dv=dataview_queries)
-                master_dashboard_path.write_text(master_content, encoding="utf-8")
+                self.file_ops.write_text(master_dashboard_path, master_content, encoding="utf-8")
                 generated_files.append(master_dashboard_path)
-                typer.echo(f"Generated master dashboard: {master_dashboard_path}")
+                if not self.dry_run:
+                    typer.echo(f"Generated master dashboard: {master_dashboard_path}")
             else:
                 typer.echo(f"Master dashboard already exists: {master_dashboard_path}")
 
@@ -747,7 +774,7 @@ class Importer:
             typer.echo(f"Error generating dashboards: {e}")
             # Cleanup any dashboards generated before failure
             for f in generated_files:
-                if f.exists():
+                if f.exists() and not self.dry_run:
                     try:
                         f.unlink()
                         typer.echo(f"Rolled back: {f}")

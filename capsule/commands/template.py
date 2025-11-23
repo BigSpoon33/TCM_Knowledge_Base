@@ -8,13 +8,23 @@ from rich.table import Table
 
 from capsule.models.template import TemplateSchema
 
-app = typer.Typer()
+app = typer.Typer(help="Manage Jinja2 templates for content generation.", rich_markup_mode="rich")
 
 
-@app.command("list")
+@app.command(
+    "list",
+    epilog="""
+[bold]Examples:[/bold]
+
+  [green]# List all available templates[/green]
+  capsule template list
+""",
+)
 def list_templates():
     """
     List all available templates.
+
+    Displays a table of installed templates with their names and domains.
     """
     try:
         template_dir = Path("capsule/templates")
@@ -54,15 +64,36 @@ def list_templates():
         raise typer.Exit(code=1)
 
 
-@app.command()
+@app.command(
+    epilog="""
+[bold]Examples:[/bold]
+
+  [green]# Create a basic template[/green]
+  capsule template create my_template
+
+  [green]# Create a template with frontmatter fields[/green]
+  capsule template create study_note --fields "tags,status,priority"
+
+  [green]# Overwrite an existing template[/green]
+  capsule template create my_template --force
+"""
+)
 def create(
     name: str = typer.Argument(..., help="The name of the new template"),
-    fields: str = typer.Option(None, "--fields", "-f", help="A comma-separated list of frontmatter fields"),
-    domain: str = typer.Option("custom", "--domain", "-d", help="The domain of the template"),
-    force: bool = typer.Option(False, "--force", help="Overwrite the template if it already exists"),
+    fields: str = typer.Option(
+        None, "--fields", "-f", help="A comma-separated list of frontmatter fields", rich_help_panel="Template Options"
+    ),
+    domain: str = typer.Option(
+        "custom", "--domain", "-d", help="The domain of the template", rich_help_panel="Template Options"
+    ),
+    force: bool = typer.Option(
+        False, "--force", help="Overwrite the template if it already exists", rich_help_panel="Template Options"
+    ),
 ):
     """
     Create a new template for content generation.
+
+    Generates a new Jinja2 template file with optional frontmatter fields.
     """
     try:
         template_dir = Path("capsule/templates")
@@ -92,7 +123,14 @@ def create(
         raise typer.Exit(code=1)
 
 
-@app.command()
+@app.command(
+    epilog="""
+[bold]Examples:[/bold]
+
+  [green]# Validate a template schema file[/green]
+  capsule template validate ./schemas/my_schema.yaml
+"""
+)
 def validate(
     filepath: Path = typer.Argument(
         ..., help="Path to the template schema YAML file", exists=True, readable=True, resolve_path=True
@@ -100,6 +138,8 @@ def validate(
 ):
     """
     Validate a template schema file.
+
+    Checks if the provided YAML file conforms to the TemplateSchema definition.
     """
     try:
         yaml = ruamel.yaml.YAML()

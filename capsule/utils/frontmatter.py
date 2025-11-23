@@ -6,6 +6,8 @@ from typing import Any
 from ruamel.yaml import YAML
 from ruamel.yaml.error import YAMLError
 
+from capsule.exceptions import FileError, ValidationError
+
 
 class FrontmatterHandler:
     """
@@ -50,7 +52,7 @@ class FrontmatterHandler:
                 if self._frontmatter_data is None:
                     self._frontmatter_data = self.yaml.load("{}")
             except YAMLError as e:
-                raise ValueError(f"Invalid YAML frontmatter: {e}")
+                raise ValidationError(f"Invalid YAML frontmatter: {e}")
         else:
             self._has_frontmatter = False
             self._frontmatter_data = self.yaml.load("{}")
@@ -59,7 +61,7 @@ class FrontmatterHandler:
     def load(self, file_path: Path) -> "FrontmatterHandler":
         """Load content from a file."""
         if not file_path.exists():
-            raise FileNotFoundError(f"File not found: {file_path}")
+            raise FileError(f"File not found: {file_path}")
 
         content = file_path.read_text(encoding="utf-8")
         self._parse(content)

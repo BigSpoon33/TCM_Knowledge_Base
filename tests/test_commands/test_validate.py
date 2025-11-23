@@ -4,6 +4,7 @@ import pytest
 from typer.testing import CliRunner
 
 from capsule.cli import app
+from capsule.exceptions import FileError, ValidationError
 
 runner = CliRunner()
 
@@ -38,7 +39,7 @@ def test_validate_command_failure(mock_validator, tmp_path):
     """Test that the validate command handles validation errors correctly."""
     # Setup mock
     instance = mock_validator.return_value
-    instance.validate_capsule.side_effect = ValueError("Missing required field")
+    instance.validate_capsule.side_effect = ValidationError("Missing required field")
 
     # Create a dummy directory so Typer validation passes
     dummy_dir = tmp_path / "dummy"
@@ -57,7 +58,7 @@ def test_validate_command_file_not_found(mock_validator, tmp_path):
     """Test that the validate command handles FileNotFoundError correctly."""
     # Setup mock
     instance = mock_validator.return_value
-    instance.validate_capsule.side_effect = FileNotFoundError("File not found")
+    instance.validate_capsule.side_effect = FileError("File not found")
 
     # Create a dummy directory so Typer validation passes
     dummy_dir = tmp_path / "dummy"

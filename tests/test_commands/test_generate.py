@@ -45,8 +45,12 @@ def test_generate_command_success(mock_config, mock_researcher, mock_generator):
     mock_generator.generate.assert_called_once()
 
 
-def test_generate_command_dry_run(mock_generator):
+def test_generate_command_dry_run(mock_config, mock_researcher, mock_generator):
     result = runner.invoke(app, ["generate", "test topic", "--dry-run"])
+    if result.exit_code != 0:
+        print(f"Output: {result.stdout}")
+        print(f"Exception: {result.exception}")
     assert result.exit_code == 0
-    assert "Would generate capsule about: test topic" in result.stdout
-    mock_generator.generate.assert_not_called()
+    assert "[DRY RUN] Would generate capsule about: test topic" in result.stdout
+    # In the new implementation, generate IS called (to prepare content), but file writing is skipped/mocked via FileOps
+    mock_generator.generate.assert_called_once()

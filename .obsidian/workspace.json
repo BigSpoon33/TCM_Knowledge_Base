@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Student Dashboard.md",
+                "file": "TCM_Formulas/Dashboard-TCM-Formulas.md",
                 "mode": "preview",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Student Dashboard"
+              "title": "Dashboard-TCM-Formulas"
             }
           },
           {
@@ -140,13 +140,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Student Dashboard.md",
+                "file": "TCM_Formulas/Dashboard-TCM-Formulas.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of Student Dashboard"
+              "title": "Outline of Dashboard-TCM-Formulas"
             }
           },
           {
@@ -286,7 +286,7 @@
             "state": {
               "type": "localgraph",
               "state": {
-                "file": "Student Dashboard.md",
+                "file": "TCM_Formulas/Dashboard-TCM-Formulas.md",
                 "options": {
                   "collapse-filter": true,
                   "search": "",
@@ -350,7 +350,7 @@
                 }
               },
               "icon": "lucide-git-fork",
-              "title": "Graph of Student Dashboard"
+              "title": "Graph of Dashboard-TCM-Formulas"
             }
           }
         ]
@@ -375,42 +375,41 @@
   },
   "active": "5cc4162e37f43eb9",
   "lastOpenFiles": [
-    "tests/test_commands/__pycache__/test_status.cpython-313-pytest-8.4.2.pyc",
-    "tests/test_commands/__pycache__/test_list.cpython-313-pytest-8.4.2.pyc",
-    "tests/test_commands/__pycache__/test_export_e2e.cpython-313-pytest-8.4.2.pyc",
-    "tests/test_commands/test_status.py",
-    "tests/test_commands/test_list.py",
-    "tests/test_commands/test_export_e2e.py",
-    "tests/test_commands/test_export.py",
+    "temp_templates/quiz.md.j2",
+    "temp_templates/flashcards.md.j2",
     "temp_templates",
-    "tests/test_core/test_packager.py",
-    "capsule/core/__pycache__/importer.cpython-313.pyc.140230813122928",
-    "capsule/core/__pycache__/importer.cpython-313.pyc.140331671591216",
-    "docs/sprint-artifacts/stories/11-8-dashboard-generation-during-import.md",
-    "docs/sprint-artifacts/11-8-dashboard-generation-during-import.md",
-    "docs/guides/domain_specific_dashboard_sections.md",
-    "docs/sprint-artifacts/11-7-domain-specific-dashboard-sections.md",
-    "docs/sprint-artifacts/11-6-completion-report.md",
-    "tests/fixtures/sample_notes/formula_2.md",
-    "tests/fixtures/sample_notes/formula_1.md",
-    "docs/guides/filtered_view_example.md",
-    "docs/sprint-artifacts/validation-report-11-6-advanced-filtering-heading-extraction.md",
-    "docs/sprint-artifacts/validation-report-20251122-11-6.md",
-    "docs/guides/dataview_query_library.md",
-    "docs/sprint-artifacts/11-6-advanced-filtering-heading-extraction.md",
-    "docs/sprint-artifacts/11-5-dataview-query-pattern-library.md",
-    "docs/sprint-artifacts/11-4-completion-report.md",
-    "docs/sprint-artifacts/11-4-progress-tracking-tasknotes-integration.md",
-    "docs/sprint-artifacts/11-3-capsule-dashboard-template-core-structure.md",
-    "docs/sprint-artifacts/11-2-master-dashboard-template-with-filtering.md",
-    "tests/fixtures/dashboard_schema_test_plan.md",
-    "tests/fixtures/sample_capsule_dashboard.md",
-    "docs/sprint-artifacts/11-1-capsule-dashboard-metadata-schema.md",
-    "docs/sprint-artifacts/11-0-dataview-spike-poc.md",
-    "docs/sprint-artifacts/tech-spec-epic-11.md",
-    "docs/sprint-artifacts/validation-report-20251122.md",
-    "docs/sprint-artifacts/11-0-dataview-dataviewjs-technical-spike.md",
-    "docs/sprint-artifacts/epic-10-retro-2025-11-22.md",
+    "test_vault/Capsules/Test_Topic/Test_Topic_Tasks.md",
+    "test_vault/Capsules/Test_Topic/Test_Topic_Study_Material.md",
+    "test_vault/Capsules/Test_Topic/Test_Topic_Slides.md",
+    "test_vault/Capsules/Test_Topic/Test_Topic_Quiz.md",
+    "test_vault/Capsules/Test_Topic/Test_Topic_Guided_Conversation.md",
+    "test_vault/Capsules/Test_Topic/Test_Topic_Flashcards.md",
+    "test_vault/Capsules/Test_Topic/Root_Note_Test_Topic.md",
+    "test_vault/Capsules/Test_Topic",
+    "test_vault/Capsules",
+    "test_vault",
+    "test_output/Test_Topic/Test_Topic_Tasks.md",
+    "test_output/Test_Topic/Test_Topic_Study_Material.md",
+    "test_output/Test_Topic/Test_Topic_Slides.md",
+    "test_output/Test_Topic/Test_Topic_Quiz.md",
+    "test_output/Test_Topic/Test_Topic_Guided_Conversation.md",
+    "test_output/Test_Topic/Test_Topic_Flashcards.md",
+    "test_output/Test_Topic/Root_Note_Test_Topic.md",
+    "test_output/Test_Topic",
+    "test_output",
+    "docs/sprint-artifacts/epic-14-prep-plan.md",
+    "docs/sprint-artifacts/epic-13-retro-2025-11-23.md",
+    "tests/__pycache__/test_cli_help.cpython-313-pytest-8.4.2.pyc",
+    "tests/test_cli_help.py",
+    "docs/sprint-artifacts/13-5-help-documentation-and-examples.md",
+    "docs/sprint-artifacts/validation-report-2025-11-23.md",
+    "docs/sprint-artifacts/validation-report-13-4.md",
+    "docs/sprint-artifacts/13-4-dry-run-mode-implementation.md",
+    "docs/sprint-artifacts/13-3-progress-indicators-rich-integration.md",
+    "docs/sprint-artifacts/13-2-logging-system-setup.md",
+    "docs/sprint-artifacts/13-1-error-handling-system.md",
+    "docs/sprint-artifacts/tech-spec-epic-13.md",
+    "docs/sprint-artifacts/epic-12-retro-2025-11-22.md",
     "test_capsule/media/image.png",
     "TCM_Points_Images/ST-9_header.png",
     "TCM_Points_Images/ST-9_diagram.jpg",

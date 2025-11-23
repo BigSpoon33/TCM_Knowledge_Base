@@ -1,4 +1,7 @@
 from ..core.researcher import ResearchProvider
+from ..utils.logger import get_logger
+
+logger = get_logger(__name__)
 
 
 class SlidesGenerator:
@@ -9,7 +12,7 @@ class SlidesGenerator:
 
     def generate_from_content(self, content: str, topic: str, theme: str = "black") -> str:
         """Generates slide deck markdown from the body of a root note."""
-        print(f"🎬 Generating slide deck for '{topic}' using AI...")
+        logger.info(f"Generating slide deck for '{topic}' using AI...")
 
         prompt = f"""
         Based on the following content about "{topic}", create a professional presentation slide deck using Advanced Slides markdown format.
@@ -72,7 +75,7 @@ tags:
 
     def generate_pattern_slides(self, content: str, pattern_name: str) -> str:
         """Specialized slide generation for TCM patterns."""
-        print(f"🎬 Generating TCM pattern slides for '{pattern_name}'...")
+        logger.info(f"Generating TCM pattern slides for '{pattern_name}'...")
 
         prompt = f"""
         Create a professional TCM pattern presentation for "{pattern_name}" using Advanced Slides format.

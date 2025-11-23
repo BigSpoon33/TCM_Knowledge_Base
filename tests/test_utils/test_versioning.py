@@ -1,5 +1,6 @@
 import pytest
 
+from capsule.exceptions import ValidationError
 from capsule.utils.versioning import compare_versions
 
 
@@ -25,7 +26,7 @@ class TestVersioning:
 
     def test_compare_versions_invalid(self):
         """Test invalid versions"""
-        with pytest.raises(ValueError):
+        with pytest.raises(ValidationError):
             compare_versions("invalid", "1.0.0")
-        with pytest.raises(ValueError):
+        with pytest.raises(ValidationError):
             compare_versions("1.0.0", "invalid")
