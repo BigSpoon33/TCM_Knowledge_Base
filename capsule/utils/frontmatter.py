@@ -1,7 +1,7 @@
 import re
 from io import StringIO
 from pathlib import Path
-from typing import Any, Dict, Optional, Union
+from typing import Any
 
 from ruamel.yaml import YAML
 from ruamel.yaml.error import YAMLError
@@ -103,7 +103,7 @@ class FrontmatterHandler:
         """Get the body content."""
         return self._body
 
-    def set_frontmatter(self, data: Union[Dict, Any]):
+    def set_frontmatter(self, data: dict | Any):
         """Set the frontmatter data."""
         self._frontmatter_data = data
         self._has_frontmatter = True

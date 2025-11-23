@@ -1,8 +1,12 @@
-import typer
 from pathlib import Path
+
 import frontmatter
+import ruamel.yaml
+import typer
 from rich.console import Console
 from rich.table import Table
+
+from capsule.models.template import TemplateSchema
 
 app = typer.Typer()
 
@@ -83,6 +87,55 @@ def create(
 
         typer.secho(f"✅ Template '{name}' created successfully at {template_file}", fg=typer.colors.GREEN)
 
+    except Exception as e:
+        typer.secho(f"❌ Error: {str(e)}", fg=typer.colors.RED, err=True)
+        raise typer.Exit(code=1)
+
+
+@app.command()
+def validate(
+    filepath: Path = typer.Argument(
+        ..., help="Path to the template schema YAML file", exists=True, readable=True, resolve_path=True
+    ),
+):
+    """
+    Validate a template schema file.
+    """
+    try:
+        yaml = ruamel.yaml.YAML()
+
+        # Load the file
+        with open(filepath, encoding="utf-8") as f:
+            data = yaml.load(f)
+
+        if not isinstance(data, dict):
+            typer.secho("❌ Error: Invalid YAML structure. Root must be a dictionary.", fg=typer.colors.RED)
+            raise typer.Exit(code=1)
+
+        # Validate required fields for TemplateSchema
+        required_fields = ["domain_type", "version"]
+        missing = [f for f in required_fields if f not in data]
+
+        if missing:
+            typer.secho(f"❌ Error: Missing required fields: {', '.join(missing)}", fg=typer.colors.RED)
+            raise typer.Exit(code=1)
+
+        # Try to instantiate TemplateSchema to check types and structure
+        try:
+            schema = TemplateSchema(**data)
+        except TypeError as e:
+            typer.secho(f"❌ Error: Schema validation failed. {str(e)}", fg=typer.colors.RED)
+            raise typer.Exit(code=1)
+        except Exception as e:
+            typer.secho(f"❌ Error: {str(e)}", fg=typer.colors.RED)
+            raise typer.Exit(code=1)
+
+        typer.secho(f"✅ Template schema '{filepath.name}' is valid.", fg=typer.colors.GREEN)
+        typer.echo(f"Domain: {schema.domain_type}")
+        typer.echo(f"Version: {schema.version}")
+
+    except typer.Exit:
+        raise
     except Exception as e:
         typer.secho(f"❌ Error: {str(e)}", fg=typer.colors.RED, err=True)
         raise typer.Exit(code=1)

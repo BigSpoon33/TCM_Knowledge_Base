@@ -1,10 +1,13 @@
+from pathlib import Path
+
 import typer
 from rich.progress import Progress, SpinnerColumn, TextColumn
-from capsule.models.config import Config
-from capsule.core.researcher import GeminiResearchProvider, DummyResearchProvider
-from capsule.utils.validation import Validator
+
+from capsule.constants import MATERIAL_CONFIG
 from capsule.core.generator import ContentGenerator
-from pathlib import Path
+from capsule.core.researcher import DummyResearchProvider, GeminiResearchProvider
+from capsule.models.config import Config
+from capsule.utils.validation import Validator
 
 
 def generate(
@@ -84,9 +87,6 @@ def generate(
             output_path = Path(output)
 
             # Create topic-specific folder if not already in one
-            # If output is ".", create "Topic_Name" folder
-            # If output is "Materials", create "Materials/Topic_Name"
-            # Unless the user explicitly pointed to a specific folder that ends with the topic name?
             # Let's follow the pattern: Output_Dir / Topic_Name / Files
 
             topic_folder_name = topic.replace(" ", "_")
@@ -96,20 +96,12 @@ def generate(
             for material_name, content in generated_capsule.items():
                 # generator.validator.validate(content) # Skip validation for now as it might be strict on frontmatter
 
-                # File naming convention: Topic_Name_MaterialType.md
-                # Exception: Root Note is usually Root_Note_Topic_Name.md
-
-                if material_name == "root_note":
-                    file_name = f"Root_Note_{topic_folder_name}.md"
-                elif material_name == "study_material":
-                    file_name = f"{topic_folder_name}_Study_Material.md"
-                elif material_name == "tasks":
-                    file_name = f"{topic_folder_name}_Tasks.md"
-                elif material_name == "guided_conversation" or material_name == "conversation":
-                    file_name = f"{topic_folder_name}_Guided_Conversation.md"
+                # Use centralized configuration for file naming
+                if material_name in MATERIAL_CONFIG:
+                    file_name_template = MATERIAL_CONFIG[material_name]["filename"]
+                    file_name = file_name_template.format(topic=topic_folder_name)
                 else:
-                    # Flashcards, Quiz, Slides
-                    # Capitalize material name for file: Topic_Name_Flashcards.md
+                    # Fallback for unknown materials
                     file_name = f"{topic_folder_name}_{material_name.capitalize()}.md"
 
                 file_path = final_output_path / file_name
@@ -119,7 +111,7 @@ def generate(
             progress.update(val_task, completed=True)
 
         # Success message
-        typer.secho(f"✅ Capsule generated successfully!", fg=typer.colors.GREEN)
+        typer.secho("✅ Capsule generated successfully!", fg=typer.colors.GREEN)
         typer.echo(f"Location: {final_output_path.resolve()}")
 
     except Exception as e:

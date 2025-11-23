@@ -1,13 +1,12 @@
 """Tests for the main CLI application and global options"""
 
-import pytest
-from typer.testing import CliRunner
-from pathlib import Path
-import tempfile
-import yaml
 
-from capsule.cli import app as cli_app
+import pytest
+import yaml
+from typer.testing import CliRunner
+
 from capsule import __version__
+from capsule.cli import app as cli_app
 
 
 @pytest.fixture
@@ -65,7 +64,6 @@ class TestVerboseOption:
 
     def test_verbose_enables_debug_logging(self, runner, caplog):
         """Test that --verbose flag enables DEBUG logging level"""
-        import logging
 
         # Run with verbose flag
         result = runner.invoke(cli_app, ["--verbose", "--help"])

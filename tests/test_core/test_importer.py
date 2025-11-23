@@ -1,18 +1,17 @@
 """Tests for capsule/core/importer.py"""
 
-import pytest
-from pathlib import Path
-import tempfile
-import zipfile
 import shutil
+import zipfile
+from pathlib import Path
+
+import pytest
 
 from capsule.core.importer import (
-    Importer,
-    ImportPreview,
     CapsuleInfo,
     Impact,
+    Importer,
+    ImportPreview,
     UpdateDetail,
-    ConflictDetail,
 )
 from capsule.models.config import Config
 
@@ -309,10 +308,11 @@ class TestAnalyzeImpact:
         vault_path = Path(mock_config.get("user.vault_path"))
         preview = importer.analyze_impact(vault_path)
 
-        assert preview.impact.new_files == 2
+        # 2 original files + 2 dashboards (capsule + master)
+        assert preview.impact.new_files == 4
         assert preview.impact.updated_files == 0
         assert preview.impact.conflicts == 0
-        assert len(preview.new_files) == 2
+        assert len(preview.new_files) == 4
 
     def test_analyze_with_existing_files(self, mock_config, sample_capsule_folder):
         """Test analysis when some files exist in vault"""
@@ -333,7 +333,8 @@ class TestAnalyzeImpact:
 
         preview = importer.analyze_impact(vault_path)
 
-        assert preview.impact.new_files == 1
+        # 1 new note + 2 dashboards = 3 new files
+        assert preview.impact.new_files == 3
         assert preview.impact.updated_files == 1
         assert preview.impact.conflicts == 0
 

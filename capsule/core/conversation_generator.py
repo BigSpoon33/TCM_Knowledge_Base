@@ -1,5 +1,5 @@
 import re
-from typing import List, Dict, Any
+
 from ..core.researcher import ResearchProvider
 from ..core.template_engine import TemplateEngine
 
@@ -73,7 +73,7 @@ This guided conversation will help you master {topic} through active recall and 
 """
         return script_content
 
-    def _extract_headings(self, content: str) -> List[Dict[str, str]]:
+    def _extract_headings(self, content: str) -> list[dict[str, str]]:
         """Extract headings and their content from markdown."""
         headings = []
         lines = content.split("\n")

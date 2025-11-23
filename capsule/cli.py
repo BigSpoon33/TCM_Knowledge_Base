@@ -1,11 +1,12 @@
 """Main CLI application using Typer framework"""
 
-import typer
 import logging
 from pathlib import Path
-from typing import Optional
+
+import typer
+
 from capsule import __version__
-from capsule.commands import generate, init, validate, export, import_cmd
+from capsule.commands import export, generate, import_cmd, init, status, template, validate
 
 app = typer.Typer(
     name="capsule",
@@ -14,10 +15,13 @@ app = typer.Typer(
 )
 
 app.command(name="generate")(generate.generate)
+app.command(name="init")(init.init)
 app.command(name="validate")(validate.validate)
+app.command(name="status")(status.status)
+app.command(name="list")(status.list_capsules)
 app.add_typer(export.app)
 app.add_typer(import_cmd.app)
-app.command()(init.init)
+app.add_typer(template.app, name="template")
 
 
 def version_callback(value: bool):
@@ -43,7 +47,7 @@ def cli_callback(
         "--verbose",
         help="Enable verbose output with detailed logging",
     ),
-    config_path: Optional[Path] = typer.Option(
+    config_path: Path | None = typer.Option(
         None,
         "--config-path",
         help="Path to custom configuration file",
@@ -62,13 +66,19 @@ def cli_callback(
     """
     # Configure logging based on verbose flag
     log_level = logging.DEBUG if verbose else logging.INFO
+
+    from rich.logging import RichHandler
+
     logging.basicConfig(
         level=log_level,
-        format="%(asctime)s - %(name)s - %(levelname)s - %(message)s",
-        datefmt="%Y-%m-%d %H:%M:%S",
+        format="%(message)s",
+        datefmt="[%X]",
+        handlers=[RichHandler(rich_tracebacks=True, markup=True)],
+        force=True,
     )
 
     # Store config_path and verbose flag in context for use by subcommands
+
     ctx.obj = {"config_path": config_path, "verbose": verbose}
 
 

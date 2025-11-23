@@ -1,0 +1,191 @@
+<story-context id="{bmad_folder}/bmm/workflows/4-implementation/story-context/template" v="1.0">
+  <metadata>
+    <epicId>10</epicId>
+    <storyId>1</storyId>
+    <title>validate-command-implementation</title>
+    <status>drafted</status>
+    <generatedAt>2025-11-22</generatedAt>
+    <generator>BMAD Story Context Workflow</generator>
+    <sourceStoryPath>docs/sprint-artifacts/10-1-validate-command-implementation.md</sourceStoryPath>
+  </metadata>
+
+  <story>
+    <asA>a developer</asA>
+    <iWant>to implement the `capsule validate` command</iWant>
+    <soThat>I can verify the integrity of a capsule</soThat>
+    <tasks>
+      - [ ] **Task 1 (AC: #1)**: Implement the `capsule validate` command in `capsule/commands/validate.py`.
+  - [ ] Subtask 1.1: Add the command to the main Typer app in `capsule/cli.py`.
+  - [ ] Subtask 1.2: Implement the command logic to call the `Validator` service.
+  - [ ] Subtask 1.3: Format the `ValidationResult` and print it to the console using `rich`.
+- [ ] **Task 2 (AC: #1, #2, #3)**: Write unit tests for the `validate` command.
+  - [ ] Subtask 2.1: Mock the `Validator` service to test the command's interaction with it.
+  - [ ] Subtask 2.2: Test that the command correctly formats and displays the validation result.
+- [ ] **Task 3 (AC: #2, #3)**: Write E2E tests for the `validate` command.
+  - [ ] Subtask 3.1: Create a valid fixture capsule.
+  - [ ] Subtask 3.2: Create an invalid fixture capsule.
+  - [ ] Subtask 3.3: Write a test that runs `capsule validate` on the valid fixture and asserts a zero exit code.
+  - [ ] Subtask 3.4: Write a test that runs `capsule validate` on the invalid fixture and asserts a non-zero exit code and correct error output.
+    </tasks>
+  </story>
+
+  <acceptanceCriteria>
+      1. **AC-10.1 (`validate`):** The `capsule validate <path>` command successfully invokes the core validation engine on the specified capsule path.
+2. **AC-10.2 (`validate`):** When validating a valid capsule, the command prints a success message and exits with status code 0.
+3. **AC-10.3 (`validate`):** When validating an invalid capsule, the command prints a formatted report of all errors and warnings and exits with a non-zero status code.
+    </acceptanceCriteria>
+
+  <artifacts>
+    <docs>
+      <doc>
+        <path>docs/architecture.md</path>
+        <title>Architecture Document</title>
+        <section>Complete Project Structure</section>
+        <snippet>
+          capsule/                          # Main package (renamed from src/capsule)
+          │   ├── commands/                     # CLI command implementations
+          │   │   ├── validate.py               # capsule validate
+          │   ├── core/                         # Core business logic
+          │   │   ├── validator.py              # Schema validation engine
+        </snippet>
+      </doc>
+      <doc>
+        <path>docs/architecture.md</path>
+        <title>Architecture Document</title>
+        <section>Epic Group 8: CLI Interface</section>
+        <snippet>
+          capsule/cli.py
+            └─ Main Typer app
+                ├─ Command registration
+        </snippet>
+      </doc>
+      <doc>
+        <path>docs/architecture.md</path>
+        <title>Architecture Document</title>
+        <section>CLI Command Structure Pattern</section>
+        <snippet>
+          import typer
+          from rich.progress import Progress, SpinnerColumn, TextColumn
+          from capsule.core.generator import ContentGenerator
+          from capsule.utils.progress import create_progress_bar
+
+          app = typer.Typer()
+
+          @app.command()
+          def generate(
+              ...
+          ):
+              """
+              ...
+              """
+              try:
+                  ...
+              except Exception as e:
+                  # Consistent error handling
+                  typer.secho(f"❌ Error: {str(e)}", fg=typer.colors.RED, err=True)
+                  raise typer.Exit(code=1)
+        </snippet>
+      </doc>
+      <doc>
+        <path>docs/epics.md</path>
+        <title>Project Epics</title>
+        <section>Epic 10: CLI Commands - Validation & Import/Export</section>
+        <snippet>
+          - **10-1-validate-command-implementation:** Implement the `capsule validate` command.
+        </snippet>
+      </doc>
+    </docs>
+    <code>
+      <code>
+        <path>capsule/core/validator.py</path>
+        <kind>service</kind>
+        <symbol>Validator</symbol>
+        <lines>6-107</lines>
+        <reason>Core validation engine to be invoked by the command.</reason>
+      </code>
+      <code>
+        <path>capsule/cli.py</path>
+        <kind>cli</kind>
+        <symbol>app</symbol>
+        <lines>10-21</lines>
+        <reason>Main Typer app where the new command needs to be registered.</reason>
+      </code>
+      <code>
+        <path>capsule/commands/validate.py</path>
+        <kind>command</kind>
+        <symbol>validate</symbol>
+        <lines>N/A</lines>
+        <reason>New file to be created for the command logic.</reason>
+      </code>
+      <code>
+        <path>tests/test_commands/test_validate.py</path>
+        <kind>test</kind>
+        <symbol>N/A</symbol>
+        <lines>N/A</lines>
+        <reason>New file for unit and E2E tests.</reason>
+      </code>
+    </code>
+    <dependencies>
+      <dependency>
+        <name>typer</name>
+        <version>latest</version>
+      </dependency>
+      <dependency>
+        <name>python-frontmatter</name>
+        <version>latest</version>
+      </dependency>
+      <dependency>
+        <name>click</name>
+        <version>>=8.0.0</version>
+      </dependency>
+      <dependency>
+        <name>rich</name>
+        <version>>=13.0.0</version>
+      </dependency>
+      <dependency>
+        <name>pyyaml</name>
+        <version>>=6.0</version>
+      </dependency>
+      <dependency>
+        <name>google-generativeai</name>
+        <version>>=0.3.0</version>
+      </dependency>
+      <dependency>
+        <name>questionary</name>
+        <version>>=2.0.0</version>
+      </dependency>
+      <dependency>
+        <name>ruamel.yaml</name>
+        <version>>=0.17.0</version>
+      </dependency>
+    </dependencies>
+  </artifacts>
+
+  <constraints>
+      - **Architecture:** Implement as a Typer command following the patterns in the architecture document. Use `rich` for all console output to ensure consistency.
+- **Error Handling:** Adhere to the established error handling pattern, using custom exceptions from `capsule.exceptions` and ensuring non-zero exit codes on failure.
+    </constraints>
+  <interfaces>
+      <interface>
+        <name>Validator.validate_capsule</name>
+        <kind>method</kind>
+        <signature>def validate_capsule(self):</signature>
+        <path>capsule/core/validator.py</path>
+      </interface>
+    </interfaces>
+  <tests>
+    <standards>
+      Write unit tests for the command function, mocking the `Validator` to isolate the CLI logic. Write end-to-end tests that execute the command against fixture capsules (one valid, one invalid) and assert the exit code and output.
+    </standards>
+    <locations>
+      - tests/test_commands/test_validate.py
+      - tests/fixtures/
+    </locations>
+    <ideas>
+      - **Unit Test (AC: #1)**: Mock the `Validator` service to test the command's interaction with it.
+      - **Unit Test (AC: #1, #2, #3)**: Test that the command correctly formats and displays the validation result.
+      - **E2E Test (AC: #2)**: Create a valid fixture capsule and assert a zero exit code.
+      - **E2E Test (AC: #3)**: Create an invalid fixture capsule and assert a non-zero exit code and correct error output.
+    </ideas>
+  </tests>
+</story-context>

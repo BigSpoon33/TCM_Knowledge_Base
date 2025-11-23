@@ -1,0 +1,137 @@
+<story-context id="{bmad_folder}/bmm/workflows/4-implementation/story-context/template" v="1.0">
+  <metadata>
+    <epicId>11</epicId>
+    <storyId>2</storyId>
+    <title>master-dashboard-template-with-filtering</title>
+    <status>drafted</status>
+    <generatedAt>2025-11-22</generatedAt>
+    <generator>BMAD Story Context Workflow</generator>
+    <sourceStoryPath>docs/sprint-artifacts/11-2-master-dashboard-template-with-filtering.md</sourceStoryPath>
+  </metadata>
+
+  <story>
+    <asA>a user</asA>
+    <iWant>a master dashboard with dynamic filtering capabilities</iWant>
+    <soThat>I can easily find and manage my capsules based on their metadata.</soThat>
+    <tasks>
+      - Task 1: Create Master Dashboard Template (AC: #1)
+        - Subtask 1.1: Create a new file `templates/master-dashboard-template.md`.
+        - Subtask 1.2: Add a header and basic structure to the template.
+      - Task 2: Implement Dataview Query (AC: #2)
+        - Subtask 2.1: Write a Dataview query to list all notes with `type: capsule-dashboard`.
+        - Subtask 2.2: Display the `capsule_id`, `version`, and metadata for each dashboard.
+      - Task 3: Implement Filtering Controls (AC: #3, #4)
+        - Subtask 3.1: Add input fields or dropdowns for `class`, `topic`, `category`, and `active` status.
+        - Subtask 3.2: Write DataviewJS code to filter the dashboard list based on the selected criteria.
+      - Task 4: Document the Dashboard (AC: #1)
+        - Subtask 4.1: Add a section to `docs/architecture.md` explaining how to use the master dashboard.
+        - Subtask 4.2: Include an example of the master dashboard in the documentation.
+    </tasks>
+  </story>
+
+  <acceptanceCriteria>
+      1. Create a master dashboard template file.
+      2. The dashboard must use Dataview queries to list all capsule dashboards.
+      3. The dashboard must provide filtering controls for `class`, `topic`, `category`, and `active` status.
+      4. The filtering logic should be implemented using DataviewJS.
+      5. The dashboard should display the `capsule_id`, `version`, and metadata for each listed capsule.
+    </acceptanceCriteria>
+
+  <artifacts>
+    <docs>
+      <doc>
+        <path>docs/architecture.md</path>
+        <title>Architecture Document</title>
+        <section>Epic Group 9: Dashboard Integration (FR59-FR65)</section>
+        <snippet>The Obsidian Capsule Delivery System architecture is built on a template-driven Python CLI framework...The system implements a section-level merge strategy for safe capsule imports and a universal frontmatter schema that enables cross-domain composability...</snippet>
+      </doc>
+      <doc>
+        <path>docs/epics.md</path>
+        <title>Project Epics</title>
+        <section>Epic 11: Dashboard Functionality (Core/Data Layer)</section>
+        <snippet>Hierarchical dashboard system with functional capabilities - get it working.</snippet>
+      </doc>
+      <doc>
+        <path>docs/sprint-artifacts/11-0-dataview-spike-poc.md</path>
+        <title>Dataview / DataviewJS Technical Spike - Proof of Concept</title>
+        <section>Executive Summary</section>
+        <snippet>This document contains the research findings and proof-of-concept implementations for using Dataview and DataviewJS to implement the dashboard feature requirements...</snippet>
+      </doc>
+      <doc>
+        <path>docs/sprint-artifacts/tech-spec-epic-11.md</path>
+        <title>Epic Technical Specification: Dashboard Functionality (Core/Data Layer)</title>
+        <section>Overview</section>
+        <snippet>Epic 11 implements a hierarchical dashboard navigation system for the Obsidian Capsule Delivery System, enabling users to manage and navigate multiple capsules within their vault.</snippet>
+      </doc>
+    </docs>
+    <code>
+      <code>
+        <path>capsule/core/template_engine.py</path>
+        <kind>Core Logic</kind>
+        <symbol>TemplateEngine</symbol>
+        <reason>This class is the core of the template system and will be used to generate the master dashboard.</reason>
+      </code>
+      <code>
+        <path>capsule/models/template.py</path>
+        <kind>Data Model</kind>
+        <symbol>TemplateSchema</symbol>
+        <reason>This class defines the schema for templates, which will be relevant for the new master dashboard template.</reason>
+      </code>
+      <code>
+        <path>capsule/templates/</path>
+        <kind>Directory</kind>
+        <symbol>N/A</symbol>
+        <reason>This directory contains all existing templates and is the location where the new master dashboard template will be created.</reason>
+      </code>
+    </code>
+    <dependencies>
+      <dependency>typer</dependency>
+      <dependency>python-frontmatter</dependency>
+      <dependency>click>=8.0.0</dependency>
+      <dependency>rich>=13.0.0</dependency>
+      <dependency>pyyaml>=6.0</dependency>
+      <dependency>google-generativeai>=0.3.0</dependency>
+      <dependency>questionary>=2.0.0</dependency>
+      <dependency>ruamel.yaml>=0.17.0</dependency>
+    </dependencies>
+  </artifacts>
+
+  <constraints>
+      - The primary architectural driver is the "Dashboard Integration" section of the architecture document.
+      - The requirements are derived from "Epic 11: Dashboard Functionality (Core/Data Layer)".
+      - A hybrid DQL/DataviewJS approach is recommended.
+      - Dataview performance should be considered.
+    </constraints>
+  <interfaces>
+      <interface>
+        <name>Dataview DQL</name>
+        <kind>Query Language</kind>
+        <signature>TABLE ... FROM ... WHERE ...</signature>
+        <path>docs/sprint-artifacts/11-0-dataview-spike-poc.md</path>
+      </interface>
+      <interface>
+        <name>DataviewJS API</name>
+        <kind>JavaScript API</kind>
+        <signature>dv.pages(...), dv.table(...)</signature>
+        <path>docs/sprint-artifacts/11-0-dataview-spike-poc.md</path>
+      </interface>
+    </interfaces>
+  <tests>
+    <standards>
+      - Testing Framework: pytest
+      - Test Pyramid: Unit Tests (80%), Integration Tests (15%), E2E Tests (5%)
+      - Test Organization: Tests live in `tests/` mirroring source structure.
+    </standards>
+    <locations>
+      - `tests/fixtures/sample_capsule_dashboard.md`
+      - `tests/fixtures/dashboard_schema_test_plan.md`
+    </locations>
+    <ideas>
+      - Verify that the master dashboard template is created correctly.
+      - Test that the Dataview query correctly lists all capsule dashboards.
+      - Test the filtering controls for `class`, `topic`, `category`, and `active` status.
+      - Verify that the DataviewJS code correctly filters the dashboard list.
+      - Test that the dashboard correctly displays the `capsule_id`, `version`, and metadata for each listed capsule.
+    </ideas>
+  </tests>
+</story-context>

@@ -12,8 +12,7 @@ console = Console()
 @app.command()
 def main():
     """Console script for obsidian_capsule_cli."""
-    console.print("Replace this message by putting your code into "
-               "obsidian_capsule_cli.cli.main")
+    console.print("Replace this message by putting your code into obsidian_capsule_cli.cli.main")
     console.print("See Typer documentation at https://typer.tiangolo.com/")
     utils.do_something_useful()
 

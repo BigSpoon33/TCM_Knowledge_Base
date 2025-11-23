@@ -1,4 +1,5 @@
 import pytest
+
 from capsule.utils.versioning import compare_versions
 
 

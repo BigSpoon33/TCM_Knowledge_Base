@@ -16,9 +16,9 @@ Features:
 import os
 import re
 import subprocess
-from pathlib import Path
-from typing import Dict, List, Optional, Tuple
 from dataclasses import dataclass
+from pathlib import Path
+
 import anthropic
 import google.generativeai as genai
 
@@ -26,9 +26,10 @@ import google.generativeai as genai
 @dataclass
 class Pattern:
     """Represents a TCM pattern extracted from the handbook"""
+
     name: str
-    cam_symptoms: List[str]  # Chinese Acupuncture Medicine column
-    fcm_symptoms: List[str]  # Foundations of Chinese Medicine column
+    cam_symptoms: list[str]  # Chinese Acupuncture Medicine column
+    fcm_symptoms: list[str]  # Foundations of Chinese Medicine column
     tongue: str
     pulse: str
     key_symptoms: str
@@ -59,7 +60,7 @@ class HBKimExtractor:
         gemini_api_key = os.getenv("GOOGLE_API_KEY")
         if gemini_api_key:
             genai.configure(api_key=gemini_api_key)
-            self.gemini_model = genai.GenerativeModel('gemini-1.5-flash')
+            self.gemini_model = genai.GenerativeModel("gemini-1.5-flash")
 
         # Auto-select provider
         if self.vision_provider == "auto":
@@ -84,15 +85,17 @@ class HBKimExtractor:
             result = subprocess.run(
                 [
                     "pdftotext",
-                    "-f", str(start_page),
-                    "-l", str(end_page),
+                    "-f",
+                    str(start_page),
+                    "-l",
+                    str(end_page),
                     "-layout",  # Preserve layout
                     str(self.pdf_path),
-                    "-"
+                    "-",
                 ],
                 capture_output=True,
                 text=True,
-                check=True
+                check=True,
             )
             return result.stdout
         except subprocess.CalledProcessError as e:
@@ -105,28 +108,30 @@ class HBKimExtractor:
             subprocess.run(
                 [
                     "convert",
-                    "-density", "300",  # High resolution
-                    f"{self.pdf_path}[{page_number-1}]",  # 0-indexed
-                    "-quality", "100",
-                    str(output_path)
+                    "-density",
+                    "300",  # High resolution
+                    f"{self.pdf_path}[{page_number - 1}]",  # 0-indexed
+                    "-quality",
+                    "100",
+                    str(output_path),
                 ],
                 check=True,
-                capture_output=True
+                capture_output=True,
             )
             return True
         except subprocess.CalledProcessError as e:
             print(f"❌ Error converting page to image: {e}")
             return False
 
-    def parse_pattern_section(self, text: str, page_num: int) -> List[Pattern]:
+    def parse_pattern_section(self, text: str, page_num: int) -> list[Pattern]:
         """Parse pattern differentiation sections from extracted text"""
         patterns = []
 
         # Find all pattern headers - they're ALL CAPS lines with specific keywords
         # Match indented or not, with optional (FCM ONLY) or other suffixes
-        pattern_regex = r'^\s*([A-Z][A-Z\s\-QLOI]+?(?:DEFICIENCY|STAGNATION|BLAZING|COLLAPSE|HEAT|COLD|WIND|DAMP|PHLEGM|YIN|YANG|QI|BLOOD))(?:\s*\([^)]+\))?\s*$'
+        pattern_regex = r"^\s*([A-Z][A-Z\s\-QLOI]+?(?:DEFICIENCY|STAGNATION|BLAZING|COLLAPSE|HEAT|COLD|WIND|DAMP|PHLEGM|YIN|YANG|QI|BLOOD))(?:\s*\([^)]+\))?\s*$"
 
-        lines = text.split('\n')
+        lines = text.split("\n")
         pattern_indices = []
 
         for i, line in enumerate(lines):
@@ -134,7 +139,7 @@ class HBKimExtractor:
             if match:
                 pattern_name = match.group(1).strip()
                 # Clean up OCR issues
-                pattern_name = pattern_name.replace('Ql', 'QI').replace('Sl', 'SI')
+                pattern_name = pattern_name.replace("Ql", "QI").replace("Sl", "SI")
                 pattern_indices.append((i, pattern_name))
 
         # Extract content between pattern headers
@@ -146,7 +151,7 @@ class HBKimExtractor:
             else:
                 end = len(lines)
 
-            content = '\n'.join(lines[start:end])
+            content = "\n".join(lines[start:end])
 
             # Must have either CAM/FCM markers OR tongue/pulse markers
             if not any(marker in content for marker in ["CAM", "FCM", "®", "①", "d)", "KEY SX", "Pale", "Thready"]):
@@ -161,7 +166,7 @@ class HBKimExtractor:
 
             # Split by CAM/FCM markers
             if "FCM" in content:
-                parts = re.split(r'\bFCM\b', content)
+                parts = re.split(r"\bFCM\b", content)
                 if len(parts) >= 2:
                     cam_section = parts[0]
                     fcm_section = parts[1]
@@ -171,44 +176,46 @@ class HBKimExtractor:
                     fcm_symptoms = self._extract_symptoms(fcm_section)
 
                     # Extract tongue (marked with ① or "d)")
-                    tongue_match = re.search(r'[①d]\)?\s*([^\n®]+)', fcm_section)
+                    tongue_match = re.search(r"[①d]\)?\s*([^\n®]+)", fcm_section)
                     if tongue_match:
                         tongue = tongue_match.group(1).strip()
 
                     # Extract pulse (marked with ® or "®")
-                    pulse_match = re.search(r'®\s*([^\n]+)', fcm_section)
+                    pulse_match = re.search(r"®\s*([^\n]+)", fcm_section)
                     if pulse_match:
                         pulse = pulse_match.group(1).strip()
 
                     # Extract KEY SX
-                    key_match = re.search(r'KEY SX:\s*([^\n]+)', fcm_section)
+                    key_match = re.search(r"KEY SX:\s*([^\n]+)", fcm_section)
                     if key_match:
                         key_sx = key_match.group(1).strip()
 
             if cam_symptoms or fcm_symptoms:
-                patterns.append(Pattern(
-                    name=pattern_name,
-                    cam_symptoms=cam_symptoms,
-                    fcm_symptoms=fcm_symptoms,
-                    tongue=tongue,
-                    pulse=pulse,
-                    key_symptoms=key_sx,
-                    page_number=page_num,
-                    raw_text=content[:500]  # First 500 chars for reference
-                ))
+                patterns.append(
+                    Pattern(
+                        name=pattern_name,
+                        cam_symptoms=cam_symptoms,
+                        fcm_symptoms=fcm_symptoms,
+                        tongue=tongue,
+                        pulse=pulse,
+                        key_symptoms=key_sx,
+                        page_number=page_num,
+                        raw_text=content[:500],  # First 500 chars for reference
+                    )
+                )
 
         return patterns
 
-    def _extract_symptoms(self, text: str) -> List[str]:
+    def _extract_symptoms(self, text: str) -> list[str]:
         """Extract symptom bullet points from text section"""
         symptoms = []
 
         # Look for bullet points or line-starting symptoms
-        lines = text.split('\n')
+        lines = text.split("\n")
         for line in lines:
             line = line.strip()
             # Skip markers and empty lines
-            if not line or line.startswith(('CAM', 'FCM', '®', '①', 'd)', 'KEY SX')):
+            if not line or line.startswith(("CAM", "FCM", "®", "①", "d)", "KEY SX")):
                 continue
             # Clean up and add
             if len(line) > 3 and len(line) < 300:
@@ -216,7 +223,7 @@ class HBKimExtractor:
 
         return symptoms
 
-    def extract_with_vision(self, page_number: int, extraction_prompt: str) -> Optional[str]:
+    def extract_with_vision(self, page_number: int, extraction_prompt: str) -> str | None:
         """Use vision model (Gemini or Claude) to extract from page image"""
         if not self.vision_provider:
             print("❌ Vision model not available")
@@ -243,12 +250,13 @@ class HBKimExtractor:
             if image_path.exists():
                 image_path.unlink()
 
-    def _extract_with_gemini(self, image_path: Path, prompt: str) -> Optional[str]:
+    def _extract_with_gemini(self, image_path: Path, prompt: str) -> str | None:
         """Extract using Google Gemini vision"""
-        print(f"🤖 Sending to Gemini vision model...")
+        print("🤖 Sending to Gemini vision model...")
 
         try:
             from PIL import Image
+
             image = Image.open(image_path)
 
             response = self.gemini_model.generate_content([prompt, image])
@@ -258,14 +266,15 @@ class HBKimExtractor:
             print(f"❌ Gemini error: {e}")
             return None
 
-    def _extract_with_claude(self, image_path: Path, prompt: str) -> Optional[str]:
+    def _extract_with_claude(self, image_path: Path, prompt: str) -> str | None:
         """Extract using Claude vision"""
-        print(f"🤖 Sending to Claude vision model...")
+        print("🤖 Sending to Claude vision model...")
 
         try:
             import base64
-            with open(image_path, 'rb') as f:
-                image_data = base64.standard_b64encode(f.read()).decode('utf-8')
+
+            with open(image_path, "rb") as f:
+                image_data = base64.standard_b64encode(f.read()).decode("utf-8")
 
             message = self.claude_client.messages.create(
                 model="claude-3-5-sonnet-20241022",
@@ -282,10 +291,7 @@ class HBKimExtractor:
                                     "data": image_data,
                                 },
                             },
-                            {
-                                "type": "text",
-                                "text": prompt
-                            }
+                            {"type": "text", "text": prompt},
                         ],
                     }
                 ],
@@ -299,9 +305,9 @@ class HBKimExtractor:
 
     def preview_pattern(self, pattern: Pattern) -> str:
         """Generate preview of extracted pattern"""
-        preview = f"\n{'='*80}\n"
+        preview = f"\n{'=' * 80}\n"
         preview += f"📋 {pattern.name} (Page {pattern.page_number})\n"
-        preview += f"{'='*80}\n\n"
+        preview += f"{'=' * 80}\n\n"
 
         preview += "**CAM Symptoms:**\n"
         for sx in pattern.cam_symptoms[:5]:  # Show first 5
@@ -354,20 +360,20 @@ class HBKimExtractor:
 
     def interactive_session(self):
         """Run interactive extraction session"""
-        print("\n" + "="*80)
+        print("\n" + "=" * 80)
         print("📖 HB KIM HANDBOOK INTERACTIVE EXTRACTOR")
-        print("="*80)
+        print("=" * 80)
         print("\nThis tool helps you extract pattern differentiation data")
         print("with human review at each step.\n")
 
         while True:
-            print("\n" + "-"*80)
+            print("\n" + "-" * 80)
             print("OPTIONS:")
             print("  1. Extract page range (text-based)")
             print("  2. Extract single page (vision model)")
             print("  3. View extraction history")
             print("  4. Exit")
-            print("-"*80)
+            print("-" * 80)
 
             choice = input("\nChoice (1-4): ").strip()
 
@@ -386,7 +392,7 @@ class HBKimExtractor:
     def _extract_page_range_interactive(self):
         """Interactive page range extraction"""
         print("\n📄 PAGE RANGE EXTRACTION")
-        print("-"*80)
+        print("-" * 80)
 
         # Get page range
         start = input("Start page: ").strip()
@@ -413,12 +419,12 @@ class HBKimExtractor:
         if not patterns:
             print("⚠️  No patterns found")
             print("\nRaw text preview (first 500 chars):")
-            print("-"*80)
+            print("-" * 80)
             print(text[:500])
-            print("-"*80)
+            print("-" * 80)
 
             use_vision = input("\nTry vision model instead? (y/n): ").strip().lower()
-            if use_vision == 'y':
+            if use_vision == "y":
                 for page in range(start_page, end_page + 1):
                     self._extract_single_page_vision(page)
             return
@@ -429,22 +435,24 @@ class HBKimExtractor:
         for i, pattern in enumerate(patterns, 1):
             print(self.preview_pattern(pattern))
 
-            action = input(f"\nPattern {i}/{len(patterns)} - (s)ave / (e)dit / (sk)ip / (v)ision / (q)uit: ").strip().lower()
+            action = (
+                input(f"\nPattern {i}/{len(patterns)} - (s)ave / (e)dit / (sk)ip / (v)ision / (q)uit: ").strip().lower()
+            )
 
-            if action == 's':
+            if action == "s":
                 self._save_pattern(pattern)
-            elif action == 'e':
+            elif action == "e":
                 self._edit_and_save_pattern(pattern)
-            elif action == 'v':
+            elif action == "v":
                 self._extract_single_page_vision(pattern.page_number)
-            elif action == 'q':
+            elif action == "q":
                 break
             # skip continues to next
 
     def _extract_page_vision_interactive(self):
         """Interactive single page vision extraction"""
         print("\n🖼️  VISION MODEL EXTRACTION")
-        print("-"*80)
+        print("-" * 80)
 
         page_num = input("Page number: ").strip()
         try:
@@ -457,7 +465,7 @@ class HBKimExtractor:
 
     def _extract_single_page_vision(self, page_number: int):
         """Extract single page using vision model"""
-        prompt = f"""Extract all TCM pattern differentiation information from this page.
+        prompt = """Extract all TCM pattern differentiation information from this page.
 
 For each pattern, provide:
 1. Pattern name
@@ -472,29 +480,29 @@ Format as markdown with clear sections. Be precise and include all details."""
         result = self.extract_with_vision(page_number, prompt)
 
         if result:
-            print("\n" + "="*80)
+            print("\n" + "=" * 80)
             print(f"VISION MODEL EXTRACTION - Page {page_number}")
-            print("="*80)
+            print("=" * 80)
             print(result)
-            print("="*80)
+            print("=" * 80)
 
             save = input("\nSave this extraction? (y/n): ").strip().lower()
-            if save == 'y':
+            if save == "y":
                 filename = input("Filename (without .md): ").strip()
                 output_path = self.output_dir / f"{filename}.md"
-                with open(output_path, 'w') as f:
+                with open(output_path, "w") as f:
                     f.write(result)
                     f.write(f"\n\n---\n*Extracted from page {page_number} using vision model*\n")
                 print(f"✅ Saved to {output_path}")
 
     def _save_pattern(self, pattern: Pattern):
         """Save pattern to markdown file"""
-        filename = pattern.name.lower().replace(' ', '_').replace('-', '_')
+        filename = pattern.name.lower().replace(" ", "_").replace("-", "_")
         output_path = self.output_dir / f"{filename}.md"
 
         md = self.pattern_to_markdown(pattern)
 
-        with open(output_path, 'w') as f:
+        with open(output_path, "w") as f:
             f.write(md)
 
         print(f"✅ Saved to {output_path}")
@@ -520,7 +528,7 @@ Format as markdown with clear sections. Be precise and include all details."""
             return
 
         print(f"\n📚 EXTRACTION HISTORY ({len(files)} files)")
-        print("-"*80)
+        print("-" * 80)
         for f in sorted(files):
             print(f"  • {f.name}")
 

@@ -135,50 +135,64 @@ development_status:
 
   # Epic 9: CLI Commands - Generation & Templates
   # Main CLI app, generate command, template management commands
-  epic-9: backlog
+  epic-9: done
   9-1-main-cli-app-typer-setup: done
-  9-2-generate-command-implementation: backlog
-  9-3-template-create-command: backlog
-  9-4-template-list-command: backlog
-  9-5-template-validate-command: backlog
-  epic-9-retrospective: optional
+  9-2-generate-command-implementation: done
+  9-3-template-create-command: done
+  9-4-template-list-command: done
+  9-5-template-validate-command: done
+  epic-9-retrospective: done
 
   # Epic 10: CLI Commands - Validation & Import/Export
   # Validate, export, import, status, list commands
-  epic-10: backlog
-  10-1-validate-command-implementation: backlog
-  10-2-export-command-implementation: backlog
-  10-3-import-command-implementation: backlog
-  10-4-status-command-implementation: backlog
-  10-5-list-command-implementation: backlog
-  epic-10-retrospective: optional
+  epic-10: done
+  10-1-validate-command-implementation: done
+  10-2-export-command-implementation: done
+  10-3-import-command-implementation: done
+  10-4-status-command-implementation: done
+  10-5-list-command-implementation: done
+  epic-10-retrospective: done
 
-  # Epic 11: Dashboard Integration & Templates
-  # Capsule/master dashboard templates, Dataview queries, dashboard generation
-  epic-11: backlog
-  11-1-capsule-dashboard-jinja2-template: backlog
-  11-2-master-dashboard-jinja2-template: backlog
-  11-3-dataview-query-patterns: backlog
-  11-4-dashboard-generation-during-import: backlog
-  11-5-domain-specific-dashboard-sections: backlog
+  # Epic 11: Dashboard Functionality (Core/Data Layer)
+  # Hierarchical dashboard system - functional capabilities (get it working)
+  # Split from original Epic 11 in retrospective (2025-11-22)
+  epic-11: contexted
+  11-0-dataview-dataviewjs-technical-spike: done
+  11-1-capsule-dashboard-metadata-schema: done
+  11-2-master-dashboard-template-with-filtering: done
+  11-3-capsule-dashboard-template-core-structure: done
+  11-4-progress-tracking-tasknotes-integration: done
+  11-5-dataview-query-pattern-library: done
+  11-6-advanced-filtering-heading-extraction: done
+  11-7-domain-specific-dashboard-sections: done
+  11-8-dashboard-generation-during-import: done
   epic-11-retrospective: optional
 
-  # Epic 12: Cross-Cutting Concerns & Polish
-  # Error handling, logging, progress indicators, dry-run mode, help docs
+  # Epic 12: Dashboard Polish & Interactivity (Presentation Layer)
+  # Visual design, CSS theming, interactive widgets (make it beautiful)
+  # Created from Epic 11 split in retrospective (2025-11-22)
   epic-12: backlog
-  12-1-error-handling-system: backlog
-  12-2-logging-system-setup: backlog
-  12-3-progress-indicators-rich-integration: backlog
-  12-4-dry-run-mode-implementation: backlog
-  12-5-help-documentation-and-examples: backlog
+  # Stories TBD after Epic 11 completion
   epic-12-retrospective: optional
 
-  # Epic 13: Testing Infrastructure
-  # Test framework, unit tests, integration tests, E2E tests, CI integration
+  # Epic 13: Cross-Cutting Concerns & Polish
+  # Error handling, logging, progress indicators, dry-run mode, help docs
+  # Renumbered from Epic 12 after dashboard split
   epic-13: backlog
-  13-1-pytest-configuration-and-fixtures: backlog
-  13-2-unit-tests-for-core-logic: backlog
-  13-3-integration-tests-for-commands: backlog
-  13-4-e2e-tests-for-full-workflows: backlog
-  13-5-test-coverage-and-ci-integration: backlog
+  13-1-error-handling-system: backlog
+  13-2-logging-system-setup: backlog
+  13-3-progress-indicators-rich-integration: backlog
+  13-4-dry-run-mode-implementation: backlog
+  13-5-help-documentation-and-examples: backlog
   epic-13-retrospective: optional
+
+  # Epic 14: Testing Infrastructure
+  # Test framework, unit tests, integration tests, E2E tests, CI integration
+  # Renumbered from Epic 13 after dashboard split
+  epic-14: backlog
+  14-1-pytest-configuration-and-fixtures: backlog
+  14-2-unit-tests-for-core-logic: backlog
+  14-3-integration-tests-for-commands: backlog
+  14-4-e2e-tests-for-full-workflows: backlog
+  14-5-test-coverage-and-ci-integration: backlog
+  epic-14-retrospective: optional

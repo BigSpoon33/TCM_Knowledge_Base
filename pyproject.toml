@@ -22,6 +22,10 @@ dependencies = [
   "google-generativeai>=0.3.0",
   "questionary>=2.0.0",
   "ruamel.yaml>=0.17.0",
+  "semver",
+  "jinja2",
+  "chardet",
+  "jsonschema",
 ]
 requires-python = ">= 3.10"
 

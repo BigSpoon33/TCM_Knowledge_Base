@@ -1,0 +1,145 @@
+<story-context id="{bmad_folder}/bmm/workflows/4-implementation/story-context/template" v="1.0">
+  <metadata>
+    <epicId>11</epicId>
+    <storyId>3</storyId>
+    <title>capsule-dashboard-template-core-structure</title>
+    <status>drafted</status>
+    <generatedAt>{{date}}</generatedAt>
+    <generator>BMAD Story Context Workflow</generator>
+    <sourceStoryPath>{{story_path}}</sourceStoryPath>
+  </metadata>
+
+  <story>
+    <asA>a user</asA>
+    <iWant>a capsule dashboard with metadata, navigation, and file counts</iWant>
+    <soThat>I can get a clear overview of the contents and status of each capsule</soThat>
+    <tasks>
+      - [ ] Task 1: Create Capsule Dashboard Template (AC: #1)
+          - [ ] Subtask 1.1: Create a new file `templates/capsule-dashboard-template.md`.
+          - [ ] Subtask 1.2: Add a header and basic structure to the template.
+      - [ ] Task 2: Display Capsule Metadata (AC: #2)
+          - [ ] Subtask 2.1: Add placeholders for `capsule_id`, `version`, `domain_type`, and `sequence_mode`.
+      - [ ] Task 3: Implement Navigation (AC: #3)
+          - [ ] Subtask 3.1: Add a link to the master dashboard.
+      - [ ] Task 4: Display File Counts (AC: #4)
+          - [ ] Subtask 4.1: Write a Dataview query to count the number of root notes.
+          - [ ] Subtask 4.2: Write a Dataview query to count the number of study materials.
+      - [ ] Task 5: List Root Notes and Study Materials (AC: #5, #6)
+          - [ ] Subtask 5.1: Write a Dataview query to list all root notes.
+          - [ ] Subtask 5.2: Write a Dataview query to list all study materials.
+      - [ ] Task 6: Add Tests
+          - [ ] Subtask 6.1: Add unit tests for the new template.
+    </tasks>
+  </story>
+
+  <acceptanceCriteria>
+    1. Create a capsule dashboard template file.
+    2. The dashboard must display the capsule's metadata (`capsule_id`, `version`, `domain_type`, `sequence_mode`).
+    3. The dashboard must provide quick links for navigation (e.g., back to the master dashboard).
+    4. The dashboard must display the total number of root notes and study materials.
+    5. The dashboard must list all root notes with their type, tags, and last updated date.
+    6. The dashboard must list all study materials (flashcards, quizzes).
+  </acceptanceCriteria>
+
+  <artifacts>
+    <docs>
+      <doc>
+        <path>docs/architecture.md</path>
+        <title>Architecture Document</title>
+        <section>Epic Group 9: Dashboard Integration (FR59-FR65)</section>
+        <snippet>The architecture for dashboard integration relies on Jinja2 templates for both individual capsule dashboards and a master dashboard for aggregation. It defines a standard metadata schema for dashboards to enable filtering and querying using Dataview and DataviewJS.</snippet>
+      </doc>
+      <doc>
+        <path>docs/epics.md</path>
+        <title>Project Epics</title>
+        <section>Epic 11: Dashboard Functionality (Core/Data Layer)</section>
+        <snippet>This epic covers the functional implementation of a hierarchical dashboard system, including the metadata schema, master and capsule dashboard templates, progress tracking, and Dataview query patterns. The goal is to create functional, navigable dashboards, with visual polish deferred to a later epic.</snippet>
+      </doc>
+      <doc>
+        <path>docs/sprint-artifacts/11-0-dataview-dataviewjs-technical-spike.md</path>
+        <title>Technical Spike: Dataview & DataviewJS</title>
+        <section>Feasibility Validation</section>
+        <snippet>The feasibility of querying the proposed schema fields has been validated in the technical spike.</snippet>
+      </doc>
+    </docs>
+<code>
+      <artifact>
+        <path>capsule/templates/master-dashboard.md.j2</path>
+        <kind>template</kind>
+        <symbol>master-dashboard</symbol>
+        <lines>N/A</lines>
+        <reason>Provides the architectural pattern and DataviewJS queries for the new capsule dashboard to follow.</reason>
+      </artifact>
+      <artifact>
+        <path>tests/fixtures/sample_capsule_dashboard.md</path>
+        <kind>fixture</kind>
+        <symbol>N/A</symbol>
+        <lines>N/A</lines>
+        <reason>Sample data that can be used for testing the new dashboard template.</reason>
+      </artifact>
+      <artifact>
+        <path>tests/fixtures/dashboard_schema_test_plan.md</path>
+        <kind>test_plan</kind>
+        <symbol>N/A</symbol>
+        <lines>N/A</lines>
+        <reason>Outlines the testing strategy for the dashboard schema, which this story must adhere to.</reason>
+      </artifact>
+    </code>
+    <dependencies>
+      <dependency>
+        <ecosystem>python</ecosystem>
+        <package>typer</package>
+        <version>latest</version>
+      </dependency>
+      <dependency>
+        <ecosystem>python</ecosystem>
+        <package>jinja2</package>
+        <version>latest</version>
+      </dependency>
+      <dependency>
+        <ecosystem>obsidian</ecosystem>
+        <package>Dataview</package>
+        <version>0.5.0+</version>
+      </dependency>
+    </dependencies>
+  </artifacts>
+  <constraints>
+    - The implementation must follow the hybrid DQL/DataviewJS approach recommended in the architecture.
+    - Dataview queries must be optimized for performance.
+    - The dashboard template must adhere to the Capsule Dashboard Metadata Schema.
+    - Unit tests must be included for the new template functionality.
+  </constraints>
+  <interfaces>
+    <interface>
+      <name>Capsule Dashboard Metadata Schema</name>
+      <kind>frontmatter_schema</kind>
+      <signature>
+        - type: "capsule_dashboard" (string, required)
+        - capsule_id: (string, required)
+        - version: (string, required)
+        - dashboard_metadata.class: (string, optional)
+        - dashboard_metadata.topic: (string, optional)
+        - dashboard_metadata.category: (string, optional)
+        - dashboard_metadata.active: (boolean, optional)
+      </signature>
+      <path>docs/architecture.md#capsule-dashboard-metadata-schema</path>
+    </interface>
+  </interfaces>
+  <tests>
+    <standards>
+      The project follows a standard testing pyramid (80% Unit, 15% Integration, 5% E2E). Tests are written using pytest and live in the `tests/` directory, mirroring the source structure. Fixtures should be used for setting up test data and environments, such as temporary vaults and sample capsules. The principle is to test contracts, not implementations.
+    </standards>
+    <locations>
+      - Unit Tests: `tests/test_core/`
+      - Integration Tests: `tests/test_commands/`
+      - Fixtures: `tests/fixtures/`
+    </locations>
+    <ideas>
+      - **AC1**: Verify that the `capsule-dashboard-template.md` is created in the `templates/` directory.
+      - **AC2**: Unit test the template rendering to ensure capsule metadata (`capsule_id`, `version`, etc.) is correctly displayed.
+      - **AC3**: Unit test to confirm the rendered template includes a valid markdown link to the "Master Dashboard".
+      - **AC4**: Integration test with a fixture vault to verify the DataviewJS queries for root note and study material counts are correct.
+      - **AC5/AC6**: Integration test to ensure the Dataview queries for listing root notes and study materials are correctly structured and filter by the appropriate capsule ID.
+    </ideas>
+  </tests>
+</story-context>

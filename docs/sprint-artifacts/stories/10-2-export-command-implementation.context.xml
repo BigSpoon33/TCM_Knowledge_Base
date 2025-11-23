@@ -1,0 +1,179 @@
+<story-context id="{bmad_folder}/bmm/workflows/4-implementation/story-context/template" v="1.0">
+  <metadata>
+    <epicId>10</epicId>
+    <storyId>2</storyId>
+    <title>export-command-implementation</title>
+    <status>drafted</status>
+    <generatedAt>2025-11-22</generatedAt>
+    <generator>BMAD Story Context Workflow</generator>
+    <sourceStoryPath>docs/sprint-artifacts/10-2-export-command-implementation.md</sourceStoryPath>
+  </metadata>
+
+  <story>
+    <asA>a user</asA>
+    <iWant>to export a capsule as a folder or a zip archive</iWant>
+    <soThat>I can share it with others or back it up</soThat>
+    <tasks>
+      - Task 1: Implement `export` command (AC: #1, #2)
+        - Subtask 1.1: Add `export` command to Typer app.
+        - Subtask 1.2: Add arguments for capsule path, output path, and format (folder/zip).
+        - Subtask 1.3: Call `Packager` service to perform the export.
+        - Subtask 1.4: Format output with `rich`.
+      - Task 2: Write unit tests
+        - Subtask 2.1: Mock `Packager` service.
+        - Subtask 2.2: Test command logic and output formatting.
+      - Task 3: Write E2E tests
+        - Subtask 3.1: Create a valid capsule fixture.
+        - Subtask 3.2: Test exporting the fixture as a folder. (AC: #2)
+        - Subtask 3.3: Test exporting the fixture as a zip archive. (AC: #1)
+        - Subtask 3.4: Verify the contents of the exported capsule.
+    </tasks>
+  </story>
+
+  <acceptanceCriteria>
+      1.  **AC-10.4 (`export`):** The `capsule export <path>` command successfully packages the specified capsule into a `.zip` archive by default. [Source: docs/sprint-artifacts/tech-spec-epic-10.md#Acceptance-Criteria-Authoritative]
+      2.  **AC-10.5 (`export`):** The `capsule export <path> --no-zip` command successfully packages the specified capsule into a folder bundle. [Source: docs/sprint-artifacts/tech-spec-epic-10.md#Acceptance-Criteria-Authoritative]
+    </acceptanceCriteria>
+
+  <artifacts>
+    <docs>
+      <doc>
+        <path>docs/architecture.md</path>
+        <title>Architecture Document</title>
+        <section>Epic Group 3: Capsule Packaging (FR17-FR25)</section>
+        <snippet>
+          This section describes the components responsible for packaging a capsule, including the CapsuleCypher model, the packager.py core logic for generating the cypher and creating the distributable folder or zip archive, and the validator.py engine for ensuring schema compliance and file inventory completeness.
+        </snippet>
+      </doc>
+      <doc>
+        <path>docs/architecture.md</path>
+        <title>Architecture Document</title>
+        <section>Epic Group 4: Import/Export Operations (FR26-FR31)</section>
+        <snippet>
+          This section details the architecture for import and export operations. It covers the exporter.py for orchestrating the packaging process, the importer.py for handling incoming capsules, and the backup.py utility for ensuring data safety during imports.
+        </snippet>
+      </doc>
+      <doc>
+        <path>docs/architecture.md</path>
+        <title>Architecture Document</title>
+        <section>Epic Group 8: CLI Interface (FR51-FR58)</section>
+        <snippet>
+          This section defines the standard pattern for all CLI commands built with Typer. It includes conventions for command structure, error handling, progress indicators (using rich), and help documentation with examples, which the `export` command must follow.
+        </snippet>
+      </doc>
+      <doc>
+        <path>docs/sprint-artifacts/tech-spec-epic-10.md</path>
+        <title>Epic Technical Specification: CLI Commands - Validation & Import/Export</title>
+        <section>APIs and Interfaces - `capsule export`</section>
+        <snippet>
+          Defines the CLI signature for the `export` command: `def export(path: Path, output_dir: Path, as_zip: bool)`. It specifies the required arguments for the capsule path and the options for setting the output directory and choosing between a zip archive or a folder bundle.
+        </snippet>
+      </doc>
+      <doc>
+        <path>docs/sprint-artifacts/tech-spec-epic-10.md</path>
+        <title>Epic Technical Specification: CLI Commands - Validation & Import/Export</title>
+        <section>Acceptance Criteria (Authoritative)</section>
+        <snippet>
+          AC-10.4: The `capsule export <path>` command successfully packages the specified capsule into a .zip archive by default.
+          AC-10.5: The `capsule export <path> --no-zip` command successfully packages the specified capsule into a folder bundle.
+        </snippet>
+      </doc>
+    </docs>
+    <code>
+      <artifact>
+        <path>capsule/commands/export.py</path>
+        <kind>command</kind>
+        <symbol>export()</symbol>
+        <lines></lines>
+        <reason>Primary implementation file for the `capsule export` CLI command. This file will contain the Typer command definition and orchestrate calls to the core exporter and packager services.</reason>
+      </artifact>
+      <artifact>
+        <path>capsule/core/exporter.py</path>
+        <kind>service</kind>
+        <symbol>Exporter</symbol>
+        <lines></lines>
+        <reason>Core service responsible for orchestrating the export process. It will be called by the `export` command to handle the high-level logic of preparing and packaging the capsule.</reason>
+      </artifact>
+      <artifact>
+        <path>capsule/core/packager.py</path>
+        <kind>service</kind>
+        <symbol>Packager</symbol>
+        <lines></lines>
+        <reason>Core service that handles the low-level logic of creating the capsule package, either as a folder or a zip archive. It's a key dependency for the `Exporter` service.</reason>
+      </artifact>
+      <artifact>
+        <path>capsule/utils/file_ops.py</path>
+        <kind>utility</kind>
+        <symbol>various</symbol>
+        <lines></lines>
+        <reason>Provides safe and consistent file system operations, which will be used during the creation of the exported capsule folder or zip file to prevent errors.</reason>
+      </artifact>
+      <artifact>
+        <path>tests/commands/test_export.py</path>
+        <kind>test</kind>
+        <symbol></symbol>
+        <lines></lines>
+        <reason>This file (to be created) will contain the unit and E2E tests for the `export` command, ensuring it meets all acceptance criteria, including zip/folder output and correct parameter handling.</reason>
+      </artifact>
+    </code>
+    <dependencies>
+      <dependency>
+        <ecosystem>python</ecosystem>
+        <package>typer</package>
+        <version>latest</version>
+      </dependency>
+      <dependency>
+        <ecosystem>python</ecosystem>
+        <package>rich</package>
+        <version>>=13.0.0</version>
+      </dependency>
+      <dependency>
+        <ecosystem>python</ecosystem>
+        <package>pytest</package>
+        <version>latest</version>
+      </dependency>
+    </dependencies>
+  </artifacts>
+
+  <constraints>
+      <constraint>The implementation must use the `capsule.core.packager.Packager` and `capsule.core.exporter.Exporter` services for the core logic.</constraint>
+      <constraint>The command must adhere to the established CLI command structure pattern defined in the architecture, using Typer and rich for output.</constraint>
+      <constraint>All file system operations must be handled through `capsule.utils.file_ops` to ensure consistency and safety.</constraint>
+      <constraint>The command must include both unit tests (mocking the core services) and end-to-end tests (exporting a real fixture capsule).</constraint>
+    </constraints>
+  <interfaces>
+      <interface>
+        <name>Exporter.export_capsule</name>
+        <kind>function signature</kind>
+        <signature>export_capsule(capsule_path: Path, output_path: Path, as_zip: bool) -> Path</signature>
+        <path>capsule/core/exporter.py</path>
+      </interface>
+      <interface>
+        <name>Packager.package_as_folder</name>
+        <kind>function signature</kind>
+        <signature>package_as_folder(capsule: Capsule, output_path: Path) -> Path</signature>
+        <path>capsule/core/packager.py</path>
+      </interface>
+      <interface>
+        <name>Packager.package_as_zip</name>
+        <kind>function signature</kind>
+        <signature>package_as_zip(capsule: Capsule, output_path: Path) -> Path</signature>
+        <path>capsule/core/packager.py</path>
+      </interface>
+    </interfaces>
+  <tests>
+    <standards>
+        Testing should follow the pyramid model defined in the architecture document. Unit tests should mock the core services (`Exporter`, `Packager`) to test the CLI logic in isolation. End-to-end tests are critical and must use a real capsule fixture to test the full export process for both folder and zip outputs, verifying the contents of the resulting artifact.
+      </standards>
+    <locations>
+        <location>tests/commands/test_export.py</location>
+        <location>tests/fixtures/sample_capsules/</location>
+      </locations>
+    <ideas>
+        <idea for="AC-10.4">Create an E2E test that runs `capsule export` on a fixture and verifies that a valid `.zip` file with the correct contents is created at the specified output path.</idea>
+        <idea for="AC-10.5">Create an E2E test that runs `capsule export --no-zip` on a fixture and verifies that a folder with the correct file structure and contents is created.</idea>
+        <idea for="AC-10.4 AC-10.5">Create unit tests for the `export` command function, mocking the `Exporter` service to ensure it is called with the correct `path`, `output_dir`, and `as_zip` arguments based on user input.</idea>
+        <idea for="AC-10.4 AC-10.5">Create an E2E test to confirm that the command fails gracefully with a clear error message if the source capsule path does not exist.</idea>
+      </ideas>
+  </tests>
+</story-context>

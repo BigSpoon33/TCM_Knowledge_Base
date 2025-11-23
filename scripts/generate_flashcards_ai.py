@@ -5,7 +5,6 @@ Generate Flashcards with AI - Uses Gemini to create flashcards from a root note.
 
 import os
 import re
-from typing import Dict, List, Any
 import sys
 from pathlib import Path
 
@@ -13,16 +12,17 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).parent))
 from gemini_research import GeminiDeepResearch
 
+
 class FlashcardGeneratorAI:
     """Generates flashcards from root note content using AI."""
 
     def __init__(self, api_key: str = None):
-        self.api_key = api_key or os.environ.get('GEMINI_API_KEY')
+        self.api_key = api_key or os.environ.get("GEMINI_API_KEY")
         if not self.api_key:
             raise ValueError("GEMINI_API_KEY not set.")
         self.researcher = GeminiDeepResearch(api_key=self.api_key)
 
-    def generate_from_content(self, content: str, topic: str, num_cards: int = 10) -> List[Dict[str, str]]:
+    def generate_from_content(self, content: str, topic: str, num_cards: int = 10) -> list[dict[str, str]]:
         """Generates flashcards from the body of a root note."""
         print(f"🧠 Generating {num_cards} flashcards for '{topic}' using AI...")
 
@@ -44,20 +44,21 @@ class FlashcardGeneratorAI:
         """
 
         result = self.researcher.research(prompt, use_search=False)
-        ai_content = result['content']
+        ai_content = result["content"]
 
         # Parse the AI-generated content
         flashcards = []
-        pattern = r'Q:\s*(.+?)\nA:\s*(.+?)(?=\nQ:|\Z)'
+        pattern = r"Q:\s*(.+?)\nA:\s*(.+?)(?=\nQ:|\Z)"
         matches = re.findall(pattern, ai_content, re.DOTALL)
 
         for q, a in matches:
-            flashcards.append({'question': q.strip(), 'answer': a.strip()})
-        
+            flashcards.append({"question": q.strip(), "answer": a.strip()})
+
         print(f"✅ Generated {len(flashcards)} flashcards.")
         return flashcards
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     test_content = """
     ## Clinical Manifestations
     - **Cardinal Symptoms:** Fatigue, poor appetite, loose stools, abdominal distention.
@@ -70,6 +71,6 @@ if __name__ == '__main__':
     """
     generator = FlashcardGeneratorAI()
     cards = generator.generate_from_content(test_content, "Spleen Qi Deficiency")
-    
+
     for card in cards:
         print(f"Q: {card['question']}\nA: {card['answer']}\n")

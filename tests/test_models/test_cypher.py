@@ -1,6 +1,7 @@
 """Tests for CapsuleCypher model."""
 
 import pytest
+
 from capsule.models.cypher import CapsuleCypher
 
 
@@ -234,11 +235,7 @@ def test_cypher_contents_inventory() -> None:
                 {"file": "root_notes/note1.md", "id": "note-001"},
                 {"file": "root_notes/note2.md", "id": "note-002"},
             ],
-            "study_material": {
-                "flashcards": [
-                    {"file": "study_material/flashcards/deck1.md", "id": "fc-001"}
-                ]
-            },
+            "study_material": {"flashcards": [{"file": "study_material/flashcards/deck1.md", "id": "fc-001"}]},
         },
         data_schemas={},
         sequence_mode="freeform",

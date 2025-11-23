@@ -1,0 +1,166 @@
+<story-context id="{bmad_folder}/bmm/workflows/4-implementation/story-context/template" v="1.0">
+  <metadata>
+    <epicId>11</epicId>
+    <storyId>1</storyId>
+    <title>capsule-dashboard-metadata-schema</title>
+    <status>drafted</status>
+    <generatedAt>2025-11-22</generatedAt>
+    <generator>BMAD Story Context Workflow</generator>
+    <sourceStoryPath>/home/shuma/Documents/AI_Suite/Obsidian_Capsule_Delivery/docs/sprint-artifacts/11-1-capsule-dashboard-metadata-schema.md</sourceStoryPath>
+  </metadata>
+
+  <story>
+    <asA>a user</asA>
+    <iWant>a standardized set of metadata fields for my capsule dashboards</iWant>
+    <soThat>I can consistently filter, query, and manage my capsules in a master dashboard</soThat>
+    <tasks>
+      <task id="1" description="Define Dashboard Schema Fields" ac="1,2,3">
+        <subtask id="1.1" description="Define mandatory fields: capsule_id, version"/>
+        <subtask id="1.2" description="Define filterable metadata fields: class, topic, category, active"/>
+        <subtask id="1.3" description="Specify data types for each field (e.g., string, boolean)"/>
+      </task>
+      <task id="2" description="Document the Schema" ac="4">
+        <subtask id="2.1" description="Create a new section in docs/architecture.md for the dashboard schema"/>
+        <subtask id="2.2" description="Add a table defining each field, its purpose, data type, and an example"/>
+        <subtask id="2.3" description="Update the &quot;Capsule Dashboard Template&quot; in architecture.md to reflect the new schema"/>
+      </task>
+      <task id="3" description="Validate Schema against PoC" ac="3">
+        <subtask id="3.1" description="Review the queries in docs/sprint-artifacts/11-0-dataview-spike-poc.md"/>
+        <subtask id="3.2" description="Ensure the defined schema supports all queries in the proof-of-concept"/>
+      </task>
+      <task id="4" description="Create Test Plan" ac="1,2,3,4">
+        <subtask id="4.1" description="Define a testing strategy for the schema"/>
+        <subtask id="4.2" description="Create a sample dashboard note with the new schema"/>
+        <subtask id="4.3" description="Write test Dataview queries to validate the schema"/>
+      </task>
+    </tasks>
+  </story>
+
+  <acceptanceCriteria>
+    <criterion id="1" description="Define a clear, consistent frontmatter schema for capsule dashboard notes."/>
+    <criterion id="2" description="The schema must include fields for capsule_id and version to link the dashboard to its capsule."/>
+    <criterion id="3" description="The schema should include filterable metadata fields such as class, topic, category, and an active status."/>
+    <criterion id="4" description="The defined schema must be documented in the project's architecture or a dedicated technical specification."/>
+  </acceptanceCriteria>
+
+  <artifacts>
+    <docs>
+      <doc>
+        <path>docs/architecture.md</path>
+        <title>Architecture Document</title>
+        <section>Epic Group 9: Dashboard Integration</section>
+        <snippet>
+          Defines the templates for both individual capsule dashboards and the master dashboard. The capsule dashboard template (`dashboard.md.j2`) specifies the initial frontmatter schema including `type`, `capsule_id`, and `version`, which are used in Dataview queries for aggregation and navigation.
+        </snippet>
+      </doc>
+      <doc>
+        <path>docs/epics.md</path>
+        <title>Project Epics</title>
+        <section>Epic 11: Dashboard Functionality (Core/Data Layer)</section>
+        <snippet>
+          Explicitly lists the requirements for the dashboard system, including the key feature: "Capsule dashboard metadata (class, topic, category, active status)". It also lists story 11-1 which is to "Define capsule dashboard frontmatter fields for filtering".
+        </snippet>
+      </doc>
+      <doc>
+        <path>docs/sprint-artifacts/11-0-dataview-dataviewjs-technical-spike.md</path>
+        <title>Dataview/DataviewJS Technical Spike</title>
+        <section>Dev Notes</section>
+        <snippet>
+          The feasibility of querying the proposed schema fields has been validated in the technical spike. The proof-of-concept at `docs/sprint-artifacts/11-0-dataview-spike-poc.md` contains example queries that should be used to validate the schema.
+        </snippet>
+      </doc>
+    </docs>
+    <code>
+      <artifact>
+        <path>docs/sprint-artifacts/11-0-dataview-spike-poc.md</path>
+        <kind>proof-of-concept</kind>
+        <symbol>PoC 4: Filtering with Metadata</symbol>
+        <lines>583-651</lines>
+        <reason>
+          This section contains the exact Dataview and DataviewJS queries that will consume the new metadata schema. It serves as the primary implementation reference and validation target for the schema fields being defined in this story.
+        </reason>
+      </artifact>
+      <artifact>
+        <path>docs/architecture.md</path>
+        <kind>template</kind>
+        <symbol>Capsule Dashboard Template</symbol>
+        <lines>972-1063</lines>
+        <reason>
+          This Jinja2 template is the blueprint for the capsule dashboard note. The new metadata schema defined in this story will be added to the frontmatter section of this template.
+        </reason>
+      </artifact>
+    </code>
+    <dependencies>
+      <dependency ecosystem="python">
+        <package>typer</package>
+        <version>latest</version>
+      </dependency>
+      <dependency ecosystem="python">
+        <package>python-frontmatter</package>
+        <version>latest</version>
+      </dependency>
+      <dependency ecosystem="python">
+        <package>click</package>
+        <version>>=8.0.0</version>
+      </dependency>
+      <dependency ecosystem="python">
+        <package>rich</package>
+        <version>>=13.0.0</version>
+      </dependency>
+      <dependency ecosystem="python">
+        <package>pyyaml</package>
+        <version>>=6.0</version>
+      </dependency>
+      <dependency ecosystem="python">
+        <package>google-generativeai</package>
+        <version>>=0.3.0</version>
+      </dependency>
+      <dependency ecosystem="python">
+        <package>questionary</package>
+        <version>>=2.0.0</version>
+      </dependency>
+      <dependency ecosystem="python">
+        <package>ruamel.yaml</package>
+        <version>>=0.17.0</version>
+      </dependency>
+    </dependencies>
+  </artifacts>
+
+  <constraints>
+    <constraint>The schema must align with the "Capsule Dashboard Template" defined in `docs/architecture.md`.</constraint>
+    <constraint>The fields should be queryable by Dataview and DataviewJS as demonstrated in the `11-0-dataview-dataviewjs-technical-spike`.</constraint>
+    <constraint>The implementation should not introduce new dependencies.</constraint>
+  </constraints>
+  <interfaces>
+    <interface>
+      <name>Capsule Dashboard Frontmatter Schema</name>
+      <kind>frontmatter</kind>
+      <signature>
+        - capsule_id: string (mandatory)
+        - version: string (mandatory)
+        - class: string (filterable)
+        - topic: string (filterable)
+        - category: string (filterable)
+        - active: boolean (filterable)
+      </signature>
+      <path>docs/architecture.md</path>
+    </interface>
+  </interfaces>
+  <tests>
+    <standards>
+      The project follows a standard Python testing pyramid using the `pytest` framework. The strategy emphasizes a high percentage of unit tests for core logic and models, followed by integration tests for component interactions (like CLI commands), and a smaller number of end-to-end tests for full workflows. All tests are co-located in the `/tests` directory, mirroring the source structure.
+    </standards>
+    <locations>
+      <location type="unit">/tests/test_models/</location>
+      <location type="integration">/tests/test_commands/</location>
+      <location type="documentation">/docs/architecture.md</location>
+    </locations>
+    <ideas>
+      <idea ac="1,2">Create a sample dashboard note with valid frontmatter and ensure it passes validation.</idea>
+      <idea ac="1,2">Create a sample dashboard note with a missing required field (e.g., `capsule_id`) and verify that validation fails with a clear error.</idea>
+      <idea ac="3">Write a Dataview query in a test note that filters for dashboards where `active: true` and verifies the correct dashboard is returned.</idea>
+      <idea ac="3">Write a Dataview query that filters by `class` and `topic` to ensure the schema fields are correctly indexed and queryable.</idea>
+      <idea ac="4">Manually verify that the `docs/architecture.md` file is updated to include a clear definition of the new dashboard metadata schema.</idea>
+    </ideas>
+  </tests>
+</story-context>

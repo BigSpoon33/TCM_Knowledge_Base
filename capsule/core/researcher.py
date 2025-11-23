@@ -1,11 +1,12 @@
 # capsule/core/researcher.py
 from abc import ABC, abstractmethod
-from typing import Dict, List
-from ..utils.exceptions import NetworkError, ConfigError
+
 import google.generativeai as genai
-from ..models.config import Config
+
 from ..models.citation import Citation
+from ..models.config import Config
 from ..models.research import ResearchResult
+from ..utils.exceptions import ConfigError, NetworkError
 
 
 class ResearchProvider(ABC):
@@ -83,7 +84,7 @@ class GeminiResearchProvider(ResearchProvider):
         except Exception as e:
             raise NetworkError(f"An error occurred while calling the Gemini API: {e}") from e
 
-    def _parse_citations(self, response) -> List[Citation]:
+    def _parse_citations(self, response) -> list[Citation]:
         """Parses citation metadata from the Gemini API response."""
         citations = []
         if hasattr(response, "citation_metadata") and response.citation_metadata:

@@ -8,67 +8,13 @@
         "type": "tabs",
         "children": [
           {
-            "id": "1af74e58af7006a6",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "TCM_Formulas/Chai Ge Jie Ji Tang.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "Chai Ge Jie Ji Tang"
-            }
-          },
-          {
-            "id": "4dadb630968a1ee8",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "TCM_Formulas/Suo Quan Wan.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "Suo Quan Wan"
-            }
-          },
-          {
-            "id": "3bbf13afd9418c93",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "TCM_Formulas/An Gong Niu Huang Wan.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "An Gong Niu Huang Wan"
-            }
-          },
-          {
-            "id": "023ad4f11c3ec984",
-            "type": "leaf",
-            "state": {
-              "type": "pdf",
-              "state": {
-                "file": "Books/Chinese Herbal Formulas and Applications Pharmacological Effects Clinical Research by John K. Chen Tina T. Chen Minh Nguyen Lily Huang Jimmy Chang Rick Friesen Chien-Hui Liao (z-lib.org).pdf"
-              },
-              "icon": "lucide-file-text",
-              "title": "Chinese Herbal Formulas and Applications Pharmacological Effects Clinical Research by John K. Chen Tina T. Chen Minh Nguyen Lily Huang Jimmy Chang Rick Friesen Chien-Hui Liao (z-lib.org)"
-            }
-          },
-          {
-            "id": "f9431312fdbc592a",
+            "id": "5cc4162e37f43eb9",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
                 "file": "Student Dashboard.md",
-                "mode": "source",
+                "mode": "preview",
                 "source": false
               },
               "icon": "lucide-file",
@@ -76,48 +22,55 @@
             }
           },
           {
-            "id": "5d961daf1b3a0964",
+            "id": "2ab73667f3f6f7d8",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "TCM_Formulas/Bai Hu Jia Ren Shen Tang.md",
+                "file": "testpattern/testpattern_Slides.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Bai Hu Jia Ren Shen Tang"
+              "title": "testpattern_Slides"
             }
           },
           {
-            "id": "d63986d392640324",
+            "id": "e374080c03eb905e",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "TCM_Formulas/Ma Huang Tang.md",
+                "file": "TCM_Patterns/TEMPLATE_Pattern.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Ma Huang Tang"
+              "title": "TEMPLATE_Pattern"
             }
-          }
-        ],
-        "currentTab": 4
-      },
-      {
-        "id": "6124e58568eba0b6",
-        "type": "tabs",
-        "children": [
+          },
           {
-            "id": "a5d1ef7014124cad",
+            "id": "c87ccfcc3dbfe969",
             "type": "leaf",
             "state": {
-              "type": "empty",
+              "type": "graph",
               "state": {},
+              "icon": "lucide-git-fork",
+              "title": "Graph view"
+            }
+          },
+          {
+            "id": "adad2d7fdc687286",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Untitled 2.md",
+                "mode": "source",
+                "source": false
+              },
               "icon": "lucide-file",
-              "title": "New tab"
+              "title": "Untitled 2"
             }
           }
         ]
@@ -219,7 +172,7 @@
       {
         "id": "8c6e2a269dbedb24",
         "type": "tabs",
-        "dimension": 23.295944779982744,
+        "dimension": 46.6321243523316,
         "children": [
           {
             "id": "afc8d1cf851fb5de",
@@ -280,6 +233,16 @@
             }
           },
           {
+            "id": "0df914926f23e9fa",
+            "type": "leaf",
+            "state": {
+              "type": "tasknotes-pomodoro-view",
+              "state": {},
+              "icon": "lucide-ghost",
+              "title": "tasknotes-pomodoro-view"
+            }
+          },
+          {
             "id": "fe250b0b971eff1c",
             "type": "leaf",
             "state": {
@@ -295,34 +258,27 @@
             "state": {
               "type": "review-queue-list-view",
               "state": {},
+              "icon": "lucide-ghost",
+              "title": "review-queue-list-view"
+            }
+          },
+          {
+            "id": "e92470009001cfdf",
+            "type": "leaf",
+            "state": {
+              "type": "review-queue-list-view",
+              "state": {},
               "icon": "SpacedRepIcon",
               "title": "Notes Review Queue"
             }
           }
         ],
-        "currentTab": 4
-      },
-      {
-        "id": "3f6dc460b99674e1",
-        "type": "tabs",
-        "dimension": 50.043140638481454,
-        "children": [
-          {
-            "id": "0df914926f23e9fa",
-            "type": "leaf",
-            "state": {
-              "type": "tasknotes-pomodoro-view",
-              "state": {},
-              "icon": "lucide-ghost",
-              "title": "tasknotes-pomodoro-view"
-            }
-          }
-        ]
+        "currentTab": 5
       },
       {
         "id": "04758d83300e2fa4",
         "type": "tabs",
-        "dimension": 26.660914581535806,
+        "dimension": 53.36787564766839,
         "children": [
           {
             "id": "ae952f7c09676bdb",
@@ -330,11 +286,11 @@
             "state": {
               "type": "localgraph",
               "state": {
-                "file": "Materials/Traditional_Chinese_Medicine_Edema/Edema_Tasks.md",
+                "file": "Student Dashboard.md",
                 "options": {
                   "collapse-filter": true,
                   "search": "",
-                  "localJumps": 1,
+                  "localJumps": 2,
                   "localBacklinks": true,
                   "localForelinks": true,
                   "localInterlinks": false,
@@ -363,6 +319,20 @@
                         "a": 1,
                         "rgb": 11657298
                       }
+                    },
+                    {
+                      "query": "tag:#Pattern",
+                      "color": {
+                        "a": 1,
+                        "rgb": 5431378
+                      }
+                    },
+                    {
+                      "query": "file:Jia Wei Gui Pi Tang",
+                      "color": {
+                        "a": 1,
+                        "rgb": 5431473
+                      }
                     }
                   ],
                   "collapse-display": true,
@@ -375,20 +345,19 @@
                   "repelStrength": 10,
                   "linkStrength": 1,
                   "linkDistance": 250,
-                  "scale": 0.3908906207534154,
+                  "scale": 0.18389366966864779,
                   "close": true
                 }
               },
               "icon": "lucide-git-fork",
-              "title": "Graph of Edema_Tasks"
+              "title": "Graph of Student Dashboard"
             }
           }
         ]
       }
     ],
     "direction": "horizontal",
-    "width": 419.5,
-    "collapsed": true
+    "width": 419.5
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -400,71 +369,57 @@
       "command-palette:Open command palette": false,
       "bases:Create new base": false,
       "workspaces:Manage workspace layouts": false,
-      "omnisearch:Omnisearch": false,
-      "obsidian-advanced-slides:Show Slide Preview": false,
-      "table-editor-obsidian:Advanced Tables Toolbar": false,
-      "obsidian-excalidraw-plugin:New drawing": false,
-      "obsidian-kanban:Create new board": false,
-      "templater-obsidian:Templater": false,
-      "tasknotes:Open mini calendar": false,
-      "tasknotes:Open advanced calendar": false,
-      "tasknotes:Open task list": false,
-      "tasknotes:Open notes": false,
-      "tasknotes:Open agenda": false,
-      "tasknotes:Open kanban board": false,
-      "tasknotes:Open pomodoro": false,
-      "tasknotes:Open pomodoro stats": false,
-      "tasknotes:Create new task": false,
-      "obsidian-spaced-repetition:Review flashcards": false
+      "obsidian-spaced-repetition:Review flashcards": false,
+      "obsidian-advanced-slides:Show Slide Preview": false
     }
   },
-  "active": "1e6dbe3c046fb5f2",
+  "active": "5cc4162e37f43eb9",
   "lastOpenFiles": [
-    "docs/sprint-artifacts/0-2-core-dependencies-installation.context.xml",
-    "docs/sprint-artifacts/stories/0-2-core-dependencies-installation.context.xml",
-    "docs/sprint-artifacts/stories/1-2-capsule-cypher-model-implementation.context.xml",
-    "docs/sprint-artifacts/5-2-schema-validation-logic.md",
-    "capsule/__pycache__/__main__.cpython-313.pyc",
-    "python_boilerplate.egg-info/SOURCES.txt",
-    "python_boilerplate.egg-info/top_level.txt",
-    "python_boilerplate.egg-info/requires.txt",
-    "python_boilerplate.egg-info/entry_points.txt",
-    "python_boilerplate.egg-info/dependency_links.txt",
-    "python_boilerplate.egg-info/PKG-INFO",
-    "python_boilerplate.egg-info",
-    "docs/usage.md",
-    "docs/installation.md",
-    "docs/index.md",
-    "HISTORY.md",
-    "CODE_OF_CONDUCT.md",
-    "python-boilerplate/docs/usage.md",
-    "python-boilerplate/docs/installation.md",
-    "python-boilerplate/docs/index.md",
-    "python-boilerplate/README.md",
-    "python-boilerplate/HISTORY.md",
-    "python-boilerplate/CONTRIBUTING.md",
-    "python-boilerplate/CODE_OF_CONDUCT.md",
-    "scripts/00 - Scripts MoC.md",
-    "review_notes.md",
-    "missed hours.md",
-    "midterm2 classics.md",
-    "meridian todo.md",
-    "mditerm2 cramming classics and integrated clinical.md",
-    "docs/technical-research-capsules.md",
-    "docs/sprint-artifacts/validation-report.md",
-    "docs/sprint-artifacts/validation-report-2025-11-18-23-41-44.md",
-    "docs/sprint-artifacts/validation-report-2025-11-18-23-20-02.md",
-    "docs/sprint-artifacts/validation-report-2025-11-18-23-19-26.md",
-    "docs/sprint-artifacts/validation-report-2025-11-18-23-18-49.md",
-    "TCM_Points_Images/LI-9_diagram.jpg",
-    "TCM_Points_Images/LI-9_header.png",
-    "TCM_Points_Images/LI-9_chinese.png",
-    "TCM_Points_Images/LI-8_diagram.jpg",
-    "TCM_Points_Images/LI-8_header.png",
-    "TCM_Points_Images/LI-8_chinese.png",
-    "TCM_Points_Images/LI-7_diagram.jpg",
-    "TCM_Points_Images/LI-7_header.png",
-    "TCM_Points_Images/LI-7_chinese.png",
-    "TCM_Points_Images/LI-6_diagram.jpg"
+    "tests/test_commands/__pycache__/test_status.cpython-313-pytest-8.4.2.pyc",
+    "tests/test_commands/__pycache__/test_list.cpython-313-pytest-8.4.2.pyc",
+    "tests/test_commands/__pycache__/test_export_e2e.cpython-313-pytest-8.4.2.pyc",
+    "tests/test_commands/test_status.py",
+    "tests/test_commands/test_list.py",
+    "tests/test_commands/test_export_e2e.py",
+    "tests/test_commands/test_export.py",
+    "temp_templates",
+    "tests/test_core/test_packager.py",
+    "capsule/core/__pycache__/importer.cpython-313.pyc.140230813122928",
+    "capsule/core/__pycache__/importer.cpython-313.pyc.140331671591216",
+    "docs/sprint-artifacts/stories/11-8-dashboard-generation-during-import.md",
+    "docs/sprint-artifacts/11-8-dashboard-generation-during-import.md",
+    "docs/guides/domain_specific_dashboard_sections.md",
+    "docs/sprint-artifacts/11-7-domain-specific-dashboard-sections.md",
+    "docs/sprint-artifacts/11-6-completion-report.md",
+    "tests/fixtures/sample_notes/formula_2.md",
+    "tests/fixtures/sample_notes/formula_1.md",
+    "docs/guides/filtered_view_example.md",
+    "docs/sprint-artifacts/validation-report-11-6-advanced-filtering-heading-extraction.md",
+    "docs/sprint-artifacts/validation-report-20251122-11-6.md",
+    "docs/guides/dataview_query_library.md",
+    "docs/sprint-artifacts/11-6-advanced-filtering-heading-extraction.md",
+    "docs/sprint-artifacts/11-5-dataview-query-pattern-library.md",
+    "docs/sprint-artifacts/11-4-completion-report.md",
+    "docs/sprint-artifacts/11-4-progress-tracking-tasknotes-integration.md",
+    "docs/sprint-artifacts/11-3-capsule-dashboard-template-core-structure.md",
+    "docs/sprint-artifacts/11-2-master-dashboard-template-with-filtering.md",
+    "tests/fixtures/dashboard_schema_test_plan.md",
+    "tests/fixtures/sample_capsule_dashboard.md",
+    "docs/sprint-artifacts/11-1-capsule-dashboard-metadata-schema.md",
+    "docs/sprint-artifacts/11-0-dataview-spike-poc.md",
+    "docs/sprint-artifacts/tech-spec-epic-11.md",
+    "docs/sprint-artifacts/validation-report-20251122.md",
+    "docs/sprint-artifacts/11-0-dataview-dataviewjs-technical-spike.md",
+    "docs/sprint-artifacts/epic-10-retro-2025-11-22.md",
+    "test_capsule/media/image.png",
+    "TCM_Points_Images/ST-9_header.png",
+    "TCM_Points_Images/ST-9_diagram.jpg",
+    "TCM_Points_Images/ST-9_chinese.png",
+    "TCM_Points_Images/ST-8_header.png",
+    "TCM_Points_Images/ST-8_diagram.jpg",
+    "TCM_Points_Images/ST-8_chinese.png",
+    "TCM_Points_Images/ST-6_header.png",
+    "TCM_Points_Images/ST-6_diagram.jpg",
+    "TCM_Points_Images/ST-6_chinese.png"
   ]
 }

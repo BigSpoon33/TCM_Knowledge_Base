@@ -1,93 +1,77 @@
-from typer.testing import CliRunner
-from capsule.cli import app
+from unittest.mock import patch
+
 import pytest
-from pathlib import Path
-import shutil
+import yaml
+from typer.testing import CliRunner
+
+from capsule.cli import app
 
 runner = CliRunner()
 
 
 @pytest.fixture
-def temp_capsule(tmp_path):
-    capsule_dir = tmp_path / "test_capsule"
-    capsule_dir.mkdir()
-    (capsule_dir / "file1.txt").write_text("hello")
-    (capsule_dir / "subdir").mkdir()
-    (capsule_dir / "subdir" / "file2.txt").write_text("world")
-    (capsule_dir / "capsule-cypher.yaml").write_text(
-        """
-capsule_id: test_capsule
-name: Test Capsule
-version: 1.0.0
-domain_type: generic
-contents:
-    root:
-        - file: file1.txt
-          id: 1
-    subdir:
-        - file: subdir/file2.txt
-          id: 2
-folder_structure:
-    subdir: subdir
-"""
-    )
-    return capsule_dir
+def mock_packager():
+    with patch("capsule.core.exporter.Packager") as MockPackager:
+        yield MockPackager
 
 
-def test_export_folder(temp_capsule, tmp_path):
-    destination_dir = tmp_path / "destination"
-    result = runner.invoke(app, ["export", "export", str(temp_capsule), str(destination_dir), "--format", "folder"])
-    print(result.stdout)
-    assert result.exit_code == 0
-    assert "Successfully exported capsule to" in result.stdout
-    assert (destination_dir / "file1.txt").exists()
-    assert (destination_dir / "subdir" / "file2.txt").exists()
-    assert (destination_dir / "export-manifest.json").exists()
+@pytest.fixture
+def valid_capsule(tmp_path):
+    capsule_path = tmp_path / "test_capsule"
+    capsule_path.mkdir()
+    cypher_content = {
+        "capsule_id": "test_capsule",
+        "name": "Test Capsule",
+        "version": "1.0.0",
+        "domain_type": "test",
+        "folder_structure": {},
+        "contents": {},
+    }
+    with open(capsule_path / "capsule-cypher.yaml", "w") as f:
+        yaml.dump(cypher_content, f)
+    return capsule_path
 
 
-def test_export_zip(temp_capsule, tmp_path):
-    destination_dir = tmp_path / "destination"
-    destination_dir.mkdir()
-    destination_zip = destination_dir / "test_capsule"
-    result = runner.invoke(app, ["export", "export", str(temp_capsule), str(destination_zip), "--format", "zip"])
-    print(result.stdout)
-    assert result.exit_code == 0
-    assert "Successfully exported capsule to" in result.stdout
-    assert (destination_dir / "test_capsule.capsule").exists()
-
-
-def test_export_invalid_format(temp_capsule, tmp_path):
-    """Test the export command with an invalid format."""
-    output_path = tmp_path / "output"
-
-    result = runner.invoke(app, ["export", "export", str(temp_capsule), str(output_path), "--format", "invalid"])
-
-    assert result.exit_code == 1
-    assert "Invalid format" in result.stdout
-
-
-def test_export_adds_capsule_extension(temp_capsule, tmp_path):
-    """Test that the export command adds .capsule extension for zip format."""
-    output_path = tmp_path / "output"
-
-    result = runner.invoke(app, ["export", "export", str(temp_capsule), str(output_path), "--format", "zip"])
+def test_export_zip_default(mock_packager, valid_capsule):
+    result = runner.invoke(app, ["export", str(valid_capsule)])
 
     assert result.exit_code == 0
-    expected_path = tmp_path / "output.capsule"
-    assert expected_path.exists()
+    mock_packager.return_value.package_to_zip.assert_called_once()
 
 
-def test_export_default_format(temp_capsule, tmp_path):
-    """Test that the export command defaults to zip format."""
-    output_path = tmp_path / "output.capsule"
-
-    result = runner.invoke(app, ["export", "export", str(temp_capsule), str(output_path)])
+def test_export_folder(mock_packager, valid_capsule):
+    result = runner.invoke(app, ["export", str(valid_capsule), "--no-zip"])
 
     assert result.exit_code == 0
-    assert output_path.exists()
+    mock_packager.return_value.package_to_folder.assert_called_once()
 
-    # Verify it's a zip file
-    import zipfile
 
-    with zipfile.ZipFile(output_path, "r") as zf:
-        assert "export-manifest.json" in zf.namelist()
+def test_export_custom_output(mock_packager, valid_capsule, tmp_path):
+    output_dir = tmp_path / "output"
+    result = runner.invoke(app, ["export", str(valid_capsule), "--output", str(output_dir)])
+
+    assert result.exit_code == 0
+    # Check that package_to_zip was called with a path inside output_dir
+    args, _ = mock_packager.return_value.package_to_zip.call_args
+    output_path_arg = args[0]
+    assert output_dir in output_path_arg.parents
+
+
+def test_export_path_not_found(tmp_path):
+    non_existent_path = tmp_path / "non_existent"
+    result = runner.invoke(app, ["export", str(non_existent_path)])
+
+    assert result.exit_code != 0
+    assert "Capsule path does not exist" in result.stdout
+
+
+def test_export_yaml_error(mock_packager, tmp_path):
+    capsule_path = tmp_path / "bad_yaml_capsule"
+    capsule_path.mkdir()
+    with open(capsule_path / "capsule-cypher.yaml", "w") as f:
+        f.write("invalid: yaml: content: [")  # Invalid YAML
+
+    result = runner.invoke(app, ["export", str(capsule_path)])
+
+    assert result.exit_code != 0
+    assert "YAML Error" in result.stdout

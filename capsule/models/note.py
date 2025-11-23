@@ -5,9 +5,10 @@ This module provides the Note class for parsing, manipulating, and writing
 markdown files with YAML frontmatter using the python-frontmatter library.
 """
 
-from dataclasses import dataclass, field
+from dataclasses import dataclass
 from pathlib import Path
-from typing import Any, Optional
+from typing import Any
+
 import frontmatter  # type: ignore[import-untyped]
 
 
@@ -46,7 +47,7 @@ class Note:
     file_path: str
     frontmatter: dict[str, Any]
     body: str
-    source_capsules: Optional[list[str]] = None
+    source_capsules: list[str] | None = None
 
     @classmethod
     def from_file(cls, filepath: str) -> "Note":
@@ -84,7 +85,7 @@ class Note:
             raise FileNotFoundError(f"File not found: {filepath}")
 
         # Parse frontmatter using python-frontmatter library
-        with open(path, "r", encoding="utf-8") as f:
+        with open(path, encoding="utf-8") as f:
             post = frontmatter.load(f)
 
         # Extract frontmatter dict and body content

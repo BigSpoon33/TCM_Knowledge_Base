@@ -1,9 +1,9 @@
-import pytest
 from pathlib import Path
-import shutil
-from capsule.core.importer import Importer, ImportPreview
+
+import pytest
+
+from capsule.core.importer import Importer
 from capsule.models.config import Config
-from capsule.models.cypher import CapsuleCypher
 
 
 @pytest.fixture

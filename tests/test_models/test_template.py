@@ -1,9 +1,11 @@
 # tests/test_models/test_template.py
 
+import tempfile
 import unittest
 from pathlib import Path
-import tempfile
+
 from capsule.models.template import TemplateSchema
+
 
 class TestTemplateSchema(unittest.TestCase):
     def setUp(self):
@@ -15,15 +17,9 @@ class TestTemplateSchema(unittest.TestCase):
             "required_fields": ["name", "category"],
             "optional_fields": ["sub_category", "meridian"],
             "domain_sections": {
-                "herbs": {
-                    "type": "list",
-                    "schema": "herb_schema"
-                },
-                "formulas": {
-                    "type": "list",
-                    "schema": "formula_schema"
-                }
-            }
+                "herbs": {"type": "list", "schema": "herb_schema"},
+                "formulas": {"type": "list", "schema": "formula_schema"},
+            },
         }
         self.schema = TemplateSchema(**self.schema_data)
 
@@ -47,18 +43,11 @@ class TestTemplateSchema(unittest.TestCase):
         self.assertEqual(self.schema, loaded_schema)
 
     def test_validate_structure_success(self):
-        valid_data = {
-            "name": "Some Name",
-            "category": "Some Category",
-            "meridian": "Some Meridian"
-        }
+        valid_data = {"name": "Some Name", "category": "Some Category", "meridian": "Some Meridian"}
         self.assertTrue(self.schema.validate_structure(valid_data))
 
     def test_validate_structure_failure(self):
-        invalid_data = {
-            "name": "Some Name",
-            "meridian": "Some Meridian"
-        }
+        invalid_data = {"name": "Some Name", "meridian": "Some Meridian"}
         self.assertFalse(self.schema.validate_structure(invalid_data))
 
     def test_empty_and_default_fields(self):
@@ -68,6 +57,7 @@ class TestTemplateSchema(unittest.TestCase):
         self.assertListEqual(schema.required_fields, [])
         self.assertListEqual(schema.optional_fields, [])
         self.assertDictEqual(schema.domain_sections, {})
+
 
 if __name__ == "__main__":
     unittest.main()

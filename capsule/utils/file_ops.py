@@ -1,6 +1,8 @@
 # capsule/utils/file_ops.py
 from pathlib import Path
+
 from .exceptions import FileError
+
 
 def safe_write(path: Path, content: str) -> None:
     """
@@ -15,10 +17,11 @@ def safe_write(path: Path, content: str) -> None:
     """
     try:
         temp_path = path.with_suffix(f"{path.suffix}.tmp")
-        temp_path.write_text(content, encoding='utf-8')
+        temp_path.write_text(content, encoding="utf-8")
         temp_path.replace(path)
-    except IOError as e:
+    except OSError as e:
         raise FileError(f"Failed to write to {path}: {e}") from e
+
 
 def read_file(path: Path) -> str:
     """
@@ -34,9 +37,8 @@ def read_file(path: Path) -> str:
         FileError: If the file cannot be read.
     """
     try:
-        return path.read_text(encoding='utf-8')
+        return path.read_text(encoding="utf-8")
     except FileNotFoundError as e:
         raise FileError(f"File not found: {path}") from e
-    except IOError as e:
+    except OSError as e:
         raise FileError(f"Failed to read from {path}: {e}") from e
-

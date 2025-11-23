@@ -4,13 +4,12 @@ Point-to-Disease Bidirectional Linker
 Links acupuncture points to diseases they treat and vice versa.
 """
 
-import os
 import re
-import yaml
-from pathlib import Path
-from typing import Dict, List, Set
 from collections import defaultdict
 from datetime import datetime
+from pathlib import Path
+
+import yaml
 
 
 class PointDiseaseLinker:
@@ -23,7 +22,7 @@ class PointDiseaseLinker:
 
         # Maps
         self.disease_map = {}  # disease_name -> file_path
-        self.point_map = {}    # point_code -> file_path
+        self.point_map = {}  # point_code -> file_path
 
         # Relationships
         self.disease_to_points = defaultdict(set)  # disease -> set of point codes
@@ -55,28 +54,28 @@ class PointDiseaseLinker:
     def _extract_name_from_file(self, file_path: Path) -> str:
         """Extract name from YAML frontmatter or first heading"""
         try:
-            with open(file_path, 'r', encoding='utf-8') as f:
+            with open(file_path, encoding="utf-8") as f:
                 content = f.read()
 
             # Try to get name from YAML frontmatter first
-            match = re.match(r'^---\s*\n(.*?)\n---', content, re.DOTALL)
+            match = re.match(r"^---\s*\n(.*?)\n---", content, re.DOTALL)
             if match:
                 frontmatter_text = match.group(1).strip()
                 if frontmatter_text:  # Only parse if not empty
                     try:
                         frontmatter = yaml.safe_load(frontmatter_text)
-                        if frontmatter and frontmatter.get('name'):
-                            return frontmatter['name']
+                        if frontmatter and frontmatter.get("name"):
+                            return frontmatter["name"]
                     except:
                         pass
 
             # Fall back to first heading
-            heading_match = re.search(r'^#\s+🩺?\s*(.+?)$', content, re.MULTILINE)
+            heading_match = re.search(r"^#\s+🩺?\s*(.+?)$", content, re.MULTILINE)
             if heading_match:
                 return heading_match.group(1).strip()
 
             # Last resort: use filename
-            return file_path.stem.replace('_', ' ')
+            return file_path.stem.replace("_", " ")
         except Exception:
             pass
         return ""
@@ -84,17 +83,17 @@ class PointDiseaseLinker:
     def _extract_point_code_from_file(self, file_path: Path) -> str:
         """Extract point code from YAML frontmatter or filename"""
         try:
-            with open(file_path, 'r', encoding='utf-8') as f:
+            with open(file_path, encoding="utf-8") as f:
                 content = f.read()
-            match = re.match(r'^---\s*\n(.*?)\n---', content, re.DOTALL)
+            match = re.match(r"^---\s*\n(.*?)\n---", content, re.DOTALL)
             if match:
                 frontmatter = yaml.safe_load(match.group(1))
                 # Try 'name' field first, then 'point_code', finally filename
-                code = frontmatter.get('name') or frontmatter.get('point_code') or file_path.stem
+                code = frontmatter.get("name") or frontmatter.get("point_code") or file_path.stem
                 return code
             # Fall back to filename if no frontmatter
             return file_path.stem
-        except Exception as e:
+        except Exception:
             # Silently fall back to filename
             return file_path.stem
 
@@ -106,15 +105,15 @@ class PointDiseaseLinker:
         total_relationships = 0
 
         for disease_name, disease_file in self.disease_map.items():
-            with open(disease_file, 'r', encoding='utf-8') as f:
+            with open(disease_file, encoding="utf-8") as f:
                 content = f.read()
 
             # Extract points from frontmatter
-            match = re.match(r'^---\s*\n(.*?)\n---', content, re.DOTALL)
+            match = re.match(r"^---\s*\n(.*?)\n---", content, re.DOTALL)
             if match:
                 try:
                     frontmatter = yaml.safe_load(match.group(1))
-                    points = frontmatter.get('points', [])
+                    points = frontmatter.get("points", [])
 
                     if points:
                         for point_code in points:
@@ -140,10 +139,10 @@ class PointDiseaseLinker:
         # e.g., "[[DU-20]]" -> "DU-20"
 
         # Remove wikilink brackets
-        point_str = point_str.replace('[[', '').replace(']]', '')
+        point_str = point_str.replace("[[", "").replace("]]", "")
 
         # Extract from parentheses if present
-        paren_match = re.search(r'\((.*?)\)', point_str)
+        paren_match = re.search(r"\((.*?)\)", point_str)
         if paren_match:
             point_str = paren_match.group(1)
 
@@ -152,7 +151,7 @@ class PointDiseaseLinker:
         point_str = point_str.strip()
 
         # Standardize format
-        parts = point_str.replace('-', ' ').split()
+        parts = point_str.replace("-", " ").split()
         if len(parts) == 2:
             meridian, number = parts
             # Standardize meridian code
@@ -171,23 +170,19 @@ class PointDiseaseLinker:
         for point_code, diseases in self.point_to_diseases.items():
             point_file = self.point_map.get(point_code)
             if point_file:
-                self._update_file_frontmatter(
-                    point_file,
-                    'treats_diseases',
-                    sorted(list(diseases))
-                )
+                self._update_file_frontmatter(point_file, "treats_diseases", sorted(list(diseases)))
                 updated_count += 1
                 print(f"  ✓ {point_code}: Added {len(diseases)} disease links")
 
         print(f"\n✓ Updated {updated_count} point files")
 
-    def _update_file_frontmatter(self, file_path: Path, field: str, values: List[str]):
+    def _update_file_frontmatter(self, file_path: Path, field: str, values: list[str]):
         """Update a specific field in YAML frontmatter"""
-        with open(file_path, 'r', encoding='utf-8') as f:
+        with open(file_path, encoding="utf-8") as f:
             content = f.read()
 
         # Extract frontmatter and body
-        match = re.match(r'^(---\s*\n)(.*?)(\n---\s*\n)(.*)', content, re.DOTALL)
+        match = re.match(r"^(---\s*\n)(.*?)(\n---\s*\n)(.*)", content, re.DOTALL)
         if not match:
             print(f"  ⚠️  No frontmatter found in {file_path.name}")
             return
@@ -205,13 +200,13 @@ class PointDiseaseLinker:
         frontmatter[field] = values
 
         # Add updated timestamp
-        frontmatter['updated'] = datetime.now().strftime("%Y-%m-%d")
+        frontmatter["updated"] = datetime.now().strftime("%Y-%m-%d")
 
         # Write back
         new_yaml = yaml.dump(frontmatter, default_flow_style=False, allow_unicode=True, sort_keys=False)
         new_content = f"{yaml_start}{new_yaml}{yaml_end}{body}"
 
-        with open(file_path, 'w', encoding='utf-8') as f:
+        with open(file_path, "w", encoding="utf-8") as f:
             f.write(new_content)
 
     def generate_statistics(self):
@@ -220,23 +215,21 @@ class PointDiseaseLinker:
         print("=" * 60)
 
         # Sort by usage frequency
-        usage_sorted = sorted(
-            self.point_usage_count.items(),
-            key=lambda x: x[1],
-            reverse=True
-        )
+        usage_sorted = sorted(self.point_usage_count.items(), key=lambda x: x[1], reverse=True)
 
         print("\n🔝 Most Frequently Used Points:")
         for point_code, count in usage_sorted[:20]:
             diseases = self.point_to_diseases[point_code]
             print(f"  {point_code}: {count} uses in {len(diseases)} diseases")
 
-        print(f"\n📈 Total Statistics:")
+        print("\n📈 Total Statistics:")
         print(f"  Total point-disease relationships: {sum(self.point_usage_count.values())}")
         print(f"  Points used in treatments: {len(self.point_to_diseases)}")
         print(f"  Diseases with point protocols: {len(self.disease_to_points)}")
         if len(self.disease_to_points) > 0:
-            print(f"  Average points per disease: {sum(self.point_usage_count.values()) / len(self.disease_to_points):.1f}")
+            print(
+                f"  Average points per disease: {sum(self.point_usage_count.values()) / len(self.disease_to_points):.1f}"
+            )
 
         return usage_sorted
 
@@ -248,7 +241,7 @@ class PointDiseaseLinker:
         updated_count = 0
 
         for disease_name, disease_file in self.disease_map.items():
-            with open(disease_file, 'r', encoding='utf-8') as f:
+            with open(disease_file, encoding="utf-8") as f:
                 original_content = f.read()
 
             modified_content = original_content
@@ -263,13 +256,13 @@ class PointDiseaseLinker:
                     # Pattern to match point code not already in wikilinks
                     # Match things like "Du 20", "DU-20", "Du-20" but not in [[]]
                     patterns = [
-                        rf'(?<!\[\[)\b{re.escape(point_code)}\b(?!\]\])',
-                        rf'(?<!\[\[)\b{re.escape(point_code.replace("-", " "))}\b(?!\]\])',
+                        rf"(?<!\[\[)\b{re.escape(point_code)}\b(?!\]\])",
+                        rf"(?<!\[\[)\b{re.escape(point_code.replace('-', ' '))}\b(?!\]\])",
                     ]
 
                     for pattern in patterns:
                         # Split content to avoid frontmatter
-                        parts = modified_content.split('---', 2)
+                        parts = modified_content.split("---", 2)
                         if len(parts) == 3:
                             frontmatter, _, body = parts
 
@@ -279,14 +272,14 @@ class PointDiseaseLinker:
                                 f"[[{point_code}]]",
                                 body,
                                 count=5,  # Limit to first 5 occurrences
-                                flags=re.IGNORECASE
+                                flags=re.IGNORECASE,
                             )
 
                             modified_content = f"---{frontmatter}---{body_modified}"
 
             # Write if changed
             if modified_content != original_content:
-                with open(disease_file, 'w', encoding='utf-8') as f:
+                with open(disease_file, "w", encoding="utf-8") as f:
                     f.write(modified_content)
                 updated_count += 1
                 print(f"  ✓ Updated: {disease_name}")

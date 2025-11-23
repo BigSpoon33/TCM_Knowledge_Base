@@ -1,10 +1,12 @@
 # tests/test_utils/test_yaml_handler.py
 
+import tempfile
 import unittest
 from pathlib import Path
-import tempfile
-from capsule.utils.yaml_handler import YAMLHandler
+
 from capsule.utils.exceptions import YAMLFileError
+from capsule.utils.yaml_handler import YAMLHandler
+
 
 class TestYAMLHandler(unittest.TestCase):
     def setUp(self):
@@ -18,7 +20,7 @@ class TestYAMLHandler(unittest.TestCase):
         file_path = self.temp_path / "test.yaml"
         data = {"key": "value", "items": [1, 2]}
         YAMLHandler.write(file_path, data)
-        
+
         read_data = YAMLHandler.read(file_path)
         self.assertEqual(data, read_data)
 
@@ -31,7 +33,7 @@ class TestYAMLHandler(unittest.TestCase):
         file_path = self.temp_path / "malformed.yaml"
         with open(file_path, "w") as f:
             f.write("key: value:\n  - item1")
-        
+
         with self.assertRaises(YAMLFileError):
             YAMLHandler.read(file_path)
 
@@ -48,16 +50,17 @@ items:
             f.write(content)
 
         data = YAMLHandler.read(file_path)
-        
+
         new_file_path = self.temp_path / "comments_new.yaml"
         YAMLHandler.write(new_file_path, data)
 
-        with open(new_file_path, "r") as f:
+        with open(new_file_path) as f:
             new_content = f.read()
-        
+
         # Note: ruamel.yaml might reformat slightly, but comments should be there.
         self.assertIn("# This is a main comment", new_content)
         self.assertIn("# This is an inline comment", new_content)
+
 
 if __name__ == "__main__":
     unittest.main()

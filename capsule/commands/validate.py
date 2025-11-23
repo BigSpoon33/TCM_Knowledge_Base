@@ -1,44 +1,64 @@
+from pathlib import Path
+
 import typer
-from capsule.utils.validation import run_validation, generate_report
-from capsule.utils.output import console
+from rich.console import Console
+from rich.panel import Panel
 
-app = typer.Typer()
+from capsule.core.validator import Validator
+
+console = Console()
 
 
-@app.command()
 def validate(
-    report: bool = typer.Option(
-        False,
-        "--report",
-        "-r",
-        help="Generate a markdown validation report.",
+    path: Path = typer.Argument(
+        ...,
+        help="Path to the capsule directory to validate.",
+        exists=True,
+        file_okay=False,
+        dir_okay=True,
+        resolve_path=True,
     ),
+    verbose: bool = typer.Option(False, "--verbose", "-v", help="Enable verbose output."),
 ):
-    """
-    Run validation checks on the project.
+    """Validates a capsule's structure, cypher, and contents against its schema."""
 
-    Performs the following integrity checks:
-    1. File Inventory: Checks for missing or unexpected files in the capsule directory.
-    2. Schema Validation: Validates capsule-cypher.yaml against the required schema.
-    3. Encoding Check: Ensures all text files are UTF-8 or ASCII encoded.
+    console.print(f"[bold blue]Validating capsule at:[/bold blue] {path}")
 
-    Returns a summary of errors if any are found.
-    """
-    console.print("Running validation checks...")
-    results = run_validation()
+    try:
+        validator = Validator(path)
 
-    if report:
-        report_path = generate_report(results)
-        console.print(f"Validation report generated at: [bold green]{report_path}[/bold green]")
-    else:
-        # Print a summary to the console
-        total_errors = sum(len(result.get("errors", [])) for result in results.values())
-        if total_errors > 0:
-            console.print(f"[bold red]Validation Failed! Found {total_errors} errors.[/bold red]")
-            # Optionally, print more details here
-        else:
-            console.print("[bold green]Validation Passed![/bold green]")
+        with console.status("[bold green]Running validation checks...[/bold green]"):
+            validator.validate_capsule()
 
+        # If we get here, validation passed
+        console.print(
+            Panel.fit(
+                f"[bold green]✓ Validation Successful![/bold green]\nCapsule at [cyan]{path}[/cyan] is valid.",
+                title="Validation Result",
+                border_style="green",
+            )
+        )
+        raise typer.Exit(code=0)
 
-if __name__ == "__main__":
-    app()
+    except typer.Exit:
+        raise
+    except (ValueError, FileNotFoundError, TypeError, FileExistsError) as e:
+        # The Validator raises standard exceptions, we should catch them and print nicely
+        console.print(
+            Panel.fit(
+                f"[bold red]✗ Validation Failed[/bold red]\n\n[red]{str(e)}[/red]",
+                title="Validation Result",
+                border_style="red",
+            )
+        )
+
+        if verbose:
+            console.print_exception()
+
+        raise typer.Exit(code=1)
+
+    except Exception as e:
+        console.print(f"[bold red]An unexpected error occurred:[/bold red] {e}")
+        if verbose:
+            console.print_exception()
+        raise typer.Exit(code=1)

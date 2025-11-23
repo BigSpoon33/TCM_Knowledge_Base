@@ -14,13 +14,12 @@ Usage:
     python generate_flashcards_from_root.py "Blood Stasis Pattern" --output-dir "Materials/TCM_101"
 """
 
-import os
 import re
-import yaml
-from pathlib import Path
 from datetime import datetime
-from typing import Dict, List, Any, Optional
+from pathlib import Path
+from typing import Any
 
+import yaml
 
 # Base paths
 BASE_DIR = Path(__file__).parent.parent
@@ -40,11 +39,11 @@ class RootNoteParser:
     def _parse_file(self):
         """Parse markdown file into frontmatter and body."""
         try:
-            with open(self.file_path, 'r', encoding='utf-8') as f:
+            with open(self.file_path, encoding="utf-8") as f:
                 content = f.read()
 
             # Match frontmatter between --- markers
-            match = re.match(r'^---\s*\n(.*?)\n---\s*\n(.*)', content, re.DOTALL)
+            match = re.match(r"^---\s*\n(.*?)\n---\s*\n(.*)", content, re.DOTALL)
             if not match:
                 raise ValueError(f"No frontmatter found in {self.file_path.name}")
 
@@ -60,41 +59,41 @@ class RootNoteParser:
         except Exception as e:
             raise RuntimeError(f"Error reading {self.file_path}: {e}")
 
-    def get_flashcard_seeds(self) -> List[Dict[str, Any]]:
+    def get_flashcard_seeds(self) -> list[dict[str, Any]]:
         """Extract flashcard seeds from assessment_data."""
-        assessment_data = self.frontmatter.get('assessment_data', {})
-        return assessment_data.get('flashcard_seeds', [])
+        assessment_data = self.frontmatter.get("assessment_data", {})
+        return assessment_data.get("flashcard_seeds", [])
 
-    def get_metadata(self) -> Dict[str, Any]:
+    def get_metadata(self) -> dict[str, Any]:
         """Extract relevant metadata for flashcard generation."""
         return {
-            'name': self.frontmatter.get('name', 'Unknown Topic'),
-            'domain': self.frontmatter.get('domain', 'General'),
-            'subject': self.frontmatter.get('subject', 'General'),
-            'difficulty': self.frontmatter.get('learning_data', {}).get('difficulty', 'medium'),
-            'tags': self.frontmatter.get('tags', []),
-            'category': self.frontmatter.get('category', []),
+            "name": self.frontmatter.get("name", "Unknown Topic"),
+            "domain": self.frontmatter.get("domain", "General"),
+            "subject": self.frontmatter.get("subject", "General"),
+            "difficulty": self.frontmatter.get("learning_data", {}).get("difficulty", "medium"),
+            "tags": self.frontmatter.get("tags", []),
+            "category": self.frontmatter.get("category", []),
         }
 
-    def get_core_concepts(self) -> List[Dict[str, Any]]:
+    def get_core_concepts(self) -> list[dict[str, Any]]:
         """Extract core concepts for additional flashcard generation."""
-        content_data = self.frontmatter.get('content_data', {})
-        return content_data.get('core_concepts', [])
+        content_data = self.frontmatter.get("content_data", {})
+        return content_data.get("core_concepts", [])
 
-    def get_key_facts(self) -> List[Dict[str, Any]]:
+    def get_key_facts(self) -> list[dict[str, Any]]:
         """Extract key facts for flashcard generation."""
-        content_data = self.frontmatter.get('content_data', {})
-        return content_data.get('key_facts', [])
+        content_data = self.frontmatter.get("content_data", {})
+        return content_data.get("key_facts", [])
 
-    def get_comparisons(self) -> List[Dict[str, Any]]:
+    def get_comparisons(self) -> list[dict[str, Any]]:
         """Extract comparisons for flashcard generation."""
-        content_data = self.frontmatter.get('content_data', {})
-        return content_data.get('comparisons', [])
+        content_data = self.frontmatter.get("content_data", {})
+        return content_data.get("comparisons", [])
 
-    def get_memory_aids(self) -> List[Dict[str, Any]]:
+    def get_memory_aids(self) -> list[dict[str, Any]]:
         """Extract memory aids from presentation_data."""
-        presentation_data = self.frontmatter.get('presentation_data', {})
-        return presentation_data.get('memory_aids', [])
+        presentation_data = self.frontmatter.get("presentation_data", {})
+        return presentation_data.get("memory_aids", [])
 
 
 class FlashcardGenerator:
@@ -108,8 +107,8 @@ class FlashcardGenerator:
 
     def _generate_class_id(self) -> str:
         """Generate class ID from domain and subject."""
-        domain = self.metadata['domain'].replace(' ', '_')
-        subject = self.metadata['subject'].replace(' ', '_')
+        domain = self.metadata["domain"].replace(" ", "_")
+        subject = self.metadata["subject"].replace(" ", "_")
         return f"{domain}_{subject}"
 
     def generate_all_flashcards(self):
@@ -140,11 +139,11 @@ class FlashcardGenerator:
 
         for seed in seeds:
             card = self._create_flashcard(
-                question=seed.get('question', ''),
-                answer=seed.get('answer', ''),
-                context=seed.get('context', self.metadata['name']),
-                difficulty=seed.get('difficulty', 'medium'),
-                card_type=seed.get('card_type', 'basic')
+                question=seed.get("question", ""),
+                answer=seed.get("answer", ""),
+                context=seed.get("context", self.metadata["name"]),
+                difficulty=seed.get("difficulty", "medium"),
+                card_type=seed.get("card_type", "basic"),
             )
             self.flashcards.append(card)
 
@@ -154,30 +153,30 @@ class FlashcardGenerator:
         print(f"   🧠 Processing {len(concepts)} core concepts...")
 
         for concept in concepts:
-            name = concept.get('name', '')
-            definition = concept.get('definition', '')
-            importance = concept.get('importance', '')
+            name = concept.get("name", "")
+            definition = concept.get("definition", "")
+            importance = concept.get("importance", "")
 
             if name and definition:
                 # Definition flashcard
                 card = self._create_flashcard(
                     question=f"What is {name}?",
                     answer=f"**Definition:** {definition}\n\n**Importance:** {importance}",
-                    context=self.metadata['name'],
-                    difficulty='easy',
-                    card_type='basic'
+                    context=self.metadata["name"],
+                    difficulty="easy",
+                    card_type="basic",
                 )
                 self.flashcards.append(card)
 
     def _generate_from_facts(self):
         """Generate flashcards from key facts."""
         facts = self.root_note.get_key_facts()
-        testable_facts = [f for f in facts if f.get('testable', True)]
+        testable_facts = [f for f in facts if f.get("testable", True)]
         print(f"   📊 Processing {len(testable_facts)} testable facts...")
 
         for fact in testable_facts:
-            fact_text = fact.get('fact', '')
-            category = fact.get('category', '')
+            fact_text = fact.get("fact", "")
+            category = fact.get("category", "")
 
             if fact_text:
                 # Convert fact into Q&A format
@@ -187,8 +186,8 @@ class FlashcardGenerator:
                         question=question,
                         answer=answer,
                         context=f"{self.metadata['name']} - {category}",
-                        difficulty='medium',
-                        card_type='basic'
+                        difficulty="medium",
+                        card_type="basic",
                     )
                     self.flashcards.append(card)
 
@@ -198,9 +197,9 @@ class FlashcardGenerator:
         print(f"   🔄 Processing {len(comparisons)} comparisons...")
 
         for comparison in comparisons:
-            entities = comparison.get('entities', [])
-            key_distinction = comparison.get('key_distinction', '')
-            dimensions = comparison.get('dimensions', [])
+            entities = comparison.get("entities", [])
+            key_distinction = comparison.get("key_distinction", "")
+            dimensions = comparison.get("dimensions", [])
 
             if len(entities) >= 2 and key_distinction:
                 # Key distinction flashcard
@@ -208,24 +207,24 @@ class FlashcardGenerator:
                     question=f"What is the key difference between {entities[0]} and {entities[1]}?",
                     answer=f"**Key Distinction:** {key_distinction}",
                     context=f"{self.metadata['name']} - Comparison",
-                    difficulty='medium',
-                    card_type='comparison'
+                    difficulty="medium",
+                    card_type="comparison",
                 )
                 self.flashcards.append(card)
 
                 # Dimension-specific flashcards
                 for dim in dimensions[:3]:  # Limit to top 3 dimensions
-                    dimension = dim.get('dimension', '')
-                    entity_1_value = dim.get('entity_1_value', '')
-                    entity_2_value = dim.get('entity_2_value', '')
+                    dimension = dim.get("dimension", "")
+                    entity_1_value = dim.get("entity_1_value", "")
+                    entity_2_value = dim.get("entity_2_value", "")
 
                     if dimension and entity_1_value and entity_2_value:
                         card = self._create_flashcard(
                             question=f"Compare {entities[0]} and {entities[1]} in terms of {dimension}",
                             answer=f"**{entities[0]}:** {entity_1_value}\n\n**{entities[1]}:** {entity_2_value}",
                             context=f"{self.metadata['name']} - Comparison",
-                            difficulty='hard',
-                            card_type='comparison'
+                            difficulty="hard",
+                            card_type="comparison",
                         )
                         self.flashcards.append(card)
 
@@ -235,33 +234,33 @@ class FlashcardGenerator:
         print(f"   💡 Processing {len(memory_aids)} memory aids...")
 
         for aid in memory_aids:
-            aid_type = aid.get('type', '')
-            content = aid.get('content', '')
-            applies_to = aid.get('applies_to', '')
+            aid_type = aid.get("type", "")
+            content = aid.get("content", "")
+            applies_to = aid.get("applies_to", "")
 
             if content and applies_to:
-                if aid_type == 'mnemonic' or aid_type == 'acronym':
+                if aid_type == "mnemonic" or aid_type == "acronym":
                     card = self._create_flashcard(
                         question=f"What does the {aid_type.upper()} help you remember?",
                         answer=f"**{aid_type.capitalize()}:** {content}\n\n**Applies to:** {applies_to}",
                         context=f"{self.metadata['name']} - Memory Aid",
-                        difficulty='easy',
-                        card_type='basic'
+                        difficulty="easy",
+                        card_type="basic",
                     )
                     self.flashcards.append(card)
 
     def _fact_to_qa(self, fact: str, category: str) -> tuple:
         """Convert a fact statement into question-answer format."""
         # Simple heuristic: if fact contains "is", split on it
-        if ' is ' in fact.lower():
-            parts = fact.split(' is ', 1)
+        if " is " in fact.lower():
+            parts = fact.split(" is ", 1)
             question = f"What is {parts[0].strip()}?"
             answer = parts[1].strip()
             return question, answer
 
         # If fact contains specific patterns, extract them
-        if 'contraindicated' in fact.lower():
-            question = f"When is this contraindicated?"
+        if "contraindicated" in fact.lower():
+            question = "When is this contraindicated?"
             answer = fact
             return question, answer
 
@@ -270,15 +269,16 @@ class FlashcardGenerator:
         answer = fact
         return question, answer
 
-    def _create_flashcard(self, question: str, answer: str, context: str,
-                         difficulty: str, card_type: str) -> Dict[str, Any]:
+    def _create_flashcard(
+        self, question: str, answer: str, context: str, difficulty: str, card_type: str
+    ) -> dict[str, Any]:
         """Create a flashcard dictionary."""
         return {
-            'question': question,
-            'answer': answer,
-            'context': context,
-            'difficulty': difficulty,
-            'card_type': card_type
+            "question": question,
+            "answer": answer,
+            "context": context,
+            "difficulty": difficulty,
+            "card_type": card_type,
         }
 
     def generate_flashcard_file(self, output_path: Path):
@@ -288,7 +288,7 @@ class FlashcardGenerator:
             return
 
         today = datetime.now().strftime("%Y-%m-%d")
-        topic_name = self.metadata['name']
+        topic_name = self.metadata["name"]
         total_cards = len(self.flashcards)
 
         # Build frontmatter (OCDS-compatible)
@@ -306,11 +306,11 @@ last_review_date: null
 tags:
   - flashcards
   - {self.class_id.lower()}
-  - {self.metadata['domain'].lower()}
-  - {self.metadata['subject'].lower().replace(' ', '-')}
+  - {self.metadata["domain"].lower()}
+  - {self.metadata["subject"].lower().replace(" ", "-")}
   - spaced-repetition
 card_count: {total_cards}
-difficulty: {self.metadata['difficulty']}
+difficulty: {self.metadata["difficulty"]}
 created: {today}
 updated: {today}
 ---
@@ -320,7 +320,7 @@ updated: {today}
         content = f"\n# {topic_name} Flashcards\n\n"
         content += f"**Total Cards:** {total_cards}  \n"
         content += f"**Topic:** {topic_name}\n\n"
-        
+
         # Add DataviewJS tracking (OCDS-compatible)
         content += """```dataviewjs
 // Track flashcard reviews using Spaced Repetition plugin data
@@ -398,7 +398,7 @@ dv.paragraph(`
         # Group flashcards by context
         flashcards_by_context = {}
         for card in self.flashcards:
-            context = card['context']
+            context = card["context"]
             if context not in flashcards_by_context:
                 flashcards_by_context[context] = []
             flashcards_by_context[context].append(card)
@@ -418,21 +418,21 @@ dv.paragraph(`
 
         try:
             output_path.parent.mkdir(parents=True, exist_ok=True)
-            with open(output_path, 'w', encoding='utf-8') as f:
+            with open(output_path, "w", encoding="utf-8") as f:
                 f.write(full_content)
             print(f"✅ Flashcard file created: {output_path}")
         except Exception as e:
             print(f"❌ Error writing flashcard file: {e}")
 
 
-def find_root_note(note_name: str) -> Optional[Path]:
+def find_root_note(note_name: str) -> Path | None:
     """Find root note file by name."""
     # Search in Materials/TCM_101 first
     materials_dir = MATERIALS_DIR / "TCM_101"
     if materials_dir.exists():
         # Sanitize note_name to match file naming convention
         sanitized_name = f"Root_Note_{note_name.replace(' ', '_')}.md"
-        
+
         for file_path in materials_dir.glob("*.md"):
             if file_path.name == sanitized_name:
                 return file_path
@@ -447,7 +447,7 @@ def find_root_note(note_name: str) -> Optional[Path]:
         if file_path.stem == note_name:
             # Check if it's a root note
             try:
-                with open(file_path, 'r', encoding='utf-8') as f:
+                with open(file_path, encoding="utf-8") as f:
                     content = f.read()
                     if 'type: "root_note"' in content or "type: root_note" in content:
                         return file_path
@@ -467,18 +467,18 @@ def main():
 
     # Parse arguments
     if len(sys.argv) < 2:
-        print("Usage: python generate_flashcards_from_root.py \"Root Note Name\" [--output-dir DIR]")
+        print('Usage: python generate_flashcards_from_root.py "Root Note Name" [--output-dir DIR]')
         print("\nExample:")
-        print("  python generate_flashcards_from_root.py \"Blood Stasis Pattern\"")
-        print("  python generate_flashcards_from_root.py \"Blood Stasis Pattern\" --output-dir \"Materials/TCM_101\"")
+        print('  python generate_flashcards_from_root.py "Blood Stasis Pattern"')
+        print('  python generate_flashcards_from_root.py "Blood Stasis Pattern" --output-dir "Materials/TCM_101"')
         sys.exit(1)
 
     note_name = sys.argv[1]
     output_dir = None
 
     # Check for output directory argument
-    if '--output-dir' in sys.argv:
-        idx = sys.argv.index('--output-dir')
+    if "--output-dir" in sys.argv:
+        idx = sys.argv.index("--output-dir")
         if idx + 1 < len(sys.argv):
             output_dir = Path(sys.argv[idx + 1])
 

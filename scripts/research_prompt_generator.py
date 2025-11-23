@@ -10,86 +10,82 @@ This module uses AI to craft targeted research prompts based on:
 
 import os
 import sys
-from pathlib import Path
 from datetime import datetime
-from typing import List, Dict, Any
+from pathlib import Path
 
 # Add parent directory to path for imports
 sys.path.insert(0, str(Path(__file__).parent))
 
-from template_parser import TemplateParser
 from gemini_research import GeminiDeepResearch
+from template_parser import TemplateParser
 
 
 class ResearchPromptGenerator:
     """AI-powered generator for optimal deep research prompts."""
-    
+
     def __init__(self, api_key: str = None):
         """
         Initialize prompt generator.
-        
+
         Args:
             api_key: Gemini API key (uses GEMINI_API_KEY env var if None)
         """
-        self.api_key = api_key or os.environ.get('GEMINI_API_KEY')
-        
+        self.api_key = api_key or os.environ.get("GEMINI_API_KEY")
+
         if not self.api_key:
             raise ValueError(
-                "Gemini API key required. Set GEMINI_API_KEY environment variable "
-                "or pass api_key parameter."
+                "Gemini API key required. Set GEMINI_API_KEY environment variable or pass api_key parameter."
             )
-        
+
         self.researcher = GeminiDeepResearch(api_key=self.api_key)
-    
-    def generate_prompt(self, topic: str, project: str, 
-                       template_path: Path) -> str:
+
+    def generate_prompt(self, topic: str, project: str, template_path: Path) -> str:
         """
         Generate optimal research prompt using AI.
-        
+
         Args:
             topic: "Spleen Qi Deficiency"
             project: "Traditional Chinese Medicine"
             template_path: Path to template file
-        
+
         Returns:
             Optimized research prompt string
         """
-        print(f"🎯 Generating research prompt...")
+        print("🎯 Generating research prompt...")
         print(f"   Topic: {topic}")
         print(f"   Project: {project}")
         print(f"   Template: {template_path.name}")
-        
+
         # Parse template to extract headings
         parser = TemplateParser()
         template_data = parser.parse(template_path)
-        
+
         # Get heading list
         headings = parser.get_heading_list(include_level=True)
-        
+
         print(f"   Headings extracted: {len(headings)}")
-        
+
         # Build meta-prompt
         meta_prompt = self._build_meta_prompt(topic, project, headings)
-        
+
         # Generate research prompt using AI
-        print(f"   🤖 Calling Gemini to generate prompt...")
+        print("   🤖 Calling Gemini to generate prompt...")
         result = self.researcher.research(meta_prompt, use_search=False)
-        
-        research_prompt = result['content'].strip()
-        
+
+        research_prompt = result["content"].strip()
+
         print(f"✅ Research prompt generated ({len(research_prompt)} characters)")
-        
+
         return research_prompt
-    
-    def _build_meta_prompt(self, topic: str, project: str, 
-                          headings: List[str]) -> str:
+
+    def _build_meta_prompt(self, topic: str, project: str, headings: list[str]) -> str:
         """
         Build meta-prompt for prompt generation.
-        
+
         This is the "prompt to generate the research prompt".
         """
         headings_formatted = "\n".join(headings)
-        
+
         return f"""
 You are an expert research prompt engineer specializing in educational content creation.
 
@@ -152,12 +148,11 @@ Focus on information that would be valuable for creating comprehensive education
 Now create the optimal research prompt for the given topic, domain, and template structure.
 Output ONLY the research prompt text:
 """
-    
-    def save_prompt(self, prompt: str, output_path: Path, 
-                   topic: str = None, project: str = None):
+
+    def save_prompt(self, prompt: str, output_path: Path, topic: str = None, project: str = None):
         """
         Save generated prompt to file.
-        
+
         Args:
             prompt: Generated research prompt
             output_path: Where to save
@@ -166,107 +161,100 @@ Output ONLY the research prompt text:
         """
         output_path = Path(output_path)
         output_path.parent.mkdir(parents=True, exist_ok=True)
-        
-        with open(output_path, 'w', encoding='utf-8') as f:
-            f.write(f"# Generated Deep Research Prompt\n\n")
-            
+
+        with open(output_path, "w", encoding="utf-8") as f:
+            f.write("# Generated Deep Research Prompt\n\n")
+
             if topic:
                 f.write(f"**Topic:** {topic}\n")
             if project:
                 f.write(f"**Project:** {project}\n")
-            
+
             f.write(f"**Generated:** {datetime.now().isoformat()}\n\n")
-            f.write(f"---\n\n")
+            f.write("---\n\n")
             f.write(prompt)
-            f.write(f"\n\n---\n\n")
-            f.write(f"*Generated by ResearchPromptGenerator*\n")
-        
+            f.write("\n\n---\n\n")
+            f.write("*Generated by ResearchPromptGenerator*\n")
+
         print(f"💾 Prompt saved: {output_path}")
-    
+
     def load_prompt(self, input_path: Path) -> str:
         """
         Load previously generated prompt.
-        
+
         Args:
             input_path: Path to saved prompt file
-        
+
         Returns:
             Prompt text
         """
         input_path = Path(input_path)
-        
+
         if not input_path.exists():
             raise FileNotFoundError(f"Prompt file not found: {input_path}")
-        
-        with open(input_path, 'r', encoding='utf-8') as f:
+
+        with open(input_path, encoding="utf-8") as f:
             content = f.read()
-        
+
         # Extract prompt between --- markers
-        parts = content.split('---')
+        parts = content.split("---")
         if len(parts) >= 3:
             prompt = parts[1].strip()
         else:
             # Fallback: use entire content
             prompt = content
-        
+
         return prompt
 
 
 def main():
     """Test research prompt generator."""
     import argparse
-    
-    parser = argparse.ArgumentParser(
-        description='Generate optimal deep research prompts using AI'
-    )
-    parser.add_argument('--topic', required=True, help='Research topic')
-    parser.add_argument('--project', required=True, help='Project/domain context')
-    parser.add_argument('--template', required=True, help='Template file path')
-    parser.add_argument('--output', help='Output file path (optional)')
-    
+
+    parser = argparse.ArgumentParser(description="Generate optimal deep research prompts using AI")
+    parser.add_argument("--topic", required=True, help="Research topic")
+    parser.add_argument("--project", required=True, help="Project/domain context")
+    parser.add_argument("--template", required=True, help="Template file path")
+    parser.add_argument("--output", help="Output file path (optional)")
+
     args = parser.parse_args()
-    
+
     # Check for API key
-    if not os.environ.get('GEMINI_API_KEY'):
+    if not os.environ.get("GEMINI_API_KEY"):
         print("❌ Error: GEMINI_API_KEY environment variable not set")
         print("\nSet it with:")
         print("  export GEMINI_API_KEY='your-api-key-here'")
         sys.exit(1)
-    
+
     # Initialize generator
     generator = ResearchPromptGenerator()
-    
+
     # Generate prompt
-    print(f"\n{'='*70}")
-    print(f"🎯 AI-Powered Research Prompt Generation")
-    print(f"{'='*70}\n")
-    
+    print(f"\n{'=' * 70}")
+    print("🎯 AI-Powered Research Prompt Generation")
+    print(f"{'=' * 70}\n")
+
     research_prompt = generator.generate_prompt(
-        topic=args.topic,
-        project=args.project,
-        template_path=Path(args.template)
+        topic=args.topic, project=args.project, template_path=Path(args.template)
     )
-    
+
     # Display result
-    print(f"\n{'='*70}")
+    print(f"\n{'=' * 70}")
     print("📝 Generated Research Prompt:")
-    print(f"{'='*70}\n")
+    print(f"{'=' * 70}\n")
     print(research_prompt)
-    print(f"\n{'='*70}")
-    
+    print(f"\n{'=' * 70}")
+
     # Save if output specified
     if args.output:
         generator.save_prompt(
-            prompt=research_prompt,
-            output_path=Path(args.output),
-            topic=args.topic,
-            project=args.project
+            prompt=research_prompt, output_path=Path(args.output), topic=args.topic, project=args.project
         )
-        print(f"\n💡 Use this prompt with:")
-        print(f"   python scripts/gemini_research.py \\")
-        print(f"     --topic \"{args.topic}\" \\")
-        print(f"     --project \"{args.project}\" \\")
-        print(f"     --output research_results.md")
+        print("\n💡 Use this prompt with:")
+        print("   python scripts/gemini_research.py \\")
+        print(f'     --topic "{args.topic}" \\')
+        print(f'     --project "{args.project}" \\')
+        print("     --output research_results.md")
 
 
 if __name__ == "__main__":

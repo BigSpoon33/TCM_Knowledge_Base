@@ -1,0 +1,109 @@
+<story-context id="{bmad_folder}/bmm/workflows/4-implementation/story-context/template" v="1.0">
+  <metadata>
+    <epicId>11</epicId>
+    <storyId>6</storyId>
+    <title>advanced-filtering-heading-extraction</title>
+    <status>drafted</status>
+    <generatedAt>2025-11-22</generatedAt>
+    <generator>BMAD Story Context Workflow</generator>
+    <sourceStoryPath>docs/sprint-artifacts/11-6-advanced-filtering-heading-extraction.md</sourceStoryPath>
+  </metadata>
+
+  <story>
+    <asA>a user</asA>
+    <iWant>to create filtered content views that extract specific headings from a set of notes</iWant>
+    <soThat>I can create aggregated views of my knowledge.</soThat>
+    <tasks>
+      <task id="1" description="Implement Heading Extraction Function (AC: #1, #5)">
+        <subtask id="1.1" description="Create the new file `capsule/utils/dataview_queries.py`."/>
+        <subtask id="1.2" description="Implement the `build_heading_extraction_query` function that generates the required DataviewJS query string."/>
+        <subtask id="1.3" description="Ensure the generated query can robustly parse different Markdown heading syntaxes (e.g., `## Heading` and `### Heading`)."/>
+        <subtask id="1.4" description="Create the corresponding test file `tests/test_utils/test_dataview_queries.py` with unit tests for the query builder."/>
+      </task>
+      <task id="2" description="Create Filtered View Example (AC: #2)">
+        <subtask id="2.1" description="Create a sample Markdown file (e.g., in `docs/guides`) that uses the generated query to create an aggregated view."/>
+        <subtask id="2.2" description="Populate test fixtures with sample notes to be used by the example view."/>
+      </task>
+      <task id="3" description="Performance Benchmarking and Documentation (AC: #3, #4)">
+        <subtask id="3.1" description="Write a performance test script that executes the heading extraction query against 10, 50, and 100 notes."/>
+        <subtask id="3.2" description="Document the performance results and recommended usage limits within the `dataview_queries.py` module's docstrings."/>
+        <subtask id="3.3" description="Add logic to the `build_heading_extraction_query` function to include a performance warning comment in the output query if it targets a large number of files."/>
+      </task>
+    </tasks>
+  </story>
+
+  <acceptanceCriteria>
+      <criterion id="1" description="Implement DataviewJS heading extraction function (parse Markdown headings)"/>
+      <criterion id="2" description="Create filtered content view example (e.g., all formulas -> ingredients)"/>
+      <criterion id="3" description="Test heading extraction with varying note counts (10, 50, 100 notes)"/>
+      <criterion id="4" description="Document performance characteristics and recommended limits"/>
+      <criterion id="5" description="Add performance warning comments to queries processing >50 notes"/>
+    </acceptanceCriteria>
+
+  <artifacts>
+    <docs>
+      <doc path="docs/sprint-artifacts/tech-spec-epic-11.md" title="Epic Technical Specification: Dashboard Functionality (Core/Data Layer)" section="Detailed Design -> New Utility Module">
+        <snippet>
+          A new utility module, `capsule/utils/dataview_queries.py`, will be created to house a library of Dataview and DataviewJS query patterns. This module will include the `build_heading_extraction_query` function, which is the central component of this story.
+        </snippet>
+      </doc>
+      <doc path="docs/sprint-artifacts/tech-spec-epic-11.md" title="Epic Technical Specification: Dashboard Functionality (Core/Data Layer)" section="Detailed Design -> APIs and Interfaces -> Dataview Query Builder API">
+        <snippet>
+          The `build_heading_extraction_query(tag: str, heading: str) -> str` function will generate a DataviewJS query string that filters notes by a given tag and extracts the content under a specified heading.
+        </snippet>
+      </doc>
+      <doc path="docs/sprint-artifacts/tech-spec-epic-11.md" title="Epic Technical Specification: Dashboard Functionality (Core/Data Layer)" section="Acceptance Criteria -> Story 11-6">
+        <snippet>
+          The acceptance criteria for this story include implementing the DataviewJS heading extraction function, creating a filtered content view example, testing with varying note counts, documenting performance, and adding performance warnings to queries.
+        </snippet>
+      </doc>
+      <doc path="docs/architecture.md" title="Architecture Document" section="Epic Group 9: Dashboard Integration">
+        <snippet>
+          The dashboard integration is a key feature of the Obsidian Capsule Delivery System, providing hierarchical navigation and content aggregation through a system of master and capsule dashboards powered by Dataview queries.
+        </snippet>
+      </doc>
+      <doc path="docs/epics.md" title="Project Epics" section="Epic 11: Dashboard Functionality (Core/Data Layer)">
+        <snippet>
+          Epic 11 focuses on implementing the core functionality of the dashboard system, including the hierarchical structure, metadata filtering, progress tracking, and advanced content aggregation through DataviewJS.
+        </snippet>
+      </doc>
+    </docs>
+    <code>
+      <artifact path="capsule/utils/dataview_queries.py" kind="utility" symbol="build_heading_extraction_query" lines="84-125" reason="This function is the core of the story. It needs to be implemented or verified."/>
+      <artifact path="tests/test_utils/test_dataview_queries.py" kind="test" symbol="test_build_heading_extraction_query" lines="" reason="The corresponding test file for the new function. It needs to be created or updated."/>
+    </code>
+    <dependencies>
+      <dependency name="typer" version="" reason="Core CLI framework for the application."/>
+      <dependency name="python-frontmatter" version="" reason="Used for parsing and handling Markdown frontmatter."/>
+      <dependency name="ruamel.yaml" version=">=0.17.0" reason="Used for safe YAML manipulation, preserving comments."/>
+      <dependency name="jinja2" version="" reason="The template engine used for content generation."/>
+      <dependency name="pytest" version="" reason="The testing framework for the project."/>
+    </dependencies>
+  </artifacts>
+
+  <constraints>
+      <constraint description="Heading extraction is an I/O-intensive operation and performance must be benchmarked." source="Dev Notes"/>
+      <constraint description="The heading extraction logic must be able to handle variations in Markdown syntax." source="Dev Notes"/>
+      <constraint description="Queries processing >50 notes should include a performance warning." source="Acceptance Criteria"/>
+    </constraints>
+  <interfaces>
+      <interface name="DataviewJS API" kind="plugin" signature="dv.pages(source), dv.io.load(path)" path="https://blacksmithgu.github.io/obsidian-dataview/api/intro/"/>
+    </interfaces>
+  <tests>
+    <standards>
+      The project follows a standard testing pyramid approach with a strong emphasis on unit tests, complemented by integration and end-to-end tests. The `pytest` framework is used for all levels of testing, with a clear structure in the `tests/` directory that mirrors the application's source code. Fixtures are used to provide consistent test data and environments.
+    </standards>
+    <locations>
+      <location type="directory">tests/</location>
+      <location type="file">tests/test_utils/test_dataview_queries.py</location>
+    </locations>
+    <ideas>
+      <idea ac_id="1" description="Test that the `build_heading_extraction_query` function generates a valid DataviewJS query string."/>
+      <idea ac_id="1" description="Test the heading extraction logic with different heading levels (##, ###, etc.)."/>
+      <idea ac_id="1" description="Test the heading extraction logic with edge cases, such as notes with no matching heading or multiple matching headings."/>
+      <idea ac_id="2" description="Create an integration test that uses the generated query to extract data from a set of fixture notes."/>
+      <idea ac_id="3" description="Create a performance test script that measures the execution time of the heading extraction query with 10, 50, and 100 notes."/>
+      <idea ac_id="5" description="Test that the `build_heading_extraction_query` function includes a performance warning comment when the number of notes is high."/>
+    </ideas>
+  </tests>
+</story-context>

@@ -1,0 +1,140 @@
+<story-context id="{bmad_folder}/bmm/workflows/4-implementation/story-context/template" v="1.0">
+  <metadata>
+    <epicId>10</epicId>
+    <storyId>4</storyId>
+    <title>status-command-implementation</title>
+    <status>drafted</status>
+    <generatedAt>2025-11-22</generatedAt>
+    <generator>BMAD Story Context Workflow</generator>
+    <sourceStoryPath>/home/shuma/Documents/AI_Suite/Obsidian_Capsule_Delivery/docs/sprint-artifacts/10-4-status-command-implementation.md</sourceStoryPath>
+  </metadata>
+
+  <story>
+    <asA>a user of the capsule CLI</asA>
+    <iWant>a `status` command to see a summary of all installed capsules in my vault</iWant>
+    <soThat>I can quickly understand the state of my knowledge base</soThat>
+    <tasks>
+      <task id="1" description="Implement `status` Command Structure">
+        <subtask id="1.1" description="Create `capsule/commands/status.py`."/>
+        <subtask id="1.2" description="Define the `status` function with Typer."/>
+        <subtask id="1.3" description="Add the new command to the main CLI app in `capsule/cli.py`."/>
+        <subtask id="1.4" description="Add a detailed docstring with examples to the `status` command."/>
+      </task>
+      <task id="2" description="Implement Core Status Logic">
+        <subtask id="2.1" description="Create `capsule/core/status.py` with a `Status` service."/>
+        <subtask id="2.2" description="Implement logic to find and parse all `capsule-cypher.yaml` files in the vault."/>
+        <subtask id="2.3" description="Implement a `rich`-based display function to format and print the status summary."/>
+      </task>
+      <task id="3" description="Implement Comprehensive Testing">
+        <subtask id="3.1" description="Create `tests/commands/test_status.py`."/>
+        <subtask id="3.2" description="Write unit tests, mocking the `Status` service."/>
+        <subtask id="3.3" description="Write an E2E test that runs `capsule status` on a fixture capsule against a temporary vault."/>
+      </task>
+    </tasks>
+  </story>
+
+  <acceptanceCriteria>
+      <criterion id="1">The command `capsule status` shall be implemented.</criterion>
+      <criterion id="2">The command shall display a list of all installed capsules.</criterion>
+      <criterion id="3">For each capsule, the output should include at least the Capsule ID, version, and a summary.</criterion>
+      <criterion id="4">The command should be integrated into the main Typer CLI application.</criterion>
+      <criterion id="5">The command must include help documentation with examples.</criterion>
+    </acceptanceCriteria>
+
+  <artifacts>
+    <docs>
+      <doc>
+        <path>docs/architecture.md</path>
+        <title>Architecture Document</title>
+        <section>CLI Framework</section>
+        <snippet>The architecture uses Typer for modern CLI handling with type safety...</snippet>
+      </doc>
+      <doc>
+        <path>docs/architecture.md</path>
+        <title>Architecture Document</title>
+        <section>Complete Project Structure</section>
+        <snippet>capsule/commands/status.py # capsule status/list/update</snippet>
+      </doc>
+      <doc>
+        <path>docs/architecture.md</path>
+        <title>Architecture Document</title>
+        <section>CLI Command Structure Pattern</section>
+        <snippet>All CLI commands are implemented as Typer functions, using rich for output and a consistent error handling pattern.</snippet>
+      </doc>
+    </docs>
+    <code>
+      <artifact>
+        <path>capsule/cli.py</path>
+        <kind>CLI Entrypoint</kind>
+        <symbol>app</symbol>
+        <lines>16-21</lines>
+        <reason>Shows how to register a new command with the main Typer application.</reason>
+      </artifact>
+      <artifact>
+        <path>capsule/commands/import_cmd.py</path>
+        <kind>Command Pattern</kind>
+        <symbol>import_capsule</symbol>
+        <lines>16-115</lines>
+        <reason>Provides the architectural pattern for a command: orchestrates a core service, handles errors, and uses rich for output.</reason>
+      </artifact>
+      <artifact>
+        <path>capsule/utils/yaml_handler.py</path>
+        <kind>Utility</kind>
+        <symbol>YAMLHandler.read</symbol>
+        <lines>16-27</lines>
+        <reason>The correct utility for reading and parsing `capsule-cypher.yaml` files safely.</reason>
+      </artifact>
+    </code>
+    <dependencies>
+      <dependency>
+        <ecosystem>python</ecosystem>
+        <package>typer</package>
+        <version>latest</version>
+      </dependency>
+      <dependency>
+        <ecosystem>python</ecosystem>
+        <package>rich</package>
+        <version>>=13.0.0</version>
+      </dependency>
+      <dependency>
+        <ecosystem>python</ecosystem>
+        <package>ruamel.yaml</package>
+        <version>>=0.17.0</version>
+      </dependency>
+    </dependencies>
+  </artifacts>
+
+  <constraints>
+      <constraint>The CLI is built using the Typer framework.</constraint>
+      <constraint>All new commands must follow the existing command structure patterns.</constraint>
+      <constraint>Error handling must be consistent with the established `CapsuleError` system.</constraint>
+      <constraint>Output should be formatted using the `rich` library for consistency.</constraint>
+    </constraints>
+  <interfaces>
+      <interface>
+        <name>CLI Command</name>
+        <kind>Typer Function</kind>
+        <signature>def status(ctx: typer.Context, ...)</signature>
+        <path>capsule/commands/status.py</path>
+      </interface>
+      <interface>
+        <name>Status Service</name>
+        <kind>Class Interface</kind>
+        <signature>class Status: def __init__(self, config): ... def get_summary(self): ...</signature>
+        <path>capsule/core/status.py</path>
+      </interface>
+    </interfaces>
+  <tests>
+    <standards>The project uses pytest and follows a test pyramid approach (Unit > Integration > E2E). Unit tests for commands should mock core services to isolate CLI logic. E2E tests should run against a temporary vault using fixtures.</standards>
+    <locations>
+      <location type="unit">tests/commands/test_status.py</location>
+      <location type="e2e">tests/commands/test_status_e2e.py</location>
+    </locations>
+    <ideas>
+      <idea for="AC-2, AC-3">Unit Test: Mock the Status service to return a list of fixture capsules and assert that the `rich` table output is formatted correctly.</idea>
+      <idea for="AC-2">Unit Test: Mock the Status service to return an empty list and verify the "no capsules found" message is displayed.</idea>
+      <idea for="AC-5">Unit Test: Use a Typer test runner to invoke `capsule status --help` and assert the help text is present and correct.</idea>
+      <idea for="AC-1, AC-2, AC-3, AC-4">E2E Test: Create a temporary vault with 2-3 valid `capsule-cypher.yaml` files and run the actual `capsule status` command, capturing stdout and asserting the output contains the correct capsule IDs and versions.</idea>
+    </ideas>
+  </tests>
+</story-context>

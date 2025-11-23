@@ -1,6 +1,7 @@
+
 import pytest
-from jinja2 import Environment, TemplateNotFound
-from pathlib import Path
+from jinja2 import Environment
+
 from capsule.utils.templates import create_jinja_environment, load_template
 
 
@@ -53,16 +54,12 @@ def test_render_quiz_template():
     """Tests that the quiz.md.j2 template renders correctly."""
     template = load_template("quiz.md.j2")
     sample_data = {
-        "title": "French Capitals",
+        "topic": "French Capitals",
         "questions": [{"text": "What is the capital of France?", "options": ["London", "Paris", "Berlin"]}],
     }
     rendered_output = template.render(sample_data)
-    assert 'title: "French Capitals"' in rendered_output
-    assert 'text: "What is the capital of France?"' in rendered_output
-    assert '- "London"' in rendered_output
-    assert '- "Paris"' in rendered_output
-    assert '- "Berlin"' in rendered_output
-    assert "## What is the capital of France?" in rendered_output
-    assert "- [ ] London" in rendered_output
-    assert "- [ ] Paris" in rendered_output
-    assert "- [ ] Berlin" in rendered_output
+    assert 'title: "French Capitals Question Bank"' in rendered_output
+    assert "**What is the capital of France?**" in rendered_output
+    assert "- London" in rendered_output
+    assert "- Paris" in rendered_output
+    assert "- Berlin" in rendered_output

@@ -4,13 +4,12 @@ Automated Cross-Linker for TCM Knowledge Base
 Scans all files and creates bidirectional wikilinks based on content analysis.
 """
 
-import os
 import re
-import yaml
-from pathlib import Path
-from typing import Dict, List, Set, Tuple
 from collections import defaultdict
 from datetime import datetime
+from pathlib import Path
+
+import yaml
 
 
 class TCMAutoLinker:
@@ -67,14 +66,14 @@ class TCMAutoLinker:
     def _extract_name_from_file(self, file_path: Path) -> str:
         """Extract the name field from YAML frontmatter"""
         try:
-            with open(file_path, 'r', encoding='utf-8') as f:
+            with open(file_path, encoding="utf-8") as f:
                 content = f.read()
 
             # Extract YAML frontmatter
-            match = re.match(r'^---\s*\n(.*?)\n---', content, re.DOTALL)
+            match = re.match(r"^---\s*\n(.*?)\n---", content, re.DOTALL)
             if match:
                 frontmatter = yaml.safe_load(match.group(1))
-                return frontmatter.get('name', '')
+                return frontmatter.get("name", "")
         except Exception as e:
             print(f"  ⚠️  Error reading {file_path.name}: {e}")
         return ""
@@ -85,29 +84,29 @@ class TCMAutoLinker:
         print("=" * 60)
 
         for disease_name, disease_file in self.disease_map.items():
-            with open(disease_file, 'r', encoding='utf-8') as f:
+            with open(disease_file, encoding="utf-8") as f:
                 content = f.read()
 
             # Search for concept mentions in content
             for concept_name in self.concept_map.keys():
                 # Create regex patterns for detection
                 patterns = [
-                    rf'\b{re.escape(concept_name)}\b',  # Exact match
-                    rf'pathogenic {re.escape(concept_name.lower())}',  # "pathogenic wind"
-                    rf'{re.escape(concept_name.lower())} invasion',  # "wind invasion"
+                    rf"\b{re.escape(concept_name)}\b",  # Exact match
+                    rf"pathogenic {re.escape(concept_name.lower())}",  # "pathogenic wind"
+                    rf"{re.escape(concept_name.lower())} invasion",  # "wind invasion"
                 ]
 
                 for pattern in patterns:
                     if re.search(pattern, content, re.IGNORECASE):
                         # Found a relationship!
-                        self.relationships['disease_to_concept'][disease_name].add(concept_name)
-                        self.relationships['concept_to_disease'][concept_name].add(disease_name)
+                        self.relationships["disease_to_concept"][disease_name].add(concept_name)
+                        self.relationships["concept_to_disease"][concept_name].add(disease_name)
                         break
 
-        total_links = sum(len(v) for v in self.relationships['disease_to_concept'].values())
+        total_links = sum(len(v) for v in self.relationships["disease_to_concept"].values())
         print(f"✓ Found {total_links} disease → concept relationships")
 
-    def add_wikilinks_to_content(self, content: str, entity_map: Dict[str, Path]) -> str:
+    def add_wikilinks_to_content(self, content: str, entity_map: dict[str, Path]) -> str:
         """Add [[wikilinks]] to content for mentioned entities"""
         modified_content = content
 
@@ -123,17 +122,17 @@ class TCMAutoLinker:
             pattern = rf'(?<!\[\[)(?<!name: ")\b({re.escape(entity_name)})\b(?!\]\])'
 
             # Replace with wikilink, but limit to body content (after frontmatter)
-            parts = modified_content.split('---', 2)
+            parts = modified_content.split("---", 2)
             if len(parts) == 3:
                 frontmatter, _, body = parts
 
                 # Only link in body, not in frontmatter
                 body_modified = re.sub(
                     pattern,
-                    r'[[\1]]',
+                    r"[[\1]]",
                     body,
                     count=3,  # Limit to first 3 occurrences per file
-                    flags=re.IGNORECASE
+                    flags=re.IGNORECASE,
                 )
 
                 modified_content = f"---{frontmatter}---{body_modified}"
@@ -148,7 +147,7 @@ class TCMAutoLinker:
         updated_count = 0
 
         for disease_name, disease_file in self.disease_map.items():
-            with open(disease_file, 'r', encoding='utf-8') as f:
+            with open(disease_file, encoding="utf-8") as f:
                 original_content = f.read()
 
             # Add wikilinks for concepts
@@ -156,7 +155,7 @@ class TCMAutoLinker:
 
             # Only write if changes were made
             if modified_content != original_content:
-                with open(disease_file, 'w', encoding='utf-8') as f:
+                with open(disease_file, "w", encoding="utf-8") as f:
                     f.write(modified_content)
                 updated_count += 1
                 print(f"  ✓ Updated: {disease_name}")
@@ -169,34 +168,26 @@ class TCMAutoLinker:
         print("=" * 60)
 
         # Update concept files with related diseases
-        for concept_name, related_diseases in self.relationships['concept_to_disease'].items():
+        for concept_name, related_diseases in self.relationships["concept_to_disease"].items():
             concept_file = self.concept_map.get(concept_name)
             if concept_file:
-                self._update_file_frontmatter(
-                    concept_file,
-                    'related',
-                    sorted(list(related_diseases))
-                )
+                self._update_file_frontmatter(concept_file, "related", sorted(list(related_diseases)))
                 print(f"  ✓ {concept_name}: Added {len(related_diseases)} disease links")
 
         # Update disease files with related concepts
-        for disease_name, related_concepts in self.relationships['disease_to_concept'].items():
+        for disease_name, related_concepts in self.relationships["disease_to_concept"].items():
             disease_file = self.disease_map.get(disease_name)
             if disease_file:
-                self._update_file_frontmatter(
-                    disease_file,
-                    'related',
-                    sorted(list(related_concepts))
-                )
+                self._update_file_frontmatter(disease_file, "related", sorted(list(related_concepts)))
                 print(f"  ✓ {disease_name}: Added {len(related_concepts)} concept links")
 
-    def _update_file_frontmatter(self, file_path: Path, field: str, values: List[str]):
+    def _update_file_frontmatter(self, file_path: Path, field: str, values: list[str]):
         """Update a specific field in YAML frontmatter"""
-        with open(file_path, 'r', encoding='utf-8') as f:
+        with open(file_path, encoding="utf-8") as f:
             content = f.read()
 
         # Extract frontmatter and body
-        match = re.match(r'^(---\s*\n)(.*?)(\n---\s*\n)(.*)', content, re.DOTALL)
+        match = re.match(r"^(---\s*\n)(.*?)(\n---\s*\n)(.*)", content, re.DOTALL)
         if not match:
             return
 
@@ -214,13 +205,13 @@ class TCMAutoLinker:
             frontmatter[field] = values
 
         # Add updated timestamp
-        frontmatter['updated'] = datetime.now().strftime("%Y-%m-%d")
+        frontmatter["updated"] = datetime.now().strftime("%Y-%m-%d")
 
         # Write back
         new_yaml = yaml.dump(frontmatter, default_flow_style=False, allow_unicode=True, sort_keys=False)
         new_content = f"{yaml_start}{new_yaml}{yaml_end}{body}"
 
-        with open(file_path, 'w', encoding='utf-8') as f:
+        with open(file_path, "w", encoding="utf-8") as f:
             f.write(new_content)
 
     def generate_statistics(self):
@@ -229,7 +220,7 @@ class TCMAutoLinker:
         print("=" * 60)
 
         # Top concepts by disease usage
-        concept_usage = [(k, len(v)) for k, v in self.relationships['concept_to_disease'].items()]
+        concept_usage = [(k, len(v)) for k, v in self.relationships["concept_to_disease"].items()]
         concept_usage.sort(key=lambda x: x[1], reverse=True)
 
         print("\n🔝 Most Referenced Concepts:")
@@ -237,7 +228,7 @@ class TCMAutoLinker:
             print(f"  {concept}: {count} diseases")
 
         # Diseases with most concept relationships
-        disease_complexity = [(k, len(v)) for k, v in self.relationships['disease_to_concept'].items()]
+        disease_complexity = [(k, len(v)) for k, v in self.relationships["disease_to_concept"].items()]
         disease_complexity.sort(key=lambda x: x[1], reverse=True)
 
         print("\n🏥 Most Complex Diseases (by concept relationships):")
@@ -245,9 +236,9 @@ class TCMAutoLinker:
             print(f"  {disease}: {count} concepts")
 
         return {
-            'concept_usage': concept_usage,
-            'disease_complexity': disease_complexity,
-            'total_relationships': sum(len(v) for v in self.relationships['disease_to_concept'].values())
+            "concept_usage": concept_usage,
+            "disease_complexity": disease_complexity,
+            "total_relationships": sum(len(v) for v in self.relationships["disease_to_concept"].values()),
         }
 
     def run(self):

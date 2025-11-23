@@ -111,7 +111,7 @@ This document outlines the major epics for the Obsidian_Capsule_Delivery project
 - **8-6-provenance-tracking:** Implement provenance tracking in the frontmatter.
 
 ### Post-Review Follow-ups
-- [ ] Consider creating a Tech Spec for Epic 8 to formally document the merge strategies and their implementation details.
+- [ ] **From Story 11-1**: Consider creating a Tech Spec for Epic 11 to formally document the dashboard system's architecture.
 - [ ] **From Story 8-6**: Create a Tech Spec for Epic 8 to formally document the merge strategies and their implementation details.
 
 
@@ -141,36 +141,96 @@ This document outlines the major epics for the Obsidian_Capsule_Delivery project
 
 ---
 
-## Epic 11: Dashboard Integration & Templates
-**Summary:** Capsule/master dashboard templates, Dataview queries, dashboard generation.
+## Epic 11: Dashboard Functionality (Core/Data Layer)
+**Summary:** Hierarchical dashboard system with functional capabilities - get it working.
 
-### Stories
-- **11-1-capsule-dashboard-jinja2-template:** Create a Jinja2 template for capsule dashboards.
-- **11-2-master-dashboard-jinja2-template:** Create a Jinja2 template for the master dashboard.
-- **11-3-dataview-query-patterns:** Develop standard Dataview query patterns for dashboards.
-- **11-4-dashboard-generation-during-import:** Generate dashboards automatically during import.
-- **11-5-domain-specific-dashboard-sections:** Allow for domain-specific sections in dashboards.
+**Status:** Next epic (ready for planning)
+**Decision Date:** 2025-11-22 (Epic 10 Retrospective)
+**Background:** Originally planned as single dashboard epic, split into Epic 11 (functionality) and Epic 12 (polish) based on expanded scope and different skill requirements.
+
+### Key Features
+- Hierarchical dashboard system (Master → Capsule → Content)
+- Capsule dashboard metadata (class, topic, category, active status)
+- Master dashboard filtering (query capsules by metadata, combination filters)
+- Progress tracking (TaskNotes integration, completion percentage)
+- Content navigation (links to root notes, study materials)
+- Dataview + DataviewJS query patterns
+- Heading extraction from notes (e.g., all #formula notes → #ingredients headings)
+- Domain-specific filtered views
+- Dashboard generation during capsule import
+
+### Stories (Draft - To Be Finalized)
+- **11-0-dataview-dataviewjs-technical-spike:** Research and validate DataviewJS heading extraction feasibility
+- **11-1-capsule-dashboard-metadata-schema:** Define capsule dashboard frontmatter fields for filtering
+- **11-2-master-dashboard-template-with-filtering:** Create master dashboard with dynamic capsule filtering
+- **11-3-capsule-dashboard-template-core-structure:** Create capsule dashboard with metadata, navigation, file counts
+- **11-4-progress-tracking-tasknotes-integration:** Add TaskNotes queries and completion percentage tracking
+- **11-5-dataview-query-pattern-library:** Document standard query patterns for dashboard development
+- **11-6-advanced-filtering-heading-extraction:** Implement DataviewJS heading extraction for study views
+- **11-7-domain-specific-dashboard-sections:** Add domain-specific filtered views (e.g., TCM formulas/herbs)
+- **11-8-dashboard-generation-during-import:** Auto-generate dashboards when importing capsules
+
+**Quality Bar:** Functional, readable, navigable dashboards (basic but utilitarian - CSS polish deferred to Epic 12)
+
+### References
+- [Epic 10 Retrospective](docs/sprint-artifacts/epic-10-retro-2025-11-22.md) - Decision rationale and scope definition
+- [Epic 11 Vision: Hierarchical Dashboard System](docs/sprint-artifacts/epic-10-retro-2025-11-22.md#-epic-11-vision-hierarchical-dashboard-system)
 
 ---
 
-## Epic 12: Cross-Cutting Concerns & Polish
+## Epic 12: Dashboard Polish & Interactivity (Presentation Layer)
+**Summary:** Visual design, CSS theming, interactive widgets - make it beautiful.
+
+**Status:** Backlog (depends on Epic 11 completion)
+**Created:** 2025-11-22 (Epic 10 Retrospective)
+**Background:** Split from original Epic 11 to separate functional implementation from visual design work, which requires different skills and experimentation.
+
+### Key Features
+- CSS theming and visual design
+- Interactive widgets (Meta-Bind forms/buttons)
+- Advanced plugin integrations (Templater, Spaced Repetition)
+- Aesthetic improvements (neon themes, custom separators, visual hierarchy)
+- UX refinements based on Epic 11 user feedback
+- Responsive layout design
+- Documentation with visual examples
+
+### Inspiration Sources
+- [HOCA-1/neon-homepage-vault](https://github.com/HOCA-1/neon-homepage-vault)
+- [rafaelveiga/obsidian-widgets](https://github.com/rafaelveiga/obsidian-widgets)
+- [olrenso/obsidian-home-tab](https://github.com/olrenso/obsidian-home-tab)
+- [mirnovov/obsidian-homepage](https://github.com/mirnovov/obsidian-homepage)
+- [TfTHacker/DashboardPlusPlus](https://github.com/TfTHacker/DashboardPlusPlus)
+- [Obsidian Forum: Fancy Horizontal Rules](https://forum.obsidian.md/t/creating-fancy-horizontal-rule-lines/63700/2)
+- [Obsidian Forum: Example Workflows](https://forum.obsidian.md/t/example-workflows-in-obsidian/1093)
+- [Reddit: Obsidian Dashboard Example](https://www.reddit.com/r/ObsidianMD/comments/1p15k4n/my_obsidian_dashboard/)
+
+### Stories
+- TBD (to be defined after Epic 11 completion and user feedback)
+
+---
+
+## Epic 13: Cross-Cutting Concerns & Polish
 **Summary:** Error handling, logging, progress indicators, dry-run mode, help docs.
 
+**Note:** Originally numbered Epic 12, renumbered to Epic 13 after dashboard split.
+
 ### Stories
-- **12-1-error-handling-system:** Implement a consistent error handling system.
-- **12-2-logging-system-setup:** Set up a structured logging system.
-- **12-3-progress-indicators-rich-integration:** Integrate `rich` for progress indicators.
-- **12-4-dry-run-mode-implementation:** Implement a `--dry-run` mode for commands.
-- **12-5-help-documentation-and-examples:** Improve help documentation with examples.
+- **13-1-error-handling-system:** Implement a consistent error handling system.
+- **13-2-logging-system-setup:** Set up a structured logging system.
+- **13-3-progress-indicators-rich-integration:** Integrate `rich` for progress indicators.
+- **13-4-dry-run-mode-implementation:** Implement a `--dry-run` mode for commands.
+- **13-5-help-documentation-and-examples:** Improve help documentation with examples.
 
 ---
 
-## Epic 13: Testing Infrastructure
+## Epic 14: Testing Infrastructure
 **Summary:** Test framework, unit tests, integration tests, E2E tests, CI integration.
 
+**Note:** Originally numbered Epic 13, renumbered to Epic 14 after dashboard split.
+
 ### Stories
-- **13-1-pytest-configuration-and-fixtures:** Configure pytest and create necessary fixtures.
-- **13-2-unit-tests-for-core-logic:** Write unit tests for the core business logic.
-- **13-3-integration-tests-for-commands:** Write integration tests for the CLI commands.
-- **13-4-e2e-tests-for-full-workflows:** Write end-to-end tests for complete user workflows.
-- **13-5-test-coverage-and-ci-integration:** Integrate test coverage reporting into the CI pipeline.
+- **14-1-pytest-configuration-and-fixtures:** Configure pytest and create necessary fixtures.
+- **14-2-unit-tests-for-core-logic:** Write unit tests for the core business logic.
+- **14-3-integration-tests-for-commands:** Write integration tests for the CLI commands.
+- **14-4-e2e-tests-for-full-workflows:** Write end-to-end tests for complete user workflows.
+- **14-5-test-coverage-and-ci-integration:** Integrate test coverage reporting into the CI pipeline.

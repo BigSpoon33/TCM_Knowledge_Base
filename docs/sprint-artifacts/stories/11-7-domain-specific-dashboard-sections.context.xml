@@ -1,0 +1,147 @@
+<story-context id="{bmad_folder}/bmm/workflows/4-implementation/story-context/template" v="1.0">
+  <metadata>
+    <epicId>11</epicId>
+    <storyId>7</storyId>
+    <title>domain-specific-dashboard-sections</title>
+    <status>drafted</status>
+    <generatedAt>2025-11-22</generatedAt>
+    <generator>BMAD Story Context Workflow</generator>
+    <sourceStoryPath>docs/sprint-artifacts/11-7-domain-specific-dashboard-sections.md</sourceStoryPath>
+  </metadata>
+
+  <story>
+    <asA>a user of a TCM capsule</asA>
+    <iWant>to see domain-specific sections on my capsule dashboard, such as lists of formulas, herbs, and patterns</iWant>
+    <soThat>I can quickly navigate to the most relevant content for my studies</soThat>
+    <tasks>
+      - Task 1: Implement Domain Section Rendering Logic (AC: #2)
+        - Subtask 1.1: In `capsule/core/importer.py`, create a function `load_domain_sections(domain_type)` that loads a domain-specific template.
+        - Subtask 1.2: Create a new directory `capsule/templates/domains/` for domain-specific templates.
+        - Subtask 1.3: Create a template file `capsule/templates/domains/tcm.md.j2` for the TCM domain.
+      - Task 2: Implement TCM Domain Sections (AC: #1)
+        - Subtask 2.1: In `capsule/templates/domains/tcm.md.j2`, add Dataview queries to list formulas, herbs, and patterns.
+        - Subtask 2.2: Use the `dataview_queries.py` utility to build the queries.
+      - Task 3: Integrate Domain Sections into Dashboard (AC: #3)
+        - Subtask 3.1: In `capsule/core/importer.py`, modify the `generate_dashboards` function to call `load_domain_sections` and pass the rendered content to the capsule dashboard template.
+        - Subtask 3.2: In `capsule/templates/capsule-dashboard.md.j2`, add a placeholder for the domain-specific sections.
+      - Task 4: Testing and Documentation (AC: #4, #5)
+        - Subtask 4.1: Create a test that imports a TCM capsule and verifies that the domain-specific sections are present in the generated dashboard.
+        - Subtask 4.2: Create a guide in `docs/guides/` explaining how to add new domain-specific dashboard sections.
+    </tasks>
+  </story>
+
+  <acceptanceCriteria>
+      1.  Implement domain-specific sections for TCM capsules (formulas, herbs, patterns).
+      2.  Create domain section rendering logic (load from domain templates).
+      3.  Integrate domain sections into capsule dashboard template.
+      4.  Test with TCM capsule (existing vault data).
+      5.  Document pattern for adding new domain-specific sections.
+    </acceptanceCriteria>
+
+  <artifacts>
+    <docs>
+      <doc>
+        <path>docs/architecture.md</path>
+        <title>Architecture Document</title>
+        <section>Epic Group 9: Dashboard Integration</section>
+        <snippet>
+          This section outlines the architecture for the dashboard integration, including the use of Jinja2 templates, Dataview queries, and the overall structure of the master and capsule dashboards.
+        </snippet>
+      </doc>
+      <doc>
+        <path>docs/sprint-artifacts/tech-spec-epic-11.md</path>
+        <title>Epic Technical Specification: Dashboard Functionality (Core/Data Layer)</title>
+        <section>All</section>
+        <snippet>
+          This document provides the detailed technical specification for the implementation of the dashboard functionality, covering the data models, APIs, workflows, and non-functional requirements.
+        </snippet>
+      </doc>
+    </docs>
+    <code>
+      <file>
+        <path>capsule/core/importer.py</path>
+        <kind>core</kind>
+        <symbol>Importer</symbol>
+        <lines>TBD</lines>
+        <reason>
+          This file contains the core logic for importing capsules. It needs to be modified to add the dashboard generation functionality, including the `generate_dashboards` and `load_domain_sections` functions.
+        </reason>
+      </file>
+      <file>
+        <path>capsule/utils/dataview_queries.py</path>
+        <kind>utility</kind>
+        <symbol>build_file_list_query, build_metadata_filter_query, build_heading_extraction_query</symbol>
+        <lines>All</lines>
+        <reason>
+          This utility will be used to build the Dataview queries for the new domain-specific dashboard sections.
+        </reason>
+      </file>
+      <file>
+        <path>capsule/templates/capsule-dashboard.md.j2</path>
+        <kind>template</kind>
+        <symbol>N/A</symbol>
+        <lines>All</lines>
+        <reason>
+          This is the template for the capsule dashboard. The new domain-specific sections will be injected into the `{{ domain_sections }}` placeholder in this file.
+        </reason>
+      </file>
+    </code>
+    <dependencies>
+      <ecosystem>
+        <name>Python</name>
+        <manifest>pyproject.toml</manifest>
+        <packages>
+          - typer
+          - python-frontmatter
+          - click>=8.0.0
+          - rich>=13.0.0
+          - pyyaml>=6.0
+          - google-generativeai>=0.3.0
+          - questionary>=2.0.0
+          - ruamel.yaml>=0.17.0
+          - semver
+          - jinja2
+          - chardet
+          - jsonschema
+        </packages>
+      </ecosystem>
+    </dependencies>
+  </artifacts>
+
+  <constraints>
+      - The implementation must be compatible with the existing `importer.py` workflow.
+      - The new `load_domain_sections` function should be designed to be extensible for other domains in the future.
+      - The dashboard generation should be triggered during the import process.
+      - A new directory `capsule/templates/domains/` must be created for domain-specific templates.
+      - A new template file `capsule/templates/domains/tcm.md.j2` must be created for the TCM domain.
+    </constraints>
+  <interfaces>
+      <interface>
+        <name>load_domain_sections</name>
+        <kind>function</kind>
+        <signature>load_domain_sections(domain_type: str) -> str</signature>
+        <path>capsule/core/importer.py</path>
+      </interface>
+      <interface>
+        <name>generate_dashboards</name>
+        <kind>function</kind>
+        <signature>generate_dashboards(capsule: Capsule, vault_path: Path) -> List[Path]</signature>
+        <path>capsule/core/importer.py</path>
+      </interface>
+    </interfaces>
+  <tests>
+    <standards>
+      The project uses pytest as the testing framework, following a testing pyramid approach with a majority of unit tests, followed by integration and E2E tests. Tests are co-located in the `tests/` directory, mirroring the source structure.
+    </standards>
+    <locations>
+      - `tests/test_core/`
+      - `tests/test_utils/`
+    </locations>
+    <ideas>
+      - Test the `load_domain_sections` function to ensure it correctly loads and renders the TCM domain template. (AC: #2)
+      - Test the integration of the domain sections into the capsule dashboard template. (AC: #3)
+      - Create a test that imports a TCM capsule and verifies that the domain-specific sections are present in the generated dashboard. (AC: #4)
+      - Test the `dataview_queries.py` utility to ensure the queries for formulas, herbs, and patterns are generated correctly. (AC: #1)
+    </ideas>
+  </tests>
+</story-context>

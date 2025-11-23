@@ -58,41 +58,46 @@ dv.paragraph(`
 
 ---
 
-## 🔍 Advanced Capsule Filters
+## 🔍 Interactive Capsule Filters
 
-**Use the fields below to filter the list of capsules.**
+> Type in the fields below to dynamically filter the capsule list.
 
-**Class:** <input type="text" id="classFilter" />
-**Topic:** <input type="text" id="topicFilter" />
-**Category:** <input type="text" id="categoryFilter" />
+**Class:** <input type="text" id="classFilter" placeholder="e.g., TCM101">
+**Topic:** <input type="text" id="topicFilter" placeholder="e.g., Herbal Medicine">
+**Category:** <input type="text" id="categoryFilter" placeholder="e.g., CALE">
 **Status:** 
 <select id="activeFilter">
-  <option value="">All</option>
+  <option value="all">All</option>
   <option value="true">Active</option>
   <option value="false">Inactive</option>
 </select>
 
 ```dataviewjs
-const classFilter = document.getElementById("classFilter");
-const topicFilter = document.getElementById("topicFilter");
-const categoryFilter = document.getElementById("categoryFilter");
-const activeFilter = document.getElementById("activeFilter");
+const classInput = dv.container.querySelector("#classFilter");
+const topicInput = dv.container.querySelector("#topicFilter");
+const categoryInput = dv.container.querySelector("#categoryFilter");
+const activeInput = dv.container.querySelector("#activeFilter");
 
-const renderTable = () => {
+const render = () => {
   let pages = dv.pages('""').where(p => p.type === "capsule_dashboard");
 
-  if (classFilter.value) {
-    pages = pages.where(p => p.dashboard_metadata.class && p.dashboard_metadata.class.toLowerCase().includes(classFilter.value.toLowerCase()));
+  const classValue = classInput.value.toLowerCase();
+  const topicValue = topicInput.value.toLowerCase();
+  const categoryValue = categoryInput.value.toLowerCase();
+  const activeValue = activeInput.value;
+
+  if (classValue) {
+    pages = pages.where(p => p.dashboard_metadata?.class && p.dashboard_metadata.class.toLowerCase().includes(classValue));
   }
-  if (topicFilter.value) {
-    pages = pages.where(p => p.dashboard_metadata.topic && p.dashboard_metadata.topic.toLowerCase().includes(topicFilter.value.toLowerCase()));
+  if (topicValue) {
+    pages = pages.where(p => p.dashboard_metadata?.topic && p.dashboard_metadata.topic.toLowerCase().includes(topicValue));
   }
-  if (categoryFilter.value) {
-    pages = pages.where(p => p.dashboard_metadata.category && p.dashboard_metadata.category.toLowerCase().includes(categoryFilter.value.toLowerCase()));
+  if (categoryValue) {
+    pages = pages.where(p => p.dashboard_metadata?.category && p.dashboard_metadata.category.toLowerCase().includes(categoryValue));
   }
-  if (activeFilter.value) {
-    const isActive = activeFilter.value === "true";
-    pages = pages.where(p => p.dashboard_metadata.active === isActive);
+  if (activeValue !== "all") {
+    const isActive = activeValue === "true";
+    pages = pages.where(p => p.dashboard_metadata?.active === isActive);
   }
 
   dv.table(
@@ -100,22 +105,22 @@ const renderTable = () => {
     pages
       .sort(p => p.file.name, 'asc')
       .map(p => [
-        dv.fileLink(p.file.name),
+        dv.fileLink(p.file.path),
         p.capsule_id,
-        p.dashboard_metadata.class,
-        p.dashboard_metadata.topic,
-        p.dashboard_metadata.category,
-        p.dashboard_metadata.active ? "Yes" : "No"
+        p.dashboard_metadata?.class || "",
+        p.dashboard_metadata?.topic || "",
+        p.dashboard_metadata?.category || "",
+        p.dashboard_metadata?.active ? "✅" : "❌"
       ])
   );
-};
+}
 
-classFilter.oninput = renderTable;
-topicFilter.oninput = renderTable;
-categoryFilter.oninput = renderTable;
-activeFilter.onchange = renderTable;
+classInput.onkeyup = render;
+topicInput.onkeyup = render;
+categoryInput.onkeyup = render;
+activeInput.onchange = render;
 
-renderTable();
+render();
 ```
 
 ---

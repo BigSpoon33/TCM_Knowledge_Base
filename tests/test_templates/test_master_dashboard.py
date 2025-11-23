@@ -61,7 +61,7 @@ def test_master_dashboard_sections_present(env, mock_now):
         "# Master Dashboard - My Knowledge System",
         "## 📚 Installed Capsules",
         "## 📊 Progress Overview",
-        "## 🔍 Advanced Capsule Filters",
+        "## 🔍 Interactive Capsule Filters",
         "## 🗓️ Active Timelines (Sequenced Capsules)",
         "## 🔗 Cross-Capsule Connections",
         "## 📈 This Week's Activity",
@@ -85,7 +85,7 @@ def test_master_dashboard_queries_present(env, mock_now):
 
     # Check specific query logic parts
     assert 'WHERE type = "capsule_dashboard"' in output
-    assert "const renderTable = () => {" in output
+    assert "const render = () => {" in output
     assert "dv.table(" in output
 
 
@@ -98,10 +98,10 @@ def test_dataviewjs_filtering_logic(env, mock_now):
     assert 'let pages = dv.pages(\'""\').where(p => p.type === "capsule_dashboard");' in output
 
     # Check for the filtering logic
-    assert "if (classFilter.value)" in output
-    assert "if (topicFilter.value)" in output
-    assert "if (categoryFilter.value)" in output
-    assert "if (activeFilter.value)" in output
+    assert "if (classValue)" in output
+    assert "if (topicValue)" in output
+    assert "if (categoryValue)" in output
+    assert 'if (activeValue !== "all")' in output
 
     # Check that the table is rendered with the correct data
     assert "dv.table(" in output

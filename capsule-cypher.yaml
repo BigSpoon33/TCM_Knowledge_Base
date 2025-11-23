@@ -1,0 +1,19 @@
+capsule_id: "12345"
+name: "My Capsule"
+version: "0.1.0"
+domain_type: "TCM"
+domain: "Herbs"
+subdomain: "Single Herbs"
+description: "A capsule for single herbs."
+authors:
+  - "John Doe"
+license: "MIT"
+schema_version: "1.0.0"
+file_inventory:
+  - "TCM_Herbs/Ai Ye.md"
+folder_structure:
+  - "TCM_Herbs"
+contents:
+  notes:
+    - file: "TCM_Herbs/Ai Ye.md"
+      type: "note"

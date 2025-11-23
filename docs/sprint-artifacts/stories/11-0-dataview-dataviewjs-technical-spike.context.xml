@@ -1,0 +1,147 @@
+<story-context id=".bmad/bmm/workflows/4-implementation/story-context/template" v="1.0">
+  <metadata>
+    <epicId>11</epicId>
+    <storyId>0</storyId>
+    <title>dataview-dataviewjs-technical-spike</title>
+    <status>drafted</status>
+    <generatedAt>2025-11-22</generatedAt>
+    <generator>BMAD Story Context Workflow</generator>
+    <sourceStoryPath>docs/sprint-artifacts/11-0-dataview-dataviewjs-technical-spike.md</sourceStoryPath>
+  </metadata>
+
+  <story>
+    <asA>a developer</asA>
+    <iWant>to investigate and document the capabilities of Dataview and DataviewJS</iWant>
+    <soThat>we can make informed decisions about the implementation of the dashboard feature.</soThat>
+    <tasks>
+      - [ ] **Task 1: Research Dataview Query Language (DQL)** (AC: #1)
+        - [ ] Subtask 1.1: Review official Dataview documentation on DQL.
+        - [ ] Subtask 1.2: Document key DQL commands (`TABLE`, `LIST`, `TASK`, `CALENDAR`).
+        - [ ] Subtask 1.3: Document filtering (`WHERE`), sorting (`SORT`), and data aggregation (`GROUP BY`) capabilities.
+        - [ ] Subtask 1.4: Test queries on sample data to confirm understanding.
+      - [ ] **Task 2: Research DataviewJS Capabilities** (AC: #2)
+        - [ ] Subtask 2.1: Review official documentation and community examples for DataviewJS.
+        - [ ] Subtask 2.2: Document how to access page data, frontmatter, and file metadata via the DataviewJS API.
+        - [ ] Subtask 2.3: Explore scripting for custom data processing and rendering HTML.
+        - [ ] Subtask 2.4: Identify query types that are only possible with DataviewJS.
+      - [ ] **Task 3: Create Proof-of-Concept (PoC) Dashboards** (AC: #3)
+        - [ ] Subtask 3.1: Create a new file `docs/sprint-artifacts/11-0-dataview-spike-poc.md` for the PoCs.
+        - [ ] Subtask 3.2: Implement the "Master Dashboard" queries from `architecture.md` using DQL and/or DataviewJS.
+        - [ ] Subtask 3.3: Implement the "Capsule Dashboard" template queries from `architecture.md`.
+        - [ ] Subtask 3.4: Implement a query demonstrating cross-capsule connections.
+      - [ ] **Task 4: Document Findings and Limitations** (AC: #4)
+        - [ ] Subtask 4.1: Research and document potential performance bottlenecks with large vaults.
+        - [ ] Subtask 4.2: Note any limitations in styling, interactivity, or data complexity.
+        - [ ] Subtask 4.3: Document best practices for writing efficient queries.
+      - [ ] **Task 5: Synthesize Recommendation** (AC: #5)
+        - [ ] Subtask 5.1: Write a summary comparing DQL and DataviewJS based on the research.
+        - [ ] Subtask 5.2: Draft a final recommendation on the best approach for the project's dashboards.
+        - [ ] Subtask 5.3: Add the summary and recommendation to the PoC file.
+    </tasks>
+  </story>
+
+  <acceptanceCriteria>
+    1. Research and document Dataview's query language (DQL) capabilities for filtering, sorting, and displaying data from frontmatter. (AC: #1)
+    2. Research and document DataviewJS's capabilities for advanced data manipulation, custom rendering, and complex queries that are not possible with DQL alone. (AC: #2)
+    3. Create proof-of-concept examples that replicate the dashboard templates outlined in the `architecture.md` document. (AC: #3)
+    4. Document any identified limitations, performance considerations, or potential challenges when using Dataview/DataviewJS with a large number of notes. (AC: #4)
+    5. Provide a clear, evidence-based recommendation on the optimal strategy (DQL, DataviewJS, or a hybrid approach) for implementing the project's dashboard features. (AC: #5)
+  </acceptanceCriteria>
+
+  <artifacts>
+    <docs>
+      <doc>
+        <path>docs/architecture.md</path>
+        <title>Architecture Document</title>
+        <section>Epic Group 9: Dashboard Integration (FR59-FR65)</section>
+        <snippet>
+    Epics:
+    - Capsule Dashboard Templates
+    - Master Dashboard Aggregation
+    - Dataview Query Patterns
+    - Timeline Display
+    - Cross-Capsule Analytics
+        </snippet>
+      </doc>
+      <doc>
+        <path>docs/epics.md</path>
+        <title>Project Epics</title>
+        <section>Epic 11: Dashboard Functionality (Core/Data Layer)</section>
+        <snippet>
+    Summary: Hierarchical dashboard system with functional capabilities - get it working.
+    Key Features:
+    - Hierarchical dashboard system (Master → Capsule → Content)
+    - Capsule dashboard metadata (class, topic, category, active status)
+    - Master dashboard filtering (query capsules by metadata, combination filters)
+    - Progress tracking (TaskNotes integration, completion percentage)
+    - Content navigation (links to root notes, study materials)
+    - Dataview + DataviewJS query patterns
+    - Heading extraction from notes (e.g., all #formula notes → #ingredients headings)
+    - Domain-specific filtered views
+    - Dashboard generation during capsule import
+        </snippet>
+      </doc>
+    </docs>
+    <code>
+      <artifact>
+        <path>docs/sprint-artifacts/tech-spec-epic-11.md</path>
+        <kind>documentation</kind>
+        <symbol>capsule/utils/dataview_queries.py</symbol>
+        <lines>166-176</lines>
+        <reason>Describes the planned utility module for dataview queries, which is central to this story.</reason>
+      </artifact>
+      <artifact>
+        <path>Student Dashboard.md</path>
+        <kind>example</kind>
+        <symbol>dataviewjs query</symbol>
+        <lines>45-163</lines>
+        <reason>Provides a complex and relevant example of a dataviewjs query for differential diagnosis.</reason>
+      </artifact>
+      <artifact>
+        <path>docs/architecture.md</path>
+        <kind>documentation</kind>
+        <symbol>Epic Group 9: Dashboard Integration</symbol>
+        <lines>948-1190</lines>
+        <reason>Defines the overall architecture for the dashboard functionality.</reason>
+      </artifact>
+    </code>
+    <dependencies>
+      <python>
+        <dependency>typer</dependency>
+        <dependency>python-frontmatter</dependency>
+        <dependency>click&gt;=8.0.0</dependency>
+        <dependency>rich&gt;=13.0.0</dependency>
+        <dependency>pyyaml&gt;=6.0</dependency>
+        <dependency>google-generativeai&gt;=0.3.0</dependency>
+        <dependency>questionary&gt;=2.0.0</dependency>
+        <dependency>ruamel.yaml&gt;=0.17.0</dependency>
+      </python>
+    </dependencies>
+  </artifacts>
+
+  <constraints>
+- No Runtime Code Execution: Dashboards are static Markdown files with query blocks, not dynamic scripts
+- Plugin-Dependent Features: Advanced features require Dataview/DataviewJS installation (documented in dashboard headers)
+- Performance Limits: Query complexity constrained by Dataview performance (NFR6: responsive with &lt;500 notes)
+- File System Integration: Dashboards stored in capsule folders alongside content (e.g., `TCM_Herbs_v1/capsule-dashboard.md`)
+</constraints>
+  <interfaces></interfaces>
+  <tests>
+    <standards>
+The project uses pytest as the testing framework, following a test pyramid approach with a focus on Unit tests (80%), followed by Integration tests (15%) and E2E tests (5%). Tests are organized in the `tests/` directory, mirroring the source structure.
+  </standards>
+    <locations>
+- `tests/`
+- `tests/test_commands/`
+- `tests/test_core/`
+- `tests/test_models/`
+- `tests/test_utils/`
+  </locations>
+    <ideas>
+- Unit test for the planned `capsule/utils/dataview_queries.py` module to verify the correctness of the generated queries.
+- Integration test to ensure the dashboard generation is correctly integrated into the import workflow.
+- E2E test to verify the functionality of the generated dashboards in a real Obsidian vault with the Dataview plugin enabled.
+- Performance test to benchmark the heading extraction query with a large number of notes.
+  </ideas>
+  </tests>
+</story-context>

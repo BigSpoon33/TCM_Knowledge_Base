@@ -1,0 +1,122 @@
+<story-context id="{bmad_folder}/bmm/workflows/4-implementation/story-context/template" v="1.0">
+  <metadata>
+    <epicId>10</epicId>
+    <storyId>5</storyId>
+    <title>list-command-implementation</title>
+    <status>drafted</status>
+    <generatedAt>2025-11-22</generatedAt>
+    <generator>BMAD Story Context Workflow</generator>
+    <sourceStoryPath>docs/sprint-artifacts/10-5-list-command-implementation.md</sourceStoryPath>
+  </metadata>
+
+  <story>
+    <asA>a user of the capsule CLI</asA>
+    <iWant>a `list` command to see a simple list of all installed capsules</iWant>
+    <soThat>I can quickly identify the capsules in my vault</soThat>
+    <tasks>
+      - Task 1: Implement `list` Command Structure
+        - Subtask 1.1: Create `capsule/commands/list.py`.
+        - Subtask 1.2: Define the `list` function with Typer.
+        - Subtask 1.3: Add the new command to the main CLI app in `capsule/cli.py`.
+        - Subtask 1.4: Add a detailed docstring with examples to the `list` command.
+      - Task 2: Implement Core List Logic
+        - Subtask 2.1: Create `capsicle/core/list.py` with a `List` service.
+        - Subtask 2.2: Implement logic to find and parse all `capsule-cypher.yaml` files in the vault.
+        - Subtask 2.3: Implement a `rich`-based display function to format and print the list.
+      - Task 3: Implement Comprehensive Testing
+        - Subtask 3.1: Create `tests/commands/test_list.py`.
+        - Subtask 3.2: Write unit tests, mocking the `List` service.
+        - Subtask 3.3: Write an E2E test that runs `capsule list` on a fixture capsule against a temporary vault.
+    </tasks>
+  </story>
+
+  <acceptanceCriteria>
+      1. The command `capsule list` shall be implemented.
+      2. The command shall display a simple list of all installed capsules.
+      3. For each capsule, the output should include the Capsule ID and version.
+      4. The command should be integrated into the main Typer CLI application.
+      5. The command must include help documentation with examples.
+    </acceptanceCriteria>
+
+  <artifacts>
+    <docs>
+      <doc>
+        <path>docs/architecture.md</path>
+        <title>Architecture Document</title>
+        <section>CLI Command Structure Pattern</section>
+        <snippet>
+          All CLI commands are implemented as Typer functions within the `capsule/commands/` directory. Each command should be a thin wrapper that orchestrates calls to a core service in `capsule/core/`. This pattern separates CLI parsing from business logic, improving testability and maintainability. Commands must follow consistent error handling and use the `rich` library for output.
+        </snippet>
+      </doc>
+    </docs>
+    <code>
+      <code>
+        <path>capsule/commands/status.py</path>
+        <kind>command</kind>
+        <symbol>status</symbol>
+        <lines>11-63</lines>
+        <reason>Provides a clear pattern for the new 'list' command, including Typer setup, config loading, core service invocation, and rich table output.</reason>
+      </code>
+      <code>
+        <path>capsule/cli.py</path>
+        <kind>cli_app</kind>
+        <symbol>app</symbol>
+        <lines>N/A</lines>
+        <reason>The main Typer application where the new 'list' command must be registered.</reason>
+      </code>
+    </code>
+    <dependencies>
+      <dependency ecosystem="python">
+        <package>typer</package>
+        <version>latest</version>
+        <reason>Primary CLI framework.</reason>
+      </dependency>
+      <dependency ecosystem="python">
+        <package>rich</package>
+        <version>>=13.0.0</version>
+        <reason>Used for formatted console output (tables, colors).</reason>
+      </dependency>
+      <dependency ecosystem="python">
+        <package>ruamel.yaml</package>
+        <version>>=0.17.0</version>
+        <reason>Used for safe parsing of capsule-cypher.yaml files, preserving comments.</reason>
+      </dependency>
+    </dependencies>
+  </artifacts>
+
+  <constraints>
+      - The CLI is built using the Typer framework.
+      - All new commands must follow the existing command structure patterns (thin wrapper around a core service).
+      - Error handling must be consistent with the established `CapsuleError` system.
+      - Output should be formatted using the `rich` library for consistency.
+    </constraints>
+  <interfaces>
+      <interface>
+        <name>list_command</name>
+        <kind>function_signature</kind>
+        <signature>def list():</signature>
+        <path>capsule/commands/list.py</path>
+      </interface>
+      <interface>
+        <name>ListService</name>
+        <kind>class_interface</kind>
+        <signature>class List: def get_capsules(self) -> List[CapsuleCypher]:</signature>
+        <path>capsule/core/list.py</path>
+      </interface>
+    </interfaces>
+  <tests>
+    <standards>
+      The project uses the `pytest` framework and follows a standard test pyramid structure. Unit tests for CLI commands are placed in `tests/test_commands/` and must mock the core services they invoke to ensure isolation. E2E tests should use fixtures (like a temporary vault) to test the full command execution against a realistic environment.
+    </standards>
+    <locations>
+      - `tests/commands/test_list.py`
+      - `tests/fixtures/`
+      - `tests/conftest.py`
+    </locations>
+    <ideas>
+      <idea ac_id="1, 4, 5">Test CLI invocation: `capsule list --help` runs successfully and shows help text.</idea>
+      <idea ac_id="2, 3">Unit test `list` command, mocking the `List` service to return a predefined list of capsules, and assert that the `rich` table is printed correctly.</idea>
+      <idea ac_id="2, 3">E2E test: Create a temporary vault with 2-3 fixture capsules. Run `capsule list` and capture stdout. Assert that the output contains the capsule IDs and versions from the fixtures.</idea>
+    </ideas>
+  </tests>
+</story-context>

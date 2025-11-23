@@ -4,8 +4,6 @@ Generate Slides with AI - Uses Gemini to create presentation slides from a root 
 """
 
 import os
-import re
-from typing import Dict, List, Any
 import sys
 from pathlib import Path
 
@@ -13,11 +11,12 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).parent))
 from gemini_research import GeminiDeepResearch
 
+
 class SlidesGeneratorAI:
     """Generates presentation slides from root note content using AI."""
 
     def __init__(self, api_key: str = None):
-        self.api_key = api_key or os.environ.get('GEMINI_API_KEY')
+        self.api_key = api_key or os.environ.get("GEMINI_API_KEY")
         if not self.api_key:
             raise ValueError("GEMINI_API_KEY not set.")
         self.researcher = GeminiDeepResearch(api_key=self.api_key)
@@ -65,10 +64,10 @@ class SlidesGeneratorAI:
         """
 
         result = self.researcher.research(prompt, use_search=False)
-        slides_content = result['content']
-        
+        slides_content = result["content"]
+
         # Add frontmatter if not present
-        if not slides_content.startswith('---'):
+        if not slides_content.startswith("---"):
             frontmatter = f"""---
 theme: {theme}
 transition: slide
@@ -78,13 +77,13 @@ controls: true
 tags:
   - slides
   - tcm
-  - {topic.lower().replace(' ', '-')}
+  - {topic.lower().replace(" ", "-")}
 ---
 
 """
             slides_content = frontmatter + slides_content
-        
-        print(f"✅ Generated slide deck with multiple slides.")
+
+        print("✅ Generated slide deck with multiple slides.")
         return slides_content
 
     def generate_pattern_slides(self, content: str, pattern_name: str) -> str:
@@ -125,10 +124,10 @@ tags:
         """
 
         result = self.researcher.research(prompt, use_search=False)
-        slides_content = result['content']
-        
+        slides_content = result["content"]
+
         # Add frontmatter
-        if not slides_content.startswith('---'):
+        if not slides_content.startswith("---"):
             frontmatter = f"""---
 theme: sky
 transition: slide
@@ -139,17 +138,18 @@ tags:
   - slides
   - tcm
   - patterns
-  - {pattern_name.lower().replace(' ', '-')}
+  - {pattern_name.lower().replace(" ", "-")}
 material_type: presentation
 ---
 
 """
             slides_content = frontmatter + slides_content
-        
-        print(f"✅ Generated TCM pattern slide deck.")
+
+        print("✅ Generated TCM pattern slide deck.")
         return slides_content
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     # Test with sample content
     test_content = """
     # Spleen Qi Deficiency
@@ -182,11 +182,11 @@ if __name__ == '__main__':
     - **SP-6 (San Yin Jiao):** Strengthens Spleen
     - **CV-12 (Zhong Wan):** Front-Mu point of Stomach
     """
-    
+
     generator = SlidesGeneratorAI()
     slides = generator.generate_pattern_slides(test_content, "Spleen Qi Deficiency")
-    
-    print("\n" + "="*70)
+
+    print("\n" + "=" * 70)
     print("GENERATED SLIDES:")
-    print("="*70)
+    print("=" * 70)
     print(slides[:1000] + "\n...\n")

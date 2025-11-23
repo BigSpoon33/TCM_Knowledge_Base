@@ -1,0 +1,385 @@
+<story-context id="{bmad_folder}/bmm/workflows/4-implementation/story-context/template" v="1.0">
+  <metadata>
+    <epicId>11</epicId>
+    <storyId>4</storyId>
+    <title>progress-tracking-tasknotes-integration</title>
+    <status>drafted</status>
+    <generatedAt>2025-11-22</generatedAt>
+    <generator>BMAD Story Context Workflow</generator>
+    <sourceStoryPath>docs/sprint-artifacts/11-4-progress-tracking-tasknotes-integration.md</sourceStoryPath>
+  </metadata>
+
+  <story>
+    <asA>a user</asA>
+    <iWant>to track my progress through a capsule using TaskNotes queries and completion percentages</iWant>
+    <soThat>I can see at a glance how much of a capsule I have completed</soThat>
+    <tasks>
+      - Task 1: Add Progress Tracking Section to Template (AC: #1)
+        - Subtask 1.1: Add a "Progress Tracking" section to `capsule/templates/capsule-dashboard.md.j2`.
+      - Task 2: Implement Completion Percentage (AC: #2)
+        - Subtask 2.1: Write a DataviewJS query to calculate the completion percentage of tasks.
+      - Task 3: List Incomplete Tasks (AC: #3, #4)
+        - Subtask 3.1: Write a TaskNotes query to list all incomplete tasks.
+        - Subtask 3.2: Ensure the tasks are sorted by due date.
+      - Task 4: Add Tests
+        - Subtask 4.1: Add unit tests for the new progress tracking functionality.
+    </tasks>
+  </story>
+
+  <acceptanceCriteria>
+    1. The capsule dashboard template must include a section for progress tracking.
+    2. The progress tracking section must display the completion percentage of tasks within the capsule.
+    3. The progress tracking section must list all incomplete tasks from the capsule, sorted by due date.
+    4. The dashboard must use TaskNotes queries to gather task information.
+  </acceptanceCriteria>
+
+  <artifacts>
+    <docs>
+      <doc>
+        <path>docs/epics.md</path>
+        <title>Project Epics</title>
+        <section>Epic 11: Dashboard Functionality (Core/Data Layer)</section>
+        <snippet>
+          **Summary:** Hierarchical dashboard system with functional capabilities - get it working.
+
+          **Status:** Next epic (ready for planning)
+          **Decision Date:** 2025-11-22 (Epic 10 Retrospective)
+          **Background:** Originally planned as single dashboard epic, split into Epic 11 (functionality) and Epic 12 (polish) based on expanded scope and different skill requirements.
+
+          ### Key Features
+          - Hierarchical dashboard system (Master → Capsule → Content)
+          - Capsule dashboard metadata (class, topic, category, active status)
+          - Master dashboard filtering (query capsules by metadata, combination filters)
+          - Progress tracking (TaskNotes integration, completion percentage)
+          - Content navigation (links to root notes, study materials)
+          - Dataview + DataviewJS query patterns
+          - Heading extraction from notes (e.g., all #formula notes → #ingredients headings)
+          - Domain-specific filtered views
+          - Dashboard generation during capsule import
+
+          ### Stories (Draft - To Be Finalized)
+          - **11-0-dataview-dataviewjs-technical-spike:** Research and validate DataviewJS heading extraction feasibility
+          - **11-1-capsule-dashboard-metadata-schema:** Define capsule dashboard frontmatter fields for filtering
+          - **11-2-master-dashboard-template-with-filtering:** Create master dashboard with dynamic capsule filtering
+          - **11-3-capsule-dashboard-template-core-structure:** Create capsule dashboard with metadata, navigation, file counts
+          - **11-4-progress-tracking-tasknotes-integration:** Add TaskNotes queries and completion percentage tracking
+          - **11-5-dataview-query-pattern-library:** Document standard query patterns for dashboard development
+          - **11-6-advanced-filtering-heading-extraction:** Implement DataviewJS heading extraction for study views
+          - **11-7-domain-specific-dashboard-sections:** Add domain-specific filtered views (e.g., TCM formulas/herbs)
+          - **11-8-dashboard-generation-during-import:** Auto-generate dashboards when importing capsules
+
+          **Quality Bar:** Functional, readable, navigable dashboards (basic but utilitarian - CSS polish deferred to Epic 12)
+
+          ### References
+          - [Epic 10 Retrospective](docs/sprint-artifacts/epic-10-retro-2025-11-22.md) - Decision rationale and scope definition
+          - [Epic 11 Vision: Hierarchical Dashboard System](docs/sprint-artifacts/epic-10-retro-2025-11-22.md#-epic-11-vision-hierarchical-dashboard-system)
+        </snippet>
+      </doc>
+    <doc>
+        <path>docs/architecture.md</path>
+        <title>Architecture Document</title>
+        <section>Epic Group 9: Dashboard Integration (FR59-FR65)</section>
+        <snippet>
+          **Epics:**
+          - Capsule Dashboard Templates
+          - Master Dashboard Aggregation
+          - Dataview Query Patterns
+          - Timeline Display
+          - Cross-Capsule Analytics
+
+          **Architecture Components:**
+          ```
+          capsule/templates/dashboard.md.j2
+            └─ Capsule dashboard template (Jinja2)
+                ├─ Metadata display
+                ├─ Dataview queries for capsule content
+                └─ Links to master dashboard
+
+          capsule/templates/master-dashboard.md.j2
+            └─ Master dashboard template (Jinja2)
+                ├─ Aggregate queries across all capsules
+                ├─ Timeline view for sequenced capsules
+                └─ Cross-capsule connections
+          ```
+
+          **Capsule Dashboard Template:**
+          ```jinja2
+          {# capsule/templates/dashboard.md.j2 #}
+          ---
+          type: capsule_dashboard
+          capsule_id: "{{ capsule.id }}"
+          version: "{{ capsule.version }}"
+          created: "{{ capsule.created | default(now()) }}"
+          updated: "{{ capsule.updated | default(now()) }}"
+
+          # Dashboard Metadata (optional - for filtering in master dashboard)
+          {% if capsule.dashboard_metadata %}
+          dashboard_metadata:
+            class: "{{ capsule.dashboard_metadata.class | default('') }}"
+            topic: "{{ capsule.dashboard_metadata.topic | default('') }}"
+            category: "{{ capsule.dashboard_metadata.category | default('') }}"
+            active: {{ capsule.dashboard_metadata.active | default(true) }}
+          {% endif %}
+
+          # Provenance Tracking
+          source_capsules: ["{{ capsule.id }}"]
+          ---
+
+          # Capsule Dashboard: {{ capsule.name }}
+
+          ## Overview
+
+          - **Capsule ID:** `{{ capsule.id }}`
+          - **Version:** {{ capsule.version }}
+          - **Domain:** {{ capsule.domain_type }}
+          - **Sequence Mode:** {{ capsule.sequence_mode }}
+
+          **Quick Links:**
+          - [[Master Dashboard|← Back to All Capsules]]
+          - Total Root Notes: `$= dv.pages().where(p => p.source_capsules?.includes("{{ capsule.id }}") && p.type != "dashboard").length`
+          - Total Study Materials: `$= dv.pages('"study_material"').where(p => p.source_capsules?.includes("{{ capsule.id }}")).length`
+
+          ---
+
+          ## Root Notes
+
+          ```dataview
+          TABLE type, tags, updated
+          FROM ""
+          WHERE contains(source_capsules, "{{ capsule.id }}")
+            AND type != "dashboard"
+            AND type != "quiz"
+            AND type != "flashcard"
+          SORT name ASC
+          ```
+
+          ---
+
+          ## Study Materials
+
+          ### Flashcards
+          ```dataview
+          LIST
+          FROM ""
+          WHERE contains(source_capsules, "{{ capsule.id }}")
+            AND type = "flashcard"
+          SORT file.name ASC
+          ```
+
+          ### Quizzes
+          ```dataview
+          TABLE quiz_data.difficulty, quiz_data.topic
+          FROM ""
+          WHERE contains(source_capsules, "{{ capsule.id }}")
+            AND type = "quiz"
+          SORT file.name ASC
+          ```
+
+          ---
+
+          {% if capsule.sequence_mode == "sequenced" %}
+          ## Active Timeline
+
+          ```dataview
+          TASK
+          WHERE contains(source_capsules, "{{ capsule.id }}")
+            AND !completed
+          SORT due ASC
+          LIMIT 10
+          ```
+          {% endif %}
+
+          ---
+
+          ## Recent Activity
+
+          ```dataview
+          TABLE type, updated
+          FROM ""
+          WHERE contains(source_capsules, "{{ capsule.id }}")
+          SORT updated DESC
+          LIMIT 10
+          ```
+
+          ---
+
+          ## Domain-Specific Sections
+          {# Custom sections added here based on domain template #}
+          {{ domain_sections }}
+          ```
+
+          **Master Dashboard Template:**
+          ```jinja2
+          {# capsule/templates/master-dashboard.md.j2 #}
+          ---
+          type: master_dashboard
+          title: "My Knowledge System"
+          ---
+
+          # Master Dashboard - My Knowledge System
+
+          ## 📚 Installed Capsules
+
+          ```dataview
+          TABLE 
+            capsule_id as "ID",
+            version as "Version",
+            domain_type as "Domain",
+            sequence_mode as "Mode"
+          FROM ""
+          WHERE type = "capsule_dashboard"
+          SORT file.name ASC
+          ```
+
+          ---
+
+          ## 📊 Progress Overview
+
+          ```dataviewjs
+          // Calculate aggregate progress across all capsules
+          const capsules = dv.pages('"capsule_dashboard"');
+          let totalNotes = 0;
+          let totalStudyMaterials = 0;
+
+          for (let capsule of capsules) {
+              totalNotes += dv.pages()
+                  .where(p => p.source_capsules?.includes(capsule.capsule_id))
+                  .where(p => p.type != "dashboard")
+                  .length;
+              
+              totalStudyMaterials += dv.pages()
+                  .where(p => p.source_capsules?.includes(capsule.capsule_id))
+                  .where(p => ["flashcard", "quiz", "slide"].includes(p.type))
+                  .length;
+          }
+
+          dv.paragraph(`
+          **Total Notes:** ${totalNotes}
+          **Total Study Materials:** ${totalStudyMaterials}
+          **Capsules Installed:** ${capsules.length}
+          `);
+          ```
+
+          ---
+
+          ## 🗓️ Active Timelines (Sequenced Capsules)
+
+          ```dataview
+          TASK
+          WHERE !completed
+            AND source_capsules
+          SORT due ASC
+          LIMIT 20
+          ```
+
+          ---
+
+          ## 🔗 Cross-Capsule Connections
+
+          ### Notes Enhanced by Multiple Capsules
+          ```dataview
+          TABLE 
+            source_capsules as "Contributing Capsules",
+            type as "Type",
+            tags
+          FROM ""
+          WHERE source_capsules
+            AND length(source_capsules) > 1
+          SORT length(source_capsules) DESC
+          LIMIT 20
+          ```
+
+          ---
+
+          ## 📈 This Week's Activity
+
+          ```dataview
+          TABLE type, file.mtime as "Last Updated"
+          FROM ""
+          WHERE file.mtime >= date(today) - dur(7 days)
+            AND source_capsules
+          SORT file.mtime DESC
+          LIMIT 30
+          ```
+
+          ---
+
+          ## 🎯 Capsule Directories
+
+          {% for capsule in capsules %}
+          - [[{{ capsule.dashboard_file }}|{{ capsule.name }}]] ({{ capsule.sequence_mode }})
+          {% endfor %}
+          ```
+
+          **Dashboard Generation During Import:**
+          ```python
+          # In capsule/core/importer.py
+
+          def generate_dashboard(capsule: Capsule, vault_path: Path):
+              """Generate dashboard from template during import"""
+              
+              # Load template
+              env = Environment(loader=FileSystemLoader('capsule/templates'))
+              template = env.get_template('dashboard.md.j2')
+              
+              # Render with capsule data
+              dashboard_content = template.render(
+                  capsule=capsule,
+                  domain_sections=load_domain_sections(capsule.domain_type)
+              )
+              
+              # Write to vault
+              dashboard_path = vault_path / capsule.id / "capsule-dashboard.md"
+              dashboard_path.write_text(dashboard_content, encoding='utf-8')
+              
+              return dashboard_path
+          ```
+        </snippet>
+      </doc>
+    </docs>
+    <code>
+      <artifact>
+        <path>capsule/templates/capsule-dashboard.md.j2</path>
+        <kind>template</kind>
+        <symbol>N/A</symbol>
+        <lines>N/A</lines>
+        <reason>This is the template that needs to be modified to add the progress tracking section.</reason>
+      </artifact>
+      <artifact>
+        <path>tests/test_templates/test_capsule_dashboard.py</path>
+        <kind>test</kind>
+        <symbol>N/A</symbol>
+        <lines>N/A</lines>
+        <reason>This is the test file for the dashboard template, which will need to be updated to test the new functionality.</reason>
+      </artifact>
+    </code>
+    <dependencies>
+      <dependency>
+        <name>Jinja2</name>
+        <version>>=3.1.0</version>
+        <reason>Used for rendering the dashboard template.</reason>
+      </dependency>
+      <dependency>
+        <name>pytest</name>
+        <version>>=7.0</version>
+        <reason>Used for testing the dashboard template.</reason>
+      </dependency>
+    </artifacts>
+
+  <constraints>
+    - A hybrid approach using both Dataview Query Language (DQL) for simple queries and DataviewJS for more complex needs like filtering should be followed.
+    - Dataview performance in large vaults should be a consideration. Queries should be optimized for performance.
+  </constraints>
+  
+  <tests>
+    <standards>
+      The project follows a test pyramid strategy with a focus on unit tests (80%), followed by integration tests (15%) and end-to-end tests (5%). Tests are organized in the `tests/` directory, mirroring the source structure. Pytest is the testing framework.
+    </standards>
+    <locations>
+      - `tests/test_templates/`
+    </locations>
+    <ideas>
+      - Add unit tests for the new progress tracking functionality.
+    </ideas>
+  </tests>
+</story-context>

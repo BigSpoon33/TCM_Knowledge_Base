@@ -1,0 +1,133 @@
+---
+type: capsule_dashboard
+capsule_id: "{{ capsule.capsule_id }}"
+version: "{{ capsule.version }}"
+created: "{{ capsule.created | default(now()) }}"
+updated: "{{ capsule.updated | default(now()) }}"
+
+# Dashboard Metadata (optional - for filtering in master dashboard)
+{% if capsule.dashboard_metadata %}
+dashboard_metadata:
+  class: "{{ capsule.dashboard_metadata.class | default('') }}"
+  topic: "{{ capsule.dashboard_metadata.topic | default('') }}"
+  category: "{{ capsule.dashboard_metadata.category | default('') }}"
+  active: {{ capsule.dashboard_metadata.active | default(true) | lower }}
+{% endif %}
+
+# Provenance Tracking
+source_capsules: ["{{ capsule.capsule_id }}"]
+---
+
+# Capsule Dashboard: {{ capsule.name }}
+
+> **Plugin Required**: This dashboard requires [Dataview](https://github.com/blacksmithgu/obsidian-dataview) v0.5.0+.
+> Queries below will appear as code blocks until the plugin is installed.
+
+## Overview
+
+- **Capsule ID:** `{{ capsule.capsule_id }}`
+- **Version:** {{ capsule.version }}
+- **Domain:** {{ capsule.domain_type }}
+- **Sequence Mode:** {{ capsule.sequence_mode }}
+
+**Quick Links:**
+- [[Master Dashboard|← Back to All Capsules]]
+- **Total Root Notes:** `$= dv.pages().where(p => p.source_capsules && p.source_capsules.includes("{{ capsule.capsule_id }}") && p.type != "dashboard" && p.type != "capsule_dashboard").length`
+- **Total Study Materials:** `$= dv.pages().where(p => p.source_capsules && p.source_capsules.includes("{{ capsule.capsule_id }}") && ["flashcard", "quiz", "slide", "conversation"].includes(p.type)).length`
+
+---
+
+## Root Notes
+
+```dataview
+TABLE type, tags, updated
+FROM ""
+WHERE contains(source_capsules, "{{ capsule.capsule_id }}")
+  AND type != "dashboard"
+  AND type != "capsule_dashboard"
+  AND type != "quiz"
+  AND type != "flashcard"
+  AND type != "slide"
+  AND type != "conversation"
+SORT name ASC
+```
+
+---
+
+## Study Materials
+
+### Flashcards
+```dataview
+LIST
+FROM ""
+WHERE contains(source_capsules, "{{ capsule.capsule_id }}")
+  AND type = "flashcard"
+SORT file.name ASC
+```
+
+### Quizzes
+```dataview
+TABLE quiz_data.difficulty as "Difficulty", quiz_data.topic as "Topic"
+FROM ""
+WHERE contains(source_capsules, "{{ capsule.capsule_id }}")
+  AND type = "quiz"
+SORT file.name ASC
+```
+
+---
+
+{% if capsule.sequence_mode == "sequenced" %}
+## Progress Tracking
+
+### Completion Status
+
+```dataviewjs
+const capsuleId = "{{ capsule.capsule_id }}";
+const pages = dv.pages().where(p => p.source_capsules && p.source_capsules.includes(capsuleId));
+let totalTasks = 0;
+let completedTasks = 0;
+
+for (let page of pages) {
+    if (page.file.tasks) {
+        totalTasks += page.file.tasks.length;
+        completedTasks += page.file.tasks.where(t => t.completed).length;
+    }
+}
+
+if (totalTasks > 0) {
+    const percentage = Math.round((completedTasks / totalTasks) * 100);
+    dv.paragraph(`**Progress:** ${percentage}% (${completedTasks}/${totalTasks} tasks)`);
+    dv.el("progress", "", { attr: { value: percentage, max: 100 } });
+} else {
+    dv.paragraph("No tasks found in this capsule.");
+}
+```
+
+### Active Timeline
+
+```dataview
+TASK
+WHERE contains(source_capsules, "{{ capsule.capsule_id }}")
+  AND !completed
+SORT due ASC
+LIMIT 10
+```
+{% endif %}
+
+---
+
+## Recent Activity
+
+```dataview
+TABLE type, updated
+FROM ""
+WHERE contains(source_capsules, "{{ capsule.capsule_id }}")
+SORT updated DESC
+LIMIT 10
+```
+
+---
+
+## Domain-Specific Sections
+{# Custom sections added here based on domain template #}
+{{ domain_sections }}

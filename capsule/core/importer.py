@@ -1,25 +1,31 @@
 """Import capsule with preview and analysis capabilities."""
 
-from pathlib import Path
-from typing import Dict, List, Any, Optional
-from dataclasses import dataclass
-import zipfile
-import tempfile
 import shutil
+import tempfile
+import zipfile
+from dataclasses import dataclass
+from datetime import datetime, timezone
+from pathlib import Path
+from typing import Any
+
 import frontmatter
 import typer
 import yaml
+from jinja2 import Environment, FileSystemLoader
 from rich.console import Console
-from rich.table import Table
 from rich.panel import Panel
-from rich.text import Text
+from rich.table import Table
 
+from capsule.core.merger import merge_notes
+from capsule.core.validator import Validator
+from capsule.models.capsule import Capsule
 from capsule.models.config import Config
 from capsule.models.cypher import CapsuleCypher
-from capsule.core.validator import Validator
+from capsule.models.note import Note
+from capsule.utils import dataview_queries
 from capsule.utils.backup import create_backup
-from capsule.utils.yaml_handler import YAMLHandler
 from capsule.utils.versioning import compare_versions
+from capsule.utils.yaml_handler import YAMLHandler
 
 
 @dataclass
@@ -57,7 +63,7 @@ class ConflictDetail:
 
     file: str
     reason: str
-    sources: List[str]
+    sources: list[str]
 
 
 @dataclass
@@ -70,11 +76,11 @@ class ImportPreview:
 
     capsule_info: CapsuleInfo
     impact: Impact
-    new_files: List[str]
-    updates: List[UpdateDetail]
-    conflicts: List[ConflictDetail]
+    new_files: list[str]
+    updates: list[UpdateDetail]
+    conflicts: list[ConflictDetail]
     import_type: str = "NEW"
-    version_diff: Optional[str] = None
+    version_diff: str | None = None
 
 
 class Importer:
@@ -96,9 +102,9 @@ class Importer:
         """
         self.config = config
         self.console = Console()
-        self.extracted_path: Optional[Path] = None
-        self.temp_dir: Optional[str] = None
-        self.cypher: Optional[CapsuleCypher] = None
+        self.extracted_path: Path | None = None
+        self.temp_dir: str | None = None
+        self.cypher: CapsuleCypher | None = None
 
     def run(self, capsule_path: Path, no_backup: bool = False) -> None:
         """
@@ -336,6 +342,27 @@ class Importer:
                         )
                     )
 
+        # Analyze Dashboards
+        capsule_dashboard_rel = Path(self.cypher.capsule_id) / "capsule-dashboard.md"
+        capsule_dashboard_path = vault_path / capsule_dashboard_rel
+        master_dashboard_path = vault_path / "Master Dashboard.md"
+
+        # Capsule Dashboard
+        if not capsule_dashboard_path.exists():
+            new_files.append(str(capsule_dashboard_rel))
+        else:
+            updates.append(
+                UpdateDetail(
+                    file=str(capsule_dashboard_rel),
+                    strategy="section-level",
+                    changes="Will merge dashboard sections",
+                )
+            )
+
+        # Master Dashboard
+        if not master_dashboard_path.exists():
+            new_files.append("Master Dashboard.md")
+
         # Count file statistics
         impact = Impact(new_files=len(new_files), updated_files=len(updates), conflicts=len(conflicts))
 
@@ -358,7 +385,7 @@ class Importer:
             version_diff=version_diff,
         )
 
-    def _collect_capsule_files(self) -> List[str]:
+    def _collect_capsule_files(self) -> list[str]:
         """
         Collect all file paths from cypher contents.
 
@@ -384,7 +411,7 @@ class Importer:
 
         return files
 
-    def _analyze_file_update(self, vault_file: Path, capsule_file: Path, rel_path: str) -> Dict[str, Any]:
+    def _analyze_file_update(self, vault_file: Path, capsule_file: Path, rel_path: str) -> dict[str, Any]:
         """
         Analyze how a specific file will be updated.
 
@@ -459,7 +486,7 @@ class Importer:
                 "conflict": False,
             }
 
-    def _detect_section_conflicts(self, existing_fm: Dict[str, Any], incoming_fm: Dict[str, Any]) -> List[str]:
+    def _detect_section_conflicts(self, existing_fm: dict[str, Any], incoming_fm: dict[str, Any]) -> list[str]:
         """
         Detect conflicting domain sections between two frontmatters.
 
@@ -607,6 +634,10 @@ class Importer:
 
         # Handle New Files
         for rel_path in preview.new_files:
+            # Skip dashboard files as they are generated later
+            if str(rel_path).endswith("capsule-dashboard.md") or str(rel_path) == "Master Dashboard.md":
+                continue
+
             src = self.extracted_path / rel_path
             dst = vault_path / rel_path
 
@@ -628,7 +659,141 @@ class Importer:
                 shutil.copy2(src, dst)
                 typer.echo(f"Updated (Replaced): {update.file}")
 
+        # Generate Dashboards
+        typer.echo("\nGenerating dashboards...")
+        capsule = Capsule(
+            capsule_id=preview.capsule_info.id,
+            name=preview.capsule_info.name,
+            version=preview.capsule_info.version,
+            domain_type=preview.capsule_info.domain_type,
+            dashboard_metadata=self.cypher.dashboard_metadata if self.cypher else None,
+        )
+        self.generate_dashboards(capsule, vault_path)
+
         typer.secho("\n✅ Import execution completed.", fg=typer.colors.GREEN)
+
+    def generate_dashboards(self, capsule: Capsule, vault_path: Path) -> list[Path]:
+        """
+        Generate master and capsule dashboards during import.
+
+        Args:
+            capsule: The capsule model
+            vault_path: Path to the vault
+
+        Returns:
+            List of generated dashboard file paths
+        """
+        generated_files = []
+
+        try:
+            # Load templates
+            # Assuming templates are relative to the package or current working directory
+            template_dir = Path("capsule/templates")
+            if not template_dir.exists():
+                # Fallback or error handling
+                pass
+
+            env = Environment(loader=FileSystemLoader(str(template_dir)))
+            env.globals["now"] = lambda: datetime.now(timezone.utc).isoformat()
+
+            # 1. Capsule Dashboard
+            capsule_template = env.get_template("capsule-dashboard.md.j2")
+
+            # Render capsule dashboard
+            domain_sections = self.load_domain_sections(capsule.domain_type, capsule.capsule_id)
+
+            capsule_dashboard_content = capsule_template.render(
+                capsule=capsule, domain_sections=domain_sections, dv=dataview_queries
+            )
+
+            # Write capsule dashboard
+            capsule_dir = vault_path / capsule.capsule_id
+            capsule_dir.mkdir(parents=True, exist_ok=True)
+            capsule_dashboard_path = capsule_dir / "capsule-dashboard.md"
+
+            if capsule_dashboard_path.exists():
+                # Merge with existing dashboard
+                # Parse generated content to create Note object
+                post = frontmatter.loads(capsule_dashboard_content)
+                new_note = Note(
+                    file_path=str(capsule_dashboard_path),
+                    frontmatter=post.metadata,
+                    body=post.content,
+                )
+
+                existing_note = Note.from_file(str(capsule_dashboard_path))
+                merged_note = merge_notes(existing_note, new_note, capsule.capsule_id)
+                merged_note.to_file(str(capsule_dashboard_path))
+                typer.echo(f"Updated capsule dashboard (merged): {capsule_dashboard_path}")
+            else:
+                # Write new dashboard
+                capsule_dashboard_path.write_text(capsule_dashboard_content, encoding="utf-8")
+                typer.echo(f"Generated capsule dashboard: {capsule_dashboard_path}")
+
+            generated_files.append(capsule_dashboard_path)
+
+            # 2. Master Dashboard
+            master_dashboard_path = vault_path / "Master Dashboard.md"
+            if not master_dashboard_path.exists():
+                master_template = env.get_template("master-dashboard.md.j2")
+                master_content = master_template.render(dv=dataview_queries)
+                master_dashboard_path.write_text(master_content, encoding="utf-8")
+                generated_files.append(master_dashboard_path)
+                typer.echo(f"Generated master dashboard: {master_dashboard_path}")
+            else:
+                typer.echo(f"Master dashboard already exists: {master_dashboard_path}")
+
+        except Exception as e:
+            typer.echo(f"Error generating dashboards: {e}")
+            # Cleanup any dashboards generated before failure
+            for f in generated_files:
+                if f.exists():
+                    try:
+                        f.unlink()
+                        typer.echo(f"Rolled back: {f}")
+                    except Exception as cleanup_error:
+                        typer.echo(f"Failed to cleanup {f}: {cleanup_error}")
+            raise e
+
+        return generated_files
+
+    def load_domain_sections(self, domain_type: str, capsule_id: str) -> str:
+        """
+        Load and render domain-specific dashboard sections.
+
+        Args:
+            domain_type: The domain type of the capsule (e.g., "traditional_chinese_medicine")
+            capsule_id: The ID of the capsule
+
+        Returns:
+            Rendered markdown content for the domain sections
+        """
+        # Map domain type to template name
+        domain_map = {
+            "traditional_chinese_medicine": "tcm.md.j2",
+            "tcm": "tcm.md.j2",
+        }
+
+        template_name = domain_map.get(domain_type.lower(), f"{domain_type.lower()}.md.j2")
+
+        try:
+            # Assuming templates are relative to the package or current working directory
+            # Adjust path as necessary based on deployment
+            template_dir = Path("capsule/templates/domains")
+            if not template_dir.exists():
+                # Fallback for installed package scenario if needed, but for now assuming dev structure
+                pass
+
+            env = Environment(loader=FileSystemLoader(str(template_dir)))
+            template = env.get_template(template_name)
+            return template.render(capsule_id=capsule_id, dv=dataview_queries)
+        except Exception as e:
+            # Only warn if it was a mapped domain or if we really expected it to exist?
+            # If dynamic lookup fails, it might just mean no domain section is defined, which is fine.
+            # But get_template raises TemplateNotFound.
+            if "TemplateNotFound" not in str(e):
+                typer.echo(f"Warning: Could not load domain template for {domain_type}: {e}")
+            return ""
 
     def cleanup(self) -> None:
         """Clean up temporary extraction directory if it exists."""

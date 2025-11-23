@@ -1,8 +1,9 @@
 """CapsuleCypher data model - represents the capsule manifest (cypher) file."""
 
-from dataclasses import dataclass, asdict
-from typing import Any, Optional
 import io
+from dataclasses import asdict, dataclass
+from typing import Any
+
 import ruamel.yaml
 
 
@@ -51,9 +52,10 @@ class CapsuleCypher:
     data_schemas: dict[str, Any]
 
     # Optional fields
-    sequence_mode: Optional[str] = None
-    required_plugins: Optional[list[dict[str, str]]] = None
-    recommended_plugins: Optional[list[dict[str, str]]] = None
+    sequence_mode: str | None = None
+    dashboard_metadata: dict[str, Any] | None = None
+    required_plugins: list[dict[str, str]] | None = None
+    recommended_plugins: list[dict[str, str]] | None = None
 
     def to_dict(self) -> dict[str, Any]:
         """

@@ -1,7 +1,10 @@
 """Pytest configuration and fixtures for capsule tests"""
-import pytest
-from pathlib import Path
+
 import tempfile
+from pathlib import Path
+
+import pytest
+
 
 @pytest.fixture
 def temp_dir():

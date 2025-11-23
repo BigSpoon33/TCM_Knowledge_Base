@@ -1,10 +1,11 @@
 # tests/test_models/test_config.py
 
+import os
+import tempfile
 import unittest
 from pathlib import Path
-import tempfile
-import os
 from unittest.mock import patch
+
 from capsule.models.config import Config, yaml
 
 
@@ -19,6 +20,7 @@ class TestConfig(unittest.TestCase):
             "project_dir": self.temp_path,
             "user": {},
             "research": {},
+            "import_settings": {},
         }
         self.config = Config(**self.config_data)
 
@@ -34,6 +36,7 @@ class TestConfig(unittest.TestCase):
     def test_to_dict(self):
         expected_dict = self.config_data.copy()
         expected_dict["project_dir"] = str(self.temp_path)
+        expected_dict["import"] = expected_dict.pop("import_settings")
         self.assertDictEqual(self.config.to_dict(), expected_dict)
 
     def test_to_from_yaml_file(self):

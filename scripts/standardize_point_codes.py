@@ -4,11 +4,10 @@ Point Code Standardization Script
 Converts L.I.-4 → LI-4, S.I.-3 → SI-3 across all files
 """
 
-import os
 import re
-import yaml
 from pathlib import Path
-from typing import Dict, List, Tuple
+
+import yaml
 
 
 class PointCodeStandardizer:
@@ -39,9 +38,9 @@ class PointCodeStandardizer:
             old_name = file.stem
 
             # Check if it has dots in meridian code
-            if re.match(r'^[A-Z]\.[A-Z]\.-\d+$', old_name):
+            if re.match(r"^[A-Z]\.[A-Z]\.-\d+$", old_name):
                 # L.I.-4 → LI-4
-                new_name = old_name.replace('.', '')
+                new_name = old_name.replace(".", "")
                 self.rename_map[old_name] = new_name
 
         print(f"✓ Found {len(self.rename_map)} files to rename")
@@ -80,21 +79,21 @@ class PointCodeStandardizer:
                 continue
 
             try:
-                with open(file_path, 'r', encoding='utf-8') as f:
+                with open(file_path, encoding="utf-8") as f:
                     content = f.read()
 
                 # Update name field in frontmatter
-                match = re.match(r'^(---\s*\n)(.*?)(\n---)', content, re.DOTALL)
+                match = re.match(r"^(---\s*\n)(.*?)(\n---)", content, re.DOTALL)
                 if match:
                     pre = match.group(1)
                     fm_text = match.group(2)
                     post = match.group(3)
-                    rest = content[match.end():]
+                    rest = content[match.end() :]
 
                     # Parse and update
                     fm = yaml.safe_load(fm_text)
-                    if fm and 'name' in fm and fm['name'] == old_code:
-                        fm['name'] = new_code
+                    if fm and "name" in fm and fm["name"] == old_code:
+                        fm["name"] = new_code
 
                         # Regenerate YAML
                         new_fm = yaml.dump(fm, default_flow_style=False, allow_unicode=True, sort_keys=False)
@@ -103,7 +102,7 @@ class PointCodeStandardizer:
                         if dry_run:
                             print(f"  Would update frontmatter: {old_code} → {new_code}")
                         else:
-                            with open(file_path, 'w', encoding='utf-8') as f:
+                            with open(file_path, "w", encoding="utf-8") as f:
                                 f.write(new_content)
                             print(f"  ✓ Updated frontmatter: {file_path.name}")
 
@@ -121,7 +120,7 @@ class PointCodeStandardizer:
             self.base_dir / "TCM_Concepts",
             self.base_dir / "TCM_Herbs",
             self.base_dir / "TCM_Techniques",
-            self.base_dir / "TCM_Points"
+            self.base_dir / "TCM_Points",
         ]
 
         updated_count = 0
@@ -132,7 +131,7 @@ class PointCodeStandardizer:
 
             for file in directory.glob("*.md"):
                 try:
-                    with open(file, 'r', encoding='utf-8') as f:
+                    with open(file, encoding="utf-8") as f:
                         content = f.read()
 
                     original_content = content
@@ -142,8 +141,8 @@ class PointCodeStandardizer:
                     for old_code, new_code in self.rename_map.items():
                         # Pattern: [[L.I.-4]] or [[text (L.I.-4)]]
                         patterns = [
-                            (rf'\[\[{re.escape(old_code)}\]\]', f'[[{new_code}]]'),
-                            (rf'\[\[([^\]]+)\({re.escape(old_code)}\)\]\]', rf'[[\1({new_code})]]'),
+                            (rf"\[\[{re.escape(old_code)}\]\]", f"[[{new_code}]]"),
+                            (rf"\[\[([^\]]+)\({re.escape(old_code)}\)\]\]", rf"[[\1({new_code})]]"),
                         ]
 
                         for pattern, replacement in patterns:
@@ -155,7 +154,7 @@ class PointCodeStandardizer:
                         if dry_run:
                             print(f"  Would update wikilinks: {file.name}")
                         else:
-                            with open(file, 'w', encoding='utf-8') as f:
+                            with open(file, "w", encoding="utf-8") as f:
                                 f.write(content)
                             print(f"  ✓ Updated: {file.name}")
                         updated_count += 1
@@ -178,11 +177,7 @@ class PointCodeStandardizer:
 
         for old_code, new_code in self.rename_map.items():
             # Find all image files for this point
-            image_patterns = [
-                f"{old_code}_*.png",
-                f"{old_code}_*.jpg",
-                f"{old_code}_*.jpeg"
-            ]
+            image_patterns = [f"{old_code}_*.png", f"{old_code}_*.jpg", f"{old_code}_*.jpeg"]
 
             for pattern in image_patterns:
                 for image_file in self.images_dir.glob(pattern):
@@ -240,7 +235,7 @@ def main():
     standardizer = PointCodeStandardizer(base_dir)
 
     # Check for --execute flag
-    dry_run = '--execute' not in sys.argv
+    dry_run = "--execute" not in sys.argv
 
     standardizer.run(dry_run)
 

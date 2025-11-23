@@ -976,6 +976,20 @@ capsule/templates/master-dashboard.md.j2
 type: capsule_dashboard
 capsule_id: "{{ capsule.id }}"
 version: "{{ capsule.version }}"
+created: "{{ capsule.created | default(now()) }}"
+updated: "{{ capsule.updated | default(now()) }}"
+
+# Dashboard Metadata (optional - for filtering in master dashboard)
+{% if capsule.dashboard_metadata %}
+dashboard_metadata:
+  class: "{{ capsule.dashboard_metadata.class | default('') }}"
+  topic: "{{ capsule.dashboard_metadata.topic | default('') }}"
+  category: "{{ capsule.dashboard_metadata.category | default('') }}"
+  active: {{ capsule.dashboard_metadata.active | default(true) }}
+{% endif %}
+
+# Provenance Tracking
+source_capsules: ["{{ capsule.id }}"]
 ---
 
 # Capsule Dashboard: {{ capsule.name }}
@@ -1187,6 +1201,245 @@ def generate_dashboard(capsule: Capsule, vault_path: Path):
     
     return dashboard_path
 ```
+
+**Capsule Dashboard Metadata Schema:**
+
+The dashboard frontmatter schema provides a standardized set of metadata fields that enable filtering, querying, and managing capsules in the master dashboard. This schema was defined in Story 11-1 to support the dashboard functionality outlined in Epic 11.
+
+**Schema Definition:**
+
+| Field | Type | Required | Default | Purpose | Queryable by Dataview |
+|-------|------|----------|---------|---------|----------------------|
+| `type` | string | Yes | N/A | Identifies note as capsule dashboard (`"capsule_dashboard"`) | ✅ Yes |
+| `capsule_id` | string | Yes | N/A | Unique capsule identifier linking dashboard to capsule | ✅ Yes |
+| `version` | string | Yes | N/A | Capsule version (semver format) | ✅ Yes |
+| `created` | string (ISO 8601) | No | Import timestamp | Dashboard creation timestamp | ✅ Yes |
+| `updated` | string (ISO 8601) | No | Import timestamp | Dashboard last update timestamp | ✅ Yes |
+| `dashboard_metadata.class` | string | No | `null` | Class/course identifier (e.g., "TCM101", "Advanced-Herbology") | ✅ Yes |
+| `dashboard_metadata.topic` | string | No | `null` | Topic description (e.g., "Herbal Medicine", "Point Location") | ✅ Yes |
+| `dashboard_metadata.category` | string | No | `null` | Category/certification (e.g., "CALE", "NCCAOM", "General") | ✅ Yes |
+| `dashboard_metadata.active` | boolean | No | `true` | Active study status flag | ✅ Yes |
+| `source_capsules` | array[string] | No | `[capsule_id]` | List of contributing capsule IDs (provenance tracking) | ✅ Yes |
+
+**Field Descriptions:**
+
+**Required Fields:**
+- **`type`**: Always set to `"capsule_dashboard"` to distinguish dashboard notes from regular notes. This enables Dataview queries to filter for dashboards specifically.
+  
+- **`capsule_id`**: The unique identifier for the capsule (e.g., `"TCM_Herbs_v1"`). This field links the dashboard to its capsule and is used in queries to filter capsule-specific content.
+  
+- **`version`**: Capsule version in semantic versioning format (e.g., `"1.0.0"`). Used for version tracking and update detection.
+
+**Optional Filterable Metadata Fields:**
+
+These fields enable powerful filtering and organization in the master dashboard:
+
+- **`dashboard_metadata.class`**: Course or class identifier. Use cases:
+  - Filtering capsules by academic course (e.g., show all "TCM101" capsules)
+  - Grouping study materials by class level
+  - Example values: `"TCM101"`, `"Advanced-Herbology"`, `"Point-Location-Certification"`
+
+- **`dashboard_metadata.topic`**: Descriptive topic or subject matter. Use cases:
+  - Topic-based filtering (e.g., show all "Herbal Medicine" capsules)
+  - Cross-capsule topic aggregation
+  - Example values: `"Herbal Medicine"`, `"Acupuncture Points"`, `"Diagnostic Methods"`
+
+- **`dashboard_metadata.category`**: Certification, exam, or organizational category. Use cases:
+  - Filtering by certification track (e.g., "CALE" vs "NCCAOM")
+  - Exam preparation grouping
+  - Example values: `"CALE"`, `"NCCAOM"`, `"General"`, `"Board-Exam"`
+
+- **`dashboard_metadata.active`**: Boolean flag indicating whether the capsule is currently being studied. Use cases:
+  - Show only active capsules in master dashboard
+  - Archive completed/inactive capsules
+  - Progress tracking focus
+  - Example values: `true`, `false`
+
+**Complete Example:**
+
+```yaml
+---
+# Universal Dashboard Fields (Required)
+type: capsule_dashboard
+capsule_id: "TCM_Herbs_v1"
+version: "1.0.0"
+created: "2025-11-22T10:00:00Z"
+updated: "2025-11-22T10:00:00Z"
+
+# Dashboard Metadata (Optional - for filtering)
+dashboard_metadata:
+  class: "TCM101"
+  topic: "Herbal Medicine"
+  category: "CALE"
+  active: true
+
+# Provenance Tracking
+source_capsules: ["TCM_Herbs_v1"]
+---
+```
+
+**Schema Validation:**
+
+The schema supports the following Dataview query patterns (validated in Story 11-0 technical spike):
+
+**Filter by active status:**
+```dataview
+TABLE capsule_id, dashboard_metadata.topic
+FROM ""
+WHERE type = "capsule_dashboard"
+  AND dashboard_metadata.active = true
+SORT file.name ASC
+```
+
+**Filter by class and topic:**
+```dataview
+TABLE capsule_id, version, dashboard_metadata.category
+FROM ""
+WHERE type = "capsule_dashboard"
+  AND dashboard_metadata.class = "TCM101"
+  AND dashboard_metadata.topic = "Herbal Medicine"
+```
+
+**Filter by category:**
+```dataview
+TABLE capsule_id, dashboard_metadata.class, dashboard_metadata.topic
+FROM ""
+WHERE type = "capsule_dashboard"
+  AND dashboard_metadata.category = "CALE"
+  AND dashboard_metadata.active = true
+```
+
+**Complex filtering with DataviewJS:**
+```dataviewjs
+const capsules = dv.pages('"capsules"')
+  .where(p => p.type === "capsule_dashboard");
+
+// Apply multiple filter criteria
+const filtered = capsules
+  .where(p => {
+    // Must be active
+    if (!p.dashboard_metadata?.active) return false;
+    
+    // Must match class OR category
+    return (p.dashboard_metadata?.class === "TCM101" || 
+            p.dashboard_metadata?.category === "CALE");
+  })
+  .sort(p => p.file.ctime, 'desc');
+
+dv.table(
+  ["Capsule ID", "Class", "Category", "Installed"],
+  filtered.map(p => [
+    p.capsule_id,
+    p.dashboard_metadata?.class,
+    p.dashboard_metadata?.category,
+    p.file.ctime
+  ])
+);
+```
+
+**Design Rationale:**
+
+1. **Nested `dashboard_metadata` object**: Groups filterable fields together to distinguish them from universal capsule fields. This prevents namespace pollution and makes it clear which fields are for filtering vs. core identification.
+
+2. **All metadata fields optional**: Allows simple capsules without categorization to work without modification. Core dashboard functionality (navigation, file lists) doesn't depend on metadata.
+
+3. **String types for class/topic/category**: Provides maximum flexibility for user-defined categorization schemes. No enum constraints.
+
+4. **Boolean `active` field**: Simple true/false is more intuitive than status strings for filtering.
+
+5. **ISO 8601 timestamps**: Standard format for `created` and `updated` fields ensures consistency with universal frontmatter schema.
+
+**Schema Evolution:**
+
+Future enhancements may add:
+- `dashboard_metadata.tags` (array[string]): Freeform tags for additional filtering
+- `dashboard_metadata.priority` (number): Numeric priority for sorting
+- `dashboard_metadata.difficulty` (string): Difficulty level indicator
+- Custom domain-specific metadata fields (e.g., `tcm_metadata.pattern_category`)
+
+These can be added without breaking existing dashboards due to the optional nature of the `dashboard_metadata` section.
+
+**References:**
+- PoC validation: `docs/sprint-artifacts/11-0-dataview-spike-poc.md` (lines 583-651)
+- Technical specification: `docs/sprint-artifacts/tech-spec-epic-11.md`
+- Universal frontmatter schema: See "Epic Group 1: Data Models" section above
+
+**Master Dashboard Usage Guide:**
+
+The Master Dashboard serves as the central navigation hub for all installed capsules in your Obsidian vault. It provides powerful filtering capabilities to help you manage and organize your knowledge system.
+
+**Location:** The Master Dashboard is automatically generated at the root of your vault as `Master Dashboard.md` during the first capsule import.
+
+**Key Features:**
+
+1. **View All Capsules**
+   - The "Installed Capsules" section displays all capsule dashboards with their ID, version, topic, and category
+   - Use this to get an overview of your entire knowledge system at a glance
+
+2. **Filter by Active Status**
+   - The "Active Capsules" section shows only capsules currently being studied (where `dashboard_metadata.active = true`)
+   - Update a capsule's active status by editing its dashboard frontmatter
+
+3. **Filter by Metadata**
+   - **By Class:** Filter capsules by course/class identifier (e.g., "TCM101", "Advanced-Herbology")
+     - Edit the query to change the class name: `WHERE dashboard_metadata.class = "YOUR_CLASS"`
+   - **By Topic:** Filter by subject matter (e.g., "Herbal Medicine", "Point Location")
+     - Edit the query to change the topic: `WHERE dashboard_metadata.topic = "YOUR_TOPIC"`
+   - **By Category:** Filter by certification or category (e.g., "CALE", "NCCAOM")
+     - Edit the query to change the category: `WHERE dashboard_metadata.category = "YOUR_CATEGORY"`
+
+4. **Progress Tracking**
+   - The "Progress Overview" section uses DataviewJS to calculate:
+     - Total notes across all capsules
+     - Total study materials (flashcards, quizzes, slides, conversations)
+     - Number of installed capsules
+   - This provides a quick snapshot of your knowledge system's size and scope
+
+5. **Task Management**
+   - The "Active Timelines" section shows incomplete tasks from all sequenced capsules
+   - Tasks are sorted by due date (requires TaskNotes plugin for scheduling)
+
+6. **Cross-Capsule Discovery**
+   - The "Cross-Capsule Connections" section identifies notes that belong to multiple capsules
+   - This helps you discover enriched notes with data from different domains
+   - Example: A "Ginger" note might have both TCM herb data and culinary recipe data
+
+7. **Recent Activity**
+   - Shows notes modified in the last 7 days
+   - Helps you quickly return to recently edited content
+
+**Customization:**
+
+You can customize the filter queries by editing the Dataview code blocks in the dashboard. Common customizations include:
+
+- Changing filter values (class, topic, category names)
+- Adjusting time ranges (e.g., change `dur(7 days)` to `dur(30 days)` for monthly activity)
+- Modifying result limits (e.g., change `LIMIT 20` to show more/fewer results)
+- Adding additional filters by combining WHERE clauses with AND/OR operators
+
+**Example Combination Filter:**
+
+```dataview
+TABLE 
+  capsule_id as "ID",
+  dashboard_metadata.topic as "Topic"
+FROM ""
+WHERE type = "capsule_dashboard"
+  AND dashboard_metadata.active = true
+  AND (dashboard_metadata.class = "TCM101" OR dashboard_metadata.category = "CALE")
+```
+
+This shows active capsules that are either in class "TCM101" OR in category "CALE".
+
+**Plugin Requirements:**
+
+- **Dataview v0.5.0+** (required): Standard queries (TABLE, LIST, TASK)
+- **TaskNotes v1.0.0+** (optional): Task scheduling and due dates
+
+**Graceful Degradation:**
+
+If Dataview plugin is not installed, the master dashboard remains readable as a Markdown document with code blocks. All queries will be visible as formatted code, and you can still navigate to capsule dashboards via the "Capsule Links" section at the bottom.
+
 
 ---
 

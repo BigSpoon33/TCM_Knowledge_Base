@@ -1,5 +1,6 @@
-from typing import Dict, Any, List
 from dataclasses import dataclass
+from typing import Any
+
 from capsule.exceptions import MergeConflict
 from capsule.models.note import Note
 
@@ -50,8 +51,8 @@ class ConflictDetector:
 
     @staticmethod
     def detect_conflicts(
-        existing_fm: Dict[str, Any], new_fm: Dict[str, Any], incoming_capsule_id: str
-    ) -> List[Conflict]:
+        existing_fm: dict[str, Any], new_fm: dict[str, Any], incoming_capsule_id: str
+    ) -> list[Conflict]:
         """
         Detect conflicts between existing frontmatter and new capsule frontmatter.
 
@@ -92,14 +93,14 @@ class ConflictDetector:
             >>> conflicts[0].severity
             'ERROR'
         """
-        conflicts: List[Conflict] = []
+        conflicts: list[Conflict] = []
 
         # Get source_capsules list from existing frontmatter
         source_capsules = existing_fm.get("source_capsules", [])
 
         # Build a map of which sections are managed by which capsules
         # Support both simple string format and detailed dict format
-        managed_sections: Dict[str, str] = {}
+        managed_sections: dict[str, str] = {}
         if source_capsules:
             for source in source_capsules:
                 if isinstance(source, dict):
@@ -162,7 +163,7 @@ class ConflictDetector:
         return conflicts
 
 
-def section_level_merge(existing: Dict[str, Any], incoming: Dict[str, Any]) -> Dict[str, Any]:
+def section_level_merge(existing: dict[str, Any], incoming: dict[str, Any]) -> dict[str, Any]:
     """
     Update matching sections in existing frontmatter with values from incoming frontmatter,
     while preserving other sections.
@@ -177,7 +178,17 @@ def section_level_merge(existing: Dict[str, Any], incoming: Dict[str, Any]) -> D
     merged = existing.copy()
 
     # Universal fields that should be updated
-    universal_fields = ["id", "name", "type", "tags"]
+    universal_fields = [
+        "id",
+        "name",
+        "type",
+        "tags",
+        "created",
+        "updated",
+        "capsule_id",
+        "version",
+        "dashboard_metadata",
+    ]
 
     for section_key, section_value in incoming.items():
         # Update domain sections (ending with _data)
@@ -189,10 +200,12 @@ def section_level_merge(existing: Dict[str, Any], incoming: Dict[str, Any]) -> D
 
     return merged
 
+    return merged
+
 
 def additive_merge(
-    existing: Dict[str, Any], incoming: Dict[str, Any], capsule_id: str, file_path: str = "unknown"
-) -> Dict[str, Any]:
+    existing: dict[str, Any], incoming: dict[str, Any], capsule_id: str, file_path: str = "unknown"
+) -> dict[str, Any]:
     """
     Add new sections from incoming frontmatter to existing frontmatter,
     raising MergeConflict if sections overlap.

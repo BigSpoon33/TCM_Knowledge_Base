@@ -1,6 +1,8 @@
-import yaml
-from capsule.utils.validators import check_required_fields, is_valid_semver
 import frontmatter
+import yaml
+
+from capsule.exceptions import ValidationError
+from capsule.utils.validators import check_required_fields, is_valid_semver
 
 
 class Validator:
@@ -14,7 +16,7 @@ class Validator:
         if not self.cypher_path.exists():
             raise FileNotFoundError(f"capsule-cypher.yaml not found in {self.capsule_path}")
 
-        with open(self.cypher_path, "r") as f:
+        with open(self.cypher_path) as f:
             self.cypher = yaml.safe_load(f)
 
     def validate_capsule(self):
@@ -32,10 +34,10 @@ class Validator:
         required_fields = ["capsule_id", "name", "version", "domain_type", "folder_structure", "contents"]
         missing_fields = check_required_fields(self.cypher, required_fields)
         if missing_fields:
-            raise ValueError(f"Missing required fields in capsule-cypher.yaml: {', '.join(missing_fields)}")
+            raise ValidationError(f"Missing required fields in capsule-cypher.yaml: {', '.join(missing_fields)}")
 
-        if not is_valid_semver(self.cypher["version"]):
-            raise ValueError(f"Invalid semantic version in capsule-cypher.yaml: {self.cypher['version']}")
+        if "version" not in self.cypher or not is_valid_semver(self.cypher["version"]):
+            raise ValidationError(f"Invalid semantic version in capsule-cypher.yaml: {self.cypher['version']}")
 
     def validate_frontmatter_schema(self):
         """

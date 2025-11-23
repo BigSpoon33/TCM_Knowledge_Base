@@ -4,12 +4,11 @@ Frontmatter Auditor
 Analyzes all markdown files to check frontmatter quality and completeness
 """
 
-import os
 import re
-import yaml
-from pathlib import Path
-from typing import Dict, List, Set
 from collections import defaultdict
+from pathlib import Path
+
+import yaml
 
 
 class FrontmatterAuditor:
@@ -20,97 +19,137 @@ class FrontmatterAuditor:
 
         # Define expected fields for each entity type
         self.expected_fields = {
-            'herb': ['id', 'name', 'type', 'category', 'related', 'symptoms', 'patterns',
-                    'western_conditions', 'formulas', 'points', 'herb_data'],
-            'point': ['id', 'name', 'type', 'category', 'related', 'symptoms', 'patterns',
-                     'western_conditions', 'formulas', 'herbs', 'points', 'treats_diseases', 'point_data'],
-            'disease': ['id', 'name', 'type', 'category', 'related', 'symptoms', 'patterns',
-                       'western_conditions', 'formulas', 'herbs', 'points'],
-            'concept': ['id', 'name', 'type', 'category', 'related', 'symptoms', 'patterns',
-                       'western_conditions', 'formulas', 'herbs', 'points'],
-            'technique': ['id', 'name', 'type', 'category', 'related', 'technique_data']
+            "herb": [
+                "id",
+                "name",
+                "type",
+                "category",
+                "related",
+                "symptoms",
+                "patterns",
+                "western_conditions",
+                "formulas",
+                "points",
+                "herb_data",
+            ],
+            "point": [
+                "id",
+                "name",
+                "type",
+                "category",
+                "related",
+                "symptoms",
+                "patterns",
+                "western_conditions",
+                "formulas",
+                "herbs",
+                "points",
+                "treats_diseases",
+                "point_data",
+            ],
+            "disease": [
+                "id",
+                "name",
+                "type",
+                "category",
+                "related",
+                "symptoms",
+                "patterns",
+                "western_conditions",
+                "formulas",
+                "herbs",
+                "points",
+            ],
+            "concept": [
+                "id",
+                "name",
+                "type",
+                "category",
+                "related",
+                "symptoms",
+                "patterns",
+                "western_conditions",
+                "formulas",
+                "herbs",
+                "points",
+            ],
+            "technique": ["id", "name", "type", "category", "related", "technique_data"],
         }
 
         # Results storage
-        self.results = {
-            'herbs': [],
-            'points': [],
-            'diseases': [],
-            'concepts': [],
-            'techniques': []
-        }
+        self.results = {"herbs": [], "points": [], "diseases": [], "concepts": [], "techniques": []}
 
         self.issues = defaultdict(list)
 
-    def audit_file(self, file_path: Path, entity_type: str) -> Dict:
+    def audit_file(self, file_path: Path, entity_type: str) -> dict:
         """Audit a single file's frontmatter"""
         result = {
-            'file': file_path.name,
-            'path': str(file_path),
-            'has_frontmatter': False,
-            'frontmatter_valid': False,
-            'missing_fields': [],
-            'empty_fields': [],
-            'has_wikilinks': False,
-            'error': None
+            "file": file_path.name,
+            "path": str(file_path),
+            "has_frontmatter": False,
+            "frontmatter_valid": False,
+            "missing_fields": [],
+            "empty_fields": [],
+            "has_wikilinks": False,
+            "error": None,
         }
 
         try:
-            with open(file_path, 'r', encoding='utf-8') as f:
+            with open(file_path, encoding="utf-8") as f:
                 content = f.read()
 
             # Check for frontmatter
-            match = re.match(r'^---\s*\n(.*?)\n---', content, re.DOTALL)
+            match = re.match(r"^---\s*\n(.*?)\n---", content, re.DOTALL)
 
             if not match:
-                result['error'] = "No frontmatter found"
-                self.issues['no_frontmatter'].append(str(file_path))
+                result["error"] = "No frontmatter found"
+                self.issues["no_frontmatter"].append(str(file_path))
                 return result
 
-            result['has_frontmatter'] = True
+            result["has_frontmatter"] = True
             frontmatter_text = match.group(1).strip()
 
             # Check if frontmatter is empty or just dashes
-            if not frontmatter_text or frontmatter_text == '----':
-                result['error'] = "Empty frontmatter"
-                result['frontmatter_valid'] = False
-                self.issues['empty_frontmatter'].append(str(file_path))
+            if not frontmatter_text or frontmatter_text == "----":
+                result["error"] = "Empty frontmatter"
+                result["frontmatter_valid"] = False
+                self.issues["empty_frontmatter"].append(str(file_path))
                 return result
 
             # Try to parse YAML
             try:
                 frontmatter = yaml.safe_load(frontmatter_text)
-                result['frontmatter_valid'] = True
+                result["frontmatter_valid"] = True
             except yaml.YAMLError as e:
-                result['error'] = f"YAML parse error: {str(e)}"
-                result['frontmatter_valid'] = False
-                self.issues['yaml_parse_error'].append(str(file_path))
+                result["error"] = f"YAML parse error: {str(e)}"
+                result["frontmatter_valid"] = False
+                self.issues["yaml_parse_error"].append(str(file_path))
                 return result
 
             # Check for expected fields
             expected = self.expected_fields.get(entity_type, [])
             for field in expected:
                 if field not in frontmatter:
-                    result['missing_fields'].append(field)
-                elif not frontmatter[field] or frontmatter[field] == [] or frontmatter[field] == '':
-                    result['empty_fields'].append(field)
+                    result["missing_fields"].append(field)
+                elif not frontmatter[field] or frontmatter[field] == [] or frontmatter[field] == "":
+                    result["empty_fields"].append(field)
 
             # Check for wikilinks in content
-            result['has_wikilinks'] = bool(re.search(r'\[\[.+?\]\]', content))
+            result["has_wikilinks"] = bool(re.search(r"\[\[.+?\]\]", content))
 
             # Record issues
-            if result['missing_fields']:
-                self.issues['missing_fields'].append(f"{file_path.name}: {', '.join(result['missing_fields'])}")
-            if result['empty_fields']:
-                self.issues['empty_fields'].append(f"{file_path.name}: {', '.join(result['empty_fields'])}")
+            if result["missing_fields"]:
+                self.issues["missing_fields"].append(f"{file_path.name}: {', '.join(result['missing_fields'])}")
+            if result["empty_fields"]:
+                self.issues["empty_fields"].append(f"{file_path.name}: {', '.join(result['empty_fields'])}")
 
         except Exception as e:
-            result['error'] = f"File read error: {str(e)}"
-            self.issues['file_read_error'].append(str(file_path))
+            result["error"] = f"File read error: {str(e)}"
+            self.issues["file_read_error"].append(str(file_path))
 
         return result
 
-    def audit_directory(self, directory: Path, entity_type: str) -> List[Dict]:
+    def audit_directory(self, directory: Path, entity_type: str) -> list[dict]:
         """Audit all files in a directory"""
         if not directory.exists():
             return []
@@ -134,29 +173,19 @@ class FrontmatterAuditor:
 
         # Audit each entity type
         print("\n📖 Auditing Concepts...")
-        self.results['concepts'] = self.audit_directory(
-            self.base_dir / "TCM_Concepts", 'concept'
-        )
+        self.results["concepts"] = self.audit_directory(self.base_dir / "TCM_Concepts", "concept")
 
         print("🩺 Auditing Diseases...")
-        self.results['diseases'] = self.audit_directory(
-            self.base_dir / "TCM_Diseases", 'disease'
-        )
+        self.results["diseases"] = self.audit_directory(self.base_dir / "TCM_Diseases", "disease")
 
         print("📍 Auditing Points...")
-        self.results['points'] = self.audit_directory(
-            self.base_dir / "TCM_Points", 'point'
-        )
+        self.results["points"] = self.audit_directory(self.base_dir / "TCM_Points", "point")
 
         print("🌿 Auditing Herbs...")
-        self.results['herbs'] = self.audit_directory(
-            self.base_dir / "TCM_Herbs", 'herb'
-        )
+        self.results["herbs"] = self.audit_directory(self.base_dir / "TCM_Herbs", "herb")
 
         print("⚡ Auditing Techniques...")
-        self.results['techniques'] = self.audit_directory(
-            self.base_dir / "TCM_Techniques", 'technique'
-        )
+        self.results["techniques"] = self.audit_directory(self.base_dir / "TCM_Techniques", "technique")
 
     def generate_report(self, output_file: Path = None):
         """Generate comprehensive audit report"""
@@ -173,48 +202,52 @@ class FrontmatterAuditor:
 
         for entity_type, results in self.results.items():
             total = len(results)
-            with_frontmatter = sum(1 for r in results if r['has_frontmatter'])
-            valid_frontmatter = sum(1 for r in results if r['frontmatter_valid'])
-            with_errors = sum(1 for r in results if r['error'])
+            with_frontmatter = sum(1 for r in results if r["has_frontmatter"])
+            valid_frontmatter = sum(1 for r in results if r["frontmatter_valid"])
+            with_errors = sum(1 for r in results if r["error"])
 
             report.append(f"### {entity_type.title()}")
             report.append(f"- **Total files:** {total}")
-            report.append(f"- **Has frontmatter:** {with_frontmatter}/{total} ({with_frontmatter/total*100 if total else 0:.1f}%)")
-            report.append(f"- **Valid YAML:** {valid_frontmatter}/{total} ({valid_frontmatter/total*100 if total else 0:.1f}%)")
+            report.append(
+                f"- **Has frontmatter:** {with_frontmatter}/{total} ({with_frontmatter / total * 100 if total else 0:.1f}%)"
+            )
+            report.append(
+                f"- **Valid YAML:** {valid_frontmatter}/{total} ({valid_frontmatter / total * 100 if total else 0:.1f}%)"
+            )
             report.append(f"- **Files with errors:** {with_errors}\n")
 
         # Issues breakdown
         report.append("\n---\n")
         report.append("## ⚠️ Issues Found\n")
 
-        if self.issues['no_frontmatter']:
+        if self.issues["no_frontmatter"]:
             report.append(f"### Missing Frontmatter ({len(self.issues['no_frontmatter'])} files)\n")
-            for file in self.issues['no_frontmatter'][:20]:
+            for file in self.issues["no_frontmatter"][:20]:
                 report.append(f"- `{Path(file).name}`")
-            if len(self.issues['no_frontmatter']) > 20:
+            if len(self.issues["no_frontmatter"]) > 20:
                 report.append(f"\n_...and {len(self.issues['no_frontmatter']) - 20} more_\n")
             report.append("\n")
 
-        if self.issues['empty_frontmatter']:
+        if self.issues["empty_frontmatter"]:
             report.append(f"### Empty Frontmatter ({len(self.issues['empty_frontmatter'])} files)\n")
-            for file in self.issues['empty_frontmatter'][:20]:
+            for file in self.issues["empty_frontmatter"][:20]:
                 report.append(f"- `{Path(file).name}`")
-            if len(self.issues['empty_frontmatter']) > 20:
+            if len(self.issues["empty_frontmatter"]) > 20:
                 report.append(f"\n_...and {len(self.issues['empty_frontmatter']) - 20} more_\n")
             report.append("\n")
 
-        if self.issues['yaml_parse_error']:
+        if self.issues["yaml_parse_error"]:
             report.append(f"### YAML Parse Errors ({len(self.issues['yaml_parse_error'])} files)\n")
-            for file in self.issues['yaml_parse_error']:
+            for file in self.issues["yaml_parse_error"]:
                 report.append(f"- `{Path(file).name}`")
             report.append("\n")
 
         # Missing fields summary
-        if self.issues['missing_fields']:
+        if self.issues["missing_fields"]:
             report.append(f"### Missing Required Fields ({len(self.issues['missing_fields'])} files)\n")
-            for issue in self.issues['missing_fields'][:30]:
+            for issue in self.issues["missing_fields"][:30]:
                 report.append(f"- {issue}")
-            if len(self.issues['missing_fields']) > 30:
+            if len(self.issues["missing_fields"]) > 30:
                 report.append(f"\n_...and {len(self.issues['missing_fields']) - 30} more_\n")
             report.append("\n")
 
@@ -226,17 +259,17 @@ class FrontmatterAuditor:
             report.append(f"### {entity_type.title()}\n")
 
             # Files with issues
-            problem_files = [r for r in results if r['error'] or r['missing_fields'] or not r['frontmatter_valid']]
+            problem_files = [r for r in results if r["error"] or r["missing_fields"] or not r["frontmatter_valid"]]
 
             if problem_files:
                 report.append(f"**Files needing attention: {len(problem_files)}**\n")
                 for result in problem_files[:15]:
                     report.append(f"#### {result['file']}")
-                    if result['error']:
+                    if result["error"]:
                         report.append(f"- ❌ Error: {result['error']}")
-                    if result['missing_fields']:
+                    if result["missing_fields"]:
                         report.append(f"- Missing fields: {', '.join(result['missing_fields'])}")
-                    if result['empty_fields']:
+                    if result["empty_fields"]:
                         report.append(f"- Empty fields: {', '.join(result['empty_fields'])}")
                     report.append("")
 
@@ -249,7 +282,7 @@ class FrontmatterAuditor:
 
         # Write report
         report_text = "\n".join(report)
-        with open(output_file, 'w', encoding='utf-8') as f:
+        with open(output_file, "w", encoding="utf-8") as f:
             f.write(report_text)
 
         print(f"\n✅ Audit report generated: {output_file}")
@@ -263,13 +296,13 @@ class FrontmatterAuditor:
 
         for entity_type, results in self.results.items():
             total = len(results)
-            valid = sum(1 for r in results if r['frontmatter_valid'])
-            print(f"\n{entity_type.title()}: {valid}/{total} valid ({valid/total*100 if total else 0:.1f}%)")
+            valid = sum(1 for r in results if r["frontmatter_valid"])
+            print(f"\n{entity_type.title()}: {valid}/{total} valid ({valid / total * 100 if total else 0:.1f}%)")
 
             # Count issues
-            no_fm = sum(1 for r in results if not r['has_frontmatter'])
-            errors = sum(1 for r in results if r['error'])
-            missing = sum(1 for r in results if r['missing_fields'])
+            no_fm = sum(1 for r in results if not r["has_frontmatter"])
+            errors = sum(1 for r in results if r["error"])
+            missing = sum(1 for r in results if r["missing_fields"])
 
             if no_fm:
                 print(f"  ⚠️  {no_fm} files without frontmatter")

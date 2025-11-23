@@ -1,8 +1,9 @@
 import re
-import yaml
-from pathlib import Path
-from typing import Dict, List, Any, Optional
 from datetime import datetime
+from pathlib import Path
+from typing import Any
+
+import yaml
 
 
 class TemplateEngine:
@@ -17,14 +18,14 @@ class TemplateEngine:
         self.body_start_line = 0
         self.raw_content = ""
 
-    def parse(self, template_path: Path) -> Dict[str, Any]:
+    def parse(self, template_path: Path) -> dict[str, Any]:
         """
         Parse template file and extract structure.
         """
         if not template_path.exists():
             raise FileNotFoundError(f"Template not found: {template_path}")
 
-        with open(template_path, "r", encoding="utf-8") as f:
+        with open(template_path, encoding="utf-8") as f:
             self.raw_content = f.read()
 
         # Extract frontmatter
@@ -40,7 +41,7 @@ class TemplateEngine:
             "raw_content": self.raw_content,
         }
 
-    def fill(self, sections: Dict[str, str], topic: str, context: Dict[str, Any]) -> str:
+    def fill(self, sections: dict[str, str], topic: str, context: dict[str, Any]) -> str:
         """
         Fill the parsed template with generated sections.
         """
@@ -56,7 +57,7 @@ class TemplateEngine:
 
         return f"{frontmatter_str}\n{body_str}"
 
-    def _extract_frontmatter(self, content: str) -> Dict[str, Any]:
+    def _extract_frontmatter(self, content: str) -> dict[str, Any]:
         """Extract YAML frontmatter from markdown."""
         match = re.match(r"^---\s*\n(.*?)\n---\s*\n", content, re.DOTALL)
         if not match:
@@ -73,7 +74,7 @@ class TemplateEngine:
         except yaml.YAMLError:
             return {}
 
-    def _extract_headings(self, content: str) -> List[Dict[str, Any]]:
+    def _extract_headings(self, content: str) -> list[dict[str, Any]]:
         """Extract all headings from markdown content."""
         lines = content.split("\n")
         headings = []
@@ -98,7 +99,7 @@ class TemplateEngine:
         text = re.sub(r"[\u2600-\u26FF\u2700-\u27BF]", "", text)
         return " ".join(text.split()).strip()
 
-    def _build_hierarchy(self, headings: List[Dict]) -> List[Dict]:
+    def _build_hierarchy(self, headings: list[dict]) -> list[dict]:
         """Build hierarchical tree from flat heading list."""
         if not headings:
             return []
@@ -121,7 +122,7 @@ class TemplateEngine:
 
         return root
 
-    def _build_frontmatter(self, topic: str, context: Dict[str, Any]) -> str:
+    def _build_frontmatter(self, topic: str, context: dict[str, Any]) -> str:
         """Build YAML frontmatter."""
         fm = self.frontmatter.copy()
 
@@ -136,7 +137,7 @@ class TemplateEngine:
         yaml_str = yaml.dump(fm, default_flow_style=False, allow_unicode=True, sort_keys=False)
         return f"---\n{yaml_str}---"
 
-    def _build_body(self, headings: List[Dict], sections: Dict[str, str]) -> str:
+    def _build_body(self, headings: list[dict], sections: dict[str, str]) -> str:
         """Recursively build body content."""
         body = ""
 

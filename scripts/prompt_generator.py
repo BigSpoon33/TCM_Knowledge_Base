@@ -4,7 +4,6 @@ Prompt Generator - Generates dynamic prompts for guided conversation.
 """
 
 import os
-from typing import List, Dict, Any
 import sys
 from pathlib import Path
 
@@ -23,17 +22,12 @@ class PromptGenerator:
         Args:
             api_key (str): Gemini API key. If None, uses GEMINI_API_KEY env var.
         """
-        self.api_key = api_key or os.environ.get('GEMINI_API_KEY')
+        self.api_key = api_key or os.environ.get("GEMINI_API_KEY")
         if not self.api_key:
             raise ValueError("GEMINI_API_KEY not set.")
         self.researcher = GeminiDeepResearch(api_key=self.api_key)
 
-    def generate_initial_prompt(
-        self,
-        heading_title: str,
-        content: str,
-        is_first_heading: bool = False
-    ) -> str:
+    def generate_initial_prompt(self, heading_title: str, content: str, is_first_heading: bool = False) -> str:
         """
         Generate opening question for a heading.
 
@@ -47,15 +41,15 @@ class PromptGenerator:
         """
         # Use predefined templates for common headings
         templates = {
-            'Overview': "What do you know about {topic}?",
-            'Clinical Manifestations': "What are the cardinal symptoms and diagnostic features of {topic}?",
-            'Etiology & Pathomechanisms': "What causes {topic} and how does it develop?",
-            'Differential Diagnosis': "How would you distinguish {topic} from similar patterns?",
-            'Treatment Principles': "What are the main treatment principles for {topic}?",
-            'Herbal Formulas': "What are the key herbal formulas used for {topic}?",
-            'Acupuncture Points': "Which acupuncture points would you use for {topic}?",
-            'Clinical Applications': "How would you apply your knowledge of {topic} in clinical practice?",
-            'Study Tips': "What strategies would help you remember the key concepts of {topic}?"
+            "Overview": "What do you know about {topic}?",
+            "Clinical Manifestations": "What are the cardinal symptoms and diagnostic features of {topic}?",
+            "Etiology & Pathomechanisms": "What causes {topic} and how does it develop?",
+            "Differential Diagnosis": "How would you distinguish {topic} from similar patterns?",
+            "Treatment Principles": "What are the main treatment principles for {topic}?",
+            "Herbal Formulas": "What are the key herbal formulas used for {topic}?",
+            "Acupuncture Points": "Which acupuncture points would you use for {topic}?",
+            "Clinical Applications": "How would you apply your knowledge of {topic} in clinical practice?",
+            "Study Tips": "What strategies would help you remember the key concepts of {topic}?",
         }
 
         # Check if we have a template for this heading
@@ -84,13 +78,10 @@ Return ONLY the question, no other text.
 """
 
         result = self.researcher.research(prompt, use_search=False)
-        return result['content'].strip()
+        return result["content"].strip()
 
     def generate_reinforcement_prompt(
-        self,
-        heading_title: str,
-        missing_concepts: List[str],
-        attempt_number: int
+        self, heading_title: str, missing_concepts: list[str], attempt_number: int
     ) -> str:
         """
         Generate follow-up prompt to reinforce learning.
@@ -117,12 +108,7 @@ Return ONLY the question, no other text.
         else:
             return f"What do you remember about {concepts_str}?"
 
-    def generate_explanation(
-        self,
-        heading_title: str,
-        content: str,
-        missing_concepts: List[str]
-    ) -> str:
+    def generate_explanation(self, heading_title: str, content: str, missing_concepts: list[str]) -> str:
         """
         Generate AI explanation of missing concepts.
 
@@ -160,7 +146,7 @@ Keep it concise and focused.
 """
 
         result = self.researcher.research(prompt, use_search=False)
-        return result['content'].strip()
+        return result["content"].strip()
 
     def generate_encouragement(self, score: float, level: str) -> str:
         """
@@ -173,29 +159,30 @@ Keep it concise and focused.
         Returns:
             str: Encouraging message.
         """
-        if level == 'good':
+        if level == "good":
             messages = [
                 "Excellent work! You've demonstrated a solid understanding.",
                 "Great job! You clearly grasp the key concepts.",
                 "Well done! Your explanation shows good comprehension.",
-                "Outstanding! You've mastered this section."
+                "Outstanding! You've mastered this section.",
             ]
-        elif level == 'fair':
+        elif level == "fair":
             messages = [
                 "You're on the right track! Let's refine your understanding.",
                 "Good start! Let's fill in a few gaps.",
                 "You've got some key points. Let's build on that.",
-                "Nice effort! Let's clarify a few concepts."
+                "Nice effort! Let's clarify a few concepts.",
             ]
         else:  # poor
             messages = [
                 "No worries! Let's work through this together.",
                 "This is challenging material. Let's break it down.",
                 "Let's take another approach to this concept.",
-                "Don't be discouraged! We'll get there step by step."
+                "Don't be discouraged! We'll get there step by step.",
             ]
 
         import random
+
         return random.choice(messages)
 
     def generate_summary_prompt(self, heading_title: str) -> str:
@@ -211,7 +198,7 @@ Keep it concise and focused.
         return f"Before we move on, can you briefly summarize the key points about {heading_title}?"
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     # Test the prompt generator
     generator = PromptGenerator()
 
@@ -238,6 +225,6 @@ if __name__ == '__main__':
 
     # Test encouragement
     print("3. Encouragement Messages:")
-    for level in ['good', 'fair', 'poor']:
+    for level in ["good", "fair", "poor"]:
         msg = generator.generate_encouragement(70, level)
         print(f"   {level.upper()}: {msg}")

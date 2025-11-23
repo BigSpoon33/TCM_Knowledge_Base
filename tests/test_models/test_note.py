@@ -5,10 +5,12 @@ Tests cover creation, file I/O, frontmatter parsing, provenance tracking,
 and UTF-8 encoding support.
 """
 
-import pytest
-from pathlib import Path
-import tempfile
 import shutil
+import tempfile
+from pathlib import Path
+
+import pytest
+
 from capsule.models.note import Note
 
 
@@ -114,9 +116,7 @@ def test_to_file(temp_dir):
 
 def test_to_file_creates_parent_dirs(temp_dir):
     """Test that to_file creates parent directories if needed."""
-    note = Note(
-        file_path="nested/path/file.md", frontmatter={"id": "note-001"}, body="Content"
-    )
+    note = Note(file_path="nested/path/file.md", frontmatter={"id": "note-001"}, body="Content")
 
     output_file = temp_dir / "nested" / "path" / "file.md"
     note.to_file(str(output_file))
@@ -171,9 +171,7 @@ def test_modify_frontmatter():
 
 def test_modify_body():
     """Test modifying body content and verify changes."""
-    note = Note(
-        file_path="test.md", frontmatter={"id": "note-001"}, body="Original content"
-    )
+    note = Note(file_path="test.md", frontmatter={"id": "note-001"}, body="Original content")
 
     # Modify body
     note.body = "# New Content\n\nModified body."

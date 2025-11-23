@@ -1,197 +1,126 @@
+import json
 import logging
-import os
-import uuid
 import shutil
+import zipfile
+from datetime import datetime, timezone
 from pathlib import Path
-from capsule.models.capsule import Capsule
+from typing import Any
+
+from capsule.exceptions import FileError
 from capsule.models.cypher import CapsuleCypher
-import frontmatter
 
 logger = logging.getLogger(__name__)
 
 
-from capsule.core.validator import Validator
-from ruamel.yaml import YAML
+class Packager:
+    """Handles the low-level logic for packaging a capsule."""
 
+    def __init__(self, capsule_path: Path, cypher: dict | None = None):
+        self.capsule_path = capsule_path
+        self.cypher = cypher or {}
+        logger.debug(f"Packager initialized for capsule path: {self.capsule_path}")
 
-class CapsulePackager:
-    """Core logic for packaging capsules."""
-
-    def __init__(self, capsule: Capsule, capsule_path: str, output_dir: str) -> None:
+    def generate_cypher(
+        self,
+        capsule_id: str,
+        name: str,
+        version: str,
+        domain_type: str,
+        sequence_mode: str = "freeform",
+        data_schemas: dict[str, Any] | None = None,
+    ) -> CapsuleCypher:
         """
-        Initialize the CapsulePackager.
+        Generates a CapsuleCypher object by scanning the capsule directory.
 
         Args:
-            capsule: The capsule to be packaged.
-            capsule_path: The path to the capsule to be packaged.
-            output_dir: The directory to output the packaged capsule to.
-        """
-        print("Initializing CapsulePackager")
-        self.capsule = capsule
-        self.capsule_path = Path(capsule_path)
-        self.output_dir = Path(output_dir)
-
-        if not self.capsule_path.is_dir():
-            logger.error(f"Capsule path {self.capsule_path} not found or not a directory.")
-            raise FileNotFoundError(f"Capsule path {self.capsule_path} not found or not a directory.")
-
-        logger.info(f"CapsulePackager initialized for capsule {self.capsule.capsule_id}")
-
-    def _scan_schemas(self) -> dict:
-        """Load the data schemas from the domain schema file."""
-        logger.info(f"Loading data schemas for domain {self.capsule.domain_type}")
-        # Assume the command is run from the project root.
-        # A more robust solution might involve finding the project root dynamically.
-        project_root = Path.cwd()
-        domain_schema_path = project_root / f"capsule/templates/domains/{self.capsule.domain_type}.yaml"
-        data_schemas = {}
-        if domain_schema_path.is_file():
-            with open(domain_schema_path, "r") as f:
-                yaml = YAML()
-                domain_schema = yaml.load(f)
-                data_schemas = domain_schema.get("data_schemas", {})
-        else:
-            logger.warning(f"Domain schema file not found at {domain_schema_path}")
-        logger.info(f"Loaded {len(data_schemas)} data schemas for domain {self.capsule.domain_type}")
-        return data_schemas
-
-    def generate_cypher(self) -> CapsuleCypher:
-        """
-        Generate the capsule-cypher.yaml file.
+            capsule_id: Unique identifier for the capsule
+            name: Human-readable name
+            version: Semantic version string
+            domain_type: Content domain type
+            sequence_mode: Learning sequence type (default: "freeform")
+            data_schemas: Optional dictionary of data schemas
 
         Returns:
-            The CapsuleCypher object.
+            CapsuleCypher object representing the capsule content
         """
-        logger.info(f"Generating cypher for capsule {self.capsule.capsule_id}")
-        contents, folder_structure = self._scan_contents()
-        data_schemas = self._scan_schemas()
-        cypher = CapsuleCypher(
-            capsule_id=self.capsule.capsule_id,
-            name=self.capsule.name,
-            version=self.capsule.version,
-            domain_type=self.capsule.domain_type,
+        logger.debug(f"Generating cypher for capsule: {name} ({capsule_id})")
+
+        folder_structure = {}
+        contents = {}
+
+        # Scan top-level directories
+        for item in self.capsule_path.iterdir():
+            if item.is_dir() and not item.name.startswith("."):
+                folder_name = item.name
+                # Map logical name to folder path (using folder name as logical name)
+                folder_structure[folder_name] = f"{folder_name}/"
+
+                # Scan files within this directory (recursive)
+                files = []
+                for file_path in item.rglob("*"):
+                    if file_path.is_file() and not file_path.name.startswith("."):
+                        # Store relative path
+                        rel_path = str(file_path.relative_to(self.capsule_path))
+                        files.append(rel_path)
+                contents[folder_name] = sorted(files)
+
+        # Handle root files (optional, putting them in a 'root' category if they exist)
+        root_files = []
+        for item in self.capsule_path.iterdir():
+            if item.is_file() and not item.name.startswith("."):
+                root_files.append(item.name)
+
+        if root_files:
+            contents["root"] = sorted(root_files)
+
+        return CapsuleCypher(
+            capsule_id=capsule_id,
+            name=name,
+            version=version,
+            domain_type=domain_type,
             folder_structure=folder_structure,
             contents=contents,
-            data_schemas=data_schemas,
+            data_schemas=data_schemas or {},
+            sequence_mode=sequence_mode,
         )
-        logger.info(f"Cypher generated for capsule {self.capsule.capsule_id}")
-        return cypher
 
-    def _generate_unique_id(self, file_path: Path) -> str:
-        """Generate a unique ID for a file."""
-        return str(uuid.uuid5(uuid.NAMESPACE_DNS, str(file_path)))
+    def generate_manifest(self) -> dict:
+        logger.debug("Generating export manifest.")
+        manifest = {
+            "capsule_id": self.cypher.get("capsule_id"),
+            "version": self.cypher.get("version"),
+            "export_date": datetime.now(timezone.utc).isoformat(),
+            "files": [str(p.relative_to(self.capsule_path)) for p in self.capsule_path.rglob("*") if p.is_file()],
+        }
+        logger.debug(f"Manifest generated with {len(manifest['files'])} files.")
+        return manifest
 
-    def _scan_contents(self) -> tuple[dict, dict]:
-        """Scan the capsule directory for markdown files and folder structure."""
-        logger.info(f"Scanning contents of {self.capsule_path}")
-        contents = {}
-        folder_structure = {}
-        for root, dirs, files in os.walk(self.capsule_path):
-            root_path = Path(root)
-            relative_root = root_path.relative_to(self.capsule_path)
-
-            # Skip the root directory itself for folder_structure
-            if str(relative_root) != ".":
-                folder_key = str(relative_root).replace(os.sep, "_")
-                folder_structure[folder_key] = str(relative_root.as_posix())
-
-            for d in sorted(dirs):
-                dir_path = root_path / d
-                relative_dir = dir_path.relative_to(self.capsule_path)
-                folder_key = str(relative_dir).replace(os.sep, "_")
-                contents[folder_key] = []
-                folder_structure[folder_key] = str(relative_dir.as_posix())
-
-            for file in sorted(files):
-                if file.endswith(".md"):
-                    file_path = root_path / file
-                    relative_file_path = file_path.relative_to(self.capsule_path)
-                    folder_key = str(relative_file_path.parent).replace(os.sep, "_")
-                    if folder_key == ".":
-                        folder_key = "root"
-
-                    if folder_key not in contents:
-                        contents[folder_key] = []
-
-                    contents[folder_key].append(
-                        {
-                            "file": str(relative_file_path.as_posix()),
-                            "id": self._generate_unique_id(relative_file_path),
-                        }
-                    )
-        logger.info(f"Found {len(contents)} content sections in {self.capsule_path}")
-        return contents, folder_structure
-
-    def create_folder_bundle(self, cypher: CapsuleCypher) -> None:
-        """
-        Create a folder bundle for the capsule.
-        """
-        logger.info(f"Creating folder bundle for capsule {self.capsule.capsule_id}")
-        bundle_path = self.output_dir / cypher.capsule_id
+    def package_to_zip(self, output_path: Path):
+        logger.info(f"Packaging capsule to zip archive at: {output_path}")
         try:
-            os.makedirs(bundle_path, exist_ok=True)
-            cypher_path = bundle_path / "capsule-cypher.yaml"
-            with open(cypher_path, "w") as f:
-                f.write(cypher.to_yaml())
+            manifest = self.generate_manifest()
+            with zipfile.ZipFile(output_path, "w", zipfile.ZIP_DEFLATED) as zf:
+                zf.writestr("export-manifest.json", json.dumps(manifest, indent=2))
+                for file_path in self.capsule_path.rglob("*"):
+                    if file_path.is_file():
+                        arcname = file_path.relative_to(self.capsule_path)
+                        zf.write(file_path, arcname)
+            logger.info(f"Successfully created zip archive at: {output_path}")
+        except OSError as e:
+            logger.error(f"Failed to create zip archive at {output_path}: {e}", exc_info=True)
+            raise FileError(f"Failed to create zip archive at {output_path}: {e}") from e
 
-            for content_type, files in cypher.contents.items():
-                if isinstance(files, list):
-                    for file_info in files:
-                        source_path = self.capsule_path / file_info["file"]
-                        destination_path = bundle_path / file_info["file"]
-                        os.makedirs(destination_path.parent, exist_ok=True)
-                        shutil.copy2(source_path, destination_path)
-                elif isinstance(files, dict):
-                    for sub_type, sub_files in files.items():
-                        for file_info in sub_files:
-                            source_path = self.capsule_path / file_info["file"]
-                            destination_path = bundle_path / file_info["file"]
-                            os.makedirs(destination_path.parent, exist_ok=True)
-                            shutil.copy2(source_path, destination_path)
-            logger.info(f"Folder bundle created at {bundle_path}")
-        except PermissionError:
-            logger.error(f"Permission denied to write to {self.output_dir}")
-            raise PermissionError(f"Permission denied to write to {self.output_dir}")
-
-    def package(self) -> None:
-        """
-        Package the capsule.
-        """
-        logger.info(f"Packaging capsule {self.capsule.capsule_id}")
-        cypher = self.generate_cypher()
-        self.create_folder_bundle(cypher)
-        logger.info(f"Capsule {self.capsule.capsule_id} packaged successfully")
-
-    def export_to_folder(self) -> None:
-        """
-        Export the capsule to a folder.
-        """
-        logger.info(f"Exporting capsule {self.capsule.capsule_id} to {self.output_dir}")
-        self.validate()
-        destination = Path(self.output_dir)
-        destination.mkdir(parents=True, exist_ok=True)
-        for item in self.capsule_path.iterdir():
-            if item.is_dir():
-                shutil.copytree(item, destination / item.name)
-            else:
-                shutil.copy2(item, destination / item.name)
-        logger.info(f"Capsule {self.capsule.capsule_id} exported successfully to {self.output_dir}")
-
-    def export_to_zip(self) -> None:
-        """
-        Export the capsule to a zip archive.
-        """
-        logger.info(f"Exporting capsule {self.capsule.capsule_id} to {self.output_dir}")
-        self.validate()
-        destination_zip = Path(self.output_dir)
-        shutil.make_archive(str(destination_zip), "zip", self.capsule_path)
-        logger.info(f"Capsule {self.capsule.capsule_id} exported successfully to {self.output_dir}.zip")
-
-    def validate(self) -> None:
-        """
-        Validate the capsule.
-        """
-        logger.info(f"Validating capsule {self.capsule.capsule_id}")
-        validator = Validator(self.capsule_path)
-        validator.validate_capsule()
-        logger.info(f"Capsule {self.capsule.capsule_id} validated successfully")
+    def package_to_folder(self, output_path: Path):
+        logger.info(f"Packaging capsule to folder at: {output_path}")
+        try:
+            manifest = self.generate_manifest()
+            if output_path.exists():
+                logger.warning(f"Output path {output_path} exists. Removing it.")
+                shutil.rmtree(output_path)
+            shutil.copytree(self.capsule_path, output_path)
+            with open(output_path / "export-manifest.json", "w") as f:
+                json.dump(manifest, f, indent=2)
+            logger.info(f"Successfully created folder bundle at: {output_path}")
+        except OSError as e:
+            logger.error(f"Failed to create folder bundle at {output_path}: {e}", exc_info=True)
+            raise FileError(f"Failed to create folder bundle at {output_path}: {e}") from e

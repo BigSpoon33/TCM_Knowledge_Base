@@ -1,0 +1,156 @@
+<story-context id=".bmad/bmm/workflows/4-implementation/story-context/template" v="1.0">
+  <metadata>
+    <epicId>11</epicId>
+    <storyId>8</storyId>
+    <title>dashboard-generation-during-import</title>
+    <status>drafted</status>
+    <generatedAt>2025-11-22</generatedAt>
+    <generator>BMAD Story Context Workflow</generator>
+    <sourceStoryPath>/home/shuma/Documents/AI_Suite/Obsidian_Capsule_Delivery/docs/sprint-artifacts/stories/11-8-dashboard-generation-during-import.md</sourceStoryPath>
+  </metadata>
+
+  <story>
+    <asA></asA>
+    <iWant></iWant>
+    <soThat></soThat>
+    <tasks></tasks>
+  </story>
+
+  <acceptanceCriteria></acceptanceCriteria>
+
+  <artifacts>
+    <docs>
+      <doc>
+        <path>docs/sprint-artifacts/tech-spec-epic-11.md</path>
+        <title>Epic Technical Specification: Dashboard Functionality (Core/Data Layer)</title>
+        <section>Overview</section>
+        <snippet>
+Epic 11 implements a **hierarchical dashboard navigation system** for the Obsidian Capsule Delivery System, enabling users to manage and navigate multiple capsules within their vault. This epic delivers the **Core/Data Layer** of the dashboard functionality, focusing on:
+
+- **Master Dashboard**: Vault-wide view that aggregates and filters all installed capsule dashboards
+- **Capsule Dashboards**: Per-capsule navigation hubs with metadata, progress tracking, and content links
+- **Filtered Content Views**: Domain-specific study aggregations using advanced Dataview queries
+
+The system leverages **Dataview** for standard queries (file lists, metadata filtering) and **DataviewJS** for advanced features (heading extraction, progress calculations, TaskNotes integration). All dashboard templates are generated as Markdown files with embedded query code blocks, ensuring content remains readable even without plugins installed.
+        </snippet>
+      </doc>
+    </docs>
+    <code>
+      <file>
+        <path>capsule/core/importer.py</path>
+        <kind>service</kind>
+        <symbol>generate_dashboards</symbol>
+        <lines>637-702</lines>
+        <reason>Core logic for generating dashboards during import. This is the entry point for the story's implementation.</reason>
+      </file>
+      <file>
+        <path>capsule/models/cypher.py</path>
+        <kind>model</kind>
+        <symbol>CapsuleCypher</symbol>
+        <lines>56</lines>
+        <reason>The `dashboard_metadata` field needs to be added to this dataclass to support filtering on the master dashboard.</reason>
+      </file>
+      <file>
+        <path>capsule/utils/dataview_queries.py</path>
+        <kind>utility</kind>
+        <symbol>build_metadata_filter_query</symbol>
+        <lines>42-82</lines>
+        <reason>Provides helper functions to generate the dataview queries used in the dashboard templates.</reason>
+      </file>
+      <file>
+        <path>capsule/templates/master-dashboard.md.j2</path>
+        <kind>template</kind>
+        <symbol>N/A</symbol>
+        <lines>N/A</lines>
+        <reason>The Jinja2 template for the master dashboard. This will be rendered to create the master dashboard file.</reason>
+      </file>
+      <file>
+        <path>capsule/templates/capsule-dashboard.md.j2</path>
+        <kind>template</kind>
+        <symbol>N/A</symbol>
+        <lines>N/A</lines>
+        <reason>The Jinja2 template for the capsule-specific dashboard. This will be rendered for each imported capsule.</reason>
+      </file>
+    </code>
+    <dependencies>
+      <dependency ecosystem="python">
+        <package>typer</package>
+      </dependency>
+      <dependency ecosystem="python">
+        <package>python-frontmatter</package>
+      </dependency>
+      <dependency ecosystem="python">
+        <package>click</package>
+        <version>>=8.0.0</version>
+      </dependency>
+      <dependency ecosystem="python">
+        <package>rich</package>
+        <version>>=13.0.0</version>
+      </dependency>
+      <dependency ecosystem="python">
+        <package>pyyaml</package>
+        <version>>=6.0</version>
+      </dependency>
+      <dependency ecosystem="python">
+        <package>google-generativeai</package>
+        <version>>=0.3.0</version>
+      </dependency>
+      <dependency ecosystem="python">
+        <package>questionary</package>
+        <version>>=2.0.0</version>
+      </dependency>
+      <dependency ecosystem="python">
+        <package>ruamel.yaml</package>
+        <version>>=0.17.0</version>
+      </dependency>
+      <dependency ecosystem="python">
+        <package>semver</package>
+      </dependency>
+      <dependency ecosystem="python">
+        <package>jinja2</package>
+      </dependency>
+      <dependency ecosystem="python">
+        <package>chardet</package>
+      </dependency>
+      <dependency ecosystem="python">
+        <package>jsonschema</package>
+      </dependency>
+    </dependencies>
+  </artifacts>
+
+  <constraints>
+    <constraint>No Runtime Code Execution: Dashboards are static Markdown files with query blocks, not dynamic scripts</constraint>
+    <constraint>Plugin-Dependent Features: Advanced features require Dataview/DataviewJS installation (documented in dashboard headers)</constraint>
+    <constraint>Performance Limits: Query complexity constrained by Dataview performance (NFR6: responsive with &lt;500 notes)</constraint>
+    <constraint>File System Integration: Dashboards stored in capsule folders alongside content (e.g., `TCM_Herbs_v1/capsule-dashboard.md`)</constraint>
+  </constraints>
+  <interfaces/>
+  <tests>
+    <standards>
+Unit Tests (80% of test coverage target)
+- `capsule/utils/dataview_queries.py`: Query builder functions
+- `capsule/core/importer.py`: Dashboard generation method
+- `capsule/models/cypher.py`: Dashboard metadata schema
+
+Integration Tests (15% of test coverage target)
+- Dashboard Template Rendering
+- Import Workflow Integration
+- Query Pattern Library
+
+E2E Tests (5% of test coverage target)
+- Full Import with Dashboard Generation
+- Master Dashboard Filtering
+- Capsule Dashboard Navigation
+- Heading Extraction Performance
+    </standards>
+    <locations>
+- `tests/`
+    </locations>
+    <ideas>
+- Test dashboard generation failure scenarios (missing template, write permissions)
+- Test import rollback when dashboard generation fails
+- Test master dashboard regeneration from multiple capsule dashboards
+- Import capsule with Dataview disabled, verify graceful degradation
+    </ideas>
+  </tests>
+</story-context>

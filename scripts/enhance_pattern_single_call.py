@@ -13,11 +13,10 @@ Usage:
     python enhance_pattern_single_call.py "Liver Qi Stagnation" --output-dir "Enhanced"
 """
 
+import argparse
 import os
 import sys
-import argparse
 from pathlib import Path
-from datetime import datetime
 
 # Add parent directory to path for imports
 sys.path.insert(0, str(Path(__file__).parent))
@@ -27,71 +26,68 @@ from gemini_research import GeminiDeepResearch
 
 class SingleCallPatternEnhancer:
     """Enhance patterns with a single comprehensive API call."""
-    
+
     def __init__(self, api_key: str = None):
         """Initialize enhancer."""
-        self.api_key = api_key or os.environ.get('GEMINI_API_KEY')
-        
+        self.api_key = api_key or os.environ.get("GEMINI_API_KEY")
+
         if not self.api_key:
-            raise ValueError(
-                "Gemini API key required. Set GEMINI_API_KEY environment variable."
-            )
-        
+            raise ValueError("Gemini API key required. Set GEMINI_API_KEY environment variable.")
+
         self.researcher = GeminiDeepResearch(api_key=self.api_key)
-    
-    def enhance(self, pattern_name: str, pattern_dir: Path, 
-                template_path: Path, output_dir: Path = None) -> Path:
+
+    def enhance(self, pattern_name: str, pattern_dir: Path, template_path: Path, output_dir: Path = None) -> Path:
         """
         Enhance a pattern file using ONE API call.
-        
+
         Args:
             pattern_name: "Spleen Qi Deficiency"
             pattern_dir: Path to TCM_Patterns/Zang Fu Patterns
             template_path: Path to TEMPLATE_Pattern.md
             output_dir: Where to save (defaults to same as pattern_dir)
-        
+
         Returns:
             Path to enhanced file
         """
-        print("\n" + "="*70)
+        print("\n" + "=" * 70)
         print(f"🚀 FAST PATTERN ENHANCEMENT: {pattern_name}")
-        print("="*70 + "\n")
-        
+        print("=" * 70 + "\n")
+
         # Find pattern file
         pattern_file = pattern_dir / f"{pattern_name}.md"
         if not pattern_file.exists():
             raise FileNotFoundError(f"Pattern file not found: {pattern_file}")
-        
+
         # Read original content
-        with open(pattern_file, 'r', encoding='utf-8') as f:
+        with open(pattern_file, encoding="utf-8") as f:
             original_content = f.read()
-        
+
         print(f"✅ Loaded original pattern: {pattern_file.name}")
         print(f"   Original size: {len(original_content)} characters\n")
-        
+
         # Read template
-        with open(template_path, 'r', encoding='utf-8') as f:
+        with open(template_path, encoding="utf-8") as f:
             template_content = f.read()
-        
+
         print(f"✅ Loaded template: {template_path.name}\n")
-        
+
         # Build comprehensive prompt
-        prompt = self._build_comprehensive_prompt(
-            pattern_name, original_content, template_content
-        )
-        
-        print(f"🤖 Generating comprehensive pattern content...")
-        print(f"   Method: Single API call")
-        print(f"   This should take ~30-60 seconds\n")
-        
+        prompt = self._build_comprehensive_prompt(pattern_name, original_content, template_content)
+
+        print("🤖 Generating comprehensive pattern content...")
+        print("   Method: Single API call")
+        print("   This should take ~30-60 seconds\n")
+
         # Make single API call
         result = self.researcher.research(prompt, use_search=False)
-        enhanced_content = result['content'].strip()
-        
+        enhanced_content = result["content"].strip()
+
         print(f"\n✅ Content generated ({len(enhanced_content)} characters)")
-        
+
         # Add original content section at the bottom
-        final_content = enhanced_content + f"""
+        final_content = (
+            enhanced_content
+            + f"""
 
 ---
 
@@ -103,34 +99,33 @@ class SingleCallPatternEnhancer:
 {original_content}
 ```
 """
-        
+        )
+
         # Save enhanced file
         if not output_dir:
             output_dir = pattern_dir
-        
+
         output_dir = Path(output_dir)
         output_dir.mkdir(parents=True, exist_ok=True)
-        
+
         output_file = output_dir / f"{pattern_name}.md"
-        
-        with open(output_file, 'w', encoding='utf-8') as f:
+
+        with open(output_file, "w", encoding="utf-8") as f:
             f.write(final_content)
-        
+
         print(f"\n✅ Enhanced pattern saved: {output_file}")
         print(f"   Final size: {len(final_content)} characters")
         print(f"   Growth: {len(final_content) - len(original_content):,} characters\n")
-        
-        print("="*70)
+
+        print("=" * 70)
         print("✅ ENHANCEMENT COMPLETE (in 1 API call!)")
-        print("="*70)
-        
+        print("=" * 70)
+
         return output_file
-    
-    def _build_comprehensive_prompt(self, pattern_name: str, 
-                                   original_content: str, 
-                                   template_content: str) -> str:
+
+    def _build_comprehensive_prompt(self, pattern_name: str, original_content: str, template_content: str) -> str:
         """Build single comprehensive prompt for all sections."""
-        
+
         prompt = f"""You are a Traditional Chinese Medicine (TCM) expert. I need you to create a comprehensive, detailed pattern note for "{pattern_name}" by filling in the template below.
 
 # ORIGINAL PATTERN NOTE (Your Source Material):
@@ -199,14 +194,14 @@ Just return the complete, filled template ready to save as a .md file.
 
 Make this a comprehensive, professional TCM pattern note worthy of a clinical reference text.
 """
-        
+
         return prompt
 
 
 def main():
     """Main entry point."""
     parser = argparse.ArgumentParser(
-        description='Fast pattern enhancement using single API call',
+        description="Fast pattern enhancement using single API call",
         formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog="""
 Examples:
@@ -215,72 +210,58 @@ Examples:
   
   # Save to different directory
   python enhance_pattern_single_call.py "Liver Qi Stagnation" --output-dir "Enhanced"
-        """
+        """,
     )
-    
+
+    parser.add_argument("pattern_name", help='Name of the pattern (e.g., "Spleen Qi Deficiency")')
     parser.add_argument(
-        'pattern_name',
-        help='Name of the pattern (e.g., "Spleen Qi Deficiency")'
+        "--pattern-dir", default="TCM_Patterns/Zang Fu Patterns", help="Directory containing pattern files"
     )
-    parser.add_argument(
-        '--pattern-dir',
-        default='TCM_Patterns/Zang Fu Patterns',
-        help='Directory containing pattern files'
-    )
-    parser.add_argument(
-        '--template',
-        default='TCM_Patterns/TEMPLATE_Pattern.md',
-        help='Template file to use'
-    )
-    parser.add_argument(
-        '--output-dir',
-        help='Output directory (defaults to same as pattern-dir)'
-    )
-    
+    parser.add_argument("--template", default="TCM_Patterns/TEMPLATE_Pattern.md", help="Template file to use")
+    parser.add_argument("--output-dir", help="Output directory (defaults to same as pattern-dir)")
+
     args = parser.parse_args()
-    
+
     # Check API key
-    if not os.environ.get('GEMINI_API_KEY'):
+    if not os.environ.get("GEMINI_API_KEY"):
         print("❌ Error: GEMINI_API_KEY environment variable not set")
         print("\nSet it with:")
         print("  export GEMINI_API_KEY='your-api-key-here'")
         sys.exit(1)
-    
+
     # Get base directory
     base_dir = Path(__file__).parent.parent
     pattern_dir = base_dir / args.pattern_dir
     template_path = base_dir / args.template
     output_dir = base_dir / args.output_dir if args.output_dir else None
-    
+
     # Validate inputs
     if not pattern_dir.exists():
         print(f"❌ Error: Pattern directory not found: {pattern_dir}")
         sys.exit(1)
-    
+
     if not template_path.exists():
         print(f"❌ Error: Template file not found: {template_path}")
         sys.exit(1)
-    
+
     # Run enhancer
     try:
         enhancer = SingleCallPatternEnhancer()
         output_file = enhancer.enhance(
-            pattern_name=args.pattern_name,
-            pattern_dir=pattern_dir,
-            template_path=template_path,
-            output_dir=output_dir
+            pattern_name=args.pattern_name, pattern_dir=pattern_dir, template_path=template_path, output_dir=output_dir
         )
-        
-        print(f"\n💡 Next steps:")
+
+        print("\n💡 Next steps:")
         print(f"   1. Review enhanced file: {output_file}")
-        print(f"   2. Check that original formulas/points are preserved")
-        print(f"   3. Edit any sections that need refinement\n")
-        
+        print("   2. Check that original formulas/points are preserved")
+        print("   3. Edit any sections that need refinement\n")
+
         sys.exit(0)
-        
+
     except Exception as e:
         print(f"\n❌ Enhancement error: {e}")
         import traceback
+
         traceback.print_exc()
         sys.exit(1)
 

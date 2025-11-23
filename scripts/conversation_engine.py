@@ -4,16 +4,15 @@ Conversation Engine - Main orchestrator for guided learning conversations.
 """
 
 import os
-from pathlib import Path
-from typing import Optional
 import sys
+from pathlib import Path
 
 # Add parent directory to path for imports
 sys.path.insert(0, str(Path(__file__).parent))
 
 from conversation_state import ConversationState
-from understanding_assessor import UnderstandingAssessor
 from prompt_generator import PromptGenerator
+from understanding_assessor import UnderstandingAssessor
 
 
 class GuidedConversationEngine:
@@ -28,7 +27,7 @@ class GuidedConversationEngine:
             api_key (str): Gemini API key.
             max_attempts (int): Maximum attempts per heading before moving on.
         """
-        self.api_key = api_key or os.environ.get('GEMINI_API_KEY')
+        self.api_key = api_key or os.environ.get("GEMINI_API_KEY")
         if not self.api_key:
             raise ValueError("GEMINI_API_KEY not set.")
 
@@ -84,18 +83,12 @@ class GuidedConversationEngine:
             # Generate prompt
             if is_first_attempt:
                 question = self.prompt_gen.generate_initial_prompt(
-                    heading['title'],
-                    heading['content'],
-                    is_first_heading=(self.state.current_heading_index == 0)
+                    heading["title"], heading["content"], is_first_heading=(self.state.current_heading_index == 0)
                 )
                 is_first_attempt = False
             else:
                 missing = self.state.get_missing_concepts()
-                question = self.prompt_gen.generate_reinforcement_prompt(
-                    heading['title'],
-                    missing,
-                    attempts
-                )
+                question = self.prompt_gen.generate_reinforcement_prompt(heading["title"], missing, attempts)
 
             # Display progress and question
             self._print_progress()
@@ -106,11 +99,11 @@ class GuidedConversationEngine:
             response = input("Your answer (or 'skip'/'quit'): ").strip()
 
             # Handle special commands
-            if response.lower() == 'quit':
+            if response.lower() == "quit":
                 print("\n👋 Exiting conversation. Progress saved.")
                 self._save_progress()
                 return
-            elif response.lower() == 'skip':
+            elif response.lower() == "skip":
                 print("\n⏭️  Skipping this section.\n")
                 self.state.advance_heading()
                 return
@@ -120,12 +113,7 @@ class GuidedConversationEngine:
 
             # Assess response
             print("\n🤔 Assessing your response...\n")
-            assessment = self.assessor.assess_response(
-                question,
-                response,
-                heading['content'],
-                heading['title']
-            )
+            assessment = self.assessor.assess_response(question, response, heading["content"], heading["title"])
 
             # Record response
             self.state.record_response(question, response, assessment)
@@ -134,11 +122,8 @@ class GuidedConversationEngine:
             self._print_assessment(assessment)
 
             # Check if ready to advance
-            if assessment['next_action'] == 'advance':
-                encouragement = self.prompt_gen.generate_encouragement(
-                    assessment['score'],
-                    assessment['level']
-                )
+            if assessment["next_action"] == "advance":
+                encouragement = self.prompt_gen.generate_encouragement(assessment["score"], assessment["level"])
                 print(f"\n✅ {encouragement}")
                 print("Moving to next section...\n")
                 self.state.advance_heading()
@@ -147,11 +132,9 @@ class GuidedConversationEngine:
                 # Provide reinforcement
                 attempts += 1
                 if attempts < self.max_attempts:
-                    print(f"\n💡 Let me help clarify...\n")
+                    print("\n💡 Let me help clarify...\n")
                     explanation = self.assessor.generate_reinforcement_explanation(
-                        heading['title'],
-                        heading['content'],
-                        assessment['missing_concepts']
+                        heading["title"], heading["content"], assessment["missing_concepts"]
                     )
                     print(f"{explanation}\n")
                     print("Let's try again with a focused question.\n")
@@ -176,32 +159,32 @@ class GuidedConversationEngine:
 
     def _print_assessment(self, assessment: dict):
         """Print assessment results."""
-        score = assessment['score']
-        level = assessment['level']
+        score = assessment["score"]
+        level = assessment["level"]
 
         # Color-coded score display (using emojis since we can't use ANSI colors easily)
-        if level == 'good':
+        if level == "good":
             emoji = "🟢"
-        elif level == 'fair':
+        elif level == "fair":
             emoji = "🟡"
         else:
             emoji = "🔴"
 
         print(f"{emoji} Score: {score}/100 ({level.upper()})")
 
-        if assessment['strengths']:
-            print(f"\n✅ What you got right:")
-            for strength in assessment['strengths']:
+        if assessment["strengths"]:
+            print("\n✅ What you got right:")
+            for strength in assessment["strengths"]:
                 print(f"   • {strength}")
 
-        if assessment['missing_concepts']:
-            print(f"\n⚠️  Areas to review:")
-            for concept in assessment['missing_concepts']:
+        if assessment["missing_concepts"]:
+            print("\n⚠️  Areas to review:")
+            for concept in assessment["missing_concepts"]:
                 print(f"   • {concept}")
 
-        if assessment['misconceptions']:
-            print(f"\n❌ Misconceptions to correct:")
-            for misconception in assessment['misconceptions']:
+        if assessment["misconceptions"]:
+            print("\n❌ Misconceptions to correct:")
+            for misconception in assessment["misconceptions"]:
                 print(f"   • {misconception}")
 
         print(f"\n📝 Feedback: {assessment['feedback']}")
@@ -218,14 +201,14 @@ class GuidedConversationEngine:
         print(f"📊 Sections Completed: {summary['completed_headings']}/{summary['total_headings']}")
         print(f"🎯 Overall Average Score: {summary['overall_average_score']}/100")
 
-        if summary['strong_areas']:
-            print(f"\n💪 Strong Areas:")
-            for area in summary['strong_areas']:
+        if summary["strong_areas"]:
+            print("\n💪 Strong Areas:")
+            for area in summary["strong_areas"]:
                 print(f"   ✅ {area}")
 
-        if summary['weak_areas']:
-            print(f"\n📚 Areas for Review:")
-            for area in summary['weak_areas']:
+        if summary["weak_areas"]:
+            print("\n📚 Areas for Review:")
+            for area in summary["weak_areas"]:
                 print(f"   📖 {area}")
 
         print("\n" + "=" * 70)
@@ -239,7 +222,7 @@ class GuidedConversationEngine:
         output_dir.mkdir(parents=True, exist_ok=True)
 
         timestamp = self.state.start_time.strftime("%Y%m%d_%H%M%S")
-        topic_slug = self.state.topic_name.replace(' ', '_')
+        topic_slug = self.state.topic_name.replace(" ", "_")
         output_file = output_dir / f"{topic_slug}_conversation_{timestamp}.json"
 
         self.state.save_state(output_file)
@@ -254,7 +237,7 @@ class GuidedConversationEngine:
         """
         content = f"""---
 ocds_type: guided_conversation
-material_id: conversation_{self.state.topic_name.lower().replace(' ', '_')}
+material_id: conversation_{self.state.topic_name.lower().replace(" ", "_")}
 class_id: TCM_101
 title: "{self.state.topic_name} - Guided Learning Conversation"
 topic: {self.state.topic_name}
@@ -280,13 +263,13 @@ This guided conversation will help you master {self.state.topic_name} through ac
 
         for i, heading in enumerate(self.state.headings):
             content += f"""
-## {i+1}. {heading['title']}
+## {i + 1}. {heading["title"]}
 
 **Question:**
-{self.prompt_gen.generate_initial_prompt(heading['title'], heading['content'])}
+{self.prompt_gen.generate_initial_prompt(heading["title"], heading["content"])}
 
 **Key Concepts to Cover:**
-{self._extract_key_concepts(heading['content'])}
+{self._extract_key_concepts(heading["content"])}
 
 **Assessment Criteria:**
 - Can you explain the main concepts clearly?
@@ -294,7 +277,7 @@ This guided conversation will help you master {self.state.topic_name} through ac
 - Can you relate this to other concepts?
 
 **Reference Content:**
-{heading['content'][:500]}...
+{heading["content"][:500]}...
 
 ---
 
@@ -305,21 +288,23 @@ This guided conversation will help you master {self.state.topic_name} through ac
     def _extract_key_concepts(self, content: str) -> str:
         """Extract key concepts from content."""
         # Simple extraction - look for bullet points
-        lines = content.split('\n')
+        lines = content.split("\n")
         concepts = []
         for line in lines[:10]:  # First 10 lines
-            if line.strip().startswith('*') or line.strip().startswith('-'):
+            if line.strip().startswith("*") or line.strip().startswith("-"):
                 concepts.append(line.strip())
 
         if concepts:
-            return '\n'.join(concepts[:5])  # Top 5
+            return "\n".join(concepts[:5])  # Top 5
         else:
             return "- Review the main points in this section"
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     # Test the engine
-    root_note = Path('/home/shuma/Documents/AI_Suite/TCM_Knowledge_Base/Materials/TCM_101/Root_Note_Lung_Yin_Deficiency.md')
+    root_note = Path(
+        "/home/shuma/Documents/AI_Suite/TCM_Knowledge_Base/Materials/TCM_101/Root_Note_Lung_Yin_Deficiency.md"
+    )
 
     print("Initializing Guided Conversation Engine...")
     engine = GuidedConversationEngine(root_note)

@@ -1,8 +1,10 @@
-import pytest
-from pathlib import Path
-import yaml
+
 import frontmatter
+import pytest
+import yaml
+
 from capsule.core.validator import Validator
+from capsule.exceptions import ValidationError
 
 
 @pytest.fixture
@@ -76,7 +78,7 @@ def test_validator_invalid_data_type(sample_capsule):
 def test_validator_invalid_cypher_file(sample_capsule):
     # Corrupt the capsule-cypher.yaml file
     cypher_path = sample_capsule / "capsule-cypher.yaml"
-    with open(cypher_path, "r") as f:
+    with open(cypher_path) as f:
         cypher_data = yaml.safe_load(f)
 
     del cypher_data["capsule_id"]
@@ -85,7 +87,7 @@ def test_validator_invalid_cypher_file(sample_capsule):
         yaml.dump(cypher_data, f)
 
     validator = Validator(sample_capsule)
-    with pytest.raises(ValueError, match="Missing required fields in capsule-cypher.yaml: capsule_id"):
+    with pytest.raises(ValidationError, match="Missing required fields in capsule-cypher.yaml: capsule_id"):
         validator.validate_capsule_structure()
 
 

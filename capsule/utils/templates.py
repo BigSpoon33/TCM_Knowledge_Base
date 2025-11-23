@@ -1,4 +1,5 @@
 from jinja2 import Environment, FileSystemLoader, Template
+
 from capsule.constants import TEMPLATES_DIR
 
 

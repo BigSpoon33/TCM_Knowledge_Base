@@ -1,0 +1,158 @@
+<story-context id="{bmad_folder}/bmm/workflows/4-implementation/story-context/template" v="1.0">
+  <metadata>
+    <epicId>11</epicId>
+    <storyId>5</storyId>
+    <title>dataview-query-pattern-library</title>
+    <status>ready-for-dev</status>
+    <generatedAt>2025-11-22</generatedAt>
+    <generator>BMAD Story Context Workflow</generator>
+    <sourceStoryPath>/home/shuma/Documents/AI_Suite/Obsidian_Capsule_Delivery/docs/sprint-artifacts/11-5-dataview-query-pattern-library.md</sourceStoryPath>
+  </metadata>
+
+  <story>
+    <asA>a developer</asA>
+    <iWant>a documented library of standard query patterns for dashboard development</iWant>
+    <soThat>I can build consistent and performant dashboards without re-inventing common queries.</soThat>
+    <tasks>{{story_tasks}}</tasks>
+  </story>
+
+  <acceptanceCriteria>
+      <criterion id="1">Create `capsule/utils/dataview_queries.py` utility module.</criterion>
+      <criterion id="2">Implement `build_file_list_query()` function.</criterion>
+      <criterion id="3">Implement `build_metadata_filter_query()` function.</criterion>
+      <criterion id="4">Implement `build_heading_extraction_query()` function.</criterion>
+      <criterion id="5">Document query patterns with examples and performance notes.</criterion>
+    </acceptanceCriteria>
+
+  <artifacts>
+    <docs>
+      <doc>
+        <path>docs/sprint-artifacts/tech-spec-epic-11.md</path>
+        <title>Epic Technical Specification: Dashboard Functionality (Core/Data Layer)</title>
+        <section>Dataview Query Builder API</section>
+        <snippet>
+          This section defines the API for the `capsule/utils/dataview_queries.py` module, including the functions `build_file_list_query`, `build_metadata_filter_query`, and `build_heading_extraction_query`.
+        </snippet>
+      </doc>
+      <doc>
+        <path>docs/architecture.md</path>
+        <title>Architecture Document</title>
+        <section>Epic Group 9: Dashboard Integration</section>
+        <snippet>
+          This section describes the architecture for the dashboard integration, including the use of Dataview queries, Jinja2 templates, and the overall dashboard generation workflow.
+        </snippet>
+      </doc>
+    </docs>
+    <code>
+      <artifact>
+        <path>capsule/utils/dataview_queries.py</path>
+        <kind>new module</kind>
+        <symbol>build_file_list_query, build_metadata_filter_query, build_heading_extraction_query</symbol>
+        <lines>n/a</lines>
+        <reason>Core implementation file for the story.</reason>
+      </artifact>
+      <artifact>
+        <path>tests/test_utils/test_dataview_queries.py</path>
+        <kind>new test</kind>
+        <symbol>n/a</symbol>
+        <lines>n/a</lines>
+        <reason>Unit tests for the new module.</reason>
+      </artifact>
+      <artifact>
+        <path>capsule/core/generator.py</path>
+        <kind>existing module</kind>
+        <symbol>ContentGenerator</symbol>
+        <lines>n/a</lines>
+        <reason>Likely consumer of the new dataview query library for generating dashboards.</reason>
+      </artifact>
+    </code>
+    <dependencies>
+      <dependency>
+        <name>typer</name>
+        <version>latest</version>
+      </dependency>
+      <dependency>
+        <name>python-frontmatter</name>
+        <version>latest</version>
+      </dependency>
+      <dependency>
+        <name>click</name>
+        <version>>=8.0.0</version>
+      </dependency>
+      <dependency>
+        <name>rich</name>
+        <version>>=13.0.0</version>
+      </dependency>
+      <dependency>
+        <name>pyyaml</name>
+        <version>>=6.0</version>
+      </dependency>
+      <dependency>
+        <name>google-generativeai</name>
+        <version>>=0.3.0</version>
+      </dependency>
+      <dependency>
+        <name>questionary</name>
+        <version>>=2.0.0</version>
+      </dependency>
+      <dependency>
+        <name>ruamel.yaml</name>
+        <version>>=0.17.0</version>
+      </dependency>
+      <dependency>
+        <name>semver</name>
+        <version>latest</version>
+      </dependency>
+      <dependency>
+        <name>jinja2</name>
+        <version>latest</version>
+      </dependency>
+      <dependency>
+        <name>chardet</name>
+        <version>latest</version>
+      </dependency>
+      <dependency>
+        <name>jsonschema</name>
+        <version>latest</version>
+      </dependency>
+    </dependencies>
+  </artifacts>
+
+  <constraints>
+      <constraint>Follow existing project structure for utility modules and tests.</constraint>
+      <constraint>Use pytest for unit testing.</constraint>
+      <constraint>Document query patterns with examples and performance notes.</constraint>
+    </constraints>
+  <interfaces>
+      <interface>
+        <name>build_file_list_query</name>
+        <kind>function signature</kind>
+        <signature>build_file_list_query(source_capsule: str, file_type: str) -> str</signature>
+        <path>capsule/utils/dataview_queries.py</path>
+      </interface>
+      <interface>
+        <name>build_metadata_filter_query</name>
+        <kind>function signature</kind>
+        <signature>build_metadata_filter_query(filters: Dict) -> str</signature>
+        <path>capsule/utils/dataview_queries.py</path>
+      </interface>
+      <interface>
+        <name>build_heading_extraction_query</name>
+        <kind>function signature</kind>
+        <signature>build_heading_extraction_query(tag: str, heading: str) -> str</signature>
+        <path>capsule/utils/dataview_queries.py</path>
+      </interface>
+    </interfaces>
+  <tests>
+    <standards>The project uses pytest as the testing framework. Tests are located in the /tests directory, mirroring the source structure. New utility modules should have corresponding test files with unit tests for all public functions.</standards>
+    <locations>
+      <location>tests/test_utils/test_dataview_queries.py</location>
+    </locations>
+    <ideas>
+      <idea ac_ref="2">Test build_file_list_query with different file types and capsule IDs.</idea>
+      <idea ac_ref="3">Test build_metadata_filter_query with various filter combinations.</idea>
+      <idea ac_ref="4">Test build_heading_extraction_query with different heading levels and edge cases.</idea>
+      <idea ac_ref="5">Test that the query patterns are well-documented with examples.</idea>
+    </ideas>
+  </tests>
+</story-context>

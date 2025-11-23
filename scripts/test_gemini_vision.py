@@ -3,9 +3,11 @@
 Quick test script to verify Gemini vision extraction works
 """
 
-from extract_hbkim import HBKimExtractor
-from pathlib import Path
 import os
+from pathlib import Path
+
+from extract_hbkim import HBKimExtractor
+
 
 def test_gemini():
     """Test Gemini vision on a single page"""
@@ -24,15 +26,15 @@ def test_gemini():
         print(f"❌ PDF not found: {pdf_path}")
         return
 
-    print("="*80)
+    print("=" * 80)
     print("GEMINI VISION TEST")
-    print("="*80)
+    print("=" * 80)
     print("\nTesting extraction on page 100 (Heart QI Deficiency section)")
     print("\nThis will:")
     print("  1. Convert PDF page to image")
     print("  2. Send to Gemini vision model")
     print("  3. Extract pattern differentiation data")
-    print("="*80)
+    print("=" * 80)
 
     extractor = HBKimExtractor(pdf_path, base_dir, vision_provider="gemini")
 
@@ -57,15 +59,16 @@ Be precise and include all symptom details."""
     result = extractor.extract_with_vision(100, prompt)
 
     if result:
-        print("\n" + "="*80)
+        print("\n" + "=" * 80)
         print("✅ EXTRACTION SUCCESSFUL")
-        print("="*80)
+        print("=" * 80)
         print(result)
-        print("="*80)
+        print("=" * 80)
         print("\n✅ Test complete! Gemini vision is working.")
         print("   You can now use the full extractor with vision mode.")
     else:
         print("\n❌ Extraction failed")
+
 
 if __name__ == "__main__":
     test_gemini()

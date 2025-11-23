@@ -8,15 +8,12 @@ Analyzes diseases to find patterns and similarities based on:
 - Affected organs
 """
 
-import os
 import re
-import yaml
-import json
-from pathlib import Path
-from typing import Dict, List, Set, Tuple
-from collections import defaultdict, Counter
+from collections import defaultdict
 from datetime import datetime
-import math
+from pathlib import Path
+
+import yaml
 
 
 class PatternClusteringAnalyzer:
@@ -30,10 +27,10 @@ class PatternClusteringAnalyzer:
         self.diseases = {}  # disease_name -> full data dict
 
         # Index structures for fast lookup
-        self.symptom_index = defaultdict(set)      # symptom -> set of diseases
-        self.point_index = defaultdict(set)        # point -> set of diseases
-        self.concept_index = defaultdict(set)      # concept -> set of diseases
-        self.pattern_index = defaultdict(set)      # pattern -> set of diseases
+        self.symptom_index = defaultdict(set)  # symptom -> set of diseases
+        self.point_index = defaultdict(set)  # point -> set of diseases
+        self.concept_index = defaultdict(set)  # concept -> set of diseases
+        self.pattern_index = defaultdict(set)  # pattern -> set of diseases
 
         # Similarity cache
         self.similarity_cache = {}
@@ -53,20 +50,20 @@ class PatternClusteringAnalyzer:
 
             disease_data = self._load_disease_file(disease_file)
             if disease_data:
-                disease_name = disease_data['name']
+                disease_name = disease_data["name"]
                 self.diseases[disease_name] = disease_data
 
                 # Build indices
-                for symptom in disease_data.get('symptoms', []):
+                for symptom in disease_data.get("symptoms", []):
                     self.symptom_index[symptom].add(disease_name)
 
-                for point in disease_data.get('points', []):
+                for point in disease_data.get("points", []):
                     self.point_index[point].add(disease_name)
 
-                for concept in disease_data.get('related', []):
+                for concept in disease_data.get("related", []):
                     self.concept_index[concept].add(disease_name)
 
-                for pattern in disease_data.get('patterns', []):
+                for pattern in disease_data.get("patterns", []):
                     self.pattern_index[pattern].add(disease_name)
 
         print(f"✓ Loaded {len(self.diseases)} diseases")
@@ -75,27 +72,27 @@ class PatternClusteringAnalyzer:
         print(f"✓ Indexed {len(self.concept_index)} unique concepts")
         print(f"✓ Indexed {len(self.pattern_index)} unique patterns")
 
-    def _load_disease_file(self, file_path: Path) -> Dict:
+    def _load_disease_file(self, file_path: Path) -> dict:
         """Load and parse a disease file"""
         try:
-            with open(file_path, 'r', encoding='utf-8') as f:
+            with open(file_path, encoding="utf-8") as f:
                 content = f.read()
 
             # Extract frontmatter
-            match = re.match(r'^---\s*\n(.*?)\n---', content, re.DOTALL)
+            match = re.match(r"^---\s*\n(.*?)\n---", content, re.DOTALL)
             if not match:
                 # Try to get name from heading
-                heading_match = re.search(r'^#\s+🩺?\s*(.+?)$', content, re.MULTILINE)
+                heading_match = re.search(r"^#\s+🩺?\s*(.+?)$", content, re.MULTILINE)
                 if heading_match:
                     return {
-                        'name': heading_match.group(1).strip(),
-                        'symptoms': [],
-                        'points': [],
-                        'herbs': [],
-                        'related': [],
-                        'patterns': [],
-                        'western_conditions': [],
-                        'file_path': str(file_path)
+                        "name": heading_match.group(1).strip(),
+                        "symptoms": [],
+                        "points": [],
+                        "herbs": [],
+                        "related": [],
+                        "patterns": [],
+                        "western_conditions": [],
+                        "file_path": str(file_path),
                     }
                 return None
 
@@ -106,18 +103,18 @@ class PatternClusteringAnalyzer:
             frontmatter = yaml.safe_load(frontmatter_text)
 
             return {
-                'name': frontmatter.get('name', file_path.stem.replace('_', ' ')),
-                'symptoms': frontmatter.get('symptoms', []),
-                'points': frontmatter.get('points', []),
-                'herbs': frontmatter.get('herbs', []),
-                'related': frontmatter.get('related', []),
-                'patterns': frontmatter.get('patterns', []),
-                'western_conditions': frontmatter.get('western_conditions', []),
-                'category': frontmatter.get('category', []),
-                'file_path': str(file_path)
+                "name": frontmatter.get("name", file_path.stem.replace("_", " ")),
+                "symptoms": frontmatter.get("symptoms", []),
+                "points": frontmatter.get("points", []),
+                "herbs": frontmatter.get("herbs", []),
+                "related": frontmatter.get("related", []),
+                "patterns": frontmatter.get("patterns", []),
+                "western_conditions": frontmatter.get("western_conditions", []),
+                "category": frontmatter.get("category", []),
+                "file_path": str(file_path),
             }
 
-        except Exception as e:
+        except Exception:
             return None
 
     def calculate_symptom_similarity(self, disease1: str, disease2: str) -> float:
@@ -125,8 +122,8 @@ class PatternClusteringAnalyzer:
         if disease1 not in self.diseases or disease2 not in self.diseases:
             return 0.0
 
-        symptoms1 = set(self.diseases[disease1].get('symptoms', []))
-        symptoms2 = set(self.diseases[disease2].get('symptoms', []))
+        symptoms1 = set(self.diseases[disease1].get("symptoms", []))
+        symptoms2 = set(self.diseases[disease2].get("symptoms", []))
 
         if not symptoms1 or not symptoms2:
             return 0.0
@@ -145,8 +142,8 @@ class PatternClusteringAnalyzer:
         d2 = self.diseases[disease2]
 
         # Combine points and herbs for treatment signature
-        treatment1 = set(d1.get('points', [])) | set(d1.get('herbs', []))
-        treatment2 = set(d2.get('points', [])) | set(d2.get('herbs', []))
+        treatment1 = set(d1.get("points", [])) | set(d1.get("herbs", []))
+        treatment2 = set(d2.get("points", [])) | set(d2.get("herbs", []))
 
         if not treatment1 or not treatment2:
             return 0.0
@@ -161,8 +158,8 @@ class PatternClusteringAnalyzer:
         if disease1 not in self.diseases or disease2 not in self.diseases:
             return 0.0
 
-        concepts1 = set(self.diseases[disease1].get('related', []))
-        concepts2 = set(self.diseases[disease2].get('related', []))
+        concepts1 = set(self.diseases[disease1].get("related", []))
+        concepts2 = set(self.diseases[disease2].get("related", []))
 
         if not concepts1 or not concepts2:
             return 0.0
@@ -172,30 +169,24 @@ class PatternClusteringAnalyzer:
 
         return intersection / union if union > 0 else 0.0
 
-    def calculate_overall_similarity(self, disease1: str, disease2: str,
-                                    weights: Dict[str, float] = None) -> float:
+    def calculate_overall_similarity(self, disease1: str, disease2: str, weights: dict[str, float] = None) -> float:
         """Calculate weighted overall similarity"""
         if weights is None:
-            weights = {
-                'symptoms': 0.4,
-                'treatment': 0.4,
-                'concepts': 0.2
-            }
+            weights = {"symptoms": 0.4, "treatment": 0.4, "concepts": 0.2}
 
         symptom_sim = self.calculate_symptom_similarity(disease1, disease2)
         treatment_sim = self.calculate_treatment_similarity(disease1, disease2)
         concept_sim = self.calculate_concept_similarity(disease1, disease2)
 
         overall = (
-            weights['symptoms'] * symptom_sim +
-            weights['treatment'] * treatment_sim +
-            weights['concepts'] * concept_sim
+            weights["symptoms"] * symptom_sim + weights["treatment"] * treatment_sim + weights["concepts"] * concept_sim
         )
 
         return overall
 
-    def find_similar_diseases(self, disease_name: str, top_n: int = 5,
-                            min_similarity: float = 0.1) -> List[Tuple[str, float, Dict]]:
+    def find_similar_diseases(
+        self, disease_name: str, top_n: int = 5, min_similarity: float = 0.1
+    ) -> list[tuple[str, float, dict]]:
         """Find the most similar diseases to a given disease"""
         if disease_name not in self.diseases:
             return []
@@ -211,21 +202,21 @@ class PatternClusteringAnalyzer:
             if overall_sim >= min_similarity:
                 # Get component similarities for breakdown
                 breakdown = {
-                    'symptom_similarity': self.calculate_symptom_similarity(disease_name, other_disease),
-                    'treatment_similarity': self.calculate_treatment_similarity(disease_name, other_disease),
-                    'concept_similarity': self.calculate_concept_similarity(disease_name, other_disease),
-                    'shared_symptoms': list(
-                        set(self.diseases[disease_name].get('symptoms', [])) &
-                        set(self.diseases[other_disease].get('symptoms', []))
+                    "symptom_similarity": self.calculate_symptom_similarity(disease_name, other_disease),
+                    "treatment_similarity": self.calculate_treatment_similarity(disease_name, other_disease),
+                    "concept_similarity": self.calculate_concept_similarity(disease_name, other_disease),
+                    "shared_symptoms": list(
+                        set(self.diseases[disease_name].get("symptoms", []))
+                        & set(self.diseases[other_disease].get("symptoms", []))
                     ),
-                    'shared_points': list(
-                        set(self.diseases[disease_name].get('points', [])) &
-                        set(self.diseases[other_disease].get('points', []))
+                    "shared_points": list(
+                        set(self.diseases[disease_name].get("points", []))
+                        & set(self.diseases[other_disease].get("points", []))
                     ),
-                    'shared_concepts': list(
-                        set(self.diseases[disease_name].get('related', [])) &
-                        set(self.diseases[other_disease].get('related', []))
-                    )
+                    "shared_concepts": list(
+                        set(self.diseases[disease_name].get("related", []))
+                        & set(self.diseases[other_disease].get("related", []))
+                    ),
                 }
 
                 similarities.append((other_disease, overall_sim, breakdown))
@@ -235,7 +226,7 @@ class PatternClusteringAnalyzer:
 
         return similarities[:top_n]
 
-    def cluster_by_symptoms(self, min_shared_symptoms: int = 3) -> Dict[str, List[str]]:
+    def cluster_by_symptoms(self, min_shared_symptoms: int = 3) -> dict[str, list[str]]:
         """Cluster diseases that share significant symptoms"""
         clusters = defaultdict(list)
 
@@ -246,7 +237,7 @@ class PatternClusteringAnalyzer:
 
         return dict(clusters)
 
-    def cluster_by_treatment(self, min_shared_points: int = 2) -> Dict[str, List[str]]:
+    def cluster_by_treatment(self, min_shared_points: int = 2) -> dict[str, list[str]]:
         """Cluster diseases treated with similar points"""
         clusters = defaultdict(list)
 
@@ -257,7 +248,7 @@ class PatternClusteringAnalyzer:
 
         return dict(clusters)
 
-    def cluster_by_concepts(self) -> Dict[str, List[str]]:
+    def cluster_by_concepts(self) -> dict[str, list[str]]:
         """Cluster diseases by pathogenic factors/concepts"""
         clusters = {}
 
@@ -285,7 +276,7 @@ class PatternClusteringAnalyzer:
         diseases_list = list(self.diseases.keys())
 
         for i, disease1 in enumerate(diseases_list):
-            for disease2 in diseases_list[i+1:]:
+            for disease2 in diseases_list[i + 1 :]:
                 sim = self.calculate_overall_similarity(disease1, disease2)
                 if sim > 0.2:  # Only significant similarities
                     all_pairs.append((disease1, disease2, sim))
@@ -298,9 +289,9 @@ class PatternClusteringAnalyzer:
 
             # Get breakdown
             breakdown = {
-                'symptom': self.calculate_symptom_similarity(disease1, disease2),
-                'treatment': self.calculate_treatment_similarity(disease1, disease2),
-                'concept': self.calculate_concept_similarity(disease1, disease2)
+                "symptom": self.calculate_symptom_similarity(disease1, disease2),
+                "treatment": self.calculate_treatment_similarity(disease1, disease2),
+                "concept": self.calculate_concept_similarity(disease1, disease2),
             }
 
             report.append(f"- Symptom Similarity: {breakdown['symptom']:.2%}")
@@ -309,13 +300,12 @@ class PatternClusteringAnalyzer:
 
             # Shared elements
             shared_symptoms = list(
-                set(self.diseases[disease1].get('symptoms', [])) &
-                set(self.diseases[disease2].get('symptoms', []))
+                set(self.diseases[disease1].get("symptoms", [])) & set(self.diseases[disease2].get("symptoms", []))
             )
             if shared_symptoms:
                 report.append(f"\n**Shared Symptoms:** {', '.join(shared_symptoms[:5])}")
                 if len(shared_symptoms) > 5:
-                    report.append(f" _(+{len(shared_symptoms)-5} more)_")
+                    report.append(f" _(+{len(shared_symptoms) - 5} more)_")
 
             report.append("\n")
 
@@ -324,8 +314,7 @@ class PatternClusteringAnalyzer:
         report.append("## 🎯 Symptom-Based Clusters\n")
 
         symptom_clusters = self.cluster_by_symptoms(min_shared_symptoms=2)
-        for cluster_name, diseases in sorted(symptom_clusters.items(),
-                                            key=lambda x: len(x[1]), reverse=True)[:15]:
+        for cluster_name, diseases in sorted(symptom_clusters.items(), key=lambda x: len(x[1]), reverse=True)[:15]:
             report.append(f"### {cluster_name}")
             report.append(f"**Diseases ({len(diseases)}):** {', '.join(diseases)}\n")
 
@@ -334,8 +323,7 @@ class PatternClusteringAnalyzer:
         report.append("## 🧠 Pathogenic Factor Clusters\n")
 
         concept_clusters = self.cluster_by_concepts()
-        for cluster_name, diseases in sorted(concept_clusters.items(),
-                                            key=lambda x: len(x[1]), reverse=True):
+        for cluster_name, diseases in sorted(concept_clusters.items(), key=lambda x: len(x[1]), reverse=True):
             report.append(f"### {cluster_name}")
             report.append(f"**Diseases ({len(diseases)}):** {', '.join(diseases)}\n")
 
@@ -344,14 +332,13 @@ class PatternClusteringAnalyzer:
         report.append("## ⚡ Treatment Approach Clusters\n")
 
         treatment_clusters = self.cluster_by_treatment(min_shared_points=2)
-        for cluster_name, diseases in sorted(treatment_clusters.items(),
-                                            key=lambda x: len(x[1]), reverse=True)[:15]:
+        for cluster_name, diseases in sorted(treatment_clusters.items(), key=lambda x: len(x[1]), reverse=True)[:15]:
             report.append(f"### {cluster_name}")
             report.append(f"**Diseases ({len(diseases)}):** {', '.join(diseases)}\n")
 
         # Write report
         report_text = "\n".join(report)
-        with open(output_file, 'w', encoding='utf-8') as f:
+        with open(output_file, "w", encoding="utf-8") as f:
             f.write(report_text)
 
         print(f"\n✅ Pattern analysis report generated: {output_file}")

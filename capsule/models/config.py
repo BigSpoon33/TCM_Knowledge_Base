@@ -2,8 +2,9 @@
 
 from dataclasses import dataclass, field
 from pathlib import Path
+from typing import Any
+
 import ruamel.yaml
-from typing import Any, Dict, Optional
 
 yaml = ruamel.yaml.YAML()
 yaml.preserve_quotes = True
@@ -17,17 +18,22 @@ class Config:
     """
 
     llm_provider: str = "openai"
-    api_key: Optional[str] = None
+    api_key: str | None = None
     default_model: str = "gpt-4-turbo"
-    project_dir: Optional[Path] = None
-    user: Dict[str, str] = field(default_factory=dict)
-    research: Dict[str, str] = field(default_factory=dict)
+    project_dir: Path | None = None
+    user: dict[str, str] = field(default_factory=dict)
+    research: dict[str, str] = field(default_factory=dict)
+    import_settings: dict[str, Any] = field(default_factory=dict)
 
     @classmethod
     def from_yaml_file(cls, path: Path) -> "Config":
         """Loads a Config from a YAML file."""
-        with open(path, "r", encoding="utf-8") as f:
-            data = yaml.load(f)
+        with open(path, encoding="utf-8") as f:
+            data = yaml.load(f) or {}
+
+        if "import" in data:
+            data["import_settings"] = data.pop("import")
+
         return cls(**data)
 
     def to_yaml_file(self, path: Path) -> None:
@@ -35,7 +41,7 @@ class Config:
         with open(path, "w", encoding="utf-8") as f:
             yaml.dump(self.to_dict(), f)
 
-    def to_dict(self) -> Dict[str, Any]:
+    def to_dict(self) -> dict[str, Any]:
         """Converts the Config to a dictionary."""
         return {
             "llm_provider": self.llm_provider,
@@ -44,6 +50,7 @@ class Config:
             "project_dir": str(self.project_dir) if self.project_dir else None,
             "user": self.user,
             "research": self.research,
+            "import": self.import_settings,
         }
 
     def validate(self) -> None:
@@ -73,18 +80,21 @@ class Config:
 
         # Load from legacy path first (lowest priority of globals)
         if legacy_config_path.exists():
-            with open(legacy_config_path, "r", encoding="utf-8") as f:
+            with open(legacy_config_path, encoding="utf-8") as f:
                 config_data.update(yaml.load(f) or {})
 
         # Load from XDG path (overrides legacy)
         if xdg_config_path.exists():
-            with open(xdg_config_path, "r", encoding="utf-8") as f:
+            with open(xdg_config_path, encoding="utf-8") as f:
                 config_data.update(yaml.load(f) or {})
 
         # Load from local path (highest priority)
         if local_config_path.exists():
-            with open(local_config_path, "r", encoding="utf-8") as f:
+            with open(local_config_path, encoding="utf-8") as f:
                 config_data.update(yaml.load(f) or {})
+
+        if "import" in config_data:
+            config_data["import_settings"] = config_data.pop("import")
 
         return cls(**config_data)
 

@@ -14,17 +14,14 @@ Usage:
     python generate_quiz_from_root.py "Blood Stasis Pattern" --output-dir "Materials/TCM_101"
 """
 
-import os
-import re
-import yaml
-from pathlib import Path
-from datetime import datetime
-from typing import Dict, List, Any, Optional
 import sys
+from datetime import datetime
+from pathlib import Path
+from typing import Any
 
 # Add parent directory to path for imports
 sys.path.insert(0, str(Path(__file__).parent))
-from generate_flashcards_from_root import RootNoteParser, find_root_note, BASE_DIR, MATERIALS_DIR
+from generate_flashcards_from_root import MATERIALS_DIR, RootNoteParser, find_root_note
 
 
 class QuizGenerator:
@@ -38,8 +35,8 @@ class QuizGenerator:
 
     def _generate_class_id(self) -> str:
         """Generate class ID from domain and subject."""
-        domain = self.metadata['domain'].replace(' ', '_')
-        subject = self.metadata['subject'].replace(' ', '_')
+        domain = self.metadata["domain"].replace(" ", "_")
+        subject = self.metadata["subject"].replace(" ", "_")
         return f"{domain}_{subject}"
 
     def generate_all_questions(self):
@@ -47,9 +44,9 @@ class QuizGenerator:
         print(f"📝 Generating quiz for: {self.metadata['name']}")
 
         # Extract quiz seeds from assessment_data
-        assessment_data = self.root_note.frontmatter.get('assessment_data', {})
-        quiz_seeds = assessment_data.get('quiz_seeds', [])
-        scenarios = assessment_data.get('scenarios', [])
+        assessment_data = self.root_note.frontmatter.get("assessment_data", {})
+        quiz_seeds = assessment_data.get("quiz_seeds", [])
+        scenarios = assessment_data.get("scenarios", [])
 
         print(f"   📌 Processing {len(quiz_seeds)} quiz seeds...")
         for seed in quiz_seeds:
@@ -65,91 +62,91 @@ class QuizGenerator:
 
         print(f"✅ Generated {len(self.questions)} quiz questions")
 
-    def _create_question_from_seed(self, seed: Dict[str, Any]) -> Optional[Dict[str, Any]]:
+    def _create_question_from_seed(self, seed: dict[str, Any]) -> dict[str, Any] | None:
         """Create a quiz question from a quiz seed."""
-        question_type = seed.get('question_type', 'multiple_choice')
-        
-        if question_type == 'multiple_choice':
+        question_type = seed.get("question_type", "multiple_choice")
+
+        if question_type == "multiple_choice":
             return self._create_multiple_choice(seed)
-        elif question_type == 'true_false':
+        elif question_type == "true_false":
             return self._create_true_false(seed)
-        elif question_type == 'short_answer':
+        elif question_type == "short_answer":
             return self._create_short_answer(seed)
         else:
             print(f"   ⚠️  Unsupported question type: {question_type}")
             return None
 
-    def _create_multiple_choice(self, seed: Dict[str, Any]) -> Dict[str, Any]:
+    def _create_multiple_choice(self, seed: dict[str, Any]) -> dict[str, Any]:
         """Create a multiple choice question."""
-        question_text = seed.get('question', '')
-        correct_answer = seed.get('correct_answer', '')
-        distractors = seed.get('distractors', [])
-        explanation = seed.get('explanation', '')
-        difficulty = seed.get('difficulty', 'medium')
-        bloom_level = seed.get('bloom_level', 'Remember')
+        question_text = seed.get("question", "")
+        correct_answer = seed.get("correct_answer", "")
+        distractors = seed.get("distractors", [])
+        explanation = seed.get("explanation", "")
+        difficulty = seed.get("difficulty", "medium")
+        bloom_level = seed.get("bloom_level", "Remember")
 
         # Combine correct answer with distractors
         all_options = [correct_answer] + distractors
-        
+
         # Assign letters (A, B, C, D)
         options = []
-        correct_letter = 'A'  # Default to A for correct answer
+        correct_letter = "A"  # Default to A for correct answer
         for i, option in enumerate(all_options):
             letter = chr(65 + i)  # A=65, B=66, etc.
-            options.append({'letter': letter, 'text': option})
+            options.append({"letter": letter, "text": option})
             if option == correct_answer:
                 correct_letter = letter
 
         return {
-            'type': 'multiple_choice',
-            'question': question_text,
-            'options': options,
-            'correct_answer': correct_letter,
-            'explanation': explanation,
-            'difficulty': difficulty,
-            'bloom_level': bloom_level
+            "type": "multiple_choice",
+            "question": question_text,
+            "options": options,
+            "correct_answer": correct_letter,
+            "explanation": explanation,
+            "difficulty": difficulty,
+            "bloom_level": bloom_level,
         }
 
-    def _create_true_false(self, seed: Dict[str, Any]) -> Dict[str, Any]:
+    def _create_true_false(self, seed: dict[str, Any]) -> dict[str, Any]:
         """Create a true/false question."""
-        question_text = seed.get('question', '')
-        correct_answer = seed.get('correct_answer', 'True')
-        explanation = seed.get('explanation', '')
-        difficulty = seed.get('difficulty', 'easy')
-        bloom_level = seed.get('bloom_level', 'Remember')
+        question_text = seed.get("question", "")
+        correct_answer = seed.get("correct_answer", "True")
+        explanation = seed.get("explanation", "")
+        difficulty = seed.get("difficulty", "easy")
+        bloom_level = seed.get("bloom_level", "Remember")
 
         return {
-            'type': 'true_false',
-            'question': question_text,
-            'correct_answer': correct_answer,
-            'explanation': explanation,
-            'difficulty': difficulty,
-            'bloom_level': bloom_level
+            "type": "true_false",
+            "question": question_text,
+            "correct_answer": correct_answer,
+            "explanation": explanation,
+            "difficulty": difficulty,
+            "bloom_level": bloom_level,
         }
 
-    def _create_short_answer(self, seed: Dict[str, Any]) -> Dict[str, Any]:
+    def _create_short_answer(self, seed: dict[str, Any]) -> dict[str, Any]:
         """Create a short answer question."""
-        question_text = seed.get('question', '')
-        correct_answer = seed.get('correct_answer', '')
-        explanation = seed.get('explanation', '')
-        difficulty = seed.get('difficulty', 'hard')
-        bloom_level = seed.get('bloom_level', 'Apply')
+        question_text = seed.get("question", "")
+        correct_answer = seed.get("correct_answer", "")
+        explanation = seed.get("explanation", "")
+        difficulty = seed.get("difficulty", "hard")
+        bloom_level = seed.get("bloom_level", "Apply")
 
         return {
-            'type': 'short_answer',
-            'question': question_text,
-            'correct_answer': correct_answer,
-            'explanation': explanation,
-            'difficulty': difficulty,
-            'bloom_level': bloom_level
+            "type": "short_answer",
+            "question": question_text,
+            "correct_answer": correct_answer,
+            "explanation": explanation,
+            "difficulty": difficulty,
+            "bloom_level": bloom_level,
         }
 
-    def _create_question_from_scenario(self, scenario: Dict[str, Any]) -> Optional[Dict[str, Any]]:
+    def _create_question_from_scenario(self, scenario: dict[str, Any]) -> dict[str, Any] | None:
         """Create a clinical scenario question."""
-        scenario_text = scenario.get('scenario', '')
-        question_text = scenario.get('question', '')
-        correct_response = scenario.get('correct_response', '')
-        reasoning = scenario.get('reasoning', '')
+        scenario_text = scenario.get("scenario", "")
+        question_text = scenario.get("question", "")
+        correct_response = scenario.get("correct_response", "")
+        reasoning = scenario.get("reasoning", "")
 
         if not scenario_text or not question_text:
             return None
@@ -158,12 +155,12 @@ class QuizGenerator:
         full_question = f"**Clinical Scenario:**\n\n{scenario_text}\n\n**Question:** {question_text}"
 
         return {
-            'type': 'short_answer',
-            'question': full_question,
-            'correct_answer': correct_response,
-            'explanation': reasoning,
-            'difficulty': 'hard',
-            'bloom_level': 'Analyze'
+            "type": "short_answer",
+            "question": full_question,
+            "correct_answer": correct_response,
+            "explanation": reasoning,
+            "difficulty": "hard",
+            "bloom_level": "Analyze",
         }
 
     def generate_quiz_file(self, output_path: Path):
@@ -173,7 +170,7 @@ class QuizGenerator:
             return
 
         today = datetime.now().strftime("%Y-%m-%d")
-        topic_name = self.metadata['name']
+        topic_name = self.metadata["name"]
         total_questions = len(self.questions)
 
         # Build frontmatter (OCDS-compatible)
@@ -194,8 +191,8 @@ student_answers: []
 tags:
   - quiz
   - {self.class_id.lower()}
-  - {self.metadata['domain'].lower()}
-  - {self.metadata['subject'].lower().replace(' ', '-')}
+  - {self.metadata["domain"].lower()}
+  - {self.metadata["subject"].lower().replace(" ", "-")}
 submission_status: not_started
 submitted_date: null
 percentage: 0
@@ -233,70 +230,70 @@ updated: {today}
 
         try:
             output_path.parent.mkdir(parents=True, exist_ok=True)
-            with open(output_path, 'w', encoding='utf-8') as f:
+            with open(output_path, "w", encoding="utf-8") as f:
                 f.write(full_content)
             print(f"✅ Quiz file created: {output_path}")
         except Exception as e:
             print(f"❌ Error writing quiz file: {e}")
 
-    def _generate_question_markdown(self, num: int, question: Dict[str, Any]) -> str:
+    def _generate_question_markdown(self, num: int, question: dict[str, Any]) -> str:
         """Generate markdown for a single question."""
-        q_type = question['type']
-        difficulty = question.get('difficulty', 'medium')
-        bloom = question.get('bloom_level', 'Remember')
+        q_type = question["type"]
+        difficulty = question.get("difficulty", "medium")
+        bloom = question.get("bloom_level", "Remember")
 
         markdown = f"## Question {num}\n\n"
         markdown += f"**Difficulty:** {difficulty.capitalize()} | **Bloom Level:** {bloom}\n\n"
         markdown += f"{question['question']}\n\n"
 
-        if q_type == 'multiple_choice':
+        if q_type == "multiple_choice":
             markdown += self._generate_multiple_choice_markdown(num, question)
-        elif q_type == 'true_false':
+        elif q_type == "true_false":
             markdown += self._generate_true_false_markdown(num, question)
-        elif q_type == 'short_answer':
+        elif q_type == "short_answer":
             markdown += self._generate_short_answer_markdown(num, question)
 
         return markdown
 
-    def _generate_multiple_choice_markdown(self, num: int, question: Dict[str, Any]) -> str:
+    def _generate_multiple_choice_markdown(self, num: int, question: dict[str, Any]) -> str:
         """Generate markdown for multiple choice question."""
         markdown = ""
-        correct_letter = question['correct_answer']
+        correct_letter = question["correct_answer"]
 
-        for option in question['options']:
-            letter = option['letter']
-            text = option['text']
-            is_correct = (letter == correct_letter)
+        for option in question["options"]:
+            letter = option["letter"]
+            text = option["text"]
+            is_correct = letter == correct_letter
             checkbox = "[x]" if is_correct else "[ ]"
             markdown += f"- {checkbox} {letter}) {text}\n"
 
         markdown += f"\n**Correct Answer:** {correct_letter}\n\n"
-        
-        if question.get('explanation'):
+
+        if question.get("explanation"):
             markdown += f"**Explanation:** {question['explanation']}\n\n"
 
         return markdown
 
-    def _generate_true_false_markdown(self, num: int, question: Dict[str, Any]) -> str:
+    def _generate_true_false_markdown(self, num: int, question: dict[str, Any]) -> str:
         """Generate markdown for true/false question."""
-        correct = question['correct_answer']
-        
+        correct = question["correct_answer"]
+
         markdown = f"- [{'x' if correct == 'True' else ' '}] True\n"
         markdown += f"- [{'x' if correct == 'False' else ' '}] False\n\n"
         markdown += f"**Correct Answer:** {correct}\n\n"
-        
-        if question.get('explanation'):
+
+        if question.get("explanation"):
             markdown += f"**Explanation:** {question['explanation']}\n\n"
 
         return markdown
 
-    def _generate_short_answer_markdown(self, num: int, question: Dict[str, Any]) -> str:
+    def _generate_short_answer_markdown(self, num: int, question: dict[str, Any]) -> str:
         """Generate markdown for short answer question."""
-        markdown = f"**Your Answer:**\n\n"
-        markdown += f"_[Write your answer here]_\n\n"
+        markdown = "**Your Answer:**\n\n"
+        markdown += "_[Write your answer here]_\n\n"
         markdown += f"**Correct Answer:** {question['correct_answer']}\n\n"
-        
-        if question.get('explanation'):
+
+        if question.get("explanation"):
             markdown += f"**Explanation:** {question['explanation']}\n\n"
 
         return markdown
@@ -304,7 +301,7 @@ updated: {today}
     def _generate_grading_section(self) -> str:
         """Generate auto-grading DataviewJS section."""
         total_questions = len(self.questions)
-        
+
         grading = """## 📊 Quiz Results
 
 ```dataviewjs
@@ -322,17 +319,17 @@ const correctAnswers = [
 
         # Add correct answers array
         for i, q in enumerate(self.questions):
-            if q['type'] == 'multiple_choice':
+            if q["type"] == "multiple_choice":
                 answer = f'"{q["correct_answer"]}"'
-            elif q['type'] == 'true_false':
+            elif q["type"] == "true_false":
                 answer = f'"{q["correct_answer"]}"'
             else:
                 answer = f'"{q["correct_answer"]}"'
-            
-            grading += f'  {answer}'
+
+            grading += f"  {answer}"
             if i < len(self.questions) - 1:
-                grading += ','
-            grading += f'  // Q{i+1}\n'
+                grading += ","
+            grading += f"  // Q{i + 1}\n"
 
         grading += """];
 
@@ -409,18 +406,18 @@ def main():
 
     # Parse arguments
     if len(sys.argv) < 2:
-        print("Usage: python generate_quiz_from_root.py \"Root Note Name\" [--output-dir DIR]")
+        print('Usage: python generate_quiz_from_root.py "Root Note Name" [--output-dir DIR]')
         print("\nExample:")
-        print("  python generate_quiz_from_root.py \"Blood Stasis Pattern\"")
-        print("  python generate_quiz_from_root.py \"Blood Stasis Pattern\" --output-dir \"Materials/TCM_101\"")
+        print('  python generate_quiz_from_root.py "Blood Stasis Pattern"')
+        print('  python generate_quiz_from_root.py "Blood Stasis Pattern" --output-dir "Materials/TCM_101"')
         sys.exit(1)
 
     note_name = sys.argv[1]
     output_dir = None
 
     # Check for output directory argument
-    if '--output-dir' in sys.argv:
-        idx = sys.argv.index('--output-dir')
+    if "--output-dir" in sys.argv:
+        idx = sys.argv.index("--output-dir")
         if idx + 1 < len(sys.argv):
             output_dir = Path(sys.argv[idx + 1])
 

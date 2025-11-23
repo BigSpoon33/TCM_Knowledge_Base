@@ -5,8 +5,37 @@
   "showAttachments": false,
   "hideUnresolved": false,
   "showOrphans": true,
-  "collapse-color-groups": true,
-  "colorGroups": [],
+  "collapse-color-groups": false,
+  "colorGroups": [
+    {
+      "query": "tag:#herb",
+      "color": {
+        "a": 1,
+        "rgb": 14701138
+      }
+    },
+    {
+      "query": "tag:#formula",
+      "color": {
+        "a": 1,
+        "rgb": 14725458
+      }
+    },
+    {
+      "query": "tag:#pattern",
+      "color": {
+        "a": 1,
+        "rgb": 11657298
+      }
+    },
+    {
+      "query": "tag:#acupuncture",
+      "color": {
+        "a": 1,
+        "rgb": 5431378
+      }
+    }
+  ],
   "collapse-display": true,
   "showArrow": false,
   "textFadeMultiplier": 0,
@@ -17,6 +46,6 @@
   "repelStrength": 4.16666666666667,
   "linkStrength": 0,
   "linkDistance": 360,
-  "scale": 0.0453014251830192,
-  "close": true
+  "scale": 0.061401687842636415,
+  "close": false
 }

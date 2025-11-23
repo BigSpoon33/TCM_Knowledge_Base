@@ -1,121 +1,116 @@
-"""Import command for capsule CLI."""
-
-import typer
+import logging
 from pathlib import Path
+
+import questionary
+import typer
+from rich.console import Console
+
 from capsule.core.importer import Importer
+from capsule.exceptions import CapsuleError
 from capsule.models.config import Config
 from capsule.utils.backup import create_backup
 
 app = typer.Typer()
+console = Console()
+logger = logging.getLogger(__name__)
 
 
 @app.command(name="import")
-def import_cmd(
-    capsule_path: Path = typer.Argument(
-        ..., help="Path to the capsule file (.capsule zip) or folder to import.", exists=True
-    ),
-    target_vault: Path = typer.Option(None, "--target", "-t", help="Target vault path (defaults to config value)."),
-    no_backup: bool = typer.Option(False, "--no-backup", help="Skip the pre-import backup."),
-    force: bool = typer.Option(False, "--force", "-f", help="Skip interactive approval and force import."),
+def import_capsule(
+    ctx: typer.Context,
+    path: Path = typer.Argument(..., help="Path to the capsule file (.zip) or directory to import.", exists=True),
+    auto_approve: bool = typer.Option(False, "--yes", "-y", help="Automatically approve the import without a preview."),
+    dry_run: bool = typer.Option(False, "--dry-run", help="Show the import preview without performing the import."),
+    no_backup: bool = typer.Option(False, "--no-backup", help="Skip creating a backup before import."),
 ):
     """
-    Import a capsule into your Obsidian vault with preview.
-
-    This command extracts the capsule, analyzes its contents, validates
-    the structure, and shows a detailed preview of what will be imported.
-
-    The preview includes:
-    - Capsule metadata (ID, name, version, domain type, file count)
-    - Impact analysis (new files, updated files, potential conflicts)
-    - Detailed lists of files that will be created or updated
-    - Merge strategy for each file (section-level or additive)
-    - Any detected conflicts with reasons
+    Imports a capsule into the vault, with an interactive preview.
 
     Examples:
-        # Import a capsule zip file with preview
-        capsule import TCM_Herbs_v1.capsule
+        # Interactive import with preview
+        capsule import /path/to/capsule.zip
 
-        # Import from a folder
-        capsule import ./my-capsule-folder
+        # Import without confirmation (useful for scripts)
+        capsule import /path/to/capsule.zip --yes
 
-        # Import to a specific vault (override config)
-        capsule import my-capsule.capsule --target ~/Documents/MyVault
+        # Preview changes without modifying the vault
+        capsule import /path/to/capsule.zip --dry-run
 
-        # Skip backup (not recommended)
-        capsule import my-capsule.capsule --no-backup
-
-        # Force import without interactive approval
-        capsule import my-capsule.capsule --force
+        # Import without creating a backup
+        capsule import /path/to/capsule.zip --no-backup
     """
     backup_path = None
+    importer = None
     try:
         # Load configuration
-        config = Config.load_config()
+        config_path = ctx.obj.get("config_path") if ctx.obj else None
 
-        # Override vault path if specified
-        if target_vault:
-            config.user["vault_path"] = str(target_vault)
+        if config_path:
+            config = Config.from_yaml_file(config_path)
+        else:
+            config = Config.load_config()
 
         importer = Importer(config)
 
-        # Create backup if requested
+        # Extract and Load
+        with console.status("[bold green]Loading capsule..."):
+            importer.extract_capsule(path)
+            importer.load_cypher()
+            importer.validate_capsule()
+
+        # Generate Preview
+        with console.status("[bold green]Analyzing impact..."):
+            vault_path = Path(config.get("user.vault_path"))
+            preview = importer.generate_preview(vault_path)
+
+        # Display Preview
+        importer.display_preview(preview)
+
+        # Handle Dry Run
+        if dry_run:
+            typer.secho("\n[Dry Run] No changes were made to the vault.", fg=typer.colors.YELLOW)
+            return
+
+        # Handle Approval
+        if not auto_approve:
+            if preview.conflicts:
+                confirm = questionary.confirm(
+                    "Conflicts detected. Do you want to proceed with the import?", default=False
+                ).ask()
+            else:
+                confirm = questionary.confirm("Do you want to proceed with the import?", default=True).ask()
+
+            if not confirm:
+                typer.secho("Import cancelled by user.", fg=typer.colors.YELLOW)
+                raise typer.Exit(code=0)
+
+        # Execute Import
+        # Create backup first (unless disabled)
         if not no_backup:
             vault_path_str = config.get("user.vault_path")
-            if not vault_path_str:
-                raise ValueError("Vault path is not set in the configuration.")
             vault_path = Path(vault_path_str)
-
             backup_dir_str = config.get("import.backup_location", str(Path.home() / ".capsule" / "backups"))
             backup_dir = Path(backup_dir_str)
 
-            typer.echo("Creating vault backup...")
-            backup_path = create_backup(vault_path, backup_dir)
+            with console.status("[bold green]Creating backup..."):
+                backup_path = create_backup(vault_path, backup_dir)
             typer.echo(f"Backup created at: {backup_path}")
 
-        # Extract capsule (handles both zip and folder)
-        importer.extract_capsule(capsule_path)
+        with console.status("[bold green]Executing import..."):
+            importer.execute_import(preview)
 
-        # Load and parse cypher
-        importer.load_cypher()
-
-        # Validate capsule structure
-        importer.validate_capsule()
-
-        # Analyze impact on vault
-        vault_path = Path(config.get("user.vault_path"))
-        preview = importer.analyze_impact(vault_path)
-
-        # Display preview
-        importer.display_preview(preview)
-
-        # Interactive Approval
-        if not force:
-            if not typer.confirm("Do you want to proceed with the import?"):
-                typer.echo("Import cancelled by user.")
-                raise typer.Exit()
-
-        # Execute Import
-        importer.execute_import(preview)
-
-    except FileNotFoundError as e:
-        typer.secho(f"❌ File Error: {e}", fg=typer.colors.RED, err=True)
-        raise typer.Exit(code=1)
-    except ValueError as e:
-        typer.secho(f"❌ Validation Error: {e}", fg=typer.colors.RED, err=True)
-        raise typer.Exit(code=1)
     except typer.Exit:
         raise
+    except CapsuleError as e:
+        logger.error(f"Capsule Error: {e}")
+        typer.secho(f"❌ Error: {e}", fg=typer.colors.RED)
+        raise typer.Exit(code=1)
     except Exception as e:
-        typer.secho(f"❌ Unexpected Error: {e}", fg=typer.colors.RED, err=True)
+        logger.exception("Unexpected error during import")
+        typer.secho(f"❌ Unexpected error: {e}", fg=typer.colors.RED)
         if backup_path:
             typer.echo(f"Your vault has been backed up at: {backup_path}")
-        typer.echo("\nPlease report this issue with the full error message.")
         raise typer.Exit(code=1)
     finally:
-        # Clean up temporary extraction directory
-        if "importer" in locals():
+        if importer:
             importer.cleanup()
-
-
-if __name__ == "__main__":
-    app()

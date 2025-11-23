@@ -1,11 +1,11 @@
 # capsule/commands/init.py
-import typer
-from rich.console import Console
-import questionary
 from pathlib import Path
 
+import questionary
+import typer
+from rich.console import Console
+
 from ..models.config import Config
-from ..utils.exceptions import ConfigError
 
 console = Console()
 

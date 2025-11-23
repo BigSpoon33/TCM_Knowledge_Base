@@ -1,19 +1,17 @@
-from ..core.researcher import ResearchProvider
-from ..core.validator import Validator
-from ..core.template_engine import TemplateEngine
-from ..core.slides_generator import SlidesGenerator
-from ..core.conversation_generator import ConversationGenerator
-from ..models.research import ResearchResult
-import jinja2
 import json
 from dataclasses import asdict
-from typing import List, Dict
-import tempfile
-import yaml
-from pathlib import Path
 from datetime import datetime
-from ..constants import TEMPLATES_DIR
-from ..models.capsule import Capsule
+from pathlib import Path
+
+import jinja2
+
+from ..constants import MATERIAL_CONFIG, TEMPLATES_DIR
+from ..core.conversation_generator import ConversationGenerator
+from ..core.researcher import ResearchProvider
+from ..core.slides_generator import SlidesGenerator
+from ..core.template_engine import TemplateEngine
+from ..core.validator import Validator
+from ..models.research import ResearchResult
 
 
 class ContentGenerator:
@@ -29,11 +27,11 @@ class ContentGenerator:
         return self.template_env.get_template(template_name)
 
     def generate(
-        self, topic: str, template_name: str, materials: List[str], source_path: Path = None
-    ) -> Dict[str, str]:
+        self, topic: str, template_name: str, materials: list[str], source_path: Path = None
+    ) -> dict[str, str]:
         if source_path and source_path.exists():
             # Read content from source file
-            with open(source_path, "r", encoding="utf-8") as f:
+            with open(source_path, encoding="utf-8") as f:
                 content = f.read()
 
             # Create a pseudo-research result from the file content
@@ -44,114 +42,100 @@ class ContentGenerator:
         generated_content = {}
 
         if "all" in materials:
-            materials = ["flashcards", "quiz", "slides", "conversation", "study_material", "tasks", "root_note"]
+            materials = list(MATERIAL_CONFIG.keys())
 
-        # Create a temporary directory for validation, but we will return content to be saved by the CLI
-        # Actually, the CLI expects us to return a dict of content, but now we want to manage folders.
-        # The CLI's generate command handles saving, but it saves flatly.
-        # We need to change the CLI to respect the folder structure or handle saving here.
-        # Given the current architecture, the CLI iterates over the returned dict and saves files.
-        # We can return keys with paths like "Topic/File.md" to hint structure,
-        # OR we can update the CLI to create the folder.
-
-        # Let's stick to returning content and let the CLI handle saving,
-        # BUT we will update the CLI to create the topic folder.
-
-        # Wait, the user wants a specific folder structure: Materials/Topic_Name/
-        # The CLI currently takes an --output dir.
-        # If we return keys like "Topic_Name/Flashcards_Topic.md", the CLI might fail if it just joins paths.
-
-        # Let's generate the content first.
-
-        # 1. Root Note
-        root_note_content = ""
+        # 1. Generate Root Note first (if requested) as it serves as base content
+        base_content = research_result.content
         if "root_note" in materials:
-            if template_name.endswith(".md"):
-                root_note_content = self._generate_root_note_from_markdown(
-                    topic, template_name, research_result.content
-                )
-            else:
-                # Default Jinja2 handling for root note
-                try:
-                    template = self._load_template(template_name)
-                    context = asdict(research_result)
-                    if research_result.metadata:
-                        context.update(research_result.metadata)
-                    context["topic"] = topic
-                    context["created"] = datetime.now().strftime("%Y-%m-%d")
-                    root_note_content = template.render(context)
-                except jinja2.TemplateNotFound:
-                    print("Warning: root_note template not found.")
-
+            root_note_content = self._generate_root_note(topic, template_name, research_result)
             generated_content["root_note"] = root_note_content
+            if root_note_content:
+                base_content = root_note_content
 
-        # Use root note content for other materials if available, otherwise research content
-        base_content = root_note_content if root_note_content else research_result.content
+        # 2. Generate other materials
+        for material in materials:
+            if material == "root_note":
+                continue  # Already handled
 
-        # 2. Slides
-        if "slides" in materials:
-            # Check if it's a pattern to use specialized generator
-            is_pattern = "pattern" in topic.lower() or "deficiency" in topic.lower()
-            if is_pattern:
-                generated_content["slides"] = self.slides_generator.generate_pattern_slides(base_content, topic)
+            if material not in MATERIAL_CONFIG:
+                print(f"Warning: Unknown material type '{material}'")
+                continue
+
+            # Dynamic dispatch to _generate_{material}
+            handler_name = f"_generate_{material}"
+            if hasattr(self, handler_name):
+                try:
+                    content = getattr(self, handler_name)(topic, base_content, research_result)
+                    if content:
+                        generated_content[material] = content
+                except Exception as e:
+                    print(f"Error generating {material}: {e}")
             else:
-                generated_content["slides"] = self.slides_generator.generate_from_content(base_content, topic)
-
-        # 3. Conversation
-        if "conversation" in materials:
-            generated_content["conversation"] = self.conversation_generator.generate_script(base_content, topic)
-
-        # 4. Flashcards
-        if "flashcards" in materials:
-            try:
-                template = self._load_template("flashcards.md.j2")
-                context = asdict(research_result)
-                context["topic"] = topic
-                context["created"] = datetime.now().strftime("%Y-%m-%d")
-                context["tags"] = ["capsule", "flashcards"] + [
-                    t.strip().lower().replace(" ", "_") for t in topic.split(" ")
-                ]
-
-                if "flashcards" not in context:
-                    context["flashcards"] = self._generate_flashcards_data(base_content)
-
-                context["total_cards"] = len(context.get("flashcards", []))
-                generated_content["flashcards"] = template.render(context)
-            except Exception as e:
-                print(f"Error generating flashcards: {e}")
-
-        # 5. Quiz
-        if "quiz" in materials:
-            try:
-                template = self._load_template("quiz.md.j2")
-                context = asdict(research_result)
-                context["topic"] = topic
-                context["created"] = datetime.now().strftime("%Y-%m-%d")
-                context["tags"] = ["capsule", "quiz"] + [t.strip().lower().replace(" ", "_") for t in topic.split(" ")]
-
-                if "questions" not in context:
-                    context["questions"] = self._generate_quiz_data(base_content)
-
-                context["total_questions"] = len(context.get("questions", []))
-                generated_content["quiz"] = template.render(context)
-            except Exception as e:
-                print(f"Error generating quiz: {e}")
-
-        # 6. Study Material
-        if "study_material" in materials:
-            generated_content["study_material"] = (
-                f"# Study Guide for {topic}\n\n*This is an auto-generated study guide based on the root note.*\n\n[[Root_Note_{topic.replace(' ', '_')}]]"
-            )
-
-        # 7. Tasks
-        if "tasks" in materials:
-            generated_content["tasks"] = (
-                f"# Tasks for {topic}\n\n- [ ] Review [[{topic}_Flashcards]]\n- [ ] Take [[{topic}_Quiz]]\n- [ ] Review [[{topic}_Slides]]\n- [ ] Complete [[{topic}_Guided_Conversation]]"
-            )
+                print(f"Warning: No handler found for material '{material}'")
 
         return generated_content
 
-    def _generate_flashcards_data(self, content: str) -> List[Dict]:
+    def _generate_root_note(self, topic: str, template_name: str, research_result: ResearchResult) -> str:
+        if template_name.endswith(".md"):
+            return self._generate_root_note_from_markdown(topic, template_name, research_result.content)
+        else:
+            # Default Jinja2 handling for root note
+            try:
+                template = self._load_template(template_name)
+                context = asdict(research_result)
+                if research_result.metadata:
+                    context.update(research_result.metadata)
+                context["topic"] = topic
+                context["created"] = datetime.now().strftime("%Y-%m-%d")
+                return template.render(context)
+            except jinja2.TemplateNotFound:
+                print("Warning: root_note template not found.")
+                return ""
+
+    def _generate_slides(self, topic: str, base_content: str, research_result: ResearchResult) -> str:
+        # Check if it's a pattern to use specialized generator
+        is_pattern = "pattern" in topic.lower() or "deficiency" in topic.lower()
+        if is_pattern:
+            return self.slides_generator.generate_pattern_slides(base_content, topic)
+        else:
+            return self.slides_generator.generate_from_content(base_content, topic)
+
+    def _generate_conversation(self, topic: str, base_content: str, research_result: ResearchResult) -> str:
+        return self.conversation_generator.generate_script(base_content, topic)
+
+    def _generate_flashcards(self, topic: str, base_content: str, research_result: ResearchResult) -> str:
+        template = self._load_template(MATERIAL_CONFIG["flashcards"]["template"])
+        context = asdict(research_result)
+        context["topic"] = topic
+        context["created"] = datetime.now().strftime("%Y-%m-%d")
+        context["tags"] = ["capsule", "flashcards"] + [t.strip().lower().replace(" ", "_") for t in topic.split(" ")]
+
+        if "flashcards" not in context:
+            context["flashcards"] = self._generate_flashcards_data(base_content)
+
+        context["total_cards"] = len(context.get("flashcards", []))
+        return template.render(context)
+
+    def _generate_quiz(self, topic: str, base_content: str, research_result: ResearchResult) -> str:
+        template = self._load_template(MATERIAL_CONFIG["quiz"]["template"])
+        context = asdict(research_result)
+        context["topic"] = topic
+        context["created"] = datetime.now().strftime("%Y-%m-%d")
+        context["tags"] = ["capsule", "quiz"] + [t.strip().lower().replace(" ", "_") for t in topic.split(" ")]
+
+        if "questions" not in context:
+            context["questions"] = self._generate_quiz_data(base_content)
+
+        context["total_questions"] = len(context.get("questions", []))
+        return template.render(context)
+
+    def _generate_study_material(self, topic: str, base_content: str, research_result: ResearchResult) -> str:
+        return f"# Study Guide for {topic}\n\n*This is an auto-generated study guide based on the root note.*\n\n[[Root_Note_{topic.replace(' ', '_')}]]"
+
+    def _generate_tasks(self, topic: str, base_content: str, research_result: ResearchResult) -> str:
+        return f"# Tasks for {topic}\n\n- [ ] Review [[{topic}_Flashcards]]\n- [ ] Take [[{topic}_Quiz]]\n- [ ] Review [[{topic}_Slides]]\n- [ ] Complete [[{topic}_Guided_Conversation]]"
+
+    def _generate_flashcards_data(self, content: str) -> list[dict]:
         """Generates flashcard data from content using LLM."""
         prompt = f"""
         Create 5 flashcards based on the following text.
@@ -172,7 +156,7 @@ class ContentGenerator:
             print(f"Error generating flashcards: {e}")
             return []
 
-    def _generate_quiz_data(self, content: str) -> List[Dict]:
+    def _generate_quiz_data(self, content: str) -> list[dict]:
         """Generates quiz data from content using LLM."""
         prompt = f"""
         Create 5 multiple choice questions based on the following text.

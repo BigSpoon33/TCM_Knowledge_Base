@@ -3,12 +3,12 @@
 Understanding Assessor - AI-powered assessment of student responses.
 """
 
+import json
 import os
 import re
-import json
-from typing import Dict, List, Any
 import sys
 from pathlib import Path
+from typing import Any
 
 # Add parent directory to path for imports
 sys.path.insert(0, str(Path(__file__).parent))
@@ -25,18 +25,14 @@ class UnderstandingAssessor:
         Args:
             api_key (str): Gemini API key. If None, uses GEMINI_API_KEY env var.
         """
-        self.api_key = api_key or os.environ.get('GEMINI_API_KEY')
+        self.api_key = api_key or os.environ.get("GEMINI_API_KEY")
         if not self.api_key:
             raise ValueError("GEMINI_API_KEY not set.")
         self.researcher = GeminiDeepResearch(api_key=self.api_key)
 
     def assess_response(
-        self,
-        question: str,
-        student_response: str,
-        reference_content: str,
-        heading_title: str = ""
-    ) -> Dict[str, Any]:
+        self, question: str, student_response: str, reference_content: str, heading_title: str = ""
+    ) -> dict[str, Any]:
         """
         Assess student understanding based on their response.
 
@@ -105,22 +101,22 @@ Return ONLY the JSON object, no other text.
 
         try:
             result = self.researcher.research(prompt, use_search=False)
-            assessment = self._parse_assessment(result['content'])
+            assessment = self._parse_assessment(result["content"])
             return assessment
         except Exception as e:
             print(f"Error in assessment: {e}")
             # Return default assessment on error
             return {
-                'score': 50,
-                'level': 'fair',
-                'missing_concepts': [],
-                'misconceptions': [],
-                'strengths': [],
-                'feedback': "Unable to assess response. Please try again.",
-                'next_action': 'reinforce'
+                "score": 50,
+                "level": "fair",
+                "missing_concepts": [],
+                "misconceptions": [],
+                "strengths": [],
+                "feedback": "Unable to assess response. Please try again.",
+                "next_action": "reinforce",
             }
 
-    def _parse_assessment(self, ai_response: str) -> Dict[str, Any]:
+    def _parse_assessment(self, ai_response: str) -> dict[str, Any]:
         """
         Parse AI response into structured assessment.
 
@@ -132,12 +128,12 @@ Return ONLY the JSON object, no other text.
         """
         # Try to extract JSON from response
         # Sometimes AI wraps JSON in markdown code blocks
-        json_match = re.search(r'```json\s*(\{.*?\})\s*```', ai_response, re.DOTALL)
+        json_match = re.search(r"```json\s*(\{.*?\})\s*```", ai_response, re.DOTALL)
         if json_match:
             json_str = json_match.group(1)
         else:
             # Try to find JSON object directly
-            json_match = re.search(r'\{.*\}', ai_response, re.DOTALL)
+            json_match = re.search(r"\{.*\}", ai_response, re.DOTALL)
             if json_match:
                 json_str = json_match.group(0)
             else:
@@ -147,25 +143,32 @@ Return ONLY the JSON object, no other text.
             assessment = json.loads(json_str)
 
             # Validate required fields
-            required_fields = ['score', 'level', 'missing_concepts', 'misconceptions',
-                             'strengths', 'feedback', 'next_action']
+            required_fields = [
+                "score",
+                "level",
+                "missing_concepts",
+                "misconceptions",
+                "strengths",
+                "feedback",
+                "next_action",
+            ]
             for field in required_fields:
                 if field not in assessment:
-                    assessment[field] = [] if field in ['missing_concepts', 'misconceptions', 'strengths'] else ""
+                    assessment[field] = [] if field in ["missing_concepts", "misconceptions", "strengths"] else ""
 
             # Ensure score is in range
-            assessment['score'] = max(0, min(100, assessment['score']))
+            assessment["score"] = max(0, min(100, assessment["score"]))
 
             # Ensure level matches score
-            if assessment['score'] >= 71:
-                assessment['level'] = 'good'
-                assessment['next_action'] = 'advance'
-            elif assessment['score'] >= 41:
-                assessment['level'] = 'fair'
-                assessment['next_action'] = 'reinforce'
+            if assessment["score"] >= 71:
+                assessment["level"] = "good"
+                assessment["next_action"] = "advance"
+            elif assessment["score"] >= 41:
+                assessment["level"] = "fair"
+                assessment["next_action"] = "reinforce"
             else:
-                assessment['level'] = 'poor'
-                assessment['next_action'] = 'reinforce'
+                assessment["level"] = "poor"
+                assessment["next_action"] = "reinforce"
 
             return assessment
 
@@ -175,10 +178,7 @@ Return ONLY the JSON object, no other text.
             raise
 
     def generate_reinforcement_explanation(
-        self,
-        heading_title: str,
-        reference_content: str,
-        missing_concepts: List[str]
+        self, heading_title: str, reference_content: str, missing_concepts: list[str]
     ) -> str:
         """
         Generate explanation to reinforce missing concepts.
@@ -219,14 +219,9 @@ Keep it concise and focused on the missing concepts.
 """
 
         result = self.researcher.research(prompt, use_search=False)
-        return result['content'].strip()
+        return result["content"].strip()
 
-    def generate_follow_up_question(
-        self,
-        heading_title: str,
-        missing_concepts: List[str],
-        attempt_number: int
-    ) -> str:
+    def generate_follow_up_question(self, heading_title: str, missing_concepts: list[str], attempt_number: int) -> str:
         """
         Generate a follow-up question to test understanding.
 
@@ -257,10 +252,10 @@ Return ONLY the question, no other text.
 """
 
         result = self.researcher.research(prompt, use_search=False)
-        return result['content'].strip()
+        return result["content"].strip()
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     # Test the assessor
     assessor = UnderstandingAssessor()
 

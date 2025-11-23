@@ -1,7 +1,8 @@
 import pytest
-from capsule.core.merger import section_level_merge, additive_merge, Conflict, ConflictDetector, merge_notes
-from capsule.models.note import Note
+
+from capsule.core.merger import ConflictDetector, additive_merge, merge_notes, section_level_merge
 from capsule.exceptions import MergeConflict
+from capsule.models.note import Note
 
 
 class TestSectionLevelMerge:
@@ -694,8 +695,8 @@ class TestProvenanceTracking:
         Test that source_capsules array is correctly written to file
         when Note.to_file() is called.
         """
-        import tempfile
         import os
+        import tempfile
 
         existing = Note(
             file_path="test.md",
