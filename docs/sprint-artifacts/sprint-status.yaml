@@ -103,7 +103,7 @@ development_status:
 
   # Epic 6: Capsule Packaging
   # Cypher generation, file inventory management, export to folder/zip
-  epic-6: backlog
+  epic-6: done
   6-1-capsule-packager-core: done
   6-2-cypher-generation-from-capsule: done
   6-3-file-inventory-management: done
@@ -113,7 +113,7 @@ development_status:
 
   # Epic 7: Import/Export Operations
   # Backup management, import/export commands, version conflict detection, preview
-  epic-7: backlog
+  epic-7: done
   7-1-backup-management-system: done
   7-2-capsule-exporter-implementation: done
   7-3-capsule-importer-with-preview: done
@@ -124,7 +124,7 @@ development_status:
 
   # Epic 8: Merge Strategies
   # Section-level merge, additive merge, conflict detection, provenance tracking
-  epic-8: backlog
+  epic-8: done
   8-1-frontmatter-parser-utilities: done
   8-2-section-level-merge-algorithm: done
   8-3-additive-merge-algorithm: done
@@ -197,12 +197,12 @@ development_status:
   # Epic 14: Testing Infrastructure
   # Test framework, unit tests, integration tests, E2E tests, CI integration
   # Renumbered from Epic 13 after dashboard split
-  epic-14: in-progress
+  epic-14: done
   14-1-pytest-configuration-and-fixtures: done
   14-2-unit-tests-for-core-logic: done
   14-3-integration-tests-for-commands: done
-  14-4-e2e-tests-for-full-workflows: backlog
-  14-5-test-coverage-and-ci-integration: backlog
+  14-4-e2e-tests-for-full-workflows: done
+  14-5-test-coverage-and-ci-integration: done
   epic-14-retrospective: optional
 
   # Preparation Sprint (2025-11-23)

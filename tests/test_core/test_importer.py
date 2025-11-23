@@ -478,3 +478,56 @@ class TestCleanup:
 
         # Should not raise any exceptions
         importer.cleanup()
+
+
+class TestExecuteImport:
+    """Test import execution"""
+
+    def test_execute_import_new_files(self, mock_config, sample_capsule_folder):
+        """Test executing import with new files"""
+        importer = Importer(mock_config)
+        importer.extracted_path = sample_capsule_folder
+        importer.load_cypher()
+
+        vault_path = Path(mock_config.get("user.vault_path"))
+
+        # Create preview with new files
+        capsule_info = CapsuleInfo("test_capsule_v1", "1.0.0", 2, "Test", "education")
+        impact = Impact(2, 0, 0)
+        new_files = ["notes/test_note_1.md", "notes/test_note_2.md"]
+        preview = ImportPreview(capsule_info, impact, new_files, [], [])
+
+        # Execute import
+        importer.execute_import(preview)
+
+        # Verify files were copied
+        assert (vault_path / "notes/test_note_1.md").exists()
+        assert (vault_path / "notes/test_note_2.md").exists()
+
+        # Verify dashboards were generated
+        assert (vault_path / "test_capsule_v1/capsule-dashboard.md").exists()
+        assert (vault_path / "Master Dashboard.md").exists()
+
+    def test_execute_import_updates(self, mock_config, sample_capsule_folder):
+        """Test executing import with updates (replace strategy)"""
+        importer = Importer(mock_config)
+        importer.extracted_path = sample_capsule_folder
+        importer.load_cypher()
+
+        vault_path = Path(mock_config.get("user.vault_path"))
+        (vault_path / "notes").mkdir(parents=True, exist_ok=True)
+
+        # Create existing file
+        (vault_path / "notes/test_note_1.md").write_text("Old content")
+
+        # Create preview with update
+        capsule_info = CapsuleInfo("test_capsule_v1", "1.0.0", 1, "Test", "education")
+        impact = Impact(0, 1, 0)
+        updates = [UpdateDetail("notes/test_note_1.md", "replace", "update")]
+        preview = ImportPreview(capsule_info, impact, [], updates, [])
+
+        # Execute import
+        importer.execute_import(preview)
+
+        # Verify file was updated
+        assert (vault_path / "notes/test_note_1.md").read_text() != "Old content"

@@ -1,0 +1,251 @@
+<story-context id=".bmad/bmm/workflows/4-implementation/story-context/template" v="1.0">
+  <metadata>
+    <epicId>14</epicId>
+    <storyId>5</storyId>
+    <title>test-coverage-and-ci-integration</title>
+    <status>drafted</status>
+    <generatedAt>2025-11-23</generatedAt>
+    <generator>BMAD Story Context Workflow</generator>
+    <sourceStoryPath>docs/sprint-artifacts/14-5-test-coverage-and-ci-integration.md</sourceStoryPath>
+  </metadata>
+
+  <story>
+    <asA>Developer</asA>
+    <iWant>to integrate test coverage reporting into the CI pipeline and establish coverage baselines</iWant>
+    <soThat>I can track test quality metrics and prevent untested code from being merged</soThat>
+    <tasks>
+      - Configure pytest-cov in pyproject.toml (AC: 1)
+        - Add pytest-cov to dev dependencies
+        - Configure coverage options in [tool.pytest.ini_options]
+        - Set coverage source paths and omit patterns
+        - Configure terminal and HTML report generation
+      - Establish Coverage Baselines (AC: 2)
+        - Run coverage analysis on current codebase
+        - Document current coverage percentage
+        - Set realistic minimum thresholds (--cov-fail-under)
+        - Configure per-file and overall thresholds
+      - Enhance GitHub Actions Workflow (AC: 3)
+        - Update .github/workflows/test.yml to run pytest with coverage
+        - Add coverage threshold enforcement (fail build if below minimum)
+        - Configure coverage report artifact upload
+        - Test workflow on feature branch before merging
+      - Add Coverage Reporting (AC: 4)
+        - Configure HTML coverage report generation
+        - Upload HTML reports as GitHub Actions artifacts
+        - Add step to display coverage summary in CI logs
+        - Optional: Integrate coverage service (Codecov/Coveralls)
+      - Add Coverage Badge (AC: 5)
+        - Generate coverage badge (shields.io or coverage service)
+        - Add badge to README.md with link to detailed report
+        - Configure auto-update mechanism
+      - Documentation (AC: 6)
+        - Create docs/testing-coverage.md with coverage workflow guide
+        - Update README.md testing section with coverage info
+        - Add coverage workflow to developer onboarding docs
+    </tasks>
+  </story>
+
+  <acceptanceCriteria>
+    1. **Coverage Tool Integration**: pytest-cov must be configured to generate coverage reports in multiple formats (terminal, HTML, XML).
+    2. **Coverage Baseline**: Establish minimum coverage thresholds (e.g., 80% overall, 60% for new files) and enforce in CI.
+    3. **CI Workflow Enhancement**: GitHub Actions workflow must run coverage analysis and fail if thresholds are not met.
+    4. **Coverage Reporting**: Coverage reports must be accessible (HTML artifact upload, or comment on PR).
+    5. **Badge Integration**: Add coverage badge to README.md showing current coverage percentage.
+    6. **Documentation**: Document coverage workflow, how to run locally, and how to interpret reports.
+  </acceptanceCriteria>
+
+  <artifacts>
+    <docs>
+      <doc>
+        <path>docs/architecture.md</path>
+        <title>Architecture Document - Testing Strategy</title>
+        <section>Testing Strategy</section>
+        <snippet>Test Pyramid: 80% unit, 15% integration, 5% E2E. Coverage target recommendation: 80% overall minimum, 90% for critical paths. GitHub Actions for CI/CD, test on Python 3.8+, use pytest with coverage.</snippet>
+      </doc>
+      <doc>
+        <path>docs/architecture.md</path>
+        <title>Architecture Document - Testing Infrastructure</title>
+        <section>Cross-Cutting Concerns - Testing Strategy</section>
+        <snippet>Test contracts, not implementations. Test Pyramid with unit tests (80%), integration tests (15%), E2E tests (5%). Fixtures in tests/conftest.py for temp vaults, capsules, config files.</snippet>
+      </doc>
+      <doc>
+        <path>docs/epics.md</path>
+        <title>Epic 14: Testing Infrastructure</title>
+        <section>Epic 14</section>
+        <snippet>Epic summary covers test framework, unit tests, integration tests, E2E tests, and CI integration. Story 14-5 focuses on test coverage and CI integration specifically.</snippet>
+      </doc>
+      <doc>
+        <path>docs/sprint-artifacts/epic-14-prep-plan.md</path>
+        <title>Epic 14 Preparation Sprint Plan</title>
+        <section>Critical Tasks</section>
+        <snippet>Pytest Configuration & Fixture Strategy completed. Configuration set up in pyproject.toml. Fixtures created in tests/conftest.py for efficient testing.</snippet>
+      </doc>
+      <doc>
+        <path>docs/sprint-artifacts/14-5-test-coverage-and-ci-integration.md</path>
+        <title>Story 14.5 - Dev Notes</title>
+        <section>Learnings from Previous Story</section>
+        <snippet>Testing infrastructure complete with 345/346 tests passing. pytest markers configured. E2E tests execute in ~0.68s. CI pipeline active on Python 3.12 and 3.13. One pre-existing test failure in test_packager.py.</snippet>
+      </doc>
+    </docs>
+    <code>
+      <artifact>
+        <path>pyproject.toml</path>
+        <kind>config</kind>
+        <symbol>[tool.pytest.ini_options]</symbol>
+        <lines>68-81</lines>
+        <reason>Existing pytest configuration where coverage settings will be added</reason>
+      </artifact>
+      <artifact>
+        <path>pyproject.toml</path>
+        <kind>config</kind>
+        <symbol>[project.optional-dependencies]</symbol>
+        <lines>32-39</lines>
+        <reason>Test dependencies section where pytest-cov needs to be added</reason>
+      </artifact>
+      <artifact>
+        <path>.github/workflows/test.yml</path>
+        <kind>workflow</kind>
+        <symbol>build job</symbol>
+        <lines>15-47</lines>
+        <reason>GitHub Actions CI workflow that needs coverage integration</reason>
+      </artifact>
+      <artifact>
+        <path>tests/conftest.py</path>
+        <kind>test-fixtures</kind>
+        <symbol>fixtures</symbol>
+        <lines>all</lines>
+        <reason>Shared test fixtures for understanding test patterns and setup</reason>
+      </artifact>
+      <artifact>
+        <path>capsule/__init__.py</path>
+        <kind>package-init</kind>
+        <symbol>__init__</symbol>
+        <lines>all</lines>
+        <reason>Package initialization that should be tracked for coverage exclusions</reason>
+      </artifact>
+      <artifact>
+        <path>capsule/commands/</path>
+        <kind>directory</kind>
+        <symbol>CLI commands</symbol>
+        <lines>n/a</lines>
+        <reason>Critical path - target 85% coverage for all CLI command implementations</reason>
+      </artifact>
+      <artifact>
+        <path>capsule/core/</path>
+        <kind>directory</kind>
+        <symbol>Core logic</symbol>
+        <lines>n/a</lines>
+        <reason>Critical path - requires >90% coverage (merger.py, validator.py, importer.py, exporter.py)</reason>
+      </artifact>
+      <artifact>
+        <path>capsule/models/</path>
+        <kind>directory</kind>
+        <symbol>Data models</symbol>
+        <lines>n/a</lines>
+        <reason>Priority path - target 90% coverage for data models with validation</reason>
+      </artifact>
+      <artifact>
+        <path>capsule/utils/</path>
+        <kind>directory</kind>
+        <symbol>Utilities</symbol>
+        <lines>n/a</lines>
+        <reason>Target 80% coverage for utility modules</reason>
+      </artifact>
+    </code>
+    <dependencies>
+      <python>
+        <package name="pytest-cov" version=">=4.0" status="to-add">Coverage plugin for pytest</package>
+        <package name="pytest" version=">=6.0" status="installed">Test framework already configured</package>
+        <package name="coverage" version="latest" status="installed">Core coverage.py library (already in test deps)</package>
+      </python>
+    </dependencies>
+  </artifacts>
+
+  <constraints>
+    - Coverage overhead must not significantly slow CI (acceptable: &lt;2x slowdown)
+    - HTML report generation should be fast (&lt;5 seconds)
+    - Exclude patterns: tests/**, capsule/__pycache__/**, capsule/__init__.py, capsule/__main__.py, capsule/exceptions.py
+    - Coverage source path: capsule/ package directory only
+    - Test markers already configured: e2e, unit, integration (lines 77-81 in pyproject.toml)
+    - CI matrix tests Python 3.12 and 3.13 (maintain compatibility)
+    - One pre-existing test failure in test_packager.py (investigate but not blocking for this story)
+    - Architecture compliance: Test Pyramid ratio should remain 80% unit, 15% integration, 5% E2E
+  </constraints>
+
+  <interfaces>
+    <interface>
+      <name>pytest-cov CLI</name>
+      <kind>command-line</kind>
+      <signature>pytest --cov=capsule --cov-report=term --cov-report=html --cov-report=xml --cov-fail-under=80</signature>
+      <path>pyproject.toml [tool.pytest.ini_options]</path>
+    </interface>
+    <interface>
+      <name>GitHub Actions Upload Artifact</name>
+      <kind>github-action</kind>
+      <signature>uses: actions/upload-artifact@v4 with: name: coverage-report, path: htmlcov/</signature>
+      <path>.github/workflows/test.yml</path>
+    </interface>
+    <interface>
+      <name>Coverage.py Configuration</name>
+      <kind>config-section</kind>
+      <signature>[tool.coverage.run] source = ["capsule"], omit = ["tests/*", "*/__pycache__/*"]</signature>
+      <path>pyproject.toml</path>
+    </interface>
+  </interfaces>
+
+  <tests>
+    <standards>
+      Use pytest as the test framework with pytest-cov for coverage analysis. Follow existing test organization: tests/ directory with subdirectories for e2e/, test_commands/, test_core/, test_models/, test_utils/. Use markers (@pytest.mark.e2e, @pytest.mark.unit, @pytest.mark.integration) to categorize tests. Leverage fixtures from tests/conftest.py for temp vaults, capsules, and config files. Maintain Test Pyramid ratios: 80% unit, 15% integration, 5% E2E. Coverage reports should be generated in terminal (for CI logs), HTML (for detailed local review), and XML (for potential third-party integrations).
+    </standards>
+    <locations>
+      - tests/ (main test directory)
+      - tests/conftest.py (shared fixtures)
+      - tests/e2e/ (end-to-end tests)
+      - tests/test_commands/ (CLI command tests)
+      - tests/test_core/ (core logic tests)
+      - tests/test_models/ (model tests)
+      - tests/test_utils/ (utility tests)
+      - tests/fixtures/ (test data)
+      - htmlcov/ (generated HTML coverage reports - add to .gitignore)
+      - .coverage (coverage data file - add to .gitignore)
+    </locations>
+    <ideas>
+      <idea ac="1">
+        Test that pytest-cov generates terminal coverage report with percentage summary
+      </idea>
+      <idea ac="1">
+        Test that HTML coverage report is generated in htmlcov/ directory with index.html
+      </idea>
+      <idea ac="1">
+        Test that XML coverage report is generated for potential third-party integration
+      </idea>
+      <idea ac="2">
+        Test that coverage fails when threshold not met (simulate low coverage scenario)
+      </idea>
+      <idea ac="2">
+        Verify coverage baseline can be run locally with: pytest --cov=capsule --cov-report=term
+      </idea>
+      <idea ac="3">
+        Test GitHub Actions workflow runs pytest with coverage flags
+      </idea>
+      <idea ac="3">
+        Verify CI fails when coverage drops below threshold
+      </idea>
+      <idea ac="4">
+        Test HTML coverage artifact is uploaded to GitHub Actions
+      </idea>
+      <idea ac="4">
+        Verify coverage summary is displayed in CI logs for quick review
+      </idea>
+      <idea ac="5">
+        Verify README.md contains coverage badge (manual verification or content check)
+      </idea>
+      <idea ac="6">
+        Verify docs/testing-coverage.md exists with local coverage instructions
+      </idea>
+      <idea ac="6">
+        Verify README.md testing section mentions coverage and links to guide
+      </idea>
+    </ideas>
+  </tests>
+</story-context>

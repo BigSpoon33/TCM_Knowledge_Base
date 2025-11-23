@@ -76,3 +76,24 @@ def test_gemini_provider_no_api_key(mock_config):
 
     with pytest.raises(ConfigError, match="Gemini API key is not set"):
         GeminiResearchProvider()
+
+
+@patch("capsule.core.researcher.Config")
+@patch("capsule.core.researcher.genai")
+def test_gemini_provider_generate_content(mock_genai, mock_config):
+    """Test the generate_content method."""
+    config_instance = MagicMock()
+    config_instance.get.return_value = "test_api_key"
+    mock_config.load_config.return_value = config_instance
+
+    mock_model = MagicMock()
+    mock_response = MagicMock()
+    mock_response.text = "Generated content"
+    mock_model.generate_content.return_value = mock_response
+    mock_genai.GenerativeModel.return_value = mock_model
+
+    provider = GeminiResearchProvider()
+    content = provider.generate_content("test prompt")
+
+    assert content == "Generated content"
+    mock_model.generate_content.assert_called_with("test prompt")

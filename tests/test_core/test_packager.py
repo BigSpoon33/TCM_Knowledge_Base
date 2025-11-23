@@ -61,7 +61,7 @@ def test_generate_cypher(tmp_path):
     # Check root files
     assert "root" in cypher.contents
     root_files = cypher.contents["root"]
-    assert "root_file.txt" in root_files
+    assert any("root_file.txt" in str(f) for f in root_files)
 
 
 def test_generate_cypher_defaults(tmp_path):
@@ -77,3 +77,59 @@ def test_generate_cypher_defaults(tmp_path):
     assert cypher.capsule_id == "default-id"
     assert cypher.data_schemas == {}
     assert cypher.sequence_mode == "freeform"  # Default
+
+
+def test_generate_manifest(tmp_path):
+    capsule_dir = tmp_path / "test_capsule_manifest"
+    capsule_dir.mkdir()
+    (capsule_dir / "file.md").touch()
+
+    packager = Packager(capsule_path=capsule_dir, cypher={"capsule_id": "test-id", "version": "1.0.0"})
+    manifest = packager.generate_manifest()
+
+    assert manifest["capsule_id"] == "test-id"
+    assert manifest["version"] == "1.0.0"
+    assert "export_date" in manifest
+    assert "file.md" in manifest["files"]
+
+
+def test_package_to_zip(tmp_path):
+    capsule_dir = tmp_path / "test_capsule_zip"
+    capsule_dir.mkdir()
+    output_zip = tmp_path / "output.zip"
+
+    packager = Packager(capsule_path=capsule_dir, cypher={})
+
+    # Mock FileOps to avoid actual zip creation if desired, but tmp_path allows real testing
+    # However, Packager uses FileOps internally. Let's mock FileOps to verify calls.
+    from unittest.mock import MagicMock, patch
+
+    with patch("capsule.core.packager.FileOps") as MockFileOps:
+        mock_file_ops = MockFileOps.return_value
+        packager.file_ops = mock_file_ops
+
+        packager.package_to_zip(output_zip)
+
+        mock_file_ops.create_zip.assert_called_once()
+        args, _ = mock_file_ops.create_zip.call_args
+        assert args[0] == output_zip
+        assert args[1] == capsule_dir
+
+
+def test_package_to_folder(tmp_path):
+    capsule_dir = tmp_path / "test_capsule_folder"
+    capsule_dir.mkdir()
+    output_folder = tmp_path / "output_folder"
+
+    packager = Packager(capsule_path=capsule_dir, cypher={})
+
+    from unittest.mock import MagicMock, patch
+
+    with patch("capsule.core.packager.FileOps") as MockFileOps:
+        mock_file_ops = MockFileOps.return_value
+        packager.file_ops = mock_file_ops
+
+        packager.package_to_folder(output_folder)
+
+        mock_file_ops.copytree.assert_called_once_with(capsule_dir, output_folder)
+        mock_file_ops.write_text.assert_called_once()

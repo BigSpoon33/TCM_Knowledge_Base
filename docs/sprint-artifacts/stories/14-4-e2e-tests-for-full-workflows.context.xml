@@ -1,0 +1,774 @@
+<story-context id="14-4-e2e-tests-for-full-workflows">
+  <meta>
+    <project>Obsidian_Capsule_Delivery</project>
+    <story-title>E2E Tests for Full Workflows</story-title>
+    <date>2025-11-23</date>
+  </meta>
+
+  <documentation>
+    <prd>
+# Product Requirements Document
+# BMM - Bio-Medically Aware Development
+# Obsidian Capsule Delivery System (OCDS)
+
+**Version:** 1.1  
+**Date:** 2025-11-17
+**Author:** BMad (PM Agent)  
+**Project:** Obsidian_Capsule_Delivery  
+**Track:** BMad Method (Brownfield)
+
+## Vision & Purpose
+
+### What Makes This Special
+
+**Obsidian Capsule Delivery System** is the first **standardized educational content platform** for Obsidian that combines AI-powered content generation with universal packaging and distribution.
+
+**The Core Innovation:** A template-driven architecture where the **capsule template** serves as the universal contract connecting:
+- Manual knowledge authoring by experts
+- AI-generated content from deep research
+- Standardized packaging (first of its kind in Obsidian ecosystem)
+- Safe cross-vault distribution with version-aware merging
+
+## Functional Requirements
+
+### FR Group 1: Content Generation (FR1-FR10)
+- FR1: Users can initiate deep research on any topic via CLI command
+- FR5: System generates content compliant with specified capsule template schema
+- FR7: System validates generated content against template requirements before saving
+
+### FR Group 6: Validation & Quality (FR39-FR45)
+- FR39: Users can validate capsule structure and compliance via CLI
+- FR40: System validates frontmatter against capsule cypher schemas
+- FR41: System validates file inventory matches cypher manifest
+- FR44: System reports validation errors with specific file and field references
+
+### FR Group 3: Capsule Packaging (FR17-FR25)
+- FR24: Users can package capsules as folder bundles or .capsule zip files
+- FR23: System validates all capsule files against cypher specifications
+
+### FR Group 4: Import/Export Operations (FR26-FR31)
+- FR26: Users can export capsules to distributable format via CLI
+- FR27: Users can import capsules from .capsule files or folder paths
+- FR29: System creates backup of vault before import operations
+- FR31: Users can review and approve/reject imports after preview
+
+### FR Group 8: CLI Interface (FR51-FR58)
+- FR51: Users can generate capsules via `capsule generate` command
+- FR52: Users can validate capsules via `capsule validate` command
+- FR53: Users can export capsules via `capsule export` command
+- FR54: Users can import capsules via `capsule import` command
+- FR58: CLI supports dry-run mode for preview without execution
+
+## Non-Functional Requirements
+
+### Performance Requirements (NFR1-NFR6)
+- NFR1: Capsule generation completes in &lt;30 minutes for 10-note capsules
+- NFR3: Import operations complete in &lt;60 seconds for 100-file capsules
+- NFR4: Validation operations complete in &lt;5 seconds for typical capsules
+
+### Reliability Requirements (NFR13-NFR17)
+- NFR13: Backup operations succeed or operation aborts (atomic backup)
+- NFR14: Import operations are transactional (all-or-nothing, rollback on failure)
+- NFR17: System provides detailed logs for debugging failed operations
+
+### Security Requirements (NFR7-NFR12)
+- NFR7: All capsule operations preserve data integrity (no data loss)
+- NFR8: Import operations create timestamped backups before modifications
+- NFR9: System validates capsule contents before execution
+    </prd>
+    
+    <tech-spec>
+# Technical Specification - Epic 14: Testing Infrastructure
+
+## Testing Strategy
+
+### Test Pyramid
+
+The architecture follows a Test Pyramid strategy:
+
+```
+        /\
+       /  \     E2E Tests (5%)
+      /----\    - Full command execution
+     /      \   - Real file operations (in temp dirs)
+    /--------\  
+   / Integration\ Integration Tests (15%)
+  /--------------\ - Component interaction
+ /                \ - Mocked external APIs
+/------------------\
+   Unit Tests (80%)  Unit Tests
+   - Pure functions
+   - Model validation
+   - Utility functions
+```
+
+**Rationale:** E2E tests are slower but critical for validating complete workflows. They represent ~5% of the test suite to balance coverage with execution speed.
+
+## Test Organization
+
+### Test Structure
+```python
+tests/
+├── conftest.py              # Pytest fixtures
+├── test_commands/           # Command tests
+│   ├── test_generate.py
+│   ├── test_import.py
+│   ├── test_export.py
+│   └── test_validate.py
+├── test_core/               # Core logic tests
+├── test_models/             # Model tests
+├── test_utils/              # Utility tests
+└── fixtures/                # Test data
+    ├── sample_capsules/
+    ├── sample_notes/
+    └── sample_cyphers/
+```
+
+### Test Fixtures
+
+**Provided Fixtures (tests/conftest.py):**
+
+```python
+@pytest.fixture
+def temp_dir():
+    """Create a temporary directory for testing"""
+    with tempfile.TemporaryDirectory() as tmpdir:
+        yield Path(tmpdir)
+
+@pytest.fixture
+def mock_config():
+    """Return a default configuration for testing"""
+    return Config(
+        llm_provider="dummy",
+        api_key="test_key",
+        default_model="test-model",
+        project_dir=Path("/tmp/test_project"),
+    )
+
+@pytest.fixture
+def mock_researcher():
+    """Return a dummy researcher for testing"""
+    return DummyResearchProvider()
+
+@pytest.fixture
+def sample_capsule_path(temp_dir):
+    """Create a sample capsule structure in a temporary directory"""
+    capsule_dir = temp_dir / "Test_Capsule"
+    capsule_dir.mkdir()
+    
+    # Creates root note, flashcards, and cypher
+    return capsule_dir
+```
+
+## E2E Test Requirements
+
+### Performance Considerations
+- E2E tests are marked with `@pytest.mark.e2e` for separate execution
+- Use `--no-research` flag or `DummyResearchProvider` to avoid external API calls
+- Each test must clean up temporary artifacts
+- Target execution time: &lt;5 seconds per E2E test
+
+### Environment Isolation
+- Each test uses isolated temporary vault directories
+- No shared state between tests
+- Cleanup must be guaranteed (use try/finally or pytest fixtures)
+
+### Tools & Frameworks
+- **pytest**: Test framework
+- **typer.testing.CliRunner**: CLI command invocation
+- **tempfile**: Temporary directory creation
+- **DummyResearchProvider**: Mock research provider (no API calls)
+
+## Implementation Patterns
+
+### Error Handling Pattern
+```python
+class CapsuleError(Exception):
+    """Base exception for all capsule errors"""
+    exit_code = 1
+
+class ValidationError(CapsuleError):
+    exit_code = 1
+
+class FileError(CapsuleError):
+    exit_code = 2
+
+# All commands use this pattern:
+def handle_error(e: Exception):
+    if isinstance(e, CapsuleError):
+        typer.secho(f"❌ Error: {str(e)}", fg=typer.colors.RED, err=True)
+        if hasattr(e, 'hint'):
+            typer.echo(f"\n💡 Hint: {e.hint}")
+        raise typer.Exit(code=e.exit_code)
+```
+
+### File Operations Pattern
+```python
+# Always use context managers
+with open(file_path) as f:
+    content = f.read()
+
+# Safe file writes (atomic)
+def safe_write(path: Path, content: str):
+    temp_path = path.with_suffix('.tmp')
+    temp_path.write_text(content, encoding='utf-8')
+    temp_path.replace(path)  # Atomic on POSIX
+```
+
+## Testing Approach for Story 14-4
+
+### Happy Path Workflow Test
+
+**Test Scenario:** Generate → Validate → Export → Import
+
+**Steps:**
+1. Setup: Create temp vault and config
+2. Generate: Run `capsule generate` with `--no-research` flag
+3. Validate: Run `capsule validate` on generated output
+4. Export: Run `capsule export` to create .zip
+5. Import: Run `capsule import` into a second temp vault
+6. Verify: Check file existence and content integrity in second vault
+
+### Error Handling Test
+
+**Test Scenarios:**
+- Import of invalid capsule (missing cypher)
+- Generation with missing template
+- Export of non-existent capsule
+
+### Expected Outcomes
+- All commands return appropriate exit codes
+- File integrity is preserved through full workflow
+- Dry-run mode works correctly at each step
+- Validation catches schema violations
+- Import creates backups and preserves user data
+    </tech-spec>
+    
+    <architecture>
+# Architecture Document - Obsidian Capsule Delivery System (OCDS)
+
+**Version:** 1.0  
+**Date:** 2025-11-15  
+
+## Testing Strategy
+
+### Test Pyramid
+
+```
+        /\
+       /  \     E2E Tests (5%)
+      /----\    - Full command execution
+     /      \   - Real file operations (in temp dirs)
+    /--------\  
+   / Integration\ Integration Tests (15%)
+  /--------------\ - Component interaction
+ /                \ - Mocked external APIs
+/------------------\
+   Unit Tests (80%)  Unit Tests
+   - Pure functions
+   - Model validation
+   - Utility functions
+```
+
+**Rationale:** Test contracts, not implementations. E2E tests validate complete user workflows but are kept minimal due to execution cost.
+
+### Test Organization
+
+```python
+# tests/test_core/test_merger.py
+import pytest
+from capsule.core.merger import section_level_merge, additive_merge
+from capsule.models.note import Note
+
+class TestSectionLevelMerge:
+    """Test same-capsule update scenarios"""
+    
+    def test_updates_domain_section(self):
+        existing = {
+            'id': 'note-1',
+            'source_capsules': ['TCM_v1'],
+            'herb_data': {'temperature': 'warm'}
+        }
+        incoming = {
+            'herb_data': {'temperature': 'warm', 'dosage': '3-9g'}
+        }
+        
+        result = section_level_merge(existing, incoming)
+        
+        assert result['herb_data']['dosage'] == '3-9g'
+        assert result['herb_data']['temperature'] == 'warm'
+```
+
+### Fixtures for Testing
+
+```python
+# tests/conftest.py
+import pytest
+from pathlib import Path
+import tempfile
+import shutil
+
+@pytest.fixture
+def temp_vault():
+    """Create temporary Obsidian vault for testing"""
+    with tempfile.TemporaryDirectory() as tmpdir:
+        vault_path = Path(tmpdir) / "test_vault"
+        vault_path.mkdir()
+        yield vault_path
+
+@pytest.fixture
+def sample_capsule(temp_vault):
+    """Create sample capsule for testing"""
+    capsule_path = temp_vault / "TCM_Test_v1"
+    capsule_path.mkdir()
+    
+    # Create cypher
+    cypher_content = """
+capsule_id: "TCM_Test_v1"
+name: "Test Capsule"
+version: "1.0.0"
+"""
+    (capsule_path / "capsule-cypher.yaml").write_text(cypher_content)
+    
+    # Create sample note
+    note_content = """---
+id: test-note-1
+name: Test Note
+type: root_note
+tags: [test]
+created: 2025-11-15
+updated: 2025-11-15
+source_capsules: [TCM_Test_v1]
+
+herb_data:
+  temperature: warm
+---
+
+# Test Note Content
+"""
+    (capsule_path / "test-note.md").write_text(note_content)
+    
+    return capsule_path
+```
+
+## CLI Architecture
+
+### Command Implementation Pattern
+
+Each CLI command follows this pattern:
+- Parse arguments with Typer
+- Load configuration
+- Execute operation with progress indicators
+- Handle errors consistently
+- Return appropriate exit codes
+
+### Command Invocation for Testing
+
+```python
+# Using Typer's testing utilities
+from typer.testing import CliRunner
+from capsule.cli import app
+
+runner = CliRunner()
+result = runner.invoke(app, ["generate", "Test Topic", "--no-research"])
+assert result.exit_code == 0
+```
+
+## Component Interactions
+
+### Generate Command Flow
+```
+User: capsule generate "TCM Herbs"
+  ↓
+generate.py (CLI command)
+  ↓
+generator.py (ContentGenerator)
+  ├─→ researcher.py → Gemini API (web research)
+  ├─→ Load template from templates/
+  ├─→ Render template with research data
+  ├─→ validator.py (validate against schema)
+  └─→ Write files to disk
+  ↓
+Output: Capsule folder with validated content
+```
+
+### Validate Command Flow
+```
+User: capsule validate ./capsule_path
+  ↓
+validate.py (CLI command)
+  ↓
+validator.py (Validator)
+  ├─→ Load cypher
+  ├─→ Validate cypher structure
+  ├─→ Validate frontmatter schemas
+  └─→ Validate file inventory
+  ↓
+Output: Validation report or error
+```
+
+### Export Command Flow
+```
+User: capsule export ./capsule_path
+  ↓
+export.py (CLI command)
+  ↓
+exporter.py (Exporter)
+  ├─→ validator.py (validate first)
+  ├─→ packager.py (create bundle)
+  └─→ Write to zip or folder
+  ↓
+Output: Distributable capsule package
+```
+
+### Import Command Flow
+```
+User: capsule import ./capsule.zip
+  ↓
+import_cmd.py (CLI command)
+  ↓
+importer.py (Importer)
+  ├─→ Extract capsule
+  ├─→ Load cypher
+  ├─→ validator.py (validate)
+  ├─→ Generate preview
+  ├─→ Create backup (backup.py)
+  ├─→ Execute import
+  │   ├─→ Copy new files
+  │   ├─→ Merge updated files (merger.py)
+  │   └─→ Generate dashboards
+  └─→ Cleanup temp files
+  ↓
+Output: Capsule imported to vault
+```
+
+## Data Models
+
+### Core Models
+
+**Capsule Model:**
+- capsule_id: str
+- name: str
+- version: str
+- domain_type: str
+- dashboard_metadata: dict (optional)
+
+**CapsuleCypher Model:**
+- capsule_id: str
+- name: str
+- version: str
+- domain_type: str
+- folder_structure: dict
+- contents: dict
+- schema: dict (optional)
+- dashboard_metadata: dict (optional)
+
+**Note Model:**
+- file_path: str
+- frontmatter: dict
+- body: str
+
+**ImportPreview Model:**
+- capsule_info: CapsuleInfo
+- impact: Impact
+- new_files: list[str]
+- updates: list[UpdateDetail]
+- conflicts: list[ConflictDetail]
+- import_type: str
+- version_diff: str | None
+
+## File Operations
+
+All file operations use the `FileOps` utility class which supports:
+- Dry-run mode (no actual file modifications)
+- Atomic writes (write to temp, then move)
+- UTF-8 encoding enforcement
+- Safe directory creation
+
+```python
+file_ops = FileOps(dry_run=False)
+file_ops.write_text(path, content)
+file_ops.copy(src, dst)
+file_ops.mkdir(path, parents=True, exist_ok=True)
+```
+
+## Configuration Management
+
+Configuration is loaded from `~/.capsule/config.yaml`:
+
+```yaml
+user:
+  name: "User"
+  vault_path: "/path/to/vault"
+
+research:
+  provider: "gemini"
+  api_key: "YOUR_API_KEY"
+  max_sources: 10
+
+import:
+  auto_backup: true
+  backup_location: "~/.capsule/backups"
+  default_merge_strategy: "section-level"
+```
+
+## Error Handling
+
+All errors inherit from `CapsuleError`:
+
+```python
+class CapsuleError(Exception):
+    exit_code = 1
+
+class ValidationError(CapsuleError):
+    exit_code = 1
+
+class FileError(CapsuleError):
+    exit_code = 2
+
+class NetworkError(CapsuleError):
+    exit_code = 3
+```
+
+Commands catch and display errors consistently:
+```python
+except CapsuleError as e:
+    typer.secho(f"❌ Error: {str(e)}", fg=typer.colors.RED)
+    if hasattr(e, 'hint'):
+        typer.echo(f"💡 Hint: {e.hint}")
+    raise typer.Exit(code=e.exit_code)
+```
+    </architecture>
+    
+    <ux-design>
+No UX design documents available for this CLI-focused project.
+    </ux-design>
+    
+    <epic>
+## Epic 14: Testing Infrastructure
+**Summary:** Test framework, unit tests, integration tests, E2E tests, CI integration.
+
+**Note:** Originally numbered Epic 13, renumbered to Epic 14 after dashboard split.
+
+### Stories
+- **14-1-pytest-configuration-and-fixtures:** Configure pytest and create necessary fixtures. (DONE)
+- **14-2-unit-tests-for-core-logic:** Write unit tests for the core business logic. (DONE)
+- **14-3-integration-tests-for-commands:** Write integration tests for the CLI commands. (DONE)
+- **14-4-e2e-tests-for-full-workflows:** Write end-to-end tests for complete user workflows. (DRAFTED - CURRENT STORY)
+- **14-5-test-coverage-and-ci-integration:** Integrate test coverage reporting into the CI pipeline. (BACKLOG)
+
+### Context
+Epic 14 focuses on comprehensive testing infrastructure to ensure system reliability and prevent regressions. Story 14-4 specifically targets end-to-end testing of the complete capsule lifecycle: generation → validation → export → import.
+
+**Quality Bar:** E2E tests should be fast (&lt;5 sec each), isolated (temp vaults), and comprehensive (cover happy path and error cases).
+    </epic>
+    
+    <relevant-docs>
+## Related Documentation
+
+### Epic 14 Preparation Plan (docs/sprint-artifacts/epic-14-prep-plan.md)
+- Task 3: Pytest Configuration & Fixture Strategy (DONE)
+- Established pytest.ini configuration
+- Created tests/conftest.py with shared fixtures
+- Configured test discovery and execution
+
+### Testing Best Practices (docs/testing_best_practices.md)
+- Test organization principles
+- Fixture design patterns
+- Mocking strategies
+- CI/CD integration guidelines
+
+### E2E Testing Guide (docs/guides/e2e_testing_guide.md)
+- E2E test authoring guidelines
+- Environment setup instructions
+- Common patterns and anti-patterns
+- Performance optimization tips
+    </relevant-docs>
+  </documentation>
+
+  <story-definition>
+# Story 14.4: e2e-tests-for-full-workflows
+
+**Status:** drafted
+
+## Story
+
+As a Developer,
+I want to implement end-to-end tests that simulate complete user workflows (generate → export → import),
+so that I can ensure the system functions correctly as a whole and critical paths are regression-free.
+
+## Acceptance Criteria
+
+1. **Happy Path Coverage**: E2E test suite must cover the complete lifecycle: Generate → Validate → Export → Import.
+2. **Environment Isolation**: Tests must run against a temporary vault environment to prevent side effects.
+3. **Content Verification**: Tests must verify that generated content is valid and matches the template schema.
+4. **Export Verification**: Tests must verify that the exported capsule (zip/folder) is valid and contains the correct structure.
+5. **Import Verification**: Tests must verify that the imported capsule preserves data, structure, and correctly merges into the destination vault.
+6. **Cleanup**: Test artifacts (temp vaults, capsules) must be cleaned up after execution.
+
+## Tasks / Subtasks
+
+- [ ] Create E2E Test Directory
+  - [ ] Create `tests/e2e/` directory if it doesn't exist
+  - [ ] Create `tests/e2e/__init__.py`
+- [ ] Implement Happy Path Workflow Test (`tests/e2e/test_workflow_happy_path.py`)
+  - [ ] Setup: Create temp vault and config
+  - [ ] Step 1: Run `capsule generate` (use `--no-research` for speed/determinism)
+  - [ ] Step 2: Run `capsule validate` on generated output
+  - [ ] Step 3: Run `capsule export` (test both zip and folder formats)
+  - [ ] Step 4: Run `capsule import` into a second temp vault
+  - [ ] Verification: Check file existence and content integrity in the second vault
+- [ ] Implement Error Handling E2E Test (`tests/e2e/test_workflow_errors.py`)
+  - [ ] Test import of invalid capsule
+  - [ ] Test generation with missing template
+- [ ] CI Integration
+  - [ ] Ensure E2E tests are included in the test runner configuration (but maybe marked as slow)
+
+## Dev Notes
+
+- **Architecture**: Follow the Testing Strategy in `architecture.md`. E2E tests should be ~5% of the test suite.
+- **Tools**: Use `pytest` and `typer.testing.CliRunner` for invoking commands.
+- **Performance**: E2E tests are slower. Consider marking them with `@pytest.mark.e2e` so they can be run separately if needed.
+- **Mocking**: For "Generate", we should mock the Research Provider to avoid external API calls and costs during testing. Use the `MockResearchProvider` or `--no-research` flag.
+
+### Project Structure Notes
+
+- Tests should be placed in `tests/e2e/`.
+- Use fixtures from `tests/conftest.py` (temp_vault, etc.) if available.
+
+### References
+
+- [Architecture Document: Testing Strategy](docs/architecture.md#testing-strategy)
+- [Epics: Epic 14](docs/epics.md#epic-14-testing-infrastructure)
+  </story-definition>
+
+  <existing-code-context>
+## Relevant Existing Code
+
+### Command Implementations
+
+#### capsule/commands/generate.py
+- Entry point: `generate()` function with Typer decorators
+- Parameters: topic, template, output, materials, hybrid, no_research, dry_run
+- Uses `ContentGenerator`, `DummyResearchProvider`, `GeminiResearchProvider`
+- Deploys CSS to .obsidian/snippets directory
+- Returns exit code 0 on success, 1 on error
+
+#### capsule/commands/validate.py
+- Entry point: `validate()` function
+- Parameters: path (capsule directory), verbose
+- Uses `Validator` class from capsule.core.validator
+- Displays validation results with rich Panel formatting
+- Returns exit code 0 on success, 1 on validation failure
+
+#### capsule/commands/export.py
+- Entry point: `export()` function
+- Parameters: path, output_dir, as_zip, dry_run
+- Uses `Exporter` class from capsule.core.exporter
+- Creates zip or folder bundle based on `as_zip` flag
+- Returns exit code 0 on success, 1 on error
+
+#### capsule/commands/import_cmd.py
+- Entry point: `import_capsule()` function
+- Parameters: path, auto_approve, dry_run, no_backup
+- Uses `Importer` class from capsule.core.importer
+- Creates backup before import (unless no_backup=True)
+- Displays interactive preview with questionary
+- Returns exit code 0 on success, 1 on error
+
+### Core Logic
+
+#### capsule/core/generator.py
+- `ContentGenerator` class
+- Methods:
+  - `generate()`: Orchestrates content generation
+  - `_generate_root_note()`: Generates root note from template
+  - `_generate_flashcards()`: Generates flashcard data
+  - `_generate_quiz()`: Generates quiz data
+  - `_generate_slides()`: Generates slide presentations
+- Uses Jinja2 for template rendering
+- Validates generated content with `Validator`
+
+#### capsule/core/validator.py
+- `Validator` class
+- Methods:
+  - `validate_capsule()`: Orchestrates all validation
+  - `validate_capsule_structure()`: Checks cypher structure
+  - `validate_frontmatter_schema()`: Validates note frontmatter
+  - `validate_file_inventory()`: Ensures all files exist
+- Raises `ValidationError` on failure
+
+#### capsule/core/exporter.py
+- `Exporter` class
+- Methods:
+  - `validate_capsule()`: Validates before export
+  - `export_to_zip()`: Creates .zip archive
+  - `export_to_folder()`: Creates folder bundle
+- Uses `Packager` class for packaging logic
+
+#### capsule/core/importer.py
+- `Importer` class
+- Methods:
+  - `extract_capsule()`: Extracts zip or uses folder
+  - `load_cypher()`: Loads capsule-cypher.yaml
+  - `validate_capsule()`: Validates structure
+  - `generate_preview()`: Analyzes impact on vault
+  - `display_preview()`: Shows preview with rich formatting
+  - `execute_import()`: Performs the import
+  - `generate_dashboards()`: Creates capsule/master dashboards
+  - `cleanup()`: Removes temporary files
+- Security: Validates paths to prevent traversal attacks
+
+### Test Infrastructure
+
+#### tests/conftest.py
+- `temp_dir()`: Creates temporary directory
+- `mock_config()`: Returns test configuration
+- `mock_researcher()`: Returns DummyResearchProvider
+- `sample_capsule_path()`: Creates sample capsule structure
+
+### Models
+
+#### capsule/models/config.py
+- `Config` class with `load_config()` static method
+- Loads from ~/.capsule/config.yaml
+- Provides `get()` method with dot notation
+
+#### capsule/models/cypher.py
+- `CapsuleCypher` class
+- Fields: capsule_id, name, version, domain_type, folder_structure, contents, schema
+- `from_dict()` factory method
+
+#### capsule/models/note.py
+- `Note` class
+- Fields: file_path, frontmatter, body
+- Methods: `from_file()`, `to_file()`
+
+### Utilities
+
+#### capsule/utils/file_ops.py
+- `FileOps` class
+- Supports dry_run mode
+- Methods: write_text(), copy(), mkdir(), read_text()
+
+#### capsule/utils/backup.py
+- `create_backup()` function
+- Creates timestamped zip backups of vault
+
+### Research Providers
+
+#### capsule/core/researcher.py
+- `ResearchProvider` abstract base class
+- `DummyResearchProvider`: Returns dummy research for testing (no API calls)
+- `GeminiResearchProvider`: Uses Gemini API for real research
+
+### Exceptions
+
+#### capsule/exceptions.py
+- `CapsuleError`: Base exception (exit_code=1)
+- `ValidationError`: Schema/structure validation failures
+- `FileError`: File operation failures (exit_code=2)
+- `NetworkError`: Network/API failures (exit_code=3)
+- `ConfigError`: Configuration errors (exit_code=5)
+  </existing-code-context>
+</story-context>
